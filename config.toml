@@ -1,5 +1,6 @@
-baseURL = "https://recambios-aspirador.com/"
-languageCode = "es-es"
-title = "Recambios de Aspirador"
+enableRobotsTXT = true
 
-disableKinds = ["taxonomy", "term"]
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
