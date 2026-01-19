@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>{{ if .IsHome }}Recambios de aspirador y robots de limpieza{{ else }}{{ .Title }} | Recambios de aspirador{{ end }}</title>
-  <meta name="description" content="{{ if .IsHome }}Recambios compatibles para aspiradores y robots de limpieza: filtros, cepillos, baterías y más.{{ else }}{{ with .Params.description }}{{ . }}{{ else }}Recambios compatibles para aspiradores y robots de limpieza.{{ end }}{{ end }}" />
-
-  <link rel="canonical" href="{{ .Permalink }}" />
-
-  <meta name="robots" content="index,follow" />
+  <meta charset="UTF-8">
+  <title>{{ .Title }}</title>
 </head>
 <body>
-  {{ block "main" . }}{{ end }}
+
+<header>
+  <h1>Recambios de aspirador</h1>
+</header>
+
+<main>
+  {{ block "main" . }}
+  {{ .Content }}
+  {{ end }}
+</main>
+
 </body>
 </html>
+
