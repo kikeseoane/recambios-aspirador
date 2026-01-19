@@ -1,11 +1,5 @@
----
-title: "Recambios de aspirador"
----
+---## Modelos
 
-Bienvenido a **recambios-aspiradooooor.com**.
+Consulta todos los modelos disponibles aquí:
 
-Encuentra recambios compatibles para aspiradores y robots de limpieza.
-
-## Modelos
-
-- [Dyson V8](/modelos/dyson-v8/)
+👉 [Ver modelos de aspirador](/modelos/)
