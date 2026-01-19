@@ -1,7 +1,12 @@
+{{ define "breadcrumbs" }}
+  <p>
+    <a href="/">Inicio</a> |
+    <span>{{ .Title }}</span>
+  </p>
+{{ end }}
+
 {{ define "main" }}
-  {{ with .Content }}
-    <div>{{ . }}</div>
-  {{ end }}
+  {{ with .Content }}{{ . }}{{ end }}
 
   {{ if .Pages }}
     <ul>
