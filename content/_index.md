@@ -1,5 +1,3 @@
----## Modelos
+## Modelos
 
-Consulta todos los modelos disponibles aquí:
-
-👉 [Ver modelos de aspirador](/modelos/)
+- [Ver todos los modelos](/modelos/)
