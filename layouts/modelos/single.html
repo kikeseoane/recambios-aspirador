@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <p><a href="/modelos/">← Volver a modelos</a></p>
+
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p><em>{{ . }}</em></p>{{ end }}
+
+  {{ .Content }}
+{{ end }}
