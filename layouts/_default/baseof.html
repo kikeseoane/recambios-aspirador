@@ -11,15 +11,13 @@
     <a href="/">Inicio</a> |
     <a href="/modelos/">Modelos</a>
   </nav>
+
+  {{ block "breadcrumbs" . }}{{ end }}
 </header>
 
-
 <main>
-  {{ block "main" . }}
-  {{ .Content }}
-  {{ end }}
+  {{ block "main" . }}{{ end }}
 </main>
 
 </body>
 </html>
-
