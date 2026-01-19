@@ -1,0 +1,9 @@
+{{- $url := .Get "url" -}}
+{{- $text := .Get "text" | default "Ver oferta" -}}
+{{- $rel := .Get "rel" | default "nofollow sponsored noopener" -}}
+
+<p>
+  <a href="{{ $url }}" target="_blank" rel="{{ $rel }}">
+    {{ $text }}
+  </a>
+</p>
