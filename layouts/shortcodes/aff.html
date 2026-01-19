@@ -1,16 +1,17 @@
 {{- /*
 Shortcode: aff
-Uso recomendado:
+
+Uso:
   {{< aff title="Filtro HEPA compatible" vendor="amazon" asin="B0XXXXXXX" >}}
   {{< aff title="Batería compatible V8 21.6V" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
-  {{< aff title="Ver opciones" url="https://..." >}}  (fallback genérico)
+  {{< aff title="Ver opciones" url="https://..." >}}
 
 Params:
 - title  (texto del enlace)
 - vendor ("amazon" | "aliexpress" | "" )
-- url    (url destino; si no hay afiliación, se usa tal cual)
+- url    (url destino)
 - asin   (solo Amazon; genera URL a Amazon ES)
-- note   (opcional: pequeño texto bajo el botón/enlace)
+- note   (opcional: pequeño texto bajo el enlace)
 */ -}}
 
 {{- $title := .Get "title" | default "Ver oferta" -}}
@@ -19,31 +20,30 @@ Params:
 {{- $asin := .Get "asin" | default "" -}}
 {{- $note := .Get "note" | default "" -}}
 
-{{- /* IDs (de momento vacíos; los pondrás cuando tengas cada programa aprobado) */ -}}
+{{- /* IDs (vacíos por defecto; rellena cuando toque) */ -}}
 {{- $amazonTag := site.Params.amazonTag | default "" -}}
 {{- $aliPid := site.Params.aliexpressPid | default "" -}}
 
-{{- /* Construcción de URL Amazon por ASIN (si se usa asin) */ -}}
+{{- /* Amazon por ASIN */ -}}
 {{- if and (eq $vendor "amazon") (ne $asin "") -}}
   {{- $base := printf "https://www.amazon.es/dp/%s" $asin -}}
   {{- if ne $amazonTag "" -}}
-    {{- $url = printf "%s?tag=%s" $base $amazonTag -}}
+    {{- $url = printf "%s?tag=%s" $base (urlquery $amazonTag) -}}
   {{- else -}}
     {{- $url = $base -}}
   {{- end -}}
 {{- end -}}
 
-{{- /* AliExpress: si hay PID, añadir tracking sin romper si la URL ya tiene query */ -}}
+{{- /* AliExpress: añade tracking SIN parsear URL (evita romper build) */ -}}
 {{- if and (eq $vendor "aliexpress") (ne $url "") (ne $aliPid "") -}}
-  {{- $u := urls.Parse $url -}}
-  {{- $q := $u.Query -}}
-  {{- /* "aff_fcid" o PID exacto depende del programa; aquí dejamos un patrón inocuo y fácil de cambiar */ -}}
-  {{- $q.Set "aff_fcid" $aliPid -}}
-  {{- $u.RawQuery = $q.Encode -}}
-  {{- $url = $u.String -}}
+  {{- if in $url "?" -}}
+    {{- $url = printf "%s&aff_fcid=%s" $url (urlquery $aliPid) -}}
+  {{- else -}}
+    {{- $url = printf "%s?aff_fcid=%s" $url (urlquery $aliPid) -}}
+  {{- end -}}
 {{- end -}}
 
-{{- /* Seguridad: si no hay url al final, no renderizar nada */ -}}
+{{- /* Si al final no hay URL, no renderiza nada */ -}}
 {{- if ne $url "" -}}
   <p class="aff">
     <a class="aff__btn" href="{{ $url | safeURL }}" target="_blank" rel="sponsored nofollow noopener">
