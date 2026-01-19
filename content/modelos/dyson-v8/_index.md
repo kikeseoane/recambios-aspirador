@@ -31,9 +31,10 @@ Si notas menos succión y ya limpiaste el filtro:
 **Consejo**: deja secar 24h tras lavado. Si sigue oliendo o no recupera potencia, toca cambio.
 
 > Enlaces recomendados (afiliado):
-{{< aff url="https://example.com" text="Filtro compatible Dyson V8 (pack)" >}}
 
-- Filtro HEPA V8 — *añadir enlace*
+{{< aff title="Filtro compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
+
+{{< aff title="Filtro HEPA V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
 
 ---
 
@@ -45,8 +46,9 @@ Si notas menos succión y ya limpiaste el filtro:
 - tarda raro en cargar
 
 > Enlaces recomendados (afiliado):
-- Batería compatible V8 (alta capacidad) — *añadir enlace*
-- Batería compatible V8 (estándar) — *añadir enlace*
+
+{{< aff title="Batería compatible V8 (alta capacidad) (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
+{{< aff title="Batería compatible V8 (estándar) (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
 
 ---
 
@@ -58,8 +60,9 @@ Si notas menos succión y ya limpiaste el filtro:
 - no gira o se bloquea
 
 > Enlaces recomendados (afiliado):
-- Cepillo motorizado compatible V8 — *añadir enlace*
-- Rodillo compatible V8 — *añadir enlace*
+{{< aff title="Cepillo motorizado compatible V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
+{{< aff title="Rodillo compatible V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
+
 
 ---
 
@@ -70,7 +73,7 @@ Si notas menos succión y ya limpiaste el filtro:
 - adaptadores
 
 > Enlaces recomendados (afiliado):
-- Kit accesorios V8 — *añadir enlace*
+{{< aff title="Kit accesorios V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
 
 ---
 
