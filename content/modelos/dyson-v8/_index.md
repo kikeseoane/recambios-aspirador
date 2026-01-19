@@ -1,6 +1,6 @@
 ---
 title: "Recambios Dyson V8 compatibles"
-description: "Guía rápida de recambios compatibles para Dyson V8: filtros, baterías, cepillos y accesorios. Qué comprar y cómo elegir."
+description: "Guía de recambios compatibles para Dyson V8: filtros, baterías, cepillos y accesorios. Qué comprar y cómo elegir."
 slug: "dyson-v8"
 ---
 
@@ -31,7 +31,8 @@ Si notas menos succión y ya limpiaste el filtro:
 **Consejo**: deja secar 24h tras lavado. Si sigue oliendo o no recupera potencia, toca cambio.
 
 > Enlaces recomendados (afiliado):
-- Filtro compatible V8 (pack) — *añadir enlace*
+- Filtro compatible V8 (pack) — {{< aff url="https://example.com" text="Filtro compatible Dyson V8 (pack)" >}}
+
 - Filtro HEPA V8 — *añadir enlace*
 
 ---
