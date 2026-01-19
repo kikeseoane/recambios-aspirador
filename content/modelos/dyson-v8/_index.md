@@ -31,7 +31,7 @@ Si notas menos succión y ya limpiaste el filtro:
 **Consejo**: deja secar 24h tras lavado. Si sigue oliendo o no recupera potencia, toca cambio.
 
 > Enlaces recomendados (afiliado):
-- Filtro compatible V8 (pack) — {{< aff url="https://example.com" text="Filtro compatible Dyson V8 (pack)" >}}
+{{< aff url="https://example.com" text="Filtro compatible Dyson V8 (pack)" >}}
 
 - Filtro HEPA V8 — *añadir enlace*
 
