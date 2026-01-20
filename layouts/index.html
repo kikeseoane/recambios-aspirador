@@ -1,4 +1,66 @@
 {{ define "main" }}
-  {{ .Content }}
-{{ end }}
+  <div class="container">
 
+    <section class="home-hero">
+      <p class="home-kicker">Guías prácticas de recambios compatibles</p>
+      <h1>Recambios compatibles para Dyson (y más modelos)</h1>
+      <p class="home-sub">
+        Encuentra rápidamente qué comprar según el síntoma: pérdida de potencia, poca autonomía, cepillo que no gira, etc.
+        Selección enfocada a compatibilidad y compra sin errores.
+      </p>
+
+      <div class="home-cta">
+        <a class="home-btn" href="/modelos/">Ver modelos</a>
+        <a class="home-link" href="/modelos/dyson-v8/">Ir al Dyson V8</a>
+      </div>
+
+      <div class="home-trust">
+        <div class="home-pill">Compatibilidad por modelo</div>
+        <div class="home-pill">Recomendación rápida</div>
+        <div class="home-pill">Enlaces verificados</div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <h2>Modelos populares</h2>
+      <div class="grid">
+        {{ $modelos := site.GetPage "section" "modelos" }}
+        {{ if $modelos }}
+          {{ range first 6 (where $modelos.Pages "RelPermalink" "ne" "/modelos/") }}
+            <div class="card">
+              <a href="{{ .RelPermalink }}">
+                <div class="title">{{ .Title }}</div>
+                {{ with .Params.description }}
+                  <div class="desc">{{ . }}</div>
+                {{ end }}
+              </a>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      <p style="margin-top:14px;">
+        <a href="/modelos/">Ver todos los modelos →</a>
+      </p>
+    </section>
+
+    <section class="home-section">
+      <h2>Cómo elegir (en 30 segundos)</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="title">Menos potencia u olor</div>
+          <div class="desc">Empieza por filtros (lavable + HEPA). Si no recupera tras secado, toca cambio.</div>
+        </div>
+        <div class="card">
+          <div class="title">Se apaga o dura poco</div>
+          <div class="desc">Batería: alta capacidad si usas turbo o sesiones largas; estándar si uso normal.</div>
+        </div>
+        <div class="card">
+          <div class="title">Vibra o no gira</div>
+          <div class="desc">Cepillo/rodillo: bloqueo, desgaste o motor del cabezal. Prioriza el conjunto compatible.</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+{{ end }}
