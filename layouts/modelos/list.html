@@ -1,13 +1,19 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ if .Content }}{{ .Content }}{{ end }}
 
-  <ul>
-    {{ range .Pages.ByTitle }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ with .Params.description }} — <small>{{ . }}</small>{{ end }}
-      </li>
-    {{ end }}
-  </ul>
+    <div class="grid">
+      {{ range .Pages }}
+        <div class="card">
+          <a href="{{ .RelPermalink }}">
+            <div class="title">{{ .Title }}</div>
+            {{ with .Params.description }}
+              <div class="desc">{{ . }}</div>
+            {{ end }}
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
 {{ end }}
