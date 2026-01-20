@@ -2,34 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Title }}</title>
+
+  <!-- CSS base del sitio -->
+  <link rel="stylesheet" href="/css/site.css">
+  <!-- Overrides / mejoras -->
   <link rel="stylesheet" href="/css/custom.css">
 </head>
+
 <body>
 
-<header>
-  <nav>
-    <a href="/">Inicio</a> |
-    <a href="/modelos/">Modelos</a>
-  </nav>
+<header class="site-header">
+  <div class="nav">
+    <a class="brand" href="/">recambios-aspirador</a>
 
-
+    <nav class="menu">
+      <a href="/">Inicio</a>
+      <a href="/modelos/">Modelos</a>
+    </nav>
+  </div>
 </header>
 
 <main>
   {{ block "main" . }}{{ end }}
 </main>
 
-
 <footer class="site-footer">
   <div class="wrap">
     <div>
-      Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos, este sitio puede recibir una comisión sin coste adicional para ti.
+      Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
+      este sitio puede recibir una comisión sin coste adicional para ti.
     </div>
     <div style="margin-top:8px;">
       © {{ now.Format "2006" }} recambios-aspirador
     </div>
   </div>
 </footer>
+
 </body>
 </html>
