@@ -26,7 +26,8 @@ Si notas menos succión y ya limpiaste el filtro:
 3) Si sigue igual, mira **cepillo** o **batería** según el síntoma
 {{< /section >}}
 
-## Filtros compatibles Dyson V8 <a id="filtros"></a>
+<a id="filtros"></a>
+## Filtros compatibles Dyson V8
 
 {{< section title="Filtros (guía)" >}}
 > **Recomendación habitual**  
@@ -43,7 +44,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Filtro HEPA Dyson V8 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3JRwHOX" >}}
 {{< aff title="Filtro lavable compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
 
-## Batería compatible Dyson V8 <a id="bateria"></a>
+ <a id="bateria"></a>
+## Batería compatible Dyson V8
 
 {{< section title="Batería (guía)" >}}
 **Opción más comprada**: batería de **alta capacidad** si usas modo turbo o sesiones largas.
@@ -62,7 +64,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Batería Dyson V8 21.6V alta capacidad – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
 {{< aff title="Batería Dyson V8 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
 
-## Cepillo motorizado y rodillos <a id="cepillo"></a>
+ <a id="cepillo"></a>
+## Cepillo motorizado y rodillos
 
 {{< section title="Cepillo y rodillos (guía)" >}}
 **Síntomas habituales**:
