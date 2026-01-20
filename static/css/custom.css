@@ -395,4 +395,36 @@ main ol{
   font-weight: 750;
   margin-top: 2px;
 }
+/* ===== Destacar secciones de decisión ===== */
+h2[id]{
+  scroll-margin-top: 90px;
+}
+
+h2[id]::before{
+  content: "✓";
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--brand);
+  font-weight: 700;
+}
+/* Aire antes de enlaces afiliados */
+.aff{
+  margin-top: 18px;
+}
+/* Bloques de recomendación más claros */
+blockquote{
+  position: relative;
+}
+
+blockquote::before{
+  content: "Consejo";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  background: #fff;
+  padding: 0 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-2);
+}
 
