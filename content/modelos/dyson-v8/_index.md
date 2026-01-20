@@ -25,52 +25,61 @@ Si notas menos succión y ya limpiaste el filtro:
 
 ## Filtros compatibles Dyson V8
 
-- Filtro lavable (principal)
-- Filtro HEPA (post-motor)
+**Recomendación habitual**: empieza por el **filtro HEPA (post-motor)** si notas
+pérdida de potencia u olor persistente.
 
-**Consejo**: deja secar 24h tras lavado. Si sigue oliendo o no recupera potencia, toca cambio.
+- Filtro HEPA (post-motor)
+- Filtro lavable (principal)
+
+**Consejo**: deja secar 24 h tras el lavado.  
+Si sigue oliendo o no recupera potencia, toca cambio.
 
 > Enlaces recomendados (afiliado):
-{{< aff title="Filtro compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
-{{< aff title="Filtro HEPA V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3JRwHOX" >}}
+{{< aff title="Filtro HEPA Dyson V8 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3JRwHOX" >}}
+{{< aff title="Filtro lavable compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
 
 ---
 
 ## Batería compatible Dyson V8
+
+**Opción más comprada**: batería de **alta capacidad** si usas modo turbo o sesiones largas.
 
 **Señales claras**:
 - dura mucho menos
 - se apaga en alto rendimiento
 - tarda raro en cargar
 
+**Qué elegir**:
+- **Alta capacidad** → uso intensivo / turbo frecuente  
+- **Estándar** → uso normal y menor coste
+
 > Enlaces recomendados (afiliado):
-{{< aff title="Batería compatible V8 (alta capacidad) (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
-{{< aff title="Batería compatible V8 (estándar) (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
+{{< aff title="Batería Dyson V8 21.6V alta capacidad – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
+{{< aff title="Batería Dyson V8 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
 
 ---
 
 ## Cepillo motorizado y rodillos
 
-**Síntomas**:
+**Síntomas habituales**:
 - ruido fuerte
 - vibración
 - no gira o se bloquea
 
 > Enlaces recomendados (afiliado):
-{{< aff title="Cepillo motorizado compatible V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
-{{< aff title="Rodillo compatible V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
-
+{{< aff title="Cepillo motorizado compatible Dyson V8 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
+{{< aff title="Rodillo compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
 
 ---
 
-## Accesorios útiles
+## Accesorios útiles para Dyson V8
 
 - boquilla estrecha
 - cepillo suave
 - adaptadores
 
 > Enlaces recomendados (afiliado):
-{{< aff title="Kit accesorios V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4CeKrWP" >}}
+{{< aff title="Kit de accesorios compatibles Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4CeKrWP" >}}
 
 ---
 
@@ -78,18 +87,29 @@ Si notas menos succión y ya limpiaste el filtro:
 
 Antes de comprar:
 - Revisa que el producto indique **“compatible con Dyson V8”**
-- Evita “universal” sin lista de modelos
-- Si tienes dudas, compara fotos del encaje del tubo/cepillo
+- Evita “universal” sin lista clara de modelos
+- Si tienes dudas, compara fotos del encaje del tubo o del cabezal
+
+---
+
+## ¿Qué recambio comprar primero?
+
+Si dudas, empieza por:
+- **Filtro** → si notas menos potencia u olor
+- **Batería** → si dura poco o se apaga
+- **Cepillo** → si vibra o no gira
+
+Estos tres recambios solucionan aproximadamente el **80 % de los problemas** del Dyson V8.
 
 ---
 
 ## Preguntas frecuentes
 
 **¿Los recambios compatibles son seguros?**  
-Sí, si eliges vendedores con buenas valoraciones y devolución.
+Sí, si eliges vendedores con buenas valoraciones y opción de devolución.
 
 **¿Cada cuánto se cambia el filtro?**  
-Depende del uso. Si pierdes potencia, huele o no recupera tras lavado, cámbialo.
+Depende del uso. Si pierdes potencia, huele o no recupera tras lavado, conviene cambiarlo.
 
 **¿Qué es mejor: batería original o compatible?**  
-Original suele ser más cara; compatible buena relación calidad/precio si eliges bien.
+La original suele ser más cara; una compatible de calidad ofrece muy buena relación calidad-precio.
