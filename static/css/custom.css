@@ -1,0 +1,143 @@
+/* =========================
+   MODELOS (cards) – MVP conversión
+   ========================= */
+
+:root{
+  --brand: #2bb673;            /* acento */
+  --brand-2: #1e8e58;          /* hover */
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --shadow: 0 10px 30px rgba(0,0,0,.06);
+  --shadow-hover: 0 16px 40px rgba(0,0,0,.10);
+  --radius: 14px;
+}
+
+/* Tipografía base (sin romper tu tema) */
+body{
+  color: var(--text);
+}
+
+/* Contenedor principal: menos “flotante” */
+main, .container, .content{
+  max-width: 1060px;
+}
+
+/* Título + subtítulo */
+h1{
+  letter-spacing: -0.02em;
+}
+
+.page-intro{
+  margin: 10px 0 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* Grid de cards (aplícalo al wrapper de cards con una clase si puedes) */
+.models-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+@media (max-width: 960px){
+  .models-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px){
+  .models-grid{ grid-template-columns: 1fr; }
+}
+
+/* Card */
+.model-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  box-shadow: none;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea superior sutil de marca */
+.model-card::before{
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), rgba(43,182,115,0));
+  opacity: .85;
+}
+
+/* Hover */
+.model-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(43,182,115,.55);
+}
+
+/* Título */
+.model-card h3, .model-card h2{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Subtexto */
+.model-card p{
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+/* CTA dentro de la card */
+.model-cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--brand-2);
+  text-decoration: none;
+}
+
+.model-cta::after{
+  content: "→";
+  transition: transform .18s ease;
+}
+
+.model-card:hover .model-cta::after{
+  transform: translateX(3px);
+}
+
+/* Que toda la card sea clicable (si tu HTML lo permite: <a class="model-card">...</a>) */
+a.model-card{
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* Footer más “presente” y menos descolgado */
+footer, .footer{
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Aviso afiliados: que no parezca letra pequeña “sospechosa” */
+.affiliate-note{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px dashed rgba(43,182,115,.45);
+  border-radius: 12px;
+  background: rgba(43,182,115,.06);
+  color: #145a38;
+}
