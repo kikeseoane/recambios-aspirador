@@ -1,35 +1,71 @@
 {{ define "main" }}
   <div class="container">
 
-    <h1>{{ .Title }}</h1>
+    {{/* CASO A: página /modelos/ (lista) */}}
+    {{ if eq .RelPermalink "/modelos/" }}
 
-    {{ if .Content }}
-      <p class="page-intro">
-        Selecciona tu modelo y accede a la guía de recambios compatibles
-        (filtros, baterías, cepillos y accesorios).
-      </p>
-      {{ .Content }}
-    {{ end }}
+      <h1>{{ .Title }}</h1>
 
-    <div class="models-grid">
-      {{ range .Pages }}
-        <a class="model-card" href="{{ .RelPermalink }}">
-          <h3>{{ .Title }}</h3>
-
-          {{ with .Params.description }}
-            <p>{{ . }}</p>
-          {{ end }}
-
-          <span class="model-cta">Ver recambios compatibles</span>
-        </a>
+      {{ if .Content }}
+        <p class="page-intro">
+          Selecciona tu modelo y accede a la guía de recambios compatibles
+          (filtros, baterías, cepillos y accesorios).
+        </p>
+        {{ .Content }}
       {{ end }}
-    </div>
 
-    <div class="affiliate-note">
-      Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
-      este sitio puede recibir una comisión sin coste adicional para ti.
-    </div>
+      <div class="models-grid">
+        {{ range .Pages }}
+          <a class="model-card" href="{{ .RelPermalink }}">
+            <h3>{{ .Title }}</h3>
+
+            {{ with .Params.description }}
+              <p>{{ . }}</p>
+            {{ end }}
+
+            <span class="model-cta">Ver recambios compatibles</span>
+          </a>
+        {{ end }}
+      </div>
+
+      <div class="affiliate-note">
+        Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
+        este sitio puede recibir una comisión sin coste adicional para ti.
+      </div>
+
+    {{/* CASO B: /modelos/dyson-v8/ (y cualquier modelo) */}}
+    {{ else }}
+
+      <header class="model-hero">
+        <h1>{{ .Title }}</h1>
+
+        {{ with .Params.description }}
+          <p class="model-hero__sub">{{ . }}</p>
+        {{ end }}
+
+        <div class="model-hero__grid">
+          <a class="model-hero__card" href="#filtros">
+            <div class="k">Menos potencia / olor</div>
+            <div class="v">Filtros</div>
+          </a>
+
+          <a class="model-hero__card" href="#bateria">
+            <div class="k">Dura poco / se apaga</div>
+            <div class="v">Batería</div>
+          </a>
+
+          <a class="model-hero__card" href="#cepillo">
+            <div class="k">Vibra / no gira</div>
+            <div class="v">Cepillo</div>
+          </a>
+        </div>
+      </header>
+
+      {{ .Content }}
+
+    {{ end }}
 
   </div>
 {{ end }}
+
 
