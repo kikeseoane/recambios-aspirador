@@ -57,8 +57,8 @@ Si notas menos succión y ya limpiaste el filtro:
 - no gira o se bloquea
 
 > Enlaces recomendados (afiliado):
-{{< aff title="Cepillo motorizado compatible V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
-{{< aff title="Rodillo compatible V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
+{{< aff title="Cepillo motorizado compatible V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
+{{< aff title="Rodillo compatible V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
 
 
 ---
