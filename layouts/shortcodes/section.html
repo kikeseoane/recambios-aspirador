@@ -1,0 +1,9 @@
+{{- $title := .Get "title" | default "" -}}
+<section class="sec">
+  {{- if ne $title "" -}}
+    <div class="sec__head">{{ $title }}</div>
+  {{- end -}}
+  <div class="sec__body">
+    {{ .Inner | markdownify }}
+  </div>
+</section>
