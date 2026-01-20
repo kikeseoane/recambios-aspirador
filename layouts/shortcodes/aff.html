@@ -34,14 +34,9 @@ Params:
   {{- end -}}
 {{- end -}}
 
-{{- /* AliExpress: añade tracking SIN parsear URL (evita romper build) */ -}}
-{{- if and (eq $vendor "aliexpress") (ne $url "") (ne $aliPid "") -}}
-  {{- if in $url "?" -}}
-    {{- $url = printf "%s&aff_fcid=%s" $url (urlquery $aliPid) -}}
-  {{- else -}}
-    {{- $url = printf "%s?aff_fcid=%s" $url (urlquery $aliPid) -}}
-  {{- end -}}
-{{- end -}}
+{{- /* AliExpress: usa el deeplink del portal tal cual (s.click.aliexpress.com) */ -}}
+{{- /* No añadimos parámetros para evitar romper atribución */ -}}
+
 
 {{- /* Si al final no hay URL, no renderiza nada */ -}}
 {{- if ne $url "" -}}
