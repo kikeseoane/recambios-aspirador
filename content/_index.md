@@ -1,3 +1,9 @@
-## Modelos
+---
+title: "Recambios aspirador"
+---
 
-- [Ver todos los modelos](/modelos/)
+Guías rápidas para elegir recambios compatibles (filtros, baterías, cepillos y accesorios) por modelo y por síntoma.
+
+- Compatibilidad por modelo
+- Recomendaciones prácticas
+- Enlaces de compra (afiliado) sin sobrecoste
