@@ -44,8 +44,8 @@ Si notas menos succión y ya limpiaste el filtro:
 - tarda raro en cargar
 
 > Enlaces recomendados (afiliado):
-{{< aff title="Batería compatible V8 (alta capacidad) (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
-{{< aff title="Batería compatible V8 (estándar) (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
+{{< aff title="Batería compatible V8 (alta capacidad) (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
+{{< aff title="Batería compatible V8 (estándar) (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
 
 ---
 
