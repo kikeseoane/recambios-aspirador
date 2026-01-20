@@ -3,7 +3,7 @@
   {{- if ne $title "" -}}
     <div class="ui-section__title">{{ $title }}</div>
   {{- end -}}
-  <div class="ui-section__body">
-    {{ .Inner }}
-  </div>
+<div class="ui-section__body">
+  {{ .Inner | safeHTML }}
+</div>
 </section>
