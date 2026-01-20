@@ -1,19 +1,35 @@
 {{ define "main" }}
   <div class="container">
-    <h1>{{ .Title }}</h1>
-    {{ if .Content }}{{ .Content }}{{ end }}
 
-    <div class="grid">
+    <h1>{{ .Title }}</h1>
+
+    {{ if .Content }}
+      <p class="page-intro">
+        Selecciona tu modelo y accede a la guía de recambios compatibles
+        (filtros, baterías, cepillos y accesorios).
+      </p>
+      {{ .Content }}
+    {{ end }}
+
+    <div class="models-grid">
       {{ range .Pages }}
-        <div class="card">
-          <a href="{{ .RelPermalink }}">
-            <div class="title">{{ .Title }}</div>
-            {{ with .Params.description }}
-              <div class="desc">{{ . }}</div>
-            {{ end }}
-          </a>
-        </div>
+        <a class="model-card" href="{{ .RelPermalink }}">
+          <h3>{{ .Title }}</h3>
+
+          {{ with .Params.description }}
+            <p>{{ . }}</p>
+          {{ end }}
+
+          <span class="model-cta">Ver recambios compatibles</span>
+        </a>
       {{ end }}
     </div>
+
+    <div class="affiliate-note">
+      Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
+      este sitio puede recibir una comisión sin coste adicional para ti.
+    </div>
+
   </div>
 {{ end }}
+
