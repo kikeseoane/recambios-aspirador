@@ -70,7 +70,7 @@ Si notas menos succión y ya limpiaste el filtro:
 - adaptadores
 
 > Enlaces recomendados (afiliado):
-{{< aff title="Kit accesorios V8 (AliExpress)" vendor="aliexpress" url="https://www.aliexpress.com/item/100500xxxxx.html" >}}
+{{< aff title="Kit accesorios V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4CeKrWP" >}}
 
 ---
 
