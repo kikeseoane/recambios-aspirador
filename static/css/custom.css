@@ -1,262 +1,135 @@
-/* =========================
-   MODELOS (cards) – MVP conversión
-   ========================= */
-
 :root{
-  --brand: #2bb673;            /* acento */
-  --brand-2: #1e8e58;          /* hover */
-  --text: #111827;
-  --muted: #6b7280;
-  --bg: #ffffff;
-  --card: #ffffff;
-  --border: #e5e7eb;
-  --shadow: 0 10px 30px rgba(0,0,0,.06);
-  --shadow-hover: 0 16px 40px rgba(0,0,0,.10);
-  --radius: 14px;
+  --brand:#2bb673;
+  --brand2:#1e8e58;
+  --text:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --card:#ffffff;
+  --shadow: 0 10px 28px rgba(17,24,39,.08);
+  --shadow2: 0 16px 44px rgba(17,24,39,.12);
+  --radius:18px;
 }
 
-/* Tipografía base (sin romper tu tema) */
-body{
-  color: var(--text);
-}
+/* Tipografía y ancho */
+body{ color:var(--text); }
+.container{ max-width:980px; }
 
-/* Contenedor principal: menos “flotante” */
-main, .container, .content{
-  max-width: 1060px;
-}
-
-/* Título + subtítulo */
-h1{
-  letter-spacing: -0.02em;
-}
-
+/* ====== LISTA DE MODELOS (/modelos/) ====== */
 .page-intro{
   margin: 10px 0 18px;
   color: var(--muted);
-  font-size: 0.98rem;
+  font-size: .98rem;
 }
 
-/* Grid de cards (aplícalo al wrapper de cards con una clase si puedes) */
 .models-grid{
-  display: grid;
+  display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 14px;
+  gap:16px;
+  margin-top:14px;
 }
+@media (max-width: 960px){ .models-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px){ .models-grid{ grid-template-columns: 1fr; } }
 
-@media (max-width: 960px){
-  .models-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 640px){
-  .models-grid{ grid-template-columns: 1fr; }
-}
-
-/* Card */
-.model-card{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 18px 16px;
-  box-shadow: none;
+a.model-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px 18px 16px;
+  position:relative;
+  overflow:hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-/* Línea superior sutil de marca */
-.model-card::before{
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
+a.model-card::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height:3px;
   background: linear-gradient(90deg, var(--brand), rgba(43,182,115,0));
-  opacity: .85;
+  opacity:.9;
 }
 
-/* Hover */
-.model-card:hover{
+a.model-card:hover{
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow2);
   border-color: rgba(43,182,115,.55);
 }
 
-/* Título */
-.model-card h3, .model-card h2{
-  margin: 0 0 8px;
-  font-size: 1.05rem;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
+.model-card h3{ margin:0 0 8px; font-size:1.05rem; line-height:1.2; letter-spacing:-.01em; }
+.model-card p{ margin:0 0 12px; color:var(--muted); line-height:1.45; font-size:.95rem; }
 
-/* Subtexto */
-.model-card p{
-  margin: 0 0 12px;
-  color: var(--muted);
-  line-height: 1.45;
-  font-size: 0.95rem;
-}
-
-/* CTA dentro de la card */
 .model-cta{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 6px;
-  font-weight: 600;
-  color: var(--brand-2);
-  text-decoration: none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+  font-weight:650;
+  color:var(--brand2);
 }
+.model-cta::after{ content:"→"; transition: transform .18s ease; }
+a.model-card:hover .model-cta::after{ transform: translateX(3px); }
 
-.model-cta::after{
-  content: "→";
-  transition: transform .18s ease;
-}
-
-.model-card:hover .model-cta::after{
-  transform: translateX(3px);
-}
-
-/* Que toda la card sea clicable (si tu HTML lo permite: <a class="model-card">...</a>) */
-a.model-card{
-  color: inherit;
-  text-decoration: none;
-  display: block;
-}
-
-/* Footer más “presente” y menos descolgado */
-footer, .footer{
-  margin-top: 28px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-/* Aviso afiliados: que no parezca letra pequeña “sospechosa” */
 .affiliate-note{
-  margin-top: 10px;
-  padding: 10px 12px;
-  border: 1px dashed rgba(43,182,115,.45);
-  border-radius: 12px;
+  margin-top:16px;
+  padding:12px 14px;
+  border:1px dashed rgba(43,182,115,.45);
+  border-radius: 14px;
   background: rgba(43,182,115,.06);
-  color: #145a38;
-}
-/* Bloques de recomendación */
-main strong{
-  font-weight: 600;
+  color:#145a38;
 }
 
-main p strong{
-  color: #1e8e58;
-}
+/* ====== PÁGINAS DE MODELO (V8/V10/V11) ====== */
 
-blockquote{
-  background: #f6fffa;
-  border-left: 4px solid #2bb673;
-  padding: 14px 16px;
-  border-radius: 12px;
-}
-/* Botones afiliados más modernos */
-.aff__btn{
-  background: linear-gradient(135deg, #2bb673, #1e8e58);
-  border-radius: 14px;
-  font-weight: 600;
-  letter-spacing: .2px;
-}
-/* Secciones principales */
+/* Títulos más actuales */
+main h1{ letter-spacing:-.03em; }
+main h2{ letter-spacing:-.02em; }
+
+/* Separador “premium” bajo cada H2 */
 main h2{
-  margin-top: 42px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #e5e7eb;
-}
-/* ===== Ajuste global de “look premium” ===== */
-
-/* Mejor ancho y aire en lectura */
-main .container{
-  max-width: 980px;
-}
-
-/* Titulares más actuales */
-main h1{
-  letter-spacing: -0.03em;
-}
-main h2{
-  letter-spacing: -0.02em;
-}
-
-/* Tips / Recomendaciones: hacerlos evidentes */
-main blockquote{
-  border-left: 4px solid var(--brand);
-  background: rgba(43,182,115,.06);
-  border-radius: 14px;
-}
-
-/* Botones afiliado más “marca” */
-.aff__btn{
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  border-radius: 14px;
-  font-weight: 650;
-}
-/* =========================
-   BLOQUES DE COMPRA (V8)
-   ========================= */
-
-/* Cada sección importante como “card” */
-main h2{
-  margin-top: 48px;
+  margin-top: 46px;
   padding-bottom: 8px;
-  border-bottom: none;
-  position: relative;
+  position:relative;
 }
-
 main h2::after{
-  content: "";
-  display: block;
-  margin-top: 10px;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    rgba(43,182,115,.8),
-    rgba(229,231,235,1)
-  );
+  content:"";
+  display:block;
+  margin-top:10px;
+  height:1px;
+  background: linear-gradient(to right, rgba(43,182,115,.85), rgba(229,231,235,1));
 }
 
-/* Contenedor visual para el contenido bajo cada h2 */
-main h2 + *{
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  padding: 22px 22px 18px;
-  margin-top: 14px;
-  box-shadow: 0 10px 28px rgba(17,24,39,.06);
-}
-
-/* Listas dentro de bloques */
-main h2 + * ul{
-  margin-top: 10px;
-}
-
-/* Bloques de recomendación (blockquote) */
+/* Tip box (blockquote) */
 main blockquote{
-  background: rgba(43,182,115,.07);
-  border-left: 5px solid #2bb673;
+  margin: 14px 0;
+  background: rgba(43,182,115,.08);
+  border-left: 5px solid var(--brand);
   padding: 16px 18px;
   border-radius: 16px;
-  font-size: 0.95rem;
 }
 
-/* Botones afiliados más “compra guiada” */
-.aff{
-  margin-top: 14px;
-}
-
+/* Botones afiliado más “guía de compra” */
+.aff{ margin: 12px 0; }
 .aff__btn{
-  display: block;
-  width: fit-content;
-  background: linear-gradient(135deg, #2bb673, #1e8e58);
-  border-radius: 16px;
+  display:inline-block;
   padding: 12px 18px;
-  font-weight: 650;
-  letter-spacing: .2px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: #fff;
+  text-decoration:none;
+  font-weight: 700;
+  box-shadow: var(--shadow);
 }
+.aff__btn:hover{ opacity:.95; }
+.aff__note{ display:block; margin-top:6px; color:var(--muted); }
 
+/* “Tarjeta” para listas y pasos (sin tocar markdown) */
+main ol{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px 14px 34px;
+  box-shadow: var(--shadow);
+}
