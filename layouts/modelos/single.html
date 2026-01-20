@@ -1,11 +1,31 @@
-{{ define "breadcrumbs" }}
-  <p>
-    <a href="/">Inicio</a>
-    {{ with .Section }} | <a href="/{{ . }}/">{{ . | title }}</a>{{ end }}
-    | <span>{{ .Title }}</span>
-  </p>
-{{ end }}
-
 {{ define "main" }}
-  {{ .Content }}
+  <div class="container">
+
+    <header class="model-hero">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}
+        <p class="model-hero__sub">{{ . }}</p>
+      {{ end }}
+
+      <div class="model-hero__grid">
+        <a class="model-hero__card" href="#filtros">
+          <div class="k">Menos potencia / olor</div>
+          <div class="v">Filtros</div>
+        </a>
+        <a class="model-hero__card" href="#bateria">
+          <div class="k">Dura poco / se apaga</div>
+          <div class="v">Batería</div>
+        </a>
+        <a class="model-hero__card" href="#cepillo">
+          <div class="k">Vibra / no gira</div>
+          <div class="v">Cepillo</div>
+        </a>
+      </div>
+    </header>
+
+    <article class="content">
+      {{ .Content }}
+    </article>
+
+  </div>
 {{ end }}
