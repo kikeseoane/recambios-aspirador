@@ -4,7 +4,7 @@
     <div class="ui-section__title">{{ $title }}</div>
   {{- end -}}
   <div class="ui-section__body">
-    {{ .Inner }}
+    {{ .Inner | markdownify }}
   </div>
 </section>
 
