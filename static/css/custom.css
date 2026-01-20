@@ -286,4 +286,56 @@ main ol{
 .ui-section__body strong{
   font-weight: 600;
 }
+/* =========================
+   HERO PÁGINAS DE MODELO
+   ========================= */
+.model-hero{
+  margin-top: 18px;
+  padding: 18px 0 8px;
+}
+
+.model-hero__sub{
+  color: var(--muted);
+  max-width: 860px;
+  margin-top: 10px;
+}
+
+.model-hero__grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+@media (max-width: 900px){
+  .model-hero__grid{ grid-template-columns: 1fr; }
+}
+
+.model-hero__card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 26px rgba(17,24,39,.06);
+  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+}
+
+.model-hero__card:hover{
+  border-color: rgba(43,182,115,.55);
+  box-shadow: 0 16px 40px rgba(17,24,39,.10);
+  transform: translateY(-1px);
+}
+
+.model-hero__card .k{
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.model-hero__card .v{
+  font-weight: 750;
+  margin-top: 2px;
+}
 
