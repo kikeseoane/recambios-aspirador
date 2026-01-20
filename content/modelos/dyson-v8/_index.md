@@ -26,6 +26,8 @@ Si notas menos succión y ya limpiaste el filtro:
 3) Si sigue igual, mira **cepillo** o **batería** según el síntoma
 {{< /section >}}
 
+---
+
 <h2 id="filtros">Filtros compatibles Dyson V8</h2>
 
 {{< section title="Filtros (guía)" >}}
@@ -42,6 +44,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 **Enlaces recomendados (afiliado):**
 {{< aff title="Filtro HEPA Dyson V8 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3JRwHOX" >}}
 {{< aff title="Filtro lavable compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
+
+---
 
 <h2 id="bateria">Batería compatible Dyson V8</h2>
 
@@ -62,6 +66,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Batería Dyson V8 21.6V alta capacidad – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
 {{< aff title="Batería Dyson V8 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
 
+---
+
 <h2 id="cepillo">Cepillo motorizado y rodillos</h2>
 
 {{< section title="Cepillo y rodillos (guía)" >}}
@@ -75,6 +81,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Cepillo motorizado compatible Dyson V8 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
 {{< aff title="Rodillo compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
 
+---
+
 ## Accesorios útiles para Dyson V8
 
 {{< section title="Accesorios" >}}
@@ -86,6 +94,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 **Enlaces recomendados (afiliado):**
 {{< aff title="Kit de accesorios compatibles Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4CeKrWP" >}}
 
+---
+
 ## Cómo asegurarte de compatibilidad
 
 {{< section title="Evita compras erróneas" >}}
@@ -94,6 +104,8 @@ Antes de comprar:
 - Evita “universal” sin lista clara de modelos
 - Si tienes dudas, compara fotos del encaje del tubo o del cabezal
 {{< /section >}}
+
+---
 
 ## ¿Qué recambio comprar primero?
 
@@ -105,6 +117,8 @@ Si dudas, empieza por:
 
 Estos tres recambios solucionan aproximadamente el **80 % de los problemas** del Dyson V8.
 {{< /section >}}
+
+---
 
 ## Preguntas frecuentes
 
