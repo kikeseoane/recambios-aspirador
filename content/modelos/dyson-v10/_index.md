@@ -41,7 +41,7 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< /section >}}
 
 **Enlaces recomendados (afiliado):**
-{{< aff title="Filtro HEPA Dyson V10 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3JRwHOX" >}}
+{{< aff title="Filtro HEPA Dyson V10 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3wbFxOJ" >}}
 {{< aff title="Filtro lavable compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
 
 ---
