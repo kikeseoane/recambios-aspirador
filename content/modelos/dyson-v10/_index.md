@@ -42,7 +42,7 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 
 **Enlaces recomendados (afiliado):**
 {{< aff title="Filtro HEPA Dyson V10 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3wbFxOJ" >}}
-{{< aff title="Filtro lavable compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
+{{< aff title="Filtro lavable compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4nnVia3" >}}
 
 ---
 
@@ -63,7 +63,7 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 
 **Enlaces recomendados (afiliado):**
 {{< aff title="Batería Dyson V10 21.6V alta capacidad – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
-{{< aff title="Batería Dyson V10 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
+{{< aff title="Batería Dyson V10 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3w2Dn6R" >}}
 
 ---
 
@@ -77,8 +77,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< /section >}}
 
 **Enlaces recomendados (afiliado):**
-{{< aff title="Cepillo motorizado compatible Dyson V10 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
-{{< aff title="Rodillo compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
+{{< aff title="Cepillo motorizado compatible Dyson V10 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3MMXSqL" >}}
+{{< aff title="Rodillo compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3IVtBpz" >}}
 
 ---
 
@@ -91,7 +91,7 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< /section >}}
 
 **Enlaces recomendados (afiliado):**
-{{< aff title="Kit de accesorios compatibles Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4CeKrWP" >}}
+{{< aff title="Kit de accesorios compatibles Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3g6Z1GF" >}}
 
 ---
 
