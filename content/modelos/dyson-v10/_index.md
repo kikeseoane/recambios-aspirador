@@ -41,8 +41,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< /section >}}
 
 **Enlaces recomendados (afiliado):**
-{{< aff title="Filtro HEPA Dyson V10 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3wbFxOJ" >}}
-{{< aff title="Filtro lavable compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4nnVia3" >}}
+{{< aff title="Filtro HEPA Dyson V10 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3JRwHOX" >}}
+{{< aff title="Filtro lavable compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
 
 ---
 
@@ -63,7 +63,7 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 
 **Enlaces recomendados (afiliado):**
 {{< aff title="Batería Dyson V10 21.6V alta capacidad – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
-{{< aff title="Batería Dyson V10 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3w2Dn6R" >}}
+{{< aff title="Batería Dyson V10 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
 
 ---
 
@@ -77,8 +77,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< /section >}}
 
 **Enlaces recomendados (afiliado):**
-{{< aff title="Cepillo motorizado compatible Dyson V10 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3MMXSqL" >}}
-{{< aff title="Rodillo compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3IVtBpz" >}}
+{{< aff title="Cepillo motorizado compatible Dyson V10 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
+{{< aff title="Rodillo compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
 
 ---
 
@@ -91,43 +91,4 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< /section >}}
 
 **Enlaces recomendados (afiliado):**
-{{< aff title="Kit de accesorios compatibles Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3g6Z1GF" >}}
-
----
-
-## Cómo asegurarte de compatibilidad
-
-{{< section title="Evita compras erróneas" >}}
-Antes de comprar:
-- Revisa que el producto indique **“compatible con Dyson V10”**
-- Evita “universal” sin lista clara de modelos
-- Si tienes dudas, compara fotos del encaje del tubo o del cabezal
-{{< /section >}}
-
----
-
-## ¿Qué recambio comprar primero?
-
-{{< section title="Decisión rápida" >}}
-Si dudas, empieza por:
-- **Filtro** → si notas menos potencia u olor
-- **Batería** → si dura poco o se apaga
-- **Cepillo** → si vibra o no gira
-
-Estos tres recambios solucionan aproximadamente el **80 % de los problemas** del Dyson V10.
-{{< /section >}}
-
----
-
-## Preguntas frecuentes
-
-{{< section title="FAQ" >}}
-**¿Los recambios compatibles son seguros?**  
-Sí, si eliges vendedores con buenas valoraciones y opción de devolución.
-
-**¿Cada cuánto se cambia el filtro?**  
-Depende del uso. Si pierdes potencia, huele o no recupera tras lavado, conviene cambiarlo.
-
-**¿Qué es mejor: batería original o compatible?**  
-La original suele ser más cara; una compatible de calidad ofrece muy buena relación calidad-precio.
-{{< /section >}}
+{{< aff title="Kit de accesorios compatibles Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4CeKrWP" >}}
