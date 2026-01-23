@@ -43,7 +43,30 @@ Si notas que “suena a aire” o no sella bien:
 **Enlaces recomendados (afiliado):**
 {{< aff title="Ver juntas y sellos compatibles (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3kS8Wyj" >}}
 
-## ¿Qué comprar primero si quieres acertar?
+## ¿Qué recambio comprar primero?
+
+Si quieres resolver el problema sin gastar de más, sigue este orden:
+
+{{< section title="Decisión rápida" >}}
+
+- **Filtros**  
+  Primera opción en la mayoría de casos. Si tras lavar y secar 24 h no recupera potencia, toca cambio.
+
+- **Juntas y sellos**  
+  Si notas fugas de aire o holguras en el depósito o el tubo.
+
+- **Batería**  
+  Menos habitual para pérdida de potencia, pero recomendable si el aspirador se apaga o pierde rendimiento en uso prolongado.
+
+{{< /section >}}
+
+### Enlaces útiles
+
+- 👉 **[Batería Dyson compatible](/recambios/bateria/)**  
+  Recomendado si además de perder potencia se apaga o dura poco.
+
+- 👉 **Filtros compatibles**  
+  (Guía en preparación — será la opción más habitual)
 
 - **Filtro** si hay pérdida de potencia u olor
 - **Kit de sellos** si hay fugas/holguras
