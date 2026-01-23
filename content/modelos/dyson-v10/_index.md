@@ -63,7 +63,7 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 
 **Enlaces recomendados (afiliado):**
 {{< aff title="Batería Dyson V10 21.6V alta capacidad – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3NCtvJh" >}}
-{{< aff title="Batería Dyson V10 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3xvSlTh" >}}
+{{< aff title="Batería Dyson V10 21.6V estándar (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c44hXpAb" >}}
 
 ---
 
