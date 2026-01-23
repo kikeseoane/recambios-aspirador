@@ -119,6 +119,23 @@ Estos tres recambios solucionan aproximadamente el **80 % de los problemas** del
 {{< /section >}}
 
 ---
+---
+
+<h2 id="problemas">Problemas frecuentes en este modelo</h2>
+
+{{< section title="Soluciones rápidas por síntoma" >}}
+
+Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más habituales:
+
+- **[Pierde potencia](/problemas/pierde-potencia/)**  
+  El caso más común. Suele resolverse cambiando filtros o revisando obstrucciones.
+
+{{< /section >}}
+
+<p>
+  <a href="/problemas/">Ver todos los problemas y soluciones →</a>
+</p>
+
 
 ## Preguntas frecuentes
 
