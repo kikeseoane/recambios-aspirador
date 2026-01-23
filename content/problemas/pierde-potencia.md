@@ -62,11 +62,12 @@ Si quieres resolver el problema sin gastar de más, sigue este orden:
 
 ### Enlaces útiles
 
-- 👉 **[Batería Dyson compatible](/recambios/bateria/)**  
-  Recomendado si además de perder potencia se apaga o dura poco.
+- 👉 **[Filtro Dyson compatible](/recambios/filtro/)**  
+  La opción más habitual cuando hay pérdida de potencia u olor.
 
-- 👉 **Filtros compatibles**  
-  (Guía en preparación — será la opción más habitual)
+- 👉 **[Batería Dyson compatible](/recambios/bateria/)**  
+  Recomendado si además se apaga o dura poco.
+
 
 - **Filtro** si hay pérdida de potencia u olor
 - **Kit de sellos** si hay fugas/holguras
