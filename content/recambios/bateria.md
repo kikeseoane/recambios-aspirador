@@ -20,7 +20,7 @@ Señales típicas:
 
 ## Enlaces recomendados (afiliado)
 
-{{< aff title="Ver baterías compatibles (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_XXXXXXXX" >}}
+{{< aff title="Ver baterías compatibles (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c2uDNiPp" >}}
 
 ## Errores comunes
 
