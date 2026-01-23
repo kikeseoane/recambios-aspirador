@@ -92,3 +92,21 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 
 **Enlaces recomendados (afiliado):**
 {{< aff title="Kit de accesorios compatibles Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4CeKrWP" >}}
+
+---
+
+<h2 id="problemas">Problemas frecuentes en este modelo</h2>
+
+{{< section title="Soluciones rápidas por síntoma" >}}
+
+Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más habituales:
+
+- **[Pierde potencia](/problemas/pierde-potencia/)**  
+  El caso más común. Suele resolverse cambiando filtros o revisando obstrucciones.
+
+{{< /section >}}
+
+<p>
+  <a href="/problemas/">Ver todos los problemas y soluciones →</a>
+</p>
+
