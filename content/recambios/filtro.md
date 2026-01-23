@@ -16,6 +16,36 @@ Aunque muchos filtros son lavables, **no recuperan siempre** su capacidad origin
 ## Tipos de filtro Dyson (importante)
 
 {{< section title="Tipos de filtro" >}}
+---
+
+<h2 id="dyson-v8">Filtros compatibles Dyson V8</h2>
+
+- Filtro pre-motor lavable V8
+- Filtro HEPA / post-motor V8
+
+{{< aff title="Filtro HEPA Dyson V8 compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4SYCNUX" >}}
+{{< aff title="Filtro pre-motor Dyson V8 compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4oB6drl" >}}
+
+---
+
+<h2 id="dyson-v10">Filtros compatibles Dyson V10</h2>
+
+- Filtro pre-motor lavable V10
+- Filtro HEPA / post-motor V10
+
+{{< aff title="Filtro HEPA Dyson V10 compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4aPDNtZ" >}}
+{{< aff title="Filtro pre-motor Dyson V10 compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3HbuMZV" >}}
+
+---
+
+<h2 id="dyson-v11">Filtros compatibles Dyson V11</h2>
+
+- Filtro pre-motor lavable V11
+- Filtro HEPA / post-motor V11
+
+{{< aff title="Filtro HEPA Dyson V11 compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c4EFaRGP" >}}
+{{< aff title="Filtro pre-motor Dyson V11 compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c2u2r7MJ" >}}
+
 
 - **Filtro pre-motor (lavable)**  
   Retiene polvo y partículas grandes. Es el primero que debes revisar.
