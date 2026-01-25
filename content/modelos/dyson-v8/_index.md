@@ -131,6 +131,8 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
 
 - **[Pierde potencia](/problemas/pierde-potencia/)**  
   El caso más común. Suele resolverse cambiando filtros o revisando obstrucciones.
+- **[Se apaga sola](/problemas/se-apaga/)**  
+  Normalmente causado por batería degradada o protección térmica.
 
 {{< /section >}}
 
