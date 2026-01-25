@@ -30,6 +30,8 @@ Si notas menos succión y ya limpiaste el filtro:
 
 <h2 id="filtros">Filtros compatibles Dyson V8</h2>
 
+👉 **[Ver filtros compatibles Dyson V8](/recambios/filtro/#dyson-v8)**
+
 {{< section title="Filtros (guía)" >}}
 > **Recomendación habitual**  
 > Empieza por el **filtro HEPA (post-motor)** si notas pérdida de potencia u olor persistente.
