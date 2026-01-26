@@ -133,6 +133,9 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
   El caso más común. Suele resolverse cambiando filtros o revisando obstrucciones.
 - **[Se apaga sola](/problemas/se-apaga/)**  
   Normalmente causado por batería degradada o protección térmica.
+  - **[No carga o no enciende](/problemas/no-carga/)**  
+  Suele ser batería agotada o cargador defectuoso.
+
 
 {{< /section >}}
 
