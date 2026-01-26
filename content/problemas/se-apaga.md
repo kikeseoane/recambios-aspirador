@@ -3,6 +3,15 @@ title: "Dyson se apaga sola: causas y solución (batería y filtros)"
 description: "Qué hacer cuando una Dyson se apaga: batería degradada, filtros obstruidos o protección térmica. Guía rápida."
 slug: "se-apaga"
 ---
+{{< section title="Solución rápida" >}}
+
+Si tu Dyson **se apaga durante el uso**, en más del **70 % de los casos** el problema es la **batería**.
+
+👉 Empieza por cambiarla antes de revisar nada más.
+
+{{< /section >}}
+
+{{< aff title="Comprar batería compatible recomendada" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c2uDNiPp" >}}
 
 ## Diagnóstico rápido (en 30 segundos)
 
@@ -13,15 +22,20 @@ Si tu Dyson se apaga durante el uso, lo más habitual es:
 
 ## Paso 1 — Batería (la causa más común)
 
-**Señales claras**:
-- se apaga al subir a modo alto
-- dura muy poco
+La batería es, con diferencia, la causa más habitual cuando una Dyson se apaga sola.
+
+**Síntomas claros**:
+- se apaga al usar modo alto o turbo
+- dura muy poco incluso recién cargada
 - vuelve a encender tras unos minutos
 
-👉 **Solución recomendada**: cambiar batería.
+👉 En estos casos, **la batería está degradada** y no se recupera con limpieza.
 
-**Enlace útil**:
-- **[Batería Dyson compatible](/recambios/bateria/)**
+**Solución recomendada**:
+- cambiar batería compatible
+
+{{< aff title="Ver batería Dyson compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c2uDNiPp" >}}
+
 
 ## Paso 2 — Filtros y flujo de aire
 
@@ -33,6 +47,8 @@ Un filtro sucio aumenta temperatura y activa la protección.
 
 **Enlace útil**:
 - **[Filtro Dyson compatible](/recambios/filtro/)**
+
+Si tras limpiar o cambiar filtros el problema continúa, vuelve al **Paso 1 (batería)**.
 
 ## Paso 3 — Limpieza y sobrecalentamiento
 
@@ -60,5 +76,18 @@ Es poco habitual. En la mayoría de casos se soluciona con batería o filtros.
 
 **¿Afecta el modo turbo?**  
 Sí. El turbo exige más a la batería; si está degradada, provoca apagados.
+
+{{< section title="Conclusión" >}}
+
+Cuando una Dyson se apaga:
+- no es un fallo electrónico
+- no suele ser el motor
+- **casi siempre es la batería**
+
+Cambiarla suele resolver el problema de forma inmediata.
+
+{{< /section >}}
+
+{{< aff title="Comprar batería compatible ahora" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c2uDNiPp" >}}
 
 👉 En la mayoría de casos, cambiar la batería lo soluciona directamente.
