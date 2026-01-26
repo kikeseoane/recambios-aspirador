@@ -1,6 +1,6 @@
 ---
-title: "El cepillo Dyson no gira: causas y solución (recambio recomendado)"
-description: "Qué hacer cuando el cepillo Dyson no gira: bloqueo, rodillo gastado o cabezal averiado. Guía rápida."
+title: "El cepillo Dyson no gira ▶ Solución y recambio recomendado"
+description: "Si el cepillo Dyson no gira, suele ser rodillo gastado o cabezal averiado. Qué comprar."
 slug: "cepillo-no-gira"
 ---
 
