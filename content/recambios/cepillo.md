@@ -1,6 +1,6 @@
 ---
-title: "Cepillo Dyson compatible: cuál comprar y cuándo cambiarlo"
-description: "Guía para elegir un cepillo Dyson compatible: rodillo o cabezal completo, compatibilidad por modelos y errores a evitar."
+title: "Cepillo Dyson compatible ▶ Cuál comprar y cuándo cambiarlo"
+description: "Guía para elegir cepillo Dyson compatible. Solución cuando no gira o pierde eficacia."
 slug: "cepillo"
 ---
 
