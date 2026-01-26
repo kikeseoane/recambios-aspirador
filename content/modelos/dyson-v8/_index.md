@@ -138,6 +138,9 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
   Suele ser batería agotada o cargador defectuoso.
 - **[El cepillo no gira](/problemas/cepillo-no-gira/)**  
   Suele ser rodillo o cabezal averiado.
+  - **[Huele mal al usarlo](/problemas/huele-mal/)**  
+  Suele ser filtro saturado o húmedo.
+
 
 
 {{< /section >}}
