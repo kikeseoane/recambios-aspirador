@@ -1,6 +1,6 @@
 ---
-title: "Dyson no aspira: causas y solución rápida"
-description: "Qué hacer cuando una Dyson no aspira o succiona poco: filtros, obstrucciones y recambios recomendados."
+title: "Dyson no aspira ▶ Causas y solución inmediata"
+description: "Cuando una Dyson no aspira, el filtro o una obstrucción suele ser el problema. Solución directa."
 slug: "no-aspira"
 ---
 
