@@ -1,6 +1,6 @@
 ---
-title: "Dyson se apaga sola: causas y solución (batería y filtros)"
-description: "Qué hacer cuando una Dyson se apaga: batería degradada, filtros obstruidos o protección térmica. Guía rápida."
+title: "Dyson se apaga sola ▶ Solución rápida (batería recomendada)"
+description: "Si tu Dyson se apaga al usarla, la causa más común es la batería. Solución directa y recambio recomendado."
 slug: "se-apaga"
 ---
 {{< section title="Solución rápida" >}}
