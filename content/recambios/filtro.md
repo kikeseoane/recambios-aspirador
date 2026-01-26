@@ -1,6 +1,6 @@
 ---
-title: "Filtro Dyson compatible: cuál elegir (pre y HEPA)"
-description: "Guía para elegir filtros compatibles Dyson: diferencias entre filtro pre-motor y HEPA, compatibilidad por modelos y errores comunes."
+title: "Filtro Dyson compatible ▶ HEPA o pre-motor (recomendado)"
+description: "Qué filtro Dyson comprar para eliminar pérdida de potencia u olor. HEPA recomendado."
 slug: "filtro"
 ---
 {{< section title="¿Qué filtro comprar?" >}}
