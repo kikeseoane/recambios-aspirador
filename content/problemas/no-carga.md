@@ -81,13 +81,6 @@ En este caso, suele compensar empezar igualmente por **batería**.
 
 **¿Puede ser un fallo electrónico interno?**  
 
-{{< section title="Decisión rápida" >}}
-
-- **Batería** → si no carga o no enciende  
-- **Cargador** → si la batería es nueva y sigue sin cargar  
-
-{{< /section >}}
-
 Es poco común. En la mayoría de casos se soluciona con batería o cargador.
 
 **¿Cargar siempre enchufado estropea la batería?**  
