@@ -83,3 +83,5 @@ Es poco común. En la mayoría de casos se soluciona con batería o cargador.
 
 **¿Cargar siempre enchufado estropea la batería?**  
 Sí. Reduce su vida útil con el tiempo.
+
+👉 En la mayoría de casos, cambiar la batería lo soluciona directamente.
