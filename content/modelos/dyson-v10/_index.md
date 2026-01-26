@@ -110,6 +110,8 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
   Normalmente causado por batería degradada o protección térmica.
   - **[No carga o no enciende](/problemas/no-carga/)**  
   Suele ser batería agotada o cargador defectuoso.
+- **[El cepillo no gira](/problemas/cepillo-no-gira/)**  
+  Suele ser rodillo o cabezal averiado.
 
 
 
