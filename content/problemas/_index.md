@@ -22,6 +22,10 @@ Elige el **síntoma** que presenta tu aspirador Dyson y ve directamente a la **c
 - **[Huele mal al usarlo](/problemas/huele-mal/)**  
   Casi siempre provocado por **filtro húmedo o saturado**.
 
+  - **[No aspira o succiona poco](/problemas/no-aspira/)**  
+  Suele ser filtro saturado u obstrucción.
+
+
 ---
 
 ## ¿No sabes qué problema es?
