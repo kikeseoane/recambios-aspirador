@@ -125,6 +125,7 @@ Estos tres recambios solucionan aproximadamente el **80 % de los problemas** del
 
 <h2 id="problemas">Problemas frecuentes en este modelo</h2>
 
+
 {{< section title="Soluciones rápidas por síntoma" >}}
 
 Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más habituales:
@@ -135,6 +136,8 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
   Normalmente causado por batería degradada o protección térmica.
   - **[No carga o no enciende](/problemas/no-carga/)**  
   Suele ser batería agotada o cargador defectuoso.
+- **[El cepillo no gira](/problemas/cepillo-no-gira/)**  
+  Suele ser rodillo o cabezal averiado.
 
 
 {{< /section >}}
