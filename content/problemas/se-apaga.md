@@ -60,3 +60,5 @@ Es poco habitual. En la mayoría de casos se soluciona con batería o filtros.
 
 **¿Afecta el modo turbo?**  
 Sí. El turbo exige más a la batería; si está degradada, provoca apagados.
+
+👉 En la mayoría de casos, cambiar la batería lo soluciona directamente.
