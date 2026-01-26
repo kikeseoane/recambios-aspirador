@@ -1,6 +1,6 @@
 ---
-title: "Batería Dyson compatible: cómo elegir y qué comprar"
-description: "Cómo elegir una batería compatible Dyson: voltaje, capacidad (mAh), compatibilidad por modelos y errores a evitar."
+title: "Batería Dyson compatible ▶ Cuál comprar y por qué"
+description: "Guía rápida para elegir una batería Dyson compatible. Alta capacidad, estándar y recomendada."
 slug: "bateria"
 ---
 
