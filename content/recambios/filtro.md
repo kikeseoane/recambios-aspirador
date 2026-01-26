@@ -3,6 +3,18 @@ title: "Filtro Dyson compatible: cuál elegir (pre y HEPA)"
 description: "Guía para elegir filtros compatibles Dyson: diferencias entre filtro pre-motor y HEPA, compatibilidad por modelos y errores comunes."
 slug: "filtro"
 ---
+{{< section title="¿Qué filtro comprar?" >}}
+
+Si tu Dyson:
+- pierde potencia
+- huele mal
+- no recupera tras lavar el filtro
+
+👉 **empieza por el filtro HEPA / post-motor**.
+
+El filtro pre-motor es mantenimiento; el HEPA suele resolver el problema.
+
+{{< /section >}}
 
 ## ¿Cuándo hay que cambiar el filtro?
 
