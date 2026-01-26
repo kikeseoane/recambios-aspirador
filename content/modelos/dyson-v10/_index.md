@@ -123,4 +123,7 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
 <p>
   <a href="/problemas/">Ver todos los problemas y soluciones →</a>
 </p>
+👉 Si dudas entre varios, el **filtro HEPA compatible** es la opción más segura.
+
+{{< aff title="Comprar filtro HEPA compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3oNCAjp" >}}
 
