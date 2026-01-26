@@ -70,6 +70,8 @@ Si todo está limpio y sigue sin girar, el problema suele ser **interno del cepi
 
 - 👉 **[Cepillo Dyson compatible](/recambios/cepillo/)**  
 - 👉 **[Otros problemas frecuentes](/problemas/)**
+- 👉 **[Cepillo Dyson compatible](/recambios/cepillo/)**
+
 
 ## Preguntas frecuentes
 
