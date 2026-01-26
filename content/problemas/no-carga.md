@@ -1,6 +1,6 @@
 ---
-title: "Dyson no carga: causas y solución (batería o cargador)"
-description: "Qué hacer cuando una Dyson no carga o no enciende al cargar: batería agotada, cargador defectuoso o falso contacto."
+title: "Dyson no carga ▶ Qué hacer y qué comprar"
+description: "Cuando una Dyson no carga, suele ser batería agotada o cargador defectuoso. Solución rápida."
 slug: "no-carga"
 ---
 
