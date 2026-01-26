@@ -4,6 +4,17 @@ description: "Cómo elegir una batería compatible Dyson: voltaje, capacidad (mA
 slug: "bateria"
 ---
 
+{{< section title="¿Qué batería comprar?" >}}
+
+Elige según tu uso. Si dudas, **empieza por la alta capacidad**.
+
+- **Alta capacidad** → uso frecuente, modo turbo, casas grandes  
+- **Estándar** → uso normal, mejor precio  
+- **Económica** → uso ocasional (menos recomendable)
+
+{{< /section >}}
+
+
 ## ¿Cuándo hay que cambiar la batería?
 
 Señales típicas:
