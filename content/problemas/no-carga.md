@@ -46,7 +46,8 @@ Si con batería nueva **sigue sin cargar**, revisa el cargador.
 👉 **Solución**:
 - cambiar cargador compatible
 
-*(próximamente guía específica de cargadores)*
+👉 **[Cargador Dyson compatible](/recambios/cargador/)**
+
 
 ---
 
