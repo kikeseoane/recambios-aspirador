@@ -483,3 +483,39 @@ blockquote::before{
 /* Para que al saltar a #filtros no quede tapado por el header */
 h2[id]{ scroll-margin-top: 90px; }
 
+
+
+/* Botones más grandes en móviles */
+@media (max-width: 768px) {
+  .aff__btn {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  /* Fijar botón flotante en móvil */
+  .floating-buy {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2bb673;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+  }
+}
+
+
+
+/* Destacar producto principal */
+.aff--primary {
+  border: 2px solid #2bb673;
+  padding: 15px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8fff9, #ffffff);
+}
