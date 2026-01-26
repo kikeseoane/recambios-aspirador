@@ -1,6 +1,6 @@
 ---
-title: "Dyson huele mal: causas y solución (filtro recomendado)"
-description: "Qué hacer cuando una Dyson huele mal: filtro saturado, humedad o suciedad interna. Guía rápida."
+title: "Dyson huele mal ▶ Solución rápida (filtro recomendado)"
+description: "Si tu Dyson desprende mal olor, el filtro suele ser la causa. Qué cambiar para eliminarlo."
 slug: "huele-mal"
 ---
 
