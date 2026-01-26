@@ -162,3 +162,8 @@ Depende del uso. Si pierdes potencia, huele o no recupera tras lavado, conviene 
 **¿Qué es mejor: batería original o compatible?**  
 La original suele ser más cara; una compatible de calidad ofrece muy buena relación calidad-precio.
 {{< /section >}}
+
+👉 Si dudas entre varios, el **filtro HEPA compatible** es la opción más segura.
+
+{{< aff title="Comprar filtro HEPA compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3oNCAjp" >}}
+
