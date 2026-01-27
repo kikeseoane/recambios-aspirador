@@ -91,3 +91,14 @@ Cambiarla suele resolver el problema de forma inmediata.
 {{< aff title="Comprar batería compatible ahora" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c2uDNiPp" >}}
 
 👉 En la mayoría de casos, cambiar la batería lo soluciona directamente.
+
+## ¿Te pasa algo parecido?
+
+A veces el problema no es solo la batería:
+
+- **[No carga o no enciende](/problemas/no-carga/)**  
+  Puede ser cargador o batería agotada.
+
+- **[Pierde potencia](/problemas/pierde-potencia/)**  
+  Filtros obstruidos también provocan apagados.
+
