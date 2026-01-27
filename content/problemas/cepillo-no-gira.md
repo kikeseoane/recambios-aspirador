@@ -80,3 +80,12 @@ Es poco común. El problema casi siempre está en el cepillo.
 
 **¿Compensa reparar el cepillo original?**  
 Normalmente no. El recambio compatible es más económico.
+
+## Problemas relacionados
+
+- **[No aspira o succiona poco](/problemas/no-aspira/)**  
+  Un cepillo bloqueado reduce mucho la eficacia.
+
+- **[Pierde potencia](/problemas/pierde-potencia/)**  
+  El usuario suele confundir ambos síntomas.
+
