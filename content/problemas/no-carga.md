@@ -96,3 +96,11 @@ Es poco común. En la mayoría de casos se soluciona con batería o cargador.
 Sí. Reduce su vida útil con el tiempo.
 
 👉 En la mayoría de casos, cambiar la batería lo soluciona directamente.
+
+{{< section title="¿Qué modelo tienes?" >}}
+Guías por modelo (para confirmar compatibilidad):
+- 👉 **[Dyson V8](/modelos/dyson-v8/)**
+- 👉 **[Dyson V10](/modelos/dyson-v10/)**
+- 👉 **[Dyson V11](/modelos/dyson-v11/)**
+{{< /section >}}
+
