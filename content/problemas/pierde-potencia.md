@@ -80,3 +80,12 @@ Sí, si no se ha secado completamente. Respeta 24 h.
 
 **¿Puede ser la batería?**  
 La batería afecta más a la autonomía o a apagados; la pérdida de potencia suele ser filtro/obstrucción.
+
+## Problemas relacionados
+
+- **[No aspira o succiona poco](/problemas/no-aspira/)**  
+  Es el mismo problema visto desde otro síntoma.
+
+- **[Huele mal al usarlo](/problemas/huele-mal/)**  
+  Filtros saturados suelen provocar ambos síntomas.
+
