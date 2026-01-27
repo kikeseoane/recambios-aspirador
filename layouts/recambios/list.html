@@ -11,8 +11,9 @@
       {{ .Content }}
     {{ end }}
 
-    {{ if .Pages }}
-      <div class="models-grid">
+    {{ if and .Pages (ne .RelPermalink "/recambios/") }}
+  <div class="models-grid">
+
         {{ range .Pages }}
           <a class="model-card" href="{{ .RelPermalink }}">
             <h3>{{ .Title }}</h3>
