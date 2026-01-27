@@ -102,3 +102,10 @@ A veces el problema no es solo la batería:
 - **[Pierde potencia](/problemas/pierde-potencia/)**  
   Filtros obstruidos también provocan apagados.
 
+{{< section title="¿Qué modelo tienes?" >}}
+Guías por modelo (para confirmar compatibilidad):
+- 👉 **[Dyson V8](/modelos/dyson-v8/)**
+- 👉 **[Dyson V10](/modelos/dyson-v10/)**
+- 👉 **[Dyson V11](/modelos/dyson-v11/)**
+{{< /section >}}
+
