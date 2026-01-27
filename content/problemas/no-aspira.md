@@ -12,6 +12,12 @@ Si tu Dyson **no aspira o succiona muy poco**, casi siempre es por:
 2) **Obstrucción** en tubo o ciclón
 3) **Fuga de aire** por juntas
 
+{{< section title="Compra rápida (lo más probable)" >}}
+👉 En la mayoría de casos: **cambia el filtro HEPA**.
+
+{{< aff title="Comprar filtro Dyson compatible (recomendado)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3oNCAjp" >}}
+{{< /section >}}
+
 Empieza por el Paso 1.
 
 ---
