@@ -11,6 +11,12 @@ Si el cepillo de tu Dyson **no gira**, lo más habitual es:
 1) **Rodillo bloqueado o gastado**
 2) **Cabezal del cepillo averiado**
 3) **Obstrucción** en la entrada de aire
+   
+{{< section title="Compra rápida (lo más probable)" >}}
+👉 Si no gira nada, compensa **cepillo completo**.
+
+{{< aff title="Comprar cepillo Dyson compatible (recomendado)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c32rKFSx" >}}
+{{< /section >}}
 
 Empieza por el paso 1.
 
