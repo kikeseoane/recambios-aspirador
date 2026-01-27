@@ -61,3 +61,12 @@ Si el aire “se escapa”, la succión cae mucho.
 - 👉 **[Filtro Dyson compatible](/recambios/filtro/)**
 - 👉 **[Problema: pierde potencia](/problemas/pierde-potencia/)**
 - 👉 **[Otros problemas frecuentes](/problemas/)**
+
+
+## Problemas relacionados
+
+- **[Pierde potencia](/problemas/pierde-potencia/)**  
+  Misma causa, distinto nombre.
+
+- **[El cepillo no gira](/problemas/cepillo-no-gira/)**  
+  Si el cepillo falla, parece que no aspira.
