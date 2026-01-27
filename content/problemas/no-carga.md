@@ -81,6 +81,15 @@ En este caso, suele compensar empezar igualmente por **batería**.
 
 **¿Puede ser un fallo electrónico interno?**  
 
+## Problemas relacionados
+
+- **[Se apaga sola](/problemas/se-apaga/)**  
+  Muy habitual cuando la batería está degradada.
+
+- **[No aspira o succiona poco](/problemas/no-aspira/)**  
+  A veces el problema no es eléctrico sino de flujo de aire.
+
+
 Es poco común. En la mayoría de casos se soluciona con batería o cargador.
 
 **¿Cargar siempre enchufado estropea la batería?**  
