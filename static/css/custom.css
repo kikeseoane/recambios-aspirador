@@ -519,3 +519,15 @@ h2[id]{ scroll-margin-top: 90px; }
   border-radius: 12px;
   background: linear-gradient(135deg, #f8fff9, #ffffff);
 }
+/* Recambios HUB: separadores más limpios */
+.ui-section hr{
+  border:0;
+  border-top:1px solid var(--border);
+  margin: 14px 0;
+}
+.ui-section h3{
+  margin-top: 0;
+}
+.ui-section p a{
+  font-weight: 650;
+}
