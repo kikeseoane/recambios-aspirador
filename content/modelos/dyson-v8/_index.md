@@ -169,3 +169,43 @@ La original suele ser más cara; una compatible de calidad ofrece muy buena rela
 
 👉 **[Filtro HEPA Dyson V8 compatible – guía completa](/recambios/filtro/dyson-v8-hepa/)**
 
+---
+
+## Problemas frecuentes del Dyson V8 (guías rápidas)
+
+{{< section title="Soluciones habituales" >}}
+
+Estas son las averías y síntomas más comunes en el **Dyson V8**, con su solución directa:
+
+- **[Dyson V8 se apaga sola (especialmente en modo turbo)](/problemas/dyson-v8-se-apaga-turbo/)**  
+  En la mayoría de casos, batería degradada.
+
+- **[Dyson V8 pierde potencia después de lavar el filtro](/problemas/dyson-v8-pierde-potencia-despues-lavar-filtro/)**  
+  Muy habitual cuando el filtro HEPA ya no recupera.
+
+- **[Dyson V8 pierde potencia](/problemas/pierde-potencia/)**  
+  Filtro saturado u obstrucción.
+
+- **[El cepillo del Dyson V8 no gira](/problemas/cepillo-no-gira/)**  
+  Rodillo o cabezal averiado.
+
+{{< /section >}}
+
+---
+
+## Recambios más comprados para Dyson V8
+
+{{< section title="Qué suele funcionar" >}}
+
+Según el problema, estos son los recambios que **más soluciones aportan**:
+
+- **[Batería Dyson V8 21.6V compatible](/recambios/bateria/dyson-v8-21-6v/)**  
+  Para apagados, poca autonomía o fallos al cargar.
+
+- **[Filtro HEPA Dyson V8 compatible](/recambios/filtro/#dyson-v8)**  
+  Para pérdida de potencia u olor persistente.
+
+- **[Filtro pre-motor Dyson V8](/recambios/filtro/dyson-v8-pre-motor/)**  
+  Mantenimiento periódico.
+
+{{< /section >}}
