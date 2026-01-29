@@ -167,3 +167,5 @@ La original suele ser más cara; una compatible de calidad ofrece muy buena rela
 
 {{< aff title="Comprar filtro HEPA compatible" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3oNCAjp" >}}
 
+👉 **[Filtro HEPA Dyson V8 compatible – guía completa](/recambios/filtro/dyson-v8-hepa/)**
+
