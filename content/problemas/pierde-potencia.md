@@ -96,4 +96,5 @@ Guías por modelo (para confirmar compatibilidad):
 - 👉 **[Dyson V11](/modelos/dyson-v11/)**
 {{< /section >}}
 
+👉 **[Filtro HEPA compatible Dyson V8](/recambios/filtro/dyson-v8-hepa/)**
 
