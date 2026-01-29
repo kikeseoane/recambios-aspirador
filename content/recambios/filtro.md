@@ -91,3 +91,6 @@ Depende del uso. Si tras lavar y secar no recupera potencia u olor, conviene cam
 
 **¿Filtro original o compatible?**  
 El original es más caro. Un compatible de calidad ofrece muy buen resultado si es específico para tu modelo.
+
+- 👉 **[Filtro HEPA Dyson V8 compatible](/recambios/filtro/dyson-v8-hepa/)**
+
