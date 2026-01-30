@@ -1,6 +1,7 @@
 ---
 title: "Filtro HEPA Dyson V8 compatible: cuál comprar y por qué"
 description: "Guía para elegir filtro HEPA compatible con Dyson V8. Qué modelo comprar, compatibilidad y enlace recomendado."
+draft: true
 ---
 
 Si tu **Dyson V8 pierde potencia o huele mal**, en la mayoría de casos el problema es el **filtro HEPA (post-motor)**.
