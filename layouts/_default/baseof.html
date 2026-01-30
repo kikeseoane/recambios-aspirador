@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Title }}</title>
+ <title>
+  {{- if .IsHome -}}
+    {{ site.Title }}
+  {{- else -}}
+    {{ .Title }} | {{ site.Title }}
+  {{- end -}}
+</title>
+
+{{ with .Params.description }}
+  <meta name="description" content="{{ . }}">
+{{ else }}
+  <meta name="description" content="Guías para elegir recambios compatibles de aspiradores (filtros, baterías, cepillos y accesorios) sin equivocarte de modelo.">
+{{ end }}
 
   <!-- CSS base del sitio -->
   <link rel="stylesheet" href="/css/site.css">
