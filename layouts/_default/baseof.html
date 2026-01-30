@@ -3,6 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{- $isHome := .IsHome -}}
+  {{- $title := cond $isHome site.Title (printf "%s | %s" .Title site.Title) -}}
+  {{- $desc := .Params.description | default "Guías para elegir recambios compatibles de aspiradores (filtros, baterías, cepillos y accesorios) sin equivocarte de modelo." -}}
+  {{- $canon := .Permalink -}}
+
+  <link rel="canonical" href="{{ $canon }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="{{ if $isHome }}website{{ else }}article{{ end }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
+  <meta property="og:url" content="{{ $canon }}">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta name="twitter:description" content="{{ $desc }}">
+
+  <!-- Schema.org: WebSite + Organization (básico y útil) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.Title }}",
+    "url": "{{ site.BaseURL }}",
+    "inLanguage": "es-ES"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.Title }}",
+    "url": "{{ site.BaseURL }}"
+  }
+  </script>
+
  <title>
   {{- if .IsHome -}}
     {{ site.Title }}
