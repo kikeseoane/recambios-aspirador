@@ -1,6 +1,9 @@
 :root{
   --brand:#2bb673;
   --brand2:#1e8e58;
+
+  /* ✅ Alias para evitar el typo silencioso */
+  --brand-2: var(--brand2);
   --text:#111827;
   --muted:#6b7280;
   --border:#e5e7eb;
