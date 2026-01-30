@@ -22,7 +22,7 @@ Si tu Dyson pierde potencia, en la mayoría de casos es:
 - Filtro HEPA / post-motor (si tu modelo lo lleva)
 
 **Enlaces recomendados (afiliado):**
-{{< aff title="Ver filtros compatibles (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_XXXXXXXX" >}}
+{{< aff title="Ver filtros compatibles (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3oNCAjp" >}}
 
 ## Paso 2 — Obstrucciones
 
