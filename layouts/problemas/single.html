@@ -1,0 +1,33 @@
+{{ define "breadcrumbs" }}
+  <div class="container">
+    <p class="breadcrumbs">
+      <a href="/">Inicio</a>
+      <span class="sep">/</span>
+      <a href="/problemas/">Problemas</a>
+      <span class="sep">/</span>
+      <span class="current">{{ .Title }}</span>
+    </p>
+  </div>
+{{ end }}
+
+{{ define "main" }}
+  <div class="container">
+
+    <header class="page-hero">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}
+        <p class="page-hero__sub">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <article class="content">
+      {{ .Content }}
+    </article>
+
+    <div class="affiliate-note" style="margin-top:18px;">
+      Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
+      este sitio puede recibir una comisión sin coste adicional para ti.
+    </div>
+
+  </div>
+{{ end }}
