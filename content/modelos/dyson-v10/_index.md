@@ -46,9 +46,15 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Filtro HEPA Dyson V10 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c44rE6gL" >}}
 {{< aff title="Filtro lavable compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c43x0LTl" >}}
 
+👉 **[Filtro HEPA Dyson V10 compatible – guía completa](/recambios/filtro/dyson-v10-hepa/)**
+👉 **[Filtro pre-motor Dyson V10 – mantenimiento](/recambios/filtro/dyson-v10-pre-motor/)**
+
+
 ---
 
 <h2 id="bateria">Batería compatible Dyson V10</h2>
+
+👉 **[Batería Dyson V10 compatible – guía completa](/recambios/bateria/dyson-v10-bateria/)**
 
 {{< section title="Batería (guía)" >}}
 **Opción más comprada**: batería de **alta capacidad** si usas modo turbo o sesiones largas.
