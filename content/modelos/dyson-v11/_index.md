@@ -46,9 +46,15 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Filtro HEPA Dyson V11 (post-motor) – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3JRwHOX" >}}
 {{< aff title="Filtro lavable compatible Dyson V11 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c3Ec9qD1" >}}
 
+👉 **[Filtro HEPA Dyson V11 compatible – guía completa](/recambios/filtro/dyson-v11-hepa/)**
+👉 **[Filtro pre-motor Dyson V11 – mantenimiento](/recambios/filtro/dyson-v11-pre-motor/)**
+
 ---
 
 <h2 id="bateria">Batería compatible Dyson V11</h2>
+
+👉 **[Batería Dyson V11 compatible – guía completa](/recambios/bateria/dyson-v11-bateria/)**
+
 
 {{< section title="Batería (guía)" >}}
 **Opción más comprada**: batería de **alta capacidad** si usas modo turbo o sesiones largas.
