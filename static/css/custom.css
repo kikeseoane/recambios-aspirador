@@ -1,23 +1,27 @@
 :root{
   --brand:#2bb673;
   --brand2:#1e8e58;
-
-  /* ✅ Alias para evitar el typo silencioso */
+  /* Alias por si algún CSS viejo usa --brand-2 */
   --brand-2: var(--brand2);
+
   --text:#111827;
   --muted:#6b7280;
   --border:#e5e7eb;
   --card:#ffffff;
+
   --shadow: 0 10px 28px rgba(17,24,39,.08);
   --shadow2: 0 16px 44px rgba(17,24,39,.12);
+
   --radius:18px;
 }
 
-/* Tipografía y ancho */
+/* Base */
 body{ color:var(--text); }
 .container{ max-width:980px; }
 
-/* ====== LISTA DE MODELOS (/modelos/) ====== */
+/* =========================
+   LISTAS (/modelos /recambios /problemas)
+   ========================= */
 .page-intro{
   margin: 10px 0 18px;
   color: var(--muted);
@@ -45,7 +49,6 @@ a.model-card{
   overflow:hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-
 a.model-card::before{
   content:"";
   position:absolute;
@@ -54,16 +57,23 @@ a.model-card::before{
   background: linear-gradient(90deg, var(--brand), rgba(43,182,115,0));
   opacity:.9;
 }
-
 a.model-card:hover{
   transform: translateY(-2px);
   box-shadow: var(--shadow2);
   border-color: rgba(43,182,115,.55);
 }
-
-.model-card h3{ margin:0 0 8px; font-size:1.05rem; line-height:1.2; letter-spacing:-.01em; }
-.model-card p{ margin:0 0 12px; color:var(--muted); line-height:1.45; font-size:.95rem; }
-
+.model-card h3{
+  margin:0 0 8px;
+  font-size:1.05rem;
+  line-height:1.2;
+  letter-spacing:-.01em;
+}
+.model-card p{
+  margin:0 0 12px;
+  color:var(--muted);
+  line-height:1.45;
+  font-size:.95rem;
+}
 .model-cta{
   display:inline-flex;
   align-items:center;
@@ -84,13 +94,12 @@ a.model-card:hover .model-cta::after{ transform: translateX(3px); }
   color:#145a38;
 }
 
-/* ====== PÁGINAS DE MODELO (V8/V10/V11) ====== */
-
-/* Títulos más actuales */
+/* =========================
+   TIPOGRAFÍA / CONTENIDO
+   ========================= */
 main h1{ letter-spacing:-.03em; }
 main h2{ letter-spacing:-.02em; }
 
-/* Separador “premium” bajo cada H2 */
 main h2{
   margin-top: 46px;
   padding-bottom: 8px;
@@ -104,31 +113,38 @@ main h2::after{
   background: linear-gradient(to right, rgba(43,182,115,.85), rgba(229,231,235,1));
 }
 
-/* Tip box (blockquote) */
+/* Decoración de secciones con id + evitar header tapando el anchor */
+h2[id]{ scroll-margin-top: 90px; }
+h2[id]::before{
+  content: "✓";
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+/* Blockquote tipo “tip box” */
 main blockquote{
   margin: 14px 0;
   background: rgba(43,182,115,.08);
   border-left: 5px solid var(--brand);
   padding: 16px 18px;
   border-radius: 16px;
+  position: relative;
+}
+main blockquote::before{
+  content: "Consejo";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  background: #fff;
+  padding: 0 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-2);
 }
 
-/* Botones afiliado más “guía de compra” */
-.aff{ margin: 12px 0; }
-.aff__btn{
-  display:inline-block;
-  padding: 12px 18px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--brand), var(--brand2));
-  color: #fff;
-  text-decoration:none;
-  font-weight: 700;
-  box-shadow: var(--shadow);
-}
-.aff__btn:hover{ opacity:.95; }
-.aff__note{ display:block; margin-top:6px; color:var(--muted); }
-
-/* “Tarjeta” para listas y pasos (sin tocar markdown) */
+/* Listas ordenadas como “card” */
 main ol{
   background:#fff;
   border:1px solid var(--border);
@@ -136,48 +152,124 @@ main ol{
   padding: 14px 18px 14px 34px;
   box-shadow: var(--shadow);
 }
+
 /* =========================
-   SECCIONES EN CARD (V8)
+   SHORTCODE: aff (botones afiliado)
    ========================= */
+.aff{ margin: 18px 0 12px; }
+.aff__btn{
+  display:inline-block;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: #fff !important;
+  text-decoration:none !important;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+.aff__btn:hover{ opacity:.95; }
+.aff__note{ display:block; margin-top:6px; color:var(--muted); }
 
-.sec{
-  margin: 16px 0 26px;
+/* “Producto principal” */
+.aff--primary{
+  border: 2px solid var(--brand);
+  padding: 15px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8fff9, #ffffff);
+}
+.aff--primary .aff__btn{
+  box-shadow: 0 18px 46px rgba(43,182,115,.22);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   SHORTCODE: section (cards)
+   ========================= */
+.ui-section{
   border: 1px solid var(--border);
-  border-radius: 18px;
   background: #fff;
-  box-shadow: 0 10px 28px rgba(17,24,39,.08);
-  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(17,24,39,.06);
+  padding: 18px 18px 14px;
+  margin: 14px 0 22px;
 }
-
-.sec__head{
-  padding: 14px 18px;
-  font-weight: 750;
-  letter-spacing: -.01em;
-  background: linear-gradient(90deg, rgba(43,182,115,.14), rgba(255,255,255,1));
-  border-bottom: 1px solid var(--border);
+.ui-section__title{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(43,182,115,.10);
+  color: #145a38;
+  margin-bottom: 12px;
 }
-
-.sec__body{
-  padding: 18px;
-}
-
-.sec__body blockquote{
-  background: rgba(43,182,115,.08);
+.ui-section__body{ color: var(--text); }
+.ui-section__body p{ margin: 10px 0; }
+.ui-section__body ul{ margin: 10px 0 12px 18px; }
+.ui-section__body li{ margin: 4px 0; }
+.ui-section__body strong{ font-weight: 600; }
+.ui-section blockquote{
+  background: rgba(43,182,115,.07);
   border-left: 5px solid var(--brand);
   padding: 14px 16px;
-  border-radius: 14px;
-}
-
-.sec__body .aff__btn{
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
   border-radius: 16px;
-  font-weight: 700;
+  margin: 12px 0;
 }
+/* separadores dentro de hubs */
+.ui-section hr{
+  border:0;
+  border-top:1px solid var(--border);
+  margin: 14px 0;
+}
+.ui-section h3{ margin-top: 0; }
+.ui-section p a{ font-weight: 650; }
 
-/* Home */
-.home-hero{
-  padding: 26px 0 10px;
+/* =========================
+   HERO: páginas de modelo (V8/V10/V11)
+   ========================= */
+.model-hero{
+  margin-top: 14px;
+  padding: 10px 0 6px;
 }
+.model-hero__sub{
+  color: var(--muted);
+  max-width: 860px;
+  margin-top: 10px;
+}
+.model-hero__grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+@media (max-width: 900px){
+  .model-hero__grid{ grid-template-columns: 1fr; }
+}
+.model-hero__card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 26px rgba(17,24,39,.06);
+  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+}
+.model-hero__card:hover{
+  border-color: rgba(43,182,115,.55);
+  box-shadow: 0 16px 40px rgba(17,24,39,.10);
+  transform: translateY(-1px);
+}
+.model-hero__card .k{ color: var(--muted); font-size: .92rem; }
+.model-hero__card .v{ font-weight: 750; margin-top: 2px; }
+
+/* =========================
+   HOME
+   ========================= */
+.home-hero{ padding: 26px 0 10px; }
 .home-kicker{
   color: var(--muted);
   font-weight: 600;
@@ -200,16 +292,14 @@ main ol{
   display:inline-block;
   padding: 10px 14px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #2bb673, #1e8e58);
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
   color: #fff;
   text-decoration:none;
   box-shadow: var(--shadow);
   font-weight: 650;
 }
-.home-link{
-  text-decoration:none;
-  font-weight: 600;
-}
+.home-link{ text-decoration:none; font-weight: 600; }
+
 .home-trust{
   display:flex;
   gap: 10px;
@@ -224,313 +314,30 @@ main ol{
   color: var(--muted);
   font-size: 0.92rem;
 }
-.home-section{
-  margin-top: 34px;
-}
+.home-section{ margin-top: 34px; }
 
-.aff__btn{
-  color: #fff !important;
-  text-decoration: none !important;
-  display: inline-block;
-}
-
-/* ===== Section shortcode (cards) ===== */
-.ui-section{
-  border: 1px solid var(--border);
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(17,24,39,.06);
-  padding: 18px 18px 14px;
-  margin: 14px 0 22px;
-}
-
-.ui-section__title{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(43,182,115,.10);
-  color: #145a38;
-  margin-bottom: 12px;
-}
-
-.ui-section__body{
-  color: var(--text);
-}
-
-/* Mejoras dentro de secciones */
-.ui-section ul{ margin: 10px 0; }
-.ui-section li{ margin: 4px 0; }
-
-/* Que los “tips” en blockquote destaquen dentro de la sección */
-.ui-section blockquote{
-  background: rgba(43,182,115,.07);
-  border-left: 5px solid var(--brand);
-  padding: 14px 16px;
-  border-radius: 16px;
-  margin: 12px 0;
-}
-/* Mejor legibilidad dentro de section */
-.ui-section__body p{
-  margin: 10px 0;
-}
-
-.ui-section__body ul{
-  margin: 10px 0 12px 18px;
-}
-
-.ui-section__body li{
-  margin: 4px 0;
-}
-
-.ui-section__body strong{
-  font-weight: 600;
-}
 /* =========================
-   HERO PÁGINAS DE MODELO
+   MÓVIL: botones grandes + CTA flotante (si lo usas)
    ========================= */
-.model-hero{
-  margin-top: 18px;
-  padding: 18px 0 8px;
-}
-
-.model-hero__sub{
-  color: var(--muted);
-  max-width: 860px;
-  margin-top: 10px;
-}
-
-.model-hero__grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
-@media (max-width: 900px){
-  .model-hero__grid{ grid-template-columns: 1fr; }
-}
-
-.model-hero__card{
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--border);
-  background: #fff;
-  border-radius: 16px;
-  padding: 12px 14px;
-  box-shadow: 0 10px 26px rgba(17,24,39,.06);
-  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
-}
-
-.model-hero__card:hover{
-  border-color: rgba(43,182,115,.55);
-  box-shadow: 0 16px 40px rgba(17,24,39,.10);
-  transform: translateY(-1px);
-}
-
-.model-hero__card .k{
-  color: var(--muted);
-  font-size: .92rem;
-}
-
-.model-hero__card .v{
-  font-weight: 750;
-  margin-top: 2px;
-}
-/* Botón “principal” (opcional) */
-.aff--primary .aff__btn{
-  box-shadow: 0 18px 46px rgba(43,182,115,.22);
-  transform: translateY(-1px);
-}
-/* =========================
-   HERO EN PÁGINAS DE MODELO
-   ========================= */
-.model-hero{
-  margin-top: 14px;
-  padding: 10px 0 6px;
-}
-
-.model-hero__sub{
-  color: var(--muted);
-  max-width: 860px;
-  margin-top: 10px;
-}
-
-.model-hero__grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
-@media (max-width: 900px){
-  .model-hero__grid{ grid-template-columns: 1fr; }
-}
-
-.model-hero__card{
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--border);
-  background: #fff;
-  border-radius: 16px;
-  padding: 12px 14px;
-  box-shadow: 0 10px 26px rgba(17,24,39,.06);
-  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
-}
-
-.model-hero__card:hover{
-  border-color: rgba(43,182,115,.55);
-  box-shadow: 0 16px 40px rgba(17,24,39,.10);
-  transform: translateY(-1px);
-}
-
-.model-hero__card .k{
-  color: var(--muted);
-  font-size: .92rem;
-}
-
-.model-hero__card .v{
-  font-weight: 750;
-  margin-top: 2px;
-}
-/* ===== Destacar secciones de decisión ===== */
-h2[id]{
-  scroll-margin-top: 90px;
-}
-
-h2[id]::before{
-  content: "✓";
-  display: inline-block;
-  margin-right: 8px;
-  color: var(--brand);
-  font-weight: 700;
-}
-/* Aire antes de enlaces afiliados */
-.aff{
-  margin-top: 18px;
-}
-/* Bloques de recomendación más claros */
-blockquote{
-  position: relative;
-}
-
-blockquote::before{
-  content: "Consejo";
-  position: absolute;
-  top: -10px;
-  left: 14px;
-  background: #fff;
-  padding: 0 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--brand-2);
-}
-/* =========================
-   HERO EN PÁGINAS DE MODELO
-   ========================= */
-.model-hero{
-  margin-top: 14px;
-  padding: 10px 0 6px;
-}
-
-.model-hero__sub{
-  color: var(--muted);
-  max-width: 860px;
-  margin-top: 10px;
-}
-
-.model-hero__grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
-@media (max-width: 900px){
-  .model-hero__grid{ grid-template-columns: 1fr; }
-}
-
-.model-hero__card{
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--border);
-  background: #fff;
-  border-radius: 16px;
-  padding: 12px 14px;
-  box-shadow: 0 10px 26px rgba(17,24,39,.06);
-  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
-}
-
-.model-hero__card:hover{
-  border-color: rgba(43,182,115,.55);
-  box-shadow: 0 16px 40px rgba(17,24,39,.10);
-  transform: translateY(-1px);
-}
-
-.model-hero__card .k{
-  color: var(--muted);
-  font-size: .92rem;
-}
-
-.model-hero__card .v{
-  font-weight: 750;
-  margin-top: 2px;
-}
-
-/* Para que al saltar a #filtros no quede tapado por el header */
-h2[id]{ scroll-margin-top: 90px; }
-
-
-
-/* Botones más grandes en móviles */
 @media (max-width: 768px) {
-  .aff__btn {
+  .aff__btn{
     display: block;
     text-align: center;
     padding: 16px;
     font-size: 18px;
     margin: 20px 0;
   }
-  
-  /* Fijar botón flotante en móvil */
-  .floating-buy {
+
+  .floating-buy{
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #2bb673;
+    background: var(--brand);
     color: white;
     padding: 15px;
     text-align: center;
     z-index: 1000;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
   }
-}
-
-
-
-/* Destacar producto principal */
-.aff--primary {
-  border: 2px solid #2bb673;
-  padding: 15px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f8fff9, #ffffff);
-}
-/* Recambios HUB: separadores más limpios */
-.ui-section hr{
-  border:0;
-  border-top:1px solid var(--border);
-  margin: 14px 0;
-}
-.ui-section h3{
-  margin-top: 0;
-}
-.ui-section p a{
-  font-weight: 650;
 }
