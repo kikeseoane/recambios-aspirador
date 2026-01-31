@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Params.description }}
+      <p class="page-intro">{{ . }}</p>
+    {{ end }}
+
+    {{ .Content }}
+
+    {{ if .Pages }}
+      <div class="models-grid">
+        {{ range .Pages }}
+          <a class="model-card" href="{{ .RelPermalink }}">
+            <h3>{{ .Title }}</h3>
+            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+            <span class="model-cta">Ver guía</span>
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <div class="affiliate-note">
+      Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
+      este sitio puede recibir una comisión sin coste adicional para ti.
+    </div>
+  </div>
+{{ end }}
