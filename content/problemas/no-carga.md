@@ -21,7 +21,8 @@ Empieza por el paso 1 (es el más frecuente).
 **Señales claras**:
 - no se enciende ningún LED
 - parece cargar pero no dura nada
-- solo funciona si la mueves o presionas
+- se apaga al usar modo alto/turbo
+- tiene más de **2–3 años** de uso frecuente
 
 👉 **Solución recomendada**: cambiar batería.
 
@@ -29,7 +30,7 @@ Empieza por el paso 1 (es el más frecuente).
 - **[Batería Dyson compatible](/recambios/bateria/)**
 
 {{< section title="Recomendación rápida" >}}
-Si tu Dyson tiene más de 2–3 años, la batería suele ser la causa.
+Si tu Dyson tiene más de 2–3 años, la batería suele ser la causa nº1 cuando no carga.
 {{< /section >}}
 
 ---
@@ -39,15 +40,13 @@ Si tu Dyson tiene más de 2–3 años, la batería suele ser la causa.
 Si con batería nueva **sigue sin cargar**, revisa el cargador.
 
 **Comprueba**:
-- que el LED del cargador se enciende
+- que el LED del cargador se enciende (si tu modelo lo tiene)
 - que el cable no esté dañado
 - que el conector no esté flojo
 
-👉 **Solución**:
-- cambiar cargador compatible
+👉 **Solución**: cambiar cargador compatible.
 
 👉 **[Cargador Dyson compatible](/recambios/cargador/)**
-
 
 ---
 
@@ -57,7 +56,7 @@ Menos habitual, pero posible si:
 - tienes que mover el cable para que cargue
 - solo carga en ciertas posiciones
 
-En este caso, suele compensar empezar igualmente por **batería**.
+En este caso, suele compensar empezar igualmente por **batería** y después **cargador**.
 
 ---
 
@@ -75,32 +74,18 @@ En este caso, suele compensar empezar igualmente por **batería**.
 ## Enlaces útiles
 
 - 👉 **[Batería Dyson compatible](/recambios/bateria/)**
+- 👉 **[Cargador Dyson compatible](/recambios/cargador/)**
 - 👉 **[Otros problemas frecuentes](/problemas/)**
+
+---
 
 ## Preguntas frecuentes
 
 **¿Puede ser un fallo electrónico interno?**  
 Es poco común. En la mayoría de casos se soluciona con batería o cargador.
 
-**¿Cargar siempre enchufado estropea la batería?**  
-Sí. Reduce su vida útil con el tiempo.
-
-
-## Problemas relacionados
-
-- **[Se apaga sola](/problemas/se-apaga/)**  
-  Muy habitual cuando la batería está degradada.
-
-- **[No aspira o succiona poco](/problemas/no-aspira/)**  
-  A veces el problema no es eléctrico sino de flujo de aire.
-
-
-Es poco común. En la mayoría de casos se soluciona con batería o cargador.
-
-**¿Cargar siempre enchufado estropea la batería?**  
-Sí. Reduce su vida útil con el tiempo.
-
-👉 En la mayoría de casos, cambiar la batería lo soluciona directamente.
+**¿Dejarla siempre enchufada estropea la batería?**  
+Con el tiempo puede reducir la vida útil. Mejor cargar y desconectar cuando esté completa.
 
 {{< section title="¿Qué modelo tienes?" >}}
 Guías por modelo (para confirmar compatibilidad):
