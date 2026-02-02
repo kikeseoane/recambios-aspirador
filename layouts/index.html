@@ -9,34 +9,34 @@
         Selección enfocada a compatibilidad y compra sin errores.
       </p>
 
-<div class="home-cta">
-  <a class="home-btn" href="/problemas/">Resolver un problema</a>
-  <a class="home-link" href="/recambios/">Ver recambios compatibles</a>
-</div>
+      <div class="home-cta">
+        <a class="home-btn" href="/problemas/">Resolver un problema</a>
+        <a class="home-link" href="/recambios/">Ver recambios compatibles</a>
+      </div>
 
-<section class="home-section">
-  <h2>¿Qué problema tiene tu aspirador?</h2>
-  <div class="grid">
-    <div class="card">
-      <a href="/problemas/se-apaga/">
-        <div class="title">Se apaga sola</div>
-        <div class="desc">Suele ser batería degradada.</div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="/problemas/no-aspira/">
-        <div class="title">No aspira</div>
-        <div class="desc">Filtro u obstrucción.</div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="/problemas/cepillo-no-gira/">
-        <div class="title">El cepillo no gira</div>
-        <div class="desc">Rodillo o cabezal.</div>
-      </a>
-    </div>
-  </div>
-</section>
+      <section class="home-section">
+        <h2>¿Qué problema tiene tu aspirador?</h2>
+        <div class="grid">
+          <div class="card">
+            <a href="/problemas/se-apaga/">
+              <div class="title">Se apaga sola</div>
+              <div class="desc">Suele ser batería degradada.</div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="/problemas/no-aspira/">
+              <div class="title">No aspira</div>
+              <div class="desc">Filtro u obstrucción.</div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="/problemas/cepillo-no-gira/">
+              <div class="title">El cepillo no gira</div>
+              <div class="desc">Rodillo o cabezal.</div>
+            </a>
+          </div>
+        </div>
+      </section>
 
       <div class="home-trust">
         <div class="home-pill">Compatibilidad por modelo</div>
@@ -50,7 +50,8 @@
       <div class="grid">
         {{ $modelos := site.GetPage "section" "modelos" }}
         {{ if $modelos }}
-          {{ range first 6 (where $modelos.Pages "RelPermalink" "ne" "/modelos/") }}
+          {{/* IMPORTANT: filtra solo páginas reales (Kind "page"), no el índice /modelos/ */}}
+          {{ range first 6 (where $modelos.Pages "Kind" "page") }}
             <div class="card">
               <a href="{{ .RelPermalink }}">
                 <div class="title">{{ .Title }}</div>
@@ -62,40 +63,6 @@
           {{ end }}
         {{ end }}
       </div>
-      <section class="home-section">
-  <h2>Explorar por tipo de recambio</h2>
-  <div class="grid">
-    <div class="card">
-      <a href="/recambios/filtro/">
-        <div class="title">Filtros</div>
-        <div class="desc">Pérdida de potencia, olor, mantenimiento.</div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="/recambios/bateria/">
-        <div class="title">Baterías</div>
-        <div class="desc">Se apaga, poca autonomía, no carga.</div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="/recambios/cepillo/">
-        <div class="title">Cepillos</div>
-        <div class="desc">No gira, vibra, hace ruido o aspira mal.</div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="/recambios/cargador/">
-        <div class="title">Cargadores</div>
-        <div class="desc">No carga con batería en buen estado.</div>
-      </a>
-    </div>
-  </div>
-
-  <p style="margin-top:14px;">
-    <a href="/modelos/">Ver todos los modelos →</a>
-  </p>
-</section>
-
 
       <p style="margin-top:14px;">
         <a href="/modelos/">Ver todos los modelos →</a>
