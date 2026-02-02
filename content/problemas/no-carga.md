@@ -80,6 +80,11 @@ En este caso, suele compensar empezar igualmente por **batería**.
 ## Preguntas frecuentes
 
 **¿Puede ser un fallo electrónico interno?**  
+Es poco común. En la mayoría de casos se soluciona con batería o cargador.
+
+**¿Cargar siempre enchufado estropea la batería?**  
+Sí. Reduce su vida útil con el tiempo.
+
 
 ## Problemas relacionados
 
