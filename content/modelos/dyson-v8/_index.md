@@ -73,6 +73,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 <h2 id="cepillo">Cepillo motorizado y rodillos</h2>
 
 {{< section title="Cepillo y rodillos (guía)" >}}
+
+
 **Síntomas habituales**:
 - ruido fuerte
 - vibración
@@ -82,6 +84,9 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 **Enlaces recomendados (afiliado):**
 {{< aff title="Cepillo motorizado compatible Dyson V8 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
 {{< aff title="Rodillo compatible Dyson V8 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
+
+👉 **[Cepillo Dyson V8 compatible – guía completa](/recambios/cepillo/dyson-v8-cepillo/)**
+
 
 ---
 
@@ -136,6 +141,9 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
   Normalmente causado por batería degradada o protección térmica.
   - **[No carga o no enciende](/problemas/no-carga/)**  
   Suele ser batería agotada o cargador defectuoso.
+
+👉 **[Cargador Dyson V8 compatible – guía completa](/recambios/cargador/dyson-v8-cargador/)**
+
 - **[El cepillo no gira](/problemas/cepillo-no-gira/)**  
   Suele ser rodillo o cabezal averiado.
   - **[Huele mal al usarlo](/problemas/huele-mal/)**  
