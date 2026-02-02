@@ -1,0 +1,30 @@
+{{- /* layouts/partials/faq-jsonld.html
+  Uso: añade en front matter:
+  faq:
+    - q: "Pregunta"
+      a: "Respuesta"
+*/ -}}
+
+{{- with .Params.faq -}}
+  {{- if gt (len .) 0 -}}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {{- $last := sub (len .) 1 -}}
+    {{- range $i, $qa := . -}}
+      {
+        "@type":"Question",
+        "name": {{ $qa.q | default "" | jsonify }},
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text": {{ $qa.a | default "" | jsonify }}
+        }
+      }{{- if lt $i $last -}},{{- end -}}
+    {{- end -}}
+  ]
+}
+</script>
+  {{- end -}}
+{{- end -}}
