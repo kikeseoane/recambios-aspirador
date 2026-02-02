@@ -88,6 +88,9 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Cepillo motorizado compatible Dyson V10 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
 {{< aff title="Rodillo compatible Dyson V10 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
 
+👉 **[Cepillo Dyson V10 compatible – guía completa](/recambios/cepillo/dyson-v10-cepillo/)**
+
+
 ---
 
 ## Accesorios útiles para Dyson V10
@@ -116,6 +119,9 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
   Normalmente causado por batería degradada o protección térmica.
   - **[No carga o no enciende](/problemas/no-carga/)**  
   Suele ser batería agotada o cargador defectuoso.
+👉 **[Cargador Dyson V10 compatible – guía completa](/recambios/cargador/dyson-v10-cargador/)**
+
+
 - **[El cepillo no gira](/problemas/cepillo-no-gira/)**  
   Suele ser rodillo o cabezal averiado.
   - **[Huele mal al usarlo](/problemas/huele-mal/)**  
