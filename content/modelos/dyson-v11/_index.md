@@ -88,6 +88,8 @@ Si sigue oliendo o no recupera potencia, toca cambio.
 {{< aff title="Cepillo motorizado compatible Dyson V11 – recomendado (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c45zHxQB" >}}
 {{< aff title="Rodillo compatible Dyson V11 (AliExpress)" vendor="aliexpress" url="https://s.click.aliexpress.com/e/_c36DHFRZ" >}}
 
+👉 **[Cepillo Dyson V11 compatible – guía completa](/recambios/cepillo/dyson-v11-cepillo/)**
+
 ---
 
 ## Accesorios útiles para Dyson V11
@@ -114,6 +116,9 @@ Si tu aspirador presenta alguno de estos problemas, aquí tienes las guías más
 
    - **[Se apaga sola](/problemas/se-apaga/)**  
   Normalmente causado por batería degradada o protección térmica.
+
+👉 **[Cargador Dyson V11 compatible – guía completa](/recambios/cargador/dyson-v11-cargador/)**
+
 
 - **[El cepillo no gira](/problemas/cepillo-no-gira/)**  
   Suele ser rodillo o cabezal averiado.
