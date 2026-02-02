@@ -6,27 +6,66 @@
 
       <h1>{{ .Title }}</h1>
 
+      {{ with .Params.description }}
+        <p class="page-intro">{{ . }}</p>
+      {{ end }}
+
       {{ if .Content }}
-        <p class="page-intro">
-          Selecciona tu modelo y accede a la guía de recambios compatibles
-          (filtros, baterías, cepillos y accesorios).
-        </p>
         {{ .Content }}
       {{ end }}
 
+      {{/* 1) Destacados (orden fijo) */}}
+      <h2 style="margin-top:28px;">Modelos más buscados</h2>
       <div class="models-grid">
-        {{ range .Pages }}
+        {{ $v8  := site.GetPage "/modelos/dyson-v8/" }}
+        {{ $v10 := site.GetPage "/modelos/dyson-v10/" }}
+        {{ $v11 := site.GetPage "/modelos/dyson-v11/" }}
+
+        {{ with $v8 }}
           <a class="model-card" href="{{ .RelPermalink }}">
             <h3>{{ .Title }}</h3>
+            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+            <span class="model-cta">Ver recambios compatibles</span>
+          </a>
+        {{ end }}
 
-            {{ with .Params.description }}
-              <p>{{ . }}</p>
-            {{ end }}
+        {{ with $v10 }}
+          <a class="model-card" href="{{ .RelPermalink }}">
+            <h3>{{ .Title }}</h3>
+            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+            <span class="model-cta">Ver recambios compatibles</span>
+          </a>
+        {{ end }}
 
+        {{ with $v11 }}
+          <a class="model-card" href="{{ .RelPermalink }}">
+            <h3>{{ .Title }}</h3>
+            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
             <span class="model-cta">Ver recambios compatibles</span>
           </a>
         {{ end }}
       </div>
+
+      {{/* 2) Resto de modelos (excluyendo destacados e índice) */}}
+      {{ $featured := slice "/modelos/dyson-v8/" "/modelos/dyson-v10/" "/modelos/dyson-v11/" }}
+
+      {{ $rest := where .Pages "Kind" "page" }}
+      {{ $rest = where $rest "RelPermalink" "not in" $featured }}
+
+      {{ if gt (len $rest) 0 }}
+        <h2 style="margin-top:34px;">Todos los modelos</h2>
+        <div class="models-grid">
+          {{ range $rest.ByTitle }}
+            <a class="model-card" href="{{ .RelPermalink }}">
+              <h3>{{ .Title }}</h3>
+              {{ with .Params.description }}
+                <p>{{ . }}</p>
+              {{ end }}
+              <span class="model-cta">Ver recambios compatibles</span>
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
 
       <div class="affiliate-note">
         Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
