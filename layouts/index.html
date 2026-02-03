@@ -51,7 +51,9 @@
         {{ $modelos := site.GetPage "section" "modelos" }}
         {{ if $modelos }}
           {{/* IMPORTANT: filtra solo páginas reales (Kind "page"), no el índice /modelos/ */}}
-          {{ range first 6 (where $modelos.Pages "Kind" "page") }}
+          {{ $kids := where $modelos.Pages "Kind" "in" (slice "section" "page") }}
+          {{ range first 6 $kids }}
+
             <div class="card">
               <a href="{{ .RelPermalink }}">
                 <div class="title">{{ .Title }}</div>
