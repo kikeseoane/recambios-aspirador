@@ -49,7 +49,8 @@
       {{/* 2) Resto de modelos (excluyendo destacados e índice) */}}
       {{ $featured := slice "/modelos/dyson-v8/" "/modelos/dyson-v10/" "/modelos/dyson-v11/" }}
 
-      {{ $rest := where .Pages "Kind" "page" }}
+      {{ $rest := where .Pages "Kind" "in" (slice "section" "page") }}
+
       {{ $rest = where $rest "RelPermalink" "not in" $featured }}
 
       {{ if gt (len $rest) 0 }}
