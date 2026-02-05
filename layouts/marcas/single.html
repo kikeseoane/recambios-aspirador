@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brandKey := .Params.brandKey }}
+  {{ $brand := index $db.brands $brandKey }}
+
+  <h1>{{ $brand.name }}</h1>
+  <p class="muted">Modelos disponibles con recambios y fallos comunes.</p>
+
+  <div class="grid">
+    {{ range $m := $brand.models }}
+      <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
+        <h3>{{ $brand.name }} {{ $m.model }}</h3>
+        {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
