@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson V6: batería"
 description = "filtros"
-slug = "modelos/dyson-v6"
-canonical = "https://recambios-aspirador.com/modelos/dyson-v6/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson V6** tienes una selección de recambios compatibles y s
 - [Se apaga](/problemas/dyson-v6-se-apaga/)
 - [Huele mal](/problemas/dyson-v6-huele-mal/)
 - [Hace ruido](/problemas/dyson-v6-hace-ruido/)
+
