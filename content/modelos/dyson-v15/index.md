@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson V15: batería"
 description = "filtros"
-slug = "modelos/dyson-v15"
-canonical = "https://recambios-aspirador.com/modelos/dyson-v15/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson V15** tienes una selección de recambios compatibles y 
 - [Se apaga](/problemas/dyson-v15-se-apaga/)
 - [Huele mal](/problemas/dyson-v15-huele-mal/)
 - [Hace ruido](/problemas/dyson-v15-hace-ruido/)
+
