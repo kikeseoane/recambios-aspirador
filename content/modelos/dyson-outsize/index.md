@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson Outsize: batería"
 description = "filtros"
-slug = "modelos/dyson-outsize"
-canonical = "https://recambios-aspirador.com/modelos/dyson-outsize/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson OUTSIZE** tienes una selección de recambios compatible
 - [Se apaga](/problemas/dyson-outsize-se-apaga/)
 - [Huele mal](/problemas/dyson-outsize-huele-mal/)
 - [Hace ruido](/problemas/dyson-outsize-hace-ruido/)
+
