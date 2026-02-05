@@ -1,109 +1,21 @@
 {{ define "main" }}
-  <div class="container">
+<main class="container">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
 
-    {{/* CASO A: página /modelos/ (lista) */}}
-    {{ if eq .RelPermalink "/modelos/" }}
+  {{ $pages := where .Site.RegularPages "Section" "modelos" }}
+  {{ $pages = sort $pages "Title" "asc" }}
 
-      <h1>{{ .Title }}</h1>
-
-      {{ with .Params.description }}
-        <p class="page-intro">{{ . }}</p>
-      {{ end }}
-
-      {{ if .Content }}
-        {{ .Content }}
-      {{ end }}
-
-      {{/* 1) Destacados (orden fijo) */}}
-      <h2 style="margin-top:28px;">Modelos más buscados</h2>
-      <div class="models-grid">
-        {{ $v8  := site.GetPage "/modelos/dyson-v8/" }}
-        {{ $v10 := site.GetPage "/modelos/dyson-v10/" }}
-        {{ $v11 := site.GetPage "/modelos/dyson-v11/" }}
-
-        {{ with $v8 }}
-          <a class="model-card" href="{{ .RelPermalink }}">
-            <h3>{{ .Title }}</h3>
-            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-            <span class="model-cta">Ver recambios compatibles</span>
-          </a>
-        {{ end }}
-
-        {{ with $v10 }}
-          <a class="model-card" href="{{ .RelPermalink }}">
-            <h3>{{ .Title }}</h3>
-            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-            <span class="model-cta">Ver recambios compatibles</span>
-          </a>
-        {{ end }}
-
-        {{ with $v11 }}
-          <a class="model-card" href="{{ .RelPermalink }}">
-            <h3>{{ .Title }}</h3>
-            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-            <span class="model-cta">Ver recambios compatibles</span>
-          </a>
-        {{ end }}
-      </div>
-
-      {{/* 2) Resto de modelos (excluyendo destacados e índice) */}}
-      {{ $featured := slice "/modelos/dyson-v8/" "/modelos/dyson-v10/" "/modelos/dyson-v11/" }}
-
-      {{ $rest := where .Pages "Kind" "in" (slice "section" "page") }}
-
-      {{ $rest = where $rest "RelPermalink" "not in" $featured }}
-
-      {{ if gt (len $rest) 0 }}
-        <h2 style="margin-top:34px;">Todos los modelos</h2>
-        <div class="models-grid">
-          {{ range $rest.ByTitle }}
-            <a class="model-card" href="{{ .RelPermalink }}">
-              <h3>{{ .Title }}</h3>
-              {{ with .Params.description }}
-                <p>{{ . }}</p>
-              {{ end }}
-              <span class="model-cta">Ver recambios compatibles</span>
-            </a>
-          {{ end }}
-        </div>
-      {{ end }}
-
-      <div class="affiliate-note">
-        Aviso: algunos enlaces pueden ser de afiliado. Si compras a través de ellos,
-        este sitio puede recibir una comisión sin coste adicional para ti.
-      </div>
-
-    {{/* CASO B: páginas de modelo (V8/V10/V11) */}}
-    {{ else }}
-
-      <header class="model-hero">
-        <h1>{{ .Title }}</h1>
-
-        {{ with .Params.description }}
-          <p class="model-hero__sub">{{ . }}</p>
-        {{ end }}
-
-        <div class="model-hero__grid">
-          <a class="model-hero__card" href="#filtros">
-            <div class="k">Menos potencia / olor</div>
-            <div class="v">Filtros</div>
-          </a>
-
-          <a class="model-hero__card" href="#bateria">
-            <div class="k">Dura poco / se apaga</div>
-            <div class="v">Batería</div>
-          </a>
-
-          <a class="model-hero__card" href="#cepillo">
-            <div class="k">Vibra / no gira</div>
-            <div class="v">Cepillo</div>
-          </a>
-        </div>
-      </header>
-
-      {{ .Content }}
-
+  <h2>Todos los modelos</h2>
+  <ul class="modelos-grid">
+    {{ range $pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ with .Params.description }}<div class="muted">{{ . }}</div>{{ end }}
+      </li>
     {{ end }}
+  </ul>
+</main>
+{{ end }}
 
-  </div>
 {{ end }}
