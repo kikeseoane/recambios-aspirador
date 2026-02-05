@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson V8 compatibles"
 description = "Guía de recambios compatibles para Dyson V8: baterías, filtros, cepillos y cargadores."
-slug = "modelos/dyson-v8"
-canonical = "https://recambios-aspirador.com/modelos/dyson-v8/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson V8** tienes una selección de recambios compatibles y s
 - [Se apaga](/problemas/dyson-v8-se-apaga/)
 - [Huele mal](/problemas/dyson-v8-huele-mal/)
 - [Hace ruido](/problemas/dyson-v8-hace-ruido/)
+
