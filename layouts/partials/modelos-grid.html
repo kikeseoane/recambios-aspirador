@@ -1,9 +1,0 @@
-{{/* Lista automática de modelos */}}
-{{ $pages := where .Site.RegularPages "Section" "modelos" }}
-{{ $pages = sort $pages "Title" "asc" }}
-
-<ul class="modelos-grid">
-  {{ range $pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
