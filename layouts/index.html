@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <h1>Recambios y guías por modelo</h1>
+  <p class="muted">{{ site.Params.defaultDescription }}</p>
+
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  <h2>Marcas</h2>
+  <div class="grid">
+    {{ range $k, $b := $brands }}
+      {{ $slug := $k | urlize }}
+      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        <h3>{{ $b.name }}</h3>
+        <span class="badge">{{ len $b.models }} modelos</span>
+      </a>
+    {{ end }}
+  </div>
+
+  <h2 style="margin-top:26px;">Guías rápidas</h2>
+  <div class="grid">
+    <a class="card" href="{{ "/guias/seguridad/" | relURL }}"><h3>Seguridad</h3><p class="muted">Antes de manipular o desmontar.</p></a>
+    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}"><h3>Mantenimiento</h3><p class="muted">Lo que más evita fallos.</p></a>
+    <a class="card" href="{{ "/guias/compra/" | relURL }}"><h3>Elegir recambio</h3><p class="muted">Compatibilidad y criterios.</p></a>
+  </div>
+{{ end }}
