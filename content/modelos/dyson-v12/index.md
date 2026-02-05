@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson V12: batería"
 description = "filtros"
-slug = "modelos/dyson-v12"
-canonical = "https://recambios-aspirador.com/modelos/dyson-v12/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson V12** tienes una selección de recambios compatibles y 
 - [Se apaga](/problemas/dyson-v12-se-apaga/)
 - [Huele mal](/problemas/dyson-v12-huele-mal/)
 - [Hace ruido](/problemas/dyson-v12-hace-ruido/)
+
