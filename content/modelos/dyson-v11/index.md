@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson V11 compatibles"
 description = "Guía de recambios compatibles para Dyson V11: baterías, filtros, cepillos y cargadores."
-slug = "modelos/dyson-v11"
-canonical = "https://recambios-aspirador.com/modelos/dyson-v11/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson V11** tienes una selección de recambios compatibles y 
 - [Se apaga](/problemas/dyson-v11-se-apaga/)
 - [Huele mal](/problemas/dyson-v11-huele-mal/)
 - [Hace ruido](/problemas/dyson-v11-hace-ruido/)
+
