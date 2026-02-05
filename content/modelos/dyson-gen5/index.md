@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson Gen5detect: batería"
 description = "filtros"
-slug = "modelos/dyson-gen5"
-canonical = "https://recambios-aspirador.com/modelos/dyson-gen5/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson GEN5** tienes una selección de recambios compatibles y
 - [Se apaga](/problemas/dyson-gen5-se-apaga/)
 - [Huele mal](/problemas/dyson-gen5-huele-mal/)
 - [Hace ruido](/problemas/dyson-gen5-hace-ruido/)
+
