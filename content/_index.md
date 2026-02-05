@@ -4,9 +4,9 @@ Guías rápidas para comprar **recambios compatibles** (filtros, baterías, cepi
 
 ## Accesos rápidos (Dyson)
 
-- [Dyson V8 – recambios compatibles](/modelos/dyson-v8/)
-- [Dyson V10 – recambios compatibles](/modelos/dyson-v10/)
-- [Dyson V11 – recambios compatibles](/modelos/dyson-v11/)
+## Todos los modelos Dyson
+{{< partial "modelos-grid.html" >}}
+
 
 ## Ver todos los modelos
 
