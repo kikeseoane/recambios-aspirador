@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <p class="muted">Listado global de modelos. (Escala a miles: viene de YAML.)</p>
+
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  <div class="grid">
+    {{ range $bk, $b := $brands }}
+      {{ range $m := $b.models }}
+        <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
+          <h3>{{ $b.name }} {{ $m.model }}</h3>
+          <span class="badge">{{ $b.name }}</span>
+        </a>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}
