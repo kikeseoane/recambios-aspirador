@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <p class="muted">Elige una marca para ver sus modelos y recambios compatibles.</p>
+
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  <div class="grid">
+    {{ range $k, $b := $brands }}
+      {{ $slug := $k | urlize }}
+      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        <h3>{{ $b.name }}</h3>
+        <span class="badge">{{ len $b.models }} modelos</span>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
