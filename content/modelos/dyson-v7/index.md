@@ -1,8 +1,6 @@
 +++
 title = "Recambios Dyson V7: batería"
 description = "filtros"
-slug = "modelos/dyson-v7"
-canonical = "https://recambios-aspirador.com/modelos/dyson-v7/"
 robots = "index,follow"
 +++
 
@@ -22,3 +20,4 @@ En esta guía de **Dyson V7** tienes una selección de recambios compatibles y s
 - [Se apaga](/problemas/dyson-v7-se-apaga/)
 - [Huele mal](/problemas/dyson-v7-huele-mal/)
 - [Hace ruido](/problemas/dyson-v7-hace-ruido/)
+
