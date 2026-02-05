@@ -1,0 +1,99 @@
+globals:
+  categorias_recambios:
+    - key: bateria
+      label: Batería
+    - key: filtro
+      label: Filtro
+    - key: cepillo
+      label: Cepillo / Rodillo
+    - key: cargador
+      label: Cargador
+  guias_genericas:
+    seguridad:
+      title: "Seguridad antes de reparar"
+      bullets:
+        - "Desconecta el cargador antes de manipular el aspirador."
+        - "Deja enfriar el motor si ha estado funcionando."
+        - "No laves piezas eléctricas; limpia con paño ligeramente húmedo."
+    mantenimiento:
+      title: "Mantenimiento básico"
+      bullets:
+        - "Lava (si procede) y seca filtros 24h antes de reusar."
+        - "Revisa obstrucciones en tubo, ciclón y cepillo."
+        - "Limpia el rodillo y corta pelos/hilos regularmente."
+    compra:
+      title: "Cómo elegir recambio compatible"
+      bullets:
+        - "Comprueba el modelo exacto y la referencia del recambio."
+        - "Fíjate en voltaje/capacidad en baterías (V y mAh/Wh)."
+        - "Prioriza vendedores con devoluciones y reseñas recientes."
+
+brands:
+  dyson:
+    name: "Dyson"
+    models:
+      - model: "V8"
+        slug: "dyson-v8"
+        series: "V"
+        intro: "El Dyson V8 es un aspirador inalámbrico popular por su equilibrio entre potencia y autonomía. La mayoría de problemas se resuelven con mantenimiento de filtros y revisión de obstrucciones."
+        compatibilidad:
+          - "Recambios compatibles con Dyson V8 (no V8 Slim si el vendedor lo indica distinto)."
+        recambios:
+          bateria:
+            - title: "Batería compatible Dyson V8 21.6V"
+              url: "https://example.com/dyson-v8-bateria"
+              note: "Comprueba que indique 21.6V y compatibilidad V8."
+          filtro:
+            - title: "Filtro HEPA compatible V8"
+              url: "https://example.com/dyson-v8-filtro"
+          cepillo:
+            - title: "Rodillo/cepillo principal compatible V8"
+              url: "https://example.com/dyson-v8-cepillo"
+          cargador:
+            - title: "Cargador compatible V8"
+              url: "https://example.com/dyson-v8-cargador"
+        fallos:
+          - symptom: "Pierde succión"
+            causes:
+              - "Filtro sucio o húmedo"
+              - "Obstrucción en tubo/ciclón"
+            checks:
+              - "Lava y seca filtro 24h"
+              - "Revisa tubo y entradas de aire"
+          - symptom: "Se apaga a los pocos segundos"
+            causes:
+              - "Filtro obstruido"
+              - "Protección térmica por bloqueo"
+            checks:
+              - "Limpia filtros y ciclón"
+              - "Revisa cepillo por pelos/hilos"
+
+      - model: "V10"
+        slug: "dyson-v10"
+        series: "V"
+        intro: "El Dyson V10 aumenta capacidad y potencia respecto al V8. Los recambios más demandados suelen ser filtros, rodillos y baterías."
+        compatibilidad:
+          - "Ojo con variantes (V10 Absolute, Animal). Normalmente comparten filtros/rodillos, pero confirma en el anuncio."
+        recambios:
+          bateria:
+            - title: "Batería compatible Dyson V10"
+              url: "https://example.com/dyson-v10-bateria"
+          filtro:
+            - title: "Filtro compatible Dyson V10"
+              url: "https://example.com/dyson-v10-filtro"
+          cepillo:
+            - title: "Cepillo compatible Dyson V10"
+              url: "https://example.com/dyson-v10-cepillo"
+          cargador:
+            - title: "Cargador compatible Dyson V10"
+              url: "https://example.com/dyson-v10-cargador"
+        fallos:
+          - symptom: "No carga"
+            causes:
+              - "Cargador defectuoso"
+              - "Conector sucio"
+              - "Batería degradada"
+            checks:
+              - "Prueba otro cargador compatible"
+              - "Limpia el conector con aire/cepillo"
+              - "Si dura muy poco, considera cambiar batería"
