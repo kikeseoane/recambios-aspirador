@@ -1,0 +1,92 @@
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brandKey := .Params.brandKey }}
+  {{ $modelSlug := .Params.modelSlug }}
+
+  {{ $brand := index $db.brands $brandKey }}
+
+  {{ $model := dict }}
+  {{ range $m := $brand.models }}
+    {{ if eq $m.slug $modelSlug }}
+      {{ $model = $m }}
+    {{ end }}
+  {{ end }}
+
+  <h1>{{ $brand.name }} {{ $model.model }}</h1>
+  {{ with $model.intro }}
+    <p>{{ . }}</p>
+  {{ end }}
+
+  <div class="card" style="margin-top:14px;">
+    <h2 style="margin-top:0;">Compatibilidad (resumen)</h2>
+    <ul class="list">
+      {{ range $model.compatibilidad }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <h2>Recambios compatibles</h2>
+  <p class="muted">Enlaces orientativos. Verifica compatibilidad exacta antes de comprar.</p>
+
+  {{ $cats := $db.globals.categorias_recambios }}
+  <div class="grid">
+    {{ range $cat := $cats }}
+      {{ $items := index $model.recambios $cat.key }}
+      <div class="card">
+        <h3 style="margin:0 0 6px;">{{ $cat.label }}</h3>
+        {{ if $items }}
+          <ul class="list">
+            {{ range $items }}
+              <li>
+                <a href="{{ .url }}" rel="nofollow sponsored" target="_blank">{{ .title }}</a>
+                {{ with .note }}<div class="muted" style="font-size:13px;">{{ . }}</div>{{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        {{ else }}
+          <p class="muted">Aún no hay enlaces para esta categoría.</p>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  <h2>Fallos comunes y checks</h2>
+  {{ if $model.fallos }}
+    {{ range $f := $model.fallos }}
+      <div class="card" style="margin-top:12px;">
+        <h3 style="margin:0 0 8px;">Síntoma: {{ $f.symptom }}</h3>
+        <strong>Causas probables</strong>
+        <ul class="list">
+          {{ range $f.causes }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <strong>Cómo comprobar</strong>
+        <ul class="list">
+          {{ range $f.checks }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  {{ else }}
+    <p class="muted">Añade fallos en el YAML para este modelo.</p>
+  {{ end }}
+
+  <hr>
+
+  <h2>Guías genéricas (aplican a este modelo)</h2>
+  {{ $g := $db.globals.guias_genericas }}
+  <div class="grid">
+    <a class="card" href="{{ "/guias/seguridad/" | relURL }}">
+      <h3>{{ $g.seguridad.title }}</h3>
+      <p class="muted">Checklist rápido antes de tocar nada.</p>
+    </a>
+    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}">
+      <h3>{{ $g.mantenimiento.title }}</h3>
+      <p class="muted">Lo que más reduce fallos.</p>
+    </a>
+    <a class="card" href="{{ "/guias/compra/" | relURL }}">
+      <h3>{{ $g.compra.title }}</h3>
+      <p class="muted">Compatibilidad y compra segura.</p>
+    </a>
+  </div>
+
+{{ end }}
