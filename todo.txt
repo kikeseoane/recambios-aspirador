@@ -1,0 +1,610 @@
+==== ESTRUCTURA DE DIRECTORIOS ====
+
+.\data
+.\layouts
+.\static
+.\tools
+.\layouts\guias
+.\layouts\marcas
+.\layouts\modelos
+.\layouts\partials
+.\layouts\_default
+.\static\css
+
+==== CONTENIDO DE ARCHIVOS ====
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\config.toml
+===============================
+baseURL = "https://recambios-aspirador.com/"
+languageCode = "es-es"
+title = "Recambios de Aspirador"
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[permalinks]
+  modelos = "/modelos/:slug/"
+  marcas = "/marcas/:slug/"
+  guias  = "/guias/:slug/"
+
+[taxonomies]
+  marca = "marcas"
+
+[outputs]
+  home = ["HTML", "RSS", "SITEMAP"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[outputFormats]
+  [outputFormats.SITEMAP]
+    mediaType = "application/xml"
+    baseName = "sitemap"
+    isPlainText = true
+    rel = "sitemap"
+
+[params]
+  siteName = "recambios-aspirador.com"
+  defaultDescription = "Guías y recambios compatibles por marca y modelo de aspirador. Baterías, filtros, cepillos y cargadores con enlaces verificados."
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\lee.bat
+===============================
+@echo off
+powershell -NoProfile -ExecutionPolicy Bypass -File lee.ps1
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\lee.ps1
+===============================
+$root = Get-Location
+$out  = Join-Path $root "todo.txt"
+
+$sb = New-Object System.Text.StringBuilder
+
+$null = $sb.AppendLine("==== ESTRUCTURA DE DIRECTORIOS ====")
+$null = $sb.AppendLine("")
+
+# Directorios (sin tree para evitar caracteres OEM)
+Get-ChildItem -Recurse -Directory | ForEach-Object {
+  $rel = $_.FullName.Replace($root.Path, ".")
+  $null = $sb.AppendLine($rel)
+}
+
+$null = $sb.AppendLine("")
+$null = $sb.AppendLine("==== CONTENIDO DE ARCHIVOS ====")
+
+# Archivos + contenido
+Get-ChildItem -Recurse -File | ForEach-Object {
+  $null = $sb.AppendLine("")
+  $null = $sb.AppendLine("===============================")
+  $null = $sb.AppendLine(("ARCHIVO: " + $_.FullName))
+  $null = $sb.AppendLine("===============================")
+
+  try {
+    $content = Get-Content -Raw -Encoding UTF8 $_.FullName -ErrorAction Stop
+  } catch {
+    $content = Get-Content -Raw -Encoding Default $_.FullName
+  }
+
+  $null = $sb.AppendLine($content)
+}
+
+# Escribir SIEMPRE en UTF-8 sin BOM
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+[System.IO.File]::WriteAllText($out, $sb.ToString(), $utf8NoBom)
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\data\aspiradores.yaml
+===============================
+globals:
+  categorias_recambios:
+    - key: bateria
+      label: Batería
+    - key: filtro
+      label: Filtro
+    - key: cepillo
+      label: Cepillo / Rodillo
+    - key: cargador
+      label: Cargador
+  guias_genericas:
+    seguridad:
+      title: "Seguridad antes de reparar"
+      bullets:
+        - "Desconecta el cargador antes de manipular el aspirador."
+        - "Deja enfriar el motor si ha estado funcionando."
+        - "No laves piezas eléctricas; limpia con paño ligeramente húmedo."
+    mantenimiento:
+      title: "Mantenimiento básico"
+      bullets:
+        - "Lava (si procede) y seca filtros 24h antes de reusar."
+        - "Revisa obstrucciones en tubo, ciclón y cepillo."
+        - "Limpia el rodillo y corta pelos/hilos regularmente."
+    compra:
+      title: "Cómo elegir recambio compatible"
+      bullets:
+        - "Comprueba el modelo exacto y la referencia del recambio."
+        - "Fíjate en voltaje/capacidad en baterías (V y mAh/Wh)."
+        - "Prioriza vendedores con devoluciones y reseñas recientes."
+
+brands:
+  dyson:
+    name: "Dyson"
+    models:
+      - model: "V8"
+        slug: "dyson-v8"
+        series: "V"
+        intro: "El Dyson V8 es un aspirador inalámbrico popular por su equilibrio entre potencia y autonomía. La mayoría de problemas se resuelven con mantenimiento de filtros y revisión de obstrucciones."
+        compatibilidad:
+          - "Recambios compatibles con Dyson V8 (no V8 Slim si el vendedor lo indica distinto)."
+        recambios:
+          bateria:
+            - title: "Batería compatible Dyson V8 21.6V"
+              url: "https://example.com/dyson-v8-bateria"
+              note: "Comprueba que indique 21.6V y compatibilidad V8."
+          filtro:
+            - title: "Filtro HEPA compatible V8"
+              url: "https://example.com/dyson-v8-filtro"
+          cepillo:
+            - title: "Rodillo/cepillo principal compatible V8"
+              url: "https://example.com/dyson-v8-cepillo"
+          cargador:
+            - title: "Cargador compatible V8"
+              url: "https://example.com/dyson-v8-cargador"
+        fallos:
+          - symptom: "Pierde succión"
+            causes:
+              - "Filtro sucio o húmedo"
+              - "Obstrucción en tubo/ciclón"
+            checks:
+              - "Lava y seca filtro 24h"
+              - "Revisa tubo y entradas de aire"
+          - symptom: "Se apaga a los pocos segundos"
+            causes:
+              - "Filtro obstruido"
+              - "Protección térmica por bloqueo"
+            checks:
+              - "Limpia filtros y ciclón"
+              - "Revisa cepillo por pelos/hilos"
+
+      - model: "V10"
+        slug: "dyson-v10"
+        series: "V"
+        intro: "El Dyson V10 aumenta capacidad y potencia respecto al V8. Los recambios más demandados suelen ser filtros, rodillos y baterías."
+        compatibilidad:
+          - "Ojo con variantes (V10 Absolute, Animal). Normalmente comparten filtros/rodillos, pero confirma en el anuncio."
+        recambios:
+          bateria:
+            - title: "Batería compatible Dyson V10"
+              url: "https://example.com/dyson-v10-bateria"
+          filtro:
+            - title: "Filtro compatible Dyson V10"
+              url: "https://example.com/dyson-v10-filtro"
+          cepillo:
+            - title: "Cepillo compatible Dyson V10"
+              url: "https://example.com/dyson-v10-cepillo"
+          cargador:
+            - title: "Cargador compatible Dyson V10"
+              url: "https://example.com/dyson-v10-cargador"
+        fallos:
+          - symptom: "No carga"
+            causes:
+              - "Cargador defectuoso"
+              - "Conector sucio"
+              - "Batería degradada"
+            checks:
+              - "Prueba otro cargador compatible"
+              - "Limpia el conector con aire/cepillo"
+              - "Si dura muy poco, considera cambiar batería"
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\index.html
+===============================
+{{ define "main" }}
+  <h1>Recambios y guías por modelo</h1>
+  <p class="muted">{{ site.Params.defaultDescription }}</p>
+
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  <h2>Marcas</h2>
+  <div class="grid">
+    {{ range $k, $b := $brands }}
+      {{ $slug := $k | urlize }}
+      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        <h3>{{ $b.name }}</h3>
+        <span class="badge">{{ len $b.models }} modelos</span>
+      </a>
+    {{ end }}
+  </div>
+
+  <h2 style="margin-top:26px;">Guías rápidas</h2>
+  <div class="grid">
+    <a class="card" href="{{ "/guias/seguridad/" | relURL }}"><h3>Seguridad</h3><p class="muted">Antes de manipular o desmontar.</p></a>
+    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}"><h3>Mantenimiento</h3><p class="muted">Lo que más evita fallos.</p></a>
+    <a class="card" href="{{ "/guias/compra/" | relURL }}"><h3>Elegir recambio</h3><p class="muted">Compatibilidad y criterios.</p></a>
+  </div>
+{{ end }}
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\guias\list.html
+===============================
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <p class="muted">Guías genéricas reutilizadas para todos los modelos.</p>
+
+  <div class="grid">
+    {{ range .Pages }}
+      <a class="card" href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+        <span class="badge">Guía</span>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\guias\single.html
+===============================
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $key := .Params.guideKey }}
+  {{ $g := index $db.globals.guias_genericas $key }}
+
+  <h1>{{ .Title }}</h1>
+  {{ if $g }}
+    <h2>{{ $g.title }}</h2>
+    <ul class="list">
+      {{ range $g.bullets }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  {{ else }}
+    <p class="muted">No se encontró guideKey en YAML.</p>
+  {{ end }}
+{{ end }}
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\marcas\list.html
+===============================
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <p class="muted">Elige una marca para ver sus modelos y recambios compatibles.</p>
+
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  <div class="grid">
+    {{ range $k, $b := $brands }}
+      {{ $slug := $k | urlize }}
+      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        <h3>{{ $b.name }}</h3>
+        <span class="badge">{{ len $b.models }} modelos</span>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\marcas\single.html
+===============================
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brandKey := .Params.brandKey }}
+  {{ $brand := index $db.brands $brandKey }}
+
+  <h1>{{ $brand.name }}</h1>
+  <p class="muted">Modelos disponibles con recambios y fallos comunes.</p>
+
+  <div class="grid">
+    {{ range $m := $brand.models }}
+      <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
+        <h3>{{ $brand.name }} {{ $m.model }}</h3>
+        {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\modelos\list.html
+===============================
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <p class="muted">Listado global de modelos. (Escala a miles: viene de YAML.)</p>
+
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  <div class="grid">
+    {{ range $bk, $b := $brands }}
+      {{ range $m := $b.models }}
+        <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
+          <h3>{{ $b.name }} {{ $m.model }}</h3>
+          <span class="badge">{{ $b.name }}</span>
+        </a>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\modelos\single.html
+===============================
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brandKey := .Params.brandKey }}
+  {{ $modelSlug := .Params.modelSlug }}
+
+  {{ $brand := index $db.brands $brandKey }}
+
+  {{ $model := dict }}
+  {{ range $m := $brand.models }}
+    {{ if eq $m.slug $modelSlug }}
+      {{ $model = $m }}
+    {{ end }}
+  {{ end }}
+
+  <h1>{{ $brand.name }} {{ $model.model }}</h1>
+  {{ with $model.intro }}
+    <p>{{ . }}</p>
+  {{ end }}
+
+  <div class="card" style="margin-top:14px;">
+    <h2 style="margin-top:0;">Compatibilidad (resumen)</h2>
+    <ul class="list">
+      {{ range $model.compatibilidad }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <h2>Recambios compatibles</h2>
+  <p class="muted">Enlaces orientativos. Verifica compatibilidad exacta antes de comprar.</p>
+
+  {{ $cats := $db.globals.categorias_recambios }}
+  <div class="grid">
+    {{ range $cat := $cats }}
+      {{ $items := index $model.recambios $cat.key }}
+      <div class="card">
+        <h3 style="margin:0 0 6px;">{{ $cat.label }}</h3>
+        {{ if $items }}
+          <ul class="list">
+            {{ range $items }}
+              <li>
+                <a href="{{ .url }}" rel="nofollow sponsored" target="_blank">{{ .title }}</a>
+                {{ with .note }}<div class="muted" style="font-size:13px;">{{ . }}</div>{{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        {{ else }}
+          <p class="muted">Aún no hay enlaces para esta categoría.</p>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  <h2>Fallos comunes y checks</h2>
+  {{ if $model.fallos }}
+    {{ range $f := $model.fallos }}
+      <div class="card" style="margin-top:12px;">
+        <h3 style="margin:0 0 8px;">Síntoma: {{ $f.symptom }}</h3>
+        <strong>Causas probables</strong>
+        <ul class="list">
+          {{ range $f.causes }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <strong>Cómo comprobar</strong>
+        <ul class="list">
+          {{ range $f.checks }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  {{ else }}
+    <p class="muted">Añade fallos en el YAML para este modelo.</p>
+  {{ end }}
+
+  <hr>
+
+  <h2>Guías genéricas (aplican a este modelo)</h2>
+  {{ $g := $db.globals.guias_genericas }}
+  <div class="grid">
+    <a class="card" href="{{ "/guias/seguridad/" | relURL }}">
+      <h3>{{ $g.seguridad.title }}</h3>
+      <p class="muted">Checklist rápido antes de tocar nada.</p>
+    </a>
+    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}">
+      <h3>{{ $g.mantenimiento.title }}</h3>
+      <p class="muted">Lo que más reduce fallos.</p>
+    </a>
+    <a class="card" href="{{ "/guias/compra/" | relURL }}">
+      <h3>{{ $g.compra.title }}</h3>
+      <p class="muted">Compatibilidad y compra segura.</p>
+    </a>
+  </div>
+
+{{ end }}
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\partials\footer.html
+===============================
+<footer class="site-footer">
+  <div class="container">
+    <p class="muted">© {{ now.Format "2006" }} {{ site.Title }} · Información orientativa. Verifica compatibilidad antes de comprar.</p>
+  </div>
+</footer>
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\partials\header.html
+===============================
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    <nav class="nav">
+      <a href="{{ "/marcas/" | relURL }}">Marcas</a>
+      <a href="{{ "/modelos/" | relURL }}">Modelos</a>
+      <a href="{{ "/guias/" | relURL }}">Guías</a>
+    </nav>
+  </div>
+</header>
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\layouts\_default\baseof.html
+===============================
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+
+  {{ $desc := .Params.description | default site.Params.defaultDescription }}
+  <meta name="description" content="{{ $desc }}">
+
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+
+  {{ hugo.Generator }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\static\css\site.css
+===============================
+:root { --bg:#ffffff; --fg:#111827; --muted:#6b7280; --card:#f8fafc; --border:#e5e7eb; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--fg); }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 980px; margin: 0 auto; padding: 20px; }
+.site-header { border-bottom:1px solid var(--border); background:#fff; position: sticky; top:0; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.brand { font-weight:700; letter-spacing: .2px; }
+.nav a { margin-left: 14px; color: var(--muted); }
+.nav a:hover { color: var(--fg); text-decoration:none; }
+
+h1 { font-size: 30px; margin: 12px 0 10px; }
+h2 { font-size: 20px; margin: 22px 0 10px; }
+p { line-height: 1.55; }
+.muted { color: var(--muted); }
+
+.grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top: 14px; }
+.card { background: var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; }
+.card h3 { margin: 0 0 6px; font-size: 16px; }
+.badge { display:inline-block; font-size: 12px; padding: 3px 8px; border-radius: 999px; background:#fff; border:1px solid var(--border); color: var(--muted); }
+.list { padding-left: 18px; }
+hr { border:none; border-top:1px solid var(--border); margin: 22px 0; }
+
+
+===============================
+ARCHIVO: C:\Users\kikes\OneDrive\Escritorio\Nueva carpeta\recambios-aspirador-main\tools\generar.py
+===============================
+from __future__ import annotations
+import os
+from pathlib import Path
+import re
+
+try:
+    import yaml
+except ImportError:
+    raise SystemExit("Falta PyYAML. Instala con: pip install pyyaml")
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data" / "aspiradores.yaml"
+CONTENT = ROOT / "content"
+
+def slugify(s: str) -> str:
+    s = (s or "").strip().lower()
+    s = re.sub(r"[^\w\s-]", "", s, flags=re.UNICODE)
+    s = re.sub(r"[\s_-]+", "-", s)
+    return s.strip("-")
+
+def ensure_dir(p: Path) -> None:
+    p.mkdir(parents=True, exist_ok=True)
+
+def write_if_missing(path: Path, content: str) -> None:
+    if path.exists():
+        return
+    ensure_dir(path.parent)
+    path.write_text(content, encoding="utf-8")
+
+def fm(title: str, slug: str, kind: str, extra: str = "") -> str:
+    extra = extra.strip()
+    if extra:
+        extra = "\n" + extra + "\n"
+    return f"""---
+title: "{title}"
+slug: "{slug}"
+type: "{kind}"
+draft: false
+{extra}---
+"""
+
+def main() -> None:
+    if not DATA.exists():
+        raise SystemExit(f"No existe {DATA}")
+
+    db = yaml.safe_load(DATA.read_text(encoding="utf-8")) or {}
+    brands = db.get("brands", {}) or {}
+
+    # Home + secciones
+    write_if_missing(CONTENT / "_index.md", fm("Inicio", "", "home"))
+    write_if_missing(CONTENT / "marcas" / "_index.md", fm("Marcas", "marcas", "marcas"))
+    write_if_missing(CONTENT / "modelos" / "_index.md", fm("Modelos", "modelos", "modelos"))
+    write_if_missing(CONTENT / "guias" / "_index.md", fm("Guías", "guias", "guias"))
+
+    # Guías genéricas (stubs)
+    write_if_missing(CONTENT / "guias" / "seguridad.md", fm("Seguridad", "seguridad", "guia", 'guideKey: "seguridad"'))
+    write_if_missing(CONTENT / "guias" / "mantenimiento.md", fm("Mantenimiento", "mantenimiento", "guia", 'guideKey: "mantenimiento"'))
+    write_if_missing(CONTENT / "guias" / "compra.md", fm("Cómo elegir recambio", "compra", "guia", 'guideKey: "compra"'))
+
+    # Marcas + modelos
+    for brand_key, brand in brands.items():
+        brand_name = (brand or {}).get("name") or brand_key
+        brand_slug = slugify(brand_key)
+
+        # página de marca
+        write_if_missing(
+            CONTENT / "marcas" / brand_slug / "_index.md",
+            fm(f"{brand_name}", brand_slug, "marca", f'brandKey: "{brand_key}"')
+        )
+
+        # modelos de esa marca
+        for m in (brand or {}).get("models", []) or []:
+            model = m.get("model", "").strip()
+            model_slug = (m.get("slug") or "").strip()
+            if not model_slug:
+                model_slug = slugify(f"{brand_key}-{model}")
+            title = f"{brand_name} {model}".strip()
+
+            write_if_missing(
+                CONTENT / "modelos" / model_slug / "_index.md",
+                fm(title, model_slug, "modelo", f'brandKey: "{brand_key}"\nmodelSlug: "{model_slug}"')
+            )
+
+    print("OK: stubs creados (solo si faltaban).")
+
+if __name__ == "__main__":
+    main()
+
