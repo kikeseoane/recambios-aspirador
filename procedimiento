@@ -1,0 +1,8 @@
+# 1) editas data\aspiradores.yaml
+# 2) generas stubs que falten
+python tools\generar.py
+
+# 3) commit + push
+git add data\aspiradores.yaml content\marcas content\modelos
+git commit -m "Add: nuevos modelos (YAML)"
+git push
