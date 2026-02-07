@@ -1,10 +1,19 @@
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="{{ "/" | relURL }}">
+      <span class="dot"></span>
+      <span>{{ site.Title }}</span>
+    </a>
+
+    <form class="search" action="{{ "/modelos/" | relURL }}" method="get">
+      <input name="q" placeholder="Busca tu modelo (ej: Dyson V8, Rowenta X-Force…)" aria-label="Buscar modelo">
+      <button class="btn" type="submit">Buscar</button>
+    </form>
+
     <nav class="nav">
       <a href="{{ "/marcas/" | relURL }}">Marcas</a>
       <a href="{{ "/modelos/" | relURL }}">Modelos</a>
       <a href="{{ "/guias/" | relURL }}">Guías</a>
     </nav>
   </div>
-</header>
+</div>

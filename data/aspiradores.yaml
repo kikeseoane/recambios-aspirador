@@ -1,4 +1,4 @@
-globals:
+gglobals:
   categorias_recambios:
     - key: bateria
       label: Batería
@@ -8,25 +8,35 @@ globals:
       label: Cepillo / Rodillo
     - key: cargador
       label: Cargador
+    - key: deposito
+      label: Depósito / ciclón
+    - key: manguera
+      label: Manguera / tubo
+    - key: accesorios
+      label: Accesorios
+
   guias_genericas:
     seguridad:
       title: "Seguridad antes de reparar"
       bullets:
-        - "Desconecta el cargador antes de manipular el aspirador."
-        - "Deja enfriar el motor si ha estado funcionando."
-        - "No laves piezas eléctricas; limpia con paño ligeramente húmedo."
+        - "Desconecta el cargador y retira la batería (si es extraíble) antes de manipular."
+        - "No mojes componentes eléctricos; usa paño apenas húmedo y aire a presión suave."
+        - "Deja enfriar el motor 15–20 min si se ha activado la protección térmica."
+        - "Si huele a quemado persistente o hay chispas, detén el uso y revisa cableado/escobillas (si aplica)."
     mantenimiento:
-      title: "Mantenimiento básico"
+      title: "Mantenimiento básico que evita el 80% de fallos"
       bullets:
-        - "Lava (si procede) y seca filtros 24h antes de reusar."
-        - "Revisa obstrucciones en tubo, ciclón y cepillo."
-        - "Limpia el rodillo y corta pelos/hilos regularmente."
+        - "Lava filtros (si son lavables) y deja secar 24h completas antes de montar."
+        - "Revisa obstrucciones en tubo, codos y entrada del ciclón; una moneda o tapón reduce la succión."
+        - "Corta pelos/hilos del rodillo: el motor del cepillo se protege y puede dejar de girar."
+        - "Vacía depósito antes del máximo: el ciclón pierde eficiencia y aumenta ruido."
     compra:
-      title: "Cómo elegir recambio compatible"
+      title: "Cómo elegir recambio compatible (sin equivocarte)"
       bullets:
-        - "Comprueba el modelo exacto y la referencia del recambio."
-        - "Fíjate en voltaje/capacidad en baterías (V y mAh/Wh)."
-        - "Prioriza vendedores con devoluciones y reseñas recientes."
+        - "Confirma el modelo exacto (serie + submodelo) y compara fotos del anclaje/conector."
+        - "Baterías: revisa voltaje (V) y formato; capacidad (mAh/Wh) influye en autonomía, no en compatibilidad."
+        - "Filtros: mide diámetro/forma; algunos modelos cambian HEPA por pre-filtro según año."
+        - "Prioriza vendedores con devoluciones y reseñas recientes; evita anuncios genéricos sin lista de compatibilidad."
 
 brands:
   dyson:
@@ -35,65 +45,454 @@ brands:
       - model: "V8"
         slug: "dyson-v8"
         series: "V"
-        intro: "El Dyson V8 es un aspirador inalámbrico popular por su equilibrio entre potencia y autonomía. La mayoría de problemas se resuelven con mantenimiento de filtros y revisión de obstrucciones."
+        intro: "El Dyson V8 es un inalámbrico muy extendido: buen equilibrio entre potencia y autonomía. Los recambios más habituales son filtro, rodillo y batería."
         compatibilidad:
-          - "Recambios compatibles con Dyson V8 (no V8 Slim si el vendedor lo indica distinto)."
+          - "La mayoría de accesorios V8 comparten anclaje con variantes V8 Animal/Absolute (confirma en anuncio)."
+          - "Ojo con V8 Slim: algunos filtros/depósitos cambian."
         recambios:
           bateria:
-            - title: "Batería compatible Dyson V8 21.6V"
-              url: "https://example.com/dyson-v8-bateria"
-              note: "Comprueba que indique 21.6V y compatibilidad V8."
+            - title: "Batería 21.6V compatible Dyson V8 (tipo click-in)"
+              url: "https://example.com/dyson-v8-bateria-216"
+              vendor: "AliExpress"
+              price: "24,90 €"
+              rating: "4.6"
+              note: "Confirma 21.6V y el conector (click-in). Evita baterías sin BMS."
+            - title: "Batería Dyson V8 premium 3000mAh (alta autonomía)"
+              url: "https://example.com/dyson-v8-bateria-premium"
+              vendor: "Amazon"
+              price: "34,99 €"
+              rating: "4.7"
+              note: "Más autonomía; revisa compatibilidad con tu submodelo."
           filtro:
-            - title: "Filtro HEPA compatible V8"
-              url: "https://example.com/dyson-v8-filtro"
+            - title: "Filtro HEPA lavable compatible Dyson V8 (pack 2)"
+              url: "https://example.com/dyson-v8-filtro-pack"
+              vendor: "AliExpress"
+              price: "9,50 €"
+              rating: "4.5"
+              note: "Lavar y secar 24h. Si se monta húmedo, baja succión y se protege."
           cepillo:
-            - title: "Rodillo/cepillo principal compatible V8"
+            - title: "Rodillo/cepillo principal compatible V8 (motorhead)"
               url: "https://example.com/dyson-v8-cepillo"
+              vendor: "Amazon"
+              price: "29,90 €"
+              rating: "4.4"
+              note: "Si no gira, revisa pelos/hilos y el microinterruptor del cabezal."
           cargador:
-            - title: "Cargador compatible V8"
+            - title: "Cargador 26.1V compatible Dyson V8 (EU)"
               url: "https://example.com/dyson-v8-cargador"
+              vendor: "AliExpress"
+              price: "14,80 €"
+              rating: "4.6"
+          deposito:
+            - title: "Depósito/ciclón compatible Dyson V8 (sin tornillería)"
+              url: "https://example.com/dyson-v8-deposito"
+              vendor: "AliExpress"
+              price: "18,90 €"
+              rating: "4.4"
+              note: "Comprueba pestañas y junta. Si fuga polvo, suele ser junta o encaje."
+          accesorios:
+            - title: "Kit accesorios V8: boquilla estrecha + cepillo suave + adaptador"
+              url: "https://example.com/dyson-v8-accesorios"
+              vendor: "AliExpress"
+              price: "12,99 €"
+              rating: "4.7"
+              note: "Ideal para coche y rincones; revisa tipo de acople."
         fallos:
           - symptom: "Pierde succión"
             causes:
               - "Filtro sucio o húmedo"
-              - "Obstrucción en tubo/ciclón"
+              - "Obstrucción en tubo/codo/ciclón"
+              - "Depósito lleno o mal encajado"
             checks:
-              - "Lava y seca filtro 24h"
-              - "Revisa tubo y entradas de aire"
+              - "Lava filtro y seca 24h completas"
+              - "Revisa tubo y entradas; usa linterna"
+              - "Comprueba junta/encaje del depósito"
           - symptom: "Se apaga a los pocos segundos"
             causes:
-              - "Filtro obstruido"
               - "Protección térmica por bloqueo"
+              - "Filtro obstruido"
+              - "Batería degradada"
             checks:
-              - "Limpia filtros y ciclón"
-              - "Revisa cepillo por pelos/hilos"
+              - "Limpia rodillo y conductos"
+              - "Deja enfriar 20 min y prueba"
+              - "Si autonomía es muy baja, cambia batería"
+          - symptom: "El cepillo no gira"
+            causes:
+              - "Rodillo atascado por pelos/hilos"
+              - "Conector del cabezal sucio"
+              - "Motor del cabezal fatigado"
+            checks:
+              - "Retira rodillo y limpia al 100%"
+              - "Limpia pines/contactos con alcohol isopropílico"
+              - "Prueba otro cabezal para aislar fallo"
 
       - model: "V10"
         slug: "dyson-v10"
         series: "V"
-        intro: "El Dyson V10 aumenta capacidad y potencia respecto al V8. Los recambios más demandados suelen ser filtros, rodillos y baterías."
+        intro: "El Dyson V10 sube potencia y capacidad respecto al V8. Filtros y cepillos suelen ser el punto clave; la batería cae con el uso intensivo."
         compatibilidad:
-          - "Ojo con variantes (V10 Absolute, Animal). Normalmente comparten filtros/rodillos, pero confirma en el anuncio."
+          - "Variantes (Absolute/Animal) suelen compartir consumibles, pero confirma referencia."
         recambios:
           bateria:
-            - title: "Batería compatible Dyson V10"
+            - title: "Batería compatible Dyson V10 25.2V (click-in)"
               url: "https://example.com/dyson-v10-bateria"
+              vendor: "AliExpress"
+              price: "29,90 €"
+              rating: "4.6"
+              note: "Verifica 25.2V y formato."
           filtro:
-            - title: "Filtro compatible Dyson V10"
+            - title: "Filtro lavable Dyson V10 (pack 2)"
               url: "https://example.com/dyson-v10-filtro"
+              vendor: "Amazon"
+              price: "12,90 €"
+              rating: "4.6"
           cepillo:
-            - title: "Cepillo compatible Dyson V10"
+            - title: "Cepillo principal Dyson V10 compatible (motorhead)"
               url: "https://example.com/dyson-v10-cepillo"
+              vendor: "AliExpress"
+              price: "27,50 €"
+              rating: "4.4"
           cargador:
-            - title: "Cargador compatible Dyson V10"
+            - title: "Cargador compatible Dyson V10 30.45V"
               url: "https://example.com/dyson-v10-cargador"
+              vendor: "AliExpress"
+              price: "16,90 €"
+              rating: "4.5"
         fallos:
-          - symptom: "No carga"
+          - symptom: "No carga / no enciende"
             causes:
               - "Cargador defectuoso"
               - "Conector sucio"
-              - "Batería degradada"
+              - "Batería agotada"
             checks:
               - "Prueba otro cargador compatible"
               - "Limpia el conector con aire/cepillo"
-              - "Si dura muy poco, considera cambiar batería"
+              - "Si dura segundos, batería suele estar degradada"
+
+      - model: "V11"
+        slug: "dyson-v11"
+        series: "V"
+        intro: "El Dyson V11 incorpora gestión inteligente y más potencia. Los fallos típicos se concentran en filtros, obstrucciones y batería con ciclos altos."
+        compatibilidad:
+          - "Revisa si es V11 Torque Drive / Animal: algunos accesorios cambian."
+        recambios:
+          bateria:
+            - title: "Batería Dyson V11 compatible (alta capacidad)"
+              url: "https://example.com/dyson-v11-bateria"
+              vendor: "Amazon"
+              price: "44,90 €"
+              rating: "4.5"
+          filtro:
+            - title: "Filtro Dyson V11 compatible (HEPA lavable)"
+              url: "https://example.com/dyson-v11-filtro"
+              vendor: "AliExpress"
+              price: "10,99 €"
+              rating: "4.6"
+          cepillo:
+            - title: "Cepillo High Torque compatible Dyson V11"
+              url: "https://example.com/dyson-v11-cepillo"
+              vendor: "AliExpress"
+              price: "34,90 €"
+              rating: "4.4"
+        fallos:
+          - symptom: "Mensaje de bloqueo / succión irregular"
+            causes:
+              - "Obstrucción parcial en ciclón o tubo"
+              - "Filtro saturado"
+            checks:
+              - "Desmonta tubo y revisa con luz"
+              - "Lava y seca filtro correctamente"
+
+  rowenta:
+    name: "Rowenta"
+    models:
+      - model: "X-Force Flex 11.60"
+        slug: "rowenta-xforce-flex-1160"
+        series: "X-Force Flex"
+        intro: "Rowenta X-Force Flex destaca por su tubo flexible y buen equilibrio doméstico. Los consumibles más habituales: filtro, cepillo y batería (según versión)."
+        compatibilidad:
+          - "Hay subversiones (RH98xx/RH99xx): confirma referencia exacta."
+          - "Filtros cambian entre generaciones: compara forma/encaje."
+        recambios:
+          filtro:
+            - title: "Filtro compatible Rowenta X-Force Flex 11.60 (HEPA)"
+              url: "https://example.com/rowenta-1160-filtro"
+              vendor: "Amazon"
+              price: "14,95 €"
+              rating: "4.4"
+              note: "Comprueba referencia RH98xx/RH99xx."
+          cepillo:
+            - title: "Rodillo/cepillo motorizado X-Force Flex 11.60"
+              url: "https://example.com/rowenta-1160-cepillo"
+              vendor: "AliExpress"
+              price: "22,90 €"
+              rating: "4.3"
+          bateria:
+            - title: "Batería compatible X-Force Flex 11.60 (según versión)"
+              url: "https://example.com/rowenta-1160-bateria"
+              vendor: "AliExpress"
+              price: "39,90 €"
+              rating: "4.2"
+              note: "Revisa voltaje y conector. Ideal si autonomía ha caído mucho."
+          accesorios:
+            - title: "Kit accesorios: boquilla estrecha + cepillo tapicería"
+              url: "https://example.com/rowenta-1160-accesorios"
+              vendor: "AliExpress"
+              price: "11,50 €"
+              rating: "4.6"
+        fallos:
+          - symptom: "Pierde potencia en alfombras"
+            causes:
+              - "Filtro saturado"
+              - "Rodillo con fibras/hilos"
+              - "Conducto flexible parcialmente obstruido"
+            checks:
+              - "Lava/cambia filtro"
+              - "Limpia rodillo al 100%"
+              - "Revisa tramo flexible (se acumula ahí)"
+          - symptom: "No carga o carga intermitente"
+            causes:
+              - "Base/cargador defectuoso"
+              - "Conector sucio"
+            checks:
+              - "Limpia contactos"
+              - "Prueba otro cargador si es compatible"
+
+      - model: "X-Force Flex 8.60"
+        slug: "rowenta-xforce-flex-860"
+        series: "X-Force Flex"
+        intro: "Versión más ligera del sistema Flex. Ideal para pisos: lo que más se cambia son filtros y rodillos."
+        compatibilidad:
+          - "Confirma referencia exacta del filtro; hay variantes por año."
+        recambios:
+          filtro:
+            - title: "Filtro compatible X-Force Flex 8.60 (pack)"
+              url: "https://example.com/rowenta-860-filtro"
+              vendor: "AliExpress"
+              price: "9,99 €"
+              rating: "4.5"
+          cepillo:
+            - title: "Rodillo cepillo motorizado X-Force 8.60"
+              url: "https://example.com/rowenta-860-cepillo"
+              vendor: "AliExpress"
+              price: "19,90 €"
+              rating: "4.3"
+        fallos:
+          - symptom: "Ruido fuerte y vibración"
+            causes:
+              - "Rodillo desequilibrado por residuos"
+              - "Cojinetes del rodillo dañados"
+            checks:
+              - "Limpia y revisa rodillo"
+              - "Si vibra sin residuos, cambia rodillo"
+
+  philips:
+    name: "Philips"
+    models:
+      - model: "SpeedPro Max"
+        slug: "philips-speedpro-max"
+        series: "SpeedPro"
+        intro: "Philips SpeedPro Max es muy común en hogares: filtros y cepillos se degradan con uso frecuente y mascotas."
+        compatibilidad:
+          - "SpeedPro vs SpeedPro Max: cambia el cabezal en algunas versiones."
+        recambios:
+          filtro:
+            - title: "Filtro compatible Philips SpeedPro Max (lavable)"
+              url: "https://example.com/philips-speedpro-filtro"
+              vendor: "Amazon"
+              price: "13,90 €"
+              rating: "4.5"
+          cepillo:
+            - title: "Cepillo 360° compatible SpeedPro Max"
+              url: "https://example.com/philips-speedpro-cepillo"
+              vendor: "AliExpress"
+              price: "25,90 €"
+              rating: "4.2"
+          bateria:
+            - title: "Batería compatible SpeedPro Max (según versión)"
+              url: "https://example.com/philips-speedpro-bateria"
+              vendor: "AliExpress"
+              price: "36,90 €"
+              rating: "4.1"
+        fallos:
+          - symptom: "Succión baja aunque el depósito está vacío"
+            causes:
+              - "Filtro saturado"
+              - "Entrada del ciclón con obstrucción"
+            checks:
+              - "Lava/cambia filtro"
+              - "Revisa codos y entrada del depósito"
+
+  bosch:
+    name: "Bosch"
+    models:
+      - model: "Unlimited Serie 6"
+        slug: "bosch-unlimited-serie-6"
+        series: "Unlimited"
+        intro: "Bosch Unlimited Serie 6 destaca por baterías intercambiables en algunas versiones. Los recambios clave son filtros y rodillos; batería si cae autonomía."
+        compatibilidad:
+          - "Unlimited Serie 6/7/8: algunos accesorios cambian; valida referencia del cabezal."
+        recambios:
+          bateria:
+            - title: "Batería compatible Bosch Unlimited (tipo Power for All)"
+              url: "https://example.com/bosch-unlimited-bateria"
+              vendor: "Amazon"
+              price: "49,90 €"
+              rating: "4.6"
+              note: "Comprueba si tu modelo usa sistema Power for All."
+          filtro:
+            - title: "Filtro HEPA compatible Bosch Unlimited Serie 6"
+              url: "https://example.com/bosch-unlimited-filtro"
+              vendor: "AliExpress"
+              price: "11,90 €"
+              rating: "4.4"
+          cepillo:
+            - title: "Cepillo motorizado compatible Bosch Unlimited"
+              url: "https://example.com/bosch-unlimited-cepillo"
+              vendor: "AliExpress"
+              price: "28,90 €"
+              rating: "4.2"
+        fallos:
+          - symptom: "Autonomía muy baja"
+            causes:
+              - "Batería con ciclos altos"
+              - "Modo turbo constante"
+              - "Filtro sucio aumenta consumo"
+            checks:
+              - "Prueba en modo normal"
+              - "Limpia filtros"
+              - "Si sigue igual, sustituye batería"
+
+  cecotec:
+    name: "Cecotec"
+    models:
+      - model: "Conga Rockstar 1500"
+        slug: "cecotec-conga-rockstar-1500"
+        series: "Rockstar"
+        intro: "Cecotec Rockstar es muy popular por precio. Lo más importante es clavar compatibilidad por versión: filtros y rodillos cambian más de lo que parece."
+        compatibilidad:
+          - "Rockstar 1500 vs 2000/2500: no asumas compatibilidad; compara fotos y referencias."
+        recambios:
+          filtro:
+            - title: "Filtro compatible Conga Rockstar 1500 (pack 2)"
+              url: "https://example.com/cecotec-1500-filtro"
+              vendor: "AliExpress"
+              price: "8,99 €"
+              rating: "4.4"
+              note: "Ideal para tener recambio mientras seca el otro."
+          cepillo:
+            - title: "Rodillo compatible Rockstar 1500 (multi-superficie)"
+              url: "https://example.com/cecotec-1500-cepillo"
+              vendor: "AliExpress"
+              price: "14,90 €"
+              rating: "4.3"
+          bateria:
+            - title: "Batería compatible Rockstar 1500 (según versión)"
+              url: "https://example.com/cecotec-1500-bateria"
+              vendor: "AliExpress"
+              price: "29,90 €"
+              rating: "4.1"
+          cargador:
+            - title: "Cargador compatible Rockstar 1500"
+              url: "https://example.com/cecotec-1500-cargador"
+              vendor: "AliExpress"
+              price: "12,90 €"
+              rating: "4.4"
+          accesorios:
+            - title: "Kit boquillas: estrecha + tapicería + cepillo suave"
+              url: "https://example.com/cecotec-1500-kit"
+              vendor: "AliExpress"
+              price: "9,90 €"
+              rating: "4.6"
+        fallos:
+          - symptom: "No aspira bien desde el primer minuto"
+            causes:
+              - "Filtro incorrecto (no encaja) o saturado"
+              - "Rodillo bloqueado"
+              - "Depósito mal sellado"
+            checks:
+              - "Verifica encaje del filtro y junta"
+              - "Limpia rodillo y conducto"
+              - "Revisa pestañas del depósito"
+
+  xiaomi:
+    name: "Xiaomi"
+    models:
+      - model: "Mi Vacuum Cleaner G10"
+        slug: "xiaomi-mi-vacuum-g10"
+        series: "Mi Vacuum"
+        intro: "Xiaomi G10 es un inalámbrico muy extendido. Sus recambios típicos: filtros y rodillos; batería si baja autonomía tras años."
+        compatibilidad:
+          - "G10 / G10 Plus: algunas piezas varían; compara cabezal y filtro."
+        recambios:
+          filtro:
+            - title: "Filtro HEPA compatible Xiaomi G10 (pack 2)"
+              url: "https://example.com/xiaomi-g10-filtro"
+              vendor: "AliExpress"
+              price: "7,99 €"
+              rating: "4.6"
+          cepillo:
+            - title: "Rodillo compatible Xiaomi G10 (suelo duro)"
+              url: "https://example.com/xiaomi-g10-rodillo"
+              vendor: "AliExpress"
+              price: "9,90 €"
+              rating: "4.5"
+          bateria:
+            - title: "Batería compatible Xiaomi G10 (según lote)"
+              url: "https://example.com/xiaomi-g10-bateria"
+              vendor: "AliExpress"
+              price: "39,90 €"
+              rating: "4.2"
+          accesorios:
+            - title: "Kit accesorios Xiaomi G10: boquilla + cepillo suave"
+              url: "https://example.com/xiaomi-g10-kit"
+              vendor: "AliExpress"
+              price: "10,50 €"
+              rating: "4.7"
+        fallos:
+          - symptom: "Se calienta y baja potencia"
+            causes:
+              - "Filtro saturado"
+              - "Conducto parcial obstruido"
+              - "Uso continuado en turbo"
+            checks:
+              - "Limpia filtro"
+              - "Revisa tubo/codos"
+              - "Descansa 10–15 min y prueba en normal"
+
+  samsung:
+    name: "Samsung"
+    models:
+      - model: "Jet 75"
+        slug: "samsung-jet-75"
+        series: "Jet"
+        intro: "Samsung Jet 75 ofrece buena potencia y acabados. Los consumibles más buscados son filtros y rodillos; batería si notas caída clara."
+        compatibilidad:
+          - "Jet 70/75/90: filtros y cabezales varían según versión."
+        recambios:
+          filtro:
+            - title: "Filtro compatible Samsung Jet 75 (HEPA)"
+              url: "https://example.com/samsung-jet75-filtro"
+              vendor: "Amazon"
+              price: "18,90 €"
+              rating: "4.4"
+          cepillo:
+            - title: "Cepillo compatible Samsung Jet (Turbo Action)"
+              url: "https://example.com/samsung-jet-cepillo"
+              vendor: "AliExpress"
+              price: "31,90 €"
+              rating: "4.2"
+          bateria:
+            - title: "Batería compatible Samsung Jet 75"
+              url: "https://example.com/samsung-jet75-bateria"
+              vendor: "AliExpress"
+              price: "59,90 €"
+              rating: "4.1"
+        fallos:
+          - symptom: "Vibración y ruido en cabezal"
+            causes:
+              - "Rodillo desequilibrado"
+              - "Eje o cojinete con holgura"
+            checks:
+              - "Limpia rodillo"
+              - "Si sigue, cambia rodillo/cabezal"
