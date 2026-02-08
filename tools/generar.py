@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import re
-import shutil
 from pathlib import Path
 
 try:
@@ -10,12 +9,12 @@ try:
 except ImportError:
     raise SystemExit("Falta PyYAML. Instala con: pip install pyyaml")
 
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "aspiradores.yaml"
 CONTENT = ROOT / "content"
 
 
-# ---------- Utils ----------
 def slugify(s: str) -> str:
     s = (s or "").strip().lower()
     s = re.sub(r"[^\w\s-]", "", s, flags=re.UNICODE)
@@ -28,176 +27,188 @@ def ensure_dir(p: Path) -> None:
 
 
 def write_file(path: Path, content: str, force: bool = False) -> None:
-    """
-    Escribe archivo si no existe, o si force=True.
-    """
+    """Write content to path. If force=False, only write if missing."""
     if path.exists() and not force:
         return
     ensure_dir(path.parent)
     path.write_text(content, encoding="utf-8")
 
 
-def is_generated_stub(path: Path) -> bool:
+def fm(
+    *,
+    title: str,
+    slug: str,
+    kind: str | None = None,
+    extra: dict | None = None,
+    generated: bool = True,
+) -> str:
     """
-    True si el archivo contiene 'generated: true' en el front matter.
-    """
-    if not path.exists():
-        return False
-    try:
-        txt = path.read_text(encoding="utf-8", errors="ignore")
-    except Exception:
-        return False
-    return "generated: true" in txt
+    Front matter YAML delimitado por ---.
 
+    - kind: si None, NO se escribe 'type' (Hugo usará section por defecto).
+    - extra: dict adicional a volcar en YAML.
+    """
+    data: dict = {
+        "title": title,
+        "slug": slug,
+        "draft": False,
+    }
+    if generated:
+        data["generated"] = True
 
-def fm(title: str, slug: str, kind: str, extra_lines: list[str] | None = None) -> str:
-    """
-    Front matter SIEMPRE bien cerrado.
-    """
-    extra_lines = extra_lines or []
-    extra = "\n".join([ln.rstrip() for ln in extra_lines if ln.strip()])
+    if kind:  # solo si lo queremos explícito
+        data["type"] = kind
+
     if extra:
-        extra = "\n" + extra + "\n"
-    return (
-        "---\n"
-        f'title: "{title}"\n'
-        f'slug: "{slug}"\n'
-        f'type: "{kind}"\n'
-        "draft: false\n"
-        "generated: true\n"
-        f"{extra}"
-        "---\n"
-    )
+        data.update(extra)
+
+    # YAML "bonito" y estable
+    body = yaml.safe_dump(
+        data,
+        sort_keys=False,
+        allow_unicode=True,
+        default_flow_style=False,
+    ).strip()
+
+    return f"---\n{body}\n---\n"
 
 
-def read_yaml() -> dict:
+def load_db() -> dict:
     if not DATA.exists():
         raise SystemExit(f"No existe {DATA}")
     return yaml.safe_load(DATA.read_text(encoding="utf-8")) or {}
 
 
-# ---------- Cleaning ----------
-def clean_model_dirs(valid_slugs: set[str], dry_run: bool) -> None:
-    """
-    Borra directorios content/modelos/<slug>/ que NO estén en valid_slugs,
-    solo si dentro hay un index.md generado.
-    """
-    modelos_dir = CONTENT / "modelos"
-    if not modelos_dir.exists():
-        return
-
-    for d in modelos_dir.iterdir():
-        if not d.is_dir():
-            continue
-        slug = d.name
-        if slug in valid_slugs:
-            continue
-
-        idx = d / "index.md"
-        old = d / "_index.md"
-
-        # solo borrar si es generado (index o _index)
-        if is_generated_stub(idx) or is_generated_stub(old):
-            if dry_run:
-                print(f"[DRY-RUN] Borraría: {d}")
-            else:
-                print(f"Borrando: {d}")
-                shutil.rmtree(d, ignore_errors=True)
-        else:
-            print(f"[SKIP] No borro (no parece generado): {d}")
+def clean_modelos_dir() -> None:
+    modelos = CONTENT / "modelos"
+    if modelos.exists():
+        # Borramos solo el contenido interno (manteniendo carpeta base)
+        for child in modelos.iterdir():
+            if child.name == "_index.md":
+                continue
+            if child.is_dir():
+                for p in sorted(child.rglob("*"), reverse=True):
+                    if p.is_file():
+                        p.unlink()
+                    else:
+                        p.rmdir()
+                child.rmdir()
+            elif child.is_file():
+                child.unlink()
 
 
-# ---------- Main ----------
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Genera stubs Hugo desde data/aspiradores.yaml")
-    ap.add_argument("--force", action="store_true", help="Sobrescribe stubs generados (útil si se rompió el front matter).")
-    ap.add_argument("--clean-modelos", action="store_true", help="Elimina carpetas de modelos generadas que ya no existan en YAML.")
-    ap.add_argument("--dry-run", action="store_true", help="Con --clean-modelos: simula sin borrar.")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--force", action="store_true", help="Sobrescribe stubs generados")
+    ap.add_argument(
+        "--clean-modelos",
+        action="store_true",
+        help="Limpia content/modelos (excepto modelos/_index.md) antes de generar",
+    )
     args = ap.parse_args()
 
-    db = read_yaml()
-    brands = db.get("brands") or {}
-    if not isinstance(brands, dict):
-        raise SystemExit("ERROR: brands debe ser un mapa/dict en YAML")
+    db = load_db()
+    brands = (db.get("brands", {}) or {})
 
-    # ---- Secciones (branch bundles) ----
-    # Sobrescribimos solo si --force y el archivo era generado
-    def write_section(path: Path, content: str) -> None:
-        if path.exists() and not args.force:
-            return
-        if path.exists() and args.force and not is_generated_stub(path):
-            # No machacamos páginas manuales
-            return
-        write_file(path, content, force=True)
+    if args.clean_modelos:
+        clean_modelos_dir()
+        print("OK: limpieza ejecutada.")
 
-    write_section(CONTENT / "_index.md", fm("Inicio", "", "home"))
-    write_section(CONTENT / "guias" / "_index.md", fm("Guías", "guias", "guias"))
-    write_section(CONTENT / "marcas" / "_index.md", fm("Marcas", "marcas", "marcas"))
-    write_section(CONTENT / "modelos" / "_index.md", fm("Modelos", "modelos", "modelos"))
+    # HOME + secciones (branch bundles => _index.md)
+    write_file(
+        CONTENT / "_index.md",
+        fm(title="Inicio", slug="", kind="home", extra=None),
+        force=args.force,
+    )
+    write_file(
+        CONTENT / "marcas" / "_index.md",
+        fm(title="Marcas", slug="marcas", kind="marcas"),
+        force=args.force,
+    )
+    write_file(
+        CONTENT / "modelos" / "_index.md",
+        fm(title="Modelos", slug="modelos", kind="modelos"),
+        force=args.force,
+    )
+    write_file(
+        CONTENT / "guias" / "_index.md",
+        fm(title="Guías", slug="guias", kind="guias"),
+        force=args.force,
+    )
 
-    # ---- Guías (páginas sueltas) ----
-    # Estas son stubs: si están rotas y son generated, con --force se arreglan.
-    def write_stub(path: Path, content: str) -> None:
-        if path.exists() and not args.force:
-            return
-        if path.exists() and args.force and not is_generated_stub(path):
-            return
-        write_file(path, content, force=True)
+    # Guías genéricas (leaf pages => .md normal)
+    write_file(
+        CONTENT / "guias" / "seguridad.md",
+        fm(
+            title="Seguridad",
+            slug="seguridad",
+            kind="guia",
+            extra={"guideKey": "seguridad"},
+        ),
+        force=args.force,
+    )
+    write_file(
+        CONTENT / "guias" / "mantenimiento.md",
+        fm(
+            title="Mantenimiento",
+            slug="mantenimiento",
+            kind="guia",
+            extra={"guideKey": "mantenimiento"},
+        ),
+        force=args.force,
+    )
+    write_file(
+        CONTENT / "guias" / "compra.md",
+        fm(
+            title="Cómo elegir recambio",
+            slug="compra",
+            kind="guia",
+            extra={"guideKey": "compra"},
+        ),
+        force=args.force,
+    )
 
-    write_stub(CONTENT / "guias" / "seguridad.md", fm("Seguridad", "seguridad", "guia", ['guideKey: "seguridad"']))
-    write_stub(CONTENT / "guias" / "mantenimiento.md", fm("Mantenimiento", "mantenimiento", "guia", ['guideKey: "mantenimiento"']))
-    write_stub(CONTENT / "guias" / "compra.md", fm("Cómo elegir recambio", "compra", "guia", ['guideKey: "compra"']))
-
-    valid_model_slugs: set[str] = set()
-
-    # ---- Marcas + modelos ----
+    # Marcas + modelos
     for brand_key, brand in brands.items():
-        if not isinstance(brand, dict):
-            continue
-
-        brand_name = (brand.get("name") or brand_key).strip()
+        brand = brand or {}
+        brand_name = brand.get("name") or brand_key
         brand_slug = slugify(brand_key)
 
-        # Marca: branch bundle
-        write_stub(
+        # página de marca (branch bundle)
+        write_file(
             CONTENT / "marcas" / brand_slug / "_index.md",
-            fm(brand_name, brand_slug, "marca", [f'brandKey: "{brand_key}"'])
+            fm(
+                title=brand_name,
+                slug=brand_slug,
+                kind="marca",
+                extra={"brandKey": brand_key},
+            ),
+            force=args.force,
         )
 
-        models = brand.get("models") or []
-        if not isinstance(models, list):
-            continue
-
-        for m in models:
-            if not isinstance(m, dict):
-                continue
-
+        # modelos de esa marca (leaf bundle: content/modelos/<slug>/index.md)
+        for m in (brand.get("models", []) or []):
             model_name = (m.get("model") or "").strip()
-            model_slug = (m.get("slug") or "").strip()
-            if not model_slug:
-                model_slug = slugify(f"{brand_key}-{model_name}")
-
-            model_slug = slugify(model_slug)
-            valid_model_slugs.add(model_slug)
-
+            model_slug = (m.get("slug") or "").strip() or slugify(f"{brand_key}-{model_name}")
             title = f"{brand_name} {model_name}".strip()
 
-            # Modelo: leaf bundle => index.md (clave para single)
-            write_stub(
+            # CLAVE: NO forzamos type aquí.
+            # Hugo usará section = "modelos" -> layouts/modelos/single.html
+            write_file(
                 CONTENT / "modelos" / model_slug / "index.md",
-                fm(title, model_slug, "modelo", [
-                    f'brandKey: "{brand_key}"',
-                    f'modelSlug: "{model_slug}"'
-                ])
+                fm(
+                    title=title,
+                    slug=model_slug,
+                    kind=None,  # <-- NO type
+                    extra={
+                        "brandKey": brand_key,
+                        "modelSlug": model_slug,
+                    },
+                ),
+                force=args.force,
             )
 
-    # ---- Limpieza opcional ----
-    if args.clean_modelos:
-        clean_model_dirs(valid_model_slugs, dry_run=args.dry_run)
-
     print("OK: stubs generados.")
-    if args.clean_modelos:
-        print("OK: limpieza ejecutada." if not args.dry_run else "OK: limpieza simulada.")
 
 
 if __name__ == "__main__":

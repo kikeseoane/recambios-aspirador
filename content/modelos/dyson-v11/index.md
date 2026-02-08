@@ -1,10 +1,8 @@
 ---
-title: "Dyson V11"
-slug: "dyson-v11"
-type: "modelo"
+title: Dyson V11
+slug: dyson-v11
 draft: false
 generated: true
-
-brandKey: "dyson"
-modelSlug: "dyson-v11"
+brandKey: dyson
+modelSlug: dyson-v11
 ---

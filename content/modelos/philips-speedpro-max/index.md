@@ -1,10 +1,8 @@
 ---
-title: "Philips SpeedPro Max"
-slug: "philips-speedpro-max"
-type: "modelo"
+title: Philips SpeedPro Max
+slug: philips-speedpro-max
 draft: false
 generated: true
-
-brandKey: "philips"
-modelSlug: "philips-speedpro-max"
+brandKey: philips
+modelSlug: philips-speedpro-max
 ---
