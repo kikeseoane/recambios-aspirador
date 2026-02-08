@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Guías"
 slug: "guias"
 type: "guias"

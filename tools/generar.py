@@ -14,187 +14,191 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "aspiradores.yaml"
 CONTENT = ROOT / "content"
 
+
+# ---------- Utils ----------
 def slugify(s: str) -> str:
     s = (s or "").strip().lower()
     s = re.sub(r"[^\w\s-]", "", s, flags=re.UNICODE)
     s = re.sub(r"[\s_-]+", "-", s)
     return s.strip("-")
 
+
 def ensure_dir(p: Path) -> None:
     p.mkdir(parents=True, exist_ok=True)
 
-def write_if_missing(path: Path, content: str) -> None:
-    if path.exists():
+
+def write_file(path: Path, content: str, force: bool = False) -> None:
+    """
+    Escribe archivo si no existe, o si force=True.
+    """
+    if path.exists() and not force:
         return
     ensure_dir(path.parent)
     path.write_text(content, encoding="utf-8")
 
+
+def is_generated_stub(path: Path) -> bool:
+    """
+    True si el archivo contiene 'generated: true' en el front matter.
+    """
+    if not path.exists():
+        return False
+    try:
+        txt = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return False
+    return "generated: true" in txt
+
+
 def fm(title: str, slug: str, kind: str, extra_lines: list[str] | None = None) -> str:
+    """
+    Front matter SIEMPRE bien cerrado.
+    """
     extra_lines = extra_lines or []
-    extra = "\n".join(extra_lines).strip()
+    extra = "\n".join([ln.rstrip() for ln in extra_lines if ln.strip()])
     if extra:
         extra = "\n" + extra + "\n"
-    return f"""---
-title: "{title}"
-slug: "{slug}"
-type: "{kind}"
-draft: false
-generated: true{extra}---
-"""
+    return (
+        "---\n"
+        f'title: "{title}"\n'
+        f'slug: "{slug}"\n'
+        f'type: "{kind}"\n'
+        "draft: false\n"
+        "generated: true\n"
+        f"{extra}"
+        "---\n"
+    )
+
 
 def read_yaml() -> dict:
     if not DATA.exists():
         raise SystemExit(f"No existe {DATA}")
     return yaml.safe_load(DATA.read_text(encoding="utf-8")) or {}
 
-def get_model_identity(brand_key: str, m: dict) -> tuple[str, str, list[str]]:
-    model_name = (m.get("model") or "").strip()
-    m_slug = (m.get("slug") or "").strip()
-    canonical = (m.get("canonical_slug") or "").strip()
 
-    if not canonical:
-        canonical = m_slug if m_slug else slugify(f"{brand_key}-{model_name}")
-
-    model_id = (m.get("id") or "").strip() or canonical
-
-    aliases: list[str] = []
-    raw_aliases = m.get("aliases") or []
-    if isinstance(raw_aliases, list):
-        aliases.extend([str(a).strip() for a in raw_aliases if str(a).strip()])
-    elif isinstance(raw_aliases, str) and raw_aliases.strip():
-        aliases.extend([x.strip() for x in raw_aliases.split(",") if x.strip()])
-
-    if m_slug and m_slug != canonical and m_slug not in aliases:
-        aliases.append(m_slug)
-
-    canonical = slugify(canonical)
-    model_id = slugify(model_id)
-
-    aliases = [slugify(a) for a in aliases if a]
-    aliases = [a for a in aliases if a and a != canonical]
-    aliases = list(dict.fromkeys(aliases))
-
-    if not canonical:
-        raise SystemExit(f"Modelo sin slug canónico válido en brand={brand_key} model={model_name}")
-
-    return model_id, canonical, aliases
-
-def build_index(db: dict) -> dict:
-    brands = (db.get("brands") or {}) if isinstance(db.get("brands"), dict) else {}
-
-    seen_canonicals: dict[str, str] = {}
-    seen_ids: dict[str, str] = {}
-    problems: list[str] = []
-
-    for brand_key, brand in brands.items():
-        for m in (brand or {}).get("models", []) or []:
-            model_id, canonical, _aliases = get_model_identity(brand_key, m)
-
-            if canonical in seen_canonicals and seen_canonicals[canonical] != model_id:
-                problems.append(f"Duplicado canonical_slug='{canonical}' para ids: {seen_canonicals[canonical]} y {model_id}")
-
-            if model_id in seen_ids and seen_ids[model_id] != canonical:
-                problems.append(f"Duplicado id='{model_id}' apunta a canonicals: {seen_ids[model_id]} y {canonical}")
-
-            seen_canonicals[canonical] = model_id
-            seen_ids[model_id] = canonical
-
-    if problems:
-        msg = "ERRORES de deduplicación en YAML:\n- " + "\n- ".join(problems)
-        raise SystemExit(msg)
-
-    return {"brands": brands}
-
-def is_generated_index(path: Path) -> bool:
-    candidates = [path / "_index.md", path / "index.md"]
-    for idx in candidates:
-        if not idx.exists():
-            continue
-        txt = idx.read_text(encoding="utf-8", errors="ignore")
-        if "generated: true" in txt:
-            return True
-    return False
-
-def clean_duplicate_model_dirs(canonical_slugs: set[str], dry_run: bool = True) -> None:
+# ---------- Cleaning ----------
+def clean_model_dirs(valid_slugs: set[str], dry_run: bool) -> None:
+    """
+    Borra directorios content/modelos/<slug>/ que NO estén en valid_slugs,
+    solo si dentro hay un index.md generado.
+    """
     modelos_dir = CONTENT / "modelos"
     if not modelos_dir.exists():
         return
 
-    for p in modelos_dir.iterdir():
-        if not p.is_dir():
+    for d in modelos_dir.iterdir():
+        if not d.is_dir():
             continue
-        slug = p.name
-        if slug in canonical_slugs:
+        slug = d.name
+        if slug in valid_slugs:
             continue
 
-        if is_generated_index(p):
+        idx = d / "index.md"
+        old = d / "_index.md"
+
+        # solo borrar si es generado (index o _index)
+        if is_generated_stub(idx) or is_generated_stub(old):
             if dry_run:
-                print(f"[DRY-RUN] Borraría duplicado generado: {p}")
+                print(f"[DRY-RUN] Borraría: {d}")
             else:
-                print(f"Borrando duplicado generado: {p}")
-                shutil.rmtree(p, ignore_errors=True)
+                print(f"Borrando: {d}")
+                shutil.rmtree(d, ignore_errors=True)
         else:
-            print(f"[SKIP] No borro (no parece generado): {p}")
+            print(f"[SKIP] No borro (no parece generado): {d}")
 
+
+# ---------- Main ----------
 def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--clean", action="store_true")
-    ap.add_argument("--dry-run", action="store_true")
+    ap = argparse.ArgumentParser(description="Genera stubs Hugo desde data/aspiradores.yaml")
+    ap.add_argument("--force", action="store_true", help="Sobrescribe stubs generados (útil si se rompió el front matter).")
+    ap.add_argument("--clean-modelos", action="store_true", help="Elimina carpetas de modelos generadas que ya no existan en YAML.")
+    ap.add_argument("--dry-run", action="store_true", help="Con --clean-modelos: simula sin borrar.")
     args = ap.parse_args()
 
     db = read_yaml()
-    idx = build_index(db)
-    brands = idx["brands"]
+    brands = db.get("brands") or {}
+    if not isinstance(brands, dict):
+        raise SystemExit("ERROR: brands debe ser un mapa/dict en YAML")
 
-    write_if_missing(CONTENT / "_index.md", fm("Inicio", "", "home"))
-    write_if_missing(CONTENT / "marcas" / "_index.md", fm("Marcas", "marcas", "marcas"))
-    write_if_missing(CONTENT / "modelos" / "_index.md", fm("Modelos", "modelos", "modelos"))
-    write_if_missing(CONTENT / "guias" / "_index.md", fm("Guías", "guias", "guias"))
+    # ---- Secciones (branch bundles) ----
+    # Sobrescribimos solo si --force y el archivo era generado
+    def write_section(path: Path, content: str) -> None:
+        if path.exists() and not args.force:
+            return
+        if path.exists() and args.force and not is_generated_stub(path):
+            # No machacamos páginas manuales
+            return
+        write_file(path, content, force=True)
 
-    write_if_missing(CONTENT / "guias" / "seguridad.md", fm("Seguridad", "seguridad", "guia", ['guideKey: "seguridad"']))
-    write_if_missing(CONTENT / "guias" / "mantenimiento.md", fm("Mantenimiento", "mantenimiento", "guia", ['guideKey: "mantenimiento"']))
-    write_if_missing(CONTENT / "guias" / "compra.md", fm("Cómo elegir recambio", "compra", "guia", ['guideKey: "compra"']))
+    write_section(CONTENT / "_index.md", fm("Inicio", "", "home"))
+    write_section(CONTENT / "guias" / "_index.md", fm("Guías", "guias", "guias"))
+    write_section(CONTENT / "marcas" / "_index.md", fm("Marcas", "marcas", "marcas"))
+    write_section(CONTENT / "modelos" / "_index.md", fm("Modelos", "modelos", "modelos"))
 
-    canonical_slugs: set[str] = set()
+    # ---- Guías (páginas sueltas) ----
+    # Estas son stubs: si están rotas y son generated, con --force se arreglan.
+    def write_stub(path: Path, content: str) -> None:
+        if path.exists() and not args.force:
+            return
+        if path.exists() and args.force and not is_generated_stub(path):
+            return
+        write_file(path, content, force=True)
 
+    write_stub(CONTENT / "guias" / "seguridad.md", fm("Seguridad", "seguridad", "guia", ['guideKey: "seguridad"']))
+    write_stub(CONTENT / "guias" / "mantenimiento.md", fm("Mantenimiento", "mantenimiento", "guia", ['guideKey: "mantenimiento"']))
+    write_stub(CONTENT / "guias" / "compra.md", fm("Cómo elegir recambio", "compra", "guia", ['guideKey: "compra"']))
+
+    valid_model_slugs: set[str] = set()
+
+    # ---- Marcas + modelos ----
     for brand_key, brand in brands.items():
-        brand_name = (brand or {}).get("name") or brand_key
+        if not isinstance(brand, dict):
+            continue
+
+        brand_name = (brand.get("name") or brand_key).strip()
         brand_slug = slugify(brand_key)
 
-        write_if_missing(
+        # Marca: branch bundle
+        write_stub(
             CONTENT / "marcas" / brand_slug / "_index.md",
-            fm(f"{brand_name}", brand_slug, "marca", [f'brandKey: "{brand_key}"'])
+            fm(brand_name, brand_slug, "marca", [f'brandKey: "{brand_key}"'])
         )
 
-        for m in (brand or {}).get("models", []) or []:
-            model = (m.get("model") or "").strip()
-            model_id, canonical, aliases = get_model_identity(brand_key, m)
+        models = brand.get("models") or []
+        if not isinstance(models, list):
+            continue
 
-            canonical_slugs.add(canonical)
+        for m in models:
+            if not isinstance(m, dict):
+                continue
 
-            title = f"{brand_name} {model}".strip()
+            model_name = (m.get("model") or "").strip()
+            model_slug = (m.get("slug") or "").strip()
+            if not model_slug:
+                model_slug = slugify(f"{brand_key}-{model_name}")
 
-            extra_lines = [
-                f'brandKey: "{brand_key}"',
-                f'modelId: "{model_id}"',
-                f'canonicalSlug: "{canonical}"',
-            ]
-            if aliases:
-                extra_lines.append("aliases:")
-                extra_lines.extend([f'  - "{a}"' for a in aliases])
+            model_slug = slugify(model_slug)
+            valid_model_slugs.add(model_slug)
 
-            write_if_missing(
-                CONTENT / "modelos" / canonical / "index.md",
-                fm(title, canonical, "modelo", extra_lines)
+            title = f"{brand_name} {model_name}".strip()
+
+            # Modelo: leaf bundle => index.md (clave para single)
+            write_stub(
+                CONTENT / "modelos" / model_slug / "index.md",
+                fm(title, model_slug, "modelo", [
+                    f'brandKey: "{brand_key}"',
+                    f'modelSlug: "{model_slug}"'
+                ])
             )
 
-    if args.clean:
-        clean_duplicate_model_dirs(canonical_slugs, dry_run=args.dry_run)
+    # ---- Limpieza opcional ----
+    if args.clean_modelos:
+        clean_model_dirs(valid_model_slugs, dry_run=args.dry_run)
 
-    print("OK: stubs creados (solo si faltaban).")
-    if args.clean:
-        print("OK: limpieza ejecutada." if not args.dry_run else "OK: limpieza simulada (dry-run).")
+    print("OK: stubs generados.")
+    if args.clean_modelos:
+        print("OK: limpieza ejecutada." if not args.dry_run else "OK: limpieza simulada.")
+
 
 if __name__ == "__main__":
     main()
-
