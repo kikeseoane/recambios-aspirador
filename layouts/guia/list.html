@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <p class="muted">Guías genéricas reutilizadas para todos los modelos.</p>
+
+  <div class="grid">
+    {{ range .Pages }}
+      <a class="card" href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+        <span class="badge">Guía</span>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}

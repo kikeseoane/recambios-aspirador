@@ -1,13 +1,13 @@
-<div class="topbar">
-  <div class="topbar-inner">
-    <a class="logo" href="{{ "/" | relURL }}">
-      <span class="dot"></span>
-      <span>{{ site.Title }}</span>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ "/" | relURL }}">
+      {{ site.Title }}
+      <span class="brand-badge">Marketplace</span>
     </a>
 
-    <form class="search" action="{{ "/modelos/" | relURL }}" method="get">
-      <input name="q" placeholder="Busca tu modelo (ej: Dyson V8, Rowenta X-Force…)" aria-label="Buscar modelo">
-      <button class="btn" type="submit">Buscar</button>
+    <form class="searchbar" action="{{ "/modelos/" | relURL }}" method="get">
+      <input name="q" placeholder="Busca tu modelo (ej: Dyson V10, Conga 4090)"/>
+      <button type="submit">Buscar</button>
     </form>
 
     <nav class="nav">
@@ -16,4 +16,5 @@
       <a href="{{ "/guias/" | relURL }}">Guías</a>
     </nav>
   </div>
-</div>
+</header>
+

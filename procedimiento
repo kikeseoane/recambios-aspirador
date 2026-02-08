@@ -1,6 +1,15 @@
 # 1) editas data\aspiradores.yaml
 # 2) generas stubs que falten
+Cómo usarlo (Windows)
+
+#Solo generar stubs:
 python tools\generar.py
+
+#Ver qué duplicados borraría (recomendado primero):
+python tools\generar.py --clean --dry-run
+
+#Borrar duplicados generados de verdad:
+python tools\generar.py --clean
 
 # 3) commit + push
 git add data\aspiradores.yaml content\marcas content\modelos

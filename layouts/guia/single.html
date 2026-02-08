@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $key := .Params.guideKey }}
+  {{ $g := index $db.globals.guias_genericas $key }}
+
+  <h1>{{ .Title }}</h1>
+  {{ if $g }}
+    <h2>{{ $g.title }}</h2>
+    <ul class="list">
+      {{ range $g.bullets }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  {{ else }}
+    <p class="muted">No se encontró guideKey en YAML.</p>
+  {{ end }}
+{{ end }}

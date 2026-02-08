@@ -5,21 +5,45 @@
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
 
-  <h2>Marcas</h2>
-  <div class="grid">
+  <div class="section-head">
+    <h2>Marcas</h2>
+    <span class="chip">{{ len $brands }} marcas</span>
+  </div>
+
+  <div class="grid cards">
     {{ range $k, $b := $brands }}
       {{ $slug := $k | urlize }}
       <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
         <h3>{{ $b.name }}</h3>
-        <span class="badge">{{ len $b.models }} modelos</span>
+        <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+        <div class="badges">
+          <span class="badge hot">{{ len $b.models }} modelos</span>
+          {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+        </div>
       </a>
     {{ end }}
   </div>
 
-  <h2 style="margin-top:26px;">Guías rápidas</h2>
-  <div class="grid">
-    <a class="card" href="{{ "/guias/seguridad/" | relURL }}"><h3>Seguridad</h3><p class="muted">Antes de manipular o desmontar.</p></a>
-    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}"><h3>Mantenimiento</h3><p class="muted">Lo que más evita fallos.</p></a>
-    <a class="card" href="{{ "/guias/compra/" | relURL }}"><h3>Elegir recambio</h3><p class="muted">Compatibilidad y criterios.</p></a>
+  <div class="section-head" style="margin-top:18px;">
+    <h2>Guías rápidas</h2>
+    <span class="chip">Checklists reutilizables</span>
+  </div>
+
+  <div class="grid cards">
+    <a class="card" href="{{ "/guias/seguridad/" | relURL }}">
+      <h3>Seguridad</h3>
+      <p class="muted">Antes de manipular o desmontar.</p>
+      <div class="badges"><span class="badge blue">Guía</span></div>
+    </a>
+    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}">
+      <h3>Mantenimiento</h3>
+      <p class="muted">Lo que más evita fallos.</p>
+      <div class="badges"><span class="badge blue">Guía</span></div>
+    </a>
+    <a class="card" href="{{ "/guias/compra/" | relURL }}">
+      <h3>Elegir recambio</h3>
+      <p class="muted">Compatibilidad y criterios.</p>
+      <div class="badges"><span class="badge blue">Guía</span></div>
+    </a>
   </div>
 {{ end }}
