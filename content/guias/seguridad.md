@@ -1,9 +1,8 @@
 ---
-title: "Seguridad"
-slug: "seguridad"
-type: "guia"
+title: Seguridad
+slug: seguridad
 draft: false
 generated: true
-
-guideKey: "seguridad"
+type: guia
+guideKey: seguridad
 ---

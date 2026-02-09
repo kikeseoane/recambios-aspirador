@@ -1,9 +1,8 @@
 ---
-title: "Cómo elegir recambio"
-slug: "compra"
-type: "guia"
+title: Cómo elegir recambio
+slug: compra
 draft: false
 generated: true
-
-guideKey: "compra"
+type: guia
+guideKey: compra
 ---

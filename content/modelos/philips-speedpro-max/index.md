@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max
+title: Philips Philips SpeedPro Max
 slug: philips-speedpro-max
 draft: false
 generated: true

@@ -1,9 +1,8 @@
 ---
-title: "Mantenimiento"
-slug: "mantenimiento"
-type: "guia"
+title: Mantenimiento
+slug: mantenimiento
 draft: false
 generated: true
-
-guideKey: "mantenimiento"
+type: guia
+guideKey: mantenimiento
 ---
