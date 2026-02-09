@@ -1,9 +1,7 @@
 ---
-title: "Bosch"
-slug: "bosch"
-type: "marca"
+title: Bosch
+slug: bosch
 draft: false
 generated: true
-
-brandKey: "bosch"
+brandKey: bosch
 ---

@@ -175,12 +175,13 @@ def main() -> None:
         brand_slug = slugify(brand_key)
 
         # página de marca (branch bundle)
+        # CLAVE: NO forzamos type aquí. Hugo usará section = "marcas" -> layouts/marcas/single.html
         write_file(
             CONTENT / "marcas" / brand_slug / "_index.md",
             fm(
                 title=brand_name,
                 slug=brand_slug,
-                kind="marca",
+                kind=None,  # <-- NO type
                 extra={"brandKey": brand_key},
             ),
             force=args.force,

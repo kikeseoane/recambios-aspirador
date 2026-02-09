@@ -1,9 +1,7 @@
 ---
-title: "Philips"
-slug: "philips"
-type: "marca"
+title: Philips
+slug: philips
 draft: false
 generated: true
-
-brandKey: "philips"
+brandKey: philips
 ---

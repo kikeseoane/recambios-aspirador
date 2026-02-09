@@ -1,9 +1,7 @@
 ---
-title: "Xiaomi"
-slug: "xiaomi"
-type: "marca"
+title: Xiaomi
+slug: xiaomi
 draft: false
 generated: true
-
-brandKey: "xiaomi"
+brandKey: xiaomi
 ---

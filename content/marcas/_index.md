@@ -1,7 +1,7 @@
 ---
-title: "Marcas"
-slug: "marcas"
-type: "marcas"
+title: Marcas
+slug: marcas
 draft: false
 generated: true
+type: marcas
 ---

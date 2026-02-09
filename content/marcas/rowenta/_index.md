@@ -1,9 +1,7 @@
 ---
-title: "Rowenta"
-slug: "rowenta"
-type: "marca"
+title: Rowenta
+slug: rowenta
 draft: false
 generated: true
-
-brandKey: "rowenta"
+brandKey: rowenta
 ---

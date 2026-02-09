@@ -1,9 +1,7 @@
 ---
-title: "Cecotec"
-slug: "cecotec"
-type: "marca"
+title: Cecotec
+slug: cecotec
 draft: false
 generated: true
-
-brandKey: "cecotec"
+brandKey: cecotec
 ---
