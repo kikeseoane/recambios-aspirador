@@ -14,14 +14,19 @@
       <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
       <a class="chip" href="{{ "/modelos/" | relURL }}">Ver todos los modelos</a>
     </div>
+
   {{ else }}
 
-    {{/* Buscar el modelo en YAML por slug/canonical/id */}}
+    {{/* Buscar modelo en YAML */}}
     {{ $model := dict }}
-    {{ range $m := $brand.models }}
-      {{ $mid := (or $m.slug $m.canonical_slug $m.id) | urlize }}
-      {{ if eq $mid $modelSlug }}
-        {{ $model = $m }}
+    {{ $models := $brand.models }}
+
+    {{ if and $models (eq (printf "%T" $models) "[]interface {}") }}
+      {{ range $m := $models }}
+        {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+        {{ if eq $mid $modelSlug }}
+          {{ $model = $m }}
+        {{ end }}
       {{ end }}
     {{ end }}
 
@@ -43,23 +48,24 @@
           <a class="chip" href="{{ "/modelos/" | relURL }}">Todos los modelos</a>
         </div>
       </div>
+
     {{ else }}
 
       <div class="breadcrumbs">
         <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
         <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
         <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
-        <span>{{ $brand.name }} {{ $model.model }}</span>
+        <span>{{ $brand.name }} {{ index $model "model" }}</span>
       </div>
 
       <div class="hero" style="margin-top:10px;">
         <div class="kicker">Modelo</div>
-        <h1>{{ $brand.name }} {{ $model.model }}</h1>
-        {{ with $model.intro }}<p class="muted">{{ . }}</p>{{ end }}
+        <h1>{{ $brand.name }} {{ index $model "model" }}</h1>
+        {{ with (index $model "intro") }}<p class="muted">{{ . }}</p>{{ end }}
 
         <div class="chips">
-          {{ with $model.series }}<span class="chip active">Serie {{ . }}</span>{{ end }}
-          {{ with $model.year_range }}<span class="chip">{{ . }}</span>{{ end }}
+          {{ with (index $model "series") }}<span class="chip active">Serie {{ . }}</span>{{ end }}
+          {{ with (index $model "year_range") }}<span class="chip">{{ . }}</span>{{ end }}
           <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
           <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
           <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
@@ -70,10 +76,15 @@
         <div class="panel">
           <h2 style="margin-top:0;">Compatibilidad rápida</h2>
 
-          {{ if $model.compatibilidad }}
-            <ul class="list">
-              {{ range $model.compatibilidad }}<li>{{ . }}</li>{{ end }}
-            </ul>
+          {{ $compat := index $model "compatibilidad" }}
+          {{ if $compat }}
+            {{ if eq (printf "%T" $compat) "[]interface {}" }}
+              <ul class="list">
+                {{ range $compat }}<li>{{ . }}</li>{{ end }}
+              </ul>
+            {{ else }}
+              <p class="muted">{{ $compat }}</p>
+            {{ end }}
           {{ else }}
             <p class="muted">Consejo: confirma variante exacta (Animal/Absolute/etc.) y compara encajes en el anuncio.</p>
           {{ end }}
@@ -81,108 +92,103 @@
           <hr>
 
           <h2 style="margin-top:0;">Recambios compatibles</h2>
-          <p class="muted small">Enlaces directos a tiendas externas. Verifica compatibilidad exacta antes de comprar.</p>
+          <p class="muted small">Enlaces a AliExpress (externo). Verifica compatibilidad exacta antes de comprar.</p>
 
           {{ $cats := $db.globals.categorias_recambios }}
-          {{ range $cat := $cats }}
-            {{ $items := index $model.recambios $cat.key }}
+          {{ $rec := index $model "recambios" }}
 
-            {{ if $items }}
-              <h2 style="margin-bottom:8px;">{{ $cat.label }}</h2>
+          {{ if and $cats (eq (printf "%T" $cats) "[]interface {}") (and $rec (eq (printf "%T" $rec) "map[string]interface {}")) }}
+            {{ range $cat := $cats }}
+              {{ $catKey := index $cat "key" }}
+              {{ $catLabel := index $cat "label" }}
+              {{ $catIcon := index $cat "icon" }}
 
-              <div class="products">
-                {{ range $it := $items }}
-                  <div class="product">
-                    <div class="img">{{ $cat.icon | default "🧩" }}</div>
+              {{ $items := index $rec $catKey }}
+              {{ if $items }}
+                <h2 style="margin-bottom:8px;">{{ $catLabel }}</h2>
 
-                    <div class="body">
-                      <div class="title">{{ $it.title }}</div>
+                <div class="products">
+                  {{ if eq (printf "%T" $items) "[]interface {}" }}
+                    {{ range $it := $items }}
+                      <div class="product">
+                        <div class="img">{{ $catIcon | default "🧩" }}</div>
 
-                      {{ $cur := or $it.currency "EUR" }}
-                      {{ if or $it.price_from $it.price_to }}
-                        <div class="price">
-                          <span class="now">
-                            {{ if $it.price_from }}{{ printf "%.2f" $it.price_from }}{{ end }}
-                            {{ if and $it.price_from $it.price_to }}–{{ end }}
-                            {{ if $it.price_to }}{{ printf "%.2f" $it.price_to }}{{ end }}
-                            {{ $cur }}
-                          </span>
-                        </div>
-                      {{ end }}
+                        <div class="body">
+                          <div class="title">{{ index $it "title" }}</div>
 
-                      <div class="meta-row">
-                        {{ if $it.rating }}<span class="star">★ {{ $it.rating }}</span>{{ end }}
-                        {{ if $it.reviews }}<span class="muted">{{ $it.reviews }} reseñas</span>{{ end }}
-                      </div>
-
-                      {{ if $it.badges }}
-                        <div class="badges" style="margin-top:10px;">
-                          {{ range $b := $it.badges }}
-                            <span class="badge">{{ $b }}</span>
+                          {{ with (index $it "note") }}
+                            <div class="note muted" style="margin-top:10px;">{{ . }}</div>
                           {{ end }}
+
+                          <div class="cta">
+                            {{/* Migración SKU: si existe sku lo mostramos; si existe url, link */}}
+                            {{ if (index $it "url") }}
+                              <a class="btn-buy" href="{{ index $it "url" }}" rel="nofollow sponsored" target="_blank">Ver en AliExpress</a>
+                            {{ else if (index $it "sku") }}
+                              <span class="badge">SKU: {{ index $it "sku" }}</span>
+                            {{ else }}
+                              <span class="badge">En preparación</span>
+                            {{ end }}
+                          </div>
                         </div>
-                      {{ end }}
-
-                      {{ with $it.note }}
-                        <div class="note muted" style="margin-top:10px;">{{ . }}</div>
-                      {{ end }}
-
-                      <div class="cta">
-                        <a class="btn-buy" href="{{ $it.url }}" rel="nofollow sponsored" target="_blank">Ver oferta</a>
                       </div>
+                    {{ end }}
+                  {{ else }}
+                    <div class="card">
+                      <p class="muted">Recambios mal formateados en YAML (esperaba lista).</p>
                     </div>
-                  </div>
-                {{ end }}
-              </div>
-
-            {{ else }}
-              {{/* No mostramos todas las categorías vacías para no hacer “thin UI” */}}
+                  {{ end }}
+                </div>
+              {{ end }}
             {{ end }}
-          {{ end }}
-
-          {{/* Si no hay recambios en ninguna categoría, mostramos un bloque único */}}
-          {{ $hasAny := false }}
-          {{ range $cat := $cats }}
-            {{ if (index $model.recambios $cat.key) }}{{ $hasAny = true }}{{ end }}
-          {{ end }}
-
-          {{ if not $hasAny }}
-            <div class="card" style="margin-top:14px;">
-              <h3>Recambios en preparación</h3>
-              <p class="muted">Estamos preparando enlaces y compatibilidades para este modelo. Vuelve en breve.</p>
-            </div>
           {{ end }}
 
           <hr>
 
           <h2 style="margin-top:0;">Fallos comunes y checks</h2>
-          {{ if $model.fallos }}
-            <div class="grid cols-2">
-              {{ range $f := $model.fallos }}
-                <div class="panel">
-                  <div class="badge warn">Síntoma</div>
-                  <h3 style="margin:10px 0 8px;">{{ $f.symptom }}</h3>
 
-                  {{ if $f.causas }}
-                    <div class="kicker">Causas probables</div>
-                    <ul>
-                      {{ range $f.causas }}<li>{{ . }}</li>{{ end }}
-                    </ul>
-                  {{ end }}
+          {{ $fallos := index $model "fallos" }}
+          {{ if $fallos }}
+            {{ if eq (printf "%T" $fallos) "[]interface {}" }}
+              <div class="grid cols-2">
+                {{ range $f := $fallos }}
+                  <div class="panel">
+                    <div class="badge warn">Síntoma</div>
+                    <h3 style="margin:10px 0 8px;">{{ index $f "symptom" }}</h3>
 
-                  {{ if $f.checks }}
-                    <div class="kicker">Cómo comprobar</div>
-                    <ul>
-                      {{ range $f.checks }}<li>{{ . }}</li>{{ end }}
-                    </ul>
-                  {{ end }}
+                    {{ $causas := index $f "causas" }}
+                    {{ if $causas }}
+                      <div class="kicker">Causas probables</div>
+                      {{ if eq (printf "%T" $causas) "[]interface {}" }}
+                        <ul>
+                          {{ range $causas }}<li>{{ . }}</li>{{ end }}
+                        </ul>
+                      {{ else }}
+                        <p class="muted">{{ $causas }}</p>
+                      {{ end }}
+                    {{ end }}
 
-                  {{ with $f.fix_hint }}
-                    <p class="muted small" style="margin-top:10px;">{{ . }}</p>
-                  {{ end }}
-                </div>
-              {{ end }}
-            </div>
+                    {{ $checks := index $f "checks" }}
+                    {{ if $checks }}
+                      <div class="kicker">Cómo comprobar</div>
+                      {{ if eq (printf "%T" $checks) "[]interface {}" }}
+                        <ul>
+                          {{ range $checks }}<li>{{ . }}</li>{{ end }}
+                        </ul>
+                      {{ else }}
+                        <p class="muted">{{ $checks }}</p>
+                      {{ end }}
+                    {{ end }}
+
+                    {{ with (index $f "fix_hint") }}
+                      <p class="muted small" style="margin-top:10px;">{{ . }}</p>
+                    {{ end }}
+                  </div>
+                {{ end }}
+              </div>
+            {{ else }}
+              <p class="muted">{{ $fallos }}</p>
+            {{ end }}
           {{ else }}
             <p class="muted">Aquí iremos añadiendo los fallos más típicos y las comprobaciones rápidas.</p>
           {{ end }}
@@ -192,12 +198,58 @@
           <h2 style="margin-top:0;">Antes de comprar</h2>
           <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
 
-          {{ $g := $db.globals.guias_genericas }}
+          {{ $gg := $db.globals.guias_genericas }}
+          {{ $compra := "" }}
+          {{ $compraObj := "" }}
+
+          {{ if $gg }}
+            {{ $t := printf "%T" $gg }}
+
+            {{ if eq $t "map[string]interface {}" }}
+              {{ $compra = index $gg "compra" }}
+
+            {{ else if eq $t "[]interface {}" }}
+              {{ range $it := $gg }}
+                {{ if and (eq (printf "%T" $it) "map[string]interface {}") (eq (index $it "key") "compra") }}
+                  {{ $compra = $it }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{/* Normaliza: compraObj debe ser map, no slice */}}
+          {{ if $compra }}
+            {{ $ct := printf "%T" $compra }}
+            {{ if eq $ct "map[string]interface {}" }}
+              {{ $compraObj = $compra }}
+            {{ else if eq $ct "[]interface {}" }}
+              {{ if gt (len $compra) 0 }}
+                {{ $first := index $compra 0 }}
+                {{ if eq (printf "%T" $first) "map[string]interface {}" }}
+                  {{ $compraObj = $first }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
           <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
-            <div class="kicker">{{ $g.compra.title }}</div>
-            <ul class="small">
-              {{ range $g.compra.bullets }}<li>{{ . }}</li>{{ end }}
-            </ul>
+            {{ if $compraObj }}
+              {{ with (index $compraObj "title") }}<div class="kicker">{{ . }}</div>{{ end }}
+
+              {{ $bullets := index $compraObj "bullets" }}
+              {{ if $bullets }}
+                {{ if eq (printf "%T" $bullets) "[]interface {}" }}
+                  <ul class="small">
+                    {{ range $bullets }}<li>{{ . }}</li>{{ end }}
+                  </ul>
+                {{ else }}
+                  <p class="muted small">{{ $bullets }}</p>
+                {{ end }}
+              {{ end }}
+            {{ else }}
+              <div class="kicker">Cómo elegir recambio compatible</div>
+              <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+            {{ end }}
           </div>
 
           <div style="margin-top:12px;">

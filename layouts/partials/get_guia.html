@@ -1,0 +1,37 @@
+{{/* 
+partials/get_guia.html
+Uso:
+  {{ $g := partial "get_guia.html" (dict "db" site.Data.aspiradores "key" "compra") }}
+Devuelve:
+  dict con campos (title, bullets, etc.) o dict vacío si no existe
+Soporta:
+  globals.guias_genericas como MAP o como LISTA (con campo key)
+*/}}
+
+{{ $db := .db }}
+{{ $key := .key }}
+
+{{ $out := dict }}
+
+{{ if and $db $db.globals $db.globals.guias_genericas }}
+  {{ $gg := $db.globals.guias_genericas }}
+
+  {{/* Caso 1: MAP */}}
+  {{ if reflect.IsMap $gg }}
+    {{ $cand := index $gg $key }}
+    {{ if $cand }}
+      {{ $out = $cand }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Caso 2: LISTA */}}
+  {{ if and (not (len $out)) (reflect.IsSlice $gg) }}
+    {{ range $it := $gg }}
+      {{ if and $it (eq ($it.key | default "") $key) }}
+        {{ $out = $it }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return $out }}

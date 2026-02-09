@@ -1,15 +1,66 @@
 {{ define "main" }}
   {{ $db := site.Data.aspiradores }}
   {{ $key := .Params.guideKey }}
-  {{ $g := index $db.globals.guias_genericas $key }}
+
+  {{ $gg := $db.globals.guias_genericas }}
+  {{ $g := "" }}
+
+  {{ if and $gg $key }}
+    {{ $t := printf "%T" $gg }}
+
+    {{ if eq $t "map[string]interface {}" }}
+      {{ $g = index $gg $key }}
+
+    {{ else if eq $t "[]interface {}" }}
+      {{ range $it := $gg }}
+        {{ if and (eq (printf "%T" $it) "map[string]interface {}") (eq (index $it "key") $key) }}
+          {{ $g = $it }}
+        {{ end }}
+      {{ end }}
+
+    {{ end }}
+  {{ end }}
 
   <h1>{{ .Title }}</h1>
+
   {{ if $g }}
-    <h2>{{ $g.title }}</h2>
-    <ul class="list">
-      {{ range $g.bullets }}<li>{{ . }}</li>{{ end }}
-    </ul>
+    {{ $title := "" }}
+    {{ if eq (printf "%T" $g) "map[string]interface {}" }}
+      {{ $title = index $g "title" }}
+    {{ end }}
+    {{ with $title }}<h2>{{ . }}</h2>{{ end }}
+
+    {{ $bullets := "" }}
+    {{ if eq (printf "%T" $g) "map[string]interface {}" }}
+      {{ $bullets = index $g "bullets" }}
+    {{ end }}
+
+    {{ if $bullets }}
+      {{ if eq (printf "%T" $bullets) "[]interface {}" }}
+        <ul class="list">
+          {{ range $bullets }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ else }}
+        <p class="muted">{{ $bullets }}</p>
+      {{ end }}
+    {{ else }}
+      <p class="muted">Guía sin bullets (revisa YAML).</p>
+    {{ end }}
+
+    {{ $extra := "" }}
+    {{ if eq (printf "%T" $g) "map[string]interface {}" }}
+      {{ $extra = index $g "extra" }}
+    {{ end }}
+    {{ if and $extra (eq (printf "%T" $extra) "map[string]interface {}") }}
+      {{ with (index $extra "aviso") }}
+        <div class="card" style="margin-top:14px;">
+          <strong>Aviso</strong>
+          <p class="muted" style="margin:8px 0 0;">{{ . }}</p>
+        </div>
+      {{ end }}
+    {{ end }}
+
   {{ else }}
-    <p class="muted">No se encontró guideKey en YAML.</p>
+    <p class="muted">No se encontró guideKey <strong>{{ $key }}</strong> en data/aspiradores.yaml</p>
   {{ end }}
 {{ end }}

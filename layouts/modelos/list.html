@@ -1,18 +1,33 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-  <p class="muted">Listado global de modelos. (Escala a miles: viene de YAML.)</p>
+  <p class="muted">Listado global de modelos (viene de YAML).</p>
 
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
 
-  <div class="grid">
-    {{ range $bk, $b := $brands }}
-      {{ range $m := $b.models }}
-        <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
-          <h3>{{ $b.name }} {{ $m.model }}</h3>
-          <span class="badge">{{ $b.name }}</span>
-        </a>
+  {{ if not $brands }}
+    <p class="muted">No hay marcas cargadas en data/aspiradores.yaml</p>
+  {{ else }}
+    <div class="grid cards">
+      {{ range $bk, $b := $brands }}
+        {{ $brandName := or $b.name $bk }}
+        {{ $models := $b.models }}
+
+        {{ if and $models (eq (printf "%T" $models) "[]interface {}") }}
+          {{ range $m := $models }}
+            {{ $slug := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+            <a class="card" href="{{ (printf "/modelos/%s/" $slug) | relURL }}">
+              <h3>{{ $brandName }} {{ index $m "model" }}</h3>
+              <div class="badges">
+                <span class="badge">{{ $brandName }}</span>
+                {{ with (index $m "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
+                {{ with (index $m "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
+              <p class="muted" style="margin-top:8px;">Recambios compatibles + fallos comunes.</p>
+            </a>
+          {{ end }}
+        {{ end }}
       {{ end }}
-    {{ end }}
-  </div>
+    </div>
+  {{ end }}
 {{ end }}

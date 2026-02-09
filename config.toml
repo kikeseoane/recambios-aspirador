@@ -13,9 +13,6 @@ enableRobotsTXT = true
   marcas = "/marcas/:slug/"
   guias  = "/guias/:slug/"
 
-[taxonomies]
-  marca = "marcas"
-
 [outputs]
   home = ["HTML", "RSS", "SITEMAP"]
   section = ["HTML", "RSS"]
