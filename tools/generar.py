@@ -79,10 +79,17 @@ def load_db() -> dict:
     return yaml.safe_load(DATA.read_text(encoding="utf-8")) or {}
 
 
+# -------------------------------
+# Limpiezas
+# -------------------------------
+
 def clean_modelos_dir() -> None:
+    """
+    Limpieza "bruta" (legacy):
+    borra todo content/modelos excepto modelos/_index.md.
+    """
     modelos = CONTENT / "modelos"
     if modelos.exists():
-        # Borramos solo el contenido interno (manteniendo carpeta base)
         for child in modelos.iterdir():
             if child.name == "_index.md":
                 continue
@@ -97,22 +104,88 @@ def clean_modelos_dir() -> None:
                 child.unlink()
 
 
+def is_generated_file(path: Path) -> bool:
+    """
+    Detecta si un .md fue generado por el sistema.
+    Criterio: contiene 'generated: true' en el front matter.
+    """
+    if not path.exists() or not path.is_file():
+        return False
+    txt = path.read_text(encoding="utf-8", errors="ignore")
+    return "generated: true" in txt.lower()
+
+
+def safe_clean_section(section_dir: Path) -> None:
+    """
+    Limpia SOLO stubs generados (generated:true) dentro de una sección.
+    Soporta:
+      - leaf bundle:  content/<sec>/<slug>/index.md
+      - branch bundle: content/<sec>/<slug>/_index.md
+      - leaf pages sueltas .md (p.ej. guias/seguridad.md)
+    Mantiene cualquier contenido no generado.
+    """
+    if not section_dir.exists():
+        return
+
+    for child in section_dir.iterdir():
+        # mantenemos el _index.md de la sección (se puede regenerar con --force)
+        if child.is_file() and child.name == "_index.md":
+            continue
+
+        if child.is_dir():
+            idx_leaf = child / "index.md"
+            idx_branch = child / "_index.md"
+
+            if is_generated_file(idx_leaf) or is_generated_file(idx_branch):
+                for p in sorted(child.rglob("*"), reverse=True):
+                    if p.is_file():
+                        p.unlink()
+                    else:
+                        p.rmdir()
+                child.rmdir()
+            # si no parece generado, no tocamos
+            continue
+
+        # archivos .md sueltos
+        if child.is_file() and child.suffix.lower() == ".md":
+            if is_generated_file(child):
+                child.unlink()
+
+
+# -------------------------------
+# Main
+# -------------------------------
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true", help="Sobrescribe stubs generados")
+
     ap.add_argument(
         "--clean-modelos",
         action="store_true",
-        help="Limpia content/modelos (excepto modelos/_index.md) antes de generar",
+        help="(Legacy) Limpia content/modelos (excepto modelos/_index.md) antes de generar",
     )
+
+    ap.add_argument(
+        "--clean-all",
+        action="store_true",
+        help="Limpia stubs generados (generated:true) en content/modelos, content/marcas y content/guias",
+    )
+
     args = ap.parse_args()
 
     db = load_db()
     brands = (db.get("brands", {}) or {})
 
+    if args.clean_all:
+        safe_clean_section(CONTENT / "modelos")
+        safe_clean_section(CONTENT / "marcas")
+        safe_clean_section(CONTENT / "guias")
+        print("OK: limpieza segura (generated:true) ejecutada.")
+
     if args.clean_modelos:
         clean_modelos_dir()
-        print("OK: limpieza ejecutada.")
+        print("OK: limpieza modelos (bruta) ejecutada.")
 
     # HOME + secciones (branch bundles => _index.md)
     write_file(
