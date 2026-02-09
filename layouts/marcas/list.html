@@ -1,17 +1,65 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <p class="muted">Elige una marca para ver sus modelos y recambios compatibles.</p>
-
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
+  {{ $brandKey := .Params.brandKey }}
 
-  <div class="grid">
-    {{ range $k, $b := $brands }}
-      {{ $slug := $k | urlize }}
-      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-        <h3>{{ $b.name }}</h3>
-        <span class="badge">{{ len $b.models }} modelos</span>
-      </a>
+  {{ if $brandKey }}
+    {{ $brand := index $brands $brandKey }}
+
+    {{ if $brand }}
+      <h1>{{ $brand.name }}</h1>
+      <p class="muted">Elige tu modelo para ver recambios compatibles, checks y fallos comunes.</p>
+
+      {{ $models := $brand.models }}
+      {{ if $models }}
+        <div class="grid cards">
+          {{ range $m := $models }}
+            {{ $mslug := (or $m.slug $m.canonical_slug) | urlize }}
+            <a class="card" href="{{ (printf "/modelos/%s/" $mslug) | relURL }}">
+              <h3>{{ $brand.name }} {{ $m.model }}</h3>
+              <div class="badges">
+                {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
+                {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
+              <p class="muted" style="margin-top:8px;">Ver recambios y guía rápida de compatibilidad.</p>
+            </a>
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="card">
+          <h3>Modelos en preparación</h3>
+          <p class="muted">Estamos ampliando esta marca. Vuelve en breve para ver modelos y recambios.</p>
+        </div>
+      {{ end }}
+
+      <div style="margin-top:14px;" class="chips">
+        <a class="chip" href="{{ "/marcas/" | relURL }}">← Volver a marcas</a>
+        <a class="chip" href="{{ "/modelos/" | relURL }}">Ver todos los modelos</a>
+      </div>
+    {{ else }}
+      <h1>Marca no disponible</h1>
+      <p class="muted">No encontramos esa marca en el catálogo actual.</p>
+      <div style="margin-top:14px;" class="chips">
+        <a class="chip" href="{{ "/marcas/" | relURL }}">Volver a marcas</a>
+      </div>
     {{ end }}
-  </div>
+
+  {{ else }}
+    <h1>{{ .Title }}</h1>
+    <p class="muted">Elige una marca para ver sus modelos y recambios compatibles.</p>
+
+    <div class="grid cards">
+      {{ range $k, $b := $brands }}
+        {{ $slug := $k | urlize }}
+        <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          <h3>{{ $b.name }}</h3>
+          <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+          <div class="badges">
+            <span class="badge hot">{{ len $b.models }} modelos</span>
+            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+          </div>
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
 {{ end }}
