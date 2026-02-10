@@ -1,0 +1,1836 @@
+globals:
+  categorias_recambios:
+    - key: bateria
+      label: "Batería"
+      icon: "battery"
+      buy_intent: "compra"
+    - key: filtro
+      label: "Filtros"
+      icon: "filter"
+      buy_intent: "compra"
+    - key: cepillo
+      label: "Cepillos y rodillos"
+      icon: "brush"
+      buy_intent: "compra"
+    - key: cargador
+      label: "Cargadores y fuentes"
+      icon: "plug"
+      buy_intent: "compra"
+    - key: accesorios
+      label: "Accesorios"
+      icon: "tools"
+      buy_intent: "compra"
+  guias_genericas:
+    seguridad:
+      - "Desconecta el aspirador antes de manipular filtros, rodillos o batería."
+      - "No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco)."
+      - "Evita usar baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento y fallos de carga."
+      - "Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones y cableado."
+    mantenimiento:
+      - "Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de succión."
+      - "Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce el caudal."
+      - "Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras."
+      - "Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor correcto."
+    compra:
+      - "Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo de anclaje)."
+      - "En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso general."
+      - "En rodillos, elige según suelo: soft roller para duro; multisuperficie para mixto."
+      - "Si tu aspirador es robot, compra packs (filtros + cepillos laterales) para abaratar mantenimiento."
+brands:
+  dyson:
+    name: "Dyson"
+    country_hint: "UK"
+    notes_brand: "Gama premium de aspiradores sin cable con alta disponibilidad de recambios compatibles (baterías, filtros y rodillos)."
+    models:
+      - model: "Dyson V8"
+        slug: "dyson-v8"
+        series: "V-Series"
+        year_range: "2016-2021"
+        intro: "Dyson V8 es una referencia en aspiradores sin cable por su equilibrio entre potencia, autonomía y facilidad de mantenimiento. Es especialmente popular en hogares medianos y con suelos mixtos. Los recambios compatibles más demandados suelen ser batería, filtros y rodillos."
+        seo:
+          title: "Dyson V8: recambios compatibles, fallos comunes y mantenimiento"
+          description: "Guía completa del Dyson V8: compatibilidad, síntomas típicos (succión, batería, cepillo) y recambios compatibles por categorías."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "21.6V"
+          notas: "Batería extraíble; filtros lavables según versión; cabezal directo o fluffy según pack."
+        compatibilidad:
+          - "Recambios específicos para Dyson V8 (no compatibles directos con V10/V11 por voltaje y anclaje)."
+          - "Filtros pre y post-motor con referencia V8; evita los de V6/V7 salvo equivalencia confirmada."
+          - "Rodillos varían por cabezal: Direct Drive vs. Soft Roller."
+          - "Cargador suele ser específico por conector Dyson V8."
+        fallos:
+          - symptom: "Pérdida de succión o se para a los pocos segundos"
+            severidad: "media"
+            causas:
+              - "Filtro saturado o húmedo"
+              - "Obstrucción en tubo/cabezal"
+              - "Juntas con fuga de aire"
+            checks:
+              - "Retira y limpia depósito y ciclón"
+              - "Comprueba paso de aire en tubo con una linterna"
+              - "Lava filtro lavable y seca 24h antes de usar"
+            fix_hint: "Empieza por filtro y obstrucciones; si persiste, revisa juntas y el encaje del depósito."
+          - symptom: "Autonomía muy baja o no carga"
+            severidad: "alta"
+            causas:
+              - "Batería degradada"
+              - "Cargador defectuoso"
+              - "Conectores sucios o flojos"
+            checks:
+              - "Prueba carga completa y mide si mantiene potencia en modo normal"
+              - "Revisa LED del cargador y el puerto"
+              - "Comprueba holgura del pack de batería"
+            fix_hint: "Sustituye batería compatible 21.6V; si no carga, prueba cargador antes de culpar a la electrónica."
+          - symptom: "El cepillo no gira"
+            severidad: "media"
+            causas:
+              - "Pelo/hilos bloqueando el rodillo"
+              - "Rodillo gastado o rodamientos dañados"
+              - "Cabezal con fallo de motor/engranaje"
+            checks:
+              - "Retira el rodillo y limpia extremos"
+              - "Verifica que el rodillo gira libre a mano"
+              - "Prueba el cabezal en modo suelo duro/alfombra si aplica"
+            fix_hint: "Limpia y, si hay holgura o ruido, cambia rodillo compatible del cabezal correcto."
+        recambios:
+          bateria:
+            - sku: "dyson-v8-bateria-compat-216v"
+              title: "Batería compatible 21.6V para Dyson V8"
+              note: "Pack de reemplazo con mismo voltaje nominal y anclaje V8."
+              intent: "compra"
+            - sku: "dyson-v8-bateria-compat-alta-cap"
+              title: "Batería compatible alta capacidad 21.6V para Dyson V8"
+              note: "Más autonomía; verifica dimensiones y encaje."
+              intent: "compra"
+          filtro:
+            - sku: "dyson-v8-filtro-hepa-postmotor"
+              title: "Filtro post-motor tipo HEPA compatible para Dyson V8"
+              intent: "compra"
+            - sku: "dyson-v8-filtro-premotor-pack2"
+              title: "Filtro pre-motor compatible pack 2 para Dyson V8"
+              intent: "compra"
+          cepillo:
+            - sku: "dyson-v8-cepillo-rodillo-direct-drive"
+              title: "Rodillo compatible para cabezal Direct Drive Dyson V8"
+              intent: "compra"
+            - sku: "dyson-v8-cepillo-rodillo-soft-fluffy"
+              title: "Rodillo compatible tipo Soft/Fluffy para Dyson V8"
+              intent: "compra"
+          cargador:
+            - sku: "dyson-v8-cargador-compat-eu"
+              title: "Cargador compatible EU para Dyson V8"
+              intent: "compra"
+          accesorios:
+            - sku: "dyson-v8-accesorios-kit-boquillas"
+              title: "Kit boquillas compatible (rincones + tapicería) para Dyson V8"
+              intent: "compra"
+
+      - model: "Dyson V10"
+        slug: "dyson-v10"
+        series: "V-Series"
+        year_range: "2018-2022"
+        intro: "Dyson V10 mejora la capacidad del depósito y la potencia respecto a generaciones anteriores, manteniendo un formato manejable. Es un modelo muy extendido por su rendimiento en suelos mixtos y por la oferta de recambios compatibles. La batería y los filtros son las sustituciones más habituales."
+        seo:
+          title: "Dyson V10: recambios compatibles (batería, filtros, rodillos) y fallos típicos"
+          description: "Todo sobre Dyson V10: compatibilidad, síntomas comunes (batería, succión, cepillo) y catálogo de recambios compatibles."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Voltaje distinto a V8; filtros y batería con anclaje V10; diferentes cabezales según pack."
+        compatibilidad:
+          - "Baterías V10 (25.2V) no son intercambiables con V8 (21.6V)."
+          - "Filtros V10 suelen ser específicos por forma/rosca."
+          - "Rodillos dependen del cabezal (multisuperficie o soft roller)."
+          - "Cargador compatible debe coincidir con conector y potencia."
+        fallos:
+          - symptom: "Se apaga al activar modo turbo"
+            severidad: "media"
+            causas:
+              - "Batería degradada (caída de voltaje bajo carga)"
+              - "Filtro muy sucio"
+              - "Obstrucción parcial"
+            checks:
+              - "Prueba en modo normal para comparar"
+              - "Limpia filtro y seca correctamente"
+              - "Revisa conductos y ciclón"
+            fix_hint: "Si solo falla en turbo tras limpiar, es típico de batería degradada."
+          - symptom: "Ruido agudo y baja succión"
+            severidad: "media"
+            causas:
+              - "Fuga de aire en juntas"
+              - "Depósito mal encajado"
+              - "Filtro mal asentado"
+            checks:
+              - "Recoloca depósito y filtro"
+              - "Inspecciona juntas por grietas"
+              - "Comprueba que no hay piezas flojas"
+            fix_hint: "Reasienta piezas; si hay desgaste, cambia juntas/accesorios del depósito o filtro."
+        recambios:
+          bateria:
+            - sku: "dyson-v10-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Dyson V10"
+              intent: "compra"
+            - sku: "dyson-v10-bateria-compat-alta-cap"
+              title: "Batería compatible alta capacidad 25.2V para Dyson V10"
+              note: "Recomendable para viviendas grandes; verifica ventilación y encaje."
+              intent: "compra"
+          filtro:
+            - sku: "dyson-v10-filtro-hepa-postmotor"
+              title: "Filtro post-motor tipo HEPA compatible para Dyson V10"
+              intent: "compra"
+            - sku: "dyson-v10-filtro-premotor-pack2"
+              title: "Filtro pre-motor compatible pack 2 para Dyson V10"
+              intent: "compra"
+          cepillo:
+            - sku: "dyson-v10-cepillo-rodillo-multisuperficie"
+              title: "Rodillo compatible multisuperficie para Dyson V10"
+              intent: "compra"
+            - sku: "dyson-v10-cepillo-rodillo-soft-fluffy"
+              title: "Rodillo compatible tipo Soft/Fluffy para Dyson V10"
+              intent: "compra"
+          cargador:
+            - sku: "dyson-v10-cargador-compat-eu"
+              title: "Cargador compatible EU para Dyson V10"
+              intent: "compra"
+          accesorios:
+            - sku: "dyson-v10-accesorios-kit-mascotas"
+              title: "Kit accesorios compatible para pelo de mascotas (mini cepillo + boquilla) Dyson V10"
+              intent: "compra"
+
+      - model: "Dyson V11"
+        slug: "dyson-v11"
+        series: "V-Series"
+        year_range: "2019-2023"
+        intro: "Dyson V11 destaca por su control inteligente de potencia y rendimiento estable en alfombras y suelos duros. Es muy común en hogares con mascotas por su capacidad de aspiración y accesorios. Los recambios más frecuentes son filtros, rodillos y batería compatible."
+        seo:
+          title: "Dyson V11: recambios compatibles y solución de fallos (succión, batería, cepillo)"
+          description: "Guía del Dyson V11: compatibilidad, mantenimiento y recambios (batería, filtros, rodillos, cargador y accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Batería extraíble; control de potencia automático según cabezal; filtros V11 específicos."
+        compatibilidad:
+          - "Batería 25.2V con formato V11; evita equivalencias genéricas sin anclaje correcto."
+          - "Filtros V11 suelen compartir familia, pero confirma forma/rosca."
+          - "Rodillos dependen del cabezal High Torque / Soft Roller."
+          - "Cargador debe ser compatible con el modelo y región."
+        fallos:
+          - symptom: "Mensaje de filtro/obstrucción aunque esté limpio"
+            severidad: "baja"
+            causas:
+              - "Filtro húmedo"
+              - "Sensor interpreta restricción por microobstrucción"
+              - "Depósito o ciclón con residuo fino"
+            checks:
+              - "Seca filtro 24h"
+              - "Limpia ciclón y conductos con cepillo suave"
+              - "Revisa entrada del cabezal"
+            fix_hint: "Una microobstrucción en el codo o cabezal suele disparar avisos; limpia a fondo y seca bien."
+          - symptom: "Vibración o ruido en el cabezal"
+            severidad: "media"
+            causas:
+              - "Rodillo desbalanceado por pelo"
+              - "Rodamientos con desgaste"
+              - "Eje con holgura"
+            checks:
+              - "Limpia extremos del rodillo"
+              - "Comprueba giro libre"
+              - "Inspecciona daños visibles"
+            fix_hint: "Si persiste tras limpieza, cambia rodillo compatible del cabezal específico."
+        recambios:
+          bateria:
+            - sku: "dyson-v11-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Dyson V11"
+              intent: "compra"
+            - sku: "dyson-v11-bateria-compat-alta-cap"
+              title: "Batería compatible alta capacidad 25.2V para Dyson V11"
+              intent: "compra"
+          filtro:
+            - sku: "dyson-v11-filtro-hepa-postmotor"
+              title: "Filtro post-motor tipo HEPA compatible para Dyson V11"
+              intent: "compra"
+            - sku: "dyson-v11-filtro-premotor-pack2"
+              title: "Filtro pre-motor compatible pack 2 para Dyson V11"
+              intent: "compra"
+          cepillo:
+            - sku: "dyson-v11-cepillo-rodillo-high-torque"
+              title: "Rodillo compatible para cabezal High Torque Dyson V11"
+              intent: "compra"
+            - sku: "dyson-v11-cepillo-rodillo-soft-fluffy"
+              title: "Rodillo compatible tipo Soft/Fluffy para Dyson V11"
+              intent: "compra"
+          cargador:
+            - sku: "dyson-v11-cargador-compat-eu"
+              title: "Cargador compatible EU para Dyson V11"
+              intent: "compra"
+          accesorios:
+            - sku: "dyson-v11-accesorios-soporte-pared"
+              title: "Soporte de pared compatible para Dyson V11"
+              intent: "compra"
+
+      - model: "Dyson V15 Detect"
+        slug: "dyson-v15-detect"
+        series: "V-Series"
+        year_range: "2021-actual"
+        intro: "Dyson V15 Detect es un modelo de alta gama muy extendido por su potencia y medición inteligente de partículas. Funciona especialmente bien en hogares con alfombras y mascotas gracias a sus cabezales avanzados. Sus recambios compatibles más habituales son filtros, rodillos y baterías de reemplazo."
+        seo:
+          title: "Dyson V15 Detect: recambios compatibles y fallos frecuentes"
+          description: "Compatibilidad y mantenimiento del Dyson V15 Detect: síntomas típicos, checks rápidos y recambios compatibles (batería, filtros, rodillos y cargador)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Cabezal Laser Slim/Fluffy según versión; sensor de polvo; batería extraíble."
+        compatibilidad:
+          - "Baterías 25.2V con anclaje específico V15; evita equivalencias de V10/V11 sin confirmación."
+          - "Filtros HEPA de alta eficiencia; confirma tipo exacto de carcasa."
+          - "Rodillos dependen del cabezal: Fluffy/Laser o multisuperficie."
+          - "Cargador compatible con el conector Dyson de la serie."
+        fallos:
+          - symptom: "Potencia irregular o lectura de polvo errática"
+            severidad: "baja"
+            causas:
+              - "Filtro muy sucio"
+              - "Conducto con polvo fino"
+              - "Depósito mal sellado"
+            checks:
+              - "Limpia filtro y ciclón"
+              - "Revisa juntas"
+              - "Comprueba que el depósito cierra sin holguras"
+            fix_hint: "Con polvo fino, una limpieza completa del ciclón mejora estabilidad y rendimiento."
+          - symptom: "No enciende o se apaga al poco tiempo"
+            severidad: "alta"
+            causas:
+              - "Batería degradada"
+              - "Conector flojo"
+              - "Protección térmica por obstrucción"
+            checks:
+              - "Prueba sin tubo/cabezal para aislar el problema"
+              - "Comprueba obstrucciones"
+              - "Revisa encaje de batería"
+            fix_hint: "Si se apaga incluso sin accesorios tras carga completa, la batería suele ser el origen."
+        recambios:
+          bateria:
+            - sku: "dyson-v15-detect-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Dyson V15 Detect"
+              intent: "compra"
+            - sku: "dyson-v15-detect-bateria-compat-alta-cap"
+              title: "Batería compatible alta capacidad 25.2V para Dyson V15 Detect"
+              intent: "compra"
+          filtro:
+            - sku: "dyson-v15-detect-filtro-hepa-postmotor"
+              title: "Filtro HEPA post-motor compatible para Dyson V15 Detect"
+              intent: "compra"
+            - sku: "dyson-v15-detect-filtro-premotor-pack2"
+              title: "Filtro pre-motor compatible pack 2 para Dyson V15 Detect"
+              intent: "compra"
+          cepillo:
+            - sku: "dyson-v15-detect-cepillo-rodillo-fluffy-laser"
+              title: "Rodillo compatible tipo Fluffy/Laser para Dyson V15 Detect"
+              intent: "compra"
+            - sku: "dyson-v15-detect-cepillo-rodillo-multisuperficie"
+              title: "Rodillo compatible multisuperficie para Dyson V15 Detect"
+              intent: "compra"
+          cargador:
+            - sku: "dyson-v15-detect-cargador-compat-eu"
+              title: "Cargador compatible EU para Dyson V15 Detect"
+              intent: "compra"
+          accesorios:
+            - sku: "dyson-v15-detect-accesorios-kit-rincones"
+              title: "Kit boquillas compatible (rincones + polvo) para Dyson V15 Detect"
+              intent: "compra"
+
+  rowenta:
+    name: "Rowenta"
+    country_hint: "FR/DE"
+    notes_brand: "Muy popular en Europa por su gama X-Force Flex y buena relación calidad/precio. Recambios habituales: filtros, rodillos, baterías y cargadores."
+    models:
+      - model: "Rowenta X-Force Flex 9.60"
+        slug: "rowenta-x-force-flex-9-60"
+        series: "X-Force Flex"
+        year_range: "2020-actual"
+        intro: "Rowenta X-Force Flex 9.60 es una aspiradora escoba sin cable muy extendida por su ergonomía con tubo flexible y mantenimiento sencillo. Rinde bien en suelos duros y uso diario. Los consumibles típicos son filtros y rodillos, además de batería si se busca más autonomía."
+        seo:
+          title: "Rowenta X-Force Flex 9.60: recambios compatibles y fallos comunes"
+          description: "Guía de la Rowenta X-Force Flex 9.60: compatibilidad, mantenimiento, síntomas típicos y recambios compatibles (batería, filtros, rodillos, cargador)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "22V"
+          notas: "Sistema Flex; filtros lavables según versión; cabezal con rodillo multisuperficie."
+        compatibilidad:
+          - "Batería y cargador deben coincidir con la familia 22V y el conector."
+          - "Filtros varían por depósito; confirma forma y pestañas."
+          - "Rodillos dependen del cabezal y ancho del brush."
+          - "Accesorios universales suelen encajar en el tubo si el diámetro coincide."
+        fallos:
+          - symptom: "Pérdida de potencia progresiva"
+            severidad: "media"
+            causas:
+              - "Filtro saturado"
+              - "Depósito lleno"
+              - "Rodillo bloqueado por pelo"
+            checks:
+              - "Vacía depósito y limpia conductos"
+              - "Lava/seca filtros si son lavables"
+              - "Retira pelo del rodillo"
+            fix_hint: "La potencia suele volver tras limpieza de filtros y rodillo; si no, revisa fugas en juntas."
+          - symptom: "No carga o carga intermitente"
+            severidad: "alta"
+            causas:
+              - "Cargador defectuoso"
+              - "Batería degradada"
+              - "Conector flojo"
+            checks:
+              - "Comprueba LED del cargador"
+              - "Revisa holgura del conector"
+              - "Prueba otra toma eléctrica"
+            fix_hint: "Primero descarta cargador; después, sustituye batería compatible 22V si la autonomía es muy baja."
+        recambios:
+          bateria:
+            - sku: "rowenta-x-force-flex-9-60-bateria-compat-22v"
+              title: "Batería compatible 22V para Rowenta X-Force Flex 9.60"
+              intent: "compra"
+          filtro:
+            - sku: "rowenta-x-force-flex-9-60-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Rowenta X-Force Flex 9.60"
+              intent: "compra"
+            - sku: "rowenta-x-force-flex-9-60-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Rowenta X-Force Flex 9.60"
+              intent: "compra"
+          cepillo:
+            - sku: "rowenta-x-force-flex-9-60-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Rowenta X-Force Flex 9.60"
+              intent: "compra"
+          cargador:
+            - sku: "rowenta-x-force-flex-9-60-cargador-compat-eu"
+              title: "Cargador compatible EU para Rowenta X-Force Flex 9.60"
+              intent: "compra"
+          accesorios:
+            - sku: "rowenta-x-force-flex-9-60-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Rowenta X-Force Flex 9.60"
+              intent: "compra"
+
+      - model: "Rowenta X-Force Flex 11.60"
+        slug: "rowenta-x-force-flex-11-60"
+        series: "X-Force Flex"
+        year_range: "2020-actual"
+        intro: "Rowenta X-Force Flex 11.60 es una de las variantes más populares de la serie por su buen equilibrio entre potencia y autonomía. El sistema Flex facilita la limpieza bajo muebles sin agacharse. Los recambios más buscados suelen ser filtros, rodillo y batería."
+        seo:
+          title: "Rowenta X-Force Flex 11.60: recambios compatibles, mantenimiento y fallos"
+          description: "Catálogo de recambios compatibles para Rowenta X-Force Flex 11.60 y guía de fallos típicos (succión, batería, cepillo, carga)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Tubo Flex; batería extraíble; cabezal con rodillo multisuperficie."
+        compatibilidad:
+          - "Batería 25.2V específica de la familia; no mezclar con 22V."
+          - "Filtros con formato de depósito de la serie 11.60."
+          - "Rodillo y tapa del cabezal varían por generación."
+          - "Cargador debe coincidir con el conector y potencia de carga."
+        fallos:
+          - symptom: "El rodillo deja de girar en alfombra"
+            severidad: "media"
+            causas:
+              - "Rodillo obstruido"
+              - "Protección por sobrecarga"
+              - "Correa/engranaje fatigado"
+            checks:
+              - "Limpia rodillo y extremos"
+              - "Prueba en suelo duro"
+              - "Revisa si hay ruido anormal"
+            fix_hint: "Si se para incluso limpio, suele tocar cambio de rodillo o revisión del cabezal."
+        recambios:
+          bateria:
+            - sku: "rowenta-x-force-flex-11-60-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Rowenta X-Force Flex 11.60"
+              intent: "compra"
+          filtro:
+            - sku: "rowenta-x-force-flex-11-60-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Rowenta X-Force Flex 11.60"
+              intent: "compra"
+            - sku: "rowenta-x-force-flex-11-60-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Rowenta X-Force Flex 11.60"
+              intent: "compra"
+          cepillo:
+            - sku: "rowenta-x-force-flex-11-60-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Rowenta X-Force Flex 11.60"
+              intent: "compra"
+          cargador:
+            - sku: "rowenta-x-force-flex-11-60-cargador-compat-eu"
+              title: "Cargador compatible EU para Rowenta X-Force Flex 11.60"
+              intent: "compra"
+          accesorios:
+            - sku: "rowenta-x-force-flex-11-60-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Rowenta X-Force Flex 11.60"
+              intent: "compra"
+
+      - model: "Rowenta X-Force Flex 14.60"
+        slug: "rowenta-x-force-flex-14-60"
+        series: "X-Force Flex"
+        year_range: "2021-actual"
+        intro: "Rowenta X-Force Flex 14.60 apunta a gama alta dentro de Rowenta, con más potencia y autonomía para viviendas grandes. Es una opción habitual como alternativa a gamas premium. Para mantener rendimiento, el recambio más crítico es el filtro; después, rodillo y batería."
+        seo:
+          title: "Rowenta X-Force Flex 14.60: recambios compatibles y fallos frecuentes"
+          description: "Guía de Rowenta X-Force Flex 14.60: compatibilidad, síntomas típicos y recambios compatibles (batería, filtros, rodillos y cargador)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "32.4V"
+          notas: "Gama superior con batería de mayor voltaje; confirma compatibilidad exacta del pack."
+        compatibilidad:
+          - "Batería 32.4V específica; no intercambiable con 25.2V/22V."
+          - "Filtros y depósito de la serie 14.60."
+          - "Rodillos según cabezal y generación."
+          - "Cargador debe ser el correcto para 32.4V."
+        fallos:
+          - symptom: "Cortes por sobrecalentamiento"
+            severidad: "alta"
+            causas:
+              - "Filtro taponado"
+              - "Obstrucción en cabezal"
+              - "Uso prolongado en turbo sin ventilación"
+            checks:
+              - "Limpia filtro y conductos"
+              - "Revisa rodillo"
+              - "Deja enfriar 20-30 min"
+            fix_hint: "Si se repite, cambia filtro y evita turbo continuo; revisa también estado de batería."
+        recambios:
+          bateria:
+            - sku: "rowenta-x-force-flex-14-60-bateria-compat-324v"
+              title: "Batería compatible 32.4V para Rowenta X-Force Flex 14.60"
+              intent: "compra"
+          filtro:
+            - sku: "rowenta-x-force-flex-14-60-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Rowenta X-Force Flex 14.60"
+              intent: "compra"
+            - sku: "rowenta-x-force-flex-14-60-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Rowenta X-Force Flex 14.60"
+              intent: "compra"
+          cepillo:
+            - sku: "rowenta-x-force-flex-14-60-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Rowenta X-Force Flex 14.60"
+              intent: "compra"
+          cargador:
+            - sku: "rowenta-x-force-flex-14-60-cargador-compat-eu"
+              title: "Cargador compatible EU para Rowenta X-Force Flex 14.60"
+              intent: "compra"
+          accesorios:
+            - sku: "rowenta-x-force-flex-14-60-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Rowenta X-Force Flex 14.60"
+              intent: "compra"
+
+      - model: "Rowenta X-Pert 6.60"
+        slug: "rowenta-x-pert-6-60"
+        series: "X-Pert"
+        year_range: "2019-actual"
+        intro: "Rowenta X-Pert 6.60 es una opción ligera y práctica para limpieza diaria, muy común en pisos y segundas viviendas. Su mantenimiento es sencillo y los recambios más habituales son filtros y rodillo. Cuando envejece, el punto crítico suele ser la batería."
+        seo:
+          title: "Rowenta X-Pert 6.60: recambios compatibles y guía de mantenimiento"
+          description: "Compatibilidad y recambios para Rowenta X-Pert 6.60: batería, filtros, rodillo, cargador y accesorios. Fallos típicos y solución."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "18V"
+          notas: "Modelo ligero; batería y cargador específicos de la familia 18V."
+        compatibilidad:
+          - "Batería 18V específica de X-Pert 6.60."
+          - "Filtros adaptados al depósito de esta serie."
+          - "Rodillo según cabezal, normalmente multisuperficie."
+          - "Cargador compatible con el conector 18V Rowenta."
+        fallos:
+          - symptom: "Autonomía insuficiente para una limpieza completa"
+            severidad: "media"
+            causas:
+              - "Batería degradada"
+              - "Uso en potencia máxima"
+            checks:
+              - "Prueba en modo normal"
+              - "Comprueba tiempo real tras carga completa"
+            fix_hint: "Si la autonomía cae por debajo de la mitad de lo habitual, sustituye batería compatible."
+        recambios:
+          bateria:
+            - sku: "rowenta-x-pert-6-60-bateria-compat-18v"
+              title: "Batería compatible 18V para Rowenta X-Pert 6.60"
+              intent: "compra"
+          filtro:
+            - sku: "rowenta-x-pert-6-60-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Rowenta X-Pert 6.60"
+              intent: "compra"
+            - sku: "rowenta-x-pert-6-60-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Rowenta X-Pert 6.60"
+              intent: "compra"
+          cepillo:
+            - sku: "rowenta-x-pert-6-60-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Rowenta X-Pert 6.60"
+              intent: "compra"
+          cargador:
+            - sku: "rowenta-x-pert-6-60-cargador-compat-eu"
+              title: "Cargador compatible EU para Rowenta X-Pert 6.60"
+              intent: "compra"
+          accesorios:
+            - sku: "rowenta-x-pert-6-60-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + cepillo polvo) para Rowenta X-Pert 6.60"
+              intent: "compra"
+
+  cecotec:
+    name: "Cecotec"
+    country_hint: "ES"
+    notes_brand: "Marca muy popular en España por su agresiva relación prestaciones/precio en escobas (Rockstar) y robots (Conga). Recambios comunes: filtros, cepillos, baterías y cargadores."
+    models:
+      - model: "Cecotec Conga Rockstar 1500"
+        slug: "conga-rockstar-1500"
+        series: "Rockstar"
+        year_range: "2023-actual"
+        intro: "Conga Rockstar 1500 es una aspiradora escoba sin cable muy extendida en España por su potencia y precio competitivo. Es una opción habitual para hogares con mascotas por su capacidad de aspiración. Los consumibles más frecuentes son filtros y rodillos; la batería es el recambio clave a medio plazo."
+        seo:
+          title: "Cecotec Conga Rockstar 1500: recambios compatibles y fallos comunes"
+          description: "Guía de Conga Rockstar 1500: compatibilidad, síntomas típicos (succión, batería, cepillo) y recambios compatibles por categorías."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.9V"
+          notas: "Voltaje orientativo por familia; confirma formato de batería y conector del cargador."
+        compatibilidad:
+          - "Batería y cargador dependen de la familia Rockstar; verifica el tipo de pack y anclaje."
+          - "Filtros suelen ser lavables; respeta el formato del depósito."
+          - "Rodillo cambia según cabezal (multisuperficie/anti-enredos)."
+          - "Accesorios suelen ser compatibles por diámetro del tubo."
+        fallos:
+          - symptom: "Se enciende pero aspira poco"
+            severidad: "media"
+            causas:
+              - "Filtro saturado"
+              - "Depósito lleno"
+              - "Fuga en junta del depósito"
+            checks:
+              - "Limpia filtros y seca bien"
+              - "Vacía depósito"
+              - "Revisa juntas"
+            fix_hint: "En modelos Rockstar, un filtro saturado reduce mucho la succión; cambia el filtro si no recupera rendimiento."
+          - symptom: "No carga o el LED de carga parpadea"
+            severidad: "alta"
+            causas:
+              - "Cargador defectuoso"
+              - "Conector suelto"
+              - "Batería deteriorada"
+            checks:
+              - "Prueba otra toma y revisa cable"
+              - "Comprueba continuidad del conector"
+              - "Evalúa autonomía tras carga"
+            fix_hint: "Descarta cargador primero; si la autonomía cae fuerte, cambia batería compatible."
+        recambios:
+          bateria:
+            - sku: "conga-rockstar-1500-bateria-compat-259v"
+              title: "Batería compatible para Cecotec Conga Rockstar 1500"
+              note: "Verifica anclaje y conector; familia Rockstar 1500."
+              intent: "compra"
+          filtro:
+            - sku: "conga-rockstar-1500-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Conga Rockstar 1500"
+              intent: "compra"
+            - sku: "conga-rockstar-1500-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Conga Rockstar 1500"
+              intent: "compra"
+          cepillo:
+            - sku: "conga-rockstar-1500-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Conga Rockstar 1500"
+              intent: "compra"
+            - sku: "conga-rockstar-1500-cepillo-rodillo-anti-enredos"
+              title: "Rodillo compatible anti-enredos para Conga Rockstar 1500"
+              intent: "compra"
+          cargador:
+            - sku: "conga-rockstar-1500-cargador-compat-eu"
+              title: "Cargador compatible EU para Conga Rockstar 1500"
+              intent: "compra"
+          accesorios:
+            - sku: "conga-rockstar-1500-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Conga Rockstar 1500"
+              intent: "compra"
+
+      - model: "Cecotec Conga Rockstar 2000"
+        slug: "conga-rockstar-2000"
+        series: "Rockstar"
+        year_range: "2022-actual"
+        intro: "Conga Rockstar 2000 es una variante muy popular por ofrecer potencia elevada y accesorios para hogar completo. Se usa mucho en pisos grandes con suelos mixtos. Para mantener rendimiento, conviene sustituir filtros periódicamente y revisar el estado del rodillo si hay pelo."
+        seo:
+          title: "Cecotec Conga Rockstar 2000: recambios compatibles y guía de fallos"
+          description: "Compatibilidad y recambios para Conga Rockstar 2000: batería, filtros, rodillos, cargador y accesorios. Fallos comunes y solución."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "29.6V"
+          notas: "Voltaje orientativo por gama; confirma pack exacto según submodelo Rockstar 2000."
+        compatibilidad:
+          - "Batería específica de la familia Rockstar 2000 (anclaje y conector)."
+          - "Filtros HEPA/espuma según depósito."
+          - "Rodillo según cabezal; en mascotas prioriza anti-enredos."
+          - "Cargador debe coincidir con el voltaje/familia."
+        fallos:
+          - symptom: "Vibración del cabezal y ruido"
+            severidad: "media"
+            causas:
+              - "Rodillo descentrado por acumulación"
+              - "Extremos del rodillo con suciedad"
+            checks:
+              - "Extrae rodillo y limpia extremos"
+              - "Comprueba daños en goma/cerdas"
+            fix_hint: "Si hay desgaste visible o ruido persistente, sustituye rodillo compatible."
+        recambios:
+          bateria:
+            - sku: "conga-rockstar-2000-bateria-compat-296v"
+              title: "Batería compatible para Cecotec Conga Rockstar 2000"
+              intent: "compra"
+          filtro:
+            - sku: "conga-rockstar-2000-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Conga Rockstar 2000"
+              intent: "compra"
+            - sku: "conga-rockstar-2000-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Conga Rockstar 2000"
+              intent: "compra"
+          cepillo:
+            - sku: "conga-rockstar-2000-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Conga Rockstar 2000"
+              intent: "compra"
+            - sku: "conga-rockstar-2000-cepillo-rodillo-anti-enredos"
+              title: "Rodillo compatible anti-enredos para Conga Rockstar 2000"
+              intent: "compra"
+          cargador:
+            - sku: "conga-rockstar-2000-cargador-compat-eu"
+              title: "Cargador compatible EU para Conga Rockstar 2000"
+              intent: "compra"
+          accesorios:
+            - sku: "conga-rockstar-2000-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Conga Rockstar 2000"
+              intent: "compra"
+
+      - model: "Cecotec Conga Rockstar 11500 Odyssey Station"
+        slug: "conga-rockstar-11500-odyssey-station"
+        series: "Rockstar"
+        year_range: "2024-actual"
+        intro: "Conga Rockstar 11500 Odyssey Station destaca por su base de vaciado y enfoque en comodidad para uso intensivo. Es habitual en hogares con mascotas por su mantenimiento más limpio. Los recambios clave son filtros y rodillos; además, bolsas o consumibles de la estación (si aplica) se gestionan aparte según el sistema."
+        seo:
+          title: "Cecotec Rockstar 11500 Odyssey Station: recambios compatibles y mantenimiento"
+          description: "Guía de Conga Rockstar 11500 Odyssey Station: compatibilidad, fallos típicos y recambios compatibles (batería, filtros, rodillos, cargador, accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable con estación"
+          voltaje_nominal: "29.6V"
+          notas: "Estación de vaciado; confirma consumibles específicos de la estación según versión."
+        compatibilidad:
+          - "Batería de la familia 11500; confirma referencia por anclaje."
+          - "Filtros del cuerpo principal; respeta formato del depósito."
+          - "Rodillo según cabezal; versión mascotas suele usar anti-enredos."
+          - "Cargador/estación deben ser los correctos del sistema."
+        fallos:
+          - symptom: "La estación no vacía bien el depósito"
+            severidad: "media"
+            causas:
+              - "Conducto de la estación obstruido"
+              - "Filtro de la estación saturado (si aplica)"
+              - "Depósito mal asentado"
+            checks:
+              - "Revisa conducto y entrada de succión"
+              - "Comprueba sellado del depósito"
+              - "Limpia filtros del sistema"
+            fix_hint: "Suele resolverse limpiando obstrucciones y asegurando encaje correcto; sustituye filtros si están deformados."
+        recambios:
+          bateria:
+            - sku: "conga-rockstar-11500-odyssey-station-bateria-compat-296v"
+              title: "Batería compatible para Conga Rockstar 11500 Odyssey Station"
+              intent: "compra"
+          filtro:
+            - sku: "conga-rockstar-11500-odyssey-station-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Conga Rockstar 11500 Odyssey Station"
+              intent: "compra"
+            - sku: "conga-rockstar-11500-odyssey-station-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Conga Rockstar 11500 Odyssey Station"
+              intent: "compra"
+          cepillo:
+            - sku: "conga-rockstar-11500-odyssey-station-cepillo-rodillo-anti-enredos"
+              title: "Rodillo compatible anti-enredos para Conga Rockstar 11500 Odyssey Station"
+              intent: "compra"
+            - sku: "conga-rockstar-11500-odyssey-station-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Conga Rockstar 11500 Odyssey Station"
+              intent: "compra"
+          cargador:
+            - sku: "conga-rockstar-11500-odyssey-station-cargador-compat-eu"
+              title: "Cargador compatible EU para Conga Rockstar 11500 Odyssey Station"
+              intent: "compra"
+          accesorios:
+            - sku: "conga-rockstar-11500-odyssey-station-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Conga Rockstar 11500 Odyssey Station"
+              intent: "compra"
+
+      - model: "Cecotec Conga 4090"
+        slug: "conga-4090"
+        series: "Conga (Robot)"
+        year_range: "2020-2022"
+        intro: "Conga 4090 es un robot aspirador muy popular por su enfoque 4-en-1 (aspira, barre, friega y pasa mopa) y su base de usuarios amplia. El mantenimiento típico es periódico y barato: filtros, cepillos laterales y rodillo central. Comprar packs suele ser lo más eficiente."
+        seo:
+          title: "Cecotec Conga 4090: recambios compatibles (filtros, cepillos) y fallos"
+          description: "Catálogo de recambios compatibles para Conga 4090 y guía rápida de fallos típicos (cepillos, succión, sensores)."
+        specs:
+          tipo: "robot aspirador"
+          voltaje_nominal: ""
+          notas: "Consumibles recurrentes: filtro, cepillos laterales, rodillo central y paños (si aplica)."
+        compatibilidad:
+          - "Filtros y cepillos deben coincidir con la familia Conga 4xxx."
+          - "Rodillo central puede variar por soporte y ancho."
+          - "Cepillos laterales suelen ser universales dentro de la serie, pero confirma el anclaje."
+          - "Si hay mopa, paños compatibles dependen del soporte."
+        fallos:
+          - symptom: "Error de cepillo/rodillo"
+            severidad: "media"
+            causas:
+              - "Pelo en el eje del rodillo"
+              - "Rodillo deformado"
+              - "Motor del cepillo con resistencia por suciedad"
+            checks:
+              - "Retira rodillo y limpia extremos"
+              - "Revisa que gira libre"
+              - "Limpia el alojamiento del rodillo"
+            fix_hint: "Si tras limpiar sigue el error, cambia rodillo compatible y revisa que el soporte esté intacto."
+          - symptom: "Baja succión y deja suciedad"
+            severidad: "media"
+            causas:
+              - "Filtro saturado"
+              - "Depósito lleno"
+              - "Conducto obstruido"
+            checks:
+              - "Sustituye o limpia filtro según tipo"
+              - "Vacía depósito"
+              - "Revisa la boca de succión"
+            fix_hint: "En robots, el filtro es consumible: cambiarlo a tiempo mejora mucho el rendimiento."
+        recambios:
+          bateria:
+            - sku: "conga-4090-bateria-compat"
+              title: "Batería compatible para Cecotec Conga 4090"
+              note: "Confirma conector y capacidad equivalente."
+              intent: "compra"
+          filtro:
+            - sku: "conga-4090-filtro-hepa-pack4"
+              title: "Filtros tipo HEPA compatibles pack 4 para Conga 4090"
+              intent: "compra"
+          cepillo:
+            - sku: "conga-4090-cepillos-laterales-pack8"
+              title: "Cepillos laterales compatibles pack 8 para Conga 4090"
+              intent: "compra"
+            - sku: "conga-4090-cepillo-rodillo-central"
+              title: "Rodillo central compatible para Conga 4090"
+              intent: "compra"
+          cargador:
+            - sku: "conga-4090-cargador-base-compat"
+              title: "Base/cargador compatible para Cecotec Conga 4090"
+              intent: "compra"
+          accesorios:
+            - sku: "conga-4090-accesorios-pack-mopas"
+              title: "Paños mopa compatibles pack para Conga 4090"
+              intent: "compra"
+
+      - model: "Cecotec Conga 5290"
+        slug: "conga-5290"
+        series: "Conga (Robot)"
+        year_range: "2021-2023"
+        intro: "Conga 5290 es un robot aspirador muy extendido por su navegación y enfoque en limpieza completa del hogar. En este tipo de robots, el mantenimiento preventivo marca la diferencia: filtros y cepillos se sustituyen con frecuencia. Los packs de recambios compatibles son la compra más habitual."
+        seo:
+          title: "Cecotec Conga 5290: recambios compatibles y mantenimiento"
+          description: "Recambios compatibles para Conga 5290: filtros, cepillos laterales, rodillo central, base/cargador y batería. Fallos comunes y solución."
+        specs:
+          tipo: "robot aspirador"
+          voltaje_nominal: ""
+          notas: "Consumibles recurrentes: filtro, cepillos laterales y rodillo central; paños si incluye fregado."
+        compatibilidad:
+          - "Filtros compatibles deben encajar en la carcasa del depósito Conga 52xx."
+          - "Cepillos laterales dependen del tipo de tornillo/anclaje."
+          - "Rodillo central debe coincidir por ancho y enganche."
+          - "Paños y soporte de mopa varían según versión."
+        fallos:
+          - symptom: "Se pierde o choca más de lo habitual"
+            severidad: "baja"
+            causas:
+              - "Sensores sucios"
+              - "Ruedas con suciedad"
+              - "Cepillo lateral rozando por deformación"
+            checks:
+              - "Limpia sensores con paño seco"
+              - "Revisa ruedas y ejes"
+              - "Cambia cepillos laterales si están deformados"
+            fix_hint: "Muchos 'fallos de navegación' son suciedad: limpieza de sensores y ruedas suele resolver."
+        recambios:
+          bateria:
+            - sku: "conga-5290-bateria-compat"
+              title: "Batería compatible para Cecotec Conga 5290"
+              intent: "compra"
+          filtro:
+            - sku: "conga-5290-filtro-hepa-pack4"
+              title: "Filtros tipo HEPA compatibles pack 4 para Conga 5290"
+              intent: "compra"
+          cepillo:
+            - sku: "conga-5290-cepillos-laterales-pack8"
+              title: "Cepillos laterales compatibles pack 8 para Conga 5290"
+              intent: "compra"
+            - sku: "conga-5290-cepillo-rodillo-central"
+              title: "Rodillo central compatible para Conga 5290"
+              intent: "compra"
+          cargador:
+            - sku: "conga-5290-cargador-base-compat"
+              title: "Base/cargador compatible para Cecotec Conga 5290"
+              intent: "compra"
+          accesorios:
+            - sku: "conga-5290-accesorios-pack-mopas"
+              title: "Paños mopa compatibles pack para Conga 5290"
+              intent: "compra"
+
+      - model: "Cecotec Conga 9990"
+        slug: "conga-9990"
+        series: "Conga (Robot)"
+        year_range: "2022-actual"
+        intro: "Conga 9990 es un robot aspirador muy común en la gama alta de Cecotec, pensado para automatización y mantenimiento sencillo. Como en todos los robots, la clave es reemplazar consumibles a tiempo: filtros y cepillos. Un rodillo gastado reduce la recogida en alfombras y pelo."
+        seo:
+          title: "Cecotec Conga 9990: recambios compatibles y fallos típicos"
+          description: "Guía del Conga 9990: recambios compatibles (filtros, cepillos, rodillo, batería) y resolución de fallos habituales."
+        specs:
+          tipo: "robot aspirador"
+          voltaje_nominal: ""
+          notas: "Incluye consumibles de mantenimiento; packs compatibles suelen ser la opción más rentable."
+        compatibilidad:
+          - "Filtros deben coincidir con el depósito de la serie 99xx."
+          - "Cepillos laterales con el mismo anclaje de la familia."
+          - "Rodillo central según soporte y largo."
+          - "Accesorios de fregado (paños) dependen del soporte."
+        fallos:
+          - symptom: "Deja pelo en alfombras"
+            severidad: "media"
+            causas:
+              - "Rodillo desgastado"
+              - "Rodillo sucio o bloqueado"
+              - "Filtro saturado"
+            checks:
+              - "Limpia rodillo y extremos"
+              - "Sustituye rodillo si hay desgaste"
+              - "Cambia filtro si está gris y sin porosidad"
+            fix_hint: "Para mascotas, cambia rodillo y filtro con más frecuencia; mejora notablemente la recogida."
+        recambios:
+          bateria:
+            - sku: "conga-9990-bateria-compat"
+              title: "Batería compatible para Cecotec Conga 9990"
+              intent: "compra"
+          filtro:
+            - sku: "conga-9990-filtro-hepa-pack4"
+              title: "Filtros tipo HEPA compatibles pack 4 para Conga 9990"
+              intent: "compra"
+          cepillo:
+            - sku: "conga-9990-cepillos-laterales-pack8"
+              title: "Cepillos laterales compatibles pack 8 para Conga 9990"
+              intent: "compra"
+            - sku: "conga-9990-cepillo-rodillo-central"
+              title: "Rodillo central compatible para Conga 9990"
+              intent: "compra"
+          cargador:
+            - sku: "conga-9990-cargador-base-compat"
+              title: "Base/cargador compatible para Cecotec Conga 9990"
+              intent: "compra"
+          accesorios:
+            - sku: "conga-9990-accesorios-pack-mopas"
+              title: "Paños mopa compatibles pack para Conga 9990"
+              intent: "compra"
+
+  bosch:
+    name: "Bosch"
+    country_hint: "DE"
+    notes_brand: "Aspiradores escoba de gama media-alta con buena disponibilidad de filtros y rodillos. En Unlimited, la batería y el sistema de filtrado son los recambios principales."
+    models:
+      - model: "Bosch Unlimited Serie 6"
+        slug: "bosch-unlimited-serie-6"
+        series: "Unlimited"
+        year_range: "2019-actual"
+        intro: "Bosch Unlimited Serie 6 es una escoba sin cable muy común por su equilibrio general y el enfoque modular. Su mantenimiento se centra en filtros y rodillo, y la batería es clave si se busca más autonomía. Es una elección habitual para suelos duros y limpieza frecuente."
+        seo:
+          title: "Bosch Unlimited Serie 6: recambios compatibles y fallos frecuentes"
+          description: "Guía Bosch Unlimited Serie 6: compatibilidad, mantenimiento, síntomas típicos y recambios compatibles (batería, filtros, rodillos, cargador)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "18V"
+          notas: "Batería tipo power-for-all según versiones; confirma referencia de batería y conector de carga."
+        compatibilidad:
+          - "Batería 18V: confirma si es sistema intercambiable o pack específico."
+          - "Filtros con cartucho y prefiltrado; formato depende del depósito."
+          - "Rodillo según el cabezal (AllFloor)."
+          - "Cargador debe coincidir con el sistema 18V y conector."
+        fallos:
+          - symptom: "La succión cae y el motor suena más agudo"
+            severidad: "media"
+            causas:
+              - "Filtro principal saturado"
+              - "Prefiltro sucio"
+              - "Obstrucción en el tubo"
+            checks:
+              - "Limpia/recambia filtro"
+              - "Revisa el prefiltrado"
+              - "Comprueba paso de aire en tubo"
+            fix_hint: "En Unlimited, la caída de caudal suele ser filtro/prefiltro; sustituye si no recupera rendimiento."
+        recambios:
+          bateria:
+            - sku: "bosch-unlimited-serie-6-bateria-compat-18v"
+              title: "Batería compatible 18V para Bosch Unlimited Serie 6"
+              intent: "compra"
+          filtro:
+            - sku: "bosch-unlimited-serie-6-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Bosch Unlimited Serie 6"
+              intent: "compra"
+            - sku: "bosch-unlimited-serie-6-filtro-prefiltro-pack2"
+              title: "Prefiltros compatibles pack 2 para Bosch Unlimited Serie 6"
+              intent: "compra"
+          cepillo:
+            - sku: "bosch-unlimited-serie-6-cepillo-rodillo-allfloor"
+              title: "Rodillo compatible AllFloor para Bosch Unlimited Serie 6"
+              intent: "compra"
+          cargador:
+            - sku: "bosch-unlimited-serie-6-cargador-compat-eu"
+              title: "Cargador compatible EU para Bosch Unlimited Serie 6"
+              intent: "compra"
+          accesorios:
+            - sku: "bosch-unlimited-serie-6-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + cepillo polvo) para Bosch Unlimited Serie 6"
+              intent: "compra"
+
+      - model: "Bosch Unlimited Serie 7"
+        slug: "bosch-unlimited-serie-7"
+        series: "Unlimited"
+        year_range: "2020-actual"
+        intro: "Bosch Unlimited Serie 7 mejora rendimiento y accesorios dentro de la familia Unlimited. Es muy frecuente en hogares que priorizan robustez y sistema modular. Para conservar prestaciones, el filtro y el rodillo deben mantenerse limpios; la batería se sustituye si baja la autonomía."
+        seo:
+          title: "Bosch Unlimited Serie 7: recambios compatibles, fallos comunes y mantenimiento"
+          description: "Compatibilidad y recambios para Bosch Unlimited Serie 7: batería, filtros, rodillos, cargador y accesorios. Síntomas típicos y solución."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "18V"
+          notas: "Batería 18V; confirma compatibilidad exacta del pack con tu submodelo."
+        compatibilidad:
+          - "Batería 18V (sistema modular según versión); confirma anclaje."
+          - "Filtros y depósito específicos de Serie 7."
+          - "Rodillo según cabezal AllFloor/PowerBrush."
+          - "Cargador compatible con batería 18V y conector."
+        fallos:
+          - symptom: "No mantiene potencia en alfombra"
+            severidad: "media"
+            causas:
+              - "Rodillo sucio o gastado"
+              - "Filtro saturado"
+              - "Batería con caída de voltaje"
+            checks:
+              - "Limpia rodillo y revisa desgaste"
+              - "Sustituye filtro si está taponado"
+              - "Prueba batería tras carga completa"
+            fix_hint: "Si la potencia cae bajo carga, combina cambio de filtro con evaluación de batería."
+        recambios:
+          bateria:
+            - sku: "bosch-unlimited-serie-7-bateria-compat-18v"
+              title: "Batería compatible 18V para Bosch Unlimited Serie 7"
+              intent: "compra"
+          filtro:
+            - sku: "bosch-unlimited-serie-7-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Bosch Unlimited Serie 7"
+              intent: "compra"
+            - sku: "bosch-unlimited-serie-7-filtro-prefiltro-pack2"
+              title: "Prefiltros compatibles pack 2 para Bosch Unlimited Serie 7"
+              intent: "compra"
+          cepillo:
+            - sku: "bosch-unlimited-serie-7-cepillo-rodillo-allfloor"
+              title: "Rodillo compatible AllFloor para Bosch Unlimited Serie 7"
+              intent: "compra"
+          cargador:
+            - sku: "bosch-unlimited-serie-7-cargador-compat-eu"
+              title: "Cargador compatible EU para Bosch Unlimited Serie 7"
+              intent: "compra"
+          accesorios:
+            - sku: "bosch-unlimited-serie-7-accesorios-kit"
+              title: "Kit accesorios compatible (tapicería + rincones) para Bosch Unlimited Serie 7"
+              intent: "compra"
+
+  philips:
+    name: "Philips"
+    country_hint: "NL"
+    notes_brand: "Aspiradores escoba muy presentes por su facilidad de uso y formato de depósito. Consumo típico: filtros, rodillos y batería en reemplazo."
+    models:
+      - model: "Philips SpeedPro Max"
+        slug: "philips-speedpro-max"
+        series: "SpeedPro"
+        year_range: "2019-actual"
+        intro: "Philips SpeedPro Max es una escoba sin cable muy común por su cabezal de succión amplio y buena maniobrabilidad. Es especialmente práctica para limpieza rápida diaria. Los recambios más frecuentes son filtros y rodillo; la batería se reemplaza cuando cae la autonomía."
+        seo:
+          title: "Philips SpeedPro Max: recambios compatibles y fallos comunes"
+          description: "Compatibilidad y recambios para Philips SpeedPro Max: batería, filtros, rodillo, cargador y accesorios. Guía de mantenimiento y fallos típicos."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Voltaje habitual de la familia; confirma referencia exacta según submodelo."
+        compatibilidad:
+          - "Batería y cargador dependen del submodelo SpeedPro Max."
+          - "Filtros con formato específico del depósito."
+          - "Rodillo según cabezal (multisuperficie)."
+          - "Accesorios dependen del diámetro del tubo y adaptador."
+        fallos:
+          - symptom: "No recoge partículas finas"
+            severidad: "media"
+            causas:
+              - "Filtro saturado"
+              - "Rodillo sucio o gastado"
+              - "Canal de succión obstruido"
+            checks:
+              - "Limpia/cambia filtros"
+              - "Limpia rodillo"
+              - "Revisa canal del cabezal"
+            fix_hint: "Con partículas finas, el filtro es crítico: sustituirlo suele recuperar rendimiento."
+        recambios:
+          bateria:
+            - sku: "philips-speedpro-max-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Philips SpeedPro Max"
+              intent: "compra"
+          filtro:
+            - sku: "philips-speedpro-max-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Philips SpeedPro Max"
+              intent: "compra"
+            - sku: "philips-speedpro-max-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Philips SpeedPro Max"
+              intent: "compra"
+          cepillo:
+            - sku: "philips-speedpro-max-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Philips SpeedPro Max"
+              intent: "compra"
+          cargador:
+            - sku: "philips-speedpro-max-cargador-compat-eu"
+              title: "Cargador compatible EU para Philips SpeedPro Max"
+              intent: "compra"
+          accesorios:
+            - sku: "philips-speedpro-max-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + cepillo polvo) para Philips SpeedPro Max"
+              intent: "compra"
+
+      - model: "Philips SpeedPro Aqua"
+        slug: "philips-speedpro-aqua"
+        series: "SpeedPro"
+        year_range: "2019-actual"
+        intro: "Philips SpeedPro Aqua combina aspiración con accesorio de fregado, muy común para mantenimiento rápido en suelos duros. Para un buen resultado, conviene mantener filtros y rodillo en buen estado. Los paños de fregado son consumible frecuente en este tipo de modelos."
+        seo:
+          title: "Philips SpeedPro Aqua: recambios compatibles y mantenimiento (filtros, rodillo, paños)"
+          description: "Guía de Philips SpeedPro Aqua: compatibilidad, síntomas típicos y recambios compatibles (batería, filtros, rodillo, cargador, accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable con accesorio mopa"
+          voltaje_nominal: "25.2V"
+          notas: "Incluye accesorio Aqua; paños y depósitos dependen del kit."
+        compatibilidad:
+          - "Batería 25.2V por familia SpeedPro; confirma submodelo."
+          - "Filtros específicos del depósito."
+          - "Rodillo según cabezal principal."
+          - "Paños compatibles según el accesorio Aqua."
+        fallos:
+          - symptom: "Fregado deja marcas o moja poco"
+            severidad: "baja"
+            causas:
+              - "Paño gastado o sucio"
+              - "Depósito Aqua mal colocado"
+              - "Salida obstruida"
+            checks:
+              - "Cambia/lava paño"
+              - "Revisa encaje del depósito"
+              - "Comprueba salida de agua"
+            fix_hint: "Sustituir paños y limpiar salidas suele resolver; usa paños compatibles del accesorio."
+        recambios:
+          bateria:
+            - sku: "philips-speedpro-aqua-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Philips SpeedPro Aqua"
+              intent: "compra"
+          filtro:
+            - sku: "philips-speedpro-aqua-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Philips SpeedPro Aqua"
+              intent: "compra"
+            - sku: "philips-speedpro-aqua-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Philips SpeedPro Aqua"
+              intent: "compra"
+          cepillo:
+            - sku: "philips-speedpro-aqua-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Philips SpeedPro Aqua"
+              intent: "compra"
+          cargador:
+            - sku: "philips-speedpro-aqua-cargador-compat-eu"
+              title: "Cargador compatible EU para Philips SpeedPro Aqua"
+              intent: "compra"
+          accesorios:
+            - sku: "philips-speedpro-aqua-accesorios-pack-panios"
+              title: "Paños compatibles pack para accesorio Aqua Philips SpeedPro"
+              intent: "compra"
+
+  xiaomi:
+    name: "Xiaomi"
+    country_hint: "CN"
+    notes_brand: "Muy popular por precio/prestaciones en escobas sin cable y robots. Recambios frecuentes: filtros, rodillos y baterías."
+    models:
+      - model: "Xiaomi Mi Vacuum Cleaner G10"
+        slug: "xiaomi-mi-g10"
+        series: "Mi Vacuum"
+        year_range: "2020-actual"
+        intro: "Xiaomi Mi Vacuum Cleaner G10 es una escoba sin cable muy común en el segmento calidad/precio, con buen rendimiento para suelos mixtos. El mantenimiento típico se centra en filtros y rodillo; la batería se reemplaza cuando pierde autonomía. Es especialmente práctica para limpieza rápida diaria."
+        seo:
+          title: "Xiaomi Mi Vacuum G10: recambios compatibles y fallos típicos"
+          description: "Guía del Xiaomi Mi Vacuum G10: compatibilidad, mantenimiento y recambios compatibles (batería, filtros, rodillos, cargador y accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Batería extraíble; filtros lavables según kit; cabezales múltiples según versión."
+        compatibilidad:
+          - "Batería compatible debe coincidir por anclaje y conector G10."
+          - "Filtros específicos del depósito G10."
+          - "Rodillos dependen del cabezal (suelo/alfombra)."
+          - "Cargador compatible con la base y conector."
+        fallos:
+          - symptom: "El motor suena pero no aspira"
+            severidad: "media"
+            causas:
+              - "Obstrucción en tubo o cabezal"
+              - "Filtro totalmente taponado"
+            checks:
+              - "Revisa tubo y cabezal"
+              - "Limpia o cambia filtro"
+            fix_hint: "La obstrucción en el codo del cabezal es frecuente; limpiar filtros ayuda a recuperar caudal."
+        recambios:
+          bateria:
+            - sku: "xiaomi-mi-g10-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Xiaomi Mi Vacuum G10"
+              intent: "compra"
+          filtro:
+            - sku: "xiaomi-mi-g10-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Xiaomi Mi Vacuum G10"
+              intent: "compra"
+            - sku: "xiaomi-mi-g10-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Xiaomi Mi Vacuum G10"
+              intent: "compra"
+          cepillo:
+            - sku: "xiaomi-mi-g10-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Xiaomi Mi Vacuum G10"
+              intent: "compra"
+          cargador:
+            - sku: "xiaomi-mi-g10-cargador-compat-eu"
+              title: "Cargador compatible EU para Xiaomi Mi Vacuum G10"
+              intent: "compra"
+          accesorios:
+            - sku: "xiaomi-mi-g10-accesorios-kit"
+              title: "Kit accesorios compatible (mini cepillo + rincones) para Xiaomi Mi Vacuum G10"
+              intent: "compra"
+
+      - model: "Xiaomi Vacuum Cleaner G11"
+        slug: "xiaomi-g11"
+        series: "Mi Vacuum"
+        year_range: "2021-actual"
+        intro: "Xiaomi Vacuum Cleaner G11 es una evolución popular con mejoras en autonomía y accesorios. Se usa mucho como aspirador principal en pisos medianos. Sus recambios más frecuentes son filtros y rodillo; la batería compatible es el reemplazo típico cuando baja el rendimiento."
+        seo:
+          title: "Xiaomi G11: recambios compatibles (filtros, rodillo, batería) y fallos"
+          description: "Compatibilidad y recambios del Xiaomi G11: batería, filtros, rodillos, cargador y accesorios. Fallos típicos y solución rápida."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Confirma la referencia del pack G11; no todas las baterías G10/G11 son intercambiables."
+        compatibilidad:
+          - "Batería debe encajar en el cuerpo G11 y coincidir conectores."
+          - "Filtros específicos del depósito G11."
+          - "Rodillos según cabezal; para mascotas, prioriza anti-enredos si existe."
+          - "Cargador compatible con el sistema de carga del G11."
+        fallos:
+          - symptom: "Se apaga al poco tiempo aunque marca carga"
+            severidad: "alta"
+            causas:
+              - "Batería degradada"
+              - "Protección térmica por obstrucción"
+            checks:
+              - "Revisa obstrucciones y limpia filtros"
+              - "Prueba con accesorios retirados"
+            fix_hint: "Si se apaga incluso sin cabezal tras limpiar, la batería suele estar degradada."
+        recambios:
+          bateria:
+            - sku: "xiaomi-g11-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Xiaomi Vacuum Cleaner G11"
+              intent: "compra"
+          filtro:
+            - sku: "xiaomi-g11-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Xiaomi G11"
+              intent: "compra"
+            - sku: "xiaomi-g11-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Xiaomi G11"
+              intent: "compra"
+          cepillo:
+            - sku: "xiaomi-g11-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Xiaomi G11"
+              intent: "compra"
+          cargador:
+            - sku: "xiaomi-g11-cargador-compat-eu"
+              title: "Cargador compatible EU para Xiaomi G11"
+              intent: "compra"
+          accesorios:
+            - sku: "xiaomi-g11-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Xiaomi G11"
+              intent: "compra"
+
+  dreame:
+    name: "Dreame"
+    country_hint: "CN"
+    notes_brand: "Muy presente en gamas medias/altas de escoba sin cable, con modelos con estación. Recambios comunes: filtros, rodillos y batería."
+    models:
+      - model: "Dreame Z40 Station"
+        slug: "dreame-z40-station"
+        series: "Z-Series"
+        year_range: "2025-actual"
+        intro: "Dreame Z40 Station es una escoba sin cable con estación, orientada a máxima comodidad y potencia en hogares exigentes. Su mantenimiento depende de filtros y rodillos, y el sistema de estación requiere mantener conductos limpios. Es habitual en usuarios que quieren automatizar el vaciado."
+        seo:
+          title: "Dreame Z40 Station: recambios compatibles y mantenimiento (filtros, rodillos, batería)"
+          description: "Guía de Dreame Z40 Station: compatibilidad, fallos típicos y recambios compatibles por categorías para mantener potencia y autonomía."
+        specs:
+          tipo: "aspirador escoba sin cable con estación"
+          voltaje_nominal: "29.6V"
+          notas: "Voltaje orientativo; confirma batería y consumibles según submodelo Z40 Station."
+        compatibilidad:
+          - "Batería específica de la familia Z40; confirma anclaje."
+          - "Filtros compatibles con el depósito del Z40."
+          - "Rodillos según cabezal; suele haber opción anti-enredos."
+          - "Cargador/estación deben ser los correctos del sistema."
+        fallos:
+          - symptom: "La estación no aspira bien al vaciar"
+            severidad: "media"
+            causas:
+              - "Obstrucción en conducto"
+              - "Filtro saturado"
+              - "Depósito mal asentado"
+            checks:
+              - "Limpia conductos y entrada"
+              - "Sustituye filtro si está deformado"
+              - "Recoloca el depósito"
+            fix_hint: "Revisa primero obstrucciones; el segundo punto más común es filtro saturado."
+        recambios:
+          bateria:
+            - sku: "dreame-z40-station-bateria-compat-296v"
+              title: "Batería compatible para Dreame Z40 Station"
+              intent: "compra"
+          filtro:
+            - sku: "dreame-z40-station-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Dreame Z40 Station"
+              intent: "compra"
+            - sku: "dreame-z40-station-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Dreame Z40 Station"
+              intent: "compra"
+          cepillo:
+            - sku: "dreame-z40-station-cepillo-rodillo-anti-enredos"
+              title: "Rodillo compatible anti-enredos para Dreame Z40 Station"
+              intent: "compra"
+            - sku: "dreame-z40-station-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Dreame Z40 Station"
+              intent: "compra"
+          cargador:
+            - sku: "dreame-z40-station-cargador-compat-eu"
+              title: "Cargador compatible EU para Dreame Z40 Station"
+              intent: "compra"
+          accesorios:
+            - sku: "dreame-z40-station-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + mini cepillo) para Dreame Z40 Station"
+              intent: "compra"
+
+      - model: "Dreame R10"
+        slug: "dreame-r10"
+        series: "R-Series"
+        year_range: "2023-actual"
+        intro: "Dreame R10 es una escoba sin cable muy común por su equilibrio en precio y prestaciones. Suele usarse como aspirador principal en viviendas medianas. Mantener filtros y rodillo en buen estado evita la mayoría de problemas de succión."
+        seo:
+          title: "Dreame R10: recambios compatibles (batería, filtros, rodillos) y fallos"
+          description: "Compatibilidad y recambios para Dreame R10: batería, filtros, rodillos, cargador y accesorios. Solución de fallos comunes."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Voltaje orientativo; confirma referencia del pack R10."
+        compatibilidad:
+          - "Batería compatible según anclaje R10."
+          - "Filtros del depósito R10."
+          - "Rodillos por cabezal; multisuperficie habitual."
+          - "Cargador compatible con conector del R10."
+        fallos:
+          - symptom: "Aspira pero deja restos grandes"
+            severidad: "baja"
+            causas:
+              - "Rodillo con cerdas gastadas"
+              - "Boca del cabezal obstruida"
+            checks:
+              - "Limpia cabezal y revisa rodillo"
+              - "Comprueba que el rodillo gira sin resistencia"
+            fix_hint: "Un rodillo gastado pierde arrastre; cambiarlo mejora recogida de migas y pelo."
+        recambios:
+          bateria:
+            - sku: "dreame-r10-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Dreame R10"
+              intent: "compra"
+          filtro:
+            - sku: "dreame-r10-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Dreame R10"
+              intent: "compra"
+            - sku: "dreame-r10-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Dreame R10"
+              intent: "compra"
+          cepillo:
+            - sku: "dreame-r10-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Dreame R10"
+              intent: "compra"
+          cargador:
+            - sku: "dreame-r10-cargador-compat-eu"
+              title: "Cargador compatible EU para Dreame R10"
+              intent: "compra"
+          accesorios:
+            - sku: "dreame-r10-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Dreame R10"
+              intent: "compra"
+
+  roborock:
+    name: "Roborock"
+    country_hint: "CN"
+    notes_brand: "Muy fuerte en robots y creciente en escobas sin cable. Recambios típicos: filtros, cepillos laterales y rodillos; en escobas, filtros y rodillos."
+    models:
+      - model: "Roborock H60 Hub Ultra"
+        slug: "roborock-h60-hub-ultra"
+        series: "H-Series"
+        year_range: "2025-actual"
+        intro: "Roborock H60 Hub Ultra es una escoba sin cable con base orientada a comodidad y mantenimiento, popular por su enfoque en automatización del vaciado. Para mantener su rendimiento, los recambios clave son filtros y rodillos. La batería se sustituye cuando cae la autonomía bajo carga."
+        seo:
+          title: "Roborock H60 Hub Ultra: recambios compatibles y mantenimiento"
+          description: "Guía del Roborock H60 Hub Ultra: compatibilidad, fallos típicos y recambios compatibles (batería, filtros, rodillos, cargador y accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable con base"
+          voltaje_nominal: "25.2V"
+          notas: "Voltaje orientativo; confirma consumibles del hub según versión."
+        compatibilidad:
+          - "Batería compatible por anclaje H60."
+          - "Filtros específicos del depósito del H60."
+          - "Rodillos por cabezal; anti-enredos recomendado en mascotas."
+          - "Cargador/base deben coincidir con el sistema H60."
+        fallos:
+          - symptom: "Base no vacía o vacía a medias"
+            severidad: "media"
+            causas:
+              - "Obstrucción en conducto"
+              - "Fuga en sellos"
+              - "Filtro saturado"
+            checks:
+              - "Revisa conducto y entrada"
+              - "Comprueba sellos y encaje"
+              - "Sustituye filtro si está taponado"
+            fix_hint: "Obstrucciones y sellos mal asentados son lo más común; después, filtro saturado."
+        recambios:
+          bateria:
+            - sku: "roborock-h60-hub-ultra-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Roborock H60 Hub Ultra"
+              intent: "compra"
+          filtro:
+            - sku: "roborock-h60-hub-ultra-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Roborock H60 Hub Ultra"
+              intent: "compra"
+            - sku: "roborock-h60-hub-ultra-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Roborock H60 Hub Ultra"
+              intent: "compra"
+          cepillo:
+            - sku: "roborock-h60-hub-ultra-cepillo-rodillo-anti-enredos"
+              title: "Rodillo compatible anti-enredos para Roborock H60 Hub Ultra"
+              intent: "compra"
+            - sku: "roborock-h60-hub-ultra-cepillo-rodillo-multisuperficie"
+              title: "Rodillo multisuperficie compatible para Roborock H60 Hub Ultra"
+              intent: "compra"
+          cargador:
+            - sku: "roborock-h60-hub-ultra-cargador-compat-eu"
+              title: "Cargador compatible EU para Roborock H60 Hub Ultra"
+              intent: "compra"
+          accesorios:
+            - sku: "roborock-h60-hub-ultra-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Roborock H60 Hub Ultra"
+              intent: "compra"
+
+      - model: "Roborock S7"
+        slug: "roborock-s7"
+        series: "S-Series (Robot)"
+        year_range: "2021-2023"
+        intro: "Roborock S7 es uno de los robots aspiradores más extendidos en su gama por combinar aspiración y fregado con buen rendimiento en suelos mixtos. El mantenimiento recurrente pasa por filtros, cepillos laterales y rodillo central. Cambiar consumibles a tiempo evita la pérdida de rendimiento."
+        seo:
+          title: "Roborock S7: recambios compatibles (filtros, cepillos) y fallos comunes"
+          description: "Guía del Roborock S7: compatibilidad, mantenimiento y recambios compatibles (filtros, cepillos laterales, rodillo, batería y base)."
+        specs:
+          tipo: "robot aspirador"
+          voltaje_nominal: ""
+          notas: "Consumibles: filtros, cepillos laterales y rodillo; paños si incluye fregado."
+        compatibilidad:
+          - "Filtros compatibles deben encajar en el depósito S7."
+          - "Cepillos laterales con anclaje correcto."
+          - "Rodillo central según soporte y ancho."
+          - "Paños de fregado compatibles según el soporte."
+        fallos:
+          - symptom: "Se atasca con alfombras o se queda clavado"
+            severidad: "media"
+            causas:
+              - "Cepillos laterales deformados"
+              - "Rodillo con pelo acumulado"
+              - "Ruedas con suciedad"
+            checks:
+              - "Cambia cepillos laterales"
+              - "Limpia rodillo y ejes"
+              - "Limpia ruedas"
+            fix_hint: "Un kit de consumibles (cepillos + filtro) suele devolver comportamiento normal."
+        recambios:
+          bateria:
+            - sku: "roborock-s7-bateria-compat"
+              title: "Batería compatible para Roborock S7"
+              intent: "compra"
+          filtro:
+            - sku: "roborock-s7-filtro-hepa-pack4"
+              title: "Filtros tipo HEPA compatibles pack 4 para Roborock S7"
+              intent: "compra"
+          cepillo:
+            - sku: "roborock-s7-cepillos-laterales-pack8"
+              title: "Cepillos laterales compatibles pack 8 para Roborock S7"
+              intent: "compra"
+            - sku: "roborock-s7-cepillo-rodillo-central"
+              title: "Rodillo central compatible para Roborock S7"
+              intent: "compra"
+          cargador:
+            - sku: "roborock-s7-cargador-base-compat"
+              title: "Base/cargador compatible para Roborock S7"
+              intent: "compra"
+          accesorios:
+            - sku: "roborock-s7-accesorios-pack-panios"
+              title: "Paños compatibles pack para Roborock S7"
+              intent: "compra"
+
+      - model: "Roborock Q Revo"
+        slug: "roborock-q-revo"
+        series: "Q-Series (Robot)"
+        year_range: "2023-actual"
+        intro: "Roborock Q Revo es un robot aspirador muy popular por su automatización y enfoque en comodidad (base, mopas, etc., según versión). Su mantenimiento preventivo se basa en consumibles: filtros y cepillos. Cuando baja el rendimiento, casi siempre es por filtro saturado o cepillos gastados."
+        seo:
+          title: "Roborock Q Revo: recambios compatibles y mantenimiento (filtros, cepillos, mopas)"
+          description: "Guía del Roborock Q Revo: compatibilidad, fallos comunes y recambios compatibles para mantener succión y fregado."
+        specs:
+          tipo: "robot aspirador"
+          voltaje_nominal: ""
+          notas: "En robots con base, mantener limpios conductos y cambiar consumibles reduce errores y baja succión."
+        compatibilidad:
+          - "Filtros específicos del depósito Q Revo."
+          - "Cepillos laterales con el mismo anclaje."
+          - "Rodillo central según el chasis."
+          - "Paños de mopa compatibles según el soporte."
+        fallos:
+          - symptom: "Fregado irregular o mopas dejan marcas"
+            severidad: "baja"
+            causas:
+              - "Paños gastados"
+              - "Soporte sucio"
+              - "Salida de agua parcialmente obstruida"
+            checks:
+              - "Cambia paños"
+              - "Limpia soporte y conductos"
+              - "Revisa depósito/salidas"
+            fix_hint: "En fregado, el recambio más importante es el paño; cambia con frecuencia para evitar marcas."
+        recambios:
+          bateria:
+            - sku: "roborock-q-revo-bateria-compat"
+              title: "Batería compatible para Roborock Q Revo"
+              intent: "compra"
+          filtro:
+            - sku: "roborock-q-revo-filtro-hepa-pack4"
+              title: "Filtros tipo HEPA compatibles pack 4 para Roborock Q Revo"
+              intent: "compra"
+          cepillo:
+            - sku: "roborock-q-revo-cepillos-laterales-pack8"
+              title: "Cepillos laterales compatibles pack 8 para Roborock Q Revo"
+              intent: "compra"
+            - sku: "roborock-q-revo-cepillo-rodillo-central"
+              title: "Rodillo central compatible para Roborock Q Revo"
+              intent: "compra"
+          cargador:
+            - sku: "roborock-q-revo-cargador-base-compat"
+              title: "Base/cargador compatible para Roborock Q Revo"
+              intent: "compra"
+          accesorios:
+            - sku: "roborock-q-revo-accesorios-pack-panios"
+              title: "Paños compatibles pack para Roborock Q Revo"
+              intent: "compra"
+
+  irobot:
+    name: "iRobot"
+    country_hint: "US"
+    notes_brand: "Referente en robots aspiradores Roomba con amplia base instalada. Consumibles típicos: filtros, cepillos laterales y rodillos extractores."
+    models:
+      - model: "iRobot Roomba i7"
+        slug: "irobot-roomba-i7"
+        series: "Roomba i-Series"
+        year_range: "2018-2022"
+        intro: "Roomba i7 es uno de los robots aspiradores más extendidos de su generación, especialmente por su rendimiento y ecosistema de recambios. El mantenimiento recomendado es periódico y basado en consumibles: filtros, cepillos laterales y rodillos extractores. Sustituirlos a tiempo reduce errores y mejora recogida de pelo."
+        seo:
+          title: "Roomba i7: recambios compatibles (filtros, cepillos, rodillos) y fallos"
+          description: "Guía del iRobot Roomba i7: compatibilidad, mantenimiento, fallos típicos y recambios compatibles para mantener rendimiento."
+        specs:
+          tipo: "robot aspirador"
+          voltaje_nominal: ""
+          notas: "Rodillos extractores dobles; consumibles muy comunes: filtros y cepillos laterales."
+        compatibilidad:
+          - "Filtros con formato i-Series."
+          - "Cepillos laterales compatibles con el soporte i-Series."
+          - "Rodillos extractores específicos (pares)."
+          - "Batería compatible según chasis i7."
+        fallos:
+          - symptom: "Error de rodillos o deja pelo"
+            severidad: "media"
+            causas:
+              - "Rodillos saturados"
+              - "Rodillos gastados"
+              - "Ejes sucios"
+            checks:
+              - "Retira y limpia rodillos y ejes"
+              - "Revisa grietas o desgaste"
+            fix_hint: "Si tras limpieza sigue dejando pelo, cambia el par de rodillos extractores compatibles."
+        recambios:
+          bateria:
+            - sku: "irobot-roomba-i7-bateria-compat"
+              title: "Batería compatible para iRobot Roomba i7"
+              intent: "compra"
+          filtro:
+            - sku: "irobot-roomba-i7-filtro-hepa-pack4"
+              title: "Filtros compatibles pack 4 para Roomba i7"
+              intent: "compra"
+          cepillo:
+            - sku: "irobot-roomba-i7-cepillos-laterales-pack8"
+              title: "Cepillos laterales compatibles pack 8 para Roomba i7"
+              intent: "compra"
+            - sku: "irobot-roomba-i7-cepillo-rodillos-extractores-par"
+              title: "Rodillos extractores compatibles (par) para Roomba i7"
+              intent: "compra"
+          cargador:
+            - sku: "irobot-roomba-i7-cargador-base-compat"
+              title: "Base/cargador compatible para Roomba i7"
+              intent: "compra"
+          accesorios:
+            - sku: "irobot-roomba-i7-accesorios-kit-mantenimiento"
+              title: "Kit mantenimiento compatible (filtros + cepillos + rodillos) para Roomba i7"
+              intent: "compra"
+
+      - model: "iRobot Roomba j7"
+        slug: "irobot-roomba-j7"
+        series: "Roomba j-Series"
+        year_range: "2021-actual"
+        intro: "Roomba j7 es un robot aspirador muy popular por su enfoque en navegación avanzada y uso diario sin complicaciones. Como en cualquier Roomba, el rendimiento depende mucho del estado de consumibles: filtros y rodillos. Si notas caída de succión o más ruido, suele ser momento de mantenimiento."
+        seo:
+          title: "Roomba j7: recambios compatibles y fallos comunes (mantenimiento Roomba)"
+          description: "Guía del iRobot Roomba j7: compatibilidad, fallos típicos y recambios compatibles (filtros, cepillos, rodillos y batería)."
+        specs:
+          tipo: "robot aspirador"
+          voltaje_nominal: ""
+          notas: "Consumibles principales: filtro, cepillo lateral y rodillos extractores."
+        compatibilidad:
+          - "Filtros con formato j-Series."
+          - "Cepillos laterales compatibles con el anclaje j7."
+          - "Rodillos extractores específicos (pares)."
+          - "Batería compatible para chasis j7."
+        fallos:
+          - symptom: "Baja succión y depósito se llena rápido"
+            severidad: "media"
+            causas:
+              - "Filtro saturado"
+              - "Conducto con polvo fino"
+            checks:
+              - "Sustituye filtro"
+              - "Limpia el canal de succión"
+            fix_hint: "Cambiar filtro suele ser la solución más efectiva cuando hay polvo fino y caída de succión."
+        recambios:
+          bateria:
+            - sku: "irobot-roomba-j7-bateria-compat"
+              title: "Batería compatible para iRobot Roomba j7"
+              intent: "compra"
+          filtro:
+            - sku: "irobot-roomba-j7-filtro-hepa-pack4"
+              title: "Filtros compatibles pack 4 para Roomba j7"
+              intent: "compra"
+          cepillo:
+            - sku: "irobot-roomba-j7-cepillos-laterales-pack8"
+              title: "Cepillos laterales compatibles pack 8 para Roomba j7"
+              intent: "compra"
+            - sku: "irobot-roomba-j7-cepillo-rodillos-extractores-par"
+              title: "Rodillos extractores compatibles (par) para Roomba j7"
+              intent: "compra"
+          cargador:
+            - sku: "irobot-roomba-j7-cargador-base-compat"
+              title: "Base/cargador compatible para Roomba j7"
+              intent: "compra"
+          accesorios:
+            - sku: "irobot-roomba-j7-accesorios-kit-mantenimiento"
+              title: "Kit mantenimiento compatible (filtros + cepillos + rodillos) para Roomba j7"
+              intent: "compra"
+
+  shark:
+    name: "Shark"
+    country_hint: "US/UK"
+    notes_brand: "Muy popular en mercados anglosajones y cada vez más presente en Europa. Recambios típicos en escobas: filtros y rodillos; en modelos con base, consumibles del sistema."
+    models:
+      - model: "Shark Stratos Cordless"
+        slug: "shark-stratos-cordless"
+        series: "Stratos"
+        year_range: "2022-actual"
+        intro: "Shark Stratos Cordless es una escoba sin cable popular por su enfoque en recogida de pelo y rendimiento en suelos mixtos. Es una opción frecuente para mascotas por su cepillo anti-enredos. Para mantener prestaciones, filtros y rodillo son los recambios esenciales."
+        seo:
+          title: "Shark Stratos Cordless: recambios compatibles y fallos típicos"
+          description: "Guía Shark Stratos Cordless: compatibilidad, mantenimiento y recambios compatibles (batería, filtros, rodillo, cargador y accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Voltaje orientativo; confirma batería y filtro por submodelo Stratos."
+        compatibilidad:
+          - "Batería compatible por anclaje Stratos."
+          - "Filtros específicos del depósito y cartucho."
+          - "Rodillo anti-enredos según cabezal."
+          - "Cargador compatible con la base y conector."
+        fallos:
+          - symptom: "Se atasca con pelo y baja rendimiento"
+            severidad: "media"
+            causas:
+              - "Rodillo saturado"
+              - "Filtro saturado"
+            checks:
+              - "Limpia rodillo y extremos"
+              - "Limpia/cambia filtros"
+            fix_hint: "En mascotas, el recambio más frecuente es el rodillo; cambiarlo devuelve rendimiento y reduce atascos."
+        recambios:
+          bateria:
+            - sku: "shark-stratos-cordless-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Shark Stratos Cordless"
+              intent: "compra"
+          filtro:
+            - sku: "shark-stratos-cordless-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Shark Stratos Cordless"
+              intent: "compra"
+            - sku: "shark-stratos-cordless-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Shark Stratos Cordless"
+              intent: "compra"
+          cepillo:
+            - sku: "shark-stratos-cordless-cepillo-rodillo-anti-enredos"
+              title: "Rodillo compatible anti-enredos para Shark Stratos Cordless"
+              intent: "compra"
+          cargador:
+            - sku: "shark-stratos-cordless-cargador-compat-eu"
+              title: "Cargador compatible EU para Shark Stratos Cordless"
+              intent: "compra"
+          accesorios:
+            - sku: "shark-stratos-cordless-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + mini motor) para Shark Stratos Cordless"
+              intent: "compra"
+
+      - model: "Shark PowerDetect Clean & Empty"
+        slug: "shark-powerdetect-clean-empty"
+        series: "PowerDetect"
+        year_range: "2024-actual"
+        intro: "Shark PowerDetect Clean & Empty es una escoba sin cable con base de autovaciado orientada a minimizar mantenimiento diario. Es popular por comodidad y herramientas para pelo de mascotas. Sus recambios clave son filtros, rodillos y, si aplica, consumibles de la base."
+        seo:
+          title: "Shark PowerDetect Clean & Empty: recambios compatibles y mantenimiento"
+          description: "Guía Shark PowerDetect Clean & Empty: compatibilidad, fallos comunes y recambios compatibles (batería, filtros, rodillo, cargador y accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable con base autovaciado"
+          voltaje_nominal: "25.2V"
+          notas: "Base con depósito; mantener conductos y sellos limpios evita pérdida de vaciado."
+        compatibilidad:
+          - "Batería compatible por anclaje PowerDetect."
+          - "Filtros específicos del cuerpo principal."
+          - "Rodillo según cabezal (dual rollers o anti-enredos según versión)."
+          - "Cargador/base compatibles con el sistema PowerDetect."
+        fallos:
+          - symptom: "Base hace ruido pero no vacía"
+            severidad: "media"
+            causas:
+              - "Obstrucción en el conducto"
+              - "Sello mal asentado"
+              - "Filtro saturado"
+            checks:
+              - "Revisa conductos"
+              - "Comprueba sellos y encaje"
+              - "Sustituye filtros si están saturados"
+            fix_hint: "La mayoría de fallos de vaciado se resuelven limpiando el conducto y asegurando sellos."
+        recambios:
+          bateria:
+            - sku: "shark-powerdetect-clean-empty-bateria-compat-252v"
+              title: "Batería compatible 25.2V para Shark PowerDetect Clean & Empty"
+              intent: "compra"
+          filtro:
+            - sku: "shark-powerdetect-clean-empty-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Shark PowerDetect Clean & Empty"
+              intent: "compra"
+            - sku: "shark-powerdetect-clean-empty-filtro-espuma-pack2"
+              title: "Filtro de espuma compatible pack 2 para Shark PowerDetect Clean & Empty"
+              intent: "compra"
+          cepillo:
+            - sku: "shark-powerdetect-clean-empty-cepillo-rodillo-anti-enredos"
+              title: "Rodillo compatible anti-enredos para Shark PowerDetect Clean & Empty"
+              intent: "compra"
+            - sku: "shark-powerdetect-clean-empty-cepillo-rodillo-dual"
+              title: "Rodillo compatible tipo dual para Shark PowerDetect Clean & Empty"
+              intent: "compra"
+          cargador:
+            - sku: "shark-powerdetect-clean-empty-cargador-compat-eu"
+              title: "Cargador compatible EU para Shark PowerDetect Clean & Empty"
+              intent: "compra"
+          accesorios:
+            - sku: "shark-powerdetect-clean-empty-accesorios-kit"
+              title: "Kit accesorios compatible (mini motor + rincones) para Shark PowerDetect Clean & Empty"
+              intent: "compra"
+
+  samsung:
+    name: "Samsung"
+    country_hint: "KR"
+    notes_brand: "Escobas sin cable tipo Jet con buena disponibilidad de recambios. Consumibles: filtros, rodillos, batería y cargador."
+    models:
+      - model: "Samsung Jet 75"
+        slug: "samsung-jet-75"
+        series: "Jet"
+        year_range: "2020-actual"
+        intro: "Samsung Jet 75 es una aspiradora escoba sin cable muy común por su rendimiento consistente y ecosistema de accesorios. Es una elección habitual para suelos mixtos y uso frecuente. Para mantener potencia, filtros y rodillo son esenciales; la batería se reemplaza cuando cae la autonomía."
+        seo:
+          title: "Samsung Jet 75: recambios compatibles y fallos comunes (batería, filtros, cepillo)"
+          description: "Guía Samsung Jet 75: compatibilidad, mantenimiento y recambios compatibles (batería, filtros, rodillos, cargador y accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "21.6V"
+          notas: "Batería extraíble; cabezales según pack; confirma compatibilidad por submodelo Jet."
+        compatibilidad:
+          - "Batería compatible por anclaje Jet 75."
+          - "Filtros HEPA y prefiltrado según depósito."
+          - "Rodillo según cabezal (turbo/soft)."
+          - "Cargador compatible con el sistema de carga Jet."
+        fallos:
+          - symptom: "Pérdida de potencia y más ruido"
+            severidad: "media"
+            causas:
+              - "Filtro HEPA saturado"
+              - "Prefiltro sucio"
+              - "Obstrucción en tubo"
+            checks:
+              - "Limpia o sustituye filtro HEPA"
+              - "Limpia prefiltrado"
+              - "Revisa tubo/cabezal"
+            fix_hint: "Cambiar filtro HEPA suele recuperar rendimiento si se ha usado con polvo fino o sin limpieza periódica."
+        recambios:
+          bateria:
+            - sku: "samsung-jet-75-bateria-compat-216v"
+              title: "Batería compatible 21.6V para Samsung Jet 75"
+              intent: "compra"
+          filtro:
+            - sku: "samsung-jet-75-filtro-hepa"
+              title: "Filtro tipo HEPA compatible para Samsung Jet 75"
+              intent: "compra"
+            - sku: "samsung-jet-75-filtro-prefiltro-pack2"
+              title: "Prefiltros compatibles pack 2 para Samsung Jet 75"
+              intent: "compra"
+          cepillo:
+            - sku: "samsung-jet-75-cepillo-rodillo-turbo"
+              title: "Rodillo compatible tipo Turbo para Samsung Jet 75"
+              intent: "compra"
+            - sku: "samsung-jet-75-cepillo-rodillo-soft"
+              title: "Rodillo compatible tipo Soft para Samsung Jet 75"
+              intent: "compra"
+          cargador:
+            - sku: "samsung-jet-75-cargador-compat-eu"
+              title: "Cargador compatible EU para Samsung Jet 75"
+              intent: "compra"
+          accesorios:
+            - sku: "samsung-jet-75-accesorios-kit"
+              title: "Kit accesorios compatible (rincones + tapicería) para Samsung Jet 75"
+              intent: "compra"

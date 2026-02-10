@@ -1,0 +1,174 @@
+Actúa como arquitecto senior SEO + ingeniero de sistemas para Hugo (static site generator) especializado en webs de afiliados escalables.
+
+CONTEXTO Y ESTADO ACTUAL
+
+Estoy construyendo una web tipo enciclopedia de marcas y modelos de aspiradores y sus recambios compatibles, fallos comunes y guías.
+
+La web está hecha con Hugo y el objetivo es escalar a miles de modelos sin escribir páginas manuales.
+
+Mi enfoque es data-driven:
+
+Toda la información vive en un único fichero de datos (YAML o CSV).
+
+Un script generador (Python) crea los stubs mínimos en /content/ si faltan.
+
+Hugo renderiza páginas automáticas con plantillas.
+
+Se busca evitar duplicación de contenido y errores SEO.
+
+Tengo problemas previos de indexación (Search Console):
+
+URLs duplicadas
+
+canónicas mal definidas
+
+páginas no enlazadas correctamente
+
+algunas páginas detectadas como duplicadas o redirigidas
+
+OBJETIVO PRINCIPAL
+
+Quiero orientar el proyecto al modelo de monetización SEO + afiliados:
+
+Capturar búsquedas transaccionales del tipo: “batería dyson v11 compatible”, “filtro conga 3090”, “cargador rowenta x-force”.
+
+Capturar búsquedas informacionales: “dyson v11 no carga”, “conga pierde potencia”, etc.
+
+Monetizar con Amazon Afiliados + AliExpress Afiliados + Adsense.
+
+TAREA
+
+Quiero que me propongas una arquitectura completa (técnica + SEO) para que la web sea una máquina escalable y bien indexada, incluyendo:
+
+Estructura de URLs definitiva (sin duplicados, limpia, escalable)
+
+Qué tipos de páginas deben existir:
+
+marca
+
+modelo
+
+recambio por modelo
+
+problemas por modelo
+
+guías generales
+
+Qué campos exactos debe tener mi fichero YAML/CSV maestro para que todo sea automático.
+
+Qué debe generar el script Python exactamente (qué stubs, qué front matter, qué slugs).
+
+Cómo diseñar las plantillas Hugo para evitar contenido duplicado y a la vez permitir que cada página sea “única”.
+
+Cómo implementar correctamente:
+
+canonical URLs
+
+sitemap.xml
+
+robots.txt
+
+schema.org (FAQ, Product, BreadcrumbList)
+
+breadcrumbs
+
+enlaces internos automáticos
+
+Estrategia SEO de escalado:
+
+cómo atacar long-tail keywords
+
+cómo priorizar modelos/recambios
+
+cómo generar contenido útil sin ser penalizado por thin content
+
+Estrategia de monetización:
+
+dónde poner enlaces de afiliado
+
+qué tipo de tablas comparativas usar
+
+cómo insertar shortcodes para afiliación sin ensuciar el markdown
+
+Checklist de validación:
+
+cómo revisar duplicados
+
+cómo comprobar que Google indexa bien
+
+cómo evitar páginas huérfanas
+
+ESPECIFICACIONES
+
+Quiero máxima sencillez: una fuente de verdad (YAML/CSV).
+
+No quiero editar cientos de archivos manualmente.
+
+Todo debe ser automatizable.
+
+Quiero que el sistema permita añadir nuevos modelos simplemente añadiendo una línea al YAML/CSV.
+
+Quiero un enfoque preparado para 10.000+ páginas.
+
+FORMATO DE RESPUESTA
+
+Quiero una respuesta estructurada en fases:
+
+Fase 0 (decisiones críticas)
+
+Fase 1 (estructura de datos)
+
+Fase 2 (generación de contenido)
+
+Fase 3 (plantillas Hugo)
+
+Fase 4 (SEO técnico)
+
+Fase 5 (monetización)
+
+Fase 6 (escalado)
+
+Incluye ejemplos concretos de:
+
+YAML real
+
+front matter real
+
+URLs reales
+
+snippets de Hugo templates (list.html / single.html / partials)
+
+snippet de Python para generar stubs
+
+ejemplos de schema JSON-LD
+
+CRITERIO DE CALIDAD
+
+La solución debe estar orientada a:
+
+indexación masiva sin penalización
+
+evitar duplicados
+
+alto CTR
+
+enlazado interno perfecto
+
+escalabilidad extrema
+
+facilidad de mantenimiento
+
+VERIFICACIÓN FINAL
+
+Al final de tu respuesta quiero:
+
+un checklist final de implementación
+
+errores típicos y cómo evitarlos
+
+una recomendación de “qué hacer primero mañana”
+
+ Datos actuales
+
+Te acabo de pegar todo lo desarrollado hasta el momento
+

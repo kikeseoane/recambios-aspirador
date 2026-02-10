@@ -1,0 +1,140 @@
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  {{ $brandKey := .Params.brandKey }}
+  {{ $modelSlug := (or .Params.modelSlug .Params.slug) | urlize }}
+  {{ $problemKey := .Params.problemKey | urlize }}
+
+  {{ $brand := cond (and $brands $brandKey) (index $brands $brandKey) nil }}
+
+  {{ if not $brand }}
+    {{/* Página inválida -> noindex */}}
+    {{ .Scratch.Set "noindex" true }}
+    <h1>Problema no disponible</h1>
+    <p class="muted">No encontramos la marca asociada.</p>
+    <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+    {{ return }}
+  {{ end }}
+
+  {{/* Buscar modelo */}}
+  {{ $model := dict }}
+  {{ range $m := ($brand.models | default (slice)) }}
+    {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+    {{ if eq $mid $modelSlug }}{{ $model = $m }}{{ end }}
+  {{ end }}
+
+  {{ if not (len $model) }}
+    {{ .Scratch.Set "noindex" true }}
+    <h1>Problema en preparación</h1>
+    <p class="muted">No encontramos el modelo en el catálogo.</p>
+    <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
+    {{ return }}
+  {{ end }}
+
+  {{/* Buscar problema */}}
+  {{ $p := dict }}
+  {{ $plist := index $model "problemas" }}
+  {{ if and $plist (reflect.IsSlice $plist) }}
+    {{ range $it := $plist }}
+      {{ $k := (index $it "key") | urlize }}
+      {{ if eq $k $problemKey }}{{ $p = $it }}{{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if not (len $p) }}
+    {{ .Scratch.Set "noindex" true }}
+    <h1>Problema en preparación</h1>
+    <p class="muted">Aún no tenemos esta guía de diagnóstico.</p>
+    <div class="chips" style="margin-top:12px;">
+      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
+      <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">Más modelos {{ $brand.name }}</a>
+    </div>
+    {{ return }}
+  {{ end }}
+
+  {{/* Breadcrumbs */}}
+  <div class="breadcrumbs">
+    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
+    <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
+    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $brand.name }} {{ index $model "model" }}</a><span class="sep">›</span>
+    <span>Problemas</span><span class="sep">›</span>
+    <span>{{ index $p "title" }}</span>
+  </div>
+
+  <div class="hero" style="margin-top:10px;">
+    <div class="kicker">Problema</div>
+    <h1>{{ index $p "title" }}</h1>
+    {{ with (index $p "intro") }}<p class="muted">{{ . }}</p>{{ end }}
+
+    <div class="chips">
+      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
+      <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+      <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:12px;">
+    <div class="panel">
+
+      {{ $sym := index $p "symptoms" }}
+      {{ if and $sym (reflect.IsSlice $sym) }}
+        <h2>Síntomas habituales</h2>
+        <ul class="list">
+          {{ range $sym }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <hr>
+      {{ end }}
+
+      {{ $checks := index $p "checks" }}
+      {{ if and $checks (reflect.IsSlice $checks) }}
+        <h2>Comprobaciones rápidas</h2>
+        <ul class="list">
+          {{ range $checks }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ with (index $p "fix_hint") }}<p class="muted small" style="margin-top:10px;">{{ . }}</p>{{ end }}
+        <hr>
+      {{ end }}
+
+      {{ $causas := index $p "causes" }}
+      {{ if and $causas (reflect.IsSlice $causas) }}
+        <h2>Causas probables</h2>
+        <ul class="list">
+          {{ range $causas }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <hr>
+      {{ end }}
+
+      <h2>Qué hacer ahora</h2>
+      <p class="muted">Si tras estas comprobaciones el fallo persiste, normalmente el recambio compatible más probable depende de la causa (batería, cargador, filtros u obstrucción).</p>
+
+    </div>
+
+    <aside class="panel">
+      <h2 style="margin-top:0;">Recomendación</h2>
+
+      {{ $cta := index $p "cta" }}
+      {{ $catKey := "" }}
+      {{ $label := "Ver recambios compatibles" }}
+
+      {{ if and $cta (reflect.IsMap $cta) }}
+        {{ $catKey = (index $cta "catKey") | default "" | urlize }}
+        {{ $label = (index $cta "label") | default $label }}
+      {{ end }}
+
+      {{ if $catKey }}
+        <a class="btn-buy" href="{{ (printf "/modelos/%s/%s/" $modelSlug $catKey) | relURL }}">{{ $label }}</a>
+        <p class="muted small" style="margin-top:10px;">Verifica encaje, conector y voltaje antes de comprar.</p>
+      {{ else }}
+        <p class="muted">CTA en preparación.</p>
+      {{ end }}
+
+      <hr>
+
+      <div class="kicker">Transparencia</div>
+      <p class="muted small">Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.</p>
+    </aside>
+  </div>
+
+{{ end }}
