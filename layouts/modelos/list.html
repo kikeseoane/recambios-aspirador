@@ -1,21 +1,19 @@
 {{ define "main" }}
-  <div class="hero">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <h1>{{ .Title }}</h1>
-        <p class="muted">Catálogo de modelos con recambios compatibles (baterías, filtros, cepillos y cargadores) y solución de problemas.</p>
+  {{/* HERO con fondo real (usa tu CSS: .hero--bg) */}}
+  <section class="hero hero--bg">
+    <div class="hero__inner">
+      <div class="hero__kicker">Catálogo</div>
+      <h1>{{ .Title }}</h1>
+      <p class="muted hero__copy">
+        Catálogo de modelos con recambios compatibles (baterías, filtros, cepillos y cargadores) y solución de problemas.
+      </p>
 
-        <div class="hero-links">
-          <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
-          <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <img class="hero-img" src="{{ "/img/hero.svg" | relURL }}" alt="" aria-hidden="true">
+      <div class="hero__links">
+        <a class="btn btn--ghost" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
+        <a class="btn btn--link" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio →</a>
       </div>
     </div>
-  </div>
+  </section>
 
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
@@ -32,11 +30,22 @@
           {{ range $m := $models }}
             {{ $slug := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
 
+            {{/* Evitar "Dyson Dyson V8" si el model ya incluye la marca */}}
+            {{ $modelName := (index $m "model") | default "" }}
+            {{ $bnLower := lower $brandName }}
+            {{ $mnLower := lower $modelName }}
+            {{ $title := "" }}
+            {{ if and $modelName (hasPrefix $mnLower $bnLower) }}
+              {{ $title = $modelName }}
+            {{ else }}
+              {{ $title = printf "%s %s" $brandName $modelName }}
+            {{ end }}
+
             <a class="card card--with-icon" href="{{ (printf "/modelos/%s/" $slug) | relURL }}">
               {{ partial "card_icon.html" (dict "kind" "model") }}
 
               <div class="card-body">
-                <h3>{{ $brandName }} {{ index $m "model" }}</h3>
+                <h3>{{ $title }}</h3>
 
                 <div class="badges">
                   <span class="badge">{{ $brandName }}</span>

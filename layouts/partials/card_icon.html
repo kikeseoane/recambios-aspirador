@@ -8,11 +8,12 @@ Uso:
 
 {{ $kind := .kind | default "model" }}
 
-{{ $src := "/icons/model.svg" }}
-{{ if eq $kind "brand" }}{{ $src = "/icons/brand.svg" }}{{ end }}
-{{ if eq $kind "guide" }}{{ $src = "/icons/guide.svg" }}{{ end }}
-{{ if eq $kind "recambio" }}{{ $src = "/icons/recambio.svg" }}{{ end }}
+{{/* Tus SVG están en /static/img/icons/*.svg -> URL pública: /img/icons/*.svg */}}
+{{ $src := "/img/icons/model.svg" }}
+{{ if eq $kind "brand" }}{{ $src = "/img/icons/brand.svg" }}{{ end }}
+{{ if eq $kind "guide" }}{{ $src = "/img/icons/guide.svg" }}{{ end }}
+{{ if eq $kind "recambio" }}{{ $src = "/img/icons/recambio.svg" }}{{ end }}
 
 <div class="card-icon-wrap" aria-hidden="true">
-  <img class="card-icon" src="{{ $src | relURL }}" alt="">
+  <img class="card-icon" src="{{ $src | relURL }}" alt="" loading="lazy">
 </div>

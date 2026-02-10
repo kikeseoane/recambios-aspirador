@@ -4,19 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  {{/* Title */}}
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
 
-  {{ $desc := .Params.description | default site.Params.defaultDescription }}
+  {{/* Description */}}
+  {{ $desc := .Params.description | default site.Params.defaultDescription | default "" }}
   <meta name="description" content="{{ $desc }}">
 
+  {{/* Canonical */}}
   <link rel="canonical" href="{{ .Permalink }}">
+
+  {{/* CSS */}}
   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
-  {{ hugo.Generator }}
 
-  {{/* Hook SEO: permite noindex desde plantillas */}}
+  {{/* RSS (opcional, pero útil) */}}
+  {{ with .OutputFormats.Get "RSS" -}}
+    <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
+  {{- end }}
+
+  {{/* Robots meta: permite noindex desde plantillas con .Scratch.Set "noindex" true */}}
   {{ partial "robots_meta.html" (dict "noindex" (.Scratch.Get "noindex")) }}
-</head>
 
+  {{ hugo.Generator }}
+</head>
 <body>
   {{ partial "header.html" . }}
 
