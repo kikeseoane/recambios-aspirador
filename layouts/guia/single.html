@@ -2,8 +2,18 @@
   {{ $db := site.Data.aspiradores }}
   {{ $key := .Params.guideKey }}
 
-  {{ $gg := cond (and $db $db.globals) (index $db.globals "guias_genericas") nil }}
-  {{ $g := nil }}
+  {{/* Obtener globals.guias_genericas de forma segura (sin nil) */}}
+  {{ $gg := "" }}
+  {{ with $db }}
+    {{ with .globals }}
+      {{ with .guias_genericas }}
+        {{ $gg = . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Resolver guía: puede ser lista (tu YAML actual) o map (futuro) */}}
+  {{ $g := "" }}
 
   {{ if $gg }}
     {{ if reflect.IsMap $gg }}
