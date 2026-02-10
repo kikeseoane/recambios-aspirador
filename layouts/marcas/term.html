@@ -1,0 +1,35 @@
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  <section class="hero hero--bg hero--compact">
+    <div class="hero__inner">
+      <div class="hero__kicker">Catálogo</div>
+      <h1>Marcas</h1>
+      <p class="muted hero__copy">Elige una marca para ver sus modelos y recambios compatibles.</p>
+
+      <div class="hero__links">
+        <a class="btn btn--ghost" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+        <a class="btn btn--link" href="{{ "/guias/" | relURL }}">Ver guías →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid cards">
+    {{ range $k, $b := $brands }}
+      {{ $slug := $k | urlize }}
+      <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        {{ partial "card_icon.html" (dict "kind" "brand") }}
+
+        <div class="card-body">
+          <h3>{{ $b.name }}</h3>
+          <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+          <div class="badges">
+            <span class="badge hot">{{ len $b.models }} modelos</span>
+            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+          </div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
