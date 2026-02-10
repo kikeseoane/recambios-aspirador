@@ -7,15 +7,29 @@
     {{ $brand := index $brands $brandKey }}
 
     {{ if $brand }}
-      <h1>{{ $brand.name }}</h1>
-      <p class="muted">Elige tu modelo para ver recambios compatibles, checks y fallos comunes.</p>
+      <div class="hero-banner">
+        <div class="hero-row">
+          <div>
+            <h1 style="margin:0 0 8px;">{{ $brand.name }}</h1>
+            <p class="muted" style="margin:0;max-width:720px;">
+              Elige tu modelo para ver recambios compatibles, checks y fallos comunes.
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <img class="hero-illus" src="{{ "/img/hero.svg" | relURL }}" alt="Guía visual de recambios" loading="lazy">
+          </div>
+        </div>
+      </div>
 
       {{ $models := $brand.models }}
       {{ if $models }}
-        <div class="grid cards">
+        <div class="grid cards" style="margin-top:16px;">
           {{ range $m := $models }}
             {{ $mslug := (or $m.slug $m.canonical_slug) | urlize }}
             <a class="card" href="{{ (printf "/modelos/%s/" $mslug) | relURL }}">
+              <div class="card-icon blue">🧾</div>
+
               <h3>{{ $brand.name }} {{ $m.model }}</h3>
               <div class="badges">
                 {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
@@ -26,7 +40,8 @@
           {{ end }}
         </div>
       {{ else }}
-        <div class="card">
+        <div class="card" style="margin-top:14px;">
+          <div class="card-icon gray">🧩</div>
           <h3>Modelos en preparación</h3>
           <p class="muted">Estamos ampliando esta marca. Vuelve en breve para ver modelos y recambios.</p>
         </div>
@@ -36,6 +51,7 @@
         <a class="chip" href="{{ "/marcas/" | relURL }}">← Volver a marcas</a>
         <a class="chip" href="{{ "/modelos/" | relURL }}">Ver todos los modelos</a>
       </div>
+
     {{ else }}
       <h1>Marca no disponible</h1>
       <p class="muted">No encontramos esa marca en el catálogo actual.</p>
@@ -45,13 +61,27 @@
     {{ end }}
 
   {{ else }}
-    <h1>{{ .Title }}</h1>
-    <p class="muted">Elige una marca para ver sus modelos y recambios compatibles.</p>
+    <div class="hero-banner">
+      <div class="hero-row">
+        <div>
+          <h1 style="margin:0 0 8px;">{{ .Title }}</h1>
+          <p class="muted" style="margin:0;max-width:720px;">
+            Elige una marca para ver sus modelos y recambios compatibles.
+          </p>
+        </div>
 
-    <div class="grid cards">
+        <div class="hero-visual">
+          <img class="hero-illus" src="{{ "/img/hero.svg" | relURL }}" alt="Guía visual de recambios" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid cards" style="margin-top:16px;">
       {{ range $k, $b := $brands }}
         {{ $slug := $k | urlize }}
         <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          <div class="card-icon">🏷️</div>
+
           <h3>{{ $b.name }}</h3>
           <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
           <div class="badges">
