@@ -1,16 +1,22 @@
 {{ define "main" }}
   {{ partial "hero.html" . }}
 
-  <div class="grid cards">
-    {{ range .Pages }}
-      <a class="card card--with-icon" href="{{ .RelPermalink }}">
-        {{ partial "card_icon.html" (dict "kind" "guide") }}
-        <div class="card-body">
-          <h3>{{ .Title }}</h3>
-          <p class="muted">Consejos rápidos y checklist aplicable a todos los modelos.</p>
-          <div class="badges"><span class="badge blue">Guía</span></div>
-        </div>
-      </a>
-    {{ end }}
+  <div class="container section">
+    <div class="grid cards">
+      {{ range .Pages.ByWeight }}
+        <a class="card card--with-icon" href="{{ .RelPermalink }}">
+          {{ partial "card_icon.html" (dict "kind" "guide") }}
+          <div class="card-body">
+            <h3>{{ .Title }}</h3>
+            {{ with .Params.description }}
+              <p class="muted">{{ . }}</p>
+            {{ else }}
+              <p class="muted">Checklist y consejos aplicables a tu modelo.</p>
+            {{ end }}
+            <div class="badges"><span class="badge blue">Guía</span></div>
+          </div>
+        </a>
+      {{ end }}
+    </div>
   </div>
 {{ end }}
