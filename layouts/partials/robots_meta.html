@@ -1,0 +1,10 @@
+{{/* partials/robots_meta.html
+Uso:
+  {{ partial "robots_meta.html" (dict "noindex" true) }}
+*/}}
+
+{{ $noindex := .noindex | default false }}
+
+{{ if $noindex }}
+  <meta name="robots" content="noindex,follow">
+{{ end }}
