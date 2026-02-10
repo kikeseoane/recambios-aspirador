@@ -149,3 +149,12 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   border-top:1px solid var(--border);
   background:var(--surface);
 }
+.btn-buy{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--primary),var(--primary-2));
+  color:#fff; font-weight:900;
+}
+.btn-buy:hover{filter:brightness(.98)}

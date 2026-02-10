@@ -122,13 +122,9 @@
 
                           <div class="cta">
                             {{/* Migración SKU: si existe sku lo mostramos; si existe url, link */}}
-                            {{ if (index $it "url") }}
-                              <a class="btn-buy" href="{{ index $it "url" }}" rel="nofollow sponsored" target="_blank">Ver en AliExpress</a>
-                            {{ else if (index $it "sku") }}
-                              <span class="badge">SKU: {{ index $it "sku" }}</span>
-                            {{ else }}
-                              <span class="badge">En preparación</span>
-                            {{ end }}
+                            {{ $sku := index $it "sku" }}
+                            {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
+
                           </div>
                         </div>
                       </div>

@@ -1,0 +1,25 @@
+{{/* partials/offer_btn.html
+Input:
+  dict "sku" "dyson-v11-bateria-compat-252v" "label" "Ver oferta" "class" "btn-buy"
+Behavior:
+  - si hay URL real en data/ofertas.yaml => botón
+  - si placeholder/vacío => muestra SKU badge (sin link)
+*/}}
+
+{{ $sku := .sku | default "" }}
+{{ $label := .label | default "Ver oferta" }}
+{{ $class := .class | default "btn-buy" }}
+
+{{ $offersDoc := site.Data.ofertas }}
+{{ $offers := cond (and $offersDoc $offersDoc.offers) $offersDoc.offers (dict) }}
+
+{{ $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) }}
+{{ $url := (index $offer "url") | default "" }}
+
+{{ if and $url (ne $url "RELLENAR_URL_ALIEXPRESS") }}
+  <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored" target="_blank">{{ $label }}</a>
+{{ else if $sku }}
+  <span class="badge">SKU: {{ $sku }}</span>
+{{ else }}
+  <span class="badge">En preparación</span>
+{{ end }}
