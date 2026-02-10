@@ -1,111 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="Ilustración de aspirador y recambios">
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-label="Recambios de aspirador: baterías, filtros, cepillos y cargadores">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFF6EE"></stop>
-      <stop offset="0.55" stop-color="#F6FAFF"></stop>
-      <stop offset="1" stop-color="#FFFFFF"></stop>
+    <!-- Paleta alineada con tu CSS -->
+    <linearGradient id="gOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff6a00" stop-opacity="0.22"></stop>
+      <stop offset="1" stop-color="#ff8a33" stop-opacity="0.10"></stop>
+    </linearGradient>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.18"></stop>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0.06"></stop>
     </linearGradient>
 
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#FF7A18"></stop>
-      <stop offset="1" stop-color="#FFB36B"></stop>
-    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#111827" stop-opacity="0.06"></stop>
+      <stop offset="1" stop-color="#111827" stop-opacity="0"></stop>
+    </radialGradient>
 
-    <linearGradient id="cool" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#A7C7FF"></stop>
-      <stop offset="1" stop-color="#E6F0FF"></stop>
-    </linearGradient>
+    <!-- Patrón de puntos muy suave -->
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#111827" opacity="0.06"></circle>
+    </pattern>
 
+    <!-- Sombra suave -->
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0B1220" flood-opacity="0.12"></feDropShadow>
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#111827" flood-opacity="0.10"></feDropShadow>
     </filter>
 
-    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.2" fill="#0B1220" opacity="0.06"></circle>
-    </pattern>
+    <!-- Borde suave -->
+    <linearGradient id="strokeSoft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e5e7eb" stop-opacity="0.9"></stop>
+      <stop offset="1" stop-color="#e5e7eb" stop-opacity="0.4"></stop>
+    </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1600" height="520" fill="url(#bg)"></rect>
-  <rect width="1600" height="520" fill="url(#dots)"></rect>
+  <!-- Fondo base -->
+  <rect width="1400" height="520" fill="#ffffff"></rect>
+  <rect width="1400" height="520" fill="url(#dots)"></rect>
 
-  <!-- Big soft shapes -->
-  <circle cx="210" cy="120" r="220" fill="url(#accent)" opacity="0.14"></circle>
-  <circle cx="1450" cy="60" r="240" fill="#7FAEFF" opacity="0.12"></circle>
-  <circle cx="1320" cy="420" r="280" fill="#FF7A18" opacity="0.08"></circle>
+  <!-- Blobs de color (marca) -->
+  <path d="M0,90 C210,10 390,40 520,120 C650,205 820,250 980,205 C1140,160 1240,70 1400,95 L1400,0 L0,0 Z" fill="url(#gOrange)"></path>
+  <path d="M0,520 L0,415 C210,360 380,400 520,468 C660,535 835,540 990,470 C1150,398 1260,340 1400,380 L1400,520 Z" fill="url(#gBlue)"></path>
 
-  <!-- Waves -->
-  <path d="M0,415 C240,360 420,470 640,425 C880,375 1040,455 1280,405 C1420,375 1500,380 1600,360 L1600,520 L0,520 Z" fill="#A7C7FF" opacity="0.22"></path>
-  <path d="M0,440 C230,390 430,500 650,455 C880,405 1040,485 1280,435 C1420,405 1500,410 1600,390 L1600,520 L0,520 Z" fill="#FF7A18" opacity="0.14"></path>
+  <!-- Glow para dar profundidad a la derecha -->
+  <rect x="680" y="0" width="720" height="520" fill="url(#glow)"></rect>
 
-  <!-- Right panel "cards" -->
-  <g filter="url(#softShadow)" opacity="0.98">
-    <rect x="1080" y="120" width="470" height="125" rx="20" fill="#FFFFFF"></rect>
-    <rect x="1105" y="145" width="56" height="56" rx="16" fill="url(#accent)" opacity="0.18"></rect>
-    <circle cx="1133" cy="173" r="14" fill="url(#accent)" opacity="0.75"></circle>
-    <rect x="1180" y="150" width="320" height="14" rx="7" fill="#0B1220" opacity="0.12"></rect>
-    <rect x="1180" y="175" width="250" height="12" rx="6" fill="#0B1220" opacity="0.10"></rect>
-    <rect x="1180" y="198" width="190" height="12" rx="6" fill="#0B1220" opacity="0.08"></rect>
+  <!-- “Tarjetas” + iconos (batería / filtro / cepillo / cargador) -->
+  <g transform="translate(880 110)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="420" height="300" rx="22" fill="#fff" stroke="url(#strokeSoft)"></rect>
+    <!-- Header mini -->
+    <rect x="22" y="22" width="160" height="12" rx="6" fill="#111827" opacity="0.10"></rect>
+    <rect x="22" y="44" width="230" height="10" rx="5" fill="#111827" opacity="0.07"></rect>
 
-    <rect x="1080" y="270" width="470" height="125" rx="20" fill="#FFFFFF"></rect>
-    <rect x="1105" y="295" width="56" height="56" rx="16" fill="url(#cool)" opacity="0.95"></rect>
-    <circle cx="1133" cy="323" r="14" fill="#7FAEFF" opacity="0.55"></circle>
-    <rect x="1180" y="300" width="340" height="14" rx="7" fill="#0B1220" opacity="0.12"></rect>
-    <rect x="1180" y="325" width="210" height="12" rx="6" fill="#0B1220" opacity="0.10"></rect>
-    <rect x="1180" y="348" width="260" height="12" rx="6" fill="#0B1220" opacity="0.08"></rect>
-  </g>
+    <!-- 4 tiles -->
+    <g transform="translate(22 80)">
+      <!-- tile 1: batería -->
+      <g>
+        <rect x="0" y="0" width="185" height="96" rx="18" fill="#fff" stroke="#e5e7eb"></rect>
+        <rect x="14" y="18" width="52" height="52" rx="16" fill="#ff6a00" opacity="0.10" stroke="#e5e7eb"></rect>
+        <path d="M34 33 h18 a4 4 0 0 1 4 4 v14 a4 4 0 0 1-4 4 H34 a4 4 0 0 1-4-4 V37 a4 4 0 0 1 4-4 z" fill="none" stroke="#ff6a00" stroke-width="3" stroke-linejoin="round"></path>
+        <path d="M56 40 h4 a2 2 0 0 1 2 2 v4 a2 2 0 0 1-2 2 h-4" fill="none" stroke="#ff6a00" stroke-width="3" stroke-linecap="round"></path>
+        <rect x="78" y="24" width="90" height="10" rx="5" fill="#111827" opacity="0.10"></rect>
+        <rect x="78" y="44" width="74" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+        <rect x="78" y="62" width="56" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+      </g>
 
-  <!-- Vacuum + parts (stylized) -->
-  <g transform="translate(760,110)" filter="url(#softShadow)">
-    <!-- base -->
-    <rect x="0" y="250" width="240" height="74" rx="22" fill="#FFFFFF"></rect>
-    <rect x="18" y="268" width="204" height="38" rx="19" fill="#0B1220" opacity="0.06"></rect>
-    <circle cx="56" cy="287" r="16" fill="#0B1220" opacity="0.10"></circle>
-    <circle cx="184" cy="287" r="16" fill="#0B1220" opacity="0.10"></circle>
+      <!-- tile 2: filtro -->
+      <g transform="translate(205 0)">
+        <rect x="0" y="0" width="185" height="96" rx="18" fill="#fff" stroke="#e5e7eb"></rect>
+        <rect x="14" y="18" width="52" height="52" rx="16" fill="#2563eb" opacity="0.10" stroke="#e5e7eb"></rect>
+        <path d="M40 31 c10 0 18 8 18 18 s-8 18-18 18 s-18-8-18-18 s8-18 18-18 z" fill="none" stroke="#2563eb" stroke-width="3"></path>
+        <path d="M32 42 h16 M32 49 h16 M32 56 h16" stroke="#2563eb" stroke-width="3" stroke-linecap="round" opacity="0.9"></path>
+        <rect x="78" y="24" width="90" height="10" rx="5" fill="#111827" opacity="0.10"></rect>
+        <rect x="78" y="44" width="74" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+        <rect x="78" y="62" width="56" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+      </g>
 
-    <!-- body -->
-    <rect x="80" y="70" width="86" height="195" rx="26" fill="#FFFFFF"></rect>
-    <rect x="92" y="92" width="62" height="68" rx="18" fill="url(#cool)" opacity="0.95"></rect>
-    <rect x="92" y="170" width="62" height="18" rx="9" fill="#0B1220" opacity="0.08"></rect>
-    <rect x="92" y="196" width="62" height="18" rx="9" fill="#0B1220" opacity="0.06"></rect>
+      <!-- tile 3: cepillo -->
+      <g transform="translate(0 112)">
+        <rect x="0" y="0" width="185" height="96" rx="18" fill="#fff" stroke="#e5e7eb"></rect>
+        <rect x="14" y="18" width="52" height="52" rx="16" fill="#111827" opacity="0.06" stroke="#e5e7eb"></rect>
+        <path d="M26 52 h28 a8 8 0 0 0 0-16 H26 a8 8 0 0 0 0 16 z" fill="none" stroke="#111827" stroke-width="3" opacity="0.75"></path>
+        <path d="M30 44 h2 M36 44 h2 M42 44 h2 M48 44 h2" stroke="#111827" stroke-width="3" stroke-linecap="round" opacity="0.55"></path>
+        <rect x="78" y="24" width="90" height="10" rx="5" fill="#111827" opacity="0.10"></rect>
+        <rect x="78" y="44" width="74" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+        <rect x="78" y="62" width="56" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+      </g>
 
-    <!-- stick -->
-    <path d="M122 0 C135 0 144 10 144 22 L144 70 L100 70 L100 22 C100 10 109 0 122 0 Z" fill="#FFFFFF"></path>
-    <rect x="112" y="18" width="20" height="120" rx="10" fill="#0B1220" opacity="0.06"></rect>
-
-    <!-- orange accent ring -->
-    <circle cx="123" cy="156" r="10" fill="url(#accent)" opacity="0.9"></circle>
-  </g>
-
-  <!-- Parts icons (battery / filter / brush) -->
-  <g transform="translate(650,120)" opacity="0.98">
-    <!-- battery -->
-    <g transform="translate(0,250)" filter="url(#softShadow)">
-      <rect x="0" y="0" width="130" height="74" rx="18" fill="#FFFFFF"></rect>
-      <rect x="16" y="22" width="76" height="30" rx="10" fill="#0B1220" opacity="0.08"></rect>
-      <rect x="95" y="28" width="12" height="18" rx="4" fill="#0B1220" opacity="0.10"></rect>
-      <path d="M20 38 H80" stroke="#FF7A18" stroke-width="6" stroke-linecap="round" opacity="0.9"></path>
-    </g>
-
-    <!-- filter -->
-    <g transform="translate(40,140)" filter="url(#softShadow)">
-      <rect x="0" y="0" width="120" height="72" rx="18" fill="#FFFFFF"></rect>
-      <circle cx="52" cy="36" r="18" fill="#7FAEFF" opacity="0.25"></circle>
-      <circle cx="52" cy="36" r="10" fill="#7FAEFF" opacity="0.45"></circle>
-      <rect x="78" y="24" width="28" height="24" rx="8" fill="#0B1220" opacity="0.07"></rect>
-    </g>
-
-    <!-- brush -->
-    <g transform="translate(140,210)" filter="url(#softShadow)">
-      <rect x="0" y="0" width="140" height="72" rx="18" fill="#FFFFFF"></rect>
-      <rect x="16" y="28" width="108" height="16" rx="8" fill="#0B1220" opacity="0.08"></rect>
-      <rect x="22" y="30" width="18" height="12" rx="6" fill="#FF7A18" opacity="0.8"></rect>
-      <rect x="46" y="30" width="18" height="12" rx="6" fill="#FF7A18" opacity="0.55"></rect>
-      <rect x="70" y="30" width="18" height="12" rx="6" fill="#FF7A18" opacity="0.35"></rect>
-      <rect x="94" y="30" width="18" height="12" rx="6" fill="#FF7A18" opacity="0.2"></rect>
+      <!-- tile 4: cargador -->
+      <g transform="translate(205 112)">
+        <rect x="0" y="0" width="185" height="96" rx="18" fill="#fff" stroke="#e5e7eb"></rect>
+        <rect x="14" y="18" width="52" height="52" rx="16" fill="#ff6a00" opacity="0.10" stroke="#e5e7eb"></rect>
+        <path d="M32 38 h16 a6 6 0 0 1 6 6 v6 a6 6 0 0 1-6 6 H32 a6 6 0 0 1-6-6 v-6 a6 6 0 0 1 6-6 z" fill="none" stroke="#ff6a00" stroke-width="3"></path>
+        <path d="M36 34 v8 M44 34 v8" stroke="#ff6a00" stroke-width="3" stroke-linecap="round"></path>
+        <path d="M54 58 c12 10 18 18 18 26" fill="none" stroke="#111827" stroke-width="3" opacity="0.28" stroke-linecap="round"></path>
+        <rect x="78" y="24" width="90" height="10" rx="5" fill="#111827" opacity="0.10"></rect>
+        <rect x="78" y="44" width="74" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+        <rect x="78" y="62" width="56" height="9" rx="4.5" fill="#111827" opacity="0.07"></rect>
+      </g>
     </g>
   </g>
 
-  <!-- subtle line -->
-  <path d="M120,96 C280,40 420,70 580,95" stroke="#0B1220" stroke-width="2" opacity="0.06" fill="none"></path>
+  <!-- Silueta aspirador (muy simple, marca “recambios”) -->
+  <g transform="translate(740 145)" opacity="0.88">
+    <path d="M170 220 c40-6 70-35 72-70 c1-26-11-49-31-62 l-18-12 v-22 c0-24-20-44-44-44 h-28 c-24 0-44 20-44 44 v22 l-18 12 c-20 13-32 36-31 62 c2 35 32 64 72 70" fill="none" stroke="#111827" stroke-width="4" opacity="0.15" stroke-linecap="round"></path>
+    <path d="M124 30 h42 a18 18 0 0 1 18 18 v18 h-78 V48 a18 18 0 0 1 18-18z" fill="#111827" opacity="0.06"></path>
+    <path d="M98 96 h96 a34 34 0 0 1 34 34 v30 a60 60 0 0 1-60 60 h-44 a60 60 0 0 1-60-60 v-30 a34 34 0 0 1 34-34z" fill="#111827" opacity="0.04" stroke="#111827" stroke-opacity="0.12"></path>
+    <path d="M210 70 C265 40 320 40 370 70" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" opacity="0.22"></path>
+    <path d="M370 70 c22 12 34 30 36 56" fill="none" stroke="#ff6a00" stroke-width="6" stroke-linecap="round" opacity="0.20"></path>
+  </g>
 </svg>
