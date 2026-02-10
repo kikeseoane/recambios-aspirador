@@ -1,15 +1,52 @@
 {{ define "main" }}
   {{ $db := site.Data.aspiradores }}
   {{ $key := .Params.guideKey }}
-  {{ $g := index $db.globals.guias_genericas $key }}
+
+  {{ $gg := $db.globals.guias_genericas }}
+  {{ $g := "" }}
+
+  {{ if and $gg $key }}
+    {{ if reflect.IsMap $gg }}
+      {{ $g = index $gg $key }}
+    {{ else if reflect.IsSlice $gg }}
+      {{ range $it := $gg }}
+        {{ if and (reflect.IsMap $it) (eq (index $it "key") $key) }}
+          {{ $g = $it }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
 
   <h1>{{ .Title }}</h1>
+
   {{ if $g }}
-    <h2>{{ $g.title }}</h2>
-    <ul class="list">
-      {{ range $g.bullets }}<li>{{ . }}</li>{{ end }}
-    </ul>
+    {{/* Caso A: guía como lista de strings (tu YAML actual) */}}
+    {{ if reflect.IsSlice $g }}
+      <ul class="list">
+        {{ range $g }}<li>{{ . }}</li>{{ end }}
+      </ul>
+
+    {{/* Caso B: guía como objeto {title, bullets} (si migras en el futuro) */}}
+    {{ else if reflect.IsMap $g }}
+      {{ with (index $g "title") }}<h2>{{ . }}</h2>{{ end }}
+      {{ $bullets := index $g "bullets" }}
+
+      {{ if reflect.IsSlice $bullets }}
+        <ul class="list">
+          {{ range $bullets }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ else if $bullets }}
+        <p class="muted">{{ $bullets }}</p>
+      {{ else }}
+        <p class="muted">Contenido en preparación.</p>
+      {{ end }}
+
+    {{ else }}
+      <p class="muted">Contenido en preparación.</p>
+    {{ end }}
+
   {{ else }}
-    <p class="muted">No se encontró guideKey en YAML.</p>
+    <p class="muted">Contenido en preparación.</p>
   {{ end }}
 {{ end }}
+

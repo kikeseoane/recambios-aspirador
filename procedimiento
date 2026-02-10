@@ -12,7 +12,6 @@ python tools\generar.py --force --clean-modelos
 
 Commit + push:
 
-git add data/aspiradores.yaml content tools/generar.py
-git commit -m "Update: datos + regen stubs"
+git add -u
+git commit -m "Update sync_ofertas behavior"
 git push
-

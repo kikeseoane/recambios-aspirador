@@ -5,7 +5,7 @@
   {{ $brandKey := .Params.brandKey }}
   {{ $modelSlug := (or .Params.modelSlug .Params.slug) | urlize }}
 
-  {{ $brand := index $brands $brandKey }}
+  {{ $brand := cond (and $brands $brandKey) (index $brands $brandKey) nil }}
 
   {{ if not $brand }}
     <h1>Modelo no disponible</h1>
@@ -21,7 +21,7 @@
     {{ $model := dict }}
     {{ $models := $brand.models }}
 
-    {{ if and $models (eq (printf "%T" $models) "[]interface {}") }}
+    {{ if and $models (reflect.IsSlice $models) }}
       {{ range $m := $models }}
         {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
         {{ if eq $mid $modelSlug }}
@@ -78,7 +78,7 @@
 
           {{ $compat := index $model "compatibilidad" }}
           {{ if $compat }}
-            {{ if eq (printf "%T" $compat) "[]interface {}" }}
+            {{ if reflect.IsSlice $compat }}
               <ul class="list">
                 {{ range $compat }}<li>{{ . }}</li>{{ end }}
               </ul>
@@ -92,12 +92,12 @@
           <hr>
 
           <h2 style="margin-top:0;">Recambios compatibles</h2>
-          <p class="muted small">Enlaces a AliExpress (externo). Verifica compatibilidad exacta antes de comprar.</p>
+          <p class="muted small">Verifica compatibilidad exacta (conectores, encaje y voltaje) antes de comprar.</p>
 
           {{ $cats := $db.globals.categorias_recambios }}
           {{ $rec := index $model "recambios" }}
 
-          {{ if and $cats (eq (printf "%T" $cats) "[]interface {}") (and $rec (eq (printf "%T" $rec) "map[string]interface {}")) }}
+          {{ if and $cats (reflect.IsSlice $cats) (and $rec (reflect.IsMap $rec)) }}
             {{ range $cat := $cats }}
               {{ $catKey := index $cat "key" }}
               {{ $catLabel := index $cat "label" }}
@@ -108,7 +108,7 @@
                 <h2 style="margin-bottom:8px;">{{ $catLabel }}</h2>
 
                 <div class="products">
-                  {{ if eq (printf "%T" $items) "[]interface {}" }}
+                  {{ if reflect.IsSlice $items }}
                     {{ range $it := $items }}
                       <div class="product">
                         <div class="img">{{ $catIcon | default "🧩" }}</div>
@@ -121,22 +121,22 @@
                           {{ end }}
 
                           <div class="cta">
-                            {{/* Migración SKU: si existe sku lo mostramos; si existe url, link */}}
                             {{ $sku := index $it "sku" }}
                             {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
-
                           </div>
                         </div>
                       </div>
                     {{ end }}
                   {{ else }}
                     <div class="card">
-                      <p class="muted">Recambios mal formateados en YAML (esperaba lista).</p>
+                      <p class="muted">Formato de recambios incorrecto (se esperaba una lista).</p>
                     </div>
                   {{ end }}
                 </div>
               {{ end }}
             {{ end }}
+          {{ else }}
+            <p class="muted">Aún no hay recambios cargados para este modelo.</p>
           {{ end }}
 
           <hr>
@@ -145,7 +145,7 @@
 
           {{ $fallos := index $model "fallos" }}
           {{ if $fallos }}
-            {{ if eq (printf "%T" $fallos) "[]interface {}" }}
+            {{ if reflect.IsSlice $fallos }}
               <div class="grid cols-2">
                 {{ range $f := $fallos }}
                   <div class="panel">
@@ -155,7 +155,7 @@
                     {{ $causas := index $f "causas" }}
                     {{ if $causas }}
                       <div class="kicker">Causas probables</div>
-                      {{ if eq (printf "%T" $causas) "[]interface {}" }}
+                      {{ if reflect.IsSlice $causas }}
                         <ul>
                           {{ range $causas }}<li>{{ . }}</li>{{ end }}
                         </ul>
@@ -167,7 +167,7 @@
                     {{ $checks := index $f "checks" }}
                     {{ if $checks }}
                       <div class="kicker">Cómo comprobar</div>
-                      {{ if eq (printf "%T" $checks) "[]interface {}" }}
+                      {{ if reflect.IsSlice $checks }}
                         <ul>
                           {{ range $checks }}<li>{{ . }}</li>{{ end }}
                         </ul>
@@ -186,7 +186,7 @@
               <p class="muted">{{ $fallos }}</p>
             {{ end }}
           {{ else }}
-            <p class="muted">Aquí iremos añadiendo los fallos más típicos y las comprobaciones rápidas.</p>
+            <p class="muted">Iremos añadiendo los fallos más típicos y comprobaciones rápidas.</p>
           {{ end }}
         </div>
 
@@ -194,53 +194,23 @@
           <h2 style="margin-top:0;">Antes de comprar</h2>
           <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
 
-          {{ $gg := $db.globals.guias_genericas }}
-          {{ $compra := "" }}
-          {{ $compraObj := "" }}
-
-          {{ if $gg }}
-            {{ $t := printf "%T" $gg }}
-
-            {{ if eq $t "map[string]interface {}" }}
-              {{ $compra = index $gg "compra" }}
-
-            {{ else if eq $t "[]interface {}" }}
-              {{ range $it := $gg }}
-                {{ if and (eq (printf "%T" $it) "map[string]interface {}") (eq (index $it "key") "compra") }}
-                  {{ $compra = $it }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-
-          {{/* Normaliza: compraObj debe ser map, no slice */}}
-          {{ if $compra }}
-            {{ $ct := printf "%T" $compra }}
-            {{ if eq $ct "map[string]interface {}" }}
-              {{ $compraObj = $compra }}
-            {{ else if eq $ct "[]interface {}" }}
-              {{ if gt (len $compra) 0 }}
-                {{ $first := index $compra 0 }}
-                {{ if eq (printf "%T" $first) "map[string]interface {}" }}
-                  {{ $compraObj = $first }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
+          {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
 
           <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
-            {{ if $compraObj }}
-              {{ with (index $compraObj "title") }}<div class="kicker">{{ . }}</div>{{ end }}
+            {{ if and $compra (len $compra) }}
+              {{ with (index $compra "title") }}<div class="kicker">{{ . }}</div>{{ end }}
 
-              {{ $bullets := index $compraObj "bullets" }}
+              {{ $bullets := index $compra "bullets" }}
               {{ if $bullets }}
-                {{ if eq (printf "%T" $bullets) "[]interface {}" }}
+                {{ if reflect.IsSlice $bullets }}
                   <ul class="small">
                     {{ range $bullets }}<li>{{ . }}</li>{{ end }}
                   </ul>
                 {{ else }}
                   <p class="muted small">{{ $bullets }}</p>
                 {{ end }}
+              {{ else }}
+                <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
               {{ end }}
             {{ else }}
               <div class="kicker">Cómo elegir recambio compatible</div>
