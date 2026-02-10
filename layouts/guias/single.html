@@ -3,9 +3,9 @@
   {{ $key := .Params.guideKey }}
 
   {{ $gg := $db.globals.guias_genericas }}
-  {{ $g := "" }}
+  {{ $g := nil }}
 
-  {{ if and $gg $key }}
+  {{ if $gg }}
     {{ if reflect.IsMap $gg }}
       {{ $g = index $gg $key }}
     {{ else if reflect.IsSlice $gg }}
@@ -20,23 +20,22 @@
   <h1>{{ .Title }}</h1>
 
   {{ if $g }}
-    {{/* Caso A: guía como lista de strings (tu YAML actual) */}}
+
+    {{/* Caso A: lista de strings */}}
     {{ if reflect.IsSlice $g }}
       <ul class="list">
         {{ range $g }}<li>{{ . }}</li>{{ end }}
       </ul>
 
-    {{/* Caso B: guía como objeto {title, bullets} (si migras en el futuro) */}}
+    {{/* Caso B: objeto {title, bullets} */}}
     {{ else if reflect.IsMap $g }}
-      {{ with (index $g "title") }}<h2>{{ . }}</h2>{{ end }}
-      {{ $bullets := index $g "bullets" }}
+      {{ with (index $g "title") }}<p class="muted">{{ . }}</p>{{ end }}
 
-      {{ if reflect.IsSlice $bullets }}
+      {{ $bullets := index $g "bullets" }}
+      {{ if and $bullets (reflect.IsSlice $bullets) }}
         <ul class="list">
           {{ range $bullets }}<li>{{ . }}</li>{{ end }}
         </ul>
-      {{ else if $bullets }}
-        <p class="muted">{{ $bullets }}</p>
       {{ else }}
         <p class="muted">Contenido en preparación.</p>
       {{ end }}
@@ -49,4 +48,3 @@
     <p class="muted">Contenido en preparación.</p>
   {{ end }}
 {{ end }}
-
