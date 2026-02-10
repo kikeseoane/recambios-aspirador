@@ -191,13 +191,24 @@
         </div>
 
         <aside class="panel">
-          <h2 style="margin-top:0;">Antes de comprar</h2>
-          <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
+        {{/* === ASIDE: Antes de comprar === */}}
+        <h2 style="margin-top:0;">Antes de comprar</h2>
+        <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
 
-          {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
+        {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
 
-          <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
-            {{ if and $compra (len $compra) }}
+        <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
+          {{ if $compra }}
+
+            {{/* Caso 1: compra es LISTA de strings (tu YAML actual) */}}
+            {{ if reflect.IsSlice $compra }}
+              <div class="kicker">Cómo elegir recambio compatible</div>
+              <ul class="small">
+                {{ range $compra }}<li>{{ . }}</li>{{ end }}
+              </ul>
+
+            {{/* Caso 2: compra es MAP {title, bullets} (si migras en el futuro) */}}
+            {{ else if reflect.IsMap $compra }}
               {{ with (index $compra "title") }}<div class="kicker">{{ . }}</div>{{ end }}
 
               {{ $bullets := index $compra "bullets" }}
@@ -212,11 +223,17 @@
               {{ else }}
                 <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
               {{ end }}
+
             {{ else }}
               <div class="kicker">Cómo elegir recambio compatible</div>
               <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
             {{ end }}
-          </div>
+
+          {{ else }}
+            <div class="kicker">Cómo elegir recambio compatible</div>
+            <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+          {{ end }}
+        </div>
 
           <div style="margin-top:12px;">
             <div class="kicker">Atajos</div>
