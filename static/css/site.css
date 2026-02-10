@@ -341,3 +341,113 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   .brand-badge{ display:none; } /* en móviles pequeños estorba */
   .nav{ gap: 10px; }
 }
+/* ===== Header v2 (sin buscador) ===== */
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:10px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  letter-spacing:.2px;
+}
+
+.brand-logo{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,106,0,.12);
+  box-shadow: 0 6px 18px rgba(17,24,39,.06);
+  font-size:18px;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+
+.brand-title{
+  font-size:16px;
+  font-weight:1000;
+  background: linear-gradient(90deg, var(--fg), rgba(17,24,39,.70));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.brand-sub{
+  margin-top:4px;
+  display:inline-flex;
+  width:max-content;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(255,106,0,.12);
+  color:var(--primary);
+  border:1px solid rgba(255,106,0,.25);
+  font-weight:900;
+}
+
+/* Nav */
+.nav{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.nav a{
+  color:var(--muted);
+  font-weight:800;
+  padding:8px 10px;
+  border-radius:999px;
+}
+.nav a:hover{
+  color:var(--fg);
+  background:rgba(17,24,39,.04);
+  border:1px solid rgba(17,24,39,.08);
+}
+
+/* Mobile header */
+@media (max-width: 720px){
+  .header-inner{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+  .brand{
+    justify-content:flex-start;
+  }
+  .nav{
+    justify-content:space-between;
+    gap:8px;
+  }
+  .nav a{
+    flex:1;
+    text-align:center;
+    padding:10px 8px;
+    background:#fff;
+    border:1px solid var(--border);
+  }
+}
+
+/* Hero compact para secciones */
+.hero--compact{
+  padding:22px;
+}
+@media (max-width: 720px){
+  .hero--compact{
+    padding:18px;
+  }
+  .hero h1{
+    font-size:32px;
+  }
+}
