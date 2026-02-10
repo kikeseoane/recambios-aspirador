@@ -1,6 +1,20 @@
 {{ define "main" }}
-  <h1>Recambios y guías por modelo</h1>
-  <p class="muted">{{ site.Params.defaultDescription }}</p>
+<div class="hero-banner">
+  <div class="hero-row">
+    <div>
+      <h1 style="margin:0 0 8px;">Recambios y guías por modelo</h1>
+      <p class="muted" style="margin:0;max-width:720px;">
+        Encuentra recambios compatibles por marca y modelo (baterías, filtros, cepillos y cargadores) + checks rápidos para fallos típicos.
+      </p>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn primary" href="{{ "/modelos/" | relURL }}">Buscar mi modelo</a>
+      <a class="btn" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
+    </div>
+  </div>
+</div>
+
 
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}

@@ -189,3 +189,56 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
 .list li{margin:6px 0}
 .small{font-size:14px}
 .muted.small{font-size:13px}
+/* === HERO VISUAL === */
+.hero-banner{
+  background:
+    url("/img/hero.svg") center/cover no-repeat,
+    #fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  box-shadow: var(--shadow);
+}
+
+.hero-banner .hero-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.hero-banner .hero-cta{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.hero-banner .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#fff;
+  font-weight:900;
+}
+.hero-banner .btn.primary{
+  border:none;
+  background:linear-gradient(90deg,var(--primary),var(--primary-2));
+  color:#fff;
+}
+
+/* === ICON TILE (cards) === */
+.card-icon{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:rgba(255,106,0,.10);
+  font-size:26px;
+  margin-bottom:10px;
+}
+.card-icon.blue{ background:rgba(37,99,235,.10); }
+.card-icon.gray{ background:rgba(17,24,39,.06); }
