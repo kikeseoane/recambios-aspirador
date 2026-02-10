@@ -1,18 +1,18 @@
 {{ define "main" }}
-  <div class="hero-banner">
-    <div class="hero-row">
-      <div class="hero-copy">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
         <h1>Recambios y guías por modelo</h1>
         <p class="muted">{{ site.Params.defaultDescription }}</p>
 
-        <div class="chips" style="margin-top:12px;">
-          <a class="chip active" href="{{ "/modelos/" | relURL }}">Buscar mi modelo</a>
+        <div class="hero-links">
+          <a class="chip" href="{{ "/modelos/" | relURL }}">Buscar mi modelo</a>
           <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
         </div>
       </div>
 
-      <div class="hero-visual">
-        <img class="hero-illus" src="{{ "/img/hero.svg" | relURL }}" alt="Guía visual de recambios" loading="lazy">
+      <div class="hero-right">
+        <img class="hero-img" src="{{ "/img/hero.svg" | relURL }}" alt="" aria-hidden="true">
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
 
-  <div class="section-head" style="margin-top:18px;">
+  <div class="section-head">
     <h2>Marcas</h2>
     <span class="chip">{{ len $brands }} marcas</span>
   </div>
@@ -28,13 +28,16 @@
   <div class="grid cards">
     {{ range $k, $b := $brands }}
       {{ $slug := $k | urlize }}
-      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+      <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
         {{ partial "card_icon.html" (dict "kind" "brand") }}
-        <h3>{{ $b.name }}</h3>
-        <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
-        <div class="badges">
-          <span class="badge hot">{{ len $b.models }} modelos</span>
-          {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+
+        <div class="card-body">
+          <h3>{{ $b.name }}</h3>
+          <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+          <div class="badges">
+            <span class="badge hot">{{ len $b.models }} modelos</span>
+            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+          </div>
         </div>
       </a>
     {{ end }}
@@ -46,23 +49,31 @@
   </div>
 
   <div class="grid cards">
-    <a class="card" href="{{ "/guias/seguridad/" | relURL }}">
+    <a class="card card--with-icon" href="{{ "/guias/seguridad/" | relURL }}">
       {{ partial "card_icon.html" (dict "kind" "guide") }}
-      <h3>Seguridad</h3>
-      <p class="muted">Antes de manipular o desmontar.</p>
-      <div class="badges"><span class="badge blue">Guía</span></div>
+      <div class="card-body">
+        <h3>Seguridad</h3>
+        <p class="muted">Antes de manipular o desmontar.</p>
+        <div class="badges"><span class="badge blue">Guía</span></div>
+      </div>
     </a>
-    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}">
+
+    <a class="card card--with-icon" href="{{ "/guias/mantenimiento/" | relURL }}">
       {{ partial "card_icon.html" (dict "kind" "guide") }}
-      <h3>Mantenimiento</h3>
-      <p class="muted">Lo que más evita fallos.</p>
-      <div class="badges"><span class="badge blue">Guía</span></div>
+      <div class="card-body">
+        <h3>Mantenimiento</h3>
+        <p class="muted">Lo que más evita fallos.</p>
+        <div class="badges"><span class="badge blue">Guía</span></div>
+      </div>
     </a>
-    <a class="card" href="{{ "/guias/compra/" | relURL }}">
+
+    <a class="card card--with-icon" href="{{ "/guias/compra/" | relURL }}">
       {{ partial "card_icon.html" (dict "kind" "guide") }}
-      <h3>Elegir recambio</h3>
-      <p class="muted">Compatibilidad y criterios.</p>
-      <div class="badges"><span class="badge blue">Guía</span></div>
+      <div class="card-body">
+        <h3>Elegir recambio</h3>
+        <p class="muted">Compatibilidad y criterios.</p>
+        <div class="badges"><span class="badge blue">Guía</span></div>
+      </div>
     </a>
   </div>
 {{ end }}

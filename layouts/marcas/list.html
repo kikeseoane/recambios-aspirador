@@ -7,50 +7,39 @@
     {{ $brand := index $brands $brandKey }}
 
     {{ if $brand }}
-      <div class="hero-banner">
-        <div class="hero-row">
-          <div class="hero-copy">
-            <h1 style="margin:0 0 8px;">{{ $brand.name }}</h1>
-            <p class="muted" style="margin:0;max-width:720px;">
-              Elige tu modelo para ver recambios compatibles, checks y fallos comunes.
-            </p>
-
-            <div class="chips" style="margin-top:12px;">
-              <a class="chip" href="{{ "/marcas/" | relURL }}">← Volver a marcas</a>
-              <a class="chip" href="{{ "/modelos/" | relURL }}">Ver todos los modelos</a>
-            </div>
-          </div>
-
-          <div class="hero-visual">
-            <img class="hero-illus" src="{{ "/img/hero.svg" | relURL }}" alt="Guía visual de recambios" loading="lazy">
-          </div>
-        </div>
-      </div>
+      <h1>{{ $brand.name }}</h1>
+      <p class="muted">Elige tu modelo para ver recambios compatibles, checks y fallos comunes.</p>
 
       {{ $models := $brand.models }}
       {{ if $models }}
-        <div class="grid cards" style="margin-top:16px;">
+        <div class="grid cards">
           {{ range $m := $models }}
             {{ $mslug := (or $m.slug $m.canonical_slug) | urlize }}
-            <a class="card" href="{{ (printf "/modelos/%s/" $mslug) | relURL }}">
+            <a class="card card--with-icon" href="{{ (printf "/modelos/%s/" $mslug) | relURL }}">
               {{ partial "card_icon.html" (dict "kind" "model") }}
-              <h3>{{ $brand.name }} {{ $m.model }}</h3>
-              <div class="badges">
-                {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
-                {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}
+
+              <div class="card-body">
+                <h3>{{ $brand.name }} {{ $m.model }}</h3>
+                <div class="badges">
+                  {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
+                  {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}
+                </div>
+                <p class="muted" style="margin-top:10px;">Ver recambios y guía rápida de compatibilidad.</p>
               </div>
-              <p class="muted" style="margin-top:8px;">Ver recambios y guía rápida de compatibilidad.</p>
             </a>
           {{ end }}
         </div>
       {{ else }}
-        <div class="card" style="margin-top:14px;">
-          {{ partial "card_icon.html" (dict "kind" "model") }}
+        <div class="card">
           <h3>Modelos en preparación</h3>
           <p class="muted">Estamos ampliando esta marca. Vuelve en breve para ver modelos y recambios.</p>
         </div>
       {{ end }}
 
+      <div style="margin-top:14px;" class="chips">
+        <a class="chip" href="{{ "/marcas/" | relURL }}">← Volver a marcas</a>
+        <a class="chip" href="{{ "/modelos/" | relURL }}">Ver todos los modelos</a>
+      </div>
     {{ else }}
       <h1>Marca no disponible</h1>
       <p class="muted">No encontramos esa marca en el catálogo actual.</p>
@@ -60,31 +49,22 @@
     {{ end }}
 
   {{ else }}
-    <div class="hero-banner">
-      <div class="hero-row">
-        <div class="hero-copy">
-          <h1 style="margin:0 0 8px;">{{ .Title }}</h1>
-          <p class="muted" style="margin:0;max-width:720px;">
-            Elige una marca para ver sus modelos y recambios compatibles.
-          </p>
-        </div>
+    <h1>{{ .Title }}</h1>
+    <p class="muted">Elige una marca para ver sus modelos y recambios compatibles.</p>
 
-        <div class="hero-visual">
-          <img class="hero-illus" src="{{ "/img/hero.svg" | relURL }}" alt="Guía visual de recambios" loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <div class="grid cards" style="margin-top:16px;">
+    <div class="grid cards">
       {{ range $k, $b := $brands }}
         {{ $slug := $k | urlize }}
-        <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
           {{ partial "card_icon.html" (dict "kind" "brand") }}
-          <h3>{{ $b.name }}</h3>
-          <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
-          <div class="badges">
-            <span class="badge hot">{{ len $b.models }} modelos</span>
-            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+
+          <div class="card-body">
+            <h3>{{ $b.name }}</h3>
+            <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+            <div class="badges">
+              <span class="badge hot">{{ len $b.models }} modelos</span>
+              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+            </div>
           </div>
         </a>
       {{ end }}

@@ -343,3 +343,64 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   height:44px;
   display:block;
 }
+/* ===== Hero ===== */
+.hero{
+  background: var(--surface);
+  border:1px solid var(--border);
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: var(--shadow);
+  padding:18px;
+}
+.hero-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.hero-left{flex:1; min-width: 280px;}
+.hero-right{flex:0 0 auto;}
+.hero-img{width: 340px; max-width: 38vw; height:auto; display:block; opacity:.95}
+.hero-links{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+
+/* ===== Chips (si no existían) ===== */
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px;
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--fg);
+}
+.chip:hover{transform: translateY(-1px)}
+.chip.active{
+  border-color: rgba(255,106,0,.35);
+  background: rgba(255,106,0,.12);
+  color: var(--primary);
+}
+
+/* ===== Card with icon (reusable) ===== */
+.card--with-icon{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.card-icon-wrap{
+  width:54px;
+  height:54px;
+  border-radius: 16px;
+  border:1px solid var(--border);
+  background: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex: 0 0 auto;
+  box-shadow: 0 6px 18px rgba(17,24,39,.06);
+}
+.card-icon{
+  width:30px;
+  height:30px;
+  display:block;
+}
+.card-body{flex:1}

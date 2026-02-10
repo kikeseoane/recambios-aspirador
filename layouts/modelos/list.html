@@ -1,18 +1,18 @@
 {{ define "main" }}
-  <div class="hero-banner">
-    <div class="hero-row">
-      <div class="hero-copy">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
         <h1>{{ .Title }}</h1>
         <p class="muted">Catálogo de modelos con recambios compatibles (baterías, filtros, cepillos y cargadores) y solución de problemas.</p>
 
-        <div class="chips" style="margin-top:12px;">
+        <div class="hero-links">
           <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
-          <a class="chip active" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+          <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
         </div>
       </div>
 
-      <div class="hero-visual">
-        <img class="hero-illus" src="{{ "/img/hero.svg" | relURL }}" alt="Guía visual de recambios" loading="lazy">
+      <div class="hero-right">
+        <img class="hero-img" src="{{ "/img/hero.svg" | relURL }}" alt="" aria-hidden="true">
       </div>
     </div>
   </div>
@@ -23,24 +23,31 @@
   {{ if not $brands }}
     <p class="muted">No hay marcas cargadas en data/aspiradores.yaml</p>
   {{ else }}
-    <div class="grid cards" style="margin-top:16px;">
+    <div class="grid cards">
       {{ range $bk, $b := $brands }}
         {{ $brandName := or $b.name $bk }}
         {{ $models := $b.models }}
 
-        {{ if and $models (eq (printf "%T" $models) "[]interface {}") }}
+        {{ if and $models (reflect.IsSlice $models) }}
           {{ range $m := $models }}
             {{ $slug := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
-            <a class="card" href="{{ (printf "/modelos/%s/" $slug) | relURL }}">
+
+            <a class="card card--with-icon" href="{{ (printf "/modelos/%s/" $slug) | relURL }}">
               {{ partial "card_icon.html" (dict "kind" "model") }}
-              <h3>{{ $brandName }} {{ index $m "model" }}</h3>
-              <div class="badges">
-                <span class="badge">{{ $brandName }}</span>
-                {{ with (index $m "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
-                {{ with (index $m "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
+
+              <div class="card-body">
+                <h3>{{ $brandName }} {{ index $m "model" }}</h3>
+
+                <div class="badges">
+                  <span class="badge">{{ $brandName }}</span>
+                  {{ with (index $m "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
+                  {{ with (index $m "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
+                </div>
+
+                <p class="muted" style="margin-top:10px;">Recambios compatibles + fallos comunes.</p>
               </div>
-              <p class="muted" style="margin-top:8px;">Recambios compatibles + fallos comunes.</p>
             </a>
+
           {{ end }}
         {{ end }}
       {{ end }}
