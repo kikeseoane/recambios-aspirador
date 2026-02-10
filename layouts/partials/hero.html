@@ -1,23 +1,75 @@
-{{/* layouts/partials/hero.html */}}
-{{- $title := .Title -}}
-{{- $kicker := .Params.kicker | default (cond (eq .Section "marcas") "Catálogo" (cond (eq .Section "guias") "Guías" "")) -}}
-{{- $desc := .Params.description | default .Params.intro -}}
-{{- if not $desc -}}
-  {{- if .IsHome -}}
-    {{- $desc = "Encuentra recambios compatibles por marca y modelo. Guías rápidas y checks antes de comprar." -}}
-  {{- else if eq .Section "marcas" -}}
-    {{- $desc = "Elige una marca para ver modelos y recambios compatibles." -}}
-  {{- else if eq .Section "guias" -}}
-    {{- $desc = "Consejos y guías prácticas para mantenimiento, compatibilidad y compra segura." -}}
-  {{- else -}}
-    {{- $desc = .Summary -}}
-  {{- end -}}
-{{- end -}}
+{{/* layouts/partials/hero.html
+Uso:
+  {{ partial "hero.html" . }}
+
+Saca un hero coherente por sección:
+- /marcas/ y /marcas/<brand>/
+- /guias/
+- /modelos/
+- fallback para otras
+*/}}
+
+{{ $section := .Section }}
+{{ $title := .Title }}
+{{ $kicker := "Catálogo" }}
+{{ $copy := site.Params.defaultDescription }}
+{{ $links := slice }}
+
+{{ if eq $section "marcas" }}
+  {{ if .Params.brandKey }}
+    {{ $kicker = "Marca" }}
+    {{ $title = (index site.Data.aspiradores.brands .Params.brandKey).name | default .Title }}
+    {{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
+    {{ $links = slice
+      (dict "label" "← Volver a marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
+      (dict "label" "Ver todos los modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+    }}
+  {{ else }}
+    {{ $kicker = "Catálogo" }}
+    {{ $title = "Marcas" }}
+    {{ $copy = "Elige una marca para ver sus modelos y recambios compatibles." }}
+    {{ $links = slice
+      (dict "label" "Ver modelos" "href" ("/modelos/" | relURL) "class" "btn btn--ghost")
+      (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
+    }}
+  {{ end }}
+{{ else if eq $section "guias" }}
+  {{ $kicker = "Guías" }}
+  {{ $title = "Guías rápidas" }}
+  {{ $copy = "Compra con menos riesgo: compatibilidad, seguridad y mantenimiento." }}
+  {{ $links = slice
+    (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
+    (dict "label" "Ver modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+  }}
+{{ else if eq $section "modelos" }}
+  {{ $kicker = "Modelos" }}
+  {{ $title = "Modelos" }}
+  {{ $copy = "Catálogo de modelos con recambios compatibles y solución de problemas." }}
+  {{ $links = slice
+    (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
+    (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
+  }}
+{{ else }}
+  {{ $kicker = "Recambios" }}
+  {{ $copy = site.Params.defaultDescription }}
+  {{ $links = slice
+    (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
+    (dict "label" "Ver modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+  }}
+{{ end }}
 
 <section class="hero hero--bg hero--compact">
-  <div class="container hero__inner">
-    {{ if $kicker }}<div class="hero__kicker">{{ $kicker }}</div>{{ end }}
+  <div class="hero__inner">
+    <div class="hero__kicker">{{ $kicker }}</div>
     <h1 class="hero__title">{{ $title }}</h1>
-    {{ if $desc }}<p class="hero__copy muted">{{ $desc }}</p>{{ end }}
+    <p class="hero__copy">{{ $copy }}</p>
+
+    {{ if gt (len $links) 0 }}
+      <div class="hero__links">
+        {{ range $links }}
+          <a class="{{ .class }}" href="{{ .href }}">{{ .label }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
   </div>
 </section>

@@ -1,0 +1,70 @@
+{{/* layouts/partials/marcas-grid.html
+- Si estamos en /marcas/ => pinta cards de marcas
+- Si estamos en /marcas/<brand>/ => pinta cards de modelos de esa marca
+*/}}
+
+{{ $db := site.Data.aspiradores }}
+{{ $brands := $db.brands }}
+{{ $brandKey := .Params.brandKey }}
+
+{{ if not $brands }}
+  <p class="muted">No hay marcas cargadas en data/aspiradores.yaml</p>
+  {{ return }}
+{{ end }}
+
+{{ if $brandKey }}
+  {{ $brand := index $brands $brandKey }}
+
+  {{ if not $brand }}
+    {{ .Scratch.Set "noindex" true }}
+    <div class="card">
+      <h3>Marca no disponible</h3>
+      <p class="muted">No encontramos esa marca en el catálogo actual.</p>
+      <a class="chip" href="{{ "/marcas/" | relURL }}">Volver a marcas</a>
+    </div>
+    {{ return }}
+  {{ end }}
+
+  {{ $models := $brand.models }}
+  {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
+    <div class="grid cards">
+      {{ range $m := $models }}
+        {{ $mslug := (or $m.slug $m.canonical_slug) | urlize }}
+        <a class="card card--with-icon" href="{{ (printf "/modelos/%s/" $mslug) | relURL }}">
+          {{ partial "card_icon.html" (dict "kind" "model") }}
+          <div class="card-body">
+            <h3>{{ $brand.name }} {{ $m.model }}</h3>
+            <div class="badges">
+              {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
+              {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}
+            </div>
+            <p class="muted" style="margin-top:10px;">Recambios compatibles + fallos comunes.</p>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="card">
+      <h3>Modelos en preparación</h3>
+      <p class="muted">Estamos ampliando esta marca. Vuelve en breve.</p>
+    </div>
+  {{ end }}
+
+{{ else }}
+  <div class="grid cards">
+    {{ range $k, $b := $brands }}
+      {{ $slug := $k | urlize }}
+      <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        {{ partial "card_icon.html" (dict "kind" "brand") }}
+        <div class="card-body">
+          <h3>{{ $b.name }}</h3>
+          <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+          <div class="badges">
+            <span class="badge hot">{{ len $b.models }} modelos</span>
+            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+          </div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}

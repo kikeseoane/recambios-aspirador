@@ -1,8 +1,4 @@
 {{ define "main" }}
   {{ partial "hero.html" . }}
-
-  <div class="container section">
-    {{ .Content }}
-    {{ partial "marcas-grid.html" . }}
-  </div>
+  {{ partial "marcas-grid.html" . }}
 {{ end }}

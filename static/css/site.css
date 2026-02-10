@@ -474,3 +474,14 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   margin-top: 10px;
   max-width: 70ch;
 }
+/* HERO mobile fix */
+.hero--compact{ padding:20px; }
+@media (max-width:720px){
+  .hero--bg{
+    background-position: center;
+    background-size: cover;
+  }
+  .hero__title{ font-size:32px; line-height:1.08; }
+  .hero__links{ gap:10px; }
+  .btn{ width:auto; }
+}

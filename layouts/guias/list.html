@@ -1,15 +1,5 @@
 {{ define "main" }}
-  <section class="hero hero--bg hero--compact">
-    <div class="hero__inner">
-      <div class="hero__kicker">Guías</div>
-      <h1>{{ .Title }}</h1>
-      <p class="muted hero__copy">Guías rápidas para comprar con menos riesgo, mantener el aspirador y diagnosticar fallos comunes.</p>
-      <div class="hero__links">
-        <a class="btn btn--ghost" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
-        <a class="btn btn--link" href="{{ "/marcas/" | relURL }}">Ver marcas →</a>
-      </div>
-    </div>
-  </section>
+  {{ partial "hero.html" . }}
 
   <div class="grid cards">
     {{ range .Pages }}
@@ -17,10 +7,8 @@
         {{ partial "card_icon.html" (dict "kind" "guide") }}
         <div class="card-body">
           <h3>{{ .Title }}</h3>
-          <p class="muted">Checklist y recomendaciones prácticas.</p>
-          <div class="badges">
-            <span class="badge blue">Guía</span>
-          </div>
+          <p class="muted">Consejos rápidos y checklist aplicable a todos los modelos.</p>
+          <div class="badges"><span class="badge blue">Guía</span></div>
         </div>
       </a>
     {{ end }}
