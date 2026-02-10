@@ -404,3 +404,81 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   display:block;
 }
 .card-body{flex:1}
+/* ===== HERO con background ===== */
+.hero {
+  border-radius: 18px;
+  padding: 28px;
+  margin: 18px 0 24px;
+  border: 1px solid rgba(17,24,39,.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero--bg {
+  /* Fondo principal */
+  background-color: #fff;
+  background-image: url("/img/hero.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover; /* <- clave para que sea fondo */
+}
+
+/* Evita que el texto se coma la imagen */
+.hero__inner {
+  max-width: 980px;
+}
+
+.hero__copy {
+  max-width: 62ch;
+}
+
+.hero h1 {
+  font-size: 44px;
+  line-height: 1.05;
+  margin: 0 0 10px;
+}
+
+.hero p {
+  margin: 0 0 14px;
+  color: rgba(17,24,39,.75);
+}
+
+.hero__links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Botones mínimos (si ya tienes, esto no molesta) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(17,24,39,.12);
+}
+
+.btn--ghost {
+  background: #fff;
+}
+
+.btn--link {
+  border-color: transparent;
+  background: transparent;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/* Responsive: en móvil centra el fondo para que no moleste */
+@media (max-width: 720px) {
+  .hero--bg {
+    background-position: center;
+    background-size: cover;
+  }
+  .hero h1 {
+    font-size: 34px;
+  }
+}
