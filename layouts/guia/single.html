@@ -2,65 +2,49 @@
   {{ $db := site.Data.aspiradores }}
   {{ $key := .Params.guideKey }}
 
-  {{ $gg := $db.globals.guias_genericas }}
-  {{ $g := "" }}
+  {{ $gg := cond (and $db $db.globals) (index $db.globals "guias_genericas") nil }}
+  {{ $g := nil }}
 
-  {{ if and $gg $key }}
-    {{ $t := printf "%T" $gg }}
-
-    {{ if eq $t "map[string]interface {}" }}
+  {{ if $gg }}
+    {{ if reflect.IsMap $gg }}
       {{ $g = index $gg $key }}
-
-    {{ else if eq $t "[]interface {}" }}
+    {{ else if reflect.IsSlice $gg }}
       {{ range $it := $gg }}
-        {{ if and (eq (printf "%T" $it) "map[string]interface {}") (eq (index $it "key") $key) }}
+        {{ if and (reflect.IsMap $it) (eq (index $it "key") $key) }}
           {{ $g = $it }}
         {{ end }}
       {{ end }}
-
     {{ end }}
   {{ end }}
 
   <h1>{{ .Title }}</h1>
 
   {{ if $g }}
-    {{ $title := "" }}
-    {{ if eq (printf "%T" $g) "map[string]interface {}" }}
-      {{ $title = index $g "title" }}
-    {{ end }}
-    {{ with $title }}<h2>{{ . }}</h2>{{ end }}
 
-    {{ $bullets := "" }}
-    {{ if eq (printf "%T" $g) "map[string]interface {}" }}
-      {{ $bullets = index $g "bullets" }}
-    {{ end }}
+    {{/* Caso A: lista de strings (tu YAML actual) */}}
+    {{ if reflect.IsSlice $g }}
+      <ul class="list">
+        {{ range $g }}<li>{{ . }}</li>{{ end }}
+      </ul>
 
-    {{ if $bullets }}
-      {{ if eq (printf "%T" $bullets) "[]interface {}" }}
+    {{/* Caso B: objeto {title, bullets} (si migras en el futuro) */}}
+    {{ else if reflect.IsMap $g }}
+      {{ with (index $g "title") }}<p class="muted">{{ . }}</p>{{ end }}
+
+      {{ $bullets := index $g "bullets" }}
+      {{ if and $bullets (reflect.IsSlice $bullets) }}
         <ul class="list">
           {{ range $bullets }}<li>{{ . }}</li>{{ end }}
         </ul>
       {{ else }}
-        <p class="muted">{{ $bullets }}</p>
+        <p class="muted">Contenido en preparación.</p>
       {{ end }}
-    {{ else }}
-      <p class="muted">Guía sin bullets (revisa YAML).</p>
-    {{ end }}
 
-    {{ $extra := "" }}
-    {{ if eq (printf "%T" $g) "map[string]interface {}" }}
-      {{ $extra = index $g "extra" }}
-    {{ end }}
-    {{ if and $extra (eq (printf "%T" $extra) "map[string]interface {}") }}
-      {{ with (index $extra "aviso") }}
-        <div class="card" style="margin-top:14px;">
-          <strong>Aviso</strong>
-          <p class="muted" style="margin:8px 0 0;">{{ . }}</p>
-        </div>
-      {{ end }}
+    {{ else }}
+      <p class="muted">Contenido en preparación.</p>
     {{ end }}
 
   {{ else }}
-    <p class="muted">No se encontró guideKey <strong>{{ $key }}</strong> en data/aspiradores.yaml</p>
+    <p class="muted">Contenido en preparación.</p>
   {{ end }}
 {{ end }}
