@@ -29,7 +29,7 @@
     {{ range $k, $b := $brands }}
       {{ $slug := $k | urlize }}
       <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-        <div class="card-icon">🏷️</div>
+        {{ partial "card_icon.html" (dict "kind" "brand") }}
         <h3>{{ $b.name }}</h3>
         <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
         <div class="badges">
@@ -47,19 +47,19 @@
 
   <div class="grid cards">
     <a class="card" href="{{ "/guias/seguridad/" | relURL }}">
-      <div class="card-icon blue">🛡️</div>
+      {{ partial "card_icon.html" (dict "kind" "guide") }}
       <h3>Seguridad</h3>
       <p class="muted">Antes de manipular o desmontar.</p>
       <div class="badges"><span class="badge blue">Guía</span></div>
     </a>
     <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}">
-      <div class="card-icon blue">🧼</div>
+      {{ partial "card_icon.html" (dict "kind" "guide") }}
       <h3>Mantenimiento</h3>
       <p class="muted">Lo que más evita fallos.</p>
       <div class="badges"><span class="badge blue">Guía</span></div>
     </a>
     <a class="card" href="{{ "/guias/compra/" | relURL }}">
-      <div class="card-icon blue">✅</div>
+      {{ partial "card_icon.html" (dict "kind" "guide") }}
       <h3>Elegir recambio</h3>
       <p class="muted">Compatibilidad y criterios.</p>
       <div class="badges"><span class="badge blue">Guía</span></div>

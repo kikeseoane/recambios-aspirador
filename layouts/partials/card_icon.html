@@ -1,0 +1,20 @@
+{{/* partials/card_icon.html
+Uso:
+  {{ partial "card_icon.html" (dict "kind" "brand") }}
+  {{ partial "card_icon.html" (dict "kind" "model") }}
+  {{ partial "card_icon.html" (dict "kind" "guide") }}
+  {{ partial "card_icon.html" (dict "kind" "recambio") }}
+
+No depende de nada externo.
+*/}}
+
+{{ $kind := .kind | default "model" }}
+
+{{ $src := "/icons/model.svg" }}
+{{ if eq $kind "brand" }}{{ $src = "/icons/brand.svg" }}{{ end }}
+{{ if eq $kind "guide" }}{{ $src = "/icons/guide.svg" }}{{ end }}
+{{ if eq $kind "recambio" }}{{ $src = "/icons/recambio.svg" }}{{ end }}
+
+<div class="card-icon-img">
+  <img src="{{ $src | relURL }}" alt="" loading="lazy">
+</div>

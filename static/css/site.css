@@ -326,3 +326,20 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
 }
 .card-icon.blue{ background:rgba(37,99,235,.10); }
 .card-icon.gray{ background:rgba(17,24,39,.06); }
+/* iconos SVG de cards (consistentes y “pro”) */
+.card-icon-img{
+  width:56px;height:56px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+  box-shadow: 0 6px 16px rgba(17,24,39,.06);
+}
+.card-icon-img img{
+  width:44px;
+  height:44px;
+  display:block;
+}

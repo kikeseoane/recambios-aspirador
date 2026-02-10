@@ -32,7 +32,7 @@
           {{ range $m := $models }}
             {{ $slug := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
             <a class="card" href="{{ (printf "/modelos/%s/" $slug) | relURL }}">
-              <div class="card-icon blue">🧾</div>
+              {{ partial "card_icon.html" (dict "kind" "model") }}
               <h3>{{ $brandName }} {{ index $m "model" }}</h3>
               <div class="badges">
                 <span class="badge">{{ $brandName }}</span>

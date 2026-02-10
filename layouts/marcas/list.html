@@ -33,7 +33,7 @@
           {{ range $m := $models }}
             {{ $mslug := (or $m.slug $m.canonical_slug) | urlize }}
             <a class="card" href="{{ (printf "/modelos/%s/" $mslug) | relURL }}">
-              <div class="card-icon blue">🧾</div>
+              {{ partial "card_icon.html" (dict "kind" "model") }}
               <h3>{{ $brand.name }} {{ $m.model }}</h3>
               <div class="badges">
                 {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
@@ -45,7 +45,7 @@
         </div>
       {{ else }}
         <div class="card" style="margin-top:14px;">
-          <div class="card-icon gray">🧩</div>
+          {{ partial "card_icon.html" (dict "kind" "model") }}
           <h3>Modelos en preparación</h3>
           <p class="muted">Estamos ampliando esta marca. Vuelve en breve para ver modelos y recambios.</p>
         </div>
@@ -79,7 +79,7 @@
       {{ range $k, $b := $brands }}
         {{ $slug := $k | urlize }}
         <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-          <div class="card-icon">🏷️</div>
+          {{ partial "card_icon.html" (dict "kind" "brand") }}
           <h3>{{ $b.name }}</h3>
           <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
           <div class="badges">
