@@ -1,4 +1,4 @@
-Actúa como arquitecto senior SEO + ingeniero de sistemas para Hugo (static site generator) especializado en webs de afiliados escalables.
+Actúa como arquitecto senior SEO + ingeniero de sistemas para Hugo (static site generator) especializado en webs de afiliados escalables, aplicando principios de persuasión avanzada en copywriting y diseño de conversión.
 
 CONTEXTO Y ESTADO ACTUAL
 
@@ -7,168 +7,162 @@ Estoy construyendo una web tipo enciclopedia de marcas y modelos de aspiradores 
 La web está hecha con Hugo y el objetivo es escalar a miles de modelos sin escribir páginas manuales.
 
 Mi enfoque es data-driven:
-
-Toda la información vive en un único fichero de datos (YAML o CSV).
-
-Un script generador (Python) crea los stubs mínimos en /content/ si faltan.
-
-Hugo renderiza páginas automáticas con plantillas.
-
-Se busca evitar duplicación de contenido y errores SEO.
+- Toda la información vive en un único fichero de datos (YAML o CSV).
+- Un script generador (Python) crea los stubs mínimos en /content/ si faltan.
+- Hugo renderiza páginas automáticas con plantillas.
+- Se busca evitar duplicación de contenido y errores SEO.
 
 Tengo problemas previos de indexación (Search Console):
-
-URLs duplicadas
-
-canónicas mal definidas
-
-páginas no enlazadas correctamente
-
-algunas páginas detectadas como duplicadas o redirigidas
+- URLs duplicadas
+- canónicas mal definidas
+- páginas no enlazadas correctamente
+- algunas páginas detectadas como duplicadas o redirigidas
 
 OBJETIVO PRINCIPAL
 
 Quiero orientar el proyecto al modelo de monetización SEO + afiliados:
-
-Capturar búsquedas transaccionales del tipo: “batería dyson v11 compatible”, “filtro conga 3090”, “cargador rowenta x-force”.
-
-Capturar búsquedas informacionales: “dyson v11 no carga”, “conga pierde potencia”, etc.
-
-Monetizar con Amazon Afiliados + AliExpress Afiliados + Adsense.
-
-TAREA
-
-Quiero que me propongas una arquitectura completa (técnica + SEO) para que la web sea una máquina escalable y bien indexada, incluyendo:
-
-Estructura de URLs definitiva (sin duplicados, limpia, escalable)
-
-Qué tipos de páginas deben existir:
-
-marca
-
-modelo
-
-recambio por modelo
-
-problemas por modelo
-
-guías generales
-
-Qué campos exactos debe tener mi fichero YAML/CSV maestro para que todo sea automático.
-
-Qué debe generar el script Python exactamente (qué stubs, qué front matter, qué slugs).
-
-Cómo diseñar las plantillas Hugo para evitar contenido duplicado y a la vez permitir que cada página sea “única”.
-
-Cómo implementar correctamente:
-
-canonical URLs
-
-sitemap.xml
-
-robots.txt
-
-schema.org (FAQ, Product, BreadcrumbList)
-
-breadcrumbs
-
-enlaces internos automáticos
-
-Estrategia SEO de escalado:
-
-cómo atacar long-tail keywords
-
-cómo priorizar modelos/recambios
-
-cómo generar contenido útil sin ser penalizado por thin content
-
-Estrategia de monetización:
-
-dónde poner enlaces de afiliado
-
-qué tipo de tablas comparativas usar
-
-cómo insertar shortcodes para afiliación sin ensuciar el markdown
-
-Checklist de validación:
-
-cómo revisar duplicados
-
-cómo comprobar que Google indexa bien
-
-cómo evitar páginas huérfanas
-
-ESPECIFICACIONES
-
-Quiero máxima sencillez: una fuente de verdad (YAML/CSV).
-
-No quiero editar cientos de archivos manualmente.
-
-Todo debe ser automatizable.
-
-Quiero que el sistema permita añadir nuevos modelos simplemente añadiendo una línea al YAML/CSV.
-
-Quiero un enfoque preparado para 10.000+ páginas.
-
-FORMATO DE RESPUESTA
-
-Quiero una respuesta estructurada en fases:
-
-Fase 0 (decisiones críticas)
-
-Fase 1 (estructura de datos)
-
-Fase 2 (generación de contenido)
-
-Fase 3 (plantillas Hugo)
-
-Fase 4 (SEO técnico)
-
-Fase 5 (monetización)
-
-Fase 6 (escalado)
-
-Incluye ejemplos concretos de:
-
-YAML real
-
-front matter real
-
-URLs reales
-
-snippets de Hugo templates (list.html / single.html / partials)
-
-snippet de Python para generar stubs
-
-ejemplos de schema JSON-LD
-
-CRITERIO DE CALIDAD
-
-La solución debe estar orientada a:
-
-indexación masiva sin penalización
-
-evitar duplicados
-
-alto CTR
-
-enlazado interno perfecto
-
-escalabilidad extrema
-
-facilidad de mantenimiento
-
-VERIFICACIÓN FINAL
-
-Al final de tu respuesta quiero:
-
-un checklist final de implementación
-
-errores típicos y cómo evitarlos
-
-una recomendación de “qué hacer primero mañana”
-
- Datos actuales
+1. Capturar búsquedas transaccionales: “batería dyson v11 compatible”, “filtro conga 3090”, “cargador rowenta x-force”.
+2. Capturar búsquedas informacionales: “dyson v11 no carga”, “conga pierde potencia”, etc.
+3. Monetizar con Amazon Afiliados + AliExpress Afiliados + Adsense.
+
+APLICA ESTOS PRINCIPIOS DE PERSUASIÓN Y CONVERSIÓN:
+1. REPETICIÓN ESTRATÉGICA: Mensajes clave repetidos en puntos de conversión críticos
+2. SIMPLIFICACIÓN RADICAL: Reducir opciones complejas a decisiones binarias claras
+3. CONTRASTE DRAMÁTICO: Mostrar beneficios vs consecuencias de no actuar
+4. TRANSFERENCIA DE AUTORIDAD: Usar marcas reconocidas para construir confianza
+5. ORQUESTACIÓN UNIFICADA: Todo el contenido refuerza el mismo mensaje central
+6. CONEXIÓN EMOCIONAL: Enfocarse en dolores específicos del usuario
+7. COBERTURA COMPLETA: Saturación controlada de todas las intenciones de búsqueda
+8. ANTICIPACIÓN DE OBJECIONES: Resolver dudas antes de que surjan
+9. CREACIÓN DE URGENCIA CONTROLADA: Mostrar disponibilidad o precios especiales
+10. VALIDACIÓN SOCIAL: Usar datos y testimonios para confirmar decisiones
+11. NARRATIVA TRANSFORMADORA: Posicionar productos como soluciones "inteligentes"
+
+TAREA COMPLETA
+
+Diseña una arquitectura completa (técnica + SEO + conversión) para que la web sea una máquina escalable y bien indexada, incluyendo:
+
+1. ESTRUCTURA DE URLs definitiva (sin duplicados, limpia, escalable)
+2. TIPOS DE PÁGINAS esenciales:
+   - Páginas de marca (nivel 1)
+   - Páginas de modelo (nivel 2)
+   - Páginas de recambio por modelo (nivel 3)
+   - Páginas de problemas por modelo (nivel 3)
+   - Guías generales comparativas (evergreen)
+
+3. CAMPOS del fichero YAML/CSV maestro para automatización completa
+4. SCRIPT Python exacto (qué stubs, qué front matter, qué slugs genera)
+5. PLANTILLAS Hugo diseñadas para:
+   - Evitar contenido duplicado
+   - Hacer cada página única y valiosa
+   - Implementar principios de persuasión en secciones clave
+
+6. IMPLEMENTACIÓN TÉCNICA CORRECTA:
+   - canonical URLs automáticas
+   - sitemap.xml jerárquico
+   - robots.txt estratégico
+   - schema.org (FAQ, Product, BreadcrumbList, HowTo)
+   - breadcrumbs automáticos
+   - enlaces internos inteligentes
+
+7. ESTRATEGIA SEO DE ESCALADO:
+   - Cómo atacar long-tail keywords masivamente
+   - Cómo priorizar modelos/recambios por potencial
+   - Cómo generar contenido útil evitando penalizaciones
+
+8. ESTRATEGIA DE MONETIZACIÓN INTEGRADA:
+   - Ubicación óptima de enlaces de afiliado
+   - Tablas comparativas que guían a la conversión
+   - Shortcodes para afiliación sin ensuciar markdown
+   - Llamadas a la acción estratégicamente ubicadas
+
+9. CHECKLIST DE VALIDACIÓN:
+   - Cómo revisar y eliminar duplicados
+   - Cómo comprobar indexación correcta
+   - Cómo evitar páginas huérfanas
+   - Cómo medir y optimizar conversión
+
+ESPECIFICACIONES TÉCNICAS
+
+- Una sola fuente de verdad (YAML/CSV principal)
+- No editar archivos manualmente
+- Todo automatizable
+- Añadir nuevos modelos = una línea en YAML/CSV
+- Preparado para 10,000+ páginas
+- Máxima sencillez operativa
+
+FORMATO DE RESPUESTA REQUERIDO
+
+Responde estructurado en estas fases:
+
+FASE 0: DECISIONES CRÍTICAS Y PRINCIPIOS
+- Arquitectura de información
+- Principios de persuasión aplicados
+- Jerarquía de conversión
+
+FASE 1: ESTRUCTURA DE DATOS
+- YAML maestro completo con campos
+- Relaciones entre entidades
+- Metadatos SEO por nivel
+
+FASE 2: GENERACIÓN DE CONTENIDO
+- Script Python exacto
+- Front matter por tipo de página
+- Lógica de slugs y URLs
+
+FASE 3: PLANTILLAS HUGO (con persuasión integrada)
+- Templates para cada tipo de página
+- Partial para elementos de conversión
+- Lógica de enlaces internos
+
+FASE 4: SEO TÉCNICO AVANZADO
+- Implementación de schema
+- Sitemap y robots
+- Canonical y jerarquía
+
+FASE 5: MONETIZACIÓN INTELIGENTE
+- Ubicación de enlaces afiliados
+- Tablas comparativas persuasivas
+- Shortcodes y automatización
+
+FASE 6: ESTRATEGIA DE ESCALADO
+- Priorización de contenido
+- Expansión progresiva
+- Mantenimiento automático
+
+FASE 7: CHECKLIST DE IMPLEMENTACIÓN
+- Pasos secuenciales
+- Validación técnica
+- Medición y optimización
+
+INCLUYE EJEMPLOS CONCRETOS DE:
+1. YAML real con datos de ejemplo
+2. Front matter real de 3 tipos de páginas
+3. URLs reales de la estructura completa
+4. Snippets de Hugo templates (list.html / single.html / partials)
+5. Snippet de Python para generar stubs
+6. Ejemplos de schema JSON-LD con datos dinámicos
+7. Ejemplo de tabla comparativa con CTA integrado
+8. Estructura de shortcodes para afiliación
+
+CRITERIOS DE CALIDAD MÁXIMA:
+- Indexación masiva sin penalización
+- Cero duplicados
+- Alto CTR en resultados de búsqueda
+- Enlazado interno perfecto y estratégico
+- Escalabilidad extrema (10k+ páginas)
+- Facilidad de mantenimiento
+- Conversión optimizada en cada paso
+
+DATOS ACTUALES:
+[Incluye aquí cualquier código, estructura o datos que ya tengas desarrollados]
+
+VERIFICACIÓN FINAL REQUERIDA:
+1. Checklist final de implementación
+2. Errores típicos y cómo evitarlos
+3. Recomendación de "qué hacer primero mañana"
+4. Métricas clave a monitorizar
+5. Plan de expansión en fases
 
 Te acabo de pegar todo lo desarrollado hasta el momento
 

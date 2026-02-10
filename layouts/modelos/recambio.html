@@ -9,6 +9,7 @@
   {{ $brand := index $brands $brandKey }}
 
   {{ if not $brand }}
+    {{ .Scratch.Set "noindex" true }}
     <h1>Modelo no disponible</h1>
     <p class="muted">No encontramos la marca asociada.</p>
     <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
@@ -23,6 +24,7 @@
   {{ end }}
 
   {{ if not (len $model) }}
+    {{ .Scratch.Set "noindex" true }}
     <h1>Modelo en preparación</h1>
     <p class="muted">No encontramos el modelo en el catálogo.</p>
     <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
@@ -81,6 +83,8 @@
       {{ end }}
     </div>
   {{ else }}
+    {{/* ✅ importante: evitar thin content */}}
+    {{ .Scratch.Set "noindex" true }}
     <div class="card" style="margin-top:14px;">
       <h3>En preparación</h3>
       <p class="muted">Aún no tenemos recambios listados en esta categoría.</p>

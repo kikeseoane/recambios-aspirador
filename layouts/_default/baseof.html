@@ -11,6 +11,9 @@
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
   {{ hugo.Generator }}
+
+  {{/* Hook SEO: permite noindex desde plantillas */}}
+  {{ partial "robots_meta.html" (dict "noindex" (.Scratch.Get "noindex")) }}
 </head>
 <body>
   {{ partial "header.html" . }}

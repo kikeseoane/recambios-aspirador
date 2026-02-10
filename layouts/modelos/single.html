@@ -8,6 +8,9 @@
   {{ $brand := cond (and $brands $brandKey) (index $brands $brandKey) nil }}
 
   {{ if not $brand }}
+    {{/* inválida -> noindex */}}
+    {{ .Scratch.Set "noindex" true }}
+
     <h1>Modelo no disponible</h1>
     <p class="muted">No encontramos la marca asociada a este modelo.</p>
     <div class="chips" style="margin-top:14px;">
@@ -31,6 +34,8 @@
     {{ end }}
 
     {{ if not (len $model) }}
+      {{ .Scratch.Set "noindex" true }}
+
       <div class="breadcrumbs">
         <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
         <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
@@ -141,6 +146,31 @@
 
           <hr>
 
+          {{/* ===== NUEVO: Problemas frecuentes ===== */}}
+          {{ $probs := index $model "problemas" }}
+          {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+            <h2 style="margin-top:0;">Problemas frecuentes</h2>
+            <p class="muted small">Diagnósticos rápidos con checks y recambios recomendados.</p>
+
+            <div class="grid cards">
+              {{ range $p := $probs }}
+                {{ $pkey := (index $p "key") | urlize }}
+                {{ $ptitle := (index $p "title") | default $pkey }}
+                <a class="card" href="{{ (printf "/modelos/%s/problemas/%s/" $modelSlug $pkey) | relURL }}">
+                  <h3>{{ $ptitle }}</h3>
+                  {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
+                  {{ with (index $p "symptoms") }}
+                    {{ if reflect.IsSlice . }}
+                      <p class="muted" style="margin-top:8px;">Síntomas: {{ index . 0 }}</p>
+                    {{ end }}
+                  {{ end }}
+                </a>
+              {{ end }}
+            </div>
+
+            <hr>
+          {{ end }}
+
           <h2 style="margin-top:0;">Fallos comunes y checks</h2>
 
           {{ $fallos := index $model "fallos" }}
@@ -191,49 +221,42 @@
         </div>
 
         <aside class="panel">
-        {{/* === ASIDE: Antes de comprar === */}}
-        <h2 style="margin-top:0;">Antes de comprar</h2>
-        <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
+          <h2 style="margin-top:0;">Antes de comprar</h2>
+          <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
 
-        {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
+          {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
 
-        <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
-          {{ if $compra }}
+          <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
+            {{ if $compra }}
+              {{ if reflect.IsSlice $compra }}
+                <div class="kicker">Cómo elegir recambio compatible</div>
+                <ul class="small">
+                  {{ range $compra }}<li>{{ . }}</li>{{ end }}
+                </ul>
+              {{ else if reflect.IsMap $compra }}
+                {{ with (index $compra "title") }}<div class="kicker">{{ . }}</div>{{ end }}
 
-            {{/* Caso 1: compra es LISTA de strings (tu YAML actual) */}}
-            {{ if reflect.IsSlice $compra }}
-              <div class="kicker">Cómo elegir recambio compatible</div>
-              <ul class="small">
-                {{ range $compra }}<li>{{ . }}</li>{{ end }}
-              </ul>
-
-            {{/* Caso 2: compra es MAP {title, bullets} (si migras en el futuro) */}}
-            {{ else if reflect.IsMap $compra }}
-              {{ with (index $compra "title") }}<div class="kicker">{{ . }}</div>{{ end }}
-
-              {{ $bullets := index $compra "bullets" }}
-              {{ if $bullets }}
-                {{ if reflect.IsSlice $bullets }}
-                  <ul class="small">
-                    {{ range $bullets }}<li>{{ . }}</li>{{ end }}
-                  </ul>
+                {{ $bullets := index $compra "bullets" }}
+                {{ if $bullets }}
+                  {{ if reflect.IsSlice $bullets }}
+                    <ul class="small">
+                      {{ range $bullets }}<li>{{ . }}</li>{{ end }}
+                    </ul>
+                  {{ else }}
+                    <p class="muted small">{{ $bullets }}</p>
+                  {{ end }}
                 {{ else }}
-                  <p class="muted small">{{ $bullets }}</p>
+                  <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
                 {{ end }}
               {{ else }}
+                <div class="kicker">Cómo elegir recambio compatible</div>
                 <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
               {{ end }}
-
             {{ else }}
               <div class="kicker">Cómo elegir recambio compatible</div>
               <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
             {{ end }}
-
-          {{ else }}
-            <div class="kicker">Cómo elegir recambio compatible</div>
-            <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
-          {{ end }}
-        </div>
+          </div>
 
           <div style="margin-top:12px;">
             <div class="kicker">Atajos</div>

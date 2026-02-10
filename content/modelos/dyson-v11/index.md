@@ -1,5 +1,5 @@
 ---
-title: Dyson Dyson V11
+title: Dyson V11
 slug: dyson-v11
 draft: false
 generated: true

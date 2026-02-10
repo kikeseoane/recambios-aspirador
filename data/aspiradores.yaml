@@ -200,6 +200,69 @@ brands:
 
       - model: "Dyson V11"
         slug: "dyson-v11"
+        # ...
+        problemas:
+          - key: "no-carga"
+            title: "Dyson V11 no carga"
+            intent: "info"
+            symptoms:
+              - "No enciende o se apaga al instante"
+              - "No sube el nivel de carga"
+              - "La luz de carga parpadea"
+            causes:
+              - "Batería degradada"
+              - "Cargador defectuoso"
+              - "Conector sucio o con holgura"
+              - "Protección térmica por obstrucción"
+            checks:
+              - "Prueba a encender sin tubo/cabezal para aislar accesorios"
+              - "Comprueba LED del cargador y prueba otro enchufe"
+              - "Limpia contactos de carga (sin humedad) y revisa holgura"
+              - "Revisa obstrucciones en conductos y filtro muy saturado"
+            fix_hint: "Si falla incluso sin accesorios tras carga completa, suele ser batería; si no carga nada, prueba cargador."
+            cta:
+              catKey: "bateria"
+              label: "Ver baterías compatibles"
+
+          - key: "poca-succion"
+            title: "Dyson V11 tiene poca succión"
+            intent: "info"
+            symptoms:
+              - "Aspira pero con poca potencia"
+              - "Se oye distinto (más agudo) o corta a los segundos"
+            causes:
+              - "Filtro saturado o húmedo"
+              - "Obstrucción parcial en tubo/cabezal"
+              - "Fuga de aire por juntas o depósito mal encajado"
+            checks:
+              - "Lava filtro lavable y seca 24h"
+              - "Inspecciona tubo y codos con linterna"
+              - "Reasienta depósito y revisa juntas"
+            fix_hint: "La causa nº1 es filtro/obstrucción; si persiste, revisa juntas y encajes."
+            cta:
+              catKey: "filtro"
+              label: "Ver filtros compatibles"
+
+          - key: "cepillo-no-gira"
+            title: "El cepillo del Dyson V11 no gira"
+            intent: "info"
+            symptoms:
+              - "El rodillo se para o gira intermitente"
+              - "Huele a quemado o suena forzado"
+            causes:
+              - "Pelo/hilos bloqueando el rodillo"
+              - "Rodillo gastado / rodamientos dañados"
+              - "Cabezal con fallo de motor/engranaje"
+            checks:
+              - "Retira el rodillo y limpia extremos"
+              - "Comprueba giro libre a mano"
+              - "Prueba otro cabezal si tienes para descartar"
+            fix_hint: "Si tras limpieza sigue vibrando o no arranca, suele tocar cambiar rodillo del cabezal correcto."
+            cta:
+              catKey: "cepillo"
+              label: "Ver rodillos compatibles"
+
+        slug: "dyson-v11"
         series: "V-Series"
         year_range: "2019-2023"
         intro: "Dyson V11 destaca por su control inteligente de potencia y rendimiento estable en alfombras y suelos duros. Es muy común en hogares con mascotas por su capacidad de aspiración y accesorios. Los recambios más frecuentes son filtros, rodillos y batería compatible."

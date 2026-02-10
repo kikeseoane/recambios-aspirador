@@ -1,5 +1,5 @@
 ---
-title: Dyson Dyson V15 Detect
+title: Dyson V15 Detect
 slug: dyson-v15-detect
 draft: false
 generated: true

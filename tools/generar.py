@@ -62,7 +62,6 @@ def fm(
     if extra:
         data.update(extra)
 
-    # YAML "bonito" y estable
     body = yaml.safe_dump(
         data,
         sort_keys=False,
@@ -118,17 +117,12 @@ def is_generated_file(path: Path) -> bool:
 def safe_clean_section(section_dir: Path) -> None:
     """
     Limpia SOLO stubs generados (generated:true) dentro de una sección.
-    Soporta:
-      - leaf bundle:  content/<sec>/<slug>/index.md
-      - branch bundle: content/<sec>/<slug>/_index.md
-      - leaf pages sueltas .md (p.ej. guias/seguridad.md)
     Mantiene cualquier contenido no generado.
     """
     if not section_dir.exists():
         return
 
     for child in section_dir.iterdir():
-        # mantenemos el _index.md de la sección (se puede regenerar con --force)
         if child.is_file() and child.name == "_index.md":
             continue
 
@@ -143,13 +137,41 @@ def safe_clean_section(section_dir: Path) -> None:
                     else:
                         p.rmdir()
                 child.rmdir()
-            # si no parece generado, no tocamos
             continue
 
-        # archivos .md sueltos
         if child.is_file() and child.suffix.lower() == ".md":
             if is_generated_file(child):
                 child.unlink()
+
+
+# -------------------------------
+# Helpers SEO / títulos
+# -------------------------------
+
+def clean_model_name(brand_name: str, model_name: str) -> str:
+    """
+    Evita títulos tipo "Dyson Dyson V10" si en YAML el model ya incluye la marca.
+    """
+    mn = (model_name or "").strip()
+    bn = (brand_name or "").strip()
+    if mn and bn and mn.lower().startswith(bn.lower()):
+        mn = mn[len(bn):].strip()
+    return mn
+
+
+def cat_title_es(cat_key: str) -> str:
+    """
+    Título humano para stubs; el template luego usará label del YAML.
+    """
+    ck = (cat_key or "").strip().lower()
+    m = {
+        "bateria": "Batería",
+        "filtro": "Filtro",
+        "cepillo": "Cepillo",
+        "cargador": "Cargador",
+        "accesorios": "Accesorios",
+    }
+    return m.get(ck, cat_key.title())
 
 
 # -------------------------------
@@ -187,7 +209,7 @@ def main() -> None:
         clean_modelos_dir()
         print("OK: limpieza modelos (bruta) ejecutada.")
 
-    # HOME + secciones (branch bundles => _index.md)
+    # HOME + secciones
     write_file(
         CONTENT / "_index.md",
         fm(title="Inicio", slug="", kind="home", extra=None),
@@ -209,7 +231,7 @@ def main() -> None:
         force=args.force,
     )
 
-    # Guías genéricas (leaf pages => .md normal)
+    # Guías genéricas (leaf pages)
     write_file(
         CONTENT / "guias" / "seguridad.md",
         fm(
@@ -247,33 +269,33 @@ def main() -> None:
         brand_name = brand.get("name") or brand_key
         brand_slug = slugify(brand_key)
 
-        # página de marca (branch bundle)
-        # CLAVE: NO forzamos type aquí. Hugo usará section = "marcas" -> layouts/marcas/single.html
+        # marca (branch bundle)
         write_file(
             CONTENT / "marcas" / brand_slug / "_index.md",
             fm(
                 title=brand_name,
                 slug=brand_slug,
-                kind=None,  # <-- NO type
+                kind=None,  # NO type
                 extra={"brandKey": brand_key},
             ),
             force=args.force,
         )
 
-        # modelos de esa marca (leaf bundle: content/modelos/<slug>/index.md)
+        # modelos
         for m in (brand.get("models", []) or []):
-            model_name = (m.get("model") or "").strip()
+            model_name_raw = (m.get("model") or "").strip()
+            model_name = clean_model_name(brand_name, model_name_raw)
+
             model_slug = (m.get("slug") or "").strip() or slugify(f"{brand_key}-{model_name}")
             title = f"{brand_name} {model_name}".strip()
 
-            # CLAVE: NO forzamos type aquí.
-            # Hugo usará section = "modelos" -> layouts/modelos/single.html
+            # modelo (leaf bundle)
             write_file(
                 CONTENT / "modelos" / model_slug / "index.md",
                 fm(
                     title=title,
                     slug=model_slug,
-                    kind=None,  # <-- NO type
+                    kind=None,  # NO type
                     extra={
                         "brandKey": brand_key,
                         "modelSlug": model_slug,
@@ -281,16 +303,19 @@ def main() -> None:
                 ),
                 force=args.force,
             )
+
             # ---- hubs por categoría (solo si hay items) ----
             rec = (m.get("recambios") or {})
             if isinstance(rec, dict):
                 for cat_key, items in rec.items():
                     if not items:
                         continue
-                    # crea /modelos/<model_slug>/<cat_key>/index.md
-                    hub_dir = CONTENT / "modelos" / model_slug / slugify(cat_key)
-                    hub_slug = f"{model_slug}/{slugify(cat_key)}"
-                    hub_title = f"{brand_name} {model_name} · {cat_key.title()}"
+
+                    cat_slug = slugify(cat_key)
+                    hub_dir = CONTENT / "modelos" / model_slug / cat_slug
+                    hub_slug = f"{model_slug}/{cat_slug}"
+                    hub_title = f"{brand_name} {model_name} · {cat_title_es(cat_slug)}"
+
                     write_file(
                         hub_dir / "index.md",
                         fm(
@@ -300,8 +325,39 @@ def main() -> None:
                             extra={
                                 "brandKey": brand_key,
                                 "modelSlug": model_slug,
-                                "catKey": slugify(cat_key),
+                                "catKey": cat_slug,
                                 "layout": "recambio",
+                            },
+                        ),
+                        force=args.force,
+                    )
+
+            # ---- problemas (solo si existen) ----
+            problems = (m.get("problemas") or [])
+            if isinstance(problems, list) and len(problems) > 0:
+                for p in problems:
+                    if not isinstance(p, dict):
+                        continue
+                    pkey = slugify(p.get("key") or "")
+                    ptitle = (p.get("title") or "").strip()
+                    if not pkey or not ptitle:
+                        continue
+
+                    pdir = CONTENT / "modelos" / model_slug / "problemas" / pkey
+                    pslug = f"{model_slug}/problemas/{pkey}"
+                    ppage_title = ptitle
+
+                    write_file(
+                        pdir / "index.md",
+                        fm(
+                            title=ppage_title,
+                            slug=pslug,
+                            kind=None,
+                            extra={
+                                "brandKey": brand_key,
+                                "modelSlug": model_slug,
+                                "problemKey": pkey,
+                                "layout": "problema",
                             },
                         ),
                         force=args.force,
