@@ -158,3 +158,30 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   color:#fff; font-weight:900;
 }
 .btn-buy:hover{filter:brightness(.98)}
+.products{
+  display:grid;
+  gap:14px;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  margin-top:12px;
+}
+.product{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px;
+  box-shadow: var(--shadow);
+  display:flex;
+  gap:12px;
+}
+.product .img{
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff;
+  color:var(--muted);
+  flex:0 0 auto;
+  font-weight:900;
+}
+.product .body{flex:1}
+.product .title{font-weight:900}

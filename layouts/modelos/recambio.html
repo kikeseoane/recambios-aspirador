@@ -1,0 +1,90 @@
+{{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  {{ $brandKey := .Params.brandKey }}
+  {{ $modelSlug := (or .Params.modelSlug .Params.slug) | urlize }}
+  {{ $catKey := .Params.catKey | default "" }}
+
+  {{ $brand := index $brands $brandKey }}
+
+  {{ if not $brand }}
+    <h1>Modelo no disponible</h1>
+    <p class="muted">No encontramos la marca asociada.</p>
+    <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+    {{ return }}
+  {{ end }}
+
+  {{/* Buscar modelo en YAML */}}
+  {{ $model := dict }}
+  {{ range $m := ($brand.models | default (slice)) }}
+    {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+    {{ if eq $mid $modelSlug }}{{ $model = $m }}{{ end }}
+  {{ end }}
+
+  {{ if not (len $model) }}
+    <h1>Modelo en preparación</h1>
+    <p class="muted">No encontramos el modelo en el catálogo.</p>
+    <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
+    {{ return }}
+  {{ end }}
+
+  {{/* Cat label */}}
+  {{ $cats := $db.globals.categorias_recambios }}
+  {{ $catLabel := $catKey }}
+  {{ $catIcon := "🧩" }}
+  {{ if and $cats (reflect.IsSlice $cats) }}
+    {{ range $c := $cats }}
+      {{ if eq (index $c "key") $catKey }}
+        {{ $catLabel = index $c "label" }}
+        {{ $catIcon = (index $c "icon") | default "🧩" }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <div class="breadcrumbs">
+    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
+    <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
+    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $brand.name }} {{ index $model "model" }}</a><span class="sep">›</span>
+    <span>{{ $catLabel }}</span>
+  </div>
+
+  <div class="hero" style="margin-top:10px;">
+    <div class="kicker">Recambios</div>
+    <h1>{{ $catLabel }} para {{ $brand.name }} {{ index $model "model" }}</h1>
+    <p class="muted">Listado de recambios compatibles ({{ $catLabel | lower }}) con enlaces verificados.</p>
+
+    <div class="chips">
+      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
+      <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+    </div>
+  </div>
+
+  {{ $rec := index $model "recambios" }}
+  {{ $items := (index $rec $catKey) }}
+
+  {{ if and $items (reflect.IsSlice $items) }}
+    <div class="products">
+      {{ range $it := $items }}
+        <div class="product">
+          <div class="img">{{ $catIcon }}</div>
+          <div class="body">
+            <div class="title">{{ index $it "title" }}</div>
+            {{ with (index $it "note") }}<div class="note muted" style="margin-top:10px;">{{ . }}</div>{{ end }}
+            <div class="cta">
+              {{ $sku := index $it "sku" }}
+              {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="card" style="margin-top:14px;">
+      <h3>En preparación</h3>
+      <p class="muted">Aún no tenemos recambios listados en esta categoría.</p>
+      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Volver al modelo</a>
+    </div>
+  {{ end }}
+{{ end }}

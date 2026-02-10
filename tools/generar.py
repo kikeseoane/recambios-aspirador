@@ -281,6 +281,31 @@ def main() -> None:
                 ),
                 force=args.force,
             )
+            # ---- hubs por categoría (solo si hay items) ----
+            rec = (m.get("recambios") or {})
+            if isinstance(rec, dict):
+                for cat_key, items in rec.items():
+                    if not items:
+                        continue
+                    # crea /modelos/<model_slug>/<cat_key>/index.md
+                    hub_dir = CONTENT / "modelos" / model_slug / slugify(cat_key)
+                    hub_slug = f"{model_slug}/{slugify(cat_key)}"
+                    hub_title = f"{brand_name} {model_name} · {cat_key.title()}"
+                    write_file(
+                        hub_dir / "index.md",
+                        fm(
+                            title=hub_title,
+                            slug=hub_slug,
+                            kind=None,
+                            extra={
+                                "brandKey": brand_key,
+                                "modelSlug": model_slug,
+                                "catKey": slugify(cat_key),
+                                "layout": "recambio",
+                            },
+                        ),
+                        force=args.force,
+                    )
 
     print("OK: stubs generados.")
 
