@@ -285,3 +285,44 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
 }
 .card-icon.blue{ background:rgba(37,99,235,.10); }
 .card-icon.gray{ background:rgba(17,24,39,.06); }
+/* === HERO VISUAL (visible y consistente) === */
+.hero-banner{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.hero-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.hero-copy{min-width:260px; flex:1}
+.hero-visual{flex:0 0 auto}
+
+.hero-illus{
+  width:360px;
+  max-width:86vw;
+  height:auto;
+  display:block;
+  opacity:0.95;
+}
+
+/* === ICON TILE PARA CARDS === */
+.card-icon{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:rgba(255,106,0,.10);
+  font-size:26px;
+  margin-bottom:10px;
+}
+.card-icon.blue{ background:rgba(37,99,235,.10); }
+.card-icon.gray{ background:rgba(17,24,39,.06); }
