@@ -1,6 +1,6 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
- <p class="muted">Catálogo de modelos con recambios compatibles (baterías, filtros, cepillos y cargadores) y solución de problemas.</p>
+  <p class="muted">Catálogo de modelos con recambios compatibles (baterías, filtros, cepillos y cargadores) y solución de problemas.</p>
 
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
@@ -17,12 +17,16 @@
           {{ range $m := $models }}
             {{ $slug := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
             <a class="card" href="{{ (printf "/modelos/%s/" $slug) | relURL }}">
+              <div class="card-icon blue">🧾</div>
+
               <h3>{{ $brandName }} {{ index $m "model" }}</h3>
+
               <div class="badges">
                 <span class="badge">{{ $brandName }}</span>
                 {{ with (index $m "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
                 {{ with (index $m "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
               </div>
+
               <p class="muted" style="margin-top:8px;">Recambios compatibles + fallos comunes.</p>
             </a>
           {{ end }}

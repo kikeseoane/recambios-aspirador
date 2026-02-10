@@ -1,25 +1,24 @@
 {{ define "main" }}
-<div class="hero-banner">
-  <div class="hero-row">
-    <div>
-      <h1 style="margin:0 0 8px;">Recambios y guías por modelo</h1>
-      <p class="muted" style="margin:0;max-width:720px;">
-        Encuentra recambios compatibles por marca y modelo (baterías, filtros, cepillos y cargadores) + checks rápidos para fallos típicos.
-      </p>
-    </div>
+  <div class="hero-banner">
+    <div class="hero-row">
+      <div>
+        <h1 style="margin:0 0 8px;">Recambios y guías por modelo</h1>
+        <p class="muted" style="margin:0;max-width:720px;">
+          Encuentra recambios compatibles por marca y modelo (baterías, filtros, cepillos y cargadores) + checks rápidos para fallos típicos.
+        </p>
+      </div>
 
-    <div class="hero-cta">
-      <a class="btn primary" href="{{ "/modelos/" | relURL }}">Buscar mi modelo</a>
-      <a class="btn" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
+      <div class="hero-cta">
+        <a class="btn primary" href="{{ "/modelos/" | relURL }}">Buscar mi modelo</a>
+        <a class="btn" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
+      </div>
     </div>
   </div>
-</div>
-
 
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
 
-  <div class="section-head">
+  <div class="section-head" style="margin-top:18px;">
     <h2>Marcas</h2>
     <span class="chip">{{ len $brands }} marcas</span>
   </div>
@@ -28,8 +27,11 @@
     {{ range $k, $b := $brands }}
       {{ $slug := $k | urlize }}
       <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        <div class="card-icon">🏷️</div>
+
         <h3>{{ $b.name }}</h3>
         <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+
         <div class="badges">
           <span class="badge hot">{{ len $b.models }} modelos</span>
           {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
@@ -45,16 +47,21 @@
 
   <div class="grid cards">
     <a class="card" href="{{ "/guias/seguridad/" | relURL }}">
+      <div class="card-icon gray">🛡️</div>
       <h3>Seguridad</h3>
       <p class="muted">Antes de manipular o desmontar.</p>
       <div class="badges"><span class="badge blue">Guía</span></div>
     </a>
+
     <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}">
+      <div class="card-icon gray">🧼</div>
       <h3>Mantenimiento</h3>
       <p class="muted">Lo que más evita fallos.</p>
       <div class="badges"><span class="badge blue">Guía</span></div>
     </a>
+
     <a class="card" href="{{ "/guias/compra/" | relURL }}">
+      <div class="card-icon gray">✅</div>
       <h3>Elegir recambio</h3>
       <p class="muted">Compatibilidad y criterios.</p>
       <div class="badges"><span class="badge blue">Guía</span></div>
