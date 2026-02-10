@@ -1,0 +1,23 @@
+{{/* layouts/partials/hero.html */}}
+{{- $title := .Title -}}
+{{- $kicker := .Params.kicker | default (cond (eq .Section "marcas") "Catálogo" (cond (eq .Section "guias") "Guías" "")) -}}
+{{- $desc := .Params.description | default .Params.intro -}}
+{{- if not $desc -}}
+  {{- if .IsHome -}}
+    {{- $desc = "Encuentra recambios compatibles por marca y modelo. Guías rápidas y checks antes de comprar." -}}
+  {{- else if eq .Section "marcas" -}}
+    {{- $desc = "Elige una marca para ver modelos y recambios compatibles." -}}
+  {{- else if eq .Section "guias" -}}
+    {{- $desc = "Consejos y guías prácticas para mantenimiento, compatibilidad y compra segura." -}}
+  {{- else -}}
+    {{- $desc = .Summary -}}
+  {{- end -}}
+{{- end -}}
+
+<section class="hero hero--bg hero--compact">
+  <div class="container hero__inner">
+    {{ if $kicker }}<div class="hero__kicker">{{ $kicker }}</div>{{ end }}
+    <h1 class="hero__title">{{ $title }}</h1>
+    {{ if $desc }}<p class="hero__copy muted">{{ $desc }}</p>{{ end }}
+  </div>
+</section>

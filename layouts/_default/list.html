@@ -1,16 +1,7 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  {{ partial "hero.html" . }}
 
-  {{ if .Pages }}
-    <div class="grid">
-      {{ range .Pages }}
-        <a class="card" href="{{ .RelPermalink }}">
-          <h3>{{ .Title }}</h3>
-          <span class="badge">{{ .Section }}</span>
-        </a>
-      {{ end }}
-    </div>
-  {{ else }}
-    <p class="muted">No hay páginas aún.</p>
-  {{ end }}
+  <div class="container section">
+    {{ .Content }}
+  </div>
 {{ end }}

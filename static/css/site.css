@@ -451,3 +451,26 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
     font-size:32px;
   }
 }
+.hero{ margin: 18px 0 26px; }
+.hero__inner{ padding: 18px 18px; }
+.hero--bg{
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,.06);
+  background: linear-gradient(135deg, rgba(255,122,0,.14), #fff 55%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+.hero__kicker{
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .75;
+  margin-bottom: 8px;
+}
+.hero__title{
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+.hero__copy{
+  margin-top: 10px;
+  max-width: 70ch;
+}

@@ -1,50 +1,7 @@
 {{ define "main" }}
-  {{ $db := site.Data.aspiradores }}
-  {{ $key := .Params.guideKey }}
+  {{ partial "hero.html" . }}
 
-  {{ $gg := $db.globals.guias_genericas }}
-  {{ $g := nil }}
-
-  {{ if $gg }}
-    {{ if reflect.IsMap $gg }}
-      {{ $g = index $gg $key }}
-    {{ else if reflect.IsSlice $gg }}
-      {{ range $it := $gg }}
-        {{ if and (reflect.IsMap $it) (eq (index $it "key") $key) }}
-          {{ $g = $it }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-
-  <h1>{{ .Title }}</h1>
-
-  {{ if $g }}
-
-    {{/* Caso A: lista de strings */}}
-    {{ if reflect.IsSlice $g }}
-      <ul class="list">
-        {{ range $g }}<li>{{ . }}</li>{{ end }}
-      </ul>
-
-    {{/* Caso B: objeto {title, bullets} */}}
-    {{ else if reflect.IsMap $g }}
-      {{ with (index $g "title") }}<p class="muted">{{ . }}</p>{{ end }}
-
-      {{ $bullets := index $g "bullets" }}
-      {{ if and $bullets (reflect.IsSlice $bullets) }}
-        <ul class="list">
-          {{ range $bullets }}<li>{{ . }}</li>{{ end }}
-        </ul>
-      {{ else }}
-        <p class="muted">Contenido en preparación.</p>
-      {{ end }}
-
-    {{ else }}
-      <p class="muted">Contenido en preparación.</p>
-    {{ end }}
-
-  {{ else }}
-    <p class="muted">Contenido en preparación.</p>
-  {{ end }}
+  <div class="container section">
+    {{ .Content }}
+  </div>
 {{ end }}
