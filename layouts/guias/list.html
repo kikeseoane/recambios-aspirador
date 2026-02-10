@@ -1,12 +1,26 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <p class="muted">Guías genéricas reutilizadas para todos los modelos.</p>
+  <section class="hero hero--bg hero--compact">
+    <div class="hero__inner">
+      <div class="hero__kicker">Guías</div>
+      <h1>{{ .Title }}</h1>
+      <p class="muted hero__copy">Consejos reutilizables para todos los modelos: compra, mantenimiento y seguridad.</p>
 
-  <div class="grid">
+      <div class="hero__links">
+        <a class="btn btn--ghost" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+        <a class="btn btn--link" href="{{ "/marcas/" | relURL }}">Ver marcas →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid cards">
     {{ range .Pages }}
-      <a class="card" href="{{ .RelPermalink }}">
-        <h3>{{ .Title }}</h3>
-        <span class="badge">Guía</span>
+      <a class="card card--with-icon" href="{{ .RelPermalink }}">
+        {{ partial "card_icon.html" (dict "kind" "guide") }}
+        <div class="card-body">
+          <h3>{{ .Title }}</h3>
+          <p class="muted">Checklist práctica y puntos críticos.</p>
+          <div class="badges"><span class="badge blue">Guía</span></div>
+        </div>
       </a>
     {{ end }}
   </div>

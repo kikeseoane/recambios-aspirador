@@ -1,16 +1,17 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{{ "/" | relURL }}">
-      {{ site.Title }}
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="{{ site.Title }}">
+      <span class="brand-mark" aria-hidden="true">🧩</span>
+      <span class="brand-text">{{ site.Title }}</span>
       <span class="brand-badge">Marketplace</span>
     </a>
 
-    <form class="searchbar" action="{{ "/modelos/" | relURL }}" method="get">
-      <input name="q" placeholder="Busca tu modelo (ej: Dyson V10, Conga 4090)"/>
+    <form class="searchbar" action="{{ "/modelos/" | relURL }}" method="get" role="search">
+      <input name="q" placeholder="Busca tu modelo (ej: Dyson V10, Conga 4090)" />
       <button type="submit">Buscar</button>
     </form>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Navegación">
       <a href="{{ "/marcas/" | relURL }}">Marcas</a>
       <a href="{{ "/modelos/" | relURL }}">Modelos</a>
       <a href="{{ "/guias/" | relURL }}">Guías</a>

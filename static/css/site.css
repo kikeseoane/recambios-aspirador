@@ -282,3 +282,62 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   }
   .hero h1{font-size:34px}
 }
+/* ===== Hero variantes ===== */
+.hero--compact{
+  padding: 22px;
+}
+.hero--compact h1{
+  font-size: 38px;
+}
+
+/* ===== Branding más fuerte ===== */
+.brand-text{
+  font-weight: 950;
+  letter-spacing: .2px;
+}
+.brand-mark{
+  width: 34px;
+  height: 34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 12px;
+  background: rgba(255,106,0,.12);
+  border: 1px solid rgba(255,106,0,.25);
+  font-size: 18px;
+}
+
+/* ===== Header responsive (móvil) ===== */
+@media (max-width: 900px){
+  .header-inner{
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  /* Fila 1: marca + nav, Fila 2: buscador */
+  .brand{ order: 1; }
+  .nav{ order: 2; margin-left: auto; }
+  .searchbar{
+    order: 3;
+    width: 100%;
+    border-radius: 16px;
+    padding: 10px 12px;
+  }
+  .searchbar input{
+    width: 100%;
+    max-width: none;
+  }
+
+  .nav a{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 520px){
+  .hero--compact h1{ font-size: 30px; }
+  .hero h1{ font-size: 34px; }
+
+  .brand-badge{ display:none; } /* en móviles pequeños estorba */
+  .nav{ gap: 10px; }
+}
