@@ -1,0 +1,15 @@
+{{/* Canonical “real”: absoluto, sin parámetros, sin fragmentos, y con baseURL coherente */}}
+
+{{- $u := .Permalink -}}
+
+{{/* Seguridad: si por algún motivo viniese con query o hash, lo limpiamos */}}
+{{- $u = replaceRE `\?.*$` `` $u -}}
+{{- $u = replaceRE `#.*$` `` $u -}}
+
+{{/* Normaliza barra final: Hugo ya suele dar el canonical correcto,
+      pero lo dejamos consistente (con / final en URLs tipo directorio) */}}
+{{- if not (strings.HasSuffix $u "/") -}}
+  {{- $u = printf "%s/" $u -}}
+{{- end -}}
+
+<link rel="canonical" href="{{ $u }}">

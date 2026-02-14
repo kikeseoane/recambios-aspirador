@@ -1,0 +1,10 @@
+{{/* Por defecto index,follow */}}
+{{- $robots := "index,follow" -}}
+
+{{/* Si en algún momento detectas páginas que NO quieres indexar, marca noindex en front matter:
+      noindex: true */}}
+{{- if .Params.noindex -}}
+  {{- $robots = "noindex,follow" -}}
+{{- end -}}
+
+<meta name="robots" content="{{ $robots }}">
