@@ -72,10 +72,8 @@
     <meta name="twitter:image" content="{{ $ogimg | absURL }}">
   {{- end -}}
 
-  {{- /* CSS */ -}}
   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
 
-  {{- /* RSS */ -}}
   {{- with .OutputFormats.Get "RSS" -}}
     <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
   {{- end -}}
@@ -84,13 +82,19 @@
 </head>
 
 <body>
-  {{- block "header" . -}}{{ end -}}
+  {{- /* ✅ Header por defecto (si una plantilla no sobreescribe el bloque) */ -}}
+  {{- block "header" . -}}
+    {{- partial "header.html" . -}}
+  {{- end -}}
 
   <main>
     {{- block "main" . }}{{ end -}}
   </main>
 
-  {{- block "footer" . -}}{{ end -}}
+  {{- /* ✅ Footer por defecto */ -}}
+  {{- block "footer" . -}}
+    {{- partial "footer.html" . -}}
+  {{- end -}}
 
   {{- block "scripts" . }}{{ end -}}
 </body>

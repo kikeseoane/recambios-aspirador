@@ -162,8 +162,7 @@
                   {{ if reflect.IsSlice $items }}
                     {{ range $it := $items }}
                       <div class="product">
-                        <div class="img">{{ $catIcon | default "🧩" }}</div>
-
+                        <div class="img">{{ partial "cat_icon.html" (dict "catKey" ($catKey|urlize)) }}</div>
                         <div class="body">
                           <div class="title">{{ index $it "title" }}</div>
 

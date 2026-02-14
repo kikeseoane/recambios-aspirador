@@ -39,7 +39,7 @@
     {{ range $c := $cats }}
       {{ if eq (index $c "key") $catKey }}
         {{ $catLabel = index $c "label" }}
-        {{ $catIcon = (index $c "icon") | default "🧩" }}
+        {{ $catIcon = (index $c "key") | default $catKey }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -71,7 +71,7 @@
     <div class="products">
       {{ range $it := $items }}
         <div class="product">
-          <div class="img">{{ $catIcon }}</div>
+          <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
           <div class="body">
             <div class="title">{{ index $it "title" }}</div>
             {{ with (index $it "note") }}<div class="note muted" style="margin-top:10px;">{{ . }}</div>{{ end }}

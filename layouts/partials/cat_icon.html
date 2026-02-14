@@ -1,0 +1,16 @@
+{{/* layouts/partials/cat_icon.html
+Input: dict "catKey" "bateria"
+Output: <img ...> o fallback texto
+*/}}
+
+{{ $catKey := (.catKey | default "" | urlize) }}
+{{ $map := dict
+  "bateria"   "bateria"
+  "filtro"    "filtro"
+  "cepillo"   "cepillo"
+  "cargador"  "cargador"
+  "accesorios" "recambio"
+}}
+
+{{ $icon := (index $map $catKey) | default "recambio" }}
+<img src="{{ (printf "/img/icons/%s.svg" $icon) | relURL }}" alt="" loading="lazy">
