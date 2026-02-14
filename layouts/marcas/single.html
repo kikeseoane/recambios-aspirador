@@ -9,7 +9,9 @@
   <div class="grid">
     {{ range $m := $brand.models }}
       <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
-        <h3>{{ $brand.name }} {{ $m.model }}</h3>
+        {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
+        <h3>{{ $title }}</h3>
+
         {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
       </a>
     {{ end }}

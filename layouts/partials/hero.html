@@ -17,9 +17,12 @@ Saca un hero coherente por sección:
 
 {{ if eq $section "marcas" }}
   {{ if .Params.brandKey }}
-    {{ $kicker = "Marca" }}
-    {{ $title = (index site.Data.aspiradores.brands .Params.brandKey).name | default .Title }}
-    {{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
+    {{ $kicker = "Marca" }}{{ $b := index site.Data.aspiradores.brands .Params.brandKey }}
+  {{ with $b }}
+  {{ $title = .name | default $title }}
+{{ end }}
+
+{{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
     {{ $links = slice
       (dict "label" "← Volver a marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
       (dict "label" "Ver todos los modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")

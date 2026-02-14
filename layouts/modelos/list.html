@@ -41,7 +41,9 @@
               {{ partial "card_icon.html" (dict "kind" "model") }}
 
               <div class="card-body">
+                {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
                 <h3>{{ $title }}</h3>
+
                 <div class="badges">
                   {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
                   {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}

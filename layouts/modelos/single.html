@@ -1,3 +1,5 @@
+{{/* layouts/modelos/single.html */}}
+
 {{ define "main" }}
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
@@ -42,7 +44,10 @@
         <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a>
       </div>
 
-      <h1>{{ .Title }}</h1>
+      {{/* OJO: aquí $model está vacío, usa $modelSlug */}}
+      {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $modelSlug) }}
+      <h1>{{ $title }}</h1>
+
       <p class="muted">Estamos terminando de preparar la ficha de este modelo.</p>
 
       <div class="card" style="margin-top:14px;">
@@ -55,6 +60,38 @@
       </div>
 
     {{ else }}
+
+      {{/* ===== THIN CONTENT CHECK (modelo vacío real) ===== */}}
+
+      {{/* Recambios: en tu YAML es un MAP por categorías */}}
+      {{ $hasRecambios := false }}
+      {{ $rec := index $model "recambios" }}
+      {{ if and $rec (reflect.IsMap $rec) }}
+        {{ range $k, $v := $rec }}
+          {{ if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
+            {{ $hasRecambios = true }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ $probs := index $model "problemas" }}
+      {{ $hasProblemas := and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+
+      {{ $fallos := index $model "fallos" }}
+      {{ $hasFallos := and $fallos (reflect.IsSlice $fallos) (gt (len $fallos) 0) }}
+
+      {{ $guias := index $model "guias" }}
+      {{ $hasGuias := and $guias (reflect.IsSlice $guias) (gt (len $guias) 0) }}
+
+      {{ $introLen := 0 }}
+      {{ with (index $model "intro") }}
+        {{ $introLen = len (plainify .) }}
+      {{ end }}
+
+      {{ $isThin := and (not $hasRecambios) (not $hasProblemas) (not $hasFallos) (not $hasGuias) (lt $introLen 80) }}
+      {{ if $isThin }}
+        {{ .Scratch.Set "noindex" true }}
+      {{ end }}
 
       <div class="breadcrumbs">
         <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
@@ -110,7 +147,10 @@
 
               {{ $items := index $rec $catKey }}
               {{ if $items }}
-                <h2 style="margin-bottom:8px;">{{ $catLabel }}</h2>
+                <div class="section-head" style="margin-top:18px;">
+                  <h2 style="margin:0;">{{ $catLabel }}</h2>
+                  <a class="chip" href="{{ (printf "/modelos/%s/%s/" $modelSlug ($catKey|urlize)) | relURL }}">Ver todo</a>
+                </div>
 
                 <div class="products">
                   {{ if reflect.IsSlice $items }}
@@ -146,7 +186,7 @@
 
           <hr>
 
-          {{/* ===== NUEVO: Problemas frecuentes ===== */}}
+          {{/* ===== Problemas frecuentes ===== */}}
           {{ $probs := index $model "problemas" }}
           {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
             <h2 style="margin-top:0;">Problemas frecuentes</h2>
