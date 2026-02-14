@@ -20,6 +20,7 @@ globals:
       label: "Accesorios"
       icon: "tools"
       buy_intent: "compra"
+
   guias_genericas:
     seguridad:
       - "Desconecta el aspirador antes de manipular filtros, rodillos o batería."
@@ -36,6 +37,7 @@ globals:
       - "En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso general."
       - "En rodillos, elige según suelo: soft roller para duro; multisuperficie para mixto."
       - "Si tu aspirador es robot, compra packs (filtros + cepillos laterales) para abaratar mantenimiento."
+
 brands:
   dyson:
     name: "Dyson"
@@ -200,7 +202,21 @@ brands:
 
       - model: "Dyson V11"
         slug: "dyson-v11"
-        # ...
+        series: "V-Series"
+        year_range: "2019-2023"
+        intro: "Dyson V11 destaca por su control inteligente de potencia y rendimiento estable en alfombras y suelos duros. Es muy común en hogares con mascotas por su capacidad de aspiración y accesorios. Los recambios más frecuentes son filtros, rodillos y batería compatible."
+        seo:
+          title: "Dyson V11: recambios compatibles y solución de fallos (succión, batería, cepillo)"
+          description: "Guía del Dyson V11: compatibilidad, mantenimiento y recambios (batería, filtros, rodillos, cargador y accesorios)."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Batería extraíble; control de potencia automático según cabezal; filtros V11 específicos."
+        compatibilidad:
+          - "Batería 25.2V con formato V11; evita equivalencias genéricas sin anclaje correcto."
+          - "Filtros V11 suelen compartir familia, pero confirma forma/rosca."
+          - "Rodillos dependen del cabezal High Torque / Soft Roller."
+          - "Cargador debe ser compatible con el modelo y región."
         problemas:
           - key: "no-carga"
             title: "Dyson V11 no carga"
@@ -223,7 +239,6 @@ brands:
             cta:
               catKey: "bateria"
               label: "Ver baterías compatibles"
-
           - key: "poca-succion"
             title: "Dyson V11 tiene poca succión"
             intent: "info"
@@ -242,7 +257,6 @@ brands:
             cta:
               catKey: "filtro"
               label: "Ver filtros compatibles"
-
           - key: "cepillo-no-gira"
             title: "El cepillo del Dyson V11 no gira"
             intent: "info"
@@ -261,23 +275,6 @@ brands:
             cta:
               catKey: "cepillo"
               label: "Ver rodillos compatibles"
-
-        slug: "dyson-v11"
-        series: "V-Series"
-        year_range: "2019-2023"
-        intro: "Dyson V11 destaca por su control inteligente de potencia y rendimiento estable en alfombras y suelos duros. Es muy común en hogares con mascotas por su capacidad de aspiración y accesorios. Los recambios más frecuentes son filtros, rodillos y batería compatible."
-        seo:
-          title: "Dyson V11: recambios compatibles y solución de fallos (succión, batería, cepillo)"
-          description: "Guía del Dyson V11: compatibilidad, mantenimiento y recambios (batería, filtros, rodillos, cargador y accesorios)."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          voltaje_nominal: "25.2V"
-          notas: "Batería extraíble; control de potencia automático según cabezal; filtros V11 específicos."
-        compatibilidad:
-          - "Batería 25.2V con formato V11; evita equivalencias genéricas sin anclaje correcto."
-          - "Filtros V11 suelen compartir familia, pero confirma forma/rosca."
-          - "Rodillos dependen del cabezal High Torque / Soft Roller."
-          - "Cargador debe ser compatible con el modelo y región."
         fallos:
           - symptom: "Mensaje de filtro/obstrucción aunque esté limpio"
             severidad: "baja"
