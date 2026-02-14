@@ -16,7 +16,7 @@ Behavior:
 {{ $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) }}
 {{ $url := (index $offer "url") | default "" }}
 
-{{ if and $url (ne $url "RELLENAR_URL_ALIEXPRESS") }}
+{{ if and $url (ne $url "https://s.click.aliexpress.com/e/_c3VfQRLt") }}
   <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored" target="_blank">{{ $label }}</a>
 {{ else if $sku }}
   <span class="badge">SKU: {{ $sku }}</span>
