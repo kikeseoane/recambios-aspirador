@@ -1,0 +1,16 @@
+{{- /* 
+  Partial: model_title.html
+  Inputs (dict):
+    - brandName (string)
+    - modelName (string)
+  Output: string (título legible)
+*/ -}}
+
+{{- $brand := .brandName | default "" -}}
+{{- $model := .modelName | default "" -}}
+
+{{- if and $brand $model -}}
+  {{- printf "%s %s" $brand $model -}}
+{{- else -}}
+  {{- printf "%s%s" $brand $model -}}
+{{- end -}}
