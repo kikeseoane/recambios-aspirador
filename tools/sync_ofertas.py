@@ -72,6 +72,7 @@ def main() -> None:
     added = 0
     updated = 0
     orphaned = 0
+    un_orphaned = 0
 
     # 1) Añadir / completar estructura (sin pisar valores ya rellenos)
     for sku in sorted(want):
@@ -81,7 +82,7 @@ def main() -> None:
         if is_placeholder(obj.get("url"), PLACEHOLDER_URL):
             obj["url"] = PLACEHOLDER_URL
 
-        # estimated price (opcional; si no lo quieres, puedes borrar estas 2 líneas)
+        # estimated price
         if is_placeholder(obj.get("estimated_price_range"), PLACEHOLDER_EST):
             obj["estimated_price_range"] = PLACEHOLDER_EST
 
@@ -89,13 +90,11 @@ def main() -> None:
         badges = obj.get("badges")
         if not isinstance(badges, list) or len(badges) == 0:
             obj["badges"] = [PLACEHOLDER_BADGE]
-        else:
-            # si tiene exactamente el placeholder, lo dejamos
-            pass
 
-        # housekeeping
+        # si antes era huérfano, lo desmarcamos
         if obj.get("orphaned") is True:
             obj.pop("orphaned", None)
+            un_orphaned += 1
 
         if sku not in offers:
             offers[sku] = obj
@@ -113,11 +112,17 @@ def main() -> None:
                 offers[sku] = obj
                 orphaned += 1
 
-    offers_doc["offers"] = offers
-    dump_yaml(OFFERS, offers_doc)
+    # 3) Guardar
+    out = {"offers": offers}
+    dump_yaml(OFFERS, out)
 
-    print(f"OK sync_ofertas.py -> nuevos={added} actualizados={updated} orphaned_marcados={orphaned} total={len(offers)}")
-    print(f"Archivo: {OFFERS}")
+    print("OK: sync_ofertas")
+    print(f"  SKUs en catálogo: {len(want)}")
+    print(f"  Offers total:     {len(offers)}")
+    print(f"  Añadidos:         {added}")
+    print(f"  Actualizados:     {updated}")
+    print(f"  Rehabilitados:    {un_orphaned}")
+    print(f"  Marcados huérfano:{orphaned}")
 
 
 if __name__ == "__main__":

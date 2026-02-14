@@ -1,13 +1,4 @@
-{{/* layouts/partials/hero.html
-Uso:
-  {{ partial "hero.html" . }}
-
-Saca un hero coherente por sección:
-- /marcas/ y /marcas/<brand>/
-- /guias/
-- /modelos/
-- fallback para otras
-*/}}
+{{/* layouts/partials/hero.html */}}
 
 {{ $section := .Section }}
 {{ $title := .Title }}
@@ -17,12 +8,12 @@ Saca un hero coherente por sección:
 
 {{ if eq $section "marcas" }}
   {{ if .Params.brandKey }}
-    {{ $kicker = "Marca" }}{{ $b := index site.Data.aspiradores.brands .Params.brandKey }}
-  {{ with $b }}
-  {{ $title = .name | default $title }}
-{{ end }}
-
-{{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
+    {{ $kicker = "Marca" }}
+    {{ $b := index site.Data.aspiradores.brands .Params.brandKey }}
+    {{ if $b }}
+      {{ $title = ($b.name | default $title) }}
+    {{ end }}
+    {{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
     {{ $links = slice
       (dict "label" "← Volver a marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
       (dict "label" "Ver todos los modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
@@ -36,6 +27,7 @@ Saca un hero coherente por sección:
       (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
     }}
   {{ end }}
+
 {{ else if eq $section "guias" }}
   {{ $kicker = "Guías" }}
   {{ $title = "Guías rápidas" }}
@@ -44,6 +36,7 @@ Saca un hero coherente por sección:
     (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
     (dict "label" "Ver modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
   }}
+
 {{ else if eq $section "modelos" }}
   {{ $kicker = "Modelos" }}
   {{ $title = "Modelos" }}
@@ -52,6 +45,7 @@ Saca un hero coherente por sección:
     (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
     (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
   }}
+
 {{ else }}
   {{ $kicker = "Recambios" }}
   {{ $copy = site.Params.defaultDescription }}

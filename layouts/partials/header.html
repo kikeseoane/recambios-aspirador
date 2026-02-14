@@ -1,8 +1,4 @@
 <header class="site-header">
-  {{ if or (.Params.noindex) (.Scratch.Get "noindex") }}
-  <meta name="robots" content="noindex,follow">
-{{ end }}
-
   <div class="container header-inner">
     <a class="brand" href="{{ "/" | relURL }}" aria-label="Inicio">
       <span class="brand-logo" aria-hidden="true">🧩</span>
@@ -19,4 +15,3 @@
     </nav>
   </div>
 </header>
-
