@@ -3,6 +3,9 @@ languageCode = "es-es"
 title = "Recambios de Aspirador"
 enableRobotsTXT = true
 
+# Consistencia de URLs (evita canónicos distintos por / sí / no)
+trailingSlash = true
+
 [sitemap]
   changefreq = "weekly"
   filename = "sitemap.xml"
@@ -10,12 +13,13 @@ enableRobotsTXT = true
 
 [permalinks]
   modelos = "/modelos/:slug/"
-  marcas = "/marcas/:slug/"
-  guias  = "/guias/:slug/"
+  marcas  = "/marcas/:slug/"
+  guias   = "/guias/:slug/"
 
 [outputs]
   home = ["HTML", "RSS", "SITEMAP"]
-  section = ["HTML", "RSS"]
+  # Si NO quieres RSS por secciones, deja solo HTML (recomendado para evitar URLs “thin”)
+  section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
 

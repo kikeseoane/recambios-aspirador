@@ -12,46 +12,74 @@
     {{- end -}}
   </title>
 
+  {{- /* Description */ -}}
+  {{- $desc := "" -}}
   {{- if .Description -}}
-    <meta name="description" content="{{ .Description }}">
-  {{- else if .Site.Params.description -}}
-    <meta name="description" content="{{ .Site.Params.description }}">
+    {{- $desc = .Description -}}
+  {{- else if .Site.Params.defaultDescription -}}
+    {{- $desc = .Site.Params.defaultDescription -}}
+  {{- end -}}
+  {{- if $desc -}}
+    <meta name="description" content="{{ $desc }}">
   {{- end -}}
 
-  {{- /* Canonical “real” */ -}}
-  {{ partial "head/canonical.html" . }}
+  {{- /* Canonical */ -}}
+  {{- partial "head/canonical.html" . -}}
 
-  {{- /* Robots: respeta front matter si lo usas */ -}}
-  {{- with .Params.robots -}}
-    <meta name="robots" content="{{ . }}">
+  {{- /* Robots */ -}}
+  {{- $noindex := .Scratch.Get "noindex" -}}
+  {{- if $noindex -}}
+    <meta name="robots" content="noindex,follow">
   {{- else -}}
-    <meta name="robots" content="index,follow">
+    {{- with .Params.robots -}}
+      <meta name="robots" content="{{ . }}">
+    {{- else -}}
+      <meta name="robots" content="index,follow">
+    {{- end -}}
   {{- end -}}
 
-  {{- /* Open Graph básico */ -}}
+  {{- /* Open Graph */ -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  {{- with .Description -}}
-    <meta property="og:description" content="{{ . }}">
+  {{- if $desc -}}
+    <meta property="og:description" content="{{ $desc }}">
   {{- end -}}
 
-  {{- /* CSS (Pipes si existe assets/css/main.css, si no fallback a static/css/main.css) */ -}}
-  {{- $css := resources.Get "css/main.css" -}}
-  {{- if $css -}}
-    {{- $css = $css | minify | fingerprint -}}
-    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{- /* og:image (opcional) */ -}}
+  {{- $ogimg := "" -}}
+  {{- with .Params.image -}}
+    {{- $ogimg = . -}}
   {{- else -}}
-    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    {{- with .Params.images -}}
+      {{- if gt (len .) 0 -}}
+        {{- $ogimg = index . 0 -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
+  {{- if $ogimg -}}
+    <meta property="og:image" content="{{ $ogimg | absURL }}">
+  {{- end -}}
+
+  {{- /* Twitter */ -}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  {{- if $desc -}}
+    <meta name="twitter:description" content="{{ $desc }}">
+  {{- end -}}
+  {{- if $ogimg -}}
+    <meta name="twitter:image" content="{{ $ogimg | absURL }}">
+  {{- end -}}
+
+  {{- /* CSS */ -}}
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
 
   {{- /* RSS */ -}}
   {{- with .OutputFormats.Get "RSS" -}}
     <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
   {{- end -}}
 
-  {{- /* Extra head hook opcional */ -}}
   {{- block "head_extra" . }}{{ end -}}
 </head>
 
