@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ or .Site.LanguageCode "es-es" }}">
+<html lang="{{ .Site.LanguageCode | default "es-es" }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,12 +12,10 @@
     {{- end -}}
   </title>
 
-  {{- with .Description -}}
-    <meta name="description" content="{{ . }}">
-  {{- else -}}
-    {{- with .Site.Params.description -}}
-      <meta name="description" content="{{ . }}">
-    {{- end -}}
+  {{- if .Description -}}
+    <meta name="description" content="{{ .Description }}">
+  {{- else if .Site.Params.description -}}
+    <meta name="description" content="{{ .Site.Params.description }}">
   {{- end -}}
 
   {{- /* Canonical “real” */ -}}
@@ -39,13 +37,12 @@
     <meta property="og:description" content="{{ . }}">
   {{- end -}}
 
-  {{- /* CSS */ -}}
+  {{- /* CSS (Pipes si existe assets/css/main.css, si no fallback a static/css/main.css) */ -}}
   {{- $css := resources.Get "css/main.css" -}}
   {{- if $css -}}
     {{- $css = $css | minify | fingerprint -}}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{- else -}}
-    {{- /* Fallback si no usas Hugo Pipes */ -}}
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
   {{- end -}}
 
