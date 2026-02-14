@@ -37,7 +37,7 @@ def write_file(path: Path, content: str, force: bool = False) -> None:
 def fm(
     *,
     title: str,
-    slug: str,
+    slug: str | None = None,
     kind: str | None = None,
     extra: dict | None = None,
     generated: bool = True,
@@ -45,14 +45,18 @@ def fm(
     """
     Front matter YAML delimitado por ---.
 
+    - slug: si None, NO se escribe 'slug' (Hugo usará la ruta del contenido).
     - kind: si None, NO se escribe 'type' (Hugo usará section por defecto).
     - extra: dict adicional a volcar en YAML.
     """
     data: dict = {
         "title": title,
-        "slug": slug,
         "draft": False,
     }
+
+    if slug is not None:
+        data["slug"] = slug
+
     if generated:
         data["generated"] = True
 
@@ -313,14 +317,14 @@ def main() -> None:
 
                     cat_slug = slugify(cat_key)
                     hub_dir = CONTENT / "modelos" / model_slug / cat_slug
-                    hub_slug = f"{model_slug}/{cat_slug}"
-                    hub_title = f"{brand_name} {model_name} · {cat_title_es(cat_slug)}"
+                    hub_title = f"{brand_name} {model_name} · {cat_title_es(cat_key)}"
 
+                    # IMPORTANTE: sin slug en hijos (evita slugs con "/")
                     write_file(
                         hub_dir / "index.md",
                         fm(
                             title=hub_title,
-                            slug=hub_slug,
+                            slug=None,
                             kind=None,
                             extra={
                                 "brandKey": brand_key,
@@ -344,14 +348,13 @@ def main() -> None:
                         continue
 
                     pdir = CONTENT / "modelos" / model_slug / "problemas" / pkey
-                    pslug = f"{model_slug}/problemas/{pkey}"
-                    ppage_title = ptitle
 
+                    # IMPORTANTE: sin slug en hijos (evita slugs con "/")
                     write_file(
                         pdir / "index.md",
                         fm(
-                            title=ppage_title,
-                            slug=pslug,
+                            title=ptitle,
+                            slug=None,
                             kind=None,
                             extra={
                                 "brandKey": brand_key,

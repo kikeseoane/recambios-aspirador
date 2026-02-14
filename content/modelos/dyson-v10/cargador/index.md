@@ -1,6 +1,5 @@
----
+﻿---
 title: Dyson V10 · Cargador
-slug: dyson-v10/cargador
 draft: false
 generated: true
 brandKey: dyson

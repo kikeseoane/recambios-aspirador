@@ -7,10 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "data" / "aspiradores.yaml"
 OFFERS = ROOT / "data" / "ofertas.yaml"
 
-# Fallback global: si un SKU no tiene URL (o está vacía/placeholder), se asigna este enlace
 DEFAULT_URL = "https://s.click.aliexpress.com/e/_c3VfQRLt"
 
-# Si ya venías usando placeholders en ofertas.yaml, mantenemos compatibilidad
 PLACEHOLDER_URL = "RELLENAR_URL_ALIEXPRESS"
 PLACEHOLDER_EST = "RELLENAR_COSTE_ESTIMADO"
 PLACEHOLDER_BADGE = "RELLENAR_BADGES"
@@ -51,24 +49,18 @@ def collect_skus(db: dict) -> set[str]:
     return skus
 
 
-def is_blank(value: object | None) -> bool:
-    if value is None:
-        return True
-    v = str(value).strip()
-    return v == ""
+def is_empty(value: object | None) -> bool:
+    return value is None or str(value).strip() == ""
 
 
 def is_placeholder(value: object | None, placeholder: str) -> bool:
-    if value is None:
+    if is_empty(value):
         return True
-    v = str(value).strip()
-    return v == "" or v == placeholder
+    return str(value).strip() == placeholder
 
 
 def ensure_offer_obj(existing: object | None) -> dict:
-    if isinstance(existing, dict):
-        return existing
-    return {}
+    return existing if isinstance(existing, dict) else {}
 
 
 def main() -> None:
@@ -86,21 +78,26 @@ def main() -> None:
     un_orphaned = 0
     changed_urls_to_default = 0
 
-    # 1) Añadir / completar estructura (sin pisar valores ya rellenos)
     for sku in sorted(want):
-        obj = ensure_offer_obj(offers.get(sku))
+        prev = offers.get(sku)
+        obj = ensure_offer_obj(prev)
+        before = dict(obj)  # snapshot simple
 
-        # url: si falta / vacía / placeholder -> fallback global
-        if is_blank(obj.get("url")) or is_placeholder(obj.get("url"), PLACEHOLDER_URL):
+        # url: si falta/vacía/placeholder -> DEFAULT + flag needs_url
+        if is_placeholder(obj.get("url"), PLACEHOLDER_URL):
             if obj.get("url") != DEFAULT_URL:
                 obj["url"] = DEFAULT_URL
                 changed_urls_to_default += 1
+            obj["needs_url"] = True
+        else:
+            # si está rellena de verdad, quitamos flag si existía
+            obj.pop("needs_url", None)
 
-        # estimated price
+        # estimated_price_range: si falta/vacía/placeholder -> placeholder
         if is_placeholder(obj.get("estimated_price_range"), PLACEHOLDER_EST):
             obj["estimated_price_range"] = PLACEHOLDER_EST
 
-        # badges
+        # badges: si falta o lista vacía -> placeholder list
         badges = obj.get("badges")
         if not isinstance(badges, list) or len(badges) == 0:
             obj["badges"] = [PLACEHOLDER_BADGE]
@@ -115,9 +112,10 @@ def main() -> None:
             added += 1
         else:
             offers[sku] = obj
-            updated += 1
+            if before != obj:
+                updated += 1
 
-    # 2) Marcar huérfanos (no borrar)
+    # marcar huérfanos
     for sku, obj in list(offers.items()):
         if sku not in want:
             obj = ensure_offer_obj(obj)
@@ -126,9 +124,7 @@ def main() -> None:
                 offers[sku] = obj
                 orphaned += 1
 
-    # 3) Guardar
-    out = {"offers": offers}
-    dump_yaml(OFFERS, out)
+    dump_yaml(OFFERS, {"offers": offers})
 
     print("OK: sync_ofertas")
     print(f"  SKUs en catálogo: {len(want)}")
@@ -142,4 +138,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -1,6 +1,5 @@
----
+﻿---
 title: Dyson V8 · Cargador
-slug: dyson-v8/cargador
 draft: false
 generated: true
 brandKey: dyson

@@ -1,6 +1,5 @@
----
+﻿---
 title: Dyson V11 · Batería
-slug: dyson-v11/bateria
 draft: false
 generated: true
 brandKey: dyson

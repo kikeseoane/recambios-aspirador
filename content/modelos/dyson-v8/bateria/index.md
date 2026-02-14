@@ -1,6 +1,5 @@
----
+﻿---
 title: Dyson V8 · Batería
-slug: dyson-v8/bateria
 draft: false
 generated: true
 brandKey: dyson

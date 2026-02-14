@@ -1,6 +1,5 @@
----
+﻿---
 title: Dyson V10 · Batería
-slug: dyson-v10/bateria
 draft: false
 generated: true
 brandKey: dyson
