@@ -1,16 +1,17 @@
-{{- /* 
-  Partial: model_title.html
-  Inputs (dict):
-    - brandName (string)
-    - modelName (string)
-  Output: string (título legible)
-*/ -}}
-
+{{- /* layouts/partials/model_title.html */ -}}
 {{- $brand := .brandName | default "" -}}
 {{- $model := .modelName | default "" -}}
 
+{{- $b := lower (trim $brand " ") -}}
+{{- $m := trim $model " " -}}
+{{- $ml := lower $m -}}
+
 {{- if and $brand $model -}}
-  {{- printf "%s %s" $brand $model -}}
+  {{- if hasPrefix $ml $b -}}
+    {{- $m -}}
+  {{- else -}}
+    {{- printf "%s %s" $brand $m -}}
+  {{- end -}}
 {{- else -}}
-  {{- printf "%s%s" $brand $model -}}
+  {{- printf "%s%s" $brand $m -}}
 {{- end -}}

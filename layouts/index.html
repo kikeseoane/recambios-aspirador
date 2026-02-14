@@ -27,7 +27,8 @@
       <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
         <div class="card--with-icon">
           <div class="card-icon-wrap">
-            <img src="{{ "/img/icons/filtro.svg" | relURL }}" alt="" loading="lazy">
+            {{ partial "card_icon.html" (dict "kind" "brand") }}
+
           </div>
           <div class="card-body">
             <h3>{{ $b.name }}</h3>

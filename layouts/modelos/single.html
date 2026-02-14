@@ -97,12 +97,13 @@
         <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
         <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
         <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
-        <span>{{ $brand.name }} {{ index $model "model" }}</span>
+        <span>{{ $mtitle }}</span>
       </div>
 
       <div class="hero" style="margin-top:10px;">
-        <div class="kicker">Modelo</div>
-        <h1>{{ $brand.name }} {{ index $model "model" }}</h1>
+          <div class="kicker">Modelo</div>
+          {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
+          <h1>{{ $mtitle }}</h1>
         {{ with (index $model "intro") }}<p class="muted">{{ . }}</p>{{ end }}
 
         <div class="chips">

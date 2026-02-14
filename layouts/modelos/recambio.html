@@ -48,13 +48,14 @@
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
     <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
     <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
-    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $brand.name }} {{ index $model "model" }}</a><span class="sep">›</span>
+    {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
+<a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">›</span>
     <span>{{ $catLabel }}</span>
   </div>
 
   <div class="hero" style="margin-top:10px;">
     <div class="kicker">Recambios</div>
-    <h1>{{ $catLabel }} para {{ $brand.name }} {{ index $model "model" }}</h1>
+    <h1>{{ $catLabel }} para {{ $mtitle }}</h1>
     <p class="muted">Listado de recambios compatibles ({{ $catLabel | lower }}) con enlaces verificados.</p>
 
     <div class="chips">
