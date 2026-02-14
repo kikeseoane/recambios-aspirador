@@ -1,39 +1,72 @@
 <!doctype html>
-<html lang="es">
+<html lang="{{ or .Site.LanguageCode "es-es" }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  {{/* Title */}}
-  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+  <title>
+    {{- if .IsHome -}}
+      {{- .Site.Title -}}
+    {{- else -}}
+      {{- .Title }} · {{ .Site.Title -}}
+    {{- end -}}
+  </title>
 
-  {{/* Description */}}
-  {{ $desc := .Params.description | default site.Params.defaultDescription | default "" }}
-  <meta name="description" content="{{ $desc }}">
+  {{- with .Description -}}
+    <meta name="description" content="{{ . }}">
+  {{- else -}}
+    {{- with .Site.Params.description -}}
+      <meta name="description" content="{{ . }}">
+    {{- end -}}
+  {{- end -}}
 
-  {{/* Canonical */}}
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{- /* Canonical “real” */ -}}
+  {{ partial "head/canonical.html" . }}
 
-  {{/* CSS */}}
-  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  {{- /* Robots: respeta front matter si lo usas */ -}}
+  {{- with .Params.robots -}}
+    <meta name="robots" content="{{ . }}">
+  {{- else -}}
+    <meta name="robots" content="index,follow">
+  {{- end -}}
 
-  {{/* RSS (opcional, pero útil) */}}
-  {{ with .OutputFormats.Get "RSS" -}}
-    <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
-  {{- end }}
+  {{- /* Open Graph básico */ -}}
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- with .Description -}}
+    <meta property="og:description" content="{{ . }}">
+  {{- end -}}
 
-  {{/* Robots meta: permite noindex desde plantillas con .Scratch.Set "noindex" true */}}
-  {{ partial "robots_meta.html" (dict "noindex" (.Scratch.Get "noindex")) }}
+  {{- /* CSS */ -}}
+  {{- $css := resources.Get "css/main.css" -}}
+  {{- if $css -}}
+    {{- $css = $css | minify | fingerprint -}}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{- else -}}
+    {{- /* Fallback si no usas Hugo Pipes */ -}}
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  {{- end -}}
 
-  {{ hugo.Generator }}
+  {{- /* RSS */ -}}
+  {{- with .OutputFormats.Get "RSS" -}}
+    <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
+  {{- end -}}
+
+  {{- /* Extra head hook opcional */ -}}
+  {{- block "head_extra" . }}{{ end -}}
 </head>
-<body>
-  {{ partial "header.html" . }}
 
-  <main class="container">
-    {{ block "main" . }}{{ end }}
+<body>
+  {{- block "header" . -}}{{ end -}}
+
+  <main>
+    {{- block "main" . }}{{ end -}}
   </main>
 
-  {{ partial "footer.html" . }}
+  {{- block "footer" . -}}{{ end -}}
+
+  {{- block "scripts" . }}{{ end -}}
 </body>
 </html>

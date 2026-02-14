@@ -1,7 +1,59 @@
 {{ define "main" }}
-  {{ partial "hero.html" . }}
+  <header class="container">
+    <h1>{{ .Title }}</h1>
 
-  <div class="container section">
-    {{ .Content }}
-  </div>
+    {{ with .Params.intro }}
+      <p class="lead">{{ . }}</p>
+    {{ else }}
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ end }}
+  </header>
+
+  {{/* Paginación estable */}}
+  {{ $paginator := .Paginate (.Pages) }}
+
+  <section class="container list">
+    {{ range $paginator.Pages }}
+      <article class="card">
+        <h2 class="card-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+
+        {{ with .Description }}
+          <p class="card-desc">{{ . }}</p>
+        {{ else }}
+          {{ with .Summary }}<p class="card-desc">{{ . }}</p>{{ end }}
+        {{ end }}
+
+        <div class="card-meta">
+          {{ if .Date }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01/2006" }}</time>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </section>
+
+  {{/* Navegación del paginador */}}
+  {{ if gt $paginator.TotalPages 1 }}
+    <nav class="container pagination" aria-label="Paginación">
+      <ul>
+        {{ if $paginator.HasPrev }}
+          <li><a rel="prev" href="{{ $paginator.Prev.URL }}">← Anterior</a></li>
+        {{ else }}
+          <li class="disabled"><span>← Anterior</span></li>
+        {{ end }}
+
+        <li class="pages">
+          <span>Página {{ $paginator.PageNumber }} de {{ $paginator.TotalPages }}</span>
+        </li>
+
+        {{ if $paginator.HasNext }}
+          <li><a rel="next" href="{{ $paginator.Next.URL }}">Siguiente →</a></li>
+        {{ else }}
+          <li class="disabled"><span>Siguiente →</span></li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
 {{ end }}
