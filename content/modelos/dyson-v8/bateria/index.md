@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V8 · Batería
 draft: false
 generated: true

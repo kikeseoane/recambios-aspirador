@@ -295,18 +295,16 @@ def main() -> None:
 
             # modelo (leaf bundle)
             write_file(
-                CONTENT / "modelos" / model_slug / "index.md",
-                fm(
-                    title=title,
-                    slug=model_slug,
-                    kind=None,  # NO type
-                    extra={
-                        "brandKey": brand_key,
-                        "modelSlug": model_slug,
-                    },
-                ),
-                force=args.force,
-            )
+                    CONTENT / "modelos" / model_slug / "index.md",
+                    fm(
+                        title=title,
+                        slug=None,  # 👈 sin slug: la URL la manda el path /modelos/<model_slug>/
+                        kind=None,
+                        extra={"brandKey": brand_key, "modelSlug": model_slug},
+                    ),
+                    force=args.force,
+                    )
+
 
             # ---- hubs por categoría (solo si hay items) ----
             rec = (m.get("recambios") or {})

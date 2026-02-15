@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V8 · Cepillo
 draft: false
 generated: true

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V15 Detect · Batería
 draft: false
 generated: true

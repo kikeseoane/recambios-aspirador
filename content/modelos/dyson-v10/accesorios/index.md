@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V10 · Accesorios
 draft: false
 generated: true

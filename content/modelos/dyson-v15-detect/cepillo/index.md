@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V15 Detect · Cepillo
 draft: false
 generated: true

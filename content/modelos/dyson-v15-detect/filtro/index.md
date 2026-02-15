@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V15 Detect · Filtro
 draft: false
 generated: true

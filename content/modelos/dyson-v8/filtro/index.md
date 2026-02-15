@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V8 · Filtro
 draft: false
 generated: true

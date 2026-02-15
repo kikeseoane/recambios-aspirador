@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V15 Detect · Cargador
 draft: false
 generated: true

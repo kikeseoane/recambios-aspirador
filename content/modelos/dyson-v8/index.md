@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V8
 draft: false
 generated: true

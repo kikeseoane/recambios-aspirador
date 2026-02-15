@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V11 · Batería
 draft: false
 generated: true

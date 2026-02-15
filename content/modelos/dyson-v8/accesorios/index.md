@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V8 · Accesorios
 draft: false
 generated: true

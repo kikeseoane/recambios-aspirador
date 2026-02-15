@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V11 · Filtro
 draft: false
 generated: true

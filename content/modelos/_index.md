@@ -1,7 +1,7 @@
 ---
 title: Modelos
-slug: modelos
 draft: false
+slug: modelos
 generated: true
 type: modelos
 ---

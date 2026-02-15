@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V10
 draft: false
 generated: true

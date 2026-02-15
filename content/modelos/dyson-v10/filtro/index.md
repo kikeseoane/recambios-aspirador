@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V10 · Filtro
 draft: false
 generated: true

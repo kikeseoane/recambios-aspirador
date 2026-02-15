@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V10 · Cepillo
 draft: false
 generated: true

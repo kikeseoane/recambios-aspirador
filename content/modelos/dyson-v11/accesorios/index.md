@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V11 · Accesorios
 draft: false
 generated: true

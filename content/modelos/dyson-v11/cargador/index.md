@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V11 · Cargador
 draft: false
 generated: true

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V10 · Cargador
 draft: false
 generated: true

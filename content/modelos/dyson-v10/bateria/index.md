@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dyson V10 · Batería
 draft: false
 generated: true
