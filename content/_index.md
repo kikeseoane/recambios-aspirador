@@ -1,7 +1,7 @@
 ---
 title: Inicio
-slug: ''
 draft: false
+slug: ''
 generated: true
 type: home
 ---

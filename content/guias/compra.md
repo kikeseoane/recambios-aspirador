@@ -1,7 +1,7 @@
 ---
 title: Cómo elegir recambio
-slug: compra
 draft: false
+slug: compra
 generated: true
 type: guia
 guideKey: compra

@@ -1,7 +1,7 @@
 ---
 title: Dyson
-slug: dyson
 draft: false
+slug: dyson
 generated: true
 brandKey: dyson
 ---

@@ -1,7 +1,7 @@
 ---
 title: Marcas
-slug: marcas
 draft: false
+slug: marcas
 generated: true
 type: marcas
 ---

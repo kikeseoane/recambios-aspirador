@@ -1,7 +1,7 @@
 ---
 title: Seguridad
-slug: seguridad
 draft: false
+slug: seguridad
 generated: true
 type: guia
 guideKey: seguridad

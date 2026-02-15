@@ -1,7 +1,7 @@
 ---
 title: Guías
-slug: guias
 draft: false
+slug: guias
 generated: true
 type: guias
 ---
