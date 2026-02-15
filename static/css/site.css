@@ -450,3 +450,43 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   text-decoration:none;
   background:#fff;
 }
+/* --- FIX CTA "Ver oferta" como barra --- */
+
+/* Asegura layout normal del bloque producto */
+.product {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.product .body {
+  flex: 1;
+  min-width: 0; /* evita desbordes con títulos largos */
+}
+
+.product .cta {
+  margin-top: 12px;
+  position: static; /* por si alguien lo puso absolute */
+}
+
+/* Botón: inline, no barra */
+.btn-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;          /* clave */
+  max-width: 100%;
+  padding: 10px 14px;
+
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 12px;
+
+  position: static;     /* clave */
+}
+
+/* En móvil sí puede ocupar todo el ancho */
+@media (max-width: 720px) {
+  .btn-buy { width: 100%; }
+}
