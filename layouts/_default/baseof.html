@@ -26,6 +26,18 @@
   {{- /* Canonical */ -}}
   {{- partial "head/canonical.html" . -}}
 
+  {{/* Robots: respeta front matter si lo usas */}}
+{{- with .Params.robots -}}
+  <meta name="robots" content="{{ . }}">
+{{- else -}}
+  {{- if .Scratch.Get "noindex" -}}
+    <meta name="robots" content="noindex, nofollow">
+  {{- else -}}
+    <meta name="robots" content="index, follow">
+  {{- end -}}
+{{- end -}}
+
+
   {{- /* Open Graph */ -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -75,9 +87,10 @@
     {{- partial "header.html" . -}}
   {{- end -}}
 
-  <main>
-    {{- block "main" . }}{{ end -}}
-  </main>
+<main class="container">
+  {{ block "main" . }}{{ end }}
+</main>
+
 
   {{- /* ✅ Footer por defecto */ -}}
   {{- block "footer" . -}}
