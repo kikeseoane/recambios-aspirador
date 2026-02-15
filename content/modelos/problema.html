@@ -1,0 +1,211 @@
+{{/* layouts/modelos/problema.html */}}
+{{ define "main" }}
+
+  {{/* =========================
+      1) Resolver brand/model/problem
+     ========================= */}}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  {{ $brandKey := or .Params.brandKey (and .Parent .Parent.Params.brandKey) (and .Parent .Params.brandKey) }}
+  {{ $modelSlug := or .Params.modelSlug .Params.slug (and .Parent .Parent.Params.modelSlug) (and .Parent .Params.modelSlug) }}
+  {{ $problemKey := or .Params.problemKey .Params.problemaKey .Params.issueKey }}
+
+  {{ $brand := cond (and $brands $brandKey) (index $brands $brandKey) nil }}
+  {{ $model := cond (and $brand $modelSlug (isset $brand.models $modelSlug)) (index $brand.models $modelSlug) nil }}
+
+  {{ $problem := nil }}
+  {{ if and $model $problemKey (isset $model "problemas") (isset $model.problemas $problemKey) }}
+    {{ $problem = index $model.problemas $problemKey }}
+  {{ end }}
+
+  {{ $modelName := "" }}
+  {{ if and $model (isset $model "title") }}{{ $modelName = $model.title }}{{ end }}
+  {{ if and (not $modelName) .Parent }}{{ $modelName = .Parent.Title }}{{ end }}
+  {{ if not $modelName }}{{ $modelName = "este modelo" }}{{ end }}
+
+  {{/* =========================
+      2) noindex si no hay data
+     ========================= */}}
+  {{ if or (not $brand) (not $model) (not $problemKey) (not $problem) }}
+    {{ .Scratch.Set "noindex" true }}
+  {{ end }}
+
+  {{/* =========================
+      3) Breadcrumbs
+     ========================= */}}
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="{{ "/" | relURL }}">Inicio</a></li>
+      <li><a href="{{ "/modelos/" | relURL }}">Modelos</a></li>
+
+      {{ if $modelSlug }}
+        <li><a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $modelName }}</a></li>
+        <li><a href="{{ (printf "/modelos/%s/problemas/" $modelSlug) | relURL }}">Problemas</a></li>
+      {{ else if .Parent }}
+        <li><a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a></li>
+      {{ end }}
+
+      <li aria-current="page">{{ .Title }}</li>
+    </ol>
+  </nav>
+
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+
+    {{ if $problem }}
+      {{ with $problem.intro }}
+        <p class="lead">{{ . }}</p>
+      {{ else }}
+        <p class="lead">
+          Diagnóstico y pasos rápidos para resolver este problema en <strong>{{ $modelName }}</strong>.
+        </p>
+      {{ end }}
+    {{ else }}
+      <p class="lead">
+        No hay información suficiente para este problema (modelo o clave no encontrados).
+      </p>
+    {{ end }}
+  </header>
+
+  {{ if $problem }}
+
+    {{/* =========================
+        4) Bloques de contenido (si existen)
+       ========================= */}}
+
+    {{ with $problem.sintomas }}
+      <section>
+        <h2>Síntomas típicos</h2>
+        <ul>
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </section>
+    {{ end }}
+
+    {{ with $problem.causas }}
+      <section>
+        <h2>Causas probables</h2>
+        <ul>
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </section>
+    {{ end }}
+
+    {{ with $problem.comprobar }}
+      <section>
+        <h2>Cómo comprobarlo</h2>
+        <ol>
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ol>
+      </section>
+    {{ end }}
+
+    {{ with $problem.solucion }}
+      <section>
+        <h2>Solución recomendada</h2>
+        {{ if (reflect.IsSlice .) }}
+          <ol>
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ol>
+        {{ else }}
+          <p>{{ . }}</p>
+        {{ end }}
+      </section>
+    {{ end }}
+
+    {{/* =========================
+        5) CTA hacia recambio/categoría relacionada
+       ========================= */}}
+    {{ $ctaCat := "" }}
+    {{ if and (isset $problem "cta") (isset $problem.cta "catKey") }}
+      {{ $ctaCat = $problem.cta.catKey }}
+    {{ end }}
+
+    {{ if and $ctaCat $modelSlug }}
+      <section class="cta">
+        <h2>Recambio recomendado</h2>
+        <p>
+          En muchos casos, este fallo se resuelve revisando o sustituyendo:
+          <a href="{{ (printf "/modelos/%s/%s/" $modelSlug $ctaCat) | relURL }}"><strong>{{ $ctaCat | humanize }}</strong></a>.
+        </p>
+        <p>
+          <a class="btn" href="{{ (printf "/modelos/%s/%s/" $modelSlug $ctaCat) | relURL }}">Ver opciones compatibles</a>
+        </p>
+      </section>
+    {{ end }}
+
+    {{/* =========================
+        6) Links internos: otros problemas + categorías del modelo
+       ========================= */}}
+    {{ $problemKeys := slice }}
+    {{ if and (isset $model "problemas") }}
+      {{ range $pk, $pv := $model.problemas }}
+        {{ $problemKeys = $problemKeys | append $pk }}
+      {{ end }}
+    {{ end }}
+
+    {{ if gt (len $problemKeys) 1 }}
+      <section class="internal-links">
+        <h2>Otros problemas de {{ $modelName }}</h2>
+        <ul class="link-list">
+          {{ range $pk := $problemKeys }}
+            {{ if ne $pk $problemKey }}
+              <li><a href="{{ (printf "/modelos/%s/problemas/%s/" $modelSlug $pk) | relURL }}">{{ $pk | humanize }}</a></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+
+    {{ $cats := slice }}
+    {{ if and (isset $model "recambios") }}
+      {{ range $k, $v := $model.recambios }}
+        {{ if gt (len $v) 0 }}
+          {{ $cats = $cats | append $k }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ if gt (len $cats) 0 }}
+      <section class="internal-links">
+        <h2>Recambios para {{ $modelName }}</h2>
+        <ul class="link-list">
+          {{ range $k := $cats }}
+            <li><a href="{{ (printf "/modelos/%s/%s/" $modelSlug $k) | relURL }}">{{ $k | humanize }}</a></li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+
+    <section class="internal-links">
+      <h2>Navegación</h2>
+      <ul class="link-list">
+        <li><a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Volver al modelo</a></li>
+        <li><a href="{{ (printf "/modelos/%s/problemas/" $modelSlug) | relURL }}">Ver todos los problemas</a></li>
+        <li><a href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a></li>
+        <li><a href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a></li>
+      </ul>
+    </section>
+
+  {{ else }}
+
+    {{/* =========================
+        7) Estado noindex (sin data)
+       ========================= */}}
+    <section class="notice">
+      <h2>Página en construcción</h2>
+      <p>
+        Esta URL existe para completar la estructura del sitio, pero aún no hay datos asociados
+        (modelo no encontrado o problema inexistente en el catálogo).
+      </p>
+      {{ if $modelSlug }}
+        <p><a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Volver al modelo</a></p>
+      {{ else }}
+        <p><a href="{{ "/modelos/" | relURL }}">Ver todos los modelos</a></p>
+      {{ end }}
+    </section>
+
+  {{ end }}
+
+{{ end }}

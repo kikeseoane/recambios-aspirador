@@ -26,18 +26,6 @@
   {{- /* Canonical */ -}}
   {{- partial "head/canonical.html" . -}}
 
-  {{- /* Robots */ -}}
-  {{- $noindex := .Scratch.Get "noindex" -}}
-  {{- if $noindex -}}
-    <meta name="robots" content="noindex,follow">
-  {{- else -}}
-    {{- with .Params.robots -}}
-      <meta name="robots" content="{{ . }}">
-    {{- else -}}
-      <meta name="robots" content="index,follow">
-    {{- end -}}
-  {{- end -}}
-
   {{- /* Open Graph */ -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
