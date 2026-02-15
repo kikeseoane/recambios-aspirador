@@ -295,16 +295,15 @@ def main() -> None:
 
             # modelo (leaf bundle)
             write_file(
-                    CONTENT / "modelos" / model_slug / "index.md",
-                    fm(
-                        title=title,
-                        slug=None,  # 👈 sin slug: la URL la manda el path /modelos/<model_slug>/
-                        kind=None,
-                        extra={"brandKey": brand_key, "modelSlug": model_slug},
-                    ),
-                    force=args.force,
-                    )
-
+                CONTENT / "modelos" / model_slug / "index.md",
+                fm(
+                    title=title,
+                    slug=None,  # 👈 sin slug: la URL la manda el path /modelos/<model_slug>/
+                    kind=None,
+                    extra={"brandKey": brand_key, "modelSlug": model_slug},
+                ),
+                force=args.force,
+            )
 
             # ---- hubs por categoría (solo si hay items) ----
             rec = (m.get("recambios") or {})
@@ -337,6 +336,24 @@ def main() -> None:
             # ---- problemas (solo si existen) ----
             problems = (m.get("problemas") or [])
             if isinstance(problems, list) and len(problems) > 0:
+
+                # HUB /modelos/<model_slug>/problemas/ (branch bundle)
+                write_file(
+                    CONTENT / "modelos" / model_slug / "problemas" / "_index.md",
+                    fm(
+                        title=f"Problemas frecuentes de {title}",
+                        slug=None,
+                        kind=None,
+                        extra={
+                            "brandKey": brand_key,
+                            "modelSlug": model_slug,
+                            "layout": "problemas",
+                        },
+                    ),
+                    force=args.force,
+                )
+
+                # Problemas individuales (leaf bundles)
                 for p in problems:
                     if not isinstance(p, dict):
                         continue
