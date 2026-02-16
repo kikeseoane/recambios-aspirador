@@ -10,7 +10,6 @@
   {{ $brand := cond (and $brands $brandKey) (index $brands $brandKey) nil }}
 
   {{ if not $brand }}
-    {{/* Página inválida -> noindex */}}
     {{ .Scratch.Set "noindex" true }}
     <h1>Problema no disponible</h1>
     <p class="muted">No encontramos la marca asociada.</p>
@@ -56,7 +55,6 @@
 
   {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
 
-  {{/* Breadcrumbs */}}
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
     <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
@@ -80,38 +78,77 @@
 
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
+      <h2 style="margin-top:0;">Diagnóstico rápido (en 2 minutos)</h2>
+      <ol class="list">
+        <li><strong>Reinicia y revisa conexiones</strong>: carga, anclajes, piezas bien encajadas.</li>
+        <li><strong>Limpia lo básico</strong>: filtros/depósito/obstrucciones visibles.</li>
+        <li><strong>Prueba una variable cada vez</strong>: si cambias varias cosas a la vez, no sabrás qué lo arregló.</li>
+      </ol>
 
       {{ $sym := index $p "symptoms" }}
       {{ if and $sym (reflect.IsSlice $sym) }}
+        <hr>
         <h2>Síntomas habituales</h2>
         <ul class="list">
           {{ range $sym }}<li>{{ . }}</li>{{ end }}
         </ul>
-        <hr>
       {{ end }}
 
       {{ $checks := index $p "checks" }}
       {{ if and $checks (reflect.IsSlice $checks) }}
+        <hr>
         <h2>Comprobaciones rápidas</h2>
         <ul class="list">
           {{ range $checks }}<li>{{ . }}</li>{{ end }}
         </ul>
         {{ with (index $p "fix_hint") }}<p class="muted small" style="margin-top:10px;">{{ . }}</p>{{ end }}
-        <hr>
       {{ end }}
 
       {{ $causas := index $p "causes" }}
       {{ if and $causas (reflect.IsSlice $causas) }}
+        <hr>
         <h2>Causas probables</h2>
         <ul class="list">
           {{ range $causas }}<li>{{ . }}</li>{{ end }}
         </ul>
-        <hr>
       {{ end }}
 
+      <hr>
       <h2>Qué hacer ahora</h2>
-      <p class="muted">Si tras estas comprobaciones el fallo persiste, normalmente el recambio compatible más probable depende de la causa (batería, cargador, filtros u obstrucción).</p>
+      <p class="muted">
+        Si tras estas comprobaciones el fallo persiste, normalmente el recambio compatible más probable depende de la causa
+        (batería, cargador, filtros u obstrucción).
+      </p>
 
+      {{/* FAQs visibles (para alinear con FAQ schema). Si no hay en YAML, damos 3 genéricas seguras */}}
+      <hr>
+      <h2>Preguntas frecuentes</h2>
+      {{ $faqs := index $p "faqs" }}
+      {{ if and $faqs (reflect.IsSlice $faqs) (gt (len $faqs) 0) }}
+        <div class="faq">
+          {{ range $fa := $faqs }}
+            <details class="card" style="margin-top:10px;">
+              <summary><strong>{{ index $fa "q" }}</strong></summary>
+              <div class="muted" style="margin-top:8px;">{{ index $fa "a" }}</div>
+            </details>
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="faq">
+          <details class="card" style="margin-top:10px;">
+            <summary><strong>¿Puede ser falta de mantenimiento?</strong></summary>
+            <div class="muted" style="margin-top:8px;">Muchas incidencias vienen de filtros sucios u obstrucciones. Limpia y prueba antes de comprar.</div>
+          </details>
+          <details class="card" style="margin-top:10px;">
+            <summary><strong>¿Cómo sé si el recambio es compatible?</strong></summary>
+            <div class="muted" style="margin-top:8px;">Comprueba modelo exacto, fotos, medidas y conectores. Si el anuncio menciona {{ $mtitle }}, mejor.</div>
+          </details>
+          <details class="card" style="margin-top:10px;">
+            <summary><strong>¿Qué hago si sigue fallando después de cambiar la pieza?</strong></summary>
+            <div class="muted" style="margin-top:8px;">Revisa montaje, contactos y que la pieza sea la correcta. Si el fallo persiste, puede ser otro componente.</div>
+          </details>
+        </div>
+      {{ end }}
     </div>
 
     <aside class="panel">
@@ -128,14 +165,42 @@
 
       {{ if $catKey }}
         <a class="btn-buy" href="{{ (printf "/modelos/%s/%s/" $modelSlug $catKey) | relURL }}">{{ $label }}</a>
-        <p class="muted small" style="margin-top:10px;">Verifica encaje, conector y voltaje antes de comprar.</p>
+        <p class="muted small" style="margin-top:10px;">Verifica encaje, conector y especificaciones antes de comprar.</p>
       {{ else }}
         <p class="muted">CTA en preparación.</p>
       {{ end }}
 
+      {{/* Recambios relacionados (si hay recambios para catKey) */}}
+      {{ $rec := index $model "recambios" }}
+      {{ if and $catKey $rec (reflect.IsMap $rec) }}
+        {{ $items := index $rec $catKey }}
+        {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+          <hr>
+          <h3 style="margin-top:0;">Opciones populares</h3>
+          <div class="products" style="margin-top:10px;">
+            {{ $shown := 0 }}
+            {{ range $it := $items }}
+              {{ if lt $shown 3 }}
+                <div class="product">
+                  <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
+                  <div class="body">
+                    <div class="title">{{ index $it "title" }}</div>
+                    <div class="cta" style="margin-top:10px;">
+                      {{ $sku := index $it "sku" }}
+                      {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
+                    </div>
+                  </div>
+                </div>
+                {{ $shown = add $shown 1 }}
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ end }}
+      {{ end }}
+
       <hr>
 
-      {{/* Crosslinks: sin wrap para no anidar panel dentro de panel */}}
+      {{/* Crosslinks: sin wrap */}}
       {{ partial "model_crosslinks.html" (dict
         "db" site.Data.aspiradores
         "brandKey" .Params.brandKey
@@ -147,5 +212,4 @@
       <p class="muted small">Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.</p>
     </aside>
   </div>
-
 {{ end }}
