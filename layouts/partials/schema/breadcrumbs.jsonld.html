@@ -1,38 +1,131 @@
-{{/* BreadcrumbList JSON-LD: usa el breadcrumb visual (misma lógica) */}}
-{{ $items := slice }}
+{{/* layouts/partials/schema/breadcrumbs.jsonld.html */}}
 
-{{/* Inicio */}}
-{{ $items = $items | append (dict "name" "Inicio" "url" ("/" | absURL)) }}
+{{- if .Scratch.Get "noindex" -}}
+  {{- /* No emitimos schema si la página es noindex */ -}}
+{{- else -}}
 
-{{ if eq .Section "marcas" }}
-  {{ $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) }}
-  {{ with .Params.brandKey }}
-    {{ $items = $items | append (dict "name" (printf "%s" .) "url" ((printf "/marcas/%s/" (.|urlize)) | absURL)) }}
-  {{ end }}
-{{ end }}
+  {{- $db := site.Data.aspiradores -}}
+  {{- $items := slice -}}
 
-{{ if eq .Section "modelos" }}
-  {{ $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) }}
+  {{/* Helpers */}}
+  {{- $brandKey := .Params.brandKey | default "" -}}
+  {{- $modelSlug := ((or .Params.modelSlug .Params.slug) | default "") | urlize -}}
+  {{- $catKey := (.Params.catKey | default "") | urlize -}}
+  {{- $problemKey := (.Params.problemKey | default "") | urlize -}}
 
-  {{ $bk := .Params.brandKey }}
-  {{ if $bk }}
-    {{ $items = $items | append (dict "name" (printf "%s" $bk) "url" ((printf "/marcas/%s/" ($bk|urlize)) | absURL)) }}
-  {{ end }}
+  {{- $brandName := "" -}}
+  {{- $modelName := "" -}}
+  {{- $catLabel := "" -}}
 
-  {{ $ms := (or .Params.modelSlug .Params.slug) | urlize }}
-  {{ if $ms }}
-    {{ $items = $items | append (dict "name" "Modelo" "url" ((printf "/modelos/%s/" $ms) | absURL)) }}
-  {{ end }}
+  {{/* brandName desde YAML */}}
+  {{- if and $db $brandKey -}}
+    {{- with (index $db.brands $brandKey) -}}
+      {{- $brandName = (.name | default $brandKey) -}}
+    {{- end -}}
+  {{- end -}}
 
-  {{ if .Params.catKey }}
-    {{ $items = $items | append (dict "name" (printf "%s" .Params.catKey) "url" (.Permalink)) }}
-  {{ end }}
+  {{/* modelName desde YAML (buscando por slug) */}}
+  {{- if and $db $brandKey $modelSlug -}}
+    {{- with (index $db.brands $brandKey) -}}
+      {{- $models := .models -}}
+      {{- if and $models (reflect.IsSlice $models) -}}
+        {{- range $m := $models -}}
+          {{- $ms := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | default "" | urlize -}}
+          {{- if eq $ms $modelSlug -}}
+            {{- $modelName = (index $m "model") | default $modelSlug -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 
-  {{ if .Params.problemKey }}
-    {{ $items = $items | append (dict "name" "Problemas" "url" ((printf "/modelos/%s/problemas/" $ms) | absURL)) }}
-    {{ $items = $items | append (dict "name" .Title "url" (.Permalink)) }}
-  {{ end }}
-{{ end }}
+  {{/* catLabel desde globals.categorias_recambios */}}
+  {{- if and $db $catKey -}}
+    {{- with $db.globals.categorias_recambios -}}
+      {{- if reflect.IsSlice . -}}
+        {{- range $c := . -}}
+          {{- $k := (index $c "key") | default "" | urlize -}}
+          {{- if eq $k $catKey -}}
+            {{- $catLabel = (index $c "label") | default $catKey -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{/* Inicio siempre */}}
+  {{- $items = $items | append (dict "name" "Inicio" "url" ("/" | absURL)) -}}
+
+  {{/* HOME */}}
+  {{- if .IsHome -}}
+    {{/* nada más */}}
+
+  {{/* GUIAS */}}
+  {{- else if eq .Section "guias" -}}
+    {{- $items = $items | append (dict "name" "Guías" "url" ("/guias/" | absURL)) -}}
+    {{- if .IsPage -}}
+      {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
+    {{- end -}}
+
+  {{/* MARCAS */}}
+  {{- else if eq .Section "marcas" -}}
+    {{- $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) -}}
+    {{- if $brandKey -}}
+      {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "/marcas/%s/" ($brandKey|urlize)) | absURL)) -}}
+    {{- end -}}
+
+  {{/* MODELOS */}}
+  {{- else if eq .Section "modelos" -}}
+
+    {{/* /modelos/ listado */}}
+    {{- if and .IsSection (not $modelSlug) -}}
+      {{- $items = $items | append (dict "name" "Modelos" "url" ("/modelos/" | absURL)) -}}
+
+    {{- else -}}
+      {{/* Modelo y derivados */}}
+      {{- $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) -}}
+
+      {{- if $brandKey -}}
+        {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "/marcas/%s/" ($brandKey|urlize)) | absURL)) -}}
+      {{- end -}}
+
+      {{- if $modelSlug -}}
+        {{- $modelTitle := "" -}}
+        {{- if $brandName -}}
+          {{- $modelTitle = partial "model_title.html" (dict "brandName" $brandName "modelName" ($modelName | default $modelSlug)) -}}
+        {{- else -}}
+          {{- $modelTitle = ($modelName | default $modelSlug) -}}
+        {{- end -}}
+        {{- $items = $items | append (dict "name" $modelTitle "url" ((printf "/modelos/%s/" $modelSlug) | absURL)) -}}
+      {{- end -}}
+
+      {{/* Hub de recambio por categoría */}}
+      {{- if and $catKey (not $problemKey) -}}
+        {{- $items = $items | append (dict "name" ($catLabel | default $catKey) "url" (.Permalink)) -}}
+      {{- end -}}
+
+      {{/* Hub problemas */}}
+      {{- if and (eq .Layout "problemas") $modelSlug -}}
+        {{- $items = $items | append (dict "name" "Problemas" "url" (.Permalink)) -}}
+      {{- end -}}
+
+      {{/* Problema individual */}}
+      {{- if $problemKey -}}
+        {{- $items = $items | append (dict "name" "Problemas" "url" ((printf "/modelos/%s/problemas/" $modelSlug) | absURL)) -}}
+        {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
+      {{- end -}}
+
+    {{- end -}}
+
+  {{/* FALLBACK genérico (otras secciones) */}}
+  {{- else -}}
+    {{- if .Section -}}
+      {{- $items = $items | append (dict "name" (.Section | title) "url" ((printf "/%s/" (.Section|urlize)) | absURL)) -}}
+    {{- end -}}
+    {{- if .IsPage -}}
+      {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
+    {{- end -}}
+  {{- end -}}
 
 <script type="application/ld+json">
 {
@@ -51,3 +144,5 @@
   ]
 }
 </script>
+
+{{- end -}}
