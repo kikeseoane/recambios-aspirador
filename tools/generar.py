@@ -343,7 +343,7 @@ def main() -> None:
             if isinstance(problems, list) and len(problems) > 0:
                 # HUB /modelos/<model>/problemas/ (branch bundle)
                 write_file(
-                    CONTENT / "modelos" / model_slug / "problemas" / "_index.md",
+                    CONTENT / "modelos" / model_slug / "problemas" / "index.md",
                     fm(
                         title=f"Problemas frecuentes de {title}",
                         slug=None,
