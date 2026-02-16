@@ -1,3 +1,4 @@
+{{/* layouts/modelos/recambio.html */}}
 {{ define "main" }}
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
@@ -31,7 +32,7 @@
     {{ return }}
   {{ end }}
 
-  {{/* ✅ Definir mtitle FUERA para usarlo en todo el template */}}
+  {{/* Definir mtittle fuera */}}
   {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
   {{ if not $mtitle }}{{ $mtitle = $modelSlug }}{{ end }}
 
@@ -85,6 +86,15 @@
     {{ return }}
   {{ end }}
 
+  {{/* Crosslinks: aquí sí conviene con wrap */}}
+  {{ partial "model_crosslinks.html" (dict
+    "db" site.Data.aspiradores
+    "brandKey" .Params.brandKey
+    "modelSlug" .Params.modelSlug
+    "currentCat" .Params.catKey
+    "wrap" true
+  ) }}
+
   {{ $items := (index $rec $catKey) }}
 
   {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
@@ -103,18 +113,8 @@
         </div>
       {{ end }}
     </div>
-
-    {{/* ✅ Crosslinks después del contenido transaccional */}}
-    {{ partial "model_crosslinks.html" (dict
-      "db" site.Data.aspiradores
-      "brandKey" .Params.brandKey
-      "modelSlug" $modelSlug
-      "currentCat" .Params.catKey
-      "wrap" true
-    ) }}
-
   {{ else }}
-    {{/* ✅ evitar thin content */}}
+    {{/* evitar thin content */}}
     {{ .Scratch.Set "noindex" true }}
     <div class="card" style="margin-top:14px;">
       <h3>En preparación</h3>
