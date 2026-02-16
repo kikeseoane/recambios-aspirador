@@ -9,7 +9,6 @@ try:
 except ImportError:
     raise SystemExit("Falta PyYAML. Instala con: pip install pyyaml")
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "aspiradores.yaml"
 CONTENT = ROOT / "content"
@@ -68,7 +67,7 @@ def fm(
         data["generated"] = True
 
     if kind:
-        data["type"] = kind
+        data["type"] = kind  # solo cuando realmente lo necesitas
 
     if extra:
         data.update(extra)
@@ -140,6 +139,7 @@ def safe_clean_section(section_dir: Path) -> None:
         if child.is_dir():
             idx_leaf = child / "index.md"
             idx_branch = child / "_index.md"
+
             if is_generated_file(idx_leaf) or is_generated_file(idx_branch):
                 for p in sorted(child.rglob("*"), reverse=True):
                     if p.is_file():
@@ -236,17 +236,32 @@ def main() -> None:
     # Guías genéricas (leaf pages) -> aquí SÍ usamos type="guia"
     write_file(
         CONTENT / "guias" / "seguridad.md",
-        fm(title="Seguridad", slug="seguridad", kind="guia", extra={"guideKey": "seguridad"}),
+        fm(
+            title="Seguridad",
+            slug="seguridad",
+            kind="guia",
+            extra={"guideKey": "seguridad"},
+        ),
         force=args.force,
     )
     write_file(
         CONTENT / "guias" / "mantenimiento.md",
-        fm(title="Mantenimiento", slug="mantenimiento", kind="guia", extra={"guideKey": "mantenimiento"}),
+        fm(
+            title="Mantenimiento",
+            slug="mantenimiento",
+            kind="guia",
+            extra={"guideKey": "mantenimiento"},
+        ),
         force=args.force,
     )
     write_file(
         CONTENT / "guias" / "compra.md",
-        fm(title="Cómo elegir recambio", slug="compra", kind="guia", extra={"guideKey": "compra"}),
+        fm(
+            title="Cómo elegir recambio",
+            slug="compra",
+            kind="guia",
+            extra={"guideKey": "compra"},
+        ),
         force=args.force,
     )
 
@@ -259,7 +274,12 @@ def main() -> None:
         # Marca (branch bundle) -> _index.md
         write_file(
             CONTENT / "marcas" / brand_slug / "_index.md",
-            fm(title=brand_name, slug=None, kind=None, extra={"brandKey": brand_key}),
+            fm(
+                title=brand_name,
+                slug=None,
+                kind=None,
+                extra={"brandKey": brand_key},
+            ),
             force=args.force,
         )
 
@@ -275,7 +295,7 @@ def main() -> None:
             model_slug = (m.get("slug") or "").strip() or slugify(f"{brand_key}-{model_name}")
             title = f"{brand_name} {model_name}".strip()
 
-            # ✅ MODELO = leaf bundle -> index.md (NO _index.md)
+            # ✅ Modelo = LEAF bundle (index.md) para URL /modelos/<model>/
             write_file(
                 CONTENT / "modelos" / model_slug / "index.md",
                 fm(
@@ -291,7 +311,7 @@ def main() -> None:
             rec = (m.get("recambios") or {})
             if isinstance(rec, dict):
                 for cat_key, items in rec.items():
-                    if not isinstance(items, list) or len(items) == 0:
+                    if not items or not isinstance(items, list):
                         continue
 
                     cat_slug = slugify(cat_key)
@@ -317,7 +337,7 @@ def main() -> None:
             # Problemas (solo si existen)
             problems = (m.get("problemas") or [])
             if isinstance(problems, list) and len(problems) > 0:
-                # ✅ HUB problemas = section -> _index.md
+                # HUB /modelos/<model>/problemas/ (branch bundle) -> _index.md
                 write_file(
                     CONTENT / "modelos" / model_slug / "problemas" / "_index.md",
                     fm(
@@ -333,7 +353,7 @@ def main() -> None:
                     force=args.force,
                 )
 
-                # Problemas individuales = leaf bundles -> index.md
+                # Problemas individuales (leaf bundles) -> index.md
                 for p in problems:
                     if not isinstance(p, dict):
                         continue
