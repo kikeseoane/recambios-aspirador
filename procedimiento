@@ -10,13 +10,9 @@ python tools/sync_ofertas.py
 python tools\generar.py --force --clean-modelos
 
 
-Commit + push:
-
-git add -u
-git commit -m "Update sync_ofertas behavior"
-git push
-
 git status
-git add -A
-git commit -m "Update site templates/content"
+git diff
+git add layouts/partials/model_crosslinks.html layouts/modelos/recambio.html layouts/modelos/problema.html
+git diff --staged
+git commit -m "Add model cross-linking blocks (recambio/problema)"
 git push

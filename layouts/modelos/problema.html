@@ -59,8 +59,8 @@
     <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
     <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
     {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
-<a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $mtitle }}</a>
-<span class="sep">›</span>
+    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $mtitle }}</a>
+    <span class="sep">›</span>
     <span>Problemas</span><span class="sep">›</span>
     <span>{{ index $p "title" }}</span>
   </div>
@@ -134,8 +134,20 @@
 
       <hr>
 
+      <div class="kicker">Enlaces útiles</div>
+      <div style="margin-top:10px;">
+        {{ partial "model_crosslinks.html" (dict
+          "db" site.Data.aspiradores
+          "brandKey" .Params.brandKey
+          "modelSlug" $modelSlug
+          "currentProblem" .Params.problemKey
+          "wrap" false
+        ) }}
+      </div>
+
+      <hr>
       <div class="kicker">Transparencia</div>
-      <p class="muted small">Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.</p>
+      <p class="muted small" style="margin-top:8px;">Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.</p>
     </aside>
   </div>
 

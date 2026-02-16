@@ -31,7 +31,7 @@
     {{ return }}
   {{ end }}
 
-  {{/* ✅ Definir mtittle FUERA para usarlo en todo el template */}}
+  {{/* ✅ Definir mtitle FUERA para usarlo en todo el template */}}
   {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
   {{ if not $mtitle }}{{ $mtitle = $modelSlug }}{{ end }}
 
@@ -103,6 +103,16 @@
         </div>
       {{ end }}
     </div>
+
+    {{/* ✅ Crosslinks después del contenido transaccional */}}
+    {{ partial "model_crosslinks.html" (dict
+      "db" site.Data.aspiradores
+      "brandKey" .Params.brandKey
+      "modelSlug" $modelSlug
+      "currentCat" .Params.catKey
+      "wrap" true
+    ) }}
+
   {{ else }}
     {{/* ✅ evitar thin content */}}
     {{ .Scratch.Set "noindex" true }}

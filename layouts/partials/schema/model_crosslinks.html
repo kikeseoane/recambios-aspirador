@@ -1,0 +1,100 @@
+{{/* layouts/partials/model_crosslinks.html
+Input:
+  dict
+    "db" site.Data.aspiradores
+    "brandKey" .Params.brandKey
+    "modelSlug" .Params.modelSlug
+    "currentCat" (opcional) catKey actual (bateria/filtro/...)
+    "currentProblem" (opcional) problemKey actual
+    "wrap" (opcional) default true -> envuelve en <div class="panel">
+*/}}
+
+{{ $db := .db }}
+{{ $brandKey := .brandKey }}
+{{ $modelSlug := (.modelSlug | default "" | urlize) }}
+{{ $currentCat := (.currentCat | default "" | urlize) }}
+{{ $currentProblem := (.currentProblem | default "" | urlize) }}
+{{ $wrap := .wrap | default true }}
+
+{{ if not (and $db $brandKey $modelSlug) }}
+  {{ return }}
+{{ end }}
+
+{{ $brand := index $db.brands $brandKey }}
+{{ if not $brand }}{{ return }}{{ end }}
+
+{{/* localizar modelo en YAML */}}
+{{ $model := dict }}
+{{ range $m := ($brand.models | default (slice)) }}
+  {{ $mslug := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+  {{ if eq $mslug $modelSlug }}
+    {{ $model = $m }}
+  {{ end }}
+{{ end }}
+{{ if not (len $model) }}{{ return }}{{ end }}
+
+{{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
+
+{{/* cats disponibles */}}
+{{ $rec := index $model "recambios" }}
+{{ $cats := $db.globals.categorias_recambios }}
+
+{{/* problemas */}}
+{{ $probs := index $model "problemas" }}
+
+{{ if $wrap }}<div class="panel" style="margin-top:18px;">{{ end }}
+
+  <div class="kicker">Siguiente paso</div>
+  <h2 style="margin:8px 0 6px;">Más cosas útiles para {{ $mtitle }}</h2>
+  <p class="muted small">Enlaces rápidos para comparar recambios y resolver fallos típicos.</p>
+
+  {{/* Otras categorías */}}
+  {{ if and $cats (reflect.IsSlice $cats) $rec (reflect.IsMap $rec) }}
+    <div style="margin-top:12px;">
+      <div class="kicker">Recambios por categoría</div>
+      <div class="chips" style="margin-top:8px;">
+        {{ range $cat := $cats }}
+          {{ $ck := (index $cat "key") | urlize }}
+          {{ $label := index $cat "label" }}
+          {{ $items := index $rec $ck }}
+          {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+            {{ if ne $ck $currentCat }}
+              <a class="chip" href="{{ (printf "/modelos/%s/%s/" $modelSlug $ck) | relURL }}">{{ $label }}</a>
+            {{ else }}
+              <span class="chip active">{{ $label }}</span>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+
+  {{/* Problemas frecuentes */}}
+  {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+    <div style="margin-top:14px;">
+      <div class="kicker">Problemas frecuentes</div>
+      <div class="chips" style="margin-top:8px;">
+        {{ range $p := $probs }}
+          {{ $pk := (index $p "key" | urlize) }}
+          {{ $pt := (index $p "title") | default $pk }}
+          {{ if ne $pk $currentProblem }}
+            <a class="chip" href="{{ (printf "/modelos/%s/problemas/%s/" $modelSlug $pk) | relURL }}">{{ $pt }}</a>
+          {{ else }}
+            <span class="chip active">{{ $pt }}</span>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+
+  <hr>
+
+  <div class="kicker">Evita compras incompatibles</div>
+  <p class="muted small" style="margin-top:6px;">Checklist rápida antes de comprar recambio.</p>
+  <div class="chips" style="margin-top:10px;">
+    <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+    <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
+    <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+  </div>
+
+{{ if $wrap }}</div>{{ end }}
