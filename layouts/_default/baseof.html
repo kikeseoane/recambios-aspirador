@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  {{- partial "schema/breadcrumbs.jsonld.html" . -}}
-  {{- partial "schema/faq-problema.jsonld.html" . -}}
+
 
   <title>
     {{- if .IsHome -}}
@@ -38,7 +37,8 @@
     <meta name="robots" content="index, follow">
   {{- end -}}
 {{- end -}}
-
+  {{- partial "schema/breadcrumbs.jsonld.html" . -}}
+  {{- partial "schema/faq-problema.jsonld.html" . -}}
 
   {{- /* Open Graph */ -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
