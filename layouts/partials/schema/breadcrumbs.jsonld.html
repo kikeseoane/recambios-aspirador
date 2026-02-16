@@ -1,0 +1,53 @@
+{{/* BreadcrumbList JSON-LD: usa el breadcrumb visual (misma lógica) */}}
+{{ $items := slice }}
+
+{{/* Inicio */}}
+{{ $items = $items | append (dict "name" "Inicio" "url" ("/" | absURL)) }}
+
+{{ if eq .Section "marcas" }}
+  {{ $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) }}
+  {{ with .Params.brandKey }}
+    {{ $items = $items | append (dict "name" (printf "%s" .) "url" ((printf "/marcas/%s/" (.|urlize)) | absURL)) }}
+  {{ end }}
+{{ end }}
+
+{{ if eq .Section "modelos" }}
+  {{ $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) }}
+
+  {{ $bk := .Params.brandKey }}
+  {{ if $bk }}
+    {{ $items = $items | append (dict "name" (printf "%s" $bk) "url" ((printf "/marcas/%s/" ($bk|urlize)) | absURL)) }}
+  {{ end }}
+
+  {{ $ms := (or .Params.modelSlug .Params.slug) | urlize }}
+  {{ if $ms }}
+    {{ $items = $items | append (dict "name" "Modelo" "url" ((printf "/modelos/%s/" $ms) | absURL)) }}
+  {{ end }}
+
+  {{ if .Params.catKey }}
+    {{ $items = $items | append (dict "name" (printf "%s" .Params.catKey) "url" (.Permalink)) }}
+  {{ end }}
+
+  {{ if .Params.problemKey }}
+    {{ $items = $items | append (dict "name" "Problemas" "url" ((printf "/modelos/%s/problemas/" $ms) | absURL)) }}
+    {{ $items = $items | append (dict "name" .Title "url" (.Permalink)) }}
+  {{ end }}
+{{ end }}
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {{- range $i, $it := $items -}}
+      {{- if $i }},{{ end -}}
+      {
+        "@type":"ListItem",
+        "position":{{ add $i 1 }},
+        "name":{{ $it.name | jsonify }},
+        "item":{{ $it.url | jsonify }}
+      }
+    {{- end -}}
+  ]
+}
+</script>
