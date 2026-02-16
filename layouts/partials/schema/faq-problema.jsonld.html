@@ -1,16 +1,17 @@
+{{/* layouts/partials/schema/faq-problema.jsonld.html */}}
 {{ if eq (.Params.layout | default "") "problema" }}
   {{ $db := site.Data.aspiradores }}
   {{ $bk := .Params.brandKey }}
   {{ $ms := .Params.modelSlug | urlize }}
   {{ $pk := .Params.problemKey | urlize }}
 
-  {{ $brand := index $db.brands $bk }}
+  {{ $brand := cond (and $db $db.brands $bk) (index $db.brands $bk) nil }}
+
   {{ $model := dict }}
   {{ if $brand }}
-    {{ range $m := ($brand.models | default slice) }}
-      {{ if eq ((or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize) $ms }}
-        {{ $model = $m }}
-      {{ end }}
+    {{ range $m := ($brand.models | default (slice)) }}
+      {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+      {{ if eq $mid $ms }}{{ $model = $m }}{{ end }}
     {{ end }}
   {{ end }}
 
@@ -18,43 +19,64 @@
   {{ $probs := index $model "problemas" }}
   {{ if and $probs (reflect.IsSlice $probs) }}
     {{ range $p := $probs }}
-      {{ if eq ((index $p "key") | urlize) $pk }}
-        {{ $prob = $p }}
-      {{ end }}
+      {{ if eq ((index $p "key") | urlize) $pk }}{{ $prob = $p }}{{ end }}
     {{ end }}
   {{ end }}
 
   {{ if (len $prob) }}
-    {{ $sym := index $prob "symptoms" }}
-    {{ $causes := index $prob "causes" }}
-    {{ $checks := index $prob "checks" }}
-    {{ $fix := index $prob "fix_hint" }}
+    {{ $faqs := index $prob "faqs" }}
 
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
       "@type":"FAQPage",
       "mainEntity":[
-        {
-          "@type":"Question",
-          "name":{{ (printf "¿Cuáles son los síntomas típicos de “%s”?" .Title) | jsonify }},
-          "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($sym | default slice) "<br>") | jsonify }}}
-        },
-        {
-          "@type":"Question",
-          "name":"¿Causas más probables?",
-          "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($causes | default slice) "<br>") | jsonify }}}
-        },
-        {
-          "@type":"Question",
-          "name":"¿Cómo comprobarlo paso a paso?",
-          "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($checks | default slice) "<br>") | jsonify }}}
-        }{{ if $fix }},
-        {
-          "@type":"Question",
-          "name":"¿Qué hacer si se confirma?",
-          "acceptedAnswer":{"@type":"Answer","text":{{ $fix | jsonify }}}
-        }{{ end }}
+        {{/* 1) Preferir FAQs reales si existen */}}
+        {{ if and $faqs (reflect.IsSlice $faqs) (gt (len $faqs) 0) }}
+          {{ $n := 0 }}
+          {{ range $i, $f := $faqs }}
+            {{ if lt $n 8 }}
+              {{ $q := (index $f "q") | default "" }}
+              {{ $a := (index $f "a") | default "" }}
+              {{ if and $q $a }}
+                {{ if gt $n 0 }},{{ end }}
+                {
+                  "@type":"Question",
+                  "name":{{ $q | jsonify }},
+                  "acceptedAnswer":{"@type":"Answer","text":{{ $a | jsonify }}}
+                }
+                {{ $n = add $n 1 }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ else }}
+          {{/* 2) Fallback: tu esquema actual */}}
+          {{ $sym := index $prob "symptoms" }}
+          {{ $causes := index $prob "causes" }}
+          {{ $checks := index $prob "checks" }}
+          {{ $fix := index $prob "fix_hint" }}
+
+          {
+            "@type":"Question",
+            "name":{{ (printf "¿Cuáles son los síntomas típicos de “%s”?" .Title) | jsonify }},
+            "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($sym | default (slice)) "<br>") | jsonify }}}
+          },
+          {
+            "@type":"Question",
+            "name":"¿Causas más probables?",
+            "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($causes | default (slice)) "<br>") | jsonify }}}
+          },
+          {
+            "@type":"Question",
+            "name":"¿Cómo comprobarlo paso a paso?",
+            "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($checks | default (slice)) "<br>") | jsonify }}}
+          }{{ if $fix }},
+          {
+            "@type":"Question",
+            "name":"¿Qué hacer si se confirma?",
+            "acceptedAnswer":{"@type":"Answer","text":{{ $fix | jsonify }}}
+          }{{ end }}
+        {{ end }}
       ]
     }
     </script>
