@@ -27,11 +27,18 @@ def ensure_dir(p: Path) -> None:
 
 
 def write_file(path: Path, content: str, force: bool = False) -> None:
-    """Write content to path. If force=False, only write if missing."""
+    """
+    Escribe content en path.
+    - Si force=False: solo crea si no existe.
+    - Si force=True: sobreescribe.
+    """
     if path.exists() and not force:
         return
     ensure_dir(path.parent)
-    path.write_text(content, encoding="utf-8")
+    # newline estable al final
+    if not content.endswith("\n"):
+        content += "\n"
+    path.write_text(content, encoding="utf-8", newline="\n")
 
 
 def fm(
@@ -45,9 +52,10 @@ def fm(
     """
     Front matter YAML delimitado por ---.
 
-    - slug: si None, NO se escribe 'slug' (Hugo usará la ruta del contenido).
-    - kind: si None, NO se escribe 'type' (Hugo usará section por defecto).
-    - extra: dict adicional a volcar en YAML.
+    REGLAS IMPORTANTES:
+    - Para _index.md de secciones: NO uses slug ni type (evita duplicados).
+    - Para home: NO generes content/_index.md (home viene de layouts/index.html).
+    - Para leaf .md tipo guía: sí usamos type="guia" porque tienes layouts/guia/*.
     """
     data: dict = {
         "title": title,
@@ -60,8 +68,8 @@ def fm(
     if generated:
         data["generated"] = True
 
-    if kind:  # solo si lo queremos explícito
-        data["type"] = kind
+    if kind:
+        data["type"] = kind  # solo cuando realmente lo necesitas
 
     if extra:
         data.update(extra)
@@ -164,9 +172,6 @@ def clean_model_name(brand_name: str, model_name: str) -> str:
 
 
 def cat_title_es(cat_key: str) -> str:
-    """
-    Título humano para stubs; el template luego usará label del YAML.
-    """
     ck = (cat_key or "").strip().lower()
     m = {
         "bateria": "Batería",
@@ -213,29 +218,24 @@ def main() -> None:
         clean_modelos_dir()
         print("OK: limpieza modelos (bruta) ejecutada.")
 
-    # HOME + secciones
-    write_file(
-        CONTENT / "_index.md",
-        fm(title="Inicio", slug="", kind="home", extra=None),
-        force=args.force,
-    )
+    # Secciones (IMPORTANTE: sin slug ni type)
     write_file(
         CONTENT / "marcas" / "_index.md",
-        fm(title="Marcas", slug="marcas", kind="marcas"),
+        fm(title="Marcas", slug=None, kind=None, extra=None),
         force=args.force,
     )
     write_file(
         CONTENT / "modelos" / "_index.md",
-        fm(title="Modelos", slug="modelos", kind="modelos"),
+        fm(title="Modelos", slug=None, kind=None, extra=None),
         force=args.force,
     )
     write_file(
         CONTENT / "guias" / "_index.md",
-        fm(title="Guías", slug="guias", kind="guias"),
+        fm(title="Guías", slug=None, kind=None, extra=None),
         force=args.force,
     )
 
-    # Guías genéricas (leaf pages)
+    # Guías genéricas (leaf pages) -> aquí SÍ usamos type="guia"
     write_file(
         CONTENT / "guias" / "seguridad.md",
         fm(
@@ -268,55 +268,60 @@ def main() -> None:
     )
 
     # Marcas + modelos
-    for brand_key, brand in brands.items():
+    for brand_key, brand in (brands.items() if isinstance(brands, dict) else []):
         brand = brand or {}
         brand_name = brand.get("name") or brand_key
         brand_slug = slugify(brand_key)
 
-        # marca (branch bundle)
+        # Marca (branch bundle) -> sin slug (el folder ya es el slug)
         write_file(
             CONTENT / "marcas" / brand_slug / "_index.md",
             fm(
                 title=brand_name,
-                slug=brand_slug,
-                kind=None,  # NO type
+                slug=None,
+                kind=None,
                 extra={"brandKey": brand_key},
             ),
             force=args.force,
         )
 
-        # modelos
+        # Modelos
         for m in (brand.get("models", []) or []):
+            if not isinstance(m, dict):
+                continue
+
             model_name_raw = (m.get("model") or "").strip()
             model_name = clean_model_name(brand_name, model_name_raw)
 
+            # slug canónico del modelo
             model_slug = (m.get("slug") or "").strip() or slugify(f"{brand_key}-{model_name}")
             title = f"{brand_name} {model_name}".strip()
 
-            # modelo (leaf bundle)
+            # Modelo (leaf bundle) -> sin slug
             write_file(
                 CONTENT / "modelos" / model_slug / "index.md",
                 fm(
                     title=title,
-                    slug=None,  # 👈 sin slug: la URL la manda el path /modelos/<model_slug>/
+                    slug=None,
                     kind=None,
                     extra={"brandKey": brand_key, "modelSlug": model_slug},
                 ),
                 force=args.force,
             )
 
-            # ---- hubs por categoría (solo si hay items) ----
+            # Hubs por categoría (solo si hay items)
             rec = (m.get("recambios") or {})
             if isinstance(rec, dict):
                 for cat_key, items in rec.items():
                     if not items:
+                        continue
+                    if not isinstance(items, list) or len(items) == 0:
                         continue
 
                     cat_slug = slugify(cat_key)
                     hub_dir = CONTENT / "modelos" / model_slug / cat_slug
                     hub_title = f"{brand_name} {model_name} · {cat_title_es(cat_key)}"
 
-                    # IMPORTANTE: sin slug en hijos (evita slugs con "/")
                     write_file(
                         hub_dir / "index.md",
                         fm(
@@ -333,11 +338,10 @@ def main() -> None:
                         force=args.force,
                     )
 
-            # ---- problemas (solo si existen) ----
+            # Problemas (solo si existen)
             problems = (m.get("problemas") or [])
             if isinstance(problems, list) and len(problems) > 0:
-
-                # HUB /modelos/<model_slug>/problemas/ (branch bundle)
+                # HUB /modelos/<model>/problemas/ (branch bundle)
                 write_file(
                     CONTENT / "modelos" / model_slug / "problemas" / "_index.md",
                     fm(
@@ -363,8 +367,6 @@ def main() -> None:
                         continue
 
                     pdir = CONTENT / "modelos" / model_slug / "problemas" / pkey
-
-                    # IMPORTANTE: sin slug en hijos (evita slugs con "/")
                     write_file(
                         pdir / "index.md",
                         fm(

@@ -1,5 +1,5 @@
 $root = (Get-Location).Path
-$out  = Join-Path $root "~TODO_COMPLETE.txt"
+$out  = Join-Path $root "dump_state.txt"
 
 $sb = New-Object System.Text.StringBuilder
 
@@ -20,9 +20,10 @@ $excludeDirNames = @(
   "build"
 )
 
-# Archivos generados / binarios / ruido
-$excludeFilePatterns = @(
-  "~TODO_COMPLETE.txt",
+# Excluir por extensión / nombre (SOLO nombre, NO ruta)
+# Nota: patrones -like aplicados a $_.Name
+$excludeNamePatterns = @(
+  "dump_state.txt",
   ".hugo_build.lock",
   "*.map",
   "*.min.js",
@@ -46,6 +47,13 @@ $excludeFilePatterns = @(
   "*.tar",
   "*.exe",
   "*.dll"
+)
+
+# Excluir por ruta relativa (globs) — aquí SI se compara contra $rel
+# Útil si quieres cortar cosas concretas por path
+$excludeRelPathGlobs = @(
+  ".\public\*",
+  ".\resources\*"
 )
 
 # Excluir todo content/ y luego añadir muestra
@@ -130,9 +138,13 @@ Get-ChildItem -Path $root -Recurse -File -Force |
 
     $rel = RelPath $_.FullName
 
-    if (Matches-AnyPattern $_.Name $excludeFilePatterns) { return }
-    if (Matches-AnyPattern $rel $excludeFilePatterns) { return }
+    # Excluir por nombre (extensiones/binarios)
+    if (Matches-AnyPattern $_.Name $excludeNamePatterns) { return }
 
+    # Excluir por ruta relativa explícita (si aplica)
+    if ($excludeRelPathGlobs.Count -gt 0 -and (Matches-AnyPattern $rel $excludeRelPathGlobs)) { return }
+
+    # Excluir content/ completo (luego lo muestreamos)
     if ($excludeContent -and (Is-UnderContent $rel)) { return }
 
     [void]$files.Add($_)
@@ -213,4 +225,4 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 [System.IO.File]::WriteAllText($out, $sb.ToString(), $utf8NoBom)
 
 Write-Host "Archivo generado: $out" -ForegroundColor Green
-Write-Host "Filtrado aplicado: carpetas generadas + binarios + (content/ muestreado)" -ForegroundColor Yellow
+Write-Host "Filtrado aplicado: carpetas generadas + binarios (por nombre) + (content/ muestreado)" -ForegroundColor Yellow
