@@ -299,7 +299,7 @@ def main() -> None:
 
             # Modelo (leaf bundle) -> sin slug
             write_file(
-                CONTENT / "modelos" / model_slug / "index.md",
+                CONTENT / "modelos" / model_slug / "_index.md",
                 fm(
                     title=title,
                     slug=None,
