@@ -16,6 +16,10 @@ globals:
       label: "Cargadores y fuentes"
       icon: "plug"
       buy_intent: "compra"
+    - key: soporte
+      label: "Soportes y bases"
+      icon: "mount"
+      buy_intent: "compra"
     - key: accesorios
       label: "Accesorios"
       icon: "tools"
@@ -101,32 +105,56 @@ brands:
               title: "Batería compatible 21.6V para Dyson V8"
               note: "Pack de reemplazo con mismo voltaje nominal y anclaje V8."
               intent: "compra"
+              query: "Dyson V8 battery 21.6V replacement"
+              must_include: ["v8", "battery"]
+              must_not_include: ["v10", "v11", "v15", "trigger", "switch"]
             - sku: "dyson-v8-bateria-compat-alta-cap"
               title: "Batería compatible alta capacidad 21.6V para Dyson V8"
               note: "Más autonomía; verifica dimensiones y encaje."
               intent: "compra"
+              query: "Dyson V8 high capacity battery 21.6V replacement"
+              must_include: ["v8", "battery", "21.6"]
+              must_not_include: ["v10", "v11", "v15", "trigger", "switch"]
           filtro:
             - sku: "dyson-v8-filtro-hepa-postmotor"
               title: "Filtro post-motor tipo HEPA compatible para Dyson V8"
               intent: "compra"
+              query: "Dyson V8 HEPA post filter replacement"
+              must_include: ["v8", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
             - sku: "dyson-v8-filtro-premotor-pack2"
               title: "Filtro pre-motor compatible pack 2 para Dyson V8"
               intent: "compra"
+              query: "Dyson V8 pre filter replacement pack 2"
+              must_include: ["v8", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
           cepillo:
             - sku: "dyson-v8-cepillo-rodillo-direct-drive"
               title: "Rodillo compatible para cabezal Direct Drive Dyson V8"
               intent: "compra"
+              query: "Dyson V8 direct drive roller brush replacement"
+              must_include: ["v8", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
             - sku: "dyson-v8-cepillo-rodillo-soft-fluffy"
               title: "Rodillo compatible tipo Soft/Fluffy para Dyson V8"
               intent: "compra"
+              query: "Dyson V8 fluffy soft roller replacement"
+              must_include: ["v8", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
           cargador:
             - sku: "dyson-v8-cargador-compat-eu"
               title: "Cargador compatible EU para Dyson V8"
               intent: "compra"
+              query: "Dyson V8 charger EU replacement"
+              must_include: ["v8", "charger"]
+              must_not_include: ["battery", "filter", "trigger"]
           accesorios:
             - sku: "dyson-v8-accesorios-kit-boquillas"
               title: "Kit boquillas compatible (rincones + tapicería) para Dyson V8"
               intent: "compra"
+              query: "Dyson V8 accessory kit crevice upholstery"
+              must_include: ["v8"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
 
       - model: "Dyson V10"
         slug: "dyson-v10"
@@ -173,32 +201,56 @@ brands:
             - sku: "dyson-v10-bateria-compat-252v"
               title: "Batería compatible 25.2V para Dyson V10"
               intent: "compra"
+              query: "Dyson V10 battery 25.2V replacement"
+              must_include: ["v10", "battery", "25.2"]
+              must_not_include: ["v8", "v11", "v15", "trigger", "switch"]
             - sku: "dyson-v10-bateria-compat-alta-cap"
               title: "Batería compatible alta capacidad 25.2V para Dyson V10"
               note: "Recomendable para viviendas grandes; verifica ventilación y encaje."
               intent: "compra"
+              query: "Dyson V10 high capacity battery 25.2V replacement"
+              must_include: ["v10", "battery", "25.2"]
+              must_not_include: ["v8", "v11", "v15", "trigger", "switch"]
           filtro:
             - sku: "dyson-v10-filtro-hepa-postmotor"
               title: "Filtro post-motor tipo HEPA compatible para Dyson V10"
               intent: "compra"
+              query: "Dyson V10 HEPA post filter replacement"
+              must_include: ["v10", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
             - sku: "dyson-v10-filtro-premotor-pack2"
               title: "Filtro pre-motor compatible pack 2 para Dyson V10"
               intent: "compra"
+              query: "Dyson V10 pre filter replacement pack 2"
+              must_include: ["v10", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
           cepillo:
             - sku: "dyson-v10-cepillo-rodillo-multisuperficie"
               title: "Rodillo compatible multisuperficie para Dyson V10"
               intent: "compra"
+              query: "Dyson V10 roller brush multisurface replacement"
+              must_include: ["v10", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
             - sku: "dyson-v10-cepillo-rodillo-soft-fluffy"
               title: "Rodillo compatible tipo Soft/Fluffy para Dyson V10"
               intent: "compra"
+              query: "Dyson V10 fluffy soft roller replacement"
+              must_include: ["v10", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
           cargador:
             - sku: "dyson-v10-cargador-compat-eu"
               title: "Cargador compatible EU para Dyson V10"
               intent: "compra"
+              query: "Dyson V10 charger EU replacement"
+              must_include: ["v10", "charger"]
+              must_not_include: ["battery", "filter", "trigger"]
           accesorios:
             - sku: "dyson-v10-accesorios-kit-mascotas"
               title: "Kit accesorios compatible para pelo de mascotas (mini cepillo + boquilla) Dyson V10"
               intent: "compra"
+              query: "Dyson V10 pet accessory kit mini brush"
+              must_include: ["v10"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
 
       - model: "Dyson V11"
         slug: "dyson-v11"
@@ -303,31 +355,72 @@ brands:
             - sku: "dyson-v11-bateria-compat-252v"
               title: "Batería compatible 25.2V para Dyson V11"
               intent: "compra"
+              query: "Dyson V11 SV14 click-in battery 25.2V replacement"
+              must_include: ["v11", "battery"]
+              must_not_include: ["v8", "v10", "v15", "trigger", "switch"]
+              model_tokens: ["v11", "sv14"]
             - sku: "dyson-v11-bateria-compat-alta-cap"
               title: "Batería compatible alta capacidad 25.2V para Dyson V11"
               intent: "compra"
+              query: "Dyson V11 SV14 high capacity click-in battery 25.2V replacement"
+              must_include: ["v11", "battery"]
+              must_not_include: ["v8", "v10", "v15", "trigger", "switch"]
+              model_tokens: ["v11", "sv14"]
           filtro:
             - sku: "dyson-v11-filtro-hepa-postmotor"
               title: "Filtro post-motor tipo HEPA compatible para Dyson V11"
               intent: "compra"
+              query: "Dyson V11 SV14 HEPA post filter replacement"
+              must_include: ["v11", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
+              model_tokens: ["v11", "sv14"]
             - sku: "dyson-v11-filtro-premotor-pack2"
               title: "Filtro pre-motor compatible pack 2 para Dyson V11"
               intent: "compra"
+              query: "Dyson V11 SV14 pre filter replacement pack 2"
+              must_include: ["v11", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
+              model_tokens: ["v11", "sv14"]
           cepillo:
             - sku: "dyson-v11-cepillo-rodillo-high-torque"
               title: "Rodillo compatible para cabezal High Torque Dyson V11"
               intent: "compra"
+              query: "Dyson V11 high torque roller brush replacement"
+              must_include: ["v11", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
+              model_tokens: ["v11", "sv14"]
             - sku: "dyson-v11-cepillo-rodillo-soft-fluffy"
               title: "Rodillo compatible tipo Soft/Fluffy para Dyson V11"
               intent: "compra"
+              query: "Dyson V11 fluffy soft roller replacement"
+              must_include: ["v11", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
+              model_tokens: ["v11", "sv14"]
           cargador:
             - sku: "dyson-v11-cargador-compat-eu"
               title: "Cargador compatible EU para Dyson V11"
               intent: "compra"
-          accesorios:
+              query: "Dyson V11 SV14 charger EU replacement"
+              must_include: ["v11", "charger"]
+              must_not_include: ["battery", "filter", "trigger"]
+              model_tokens: ["v11", "sv14"]
+          soporte:
             - sku: "dyson-v11-accesorios-soporte-pared"
               title: "Soporte de pared compatible para Dyson V11"
               intent: "compra"
+              query: "Dyson V11 SV14 wall mount dock station holder"
+              must_include: ["wall", "mount", "dock"]
+              must_not_include: ["trigger", "switch", "button", "pcb", "board", "handle", "motor"]
+              model_tokens: ["v11", "sv14"]
+          accesorios:
+            # deja aquí el resto de accesorios genéricos, NO el soporte de pared
+            - sku: "dyson-v11-accesorios-kit-generico"
+              title: "Kit accesorios compatible Dyson V11 (boquillas y cepillos)"
+              intent: "compra"
+              query: "Dyson V11 accessory kit crevice brush"
+              must_include: ["v11"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
+              model_tokens: ["v11", "sv14"]
 
       - model: "Dyson V15 Detect"
         slug: "dyson-v15-detect"
@@ -374,28 +467,52 @@ brands:
             - sku: "dyson-v15-detect-bateria-compat-252v"
               title: "Batería compatible 25.2V para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 battery 25.2V replacement"
+              must_include: ["v15", "battery"]
+              must_not_include: ["v8", "v10", "v11", "trigger", "switch"]
             - sku: "dyson-v15-detect-bateria-compat-alta-cap"
               title: "Batería compatible alta capacidad 25.2V para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 high capacity battery 25.2V replacement"
+              must_include: ["v15", "battery"]
+              must_not_include: ["v8", "v10", "v11", "trigger", "switch"]
           filtro:
             - sku: "dyson-v15-detect-filtro-hepa-postmotor"
               title: "Filtro HEPA post-motor compatible para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 HEPA post filter replacement"
+              must_include: ["v15", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
             - sku: "dyson-v15-detect-filtro-premotor-pack2"
               title: "Filtro pre-motor compatible pack 2 para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 pre filter replacement pack 2"
+              must_include: ["v15", "filter"]
+              must_not_include: ["battery", "charger", "trigger"]
           cepillo:
             - sku: "dyson-v15-detect-cepillo-rodillo-fluffy-laser"
               title: "Rodillo compatible tipo Fluffy/Laser para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 fluffy laser roller replacement"
+              must_include: ["v15", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
             - sku: "dyson-v15-detect-cepillo-rodillo-multisuperficie"
               title: "Rodillo compatible multisuperficie para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 roller brush multisurface replacement"
+              must_include: ["v15", "roller"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
           cargador:
             - sku: "dyson-v15-detect-cargador-compat-eu"
               title: "Cargador compatible EU para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 charger EU replacement"
+              must_include: ["v15", "charger"]
+              must_not_include: ["battery", "filter", "trigger"]
           accesorios:
             - sku: "dyson-v15-detect-accesorios-kit-rincones"
               title: "Kit boquillas compatible (rincones + polvo) para Dyson V15 Detect"
               intent: "compra"
+              query: "Dyson V15 accessory kit crevice brush"
+              must_include: ["v15"]
+              must_not_include: ["battery", "filter", "charger", "trigger"]
