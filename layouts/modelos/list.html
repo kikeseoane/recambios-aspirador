@@ -1,8 +1,8 @@
 {{/* layouts/modelos/list.html
-     Opción B:
-     - /modelos/                      -> content/modelos/_index.md (sección raíz)
-     - /modelos/<model-slug>/         -> content/modelos/<model-slug>/_index.md (modelo como sección)
-     - /modelos/<model>/<cat>/        -> lo sigues llevando con layout "recambio" (idealmente también _index.md si vas full B)
+     OpciÃ³n B:
+     - /modelos/                      -> content/modelos/_index.md (secciÃ³n raÃ­z)
+     - /modelos/<model-slug>/         -> content/modelos/<model-slug>/_index.md (modelo como secciÃ³n)
+     - /modelos/<model>/<cat>/        -> lo sigues llevando con layout "recambio" (idealmente tambiÃ©n _index.md si vas full B)
      - /modelos/<model>/problemas/    -> _index.md
      - /modelos/<model>/problemas/<p>/ -> index.md
 */}}
@@ -14,7 +14,7 @@
   {{ $brandKey := .Params.brandKey }}
 
   {{/* =========================================================
-       CASO 1: RAÍZ /modelos/  (NO hay brandKey)
+       CASO 1: RAÃZ /modelos/  (NO hay brandKey)
      ========================================================= */}}
   {{ if not $brandKey }}
 
@@ -25,7 +25,7 @@
 
       <div class="chips">
         <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
-        <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+        <a class="chip" href="{{ "/guias/compra/" | relURL }}">CÃ³mo elegir recambio</a>
         <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
         <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
       </div>
@@ -43,8 +43,8 @@
           {{ $brandSlug := ($k | urlize) }}
           <div class="card">
             <div class="breadcrumbs" style="margin:0 0 10px 0;">
-              <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-              <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+              <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">â€º</span>
+              <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">â€º</span>
               <a href="{{ (printf "/marcas/%s/" $brandSlug) | relURL }}">{{ $b.name }}</a>
             </div>
 
@@ -67,7 +67,7 @@
                 <a class="chip active" href="{{ (printf "/marcas/%s/" $brandSlug) | relURL }}">Ver todos los modelos</a>
               </div>
             {{ else }}
-              <p class="muted">Aún no hay modelos cargados para esta marca.</p>
+              <p class="muted">AÃºn no hay modelos cargados para esta marca.</p>
               <div class="chips">
                 <a class="chip" href="{{ (printf "/marcas/%s/" $brandSlug) | relURL }}">Ir a la marca</a>
               </div>
@@ -81,13 +81,13 @@
   {{ else }}
 
   {{/* =========================================================
-       CASO 2: /modelos/<model-slug>/  (SÍ hay brandKey)
-       Modelo = sección (branch bundle) -> usa list.html
+       CASO 2: /modelos/<model-slug>/  (SÃ hay brandKey)
+       Modelo = secciÃ³n (branch bundle) -> usa list.html
      ========================================================= */}}
 
     {{ $modelSlug := (or .Params.modelSlug .Params.slug) | urlize }}
 
-    {{/* NO uses nil. Usamos dict vacío + with */}}
+    {{/* NO uses nil. Usamos dict vacÃ­o + with */}}
     {{ $brand := dict }}
     {{ if and $brands $brandKey }}
       {{ with (index $brands $brandKey) }}
@@ -124,12 +124,12 @@
         {{ .Scratch.Set "noindex" true }}
 
         <div class="breadcrumbs">
-          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-          <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">â€º</span>
+          <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">â€º</span>
           <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a>
         </div>
 
-        {{/* OJO: aquí $model está vacío, usa $modelSlug */}}
+        {{/* OJO: aquÃ­ $model estÃ¡ vacÃ­o, usa $modelSlug */}}
         {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $modelSlug) }}
         <h1>{{ $title }}</h1>
 
@@ -146,9 +146,9 @@
 
       {{ else }}
 
-        {{/* ===== THIN CONTENT CHECK (modelo vacío real) ===== */}}
+        {{/* ===== THIN CONTENT CHECK (modelo vacÃ­o real) ===== */}}
 
-        {{/* Recambios: en tu YAML es un MAP por categorías */}}
+        {{/* Recambios: en tu YAML es un MAP por categorÃ­as */}}
         {{ $hasRecambios := false }}
         {{ $rec := index $model "recambios" }}
         {{ if and $rec (reflect.IsMap $rec) }}
@@ -178,16 +178,16 @@
           {{ .Scratch.Set "noindex" true }}
         {{ end }}
 
-        {{/* ===== TÍTULO DEL MODELO (scope seguro) ===== */}}
+        {{/* ===== TÃTULO DEL MODELO (scope seguro) ===== */}}
         {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
         {{ if not $mtitle }}
           {{ $mtitle = .Title }}
         {{ end }}
 
         <div class="breadcrumbs">
-          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-          <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
-          <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
+          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">â€º</span>
+          <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">â€º</span>
+          <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">â€º</span>
           <span>{{ $mtitle }}</span>
         </div>
 
@@ -199,7 +199,7 @@
           <div class="chips">
             {{ with (index $model "series") }}<span class="chip active">Serie {{ . }}</span>{{ end }}
             {{ with (index $model "year_range") }}<span class="chip">{{ . }}</span>{{ end }}
-            <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+            <a class="chip" href="{{ "/guias/compra/" | relURL }}">CÃ³mo elegir recambio</a>
             <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
             <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
           </div>
@@ -207,7 +207,7 @@
 
         <div class="two-col" style="margin-top:12px;">
           <div class="panel">
-            <h2 style="margin-top:0;">Compatibilidad rápida</h2>
+            <h2 style="margin-top:0;">Compatibilidad rÃ¡pida</h2>
 
             {{ $compat := index $model "compatibilidad" }}
             {{ if $compat }}
@@ -271,7 +271,7 @@
                 {{ end }}
               {{ end }}
             {{ else }}
-              <p class="muted">Aún no hay recambios cargados para este modelo.</p>
+              <p class="muted">AÃºn no hay recambios cargados para este modelo.</p>
             {{ end }}
 
             <hr>
@@ -280,7 +280,7 @@
             {{ $probs := index $model "problemas" }}
             {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
               <h2 style="margin-top:0;">Problemas frecuentes</h2>
-              <p class="muted small">Diagnósticos rápidos con checks y recambios recomendados.</p>
+              <p class="muted small">DiagnÃ³sticos rÃ¡pidos con checks y recambios recomendados.</p>
 
               <div class="grid cards">
                 {{ range $p := $probs }}
@@ -291,7 +291,7 @@
                     {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
                     {{ with (index $p "symptoms") }}
                       {{ if reflect.IsSlice . }}
-                        <p class="muted" style="margin-top:8px;">Síntomas: {{ index . 0 }}</p>
+                        <p class="muted" style="margin-top:8px;">SÃ­ntomas: {{ index . 0 }}</p>
                       {{ end }}
                     {{ end }}
                   </a>
@@ -309,7 +309,7 @@
                 <div class="grid cols-2">
                   {{ range $f := $fallos }}
                     <div class="panel">
-                      <div class="badge warn">Síntoma</div>
+                      <div class="badge warn">SÃ­ntoma</div>
                       <h3 style="margin:10px 0 8px;">{{ index $f "symptom" }}</h3>
 
                       {{ $causas := index $f "causas" }}
@@ -326,7 +326,7 @@
 
                       {{ $checks := index $f "checks" }}
                       {{ if $checks }}
-                        <div class="kicker">Cómo comprobar</div>
+                        <div class="kicker">CÃ³mo comprobar</div>
                         {{ if reflect.IsSlice $checks }}
                           <ul>
                             {{ range $checks }}<li>{{ . }}</li>{{ end }}
@@ -346,20 +346,20 @@
                 <p class="muted">{{ $fallos }}</p>
               {{ end }}
             {{ else }}
-              <p class="muted">Iremos añadiendo los fallos más típicos y comprobaciones rápidas.</p>
+              <p class="muted">Iremos aÃ±adiendo los fallos mÃ¡s tÃ­picos y comprobaciones rÃ¡pidas.</p>
             {{ end }}
           </div>
 
           <aside class="panel">
             <h2 style="margin-top:0;">Antes de comprar</h2>
-            <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
+            <p class="muted small">Checklist rÃ¡pida para evitar incompatibilidades.</p>
 
             {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
 
             <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
               {{ if $compra }}
                 {{ if reflect.IsSlice $compra }}
-                  <div class="kicker">Cómo elegir recambio compatible</div>
+                  <div class="kicker">CÃ³mo elegir recambio compatible</div>
                   <ul class="small">
                     {{ range $compra }}<li>{{ . }}</li>{{ end }}
                   </ul>
@@ -376,23 +376,23 @@
                       <p class="muted small">{{ $bullets }}</p>
                     {{ end }}
                   {{ else }}
-                    <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+                    <p class="muted small">Revisa modelo exacto, encajes y polÃ­tica de devoluciÃ³n.</p>
                   {{ end }}
                 {{ else }}
-                  <div class="kicker">Cómo elegir recambio compatible</div>
-                  <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+                  <div class="kicker">CÃ³mo elegir recambio compatible</div>
+                  <p class="muted small">Revisa modelo exacto, encajes y polÃ­tica de devoluciÃ³n.</p>
                 {{ end }}
               {{ else }}
-                <div class="kicker">Cómo elegir recambio compatible</div>
-                <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+                <div class="kicker">CÃ³mo elegir recambio compatible</div>
+                <p class="muted small">Revisa modelo exacto, encajes y polÃ­tica de devoluciÃ³n.</p>
               {{ end }}
             </div>
 
             <div style="margin-top:12px;">
               <div class="kicker">Atajos</div>
               <div class="chips">
-                <a class="chip" href="{{ "/marcas/" | relURL }}">Más marcas</a>
-                <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">Más modelos {{ $brand.name }}</a>
+                <a class="chip" href="{{ "/marcas/" | relURL }}">MÃ¡s marcas</a>
+                <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">MÃ¡s modelos {{ $brand.name }}</a>
                 <a class="chip" href="{{ "/modelos/" | relURL }}">Todos los modelos</a>
               </div>
             </div>
@@ -400,7 +400,7 @@
             <hr>
 
             <div class="kicker">Transparencia</div>
-            <p class="muted small">Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.</p>
+            <p class="muted small">Algunos enlaces pueden ser de afiliaciÃ³n. Precio y disponibilidad dependen del vendedor.</p>
           </aside>
         </div>
 

@@ -9,7 +9,7 @@
     {{- if .IsHome -}}
       {{- .Site.Title -}}
     {{- else -}}
-      {{- .Title }} · {{ .Site.Title -}}
+      {{- .Title }} Â· {{ .Site.Title -}}
     {{- end -}}
   </title>
 
@@ -37,8 +37,12 @@
     <meta name="robots" content="index, follow">
   {{- end -}}
 {{- end -}}
-  {{- partial "schema/breadcrumbs.jsonld.html" . -}}
+{{- partial "schema/breadcrumbs.jsonld.html" . -}}
+
+{{- if .Params.problemKey -}}
   {{- partial "schema/faq-problema.jsonld.html" . -}}
+{{- end -}}
+
 
   {{- /* Open Graph */ -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
@@ -84,7 +88,7 @@
 </head>
 
 <body>
-  {{- /* ✅ Header por defecto (si una plantilla no sobreescribe el bloque) */ -}}
+  {{- /* âœ… Header por defecto (si una plantilla no sobreescribe el bloque) */ -}}
   {{- block "header" . -}}
     {{- partial "header.html" . -}}
   {{- end -}}
@@ -94,7 +98,7 @@
 </main>
 
 
-  {{- /* ✅ Footer por defecto */ -}}
+  {{- /* âœ… Footer por defecto */ -}}
   {{- block "footer" . -}}
     {{- partial "footer.html" . -}}
   {{- end -}}

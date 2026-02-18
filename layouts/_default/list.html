@@ -9,7 +9,7 @@
     {{ end }}
   </header>
 
-  {{/* Paginación estable */}}
+  {{/* PaginaciÃ³n estable */}}
   {{ $paginator := .Paginate (.Pages) }}
 
   <section class="container list">
@@ -34,24 +34,24 @@
     {{ end }}
   </section>
 
-  {{/* Navegación del paginador */}}
+  {{/* NavegaciÃ³n del paginador */}}
   {{ if gt $paginator.TotalPages 1 }}
-    <nav class="container pagination" aria-label="Paginación">
+    <nav class="container pagination" aria-label="PaginaciÃ³n">
       <ul>
         {{ if $paginator.HasPrev }}
-          <li><a rel="prev" href="{{ $paginator.Prev.URL }}">← Anterior</a></li>
+          <li><a rel="prev" href="{{ $paginator.Prev.URL }}">â† Anterior</a></li>
         {{ else }}
-          <li class="disabled"><span>← Anterior</span></li>
+          <li class="disabled"><span>â† Anterior</span></li>
         {{ end }}
 
         <li class="pages">
-          <span>Página {{ $paginator.PageNumber }} de {{ $paginator.TotalPages }}</span>
+          <span>PÃ¡gina {{ $paginator.PageNumber }} de {{ $paginator.TotalPages }}</span>
         </li>
 
         {{ if $paginator.HasNext }}
-          <li><a rel="next" href="{{ $paginator.Next.URL }}">Siguiente →</a></li>
+          <li><a rel="next" href="{{ $paginator.Next.URL }}">Siguiente â†’</a></li>
         {{ else }}
-          <li class="disabled"><span>Siguiente →</span></li>
+          <li class="disabled"><span>Siguiente â†’</span></li>
         {{ end }}
       </ul>
     </nav>

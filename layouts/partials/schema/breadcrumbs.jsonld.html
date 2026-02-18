@@ -1,7 +1,7 @@
 {{/* layouts/partials/schema/breadcrumbs.jsonld.html */}}
 
 {{- if .Scratch.Get "noindex" -}}
-  {{- /* No emitimos schema si la página es noindex */ -}}
+  {{- /* No emitimos schema si la pÃ¡gina es noindex */ -}}
 {{- else -}}
 
   {{- $db := site.Data.aspiradores -}}
@@ -58,11 +58,11 @@
 
   {{/* HOME */}}
   {{- if .IsHome -}}
-    {{/* nada más */}}
+    {{/* nada mÃ¡s */}}
 
   {{/* GUIAS */}}
   {{- else if eq .Section "guias" -}}
-    {{- $items = $items | append (dict "name" "Guías" "url" ("/guias/" | absURL)) -}}
+    {{- $items = $items | append (dict "name" "GuÃ­as" "url" ("/guias/" | absURL)) -}}
     {{- if .IsPage -}}
       {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
     {{- end -}}
@@ -99,7 +99,7 @@
         {{- $items = $items | append (dict "name" $modelTitle "url" ((printf "/modelos/%s/" $modelSlug) | absURL)) -}}
       {{- end -}}
 
-      {{/* Hub de recambio por categoría */}}
+      {{/* Hub de recambio por categorÃ­a */}}
       {{- if and $catKey (not $problemKey) -}}
         {{- $items = $items | append (dict "name" ($catLabel | default $catKey) "url" (.Permalink)) -}}
       {{- end -}}
@@ -117,7 +117,7 @@
 
     {{- end -}}
 
-  {{/* FALLBACK genérico (otras secciones) */}}
+  {{/* FALLBACK genÃ©rico */}}
   {{- else -}}
     {{- if .Section -}}
       {{- $items = $items | append (dict "name" (.Section | title) "url" ((printf "/%s/" (.Section|urlize)) | absURL)) -}}
