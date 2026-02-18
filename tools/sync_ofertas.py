@@ -1,6 +1,9 @@
+# tools/sync_ofertas.py
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 
 import os
+import re
 import time
 import json
 import hmac
@@ -235,7 +238,7 @@ def extract_products(resp: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 
 # =========================
-# Relevancy / scoring
+# Relevancy / scoring (hard guardrails)
 # =========================
 def nrm(s: str) -> str:
     return " ".join((s or "").lower().split())
@@ -248,11 +251,13 @@ BANNED_TITLE = [
 ]
 
 CATEGORY_PART_TERMS = {
-    "bateria": ["battery", "bateria", "pack", "rechargeable", "22.2v", "21.6v", "25.2v"],
-    "filtro": ["filter", "filtro", "hepa", "rear", "pre"],
+    "bateria": ["battery", "bateria", "pack", "rechargeable", "22.2v", "21.6v", "25.2v", "click-in", "click in"],
+    "filtro": ["filter", "filtro", "hepa", "rear", "pre", "post"],
     "cargador": ["charger", "cargador", "adapter", "adaptador", "power", "ac adapter"],
-    "cepillo": ["brush", "cepillo", "head", "roller", "rodillo", "torque"],
+    "cepillo": ["brush", "cepillo", "head", "roller", "rodillo", "torque", "drive"],
 }
+
+MODEL_TOKEN_RE = re.compile(r"\b(v\d{1,2}|sv\d{2}|dc\d{2,3})\b", re.IGNORECASE)
 
 
 def cat_part_terms(cat: str) -> List[str]:
@@ -266,6 +271,37 @@ def cat_part_terms(cat: str) -> List[str]:
     if "cepi" in c or "brush" in c:
         return CATEGORY_PART_TERMS["cepillo"]
     return ["replacement", "spare", "parts", "compatible"]
+
+
+def model_tokens_from_ctx(model: str) -> List[str]:
+    t = nrm(model)
+    tokens = [m.group(1).lower() for m in MODEL_TOKEN_RE.finditer(t)]
+    # heurística Dyson V11 -> SV14
+    if "v11" in tokens and "sv14" not in tokens:
+        tokens.append("sv14")
+    return list(dict.fromkeys(tokens))
+
+
+def title_has_required_model(title: str, required: List[str]) -> bool:
+    tt = nrm(title)
+    return any(tok in tt for tok in required)
+
+
+def count_distinct_models_in_title(title: str) -> int:
+    tt = nrm(title)
+    toks = set(m.group(1).lower() for m in MODEL_TOKEN_RE.finditer(tt))
+    return len(toks)
+
+
+def model_mismatch_penalty(title: str, required: List[str]) -> float:
+    tt = nrm(title)
+    toks = set(m.group(1).lower() for m in MODEL_TOKEN_RE.finditer(tt))
+    if not toks:
+        return 0.0
+    if required and not any(r in toks for r in required):
+        return 999.0
+    extra = [t for t in toks if t not in required]
+    return float(len(extra)) * 3.5
 
 
 def get_orders(p: Dict[str, Any]) -> int:
@@ -287,29 +323,48 @@ def get_commission_rate(p: Dict[str, Any]) -> float:
         return 0.0
 
 
-def score_product(title: str, p: Dict[str, Any], must_brand: str, model_hint: str, part_terms: List[str]) -> float:
-    t = nrm(title)
-    s = 0.0
-    if must_brand and must_brand in t:
-        s += 6.0
-    if model_hint and model_hint in t:
-        s += 7.0
-    for pt in part_terms:
-        if pt in t:
-            s += 2.5
-    if "compatible" in t or "replacement" in t or "spare" in t:
-        s += 1.2
-    s += get_orders(p) * 0.02
-    s += get_commission_rate(p) * 0.5
-    return s
-
-
 def looks_bad(title: str) -> bool:
     t = nrm(title)
     return any(b in t for b in BANNED_TITLE)
 
 
+def score_product(title: str, p: Dict[str, Any], must_brand: str, model_hint: str, part_terms: List[str]) -> float:
+    t = nrm(title)
+    s = 0.0
+
+    if must_brand and must_brand in t:
+        s += 6.0
+
+    req_models = model_tokens_from_ctx(model_hint)
+    if req_models:
+        if not title_has_required_model(t, req_models):
+            return -1e9
+        s -= model_mismatch_penalty(t, req_models)
+
+    matches = 0
+    for pt in part_terms:
+        if pt in t:
+            matches += 1
+            s += 2.6
+    if matches == 0:
+        return -1e9
+
+    if "compatible" in t or "replacement" in t or "spare" in t:
+        s += 1.2
+
+    n_models = count_distinct_models_in_title(t)
+    if n_models >= 4:
+        s -= 5.0
+
+    s += get_orders(p) * 0.015
+    s += get_commission_rate(p) * 0.4
+
+    return s
+
+
 def pick_best_promotion_link(keyword: str, must_brand: str, model_hint: str, part_terms: List[str]) -> Optional[str]:
+    req_models = model_tokens_from_ctx(model_hint)
+
     for lang in ("EN", "ES"):
         resp = product_query(keyword, lang=lang)
         prods = extract_products(resp)
@@ -321,9 +376,11 @@ def pick_best_promotion_link(keyword: str, must_brand: str, model_hint: str, par
             title = p.get("product_title") or ""
             if not title:
                 continue
-            if looks_bad(title):
-                continue
             tt = nrm(title)
+            if looks_bad(tt):
+                continue
+            if req_models and not title_has_required_model(tt, req_models):
+                continue
             if not any(pt in tt for pt in part_terms):
                 continue
             candidates.append(p)
@@ -341,10 +398,12 @@ def pick_best_promotion_link(keyword: str, must_brand: str, model_hint: str, par
             ),
             reverse=True,
         )
+
         best = candidates[0]
         url = best.get("promotion_link") or best.get("product_detail_url")
         if url:
             return str(url).strip()
+
     return None
 
 
@@ -401,7 +460,12 @@ def main() -> None:
             un_orphaned += 1
 
         url_now = obj.get("url")
-        needs_lookup = is_placeholder(url_now, PLACEHOLDER_URL) or (str(url_now).strip() == DEFAULT_URL)
+        # reintenta si needs_url==True o si está vacío/placeholder/default
+        needs_lookup = (
+            obj.get("needs_url") is True
+            or is_placeholder(url_now, PLACEHOLDER_URL)
+            or (str(url_now).strip() == DEFAULT_URL)
+        )
 
         if needs_lookup:
             ctx = sku_ctx.get(sku) or {}
@@ -449,6 +513,7 @@ def main() -> None:
             if before != obj:
                 updated += 1
 
+    # marcar huérfanos
     for sku, obj in list(offers.items()):
         if sku not in want:
             obj = ensure_offer_obj(obj)
@@ -459,7 +524,7 @@ def main() -> None:
 
     dump_yaml(OFFERS, {"offers": offers})
 
-    print("OK: sync_ofertas (AliExpress autolinks)")
+    print("OK: sync_ofertas (AliExpress autolinks + guardrails)")
     print(f"  SKUs en catálogo:       {len(want)}")
     print(f"  Offers total:           {len(offers)}")
     print(f"  Añadidos:               {added}")
