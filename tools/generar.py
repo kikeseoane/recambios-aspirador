@@ -39,6 +39,32 @@ def write_file(path: Path, content: str, force: bool = False) -> None:
     path.write_text(content, encoding="utf-8", newline="\n")
 
 
+def ensure_model_branch_bundle(model_dir: Path) -> Path:
+    """
+    Garantiza que el MODELO sea branch bundle:
+      content/modelos/<slug>/_index.md
+
+    Reglas:
+      - Si existe index.md y NO existe _index.md -> renombra index.md -> _index.md
+      - Si existen ambos -> ERROR (inconsistencia crítica)
+      - Devuelve la ruta al _index.md
+    """
+    ensure_dir(model_dir)
+
+    leaf = model_dir / "index.md"
+    branch = model_dir / "_index.md"
+
+    if leaf.exists() and branch.exists():
+        raise SystemExit(
+            f"ERROR: Inconsistencia crítica en {model_dir}: existen index.md y _index.md"
+        )
+
+    if leaf.exists() and not branch.exists():
+        leaf.rename(branch)
+
+    return branch
+
+
 def fm(
     *,
     title: str,
@@ -295,9 +321,12 @@ def main() -> None:
             model_slug = (m.get("slug") or "").strip() or slugify(f"{brand_key}-{model_name}")
             title = f"{brand_name} {model_name}".strip()
 
-            # ✅ Modelo = LEAF bundle (index.md) para URL /modelos/<model>/
+            # ✅ MODELO = BRANCH bundle (_index.md)
+            model_dir = CONTENT / "modelos" / model_slug
+            model_index = ensure_model_branch_bundle(model_dir)
+
             write_file(
-                CONTENT / "modelos" / model_slug / "index.md",
+                model_index,
                 fm(
                     title=title,
                     slug=None,
