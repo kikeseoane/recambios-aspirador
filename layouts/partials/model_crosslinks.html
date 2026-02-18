@@ -43,13 +43,13 @@ Input: dict
 
 {{ if $wrap }}<div class="panel" style="margin-top:18px;">{{ end }}
   <div class="kicker">Siguiente paso</div>
-  <h2 style="margin:8px 0 6px;">MÃ¡s cosas Ãºtiles para {{ $mtitle }}</h2>
-  <p class="muted small">Enlaces rÃ¡pidos para comparar recambios y resolver fallos tÃ­picos.</p>
+  <h2 style="margin:8px 0 6px;">Más cosas útiles para {{ $mtitle }}</h2>
+  <p class="muted small">Enlaces rápidos para comparar recambios y resolver fallos típicos.</p>
 
-  {{/* Otras categorÃ­as */}}
+  {{/* Otras categorías */}}
   {{ if and $cats (reflect.IsSlice $cats) $rec (reflect.IsMap $rec) }}
     <div style="margin-top:12px;">
-      <div class="kicker">Recambios por categorÃ­a</div>
+      <div class="kicker">Recambios por categoría</div>
       <div class="chips" style="margin-top:8px;">
         {{ range $cat := $cats }}
           {{ $ck := (index $cat "key") | urlize }}
@@ -88,9 +88,9 @@ Input: dict
   <hr>
 
   <div class="kicker">Evita compras incompatibles</div>
-  <p class="muted small" style="margin-top:6px;">Checklist rÃ¡pida antes de comprar recambio.</p>
+  <p class="muted small" style="margin-top:6px;">Checklist rápida antes de comprar recambio.</p>
   <div class="chips" style="margin-top:10px;">
-    <a class="chip" href="{{ "/guias/compra/" | relURL }}">CÃ³mo elegir recambio</a>
+    <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
     <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
     <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
   </div>

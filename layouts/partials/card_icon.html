@@ -8,7 +8,7 @@ Uso:
 
 {{ $kind := .kind | default "model" }}
 
-{{/* Tus SVG estÃ¡n en /static/img/icons/*.svg -> URL pÃºblica: /img/icons/*.svg */}}
+{{/* Tus SVG están en /static/img/icons/*.svg -> URL pública: /img/icons/*.svg */}}
 {{ $src := "/img/icons/model.svg" }}
 {{ if eq $kind "brand" }}{{ $src = "/img/icons/brand.svg" }}{{ end }}
 {{ if eq $kind "guide" }}{{ $src = "/img/icons/guide.svg" }}{{ end }}

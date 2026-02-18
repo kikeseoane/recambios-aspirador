@@ -1,4 +1,4 @@
-{{/* layouts/partials/marcas-grid.html
+﻿{{/* layouts/partials/marcas-grid.html
 - Si estamos en /marcas/ => pinta cards de marcas
 - Si estamos en /marcas/<brand>/ => pinta cards de modelos de esa marca
 */}}
@@ -19,7 +19,7 @@
     {{ .Scratch.Set "noindex" true }}
     <div class="card">
       <h3>Marca no disponible</h3>
-      <p class="muted">No encontramos esa marca en el catÃ¡logo actual.</p>
+      <p class="muted">No encontramos esa marca en el Catálogo actual.</p>
       <a class="chip" href="{{ "/marcas/" | relURL }}">Volver a marcas</a>
     </div>
     {{ return }}
@@ -48,7 +48,7 @@
     </div>
   {{ else }}
     <div class="card">
-      <h3>Modelos en preparaciÃ³n</h3>
+      <h3>Modelos en preparación</h3>
       <p class="muted">Estamos ampliando esta marca. Vuelve en breve.</p>
     </div>
   {{ end }}

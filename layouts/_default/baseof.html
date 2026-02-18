@@ -9,7 +9,7 @@
     {{- if .IsHome -}}
       {{- .Site.Title -}}
     {{- else -}}
-      {{- .Title }} Â· {{ .Site.Title -}}
+      {{- .Title }} �? {{ .Site.Title -}}
     {{- end -}}
   </title>
 
@@ -88,7 +88,7 @@
 </head>
 
 <body>
-  {{- /* âœ… Header por defecto (si una plantilla no sobreescribe el bloque) */ -}}
+  {{- /* ✅ Header por defecto (si una plantilla no sobreescribe el bloque) */ -}}
   {{- block "header" . -}}
     {{- partial "header.html" . -}}
   {{- end -}}
@@ -98,7 +98,7 @@
 </main>
 
 
-  {{- /* âœ… Footer por defecto */ -}}
+  {{- /* ✅ Footer por defecto */ -}}
   {{- block "footer" . -}}
     {{- partial "footer.html" . -}}
   {{- end -}}

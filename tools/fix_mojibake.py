@@ -1,63 +1,43 @@
-from __future__ import annotations
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-EXTS = {".md", ".html", ".toml", ".yaml", ".yml", ".json", ".txt"}
-
-def looks_mojibake(s: str) -> bool:
-    # patrones típicos en ES cuando UTF-8 se ve como Latin-1
-    return ("Ã" in s) or ("Â" in s)
+ROOT = Path(".")
+EXTS = {".html", ".md", ".yaml", ".yml", ".toml", ".json", ".xml", ".css", ".js"}
 
 def fix_text(s: str) -> str:
-    # Si el fichero contiene "BaterÃ­a", normalmente es:
-    # bytes(UTF-8) -> interpretados como Latin-1 => string mojibake
-    # Para arreglarlo: string.encode('latin-1') -> bytes originales -> decode('utf-8')
-    return s.encode("latin-1", errors="strict").decode("utf-8", errors="strict")
+    try:
+        b = s.encode("latin1")
+    except UnicodeEncodeError:
+        return s
+    try:
+        return b.decode("utf-8")
+    except UnicodeDecodeError:
+        return s
 
-def main() -> int:
-    changed = 0
-    scanned = 0
+def should_process(p: Path) -> bool:
+    if p.suffix.lower() not in EXTS:
+        return False
+    parts = {x.lower() for x in p.parts}
+    if "public" in parts or "resources" in parts or "node_modules" in parts:
+        return False
+    return True
 
-    for p in ROOT.rglob("*"):
-        if not p.is_file():
-            continue
-        if p.suffix.lower() not in EXTS:
-            continue
+changed = []
+for p in ROOT.rglob("*"):
+    if not p.is_file() or not should_process(p):
+        continue
+    try:
+        txt = p.read_text(encoding="utf-8", errors="strict")
+    except Exception:
+        continue
 
-        scanned += 1
+    if not any(x in txt for x in ("Ã", "â€", "â†", "Â")):
+        continue
 
-        # Primero intenta leer como UTF-8 (lo normal en Hugo/repos)
-        try:
-            txt = p.read_text(encoding="utf-8")
-        except UnicodeDecodeError:
-            # Si algún fichero está en cp1252, léelo así para inspección
-            try:
-                txt = p.read_text(encoding="cp1252")
-            except Exception:
-                continue
+    fixed = fix_text(txt)
+    if fixed != txt:
+        p.write_text(fixed, encoding="utf-8", newline="\n")
+        changed.append(str(p))
 
-        if not looks_mojibake(txt):
-            continue
-
-        try:
-            fixed = fix_text(txt)
-        except Exception:
-            # Si no encaja el patrón latin1->utf8, no tocamos el fichero
-            continue
-
-        if fixed != txt:
-            # Backup al lado (por seguridad)
-            bak = p.with_suffix(p.suffix + ".bak")
-            if not bak.exists():
-                bak.write_text(txt, encoding="utf-8")
-
-            p.write_text(fixed, encoding="utf-8", newline="\n")
-            changed += 1
-            print(f"[OK] {p.relative_to(ROOT)}")
-
-    print(f"\nScanned: {scanned} | Fixed: {changed}")
-    print("Backups: *.bak (puedes borrarlos cuando verifiques)")
-    return 0
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+print("Fixed files:", len(changed))
+for f in changed:
+    print(" -", f)

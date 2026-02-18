@@ -44,22 +44,22 @@
   "mainEntity":[
     {
       "@type":"Question",
-      "name":{{ (printf "Â¿CuÃ¡les son los sÃ­ntomas tÃ­picos de â€œ%sâ€?" .Title) | jsonify }},
+      "name":{{ (printf "¿Cuáles son los síntomas típicos de “%s”?" .Title) | jsonify }},
       "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($sym | default (slice)) "<br>") | jsonify }}}
     },
     {
       "@type":"Question",
-      "name":"Â¿Causas mÃ¡s probables?",
+      "name":"¿Causas más probables?",
       "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($causes | default (slice)) "<br>") | jsonify }}}
     },
     {
       "@type":"Question",
-      "name":"Â¿CÃ³mo comprobarlo paso a paso?",
+      "name":"¿Cómo comprobarlo paso a paso?",
       "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($checks | default (slice)) "<br>") | jsonify }}}
     }{{ if $fix }},
     {
       "@type":"Question",
-      "name":"Â¿QuÃ© hacer si se confirma?",
+      "name":"¿Qué hacer si se confirma?",
       "acceptedAnswer":{"@type":"Answer","text":{{ $fix | jsonify }}}
     }{{ end }}
   ]

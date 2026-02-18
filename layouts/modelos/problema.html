@@ -10,7 +10,7 @@
   {{ if or (not $brandKey) (not $modelSlug) (not $problemKey) }}
     {{ .Scratch.Set "noindex" true }}
     <h1>Problema no disponible</h1>
-    <p class="muted">Faltan parÃ¡metros para mostrar esta pÃ¡gina.</p>
+    <p class="muted">Faltan parámetros para mostrar esta página.</p>
     <div class="chips" style="margin-top:12px;">
       <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
       <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
@@ -43,8 +43,8 @@
 
   {{ if not (len $model) }}
     {{ .Scratch.Set "noindex" true }}
-    <h1>Problema en preparaciÃ³n</h1>
-    <p class="muted">No encontramos el modelo en el catÃ¡logo.</p>
+    <h1>Problema en preparación</h1>
+    <p class="muted">No encontramos el modelo en el catálogo.</p>
     <div class="chips" style="margin-top:12px;">
       <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
       <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
@@ -69,12 +69,12 @@
 
   {{ if not (len $p) }}
     {{ .Scratch.Set "noindex" true }}
-    <h1>Problema en preparaciÃ³n</h1>
-    <p class="muted">AÃºn no tenemos esta guÃ­a de diagnÃ³stico.</p>
+    <h1>Problema en preparación</h1>
+    <p class="muted">Aún no tenemos esta guía de diagnóstico.</p>
     <div class="chips" style="margin-top:12px;">
-      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">â† Volver al modelo</a>
+      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
       <a class="chip" href="{{ (printf "/modelos/%s/problemas/" $modelSlug) | relURL }}">Ver problemas del modelo</a>
-      <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">MÃ¡s modelos {{ $brand.name }}</a>
+      <a class="chip" href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">Más modelos {{ $brand.name }}</a>
     </div>
     {{ return }}
   {{ end }}
@@ -82,11 +82,11 @@
   {{ $ptitle := (index $p "title") | default .Title }}
 
   <div class="breadcrumbs">
-    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">â€º</span>
-    <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">â€º</span>
-    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">â€º</span>
-    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">â€º</span>
-    <a href="{{ (printf "/modelos/%s/problemas/" $modelSlug) | relURL }}">Problemas</a><span class="sep">â€º</span>
+    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
+    <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
+    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">›</span>
+    <a href="{{ (printf "/modelos/%s/problemas/" $modelSlug) | relURL }}">Problemas</a><span class="sep">›</span>
     <span>{{ $ptitle }}</span>
   </div>
 
@@ -96,7 +96,7 @@
     {{ with (index $p "intro") }}<p class="muted">{{ . }}</p>{{ end }}
 
     <div class="chips">
-      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">â† Volver al modelo</a>
+      <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
       <a class="chip" href="{{ (printf "/modelos/%s/problemas/" $modelSlug) | relURL }}">Ver todos los problemas</a>
       <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
       <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
@@ -105,9 +105,9 @@
 
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
-      <h2 style="margin-top:0;">DiagnÃ³stico rÃ¡pido</h2>
+      <h2 style="margin-top:0;">Diagnóstico rápido</h2>
       <ol class="list">
-        <li><strong>Revisa lo bÃ¡sico</strong>: encajes, depÃ³sito, filtros y obstrucciones visibles.</li>
+        <li><strong>Revisa lo básico</strong>: encajes, depósito, filtros y obstrucciones visibles.</li>
         <li><strong>Una variable cada vez</strong>: prueba cambios de uno en uno para aislar la causa.</li>
         <li><strong>Confirma compatibilidad</strong> antes de comprar: modelo/serie, conectores, medidas y fotos reales.</li>
       </ol>
@@ -115,7 +115,7 @@
       {{ $sym := index $p "symptoms" }}
       {{ if and $sym (reflect.IsSlice $sym) (gt (len $sym) 0) }}
         <hr>
-        <h2>SÃ­ntomas habituales</h2>
+        <h2>Síntomas habituales</h2>
         <ul class="list">
           {{ range $sym }}<li>{{ . }}</li>{{ end }}
         </ul>
@@ -124,7 +124,7 @@
       {{ $checks := index $p "checks" }}
       {{ if and $checks (reflect.IsSlice $checks) (gt (len $checks) 0) }}
         <hr>
-        <h2>Comprobaciones rÃ¡pidas</h2>
+        <h2>Comprobaciones rápidas</h2>
         <ul class="list">
           {{ range $checks }}<li>{{ . }}</li>{{ end }}
         </ul>
@@ -202,7 +202,7 @@
         {{ end }}
 
       {{ else }}
-        <p class="muted">Estamos preparando la recomendaciÃ³n de recambio para este problema.</p>
+        <p class="muted">Estamos preparando la recomendación de recambio para este problema.</p>
       {{ end }}
 
       <hr>
@@ -217,7 +217,7 @@
       ) }}
 
       <p class="muted small" style="margin-top:12px;">
-        Algunos enlaces pueden ser de afiliaciÃ³n. Precio y disponibilidad dependen del vendedor.
+        Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.
       </p>
     </aside>
   </div>

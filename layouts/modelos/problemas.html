@@ -4,15 +4,15 @@
   {{ $modelSlug := .Params.modelSlug | urlize }}
 
   <div class="breadcrumbs">
-    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">â€º</span>
-    <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">â€º</span>
-    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brandKey }}</a><span class="sep">â€º</span>
-    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Modelo</a><span class="sep">â€º</span>
+    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
+    <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brandKey }}</a><span class="sep">›</span>
+    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Modelo</a><span class="sep">›</span>
     <span>Problemas</span>
   </div>
 
   <h1>{{ .Title }}</h1>
-  <p class="muted">DiagnÃ³sticos rÃ¡pidos: sÃ­ntomas â†’ checks â†’ recambio recomendado.</p>
+  <p class="muted">Diagnósticos rápidos: síntomas → checks → recambio recomendado.</p>
 
   {{/* Para pintar cards, reutiliza el YAML del modelo */}}
   {{ $brand := index $db.brands $brandKey }}
@@ -35,15 +35,15 @@
           <h3>{{ $ptitle }}</h3>
           {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
           {{ with (index $p "symptoms") }}
-            {{ if reflect.IsSlice . }}<p class="muted" style="margin-top:8px;">SÃ­ntoma tÃ­pico: {{ index . 0 }}</p>{{ end }}
+            {{ if reflect.IsSlice . }}<p class="muted" style="margin-top:8px;">Síntoma típico: {{ index . 0 }}</p>{{ end }}
           {{ end }}
         </a>
       {{ end }}
     </div>
   {{ else }}
     <div class="card">
-      <h3>En preparaciÃ³n</h3>
-      <p class="muted">AÃºn no hay problemas publicados para este modelo.</p>
+      <h3>En preparación</h3>
+      <p class="muted">Aún no hay problemas publicados para este modelo.</p>
     </div>
   {{ end }}
 {{ end }}

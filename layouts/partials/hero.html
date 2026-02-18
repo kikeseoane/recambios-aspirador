@@ -2,7 +2,7 @@
 
 {{ $section := .Section }}
 {{ $title := .Title }}
-{{ $kicker := "CatÃ¡logo" }}
+{{ $kicker := "Catálogo" }}
 {{ $copy := site.Params.defaultDescription }}
 {{ $links := slice }}
 
@@ -15,35 +15,35 @@
     {{ end }}
     {{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
     {{ $links = slice
-      (dict "label" "â† Volver a marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
-      (dict "label" "Ver todos los modelos â†’" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+      (dict "label" "← Volver a marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
+      (dict "label" "Ver todos los modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
     }}
   {{ else }}
-    {{ $kicker = "CatÃ¡logo" }}
+    {{ $kicker = "Catálogo" }}
     {{ $title = "Marcas" }}
     {{ $copy = "Elige una marca para ver sus modelos y recambios compatibles." }}
     {{ $links = slice
       (dict "label" "Ver modelos" "href" ("/modelos/" | relURL) "class" "btn btn--ghost")
-      (dict "label" "Ver guÃ­as â†’" "href" ("/guias/" | relURL) "class" "btn btn--link")
+      (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
     }}
   {{ end }}
 
 {{ else if eq $section "guias" }}
-  {{ $kicker = "GuÃ­as" }}
-  {{ $title = "GuÃ­as rÃ¡pidas" }}
+  {{ $kicker = "Guías" }}
+  {{ $title = "Guías rápidas" }}
   {{ $copy = "Compra con menos riesgo: compatibilidad, seguridad y mantenimiento." }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver modelos â†’" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+    (dict "label" "Ver modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
   }}
 
 {{ else if eq $section "modelos" }}
   {{ $kicker = "Modelos" }}
   {{ $title = "Modelos" }}
-  {{ $copy = "CatÃ¡logo de modelos con recambios compatibles y soluciÃ³n de problemas." }}
+  {{ $copy = "Catálogo de modelos con recambios compatibles y solución de problemas." }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver guÃ­as â†’" "href" ("/guias/" | relURL) "class" "btn btn--link")
+    (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
   }}
 
 {{ else }}
@@ -51,7 +51,7 @@
   {{ $copy = site.Params.defaultDescription }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver modelos â†’" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+    (dict "label" "Ver modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
   }}
 {{ end }}
 

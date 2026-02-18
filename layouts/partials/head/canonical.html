@@ -1,11 +1,16 @@
 {{/* Canonical absoluto y limpio. Respeta .Params.canonical si existe */}}
 
+{{- if or (.Scratch.Get "noindex") (and (.Params.robots) (strings.Contains (lower .Params.robots) "noindex")) -}}
+  {{- /* No canonical en noindex */ -}}
+  {{- return -}}
+{{- end -}}
+
 {{- $u := "" -}}
 
 {{- with .Params.canonical -}}
   {{- $u = . -}}
 {{- else -}}
-  {{- $u = .RelPermalink | absURL -}}
+  {{- $u = .Permalink -}}
 {{- end -}}
 
 {{/* Limpia querystring y hash por seguridad */}}
