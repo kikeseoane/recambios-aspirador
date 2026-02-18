@@ -1,16 +1,21 @@
-{{/* layouts/modelos/list.html */}}
+{{/* layouts/modelos/list.html
+     Opción B:
+     - /modelos/                      -> content/modelos/_index.md (sección raíz)
+     - /modelos/<model-slug>/         -> content/modelos/<model-slug>/_index.md (modelo como sección)
+     - /modelos/<model>/<cat>/        -> lo sigues llevando con layout "recambio" (idealmente también _index.md si vas full B)
+     - /modelos/<model>/problemas/    -> _index.md
+     - /modelos/<model>/problemas/<p>/ -> index.md
+*/}}
 
 {{ define "main" }}
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
 
-  {{/* =========================================================
-       CASO 1: RAÍZ /modelos/  -> content/modelos/_index.md
-       No tiene .Params.brandKey, así que NO podemos indexar brand
-     ========================================================= */}}
-
   {{ $brandKey := .Params.brandKey }}
 
+  {{/* =========================================================
+       CASO 1: RAÍZ /modelos/  (NO hay brandKey)
+     ========================================================= */}}
   {{ if not $brandKey }}
 
     <div class="hero" style="margin-top:10px;">
@@ -33,7 +38,6 @@
       </div>
     {{ else }}
 
-      {{/* Listado por marcas con algunos modelos visibles */}}
       <div class="grid cards" style="margin-top:14px;">
         {{ range $k, $b := $brands }}
           {{ $brandSlug := ($k | urlize) }}
@@ -52,7 +56,6 @@
 
               <div class="chips" style="flex-wrap:wrap;">
                 {{ range $i, $m := $models }}
-                  {{/* muestra máximo 10 chips por marca para no petar el layout */}}
                   {{ if lt $i 10 }}
                     {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
                     {{ $mname := (index $m "model") | default $mid }}
@@ -78,19 +81,21 @@
   {{ else }}
 
   {{/* =========================================================
-       CASO 2: /modelos/<slug>/  -> content/modelos/<slug>/_index.md
-       Modelo = sección (branch bundle). Aquí SÍ hay brandKey.
+       CASO 2: /modelos/<model-slug>/  (SÍ hay brandKey)
+       Modelo = sección (branch bundle) -> usa list.html
      ========================================================= */}}
 
     {{ $modelSlug := (or .Params.modelSlug .Params.slug) | urlize }}
 
-    {{ $brand := nil }}
+    {{/* NO uses nil. Usamos dict vacío + with */}}
+    {{ $brand := dict }}
     {{ if and $brands $brandKey }}
-      {{ $brand = index $brands $brandKey }}
+      {{ with (index $brands $brandKey) }}
+        {{ $brand = . }}
+      {{ end }}
     {{ end }}
 
     {{ if not $brand }}
-      {{/* inválida -> noindex */}}
       {{ .Scratch.Set "noindex" true }}
 
       <h1>Modelo no disponible</h1>
@@ -124,6 +129,7 @@
           <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a>
         </div>
 
+        {{/* OJO: aquí $model está vacío, usa $modelSlug */}}
         {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $modelSlug) }}
         <h1>{{ $title }}</h1>
 
@@ -142,6 +148,7 @@
 
         {{/* ===== THIN CONTENT CHECK (modelo vacío real) ===== */}}
 
+        {{/* Recambios: en tu YAML es un MAP por categorías */}}
         {{ $hasRecambios := false }}
         {{ $rec := index $model "recambios" }}
         {{ if and $rec (reflect.IsMap $rec) }}
@@ -227,6 +234,7 @@
               {{ range $cat := $cats }}
                 {{ $catKey := index $cat "key" }}
                 {{ $catLabel := index $cat "label" }}
+                {{ $catIcon := index $cat "icon" }}
 
                 {{ $items := index $rec $catKey }}
                 {{ if $items }}
