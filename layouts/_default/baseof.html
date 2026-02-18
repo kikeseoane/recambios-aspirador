@@ -39,9 +39,11 @@
 {{- end -}}
 {{- partial "schema/breadcrumbs.jsonld.html" . -}}
 
-{{- if .Params.problemKey -}}
-  {{- partial "schema/faq-problema.jsonld.html" . -}}
-{{- end -}}
+{{/* FAQ schema solo en layout problema y si hay FAQ */}}
+{{ if eq .Layout "problema" }}
+  {{ partial "schema/faq-problema.jsonld.html" . }}
+{{ end }}
+
 
 
   {{- /* Open Graph */ -}}
