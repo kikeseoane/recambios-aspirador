@@ -65,17 +65,7 @@
     {{ return }}
   {{ end }}
 
-  {{/* ============================================================
-     Lookup robusto: el YAML puede tener keys "Batería", "batería", etc.
-     Comparamos por urlize para que siempre matchee con catKey.
-     ============================================================ */}}
-  {{ $items := slice }}
-  {{ range $k, $v := $rec }}
-    {{ if eq ($k | urlize) $catKey }}
-      {{ $items = $v }}
-    {{ end }}
-  {{ end }}
-
+  {{ $items := (index $rec $catKey) }}
   {{ if not (and $items (reflect.IsSlice $items) (gt (len $items) 0)) }}
     {{ .Scratch.Set "noindex" true }}
     <div class="card" style="margin-top:14px;">
@@ -109,14 +99,33 @@
     </div>
   </div>
 
-  {{/* Crosslinks (wrap) */}}
-  {{ partial "model_crosslinks.html" (dict
-    "db" site.Data.aspiradores
-    "brandKey" .Params.brandKey
-    "modelSlug" .Params.modelSlug
-    "currentCat" .Params.catKey
-    "wrap" true
-  ) }}
+  {{/* ✅ ABOVE THE FOLD: Opciones populares (2-3 tarjetas) */}}
+  <div class="panel" style="margin-top:14px;">
+    <h2 style="margin-top:0;">Opciones populares</h2>
+    <p class="muted small">Atajos directos a recambios con mejor encaje típico para {{ $mtitle }}.</p>
+
+    <div class="products" style="margin-top:10px;">
+      {{ $shown := 0 }}
+      {{ range $it := $items }}
+        {{ if lt $shown 3 }}
+          <div class="product">
+            <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
+            <div class="body">
+              <div class="title">{{ index $it "title" }}</div>
+              {{ with (index $it "note") }}
+                <div class="note muted" style="margin-top:10px;">{{ . }}</div>
+              {{ end }}
+              <div class="cta">
+                {{ $sku := index $it "sku" }}
+                {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
+              </div>
+            </div>
+          </div>
+          {{ $shown = add $shown 1 }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
 
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
@@ -160,14 +169,14 @@
       {{ if and $plist (reflect.IsSlice $plist) (gt (len $plist) 0) }}
         <h3 style="margin-top:14px;">Problemas frecuentes</h3>
         <div class="chips" style="margin-top:8px;">
-          {{ $shown := 0 }}
+          {{ $pshown := 0 }}
           {{ range $p := $plist }}
-            {{ if lt $shown 6 }}
+            {{ if lt $pshown 6 }}
               {{ $pk := (index $p "key") | default "" | urlize }}
               {{ $pt := (index $p "title") | default "Ver guía" }}
               {{ if $pk }}
                 <a class="chip" href="{{ (printf "/modelos/%s/problemas/%s/" $modelSlug $pk) | relURL }}">{{ $pt }}</a>
-                {{ $shown = add $shown 1 }}
+                {{ $pshown = add $pshown 1 }}
               {{ end }}
             {{ end }}
           {{ end }}
@@ -187,4 +196,14 @@
       </p>
     </aside>
   </div>
+
+  {{/* ✅ Crosslinks al FINAL (ya no ocultan los CTAs) */}}
+  {{ partial "model_crosslinks.html" (dict
+    "db" site.Data.aspiradores
+    "brandKey" .Params.brandKey
+    "modelSlug" .Params.modelSlug
+    "currentCat" .Params.catKey
+    "wrap" true
+  ) }}
+
 {{ end }}
