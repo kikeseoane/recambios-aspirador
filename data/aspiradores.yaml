@@ -25,494 +25,539 @@ globals:
       icon: "tools"
       buy_intent: "compra"
 
-  guias_genericas:
-    seguridad:
-      - "Desconecta el aspirador antes de manipular filtros, rodillos o batería."
-      - "No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco)."
-      - "Evita usar baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento y fallos de carga."
-      - "Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones y cableado."
-    mantenimiento:
-      - "Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de succión."
-      - "Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce el caudal."
-      - "Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras."
-      - "Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor correcto."
-    compra:
-      - "Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo de anclaje)."
-      - "En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso general."
-      - "En rodillos, elige según suelo: soft roller para duro; multisuperficie para mixto."
-      - "Si tu aspirador es robot, compra packs (filtros + cepillos laterales) para abaratar mantenimiento."
+  # “Anti-basura” reusable
+  negatives_common: &neg_common
+    - "trigger"
+    - "switch"
+    - "button"
+    - "pcb"
+    - "board"
+    - "motherboard"
+    - "circuit"
+    - "handle"
+    - "motor"
+    - "main body"
+    - "for parts"
+
+  negatives_battery: &neg_battery
+    - "filter"
+    - "charger"
+    - "dock"
+    - "wall mount"
+    - "trigger"
+    - "switch"
+    - "button"
+    - "pcb"
+    - "board"
+
+  negatives_filter: &neg_filter
+    - "battery"
+    - "charger"
+    - "trigger"
+    - "switch"
+    - "button"
+
+  negatives_charger: &neg_charger
+    - "battery"
+    - "filter"
+    - "trigger"
+    - "switch"
+    - "button"
+
+  negatives_brush: &neg_brush
+    - "battery"
+    - "filter"
+    - "charger"
+    - "trigger"
+    - "switch"
+    - "button"
+
+  neg_mount: &neg_mount
+    - "trigger"
+    - "switch"
+    - "button"
+    - "pcb"
+    - "board"
+    - "handle"
+    - "motor"
 
 brands:
   dyson:
     name: "Dyson"
     country_hint: "UK"
-    notes_brand: "Gama premium de aspiradores sin cable con alta disponibilidad de recambios compatibles (baterías, filtros y rodillos)."
+    notes_brand: "Gama premium; alto volumen de búsquedas y recambios compatibles (batería, filtros, rodillos)."
     models:
-      - model: "Dyson V8"
-        slug: "dyson-v8"
-        series: "V-Series"
-        year_range: "2016-2021"
-        intro: "Dyson V8 es una referencia en aspiradores sin cable por su equilibrio entre potencia, autonomía y facilidad de mantenimiento. Es especialmente popular en hogares medianos y con suelos mixtos. Los recambios compatibles más demandados suelen ser batería, filtros y rodillos."
-        seo:
-          title: "Dyson V8: recambios compatibles, fallos comunes y mantenimiento"
-          description: "Guía completa del Dyson V8: compatibilidad, síntomas típicos (succión, batería, cepillo) y recambios compatibles por categorías."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          voltaje_nominal: "21.6V"
-          notas: "Batería extraíble; filtros lavables según versión; cabezal directo o fluffy según pack."
-        compatibilidad:
-          - "Recambios específicos para Dyson V8 (no compatibles directos con V10/V11 por voltaje y anclaje)."
-          - "Filtros pre y post-motor con referencia V8; evita los de V6/V7 salvo equivalencia confirmada."
-          - "Rodillos varían por cabezal: Direct Drive vs. Soft Roller."
-          - "Cargador suele ser específico por conector Dyson V8."
-        fallos:
-          - symptom: "Pérdida de succión o se para a los pocos segundos"
-            severidad: "media"
-            causas:
-              - "Filtro saturado o húmedo"
-              - "Obstrucción en tubo/cabezal"
-              - "Juntas con fuga de aire"
-            checks:
-              - "Retira y limpia depósito y ciclón"
-              - "Comprueba paso de aire en tubo con una linterna"
-              - "Lava filtro lavable y seca 24h antes de usar"
-            fix_hint: "Empieza por filtro y obstrucciones; si persiste, revisa juntas y el encaje del depósito."
-          - symptom: "Autonomía muy baja o no carga"
-            severidad: "alta"
-            causas:
-              - "Batería degradada"
-              - "Cargador defectuoso"
-              - "Conectores sucios o flojos"
-            checks:
-              - "Prueba carga completa y mide si mantiene potencia en modo normal"
-              - "Revisa LED del cargador y el puerto"
-              - "Comprueba holgura del pack de batería"
-            fix_hint: "Sustituye batería compatible 21.6V; si no carga, prueba cargador antes de culpar a la electrónica."
-          - symptom: "El cepillo no gira"
-            severidad: "media"
-            causas:
-              - "Pelo/hilos bloqueando el rodillo"
-              - "Rodillo gastado o rodamientos dañados"
-              - "Cabezal con fallo de motor/engranaje"
-            checks:
-              - "Retira el rodillo y limpia extremos"
-              - "Verifica que el rodillo gira libre a mano"
-              - "Prueba el cabezal en modo suelo duro/alfombra si aplica"
-            fix_hint: "Limpia y, si hay holgura o ruido, cambia rodillo compatible del cabezal correcto."
-        recambios:
-          bateria:
-            - sku: "dyson-v8-bateria-compat-216v"
-              title: "Batería compatible 21.6V para Dyson V8"
-              note: "Pack de reemplazo con mismo voltaje nominal y anclaje V8."
-              intent: "compra"
-              query: "Dyson V8 battery 21.6V replacement"
-              must_include: ["v8", "battery"]
-              must_not_include: ["v10", "v11", "v15", "trigger", "switch"]
-            - sku: "dyson-v8-bateria-compat-alta-cap"
-              title: "Batería compatible alta capacidad 21.6V para Dyson V8"
-              note: "Más autonomía; verifica dimensiones y encaje."
-              intent: "compra"
-              query: "Dyson V8 high capacity battery 21.6V replacement"
-              must_include: ["v8", "battery", "21.6"]
-              must_not_include: ["v10", "v11", "v15", "trigger", "switch"]
-          filtro:
-            - sku: "dyson-v8-filtro-hepa-postmotor"
-              title: "Filtro post-motor tipo HEPA compatible para Dyson V8"
-              intent: "compra"
-              query: "Dyson V8 HEPA post filter replacement"
-              must_include: ["v8", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
-            - sku: "dyson-v8-filtro-premotor-pack2"
-              title: "Filtro pre-motor compatible pack 2 para Dyson V8"
-              intent: "compra"
-              query: "Dyson V8 pre filter replacement pack 2"
-              must_include: ["v8", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
-          cepillo:
-            - sku: "dyson-v8-cepillo-rodillo-direct-drive"
-              title: "Rodillo compatible para cabezal Direct Drive Dyson V8"
-              intent: "compra"
-              query: "Dyson V8 direct drive roller brush replacement"
-              must_include: ["v8", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
-            - sku: "dyson-v8-cepillo-rodillo-soft-fluffy"
-              title: "Rodillo compatible tipo Soft/Fluffy para Dyson V8"
-              intent: "compra"
-              query: "Dyson V8 fluffy soft roller replacement"
-              must_include: ["v8", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
-          cargador:
-            - sku: "dyson-v8-cargador-compat-eu"
-              title: "Cargador compatible EU para Dyson V8"
-              intent: "compra"
-              query: "Dyson V8 charger EU replacement"
-              must_include: ["v8", "charger"]
-              must_not_include: ["battery", "filter", "trigger"]
-          accesorios:
-            - sku: "dyson-v8-accesorios-kit-boquillas"
-              title: "Kit boquillas compatible (rincones + tapicería) para Dyson V8"
-              intent: "compra"
-              query: "Dyson V8 accessory kit crevice upholstery"
-              must_include: ["v8"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
-
-      - model: "Dyson V10"
-        slug: "dyson-v10"
-        series: "V-Series"
-        year_range: "2018-2022"
-        intro: "Dyson V10 mejora la capacidad del depósito y la potencia respecto a generaciones anteriores, manteniendo un formato manejable. Es un modelo muy extendido por su rendimiento en suelos mixtos y por la oferta de recambios compatibles. La batería y los filtros son las sustituciones más habituales."
-        seo:
-          title: "Dyson V10: recambios compatibles (batería, filtros, rodillos) y fallos típicos"
-          description: "Todo sobre Dyson V10: compatibilidad, síntomas comunes (batería, succión, cepillo) y catálogo de recambios compatibles."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          voltaje_nominal: "25.2V"
-          notas: "Voltaje distinto a V8; filtros y batería con anclaje V10; diferentes cabezales según pack."
-        compatibilidad:
-          - "Baterías V10 (25.2V) no son intercambiables con V8 (21.6V)."
-          - "Filtros V10 suelen ser específicos por forma/rosca."
-          - "Rodillos dependen del cabezal (multisuperficie o soft roller)."
-          - "Cargador compatible debe coincidir con conector y potencia."
-        fallos:
-          - symptom: "Se apaga al activar modo turbo"
-            severidad: "media"
-            causas:
-              - "Batería degradada (caída de voltaje bajo carga)"
-              - "Filtro muy sucio"
-              - "Obstrucción parcial"
-            checks:
-              - "Prueba en modo normal para comparar"
-              - "Limpia filtro y seca correctamente"
-              - "Revisa conductos y ciclón"
-            fix_hint: "Si solo falla en turbo tras limpiar, es típico de batería degradada."
-          - symptom: "Ruido agudo y baja succión"
-            severidad: "media"
-            causas:
-              - "Fuga de aire en juntas"
-              - "Depósito mal encajado"
-              - "Filtro mal asentado"
-            checks:
-              - "Recoloca depósito y filtro"
-              - "Inspecciona juntas por grietas"
-              - "Comprueba que no hay piezas flojas"
-            fix_hint: "Reasienta piezas; si hay desgaste, cambia juntas/accesorios del depósito o filtro."
-        recambios:
-          bateria:
-            - sku: "dyson-v10-bateria-compat-252v"
-              title: "Batería compatible 25.2V para Dyson V10"
-              intent: "compra"
-              query: "Dyson V10 battery 25.2V replacement"
-              must_include: ["v10", "battery", "25.2"]
-              must_not_include: ["v8", "v11", "v15", "trigger", "switch"]
-            - sku: "dyson-v10-bateria-compat-alta-cap"
-              title: "Batería compatible alta capacidad 25.2V para Dyson V10"
-              note: "Recomendable para viviendas grandes; verifica ventilación y encaje."
-              intent: "compra"
-              query: "Dyson V10 high capacity battery 25.2V replacement"
-              must_include: ["v10", "battery", "25.2"]
-              must_not_include: ["v8", "v11", "v15", "trigger", "switch"]
-          filtro:
-            - sku: "dyson-v10-filtro-hepa-postmotor"
-              title: "Filtro post-motor tipo HEPA compatible para Dyson V10"
-              intent: "compra"
-              query: "Dyson V10 HEPA post filter replacement"
-              must_include: ["v10", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
-            - sku: "dyson-v10-filtro-premotor-pack2"
-              title: "Filtro pre-motor compatible pack 2 para Dyson V10"
-              intent: "compra"
-              query: "Dyson V10 pre filter replacement pack 2"
-              must_include: ["v10", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
-          cepillo:
-            - sku: "dyson-v10-cepillo-rodillo-multisuperficie"
-              title: "Rodillo compatible multisuperficie para Dyson V10"
-              intent: "compra"
-              query: "Dyson V10 roller brush multisurface replacement"
-              must_include: ["v10", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
-            - sku: "dyson-v10-cepillo-rodillo-soft-fluffy"
-              title: "Rodillo compatible tipo Soft/Fluffy para Dyson V10"
-              intent: "compra"
-              query: "Dyson V10 fluffy soft roller replacement"
-              must_include: ["v10", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
-          cargador:
-            - sku: "dyson-v10-cargador-compat-eu"
-              title: "Cargador compatible EU para Dyson V10"
-              intent: "compra"
-              query: "Dyson V10 charger EU replacement"
-              must_include: ["v10", "charger"]
-              must_not_include: ["battery", "filter", "trigger"]
-          accesorios:
-            - sku: "dyson-v10-accesorios-kit-mascotas"
-              title: "Kit accesorios compatible para pelo de mascotas (mini cepillo + boquilla) Dyson V10"
-              intent: "compra"
-              query: "Dyson V10 pet accessory kit mini brush"
-              must_include: ["v10"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
-
       - model: "Dyson V11"
         slug: "dyson-v11"
         series: "V-Series"
         year_range: "2019-2023"
-        intro: "Dyson V11 destaca por su control inteligente de potencia y rendimiento estable en alfombras y suelos duros. Es muy común en hogares con mascotas por su capacidad de aspiración y accesorios. Los recambios más frecuentes son filtros, rodillos y batería compatible."
+        intro: "Dyson V11 es uno de los modelos más comunes en hogares con mascotas: potencia alta + mantenimiento frecuente (filtro/rodillo/batería)."
         seo:
           title: "Dyson V11: recambios compatibles y solución de fallos (succión, batería, cepillo)"
-          description: "Guía del Dyson V11: compatibilidad, mantenimiento y recambios (batería, filtros, rodillos, cargador y accesorios)."
+          description: "Recambios del Dyson V11 por categorías (batería, filtros, rodillos, cargador) + solución de fallos típicos."
         specs:
           tipo: "aspirador escoba sin cable"
           voltaje_nominal: "25.2V"
-          notas: "Batería extraíble; control de potencia automático según cabezal; filtros V11 específicos."
-        compatibilidad:
-          - "Batería 25.2V con formato V11; evita equivalencias genéricas sin anclaje correcto."
-          - "Filtros V11 suelen compartir familia, pero confirma forma/rosca."
-          - "Rodillos dependen del cabezal High Torque / Soft Roller."
-          - "Cargador debe ser compatible con el modelo y región."
+          notas: "Batería click-in; familia SV14 frecuente."
         problemas:
           - key: "no-carga"
             title: "Dyson V11 no carga"
             intent: "info"
-            symptoms:
-              - "No enciende o se apaga al instante"
-              - "No sube el nivel de carga"
-              - "La luz de carga parpadea"
-            causes:
-              - "Batería degradada"
-              - "Cargador defectuoso"
-              - "Conector sucio o con holgura"
-              - "Protección térmica por obstrucción"
-            checks:
-              - "Prueba a encender sin tubo/cabezal para aislar accesorios"
-              - "Comprueba LED del cargador y prueba otro enchufe"
-              - "Limpia contactos de carga (sin humedad) y revisa holgura"
-              - "Revisa obstrucciones en conductos y filtro muy saturado"
-            fix_hint: "Si falla incluso sin accesorios tras carga completa, suele ser batería; si no carga nada, prueba cargador."
-            cta:
-              catKey: "bateria"
-              label: "Ver baterías compatibles"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
           - key: "poca-succion"
             title: "Dyson V11 tiene poca succión"
             intent: "info"
-            symptoms:
-              - "Aspira pero con poca potencia"
-              - "Se oye distinto (más agudo) o corta a los segundos"
-            causes:
-              - "Filtro saturado o húmedo"
-              - "Obstrucción parcial en tubo/cabezal"
-              - "Fuga de aire por juntas o depósito mal encajado"
-            checks:
-              - "Lava filtro lavable y seca 24h"
-              - "Inspecciona tubo y codos con linterna"
-              - "Reasienta depósito y revisa juntas"
-            fix_hint: "La causa nº1 es filtro/obstrucción; si persiste, revisa juntas y encajes."
-            cta:
-              catKey: "filtro"
-              label: "Ver filtros compatibles"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
           - key: "cepillo-no-gira"
             title: "El cepillo del Dyson V11 no gira"
             intent: "info"
-            symptoms:
-              - "El rodillo se para o gira intermitente"
-              - "Huele a quemado o suena forzado"
-            causes:
-              - "Pelo/hilos bloqueando el rodillo"
-              - "Rodillo gastado / rodamientos dañados"
-              - "Cabezal con fallo de motor/engranaje"
-            checks:
-              - "Retira el rodillo y limpia extremos"
-              - "Comprueba giro libre a mano"
-              - "Prueba otro cabezal si tienes para descartar"
-            fix_hint: "Si tras limpieza sigue vibrando o no arranca, suele tocar cambiar rodillo del cabezal correcto."
-            cta:
-              catKey: "cepillo"
-              label: "Ver rodillos compatibles"
-        fallos:
-          - symptom: "Mensaje de filtro/obstrucción aunque esté limpio"
-            severidad: "baja"
-            causas:
-              - "Filtro húmedo"
-              - "Sensor interpreta restricción por microobstrucción"
-              - "Depósito o ciclón con residuo fino"
-            checks:
-              - "Seca filtro 24h"
-              - "Limpia ciclón y conductos con cepillo suave"
-              - "Revisa entrada del cabezal"
-            fix_hint: "Una microobstrucción en el codo o cabezal suele disparar avisos; limpia a fondo y seca bien."
-          - symptom: "Vibración o ruido en el cabezal"
-            severidad: "media"
-            causas:
-              - "Rodillo desbalanceado por pelo"
-              - "Rodamientos con desgaste"
-              - "Eje con holgura"
-            checks:
-              - "Limpia extremos del rodillo"
-              - "Comprueba giro libre"
-              - "Inspecciona daños visibles"
-            fix_hint: "Si persiste tras limpieza, cambia rodillo compatible del cabezal específico."
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
         recambios:
           bateria:
-            - sku: "dyson-v11-bateria-compat-252v"
-              title: "Batería compatible 25.2V para Dyson V11"
-              intent: "compra"
+            - sku: "dyson-v11-sv14-battery-252v-std"
+              title: "Batería click-in compatible 25.2V para Dyson V11 (SV14)"
               query: "Dyson V11 SV14 click-in battery 25.2V replacement"
-              must_include: ["v11", "battery"]
-              must_not_include: ["v8", "v10", "v15", "trigger", "switch"]
+              must_include: ["v11", "sv14", "battery"]
+              must_not_include: *neg_battery
               model_tokens: ["v11", "sv14"]
-            - sku: "dyson-v11-bateria-compat-alta-cap"
-              title: "Batería compatible alta capacidad 25.2V para Dyson V11"
-              intent: "compra"
+            - sku: "dyson-v11-sv14-battery-252v-highcap"
+              title: "Batería click-in compatible alta capacidad 25.2V para Dyson V11 (SV14)"
               query: "Dyson V11 SV14 high capacity click-in battery 25.2V replacement"
-              must_include: ["v11", "battery"]
-              must_not_include: ["v8", "v10", "v15", "trigger", "switch"]
+              must_include: ["v11", "sv14", "battery"]
+              must_not_include: *neg_battery
               model_tokens: ["v11", "sv14"]
           filtro:
-            - sku: "dyson-v11-filtro-hepa-postmotor"
-              title: "Filtro post-motor tipo HEPA compatible para Dyson V11"
-              intent: "compra"
+            - sku: "dyson-v11-sv14-filter-post-hepa"
+              title: "Filtro HEPA post-motor compatible Dyson V11 (SV14)"
               query: "Dyson V11 SV14 HEPA post filter replacement"
-              must_include: ["v11", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
+              must_include: ["v11", "sv14", "filter"]
+              must_not_include: *neg_filter
               model_tokens: ["v11", "sv14"]
-            - sku: "dyson-v11-filtro-premotor-pack2"
-              title: "Filtro pre-motor compatible pack 2 para Dyson V11"
-              intent: "compra"
+            - sku: "dyson-v11-sv14-filter-pre-pack2"
+              title: "Filtro pre-motor compatible pack 2 Dyson V11 (SV14)"
               query: "Dyson V11 SV14 pre filter replacement pack 2"
-              must_include: ["v11", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
+              must_include: ["v11", "sv14", "filter"]
+              must_not_include: *neg_filter
               model_tokens: ["v11", "sv14"]
           cepillo:
-            - sku: "dyson-v11-cepillo-rodillo-high-torque"
+            - sku: "dyson-v11-roller-high-torque"
               title: "Rodillo compatible para cabezal High Torque Dyson V11"
-              intent: "compra"
               query: "Dyson V11 high torque roller brush replacement"
               must_include: ["v11", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
+              must_not_include: *neg_brush
               model_tokens: ["v11", "sv14"]
-            - sku: "dyson-v11-cepillo-rodillo-soft-fluffy"
-              title: "Rodillo compatible tipo Soft/Fluffy para Dyson V11"
-              intent: "compra"
+            - sku: "dyson-v11-roller-fluffy-soft"
+              title: "Rodillo compatible tipo Fluffy/Soft para Dyson V11"
               query: "Dyson V11 fluffy soft roller replacement"
               must_include: ["v11", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
+              must_not_include: *neg_brush
               model_tokens: ["v11", "sv14"]
           cargador:
-            - sku: "dyson-v11-cargador-compat-eu"
+            - sku: "dyson-v11-charger-eu"
               title: "Cargador compatible EU para Dyson V11"
-              intent: "compra"
-              query: "Dyson V11 SV14 charger EU replacement"
+              query: "Dyson V11 charger EU replacement"
               must_include: ["v11", "charger"]
-              must_not_include: ["battery", "filter", "trigger"]
+              must_not_include: *neg_charger
               model_tokens: ["v11", "sv14"]
           soporte:
-            - sku: "dyson-v11-accesorios-soporte-pared"
-              title: "Soporte de pared compatible para Dyson V11"
-              intent: "compra"
-              query: "Dyson V11 SV14 wall mount dock station holder"
-              must_include: ["wall", "mount", "dock"]
-              must_not_include: ["trigger", "switch", "button", "pcb", "board", "handle", "motor"]
+            - sku: "dyson-v11-wall-mount-dock"
+              title: "Soporte/base de pared compatible para Dyson V11"
+              query: "Dyson V11 wall mount dock station holder"
+              must_include: ["v11", "dock"]
+              must_not_include: *neg_mount
               model_tokens: ["v11", "sv14"]
           accesorios:
-            # deja aquí el resto de accesorios genéricos, NO el soporte de pared
-            - sku: "dyson-v11-accesorios-kit-generico"
-              title: "Kit accesorios compatible Dyson V11 (boquillas y cepillos)"
-              intent: "compra"
-              query: "Dyson V11 accessory kit crevice brush"
-              must_include: ["v11"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
+            - sku: "dyson-v11-accessory-kit-crevice"
+              title: "Kit accesorios compatible Dyson V11 (boquilla rincones + cepillos)"
+              query: "Dyson V11 accessory kit crevice brush nozzle"
+              must_include: ["v11", "kit"]
+              must_not_include: *neg_common
               model_tokens: ["v11", "sv14"]
 
       - model: "Dyson V15 Detect"
         slug: "dyson-v15-detect"
         series: "V-Series"
         year_range: "2021-actual"
-        intro: "Dyson V15 Detect es un modelo de alta gama muy extendido por su potencia y medición inteligente de partículas. Funciona especialmente bien en hogares con alfombras y mascotas gracias a sus cabezales avanzados. Sus recambios compatibles más habituales son filtros, rodillos y baterías de reemplazo."
+        intro: "Dyson V15 Detect es top de gama: mucha intención de compra y gran mercado de recambio compatible."
         seo:
           title: "Dyson V15 Detect: recambios compatibles y fallos frecuentes"
-          description: "Compatibilidad y mantenimiento del Dyson V15 Detect: síntomas típicos, checks rápidos y recambios compatibles (batería, filtros, rodillos y cargador)."
+          description: "Recambios y fallos típicos del Dyson V15 Detect (batería, filtros HEPA, rodillos, cargador)."
         specs:
           tipo: "aspirador escoba sin cable"
           voltaje_nominal: "25.2V"
-          notas: "Cabezal Laser Slim/Fluffy según versión; sensor de polvo; batería extraíble."
-        compatibilidad:
-          - "Baterías 25.2V con anclaje específico V15; evita equivalencias de V10/V11 sin confirmación."
-          - "Filtros HEPA de alta eficiencia; confirma tipo exacto de carcasa."
-          - "Rodillos dependen del cabezal: Fluffy/Laser o multisuperficie."
-          - "Cargador compatible con el conector Dyson de la serie."
-        fallos:
-          - symptom: "Potencia irregular o lectura de polvo errática"
-            severidad: "baja"
-            causas:
-              - "Filtro muy sucio"
-              - "Conducto con polvo fino"
-              - "Depósito mal sellado"
-            checks:
-              - "Limpia filtro y ciclón"
-              - "Revisa juntas"
-              - "Comprueba que el depósito cierra sin holguras"
-            fix_hint: "Con polvo fino, una limpieza completa del ciclón mejora estabilidad y rendimiento."
-          - symptom: "No enciende o se apaga al poco tiempo"
-            severidad: "alta"
-            causas:
-              - "Batería degradada"
-              - "Conector flojo"
-              - "Protección térmica por obstrucción"
-            checks:
-              - "Prueba sin tubo/cabezal para aislar el problema"
-              - "Comprueba obstrucciones"
-              - "Revisa encaje de batería"
-            fix_hint: "Si se apaga incluso sin accesorios tras carga completa, la batería suele ser el origen."
+          notas: "Familia V15; mucha búsqueda de batería y filtro HEPA."
+        problemas:
+          - key: "no-carga"
+            title: "Dyson V15 no carga"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "poca-succion"
+            title: "Dyson V15 pierde potencia"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-ruido"
+            title: "Dyson V15 hace ruido en el cabezal"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
         recambios:
           bateria:
-            - sku: "dyson-v15-detect-bateria-compat-252v"
+            - sku: "dyson-v15-battery-252v-std"
               title: "Batería compatible 25.2V para Dyson V15 Detect"
-              intent: "compra"
-              query: "Dyson V15 battery 25.2V replacement"
+              query: "Dyson V15 Detect battery 25.2V replacement"
               must_include: ["v15", "battery"]
-              must_not_include: ["v8", "v10", "v11", "trigger", "switch"]
-            - sku: "dyson-v15-detect-bateria-compat-alta-cap"
+              must_not_include: *neg_battery
+              model_tokens: ["v15"]
+            - sku: "dyson-v15-battery-252v-highcap"
               title: "Batería compatible alta capacidad 25.2V para Dyson V15 Detect"
-              intent: "compra"
               query: "Dyson V15 high capacity battery 25.2V replacement"
               must_include: ["v15", "battery"]
-              must_not_include: ["v8", "v10", "v11", "trigger", "switch"]
+              must_not_include: *neg_battery
+              model_tokens: ["v15"]
           filtro:
-            - sku: "dyson-v15-detect-filtro-hepa-postmotor"
-              title: "Filtro HEPA post-motor compatible para Dyson V15 Detect"
-              intent: "compra"
+            - sku: "dyson-v15-filter-hepa-post"
+              title: "Filtro HEPA post-motor compatible Dyson V15"
               query: "Dyson V15 HEPA post filter replacement"
               must_include: ["v15", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
-            - sku: "dyson-v15-detect-filtro-premotor-pack2"
-              title: "Filtro pre-motor compatible pack 2 para Dyson V15 Detect"
-              intent: "compra"
+              must_not_include: *neg_filter
+              model_tokens: ["v15"]
+            - sku: "dyson-v15-filter-pre-pack2"
+              title: "Filtro pre-motor compatible pack 2 Dyson V15"
               query: "Dyson V15 pre filter replacement pack 2"
               must_include: ["v15", "filter"]
-              must_not_include: ["battery", "charger", "trigger"]
+              must_not_include: *neg_filter
+              model_tokens: ["v15"]
           cepillo:
-            - sku: "dyson-v15-detect-cepillo-rodillo-fluffy-laser"
-              title: "Rodillo compatible tipo Fluffy/Laser para Dyson V15 Detect"
-              intent: "compra"
+            - sku: "dyson-v15-roller-fluffy-laser"
+              title: "Rodillo compatible tipo Fluffy/Laser para Dyson V15"
               query: "Dyson V15 fluffy laser roller replacement"
               must_include: ["v15", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
-            - sku: "dyson-v15-detect-cepillo-rodillo-multisuperficie"
-              title: "Rodillo compatible multisuperficie para Dyson V15 Detect"
-              intent: "compra"
+              must_not_include: *neg_brush
+              model_tokens: ["v15"]
+            - sku: "dyson-v15-roller-multisurface"
+              title: "Rodillo compatible multisuperficie para Dyson V15"
               query: "Dyson V15 roller brush multisurface replacement"
               must_include: ["v15", "roller"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
+              must_not_include: *neg_brush
+              model_tokens: ["v15"]
           cargador:
-            - sku: "dyson-v15-detect-cargador-compat-eu"
-              title: "Cargador compatible EU para Dyson V15 Detect"
-              intent: "compra"
+            - sku: "dyson-v15-charger-eu"
+              title: "Cargador compatible EU para Dyson V15"
               query: "Dyson V15 charger EU replacement"
               must_include: ["v15", "charger"]
-              must_not_include: ["battery", "filter", "trigger"]
+              must_not_include: *neg_charger
+              model_tokens: ["v15"]
           accesorios:
-            - sku: "dyson-v15-detect-accesorios-kit-rincones"
-              title: "Kit boquillas compatible (rincones + polvo) para Dyson V15 Detect"
-              intent: "compra"
-              query: "Dyson V15 accessory kit crevice brush"
-              must_include: ["v15"]
-              must_not_include: ["battery", "filter", "charger", "trigger"]
+            - sku: "dyson-v15-accessory-kit"
+              title: "Kit accesorios compatible Dyson V15 (rincones + tapicería)"
+              query: "Dyson V15 accessory kit crevice upholstery nozzle"
+              must_include: ["v15", "kit"]
+              must_not_include: *neg_common
+              model_tokens: ["v15"]
+
+      - model: "Dyson V16"
+        slug: "dyson-v16"
+        series: "V-Series"
+        year_range: "2023-actual"
+        intro: "Dyson V16 es gama alta reciente; gran intención de compra y recambio compatible (HEPA, rodillos, batería)."
+        seo:
+          title: "Dyson V16: recambios compatibles (filtros, rodillos, batería) y fallos típicos"
+          description: "Recambios compatibles Dyson V16 + fallos habituales: potencia irregular, filtros, cabezal y batería."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          voltaje_nominal: "25.2V"
+          notas: "Modelo reciente; usa tokens V16."
+        problemas:
+          - key: "poca-succion"
+            title: "Dyson V16 tiene poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-no-gira"
+            title: "El cepillo del Dyson V16 no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+        recambios:
+          bateria:
+            - sku: "dyson-v16-battery-252v-std"
+              title: "Batería compatible 25.2V para Dyson V16"
+              query: "Dyson V16 battery 25.2V replacement"
+              must_include: ["v16", "battery"]
+              must_not_include: *neg_battery
+              model_tokens: ["v16"]
+          filtro:
+            - sku: "dyson-v16-filter-hepa-post"
+              title: "Filtro HEPA post-motor compatible Dyson V16"
+              query: "Dyson V16 HEPA post filter replacement"
+              must_include: ["v16", "filter"]
+              must_not_include: *neg_filter
+              model_tokens: ["v16"]
+          cepillo:
+            - sku: "dyson-v16-roller-multisurface"
+              title: "Rodillo compatible multisuperficie para Dyson V16"
+              query: "Dyson V16 roller brush replacement"
+              must_include: ["v16", "roller"]
+              must_not_include: *neg_brush
+              model_tokens: ["v16"]
+          cargador:
+            - sku: "dyson-v16-charger-eu"
+              title: "Cargador compatible EU para Dyson V16"
+              query: "Dyson V16 charger EU replacement"
+              must_include: ["v16", "charger"]
+              must_not_include: *neg_charger
+              model_tokens: ["v16"]
+
+  shark:
+    name: "Shark"
+    country_hint: "US/UK"
+    notes_brand: "Marca de altísima demanda en stick vacuums (pet-friendly). Modelos recientes suelen rankear muy alto."
+    models:
+      - model: "Shark PowerDetect Cordless Pet"
+        slug: "shark-powerdetect-cordless-pet"
+        series: "Cordless"
+        year_range: "2024-actual"
+        intro: "Shark PowerDetect es un superventas reciente en gamas sin cable; mucha intención de compra y accesorios."
+        seo:
+          title: "Shark PowerDetect: recambios, filtros y solución de problemas"
+          description: "Recambios compatibles Shark PowerDetect (filtros, cepillos/rodillos, cargador) + fallos típicos."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          notas: "Busca por 'PowerDetect' y 'Shark' para filtrar bien en AliExpress."
+        problemas:
+          - key: "poca-succion"
+            title: "Shark PowerDetect tiene poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-no-gira"
+            title: "El rodillo Shark no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+        recambios:
+          filtro:
+            - sku: "shark-powerdetect-filter-hepa"
+              title: "Filtro HEPA compatible para Shark PowerDetect"
+              query: "Shark PowerDetect HEPA filter replacement"
+              must_include: ["shark", "powerdetect", "filter"]
+              must_not_include: *neg_filter
+              model_tokens: ["powerdetect"]
+          cepillo:
+            - sku: "shark-powerdetect-roller-brush"
+              title: "Rodillo/cepillo compatible para Shark PowerDetect"
+              query: "Shark PowerDetect roller brush replacement"
+              must_include: ["shark", "powerdetect", "roller"]
+              must_not_include: *neg_brush
+              model_tokens: ["powerdetect"]
+          cargador:
+            - sku: "shark-powerdetect-charger"
+              title: "Cargador compatible para Shark PowerDetect"
+              query: "Shark PowerDetect charger replacement"
+              must_include: ["shark", "powerdetect", "charger"]
+              must_not_include: *neg_charger
+              model_tokens: ["powerdetect"]
+          accesorios:
+            - sku: "shark-powerdetect-accessory-kit"
+              title: "Kit accesorios compatible Shark (rincones + tapicería) para PowerDetect"
+              query: "Shark PowerDetect accessory kit crevice upholstery"
+              must_include: ["shark", "powerdetect", "kit"]
+              must_not_include: *neg_common
+              model_tokens: ["powerdetect"]
+
+  rowenta:
+    name: "Rowenta"
+    country_hint: "FR"
+    notes_brand: "Muy vendida en Europa/ES (X-Force Flex). Alto volumen de búsquedas por batería y filtros."
+    models:
+      - model: "Rowenta X-Force Flex 14.60"
+        slug: "rowenta-x-force-flex-1460"
+        series: "X-Force Flex"
+        year_range: "2021-actual"
+        intro: "Rowenta X-Force Flex 14.60 es un modelo muy común: la reposición típica es filtro, rodillo y batería."
+        seo:
+          title: "Rowenta X-Force Flex 14.60: recambios compatibles y fallos típicos"
+          description: "Recambios por categoría para Rowenta X-Force Flex 14.60: filtros, rodillos, cargador y batería."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          notas: "En AliExpress, usar token 'X-Force' + '14.60' en must_include."
+        problemas:
+          - key: "no-carga"
+            title: "Rowenta X-Force no carga"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "poca-succion"
+            title: "Rowenta X-Force pierde potencia"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+        recambios:
+          bateria:
+            - sku: "rowenta-xforce-1460-battery"
+              title: "Batería compatible para Rowenta X-Force Flex 14.60"
+              query: "Rowenta X-Force Flex 14.60 battery replacement"
+              must_include: ["rowenta", "x-force", "14.60", "battery"]
+              must_not_include: *neg_battery
+              model_tokens: ["14.60", "x-force"]
+          filtro:
+            - sku: "rowenta-xforce-1460-filter"
+              title: "Filtro compatible para Rowenta X-Force Flex 14.60"
+              query: "Rowenta X-Force Flex 14.60 filter replacement"
+              must_include: ["rowenta", "x-force", "14.60", "filter"]
+              must_not_include: *neg_filter
+              model_tokens: ["14.60", "x-force"]
+          cepillo:
+            - sku: "rowenta-xforce-1460-roller"
+              title: "Rodillo/cepillo compatible para Rowenta X-Force Flex 14.60"
+              query: "Rowenta X-Force Flex 14.60 roller brush replacement"
+              must_include: ["rowenta", "x-force", "14.60", "roller"]
+              must_not_include: *neg_brush
+              model_tokens: ["14.60", "x-force"]
+          accesorios:
+            - sku: "rowenta-xforce-1460-accessory-kit"
+              title: "Kit accesorios compatible Rowenta X-Force (rincones + tapicería)"
+              query: "Rowenta X-Force Flex accessory kit crevice upholstery"
+              must_include: ["rowenta", "x-force", "kit"]
+              must_not_include: *neg_common
+              model_tokens: ["x-force"]
+
+  cecotec:
+    name: "Cecotec"
+    country_hint: "ES"
+    notes_brand: "Marca con enorme presencia en España (Rockstar/Conga). Mucha búsqueda de filtros/rodillos/baterías."
+    models:
+      - model: "Cecotec Conga Rockstar 1500"
+        slug: "cecotec-rockstar-1500"
+        series: "Rockstar"
+        year_range: "2020-actual"
+        intro: "Conga Rockstar 1500 es una de las más comunes en ES. Recambios típicos: filtros, cepillo, batería."
+        seo:
+          title: "Cecotec Conga Rockstar 1500: recambios compatibles y fallos típicos"
+          description: "Recambios Conga Rockstar 1500: filtros, rodillos, batería y accesorios + problemas habituales."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          notas: "En AliExpress: 'Conga Rockstar 1500' suele aparecer literal."
+        problemas:
+          - key: "poca-succion"
+            title: "Conga Rockstar tiene poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-no-gira"
+            title: "Conga Rockstar: el cepillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+        recambios:
+          bateria:
+            - sku: "cecotec-rockstar-1500-battery"
+              title: "Batería compatible para Conga Rockstar 1500"
+              query: "Cecotec Conga Rockstar 1500 battery replacement"
+              must_include: ["conga", "rockstar", "1500", "battery"]
+              must_not_include: *neg_battery
+              model_tokens: ["rockstar", "1500"]
+          filtro:
+            - sku: "cecotec-rockstar-1500-filter-hepa"
+              title: "Filtro HEPA compatible para Conga Rockstar 1500"
+              query: "Cecotec Conga Rockstar 1500 HEPA filter replacement"
+              must_include: ["conga", "rockstar", "1500", "filter"]
+              must_not_include: *neg_filter
+              model_tokens: ["rockstar", "1500"]
+          cepillo:
+            - sku: "cecotec-rockstar-1500-roller"
+              title: "Rodillo/cepillo compatible para Conga Rockstar 1500"
+              query: "Cecotec Conga Rockstar 1500 roller brush replacement"
+              must_include: ["conga", "rockstar", "1500", "roller"]
+              must_not_include: *neg_brush
+              model_tokens: ["rockstar", "1500"]
+          accesorios:
+            - sku: "cecotec-rockstar-accessory-kit"
+              title: "Kit accesorios compatible Conga Rockstar (rincones + tapicería)"
+              query: "Cecotec Conga Rockstar accessory kit crevice upholstery"
+              must_include: ["conga", "rockstar", "kit"]
+              must_not_include: *neg_common
+              model_tokens: ["rockstar"]
+
+  bosch:
+    name: "Bosch"
+    country_hint: "DE"
+    notes_brand: "Bosch Unlimited es muy vendida en Europa; recambios típicos: filtros, batería, rodillos."
+    models:
+      - model: "Bosch Unlimited Series 7"
+        slug: "bosch-unlimited-series-7"
+        series: "Unlimited"
+        year_range: "2020-actual"
+        intro: "Bosch Unlimited Series 7: muy extendida. El mercado de recambio compatible se concentra en filtro/rodillo/batería."
+        seo:
+          title: "Bosch Unlimited Serie 7: recambios compatibles y fallos frecuentes"
+          description: "Recambios Bosch Unlimited Serie 7 por categorías + fallos típicos de pérdida de potencia y cepillo."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          notas: "En AliExpress, 'Bosch Unlimited' + 'Series 7' filtra bien."
+        problemas:
+          - key: "poca-succion"
+            title: "Bosch Unlimited pierde succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+        recambios:
+          bateria:
+            - sku: "bosch-unlimited-series7-battery"
+              title: "Batería compatible para Bosch Unlimited Serie 7"
+              query: "Bosch Unlimited Series 7 battery replacement"
+              must_include: ["bosch", "unlimited", "series", "battery"]
+              must_not_include: *neg_battery
+              model_tokens: ["unlimited", "series 7", "serie 7"]
+          filtro:
+            - sku: "bosch-unlimited-series7-filter"
+              title: "Filtro compatible para Bosch Unlimited Serie 7"
+              query: "Bosch Unlimited Series 7 filter replacement"
+              must_include: ["bosch", "unlimited", "filter"]
+              must_not_include: *neg_filter
+              model_tokens: ["unlimited", "series 7", "serie 7"]
+          cepillo:
+            - sku: "bosch-unlimited-series7-roller"
+              title: "Rodillo/cepillo compatible para Bosch Unlimited Serie 7"
+              query: "Bosch Unlimited roller brush replacement"
+              must_include: ["bosch", "unlimited", "roller"]
+              must_not_include: *neg_brush
+              model_tokens: ["unlimited", "series 7", "serie 7"]
+
+  samsung:
+    name: "Samsung"
+    country_hint: "KR"
+    notes_brand: "Jet es una familia muy vendida (Jet 75/90/95). Buen EPC en accesorios y filtros."
+    models:
+      - model: "Samsung Jet 90"
+        slug: "samsung-jet-90"
+        series: "Jet"
+        year_range: "2020-actual"
+        intro: "Samsung Jet 90: alto volumen de búsqueda de filtros HEPA y rodillos anti-enredos."
+        seo:
+          title: "Samsung Jet 90: recambios compatibles (filtros, rodillos, batería) y fallos"
+          description: "Catálogo por categorías para Samsung Jet 90 + fallos típicos de succión y cabezal."
+        specs:
+          tipo: "aspirador escoba sin cable"
+          notas: "Usa tokens 'Jet 90' + 'Samsung' en AliExpress."
+        problemas:
+          - key: "poca-succion"
+            title: "Samsung Jet 90 pierde potencia"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-no-gira"
+            title: "Samsung Jet 90: el rodillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+        recambios:
+          filtro:
+            - sku: "samsung-jet90-filter-hepa"
+              title: "Filtro HEPA compatible para Samsung Jet 90"
+              query: "Samsung Jet 90 HEPA filter replacement"
+              must_include: ["samsung", "jet", "90", "filter"]
+              must_not_include: *neg_filter
+              model_tokens: ["jet 90", "jet90", "90"]
+          cepillo:
+            - sku: "samsung-jet90-roller-brush"
+              title: "Rodillo/cepillo compatible para Samsung Jet 90"
+              query: "Samsung Jet 90 roller brush replacement"
+              must_include: ["samsung", "jet", "90", "roller"]
+              must_not_include: *neg_brush
+              model_tokens: ["jet 90", "jet90", "90"]
+          cargador:
+            - sku: "samsung-jet90-charger"
+              title: "Cargador compatible para Samsung Jet 90"
+              query: "Samsung Jet 90 charger replacement"
+              must_include: ["samsung", "jet", "90", "charger"]
+              must_not_include: *neg_charger
+              model_tokens: ["jet 90", "jet90", "90"]
