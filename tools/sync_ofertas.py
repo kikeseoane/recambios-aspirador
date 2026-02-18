@@ -10,7 +10,7 @@ import hmac
 import hashlib
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 import yaml
@@ -80,6 +80,19 @@ def ensure_offer_obj(existing: object | None) -> dict:
     return existing if isinstance(existing, dict) else {}
 
 
+def ensure_list_str(x: Any) -> List[str]:
+    if not isinstance(x, list):
+        return []
+    out: List[str] = []
+    for it in x:
+        if it is None:
+            continue
+        s = str(it).strip()
+        if s:
+            out.append(s)
+    return out
+
+
 # =========================
 # Catalog parsing: SKU → context
 # =========================
@@ -96,6 +109,7 @@ def guess_model_name(model_obj: dict) -> str:
 
 
 def guess_item_name(item_obj: dict) -> str:
+    # cuando generemos el aspiradores.yaml rico, aquí podremos leer query/must_include/etc.
     return normalize(str(item_obj.get("name") or item_obj.get("title") or item_obj.get("label") or ""))
 
 
@@ -238,7 +252,7 @@ def extract_products(resp: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 
 # =========================
-# Relevancy / scoring (hard guardrails)
+# Relevancy / scoring (guardrails)
 # =========================
 def nrm(s: str) -> str:
     return " ".join((s or "").lower().split())
@@ -255,6 +269,12 @@ CATEGORY_PART_TERMS = {
     "filtro": ["filter", "filtro", "hepa", "rear", "pre", "post"],
     "cargador": ["charger", "cargador", "adapter", "adaptador", "power", "ac adapter"],
     "cepillo": ["brush", "cepillo", "head", "roller", "rodillo", "torque", "drive"],
+    "soporte": ["wall", "mount", "holder", "dock", "stand", "bracket", "storage", "rack", "base"],
+}
+
+CATEGORY_NEGATIVE_TERMS = {
+    # “trampas” típicas por categoría (puedes ajustar)
+    "soporte": ["trigger", "switch", "button", "pcb", "board", "handle", "motor"],
 }
 
 MODEL_TOKEN_RE = re.compile(r"\b(v\d{1,2}|sv\d{2}|dc\d{2,3})\b", re.IGNORECASE)
@@ -270,7 +290,16 @@ def cat_part_terms(cat: str) -> List[str]:
         return CATEGORY_PART_TERMS["cargador"]
     if "cepi" in c or "brush" in c:
         return CATEGORY_PART_TERMS["cepillo"]
+    if "soport" in c or "mount" in c or "dock" in c:
+        return CATEGORY_PART_TERMS["soporte"]
     return ["replacement", "spare", "parts", "compatible"]
+
+
+def cat_negative_terms(cat: str) -> List[str]:
+    c = nrm(cat)
+    if "soport" in c or "mount" in c or "dock" in c:
+        return CATEGORY_NEGATIVE_TERMS.get("soporte", [])
+    return []
 
 
 def model_tokens_from_ctx(model: str) -> List[str]:
@@ -328,14 +357,26 @@ def looks_bad(title: str) -> bool:
     return any(b in t for b in BANNED_TITLE)
 
 
-def score_product(title: str, p: Dict[str, Any], must_brand: str, model_hint: str, part_terms: List[str]) -> float:
+def contains_all(title: str, must: List[str]) -> bool:
+    tt = nrm(title)
+    for m in must:
+        if nrm(m) not in tt:
+            return False
+    return True
+
+
+def contains_any(title: str, bad: List[str]) -> bool:
+    tt = nrm(title)
+    return any(nrm(b) in tt for b in bad)
+
+
+def score_product(title: str, p: Dict[str, Any], must_brand: str, model_hint: str, part_terms: List[str], req_models: List[str]) -> float:
     t = nrm(title)
     s = 0.0
 
     if must_brand and must_brand in t:
         s += 6.0
 
-    req_models = model_tokens_from_ctx(model_hint)
     if req_models:
         if not title_has_required_model(t, req_models):
             return -1e9
@@ -362,8 +403,17 @@ def score_product(title: str, p: Dict[str, Any], must_brand: str, model_hint: st
     return s
 
 
-def pick_best_promotion_link(keyword: str, must_brand: str, model_hint: str, part_terms: List[str]) -> Optional[str]:
-    req_models = model_tokens_from_ctx(model_hint)
+def pick_best_promotion_link(
+    keyword: str,
+    must_brand: str,
+    model_hint: str,
+    part_terms: List[str],
+    must_include: List[str],
+    must_not_include: List[str],
+    model_tokens_override: List[str],
+) -> Optional[str]:
+    # tokens de modelo (override por SKU si existe)
+    req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
 
     for lang in ("EN", "ES"):
         resp = product_query(keyword, lang=lang)
@@ -376,13 +426,27 @@ def pick_best_promotion_link(keyword: str, must_brand: str, model_hint: str, par
             title = p.get("product_title") or ""
             if not title:
                 continue
+
             tt = nrm(title)
             if looks_bad(tt):
                 continue
+
+            # hard: modelo
             if req_models and not title_has_required_model(tt, req_models):
                 continue
+
+            # hard: categoría
             if not any(pt in tt for pt in part_terms):
                 continue
+
+            # hard: must_include
+            if must_include and not contains_all(tt, must_include):
+                continue
+
+            # hard: must_not_include
+            if must_not_include and contains_any(tt, must_not_include):
+                continue
+
             candidates.append(p)
 
         if not candidates:
@@ -395,6 +459,7 @@ def pick_best_promotion_link(keyword: str, must_brand: str, model_hint: str, par
                 must_brand=nrm(must_brand),
                 model_hint=nrm(model_hint),
                 part_terms=part_terms,
+                req_models=req_models,
             ),
             reverse=True,
         )
@@ -420,6 +485,44 @@ def build_keyword(ctx: Dict[str, str]) -> str:
     return kw[:120]
 
 
+def merge_sku_overrides_from_offers_yaml(offers_doc: dict) -> Dict[str, Dict[str, Any]]:
+    """
+    Lee overrides por SKU desde data/ofertas.yaml:
+      offers:
+        SKU:
+          query: "..."
+          must_include: [...]
+          must_not_include: [...]
+          model_tokens: [...]
+    """
+    out: Dict[str, Dict[str, Any]] = {}
+    offers = offers_doc.get("offers")
+    if not isinstance(offers, dict):
+        return out
+
+    for sku, obj in offers.items():
+        if not isinstance(obj, dict):
+            continue
+        sku_s = str(sku).strip()
+        if not sku_s:
+            continue
+
+        query = obj.get("query")
+        must_include = ensure_list_str(obj.get("must_include"))
+        must_not_include = ensure_list_str(obj.get("must_not_include"))
+        model_tokens = ensure_list_str(obj.get("model_tokens"))
+
+        if query or must_include or must_not_include or model_tokens:
+            out[sku_s] = {
+                "query": str(query).strip() if query else "",
+                "must_include": must_include,
+                "must_not_include": must_not_include,
+                "model_tokens": [nrm(t) for t in model_tokens],
+            }
+
+    return out
+
+
 # =========================
 # MAIN
 # =========================
@@ -432,6 +535,8 @@ def main() -> None:
     offers = offers_doc.get("offers")
     if not isinstance(offers, dict):
         offers = {}
+
+    overrides = merge_sku_overrides_from_offers_yaml(offers_doc)
 
     added = 0
     updated = 0
@@ -460,7 +565,6 @@ def main() -> None:
             un_orphaned += 1
 
         url_now = obj.get("url")
-        # reintenta si needs_url==True o si está vacío/placeholder/default
         needs_lookup = (
             obj.get("needs_url") is True
             or is_placeholder(url_now, PLACEHOLDER_URL)
@@ -469,12 +573,26 @@ def main() -> None:
 
         if needs_lookup:
             ctx = sku_ctx.get(sku) or {}
-            keyword = build_keyword(ctx)
+            brand = (ctx.get("brand") or "").lower()
+            model = (ctx.get("model") or "").lower() or sku.lower()
+            category = (ctx.get("category") or "")
+            part_terms = cat_part_terms(category)
 
-            must_brand = (ctx.get("brand") or "").lower()
-            model_hint = (ctx.get("model") or "").lower() or sku.lower()
-            part_terms = cat_part_terms(ctx.get("category") or "")
+            # negativos por categoría (default)
+            must_not = cat_negative_terms(category)
 
+            # overrides por SKU (desde ofertas.yaml)
+            ov = overrides.get(sku, {})
+            ov_query = (ov.get("query") or "").strip()
+            ov_must_include = ensure_list_str(ov.get("must_include"))
+            ov_must_not_include = ensure_list_str(ov.get("must_not_include"))
+            ov_model_tokens = ensure_list_str(ov.get("model_tokens"))
+
+            # combinamos must_not: categoría + override
+            must_not_combined = [*must_not, *ov_must_not_include]
+
+            # keyword(s)
+            keyword = ov_query if ov_query else build_keyword(ctx)
             kws = [k for k in [
                 keyword,
                 " ".join([ctx.get("brand", ""), ctx.get("model", ""), ctx.get("category", "")]).strip(),
@@ -485,9 +603,12 @@ def main() -> None:
             for kw in kws:
                 found = pick_best_promotion_link(
                     keyword=kw,
-                    must_brand=must_brand,
-                    model_hint=model_hint,
+                    must_brand=brand,
+                    model_hint=model,
                     part_terms=part_terms,
+                    must_include=ov_must_include,
+                    must_not_include=must_not_combined,
+                    model_tokens_override=ov_model_tokens,
                 )
                 if found:
                     break
@@ -498,6 +619,7 @@ def main() -> None:
                 obj["updated_at"] = today
                 filled_from_aliexpress += 1
             else:
+                # no pongas algo incorrecto: deja default + needs_url
                 if obj.get("url") != DEFAULT_URL:
                     obj["url"] = DEFAULT_URL
                     changed_urls_to_default += 1
@@ -524,7 +646,7 @@ def main() -> None:
 
     dump_yaml(OFFERS, {"offers": offers})
 
-    print("OK: sync_ofertas (AliExpress autolinks + guardrails)")
+    print("OK: sync_ofertas (AliExpress autolinks + SKU overrides)")
     print(f"  SKUs en catálogo:       {len(want)}")
     print(f"  Offers total:           {len(offers)}")
     print(f"  Añadidos:               {added}")
