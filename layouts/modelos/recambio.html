@@ -65,7 +65,17 @@
     {{ return }}
   {{ end }}
 
-  {{ $items := (index $rec $catKey) }}
+  {{/* ============================================================
+     Lookup robusto: el YAML puede tener keys "Batería", "batería", etc.
+     Comparamos por urlize para que siempre matchee con catKey.
+     ============================================================ */}}
+  {{ $items := slice }}
+  {{ range $k, $v := $rec }}
+    {{ if eq ($k | urlize) $catKey }}
+      {{ $items = $v }}
+    {{ end }}
+  {{ end }}
+
   {{ if not (and $items (reflect.IsSlice $items) (gt (len $items) 0)) }}
     {{ .Scratch.Set "noindex" true }}
     <div class="card" style="margin-top:14px;">
