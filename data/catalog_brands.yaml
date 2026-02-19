@@ -2,52 +2,57 @@ brands:
   dyson:
     name: "Dyson"
     country_hint: "UK"
-    notes_brand: "Gama premium sin cable con mucha demanda de recambios compatibles."
+    notes_brand: "Premium sin cable. Mucha demanda en baterías, filtros, rodillos y docks."
     models:
+      - model: "Dyson V7"
+        slug: "dyson-v7"
+        series: "V-Series"
+        year_range: "2017-2020"
+        sku_pack: "stick10"
+        model_tokens: ["v7"]
+        problemas:
+          - key: "no-carga"
+            title: "Dyson V7 no carga"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "cepillo-no-gira"
+            title: "Dyson V7: el cepillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
       - model: "Dyson V8"
         slug: "dyson-v8"
         series: "V-Series"
         year_range: "2016-2021"
-        sku_pack: "default10"
+        sku_pack: "stick10"
         model_tokens: ["v8"]
-        seo:
-          title: "Dyson V8: recambios compatibles, fallos comunes y mantenimiento"
-          description: "Compatibilidad, recambios por categorías, problemas típicos (succión, batería, cepillo) y mantenimiento del Dyson V8."
         problemas:
-          - key: "no-carga"
-            title: "Dyson V8 no carga"
-            intent: "info"
-            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
           - key: "poca-succion"
             title: "Dyson V8 tiene poca succión"
             intent: "info"
             cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-no-gira"
-            title: "El cepillo del Dyson V8 no gira"
+          - key: "no-carga"
+            title: "Dyson V8 no carga"
             intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
 
       - model: "Dyson V10"
         slug: "dyson-v10"
         series: "V-Series"
         year_range: "2018-2022"
-        sku_pack: "default10"
+        sku_pack: "stick10"
         model_tokens: ["v10"]
         problemas:
           - key: "se-apaga-turbo"
             title: "Dyson V10 se apaga en modo turbo"
             intent: "info"
             cta: { catKey: "bateria", label: "Ver baterías compatibles" }
-          - key: "poca-succion"
-            title: "Dyson V10 tiene poca succión"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
 
       - model: "Dyson V11"
         slug: "dyson-v11"
         series: "V-Series"
         year_range: "2019-2023"
-        sku_pack: "default10"
+        sku_pack: "stick10"
         model_tokens: ["v11", "sv14"]
         problemas:
           - key: "no-carga"
@@ -58,17 +63,13 @@ brands:
             title: "Dyson V11 tiene poca succión"
             intent: "info"
             cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-no-gira"
-            title: "El cepillo del Dyson V11 no gira"
-            intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
 
       - model: "Dyson V12 Detect Slim"
         slug: "dyson-v12-detect-slim"
         series: "V-Series"
         year_range: "2021-actual"
-        sku_pack: "default10"
-        model_tokens: ["v12"]
+        sku_pack: "stick10"
+        model_tokens: ["v12", "detect"]
         problemas:
           - key: "no-enciende"
             title: "Dyson V12 no enciende o se apaga"
@@ -79,106 +80,168 @@ brands:
         slug: "dyson-v15-detect"
         series: "V-Series"
         year_range: "2021-actual"
-        sku_pack: "default10"
-        model_tokens: ["v15"]
+        sku_pack: "stick10"
+        model_tokens: ["v15", "detect"]
         problemas:
           - key: "no-enciende"
             title: "Dyson V15 no enciende o se apaga"
             intent: "info"
             cta: { catKey: "bateria", label: "Ver baterías compatibles" }
 
+      - model: "Dyson Gen5detect"
+        slug: "dyson-gen5detect"
+        series: "Gen"
+        year_range: "2022-actual"
+        sku_pack: "stick10"
+        model_tokens: ["gen5", "gen5detect"]
+        problemas:
+          - key: "no-carga"
+            title: "Dyson Gen5detect no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
   cecotec:
     name: "Cecotec"
     country_hint: "ES"
-    notes_brand: "Muy vendida en España. Conga y Rockstar con demanda alta de consumibles."
+    notes_brand: "Top ventas España. Robots Conga + stick Rockstar. Mucho consumo recurrente."
     models:
-      - model: "Conga Rockstar 1500 Ultimate ErgoWet"
-        slug: "conga-rockstar-1500"
+      - model: "Conga 2290"
+        slug: "conga-2290"
+        series: "Conga"
+        year_range: "2019-2021"
+        sku_pack: "robot10"
+        model_tokens: ["2290", "conga"]
+        problemas:
+          - key: "no-aspira"
+            title: "Conga 2290 no aspira bien"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Conga 3090"
+        slug: "conga-3090"
+        series: "Conga"
+        year_range: "2020-2022"
+        sku_pack: "robot10"
+        model_tokens: ["3090", "conga"]
+        problemas:
+          - key: "mopa-no-moja"
+            title: "Conga 3090: la mopa no moja"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver mopas compatibles" }
+
+      - model: "Conga 4090"
+        slug: "conga-4090"
+        series: "Conga"
+        year_range: "2021-2023"
+        sku_pack: "robot10"
+        model_tokens: ["4090", "conga"]
+        problemas:
+          - key: "ruido-cepillo"
+            title: "Conga 4090 hace ruido en el cepillo"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Conga 4690"
+        slug: "conga-4690"
+        series: "Conga"
+        year_range: "2021-2024"
+        sku_pack: "robot10"
+        model_tokens: ["4690", "conga"]
+        problemas:
+          - key: "no-carga"
+            title: "Conga 4690 no carga en la base"
+            intent: "info"
+            cta: { catKey: "soporte", label: "Ver dock/base compatibles" }
+
+      - model: "Conga 5490"
+        slug: "conga-5490"
+        series: "Conga"
+        year_range: "2022-actual"
+        sku_pack: "robot10"
+        model_tokens: ["5490", "conga"]
+        problemas:
+          - key: "pierde-succion"
+            title: "Conga 5490 pierde succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Conga 7090"
+        slug: "conga-7090"
+        series: "Conga"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["7090", "conga"]
+        problemas:
+          - key: "bolsa-autovaciado"
+            title: "Conga 7090: cambiar bolsa de autovaciado"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver bolsas compatibles" }
+
+      - model: "Rockstar 1500"
+        slug: "rockstar-1500"
         series: "Rockstar"
         year_range: "2020-actual"
-        sku_pack: "default10"
+        sku_pack: "stick10"
         model_tokens: ["1500", "rockstar"]
         problemas:
           - key: "poca-succion"
-            title: "Conga Rockstar 1500 pierde potencia"
+            title: "Rockstar 1500 pierde potencia"
             intent: "info"
             cta: { catKey: "filtro", label: "Ver filtros compatibles" }
 
-      - model: "Conga Rockstar 2000"
-        slug: "conga-rockstar-2000"
+      - model: "Rockstar 2000"
+        slug: "rockstar-2000"
         series: "Rockstar"
         year_range: "2021-actual"
-        sku_pack: "default10"
+        sku_pack: "stick10"
         model_tokens: ["2000", "rockstar"]
         problemas:
           - key: "bateria-dura-poco"
-            title: "Conga Rockstar 2000: la batería dura poco"
+            title: "Rockstar 2000: la batería dura poco"
             intent: "info"
             cta: { catKey: "bateria", label: "Ver baterías compatibles" }
 
-  rowenta:
-    name: "Rowenta"
-    country_hint: "FR"
-    notes_brand: "X-Force con mucho volumen en Europa. Alto potencial de recambios."
-    models:
-      - model: "Rowenta X-Force Flex 11.60"
-        slug: "rowenta-xforce-1160"
-        series: "X-Force"
-        year_range: "2020-actual"
-        sku_pack: "default10"
-        model_tokens: ["11.60", "1160", "x-force"]
-        problemas:
-          - key: "no-carga"
-            title: "Rowenta X-Force 11.60 no carga"
-            intent: "info"
-            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
-
-      - model: "Rowenta X-Force Flex 15.60"
-        slug: "rowenta-xforce-1560"
-        series: "X-Force"
-        year_range: "2021-actual"
-        sku_pack: "default10"
-        model_tokens: ["15.60", "1560", "x-force"]
+      - model: "Rockstar 2500"
+        slug: "rockstar-2500"
+        series: "Rockstar"
+        year_range: "2022-actual"
+        sku_pack: "stick10"
+        model_tokens: ["2500", "rockstar"]
         problemas:
           - key: "cepillo-no-gira"
-            title: "Rowenta X-Force 15.60: el cepillo no gira"
+            title: "Rockstar 2500: el cepillo no gira"
             intent: "info"
             cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
-
-  bosch:
-    name: "Bosch"
-    country_hint: "DE"
-    notes_brand: "Unlimited con ecosistema de baterías. Tráfico transaccional fuerte."
-    models:
-      - model: "Bosch Unlimited Serie 6"
-        slug: "bosch-unlimited-serie-6"
-        series: "Unlimited"
-        year_range: "2019-actual"
-        sku_pack: "default10"
-        model_tokens: ["serie 6", "series 6"]
-        problemas:
-          - key: "poca-succion"
-            title: "Bosch Unlimited Serie 6 tiene poca succión"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-
-      - model: "Bosch Unlimited Serie 7"
-        slug: "bosch-unlimited-serie-7"
-        series: "Unlimited"
-        year_range: "2020-actual"
-        sku_pack: "default10"
-        model_tokens: ["serie 7", "series 7"]
-        problemas:
-          - key: "no-carga"
-            title: "Bosch Unlimited Serie 7 no carga"
-            intent: "info"
-            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
 
   roborock:
     name: "Roborock"
     country_hint: "CN"
-    notes_brand: "Top ventas en robots (S/Q series). Consumibles recurrentes."
+    notes_brand: "Top robots en ES/UE. Consumibles recurrentes + alto CTR."
     models:
+      - model: "Roborock S5 Max"
+        slug: "roborock-s5-max"
+        series: "S-Series"
+        year_range: "2019-2021"
+        sku_pack: "robot10"
+        model_tokens: ["s5", "s5 max", "roborock"]
+        problemas:
+          - key: "no-aspira"
+            title: "Roborock S5 Max no aspira bien"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Roborock S6 Pure"
+        slug: "roborock-s6-pure"
+        series: "S-Series"
+        year_range: "2020-2022"
+        sku_pack: "robot10"
+        model_tokens: ["s6", "s6 pure", "roborock"]
+        problemas:
+          - key: "mopa"
+            title: "Roborock S6 Pure: mopas y mantenimiento"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver mopas compatibles" }
+
       - model: "Roborock S7"
         slug: "roborock-s7"
         series: "S-Series"
@@ -189,7 +252,19 @@ brands:
           - key: "no-aspira"
             title: "Roborock S7 no aspira bien"
             intent: "info"
-            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Roborock S7 MaxV Ultra"
+        slug: "roborock-s7-maxv-ultra"
+        series: "S-Series"
+        year_range: "2022-2024"
+        sku_pack: "robot10"
+        model_tokens: ["s7", "maxv", "ultra", "roborock"]
+        problemas:
+          - key: "bolsa-base"
+            title: "Roborock S7 MaxV Ultra: bolsas y base"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver bolsas compatibles" }
 
       - model: "Roborock S8"
         slug: "roborock-s8"
@@ -203,11 +278,59 @@ brands:
             intent: "info"
             cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
 
+      - model: "Roborock S8 Pro Ultra"
+        slug: "roborock-s8-pro-ultra"
+        series: "S-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["s8", "pro", "ultra", "roborock"]
+        problemas:
+          - key: "dock"
+            title: "Roborock S8 Pro Ultra: mantenimiento del dock"
+            intent: "info"
+            cta: { catKey: "soporte", label: "Ver dock/base compatibles" }
+
+      - model: "Roborock Q7 Max"
+        slug: "roborock-q7-max"
+        series: "Q-Series"
+        year_range: "2022-actual"
+        sku_pack: "robot10"
+        model_tokens: ["q7", "max", "roborock"]
+        problemas:
+          - key: "consumibles"
+            title: "Roborock Q7 Max: consumibles y kits"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver kits compatibles" }
+
+      - model: "Roborock Q Revo"
+        slug: "roborock-q-revo"
+        series: "Q-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["q revo", "qrevo", "revo", "roborock"]
+        problemas:
+          - key: "mopas"
+            title: "Roborock Q Revo: cambio de mopas"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver mopas compatibles" }
+
   irobot:
     name: "iRobot"
     country_hint: "US"
-    notes_brand: "Roomba: histórico enorme de ventas. Consumibles fáciles de monetizar."
+    notes_brand: "Roomba. Histórico de ventas y consumibles fáciles de monetizar."
     models:
+      - model: "Roomba i3"
+        slug: "roomba-i3"
+        series: "Roomba"
+        year_range: "2020-actual"
+        sku_pack: "robot10"
+        model_tokens: ["i3", "roomba"]
+        problemas:
+          - key: "no-aspira"
+            title: "Roomba i3 no aspira bien"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
       - model: "Roomba i7"
         slug: "roomba-i7"
         series: "Roomba"
@@ -218,7 +341,7 @@ brands:
           - key: "no-carga"
             title: "Roomba i7 no carga"
             intent: "info"
-            cta: { catKey: "cargador", label: "Ver bases/cargadores compatibles" }
+            cta: { catKey: "soporte", label: "Ver dock/base compatibles" }
 
       - model: "Roomba j7"
         slug: "roomba-j7"
@@ -227,7 +350,514 @@ brands:
         sku_pack: "robot10"
         model_tokens: ["j7", "roomba"]
         problemas:
-          - key: "no-aspira"
-            title: "Roomba j7 no aspira bien"
+          - key: "filtro"
+            title: "Roomba j7: cambiar filtro"
             intent: "info"
             cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Roomba j9"
+        slug: "roomba-j9"
+        series: "Roomba"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["j9", "roomba"]
+        problemas:
+          - key: "bolsa"
+            title: "Roomba j9: bolsas y kits"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver bolsas compatibles" }
+
+  ecovacs:
+    name: "ECOVACS"
+    country_hint: "CN"
+    notes_brand: "Deebot con mucha cuota. Consumibles y docks muy buscados."
+    models:
+      - model: "DEEBOT OZMO T8 AIVI"
+        slug: "deebot-t8-aivi"
+        series: "DEEBOT"
+        year_range: "2020-2022"
+        sku_pack: "robot10"
+        model_tokens: ["t8", "aivi", "deebot"]
+        problemas:
+          - key: "cepillos"
+            title: "Deebot T8 AIVI: cambio de cepillos"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "DEEBOT T10 Omni"
+        slug: "deebot-t10-omni"
+        series: "DEEBOT"
+        year_range: "2022-actual"
+        sku_pack: "robot10"
+        model_tokens: ["t10", "omni", "deebot"]
+        problemas:
+          - key: "mopas"
+            title: "Deebot T10 Omni: mopas y consumibles"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver mopas compatibles" }
+
+      - model: "DEEBOT T20 Omni"
+        slug: "deebot-t20-omni"
+        series: "DEEBOT"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["t20", "omni", "deebot"]
+        problemas:
+          - key: "bolsa"
+            title: "Deebot T20 Omni: bolsa y kit"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver bolsas compatibles" }
+
+      - model: "DEEBOT X1 Omni"
+        slug: "deebot-x1-omni"
+        series: "DEEBOT"
+        year_range: "2022-2024"
+        sku_pack: "robot10"
+        model_tokens: ["x1", "omni", "deebot"]
+        problemas:
+          - key: "dock"
+            title: "Deebot X1 Omni: dock/base y mantenimiento"
+            intent: "info"
+            cta: { catKey: "soporte", label: "Ver dock/base compatibles" }
+
+      - model: "DEEBOT X2 Omni"
+        slug: "deebot-x2-omni"
+        series: "DEEBOT"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["x2", "omni", "deebot"]
+        problemas:
+          - key: "filtro"
+            title: "Deebot X2 Omni: filtros y consumibles"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  dreame:
+    name: "Dreame"
+    country_hint: "CN"
+    notes_brand: "Robots L-series + stick T-series. Buen volumen y CTR."
+    models:
+      - model: "Dreame L10s Ultra"
+        slug: "dreame-l10s-ultra"
+        series: "L-Series"
+        year_range: "2022-actual"
+        sku_pack: "robot10"
+        model_tokens: ["l10s", "ultra", "dreame"]
+        problemas:
+          - key: "mopas"
+            title: "Dreame L10s Ultra: mopas y consumibles"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver mopas compatibles" }
+
+      - model: "Dreame L20 Ultra"
+        slug: "dreame-l20-ultra"
+        series: "L-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["l20", "ultra", "dreame"]
+        problemas:
+          - key: "bolsa"
+            title: "Dreame L20 Ultra: bolsas y kit"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver bolsas compatibles" }
+
+      - model: "Dreame D10 Plus"
+        slug: "dreame-d10-plus"
+        series: "D-Series"
+        year_range: "2021-actual"
+        sku_pack: "robot10"
+        model_tokens: ["d10", "plus", "dreame"]
+        problemas:
+          - key: "filtros"
+            title: "Dreame D10 Plus: filtros y cepillos"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Dreame T30"
+        slug: "dreame-t30"
+        series: "T-Series"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["t30", "dreame"]
+        problemas:
+          - key: "bateria"
+            title: "Dreame T30: batería dura poco"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+      - model: "Dreame T20"
+        slug: "dreame-t20"
+        series: "T-Series"
+        year_range: "2020-actual"
+        sku_pack: "stick10"
+        model_tokens: ["t20", "dreame"]
+        problemas:
+          - key: "filtro"
+            title: "Dreame T20: mantenimiento de filtros"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  xiaomi:
+    name: "Xiaomi"
+    country_hint: "CN"
+    notes_brand: "Robots Mi + stick G. Mucho long-tail y clicks."
+    models:
+      - model: "Xiaomi Robot Vacuum S10+"
+        slug: "xiaomi-s10-plus"
+        series: "Robot Vacuum"
+        year_range: "2022-actual"
+        sku_pack: "robot10"
+        model_tokens: ["s10", "s10+", "xiaomi"]
+        problemas:
+          - key: "mopas"
+            title: "Xiaomi S10+ mopas y consumibles"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver mopas compatibles" }
+
+      - model: "Xiaomi Robot Vacuum X10+"
+        slug: "xiaomi-x10-plus"
+        series: "Robot Vacuum"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["x10", "x10+", "xiaomi"]
+        problemas:
+          - key: "bolsa"
+            title: "Xiaomi X10+: bolsas y kit"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver bolsas compatibles" }
+
+      - model: "Xiaomi Vacuum Cleaner G10"
+        slug: "xiaomi-g10"
+        series: "Vacuum Cleaner"
+        year_range: "2020-2022"
+        sku_pack: "stick10"
+        model_tokens: ["g10", "xiaomi"]
+        problemas:
+          - key: "no-carga"
+            title: "Xiaomi G10 no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
+      - model: "Xiaomi Vacuum Cleaner G11"
+        slug: "xiaomi-g11"
+        series: "Vacuum Cleaner"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["g11", "xiaomi"]
+        problemas:
+          - key: "cepillo"
+            title: "Xiaomi G11: el cepillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
+  eufy:
+    name: "Eufy"
+    country_hint: "CN"
+    notes_brand: "Robots de gran volumen (mid-range). Consumibles fáciles."
+    models:
+      - model: "Eufy RoboVac L70 Hybrid"
+        slug: "eufy-l70-hybrid"
+        series: "RoboVac"
+        year_range: "2020-2022"
+        sku_pack: "robot10"
+        model_tokens: ["l70", "hybrid", "eufy"]
+        problemas:
+          - key: "filtros"
+            title: "Eufy L70: filtros y cepillos"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Eufy X10 Pro Omni"
+        slug: "eufy-x10-pro-omni"
+        series: "X-Series"
+        year_range: "2024-actual"
+        sku_pack: "robot10"
+        model_tokens: ["x10", "pro", "omni", "eufy"]
+        problemas:
+          - key: "mopas"
+            title: "Eufy X10 Pro Omni: mopas y bolsas"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver consumibles compatibles" }
+
+  proscenic:
+    name: "Proscenic"
+    country_hint: "CN"
+    notes_brand: "Robots y sticks con búsquedas long-tail y buen CTR."
+    models:
+      - model: "Proscenic M8 Pro"
+        slug: "proscenic-m8-pro"
+        series: "Robot"
+        year_range: "2020-actual"
+        sku_pack: "robot10"
+        model_tokens: ["m8", "pro", "proscenic"]
+        problemas:
+          - key: "cepillos"
+            title: "Proscenic M8 Pro: cepillos y filtros"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Proscenic P11"
+        slug: "proscenic-p11"
+        series: "Stick"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["p11", "proscenic"]
+        problemas:
+          - key: "bateria"
+            title: "Proscenic P11: batería dura poco"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+  lefant:
+    name: "Lefant"
+    country_hint: "CN"
+    notes_brand: "Robots baratos con muchísimo long-tail. Click fácil."
+    models:
+      - model: "Lefant M210"
+        slug: "lefant-m210"
+        series: "Robot"
+        year_range: "2020-actual"
+        sku_pack: "robot10"
+        model_tokens: ["m210", "lefant"]
+        problemas:
+          - key: "consumibles"
+            title: "Lefant M210: filtros y cepillos"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver kits compatibles" }
+
+  ultenic:
+    name: "Ultenic"
+    country_hint: "CN"
+    notes_brand: "Robots y sticks con demanda recurrente de consumibles."
+    models:
+      - model: "Ultenic T10"
+        slug: "ultenic-t10"
+        series: "Robot"
+        year_range: "2021-actual"
+        sku_pack: "robot10"
+        model_tokens: ["t10", "ultenic"]
+        problemas:
+          - key: "filtros"
+            title: "Ultenic T10: filtros y cepillos"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  rowenta:
+    name: "Rowenta"
+    country_hint: "FR"
+    notes_brand: "X-Force Flex con mucho volumen en ES/UE."
+    models:
+      - model: "Rowenta X-Force Flex 11.60"
+        slug: "rowenta-xforce-1160"
+        series: "X-Force"
+        year_range: "2020-actual"
+        sku_pack: "stick10"
+        model_tokens: ["11.60", "1160", "x-force", "xforce"]
+        problemas:
+          - key: "no-carga"
+            title: "Rowenta X-Force 11.60 no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
+      - model: "Rowenta X-Force Flex 12.60"
+        slug: "rowenta-xforce-1260"
+        series: "X-Force"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["12.60", "1260", "x-force", "xforce"]
+        problemas:
+          - key: "cepillo"
+            title: "Rowenta X-Force 12.60: el cepillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
+      - model: "Rowenta X-Force Flex 14.60"
+        slug: "rowenta-xforce-1460"
+        series: "X-Force"
+        year_range: "2022-actual"
+        sku_pack: "stick10"
+        model_tokens: ["14.60", "1460", "x-force", "xforce"]
+        problemas:
+          - key: "filtro"
+            title: "Rowenta X-Force 14.60: filtros y mantenimiento"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Rowenta X-Force Flex 15.60"
+        slug: "rowenta-xforce-1560"
+        series: "X-Force"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["15.60", "1560", "x-force", "xforce"]
+        problemas:
+          - key: "bateria"
+            title: "Rowenta X-Force 15.60: batería dura poco"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+  bosch:
+    name: "Bosch"
+    country_hint: "DE"
+    notes_brand: "Unlimited con ecosistema potente. Tráfico transaccional fuerte."
+    models:
+      - model: "Bosch Unlimited Serie 6"
+        slug: "bosch-unlimited-serie-6"
+        series: "Unlimited"
+        year_range: "2019-actual"
+        sku_pack: "stick10"
+        model_tokens: ["serie 6", "series 6", "unlimited"]
+        problemas:
+          - key: "poca-succion"
+            title: "Bosch Unlimited Serie 6: poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Bosch Unlimited Serie 7"
+        slug: "bosch-unlimited-serie-7"
+        series: "Unlimited"
+        year_range: "2020-actual"
+        sku_pack: "stick10"
+        model_tokens: ["serie 7", "series 7", "unlimited"]
+        problemas:
+          - key: "no-carga"
+            title: "Bosch Unlimited Serie 7 no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
+      - model: "Bosch Unlimited Serie 8"
+        slug: "bosch-unlimited-serie-8"
+        series: "Unlimited"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["serie 8", "series 8", "unlimited"]
+        problemas:
+          - key: "cepillo"
+            title: "Bosch Unlimited Serie 8: cepillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
+  philips:
+    name: "Philips"
+    country_hint: "NL"
+    notes_brand: "SpeedPro / PowerCyclone con volumen estable."
+    models:
+      - model: "Philips SpeedPro"
+        slug: "philips-speedpro"
+        series: "SpeedPro"
+        year_range: "2019-actual"
+        sku_pack: "stick10"
+        model_tokens: ["speedpro", "philips"]
+        problemas:
+          - key: "filtro"
+            title: "Philips SpeedPro: filtros y mantenimiento"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Philips SpeedPro Max"
+        slug: "philips-speedpro-max"
+        series: "SpeedPro"
+        year_range: "2020-actual"
+        sku_pack: "stick10"
+        model_tokens: ["speedpro", "max", "philips"]
+        problemas:
+          - key: "bateria"
+            title: "Philips SpeedPro Max: batería dura poco"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+  samsung:
+    name: "Samsung"
+    country_hint: "KR"
+    notes_brand: "Jet series con búsquedas fuertes en consumibles."
+    models:
+      - model: "Samsung Jet 75"
+        slug: "samsung-jet-75"
+        series: "Jet"
+        year_range: "2020-actual"
+        sku_pack: "stick10"
+        model_tokens: ["jet 75", "jet75", "samsung"]
+        problemas:
+          - key: "no-carga"
+            title: "Samsung Jet 75 no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
+      - model: "Samsung Jet 90"
+        slug: "samsung-jet-90"
+        series: "Jet"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["jet 90", "jet90", "samsung"]
+        problemas:
+          - key: "filtro"
+            title: "Samsung Jet 90: filtros y mantenimiento"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  lg:
+    name: "LG"
+    country_hint: "KR"
+    notes_brand: "CordZero A9 con demanda de baterías y filtros."
+    models:
+      - model: "LG CordZero A9"
+        slug: "lg-cordzero-a9"
+        series: "CordZero"
+        year_range: "2019-actual"
+        sku_pack: "stick10"
+        model_tokens: ["a9", "cordzero", "lg"]
+        problemas:
+          - key: "bateria"
+            title: "LG CordZero A9: batería dura poco"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+  shark:
+    name: "Shark"
+    country_hint: "US"
+    notes_brand: "Muy fuerte en sticks en UE. Buen tráfico long-tail."
+    models:
+      - model: "Shark IZ300"
+        slug: "shark-iz300"
+        series: "IZ"
+        year_range: "2021-actual"
+        sku_pack: "stick10"
+        model_tokens: ["iz300", "shark"]
+        problemas:
+          - key: "cepillo"
+            title: "Shark IZ300: el cepillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
+  tineco:
+    name: "Tineco"
+    country_hint: "CN"
+    notes_brand: "Pure One / Floor One. Mucho CTR en accesorios y filtros."
+    models:
+      - model: "Tineco Pure One S11"
+        slug: "tineco-pure-one-s11"
+        series: "Pure One"
+        year_range: "2020-actual"
+        sku_pack: "stick10"
+        model_tokens: ["s11", "pure one", "tineco"]
+        problemas:
+          - key: "filtro"
+            title: "Tineco S11: filtros y mantenimiento"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  medion:
+    name: "Medion"
+    country_hint: "DE"
+    notes_brand: "Retail fuerte (Aldi). Robots y consumibles long-tail."
+    models:
+      - model: "Medion Robot Vacuum"
+        slug: "medion-robot-vacuum"
+        series: "Robot"
+        year_range: "2019-actual"
+        sku_pack: "robot10"
+        model_tokens: ["medion", "robot"]
+        problemas:
+          - key: "kit"
+            title: "Medion robot: kits de consumibles"
+            intent: "info"
+            cta: { catKey: "accesorios", label: "Ver kits compatibles" }

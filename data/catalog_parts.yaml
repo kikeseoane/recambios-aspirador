@@ -40,23 +40,28 @@ globals:
       - "Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo de anclaje)."
       - "En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso general."
       - "En rodillos, elige según suelo: soft roller para duro; multisuperficie para mixto."
-      - "Si tu aspirador es robot, compra packs (filtros + cepillos laterales) para abaratar mantenimiento."
+      - "Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas) para abaratar mantenimiento."
 
-# Packs de SKUs (el build_catalog.py genera recambios a partir de aquí)
-# IMPORTANTE: cada pack debe producir EXACTAMENTE 10 items
+# =========================================================
+# PACKS (build_catalog.py genera recambios a partir de aquí)
+# REGLA: cada pack debe producir EXACTAMENTE 10 items
+# =========================================================
 sku_packs:
+  # Stick / escoba sin cable:
   # 10 EXACTOS: 2 bateria + 2 filtro + 2 cepillo + 1 cargador + 1 soporte + 2 accesorios
-  default10:
+  stick10:
     - catKey: bateria
       sku_suffix: bat-std
       intent: "compra"
       title_tpl: "Batería compatible para {model}"
       must_include_tpl: ["{model_token}", "battery"]
+      must_not_include: ["trigger", "switch", "button", "filter", "charger", "dock", "wall mount"]
     - catKey: bateria
       sku_suffix: bat-high
       intent: "compra"
       title_tpl: "Batería compatible alta capacidad para {model}"
       must_include_tpl: ["{model_token}", "battery", "capacity"]
+      must_not_include: ["trigger", "switch", "button", "filter", "charger", "dock", "wall mount"]
 
     - catKey: filtro
       sku_suffix: filt-post-hepa
@@ -99,19 +104,21 @@ sku_packs:
       must_not_include: ["trigger", "switch", "button", "pcb", "board", "handle", "motor"]
 
     - catKey: accesorios
-      sku_suffix: acc-kit-boquillas
+      sku_suffix: acc-kit-accessory
       intent: "compra"
-      title_tpl: "Kit accesorios compatible para {model} (boquillas y cepillos)"
-      must_include_tpl: ["{model_token}", "accessory"]
+      title_tpl: "Kit accessory compatible para {model} (boquillas y cepillos)"
+      must_include_tpl: ["{model_token}", "accessory", "kit"]
       must_not_include: ["trigger", "switch", "button", "pcb", "board"]
     - catKey: accesorios
       sku_suffix: acc-pet
       intent: "compra"
-      title_tpl: "Kit mascotas compatible para {model} (mini cepillo)"
-      must_include_tpl: ["{model_token}", "pet"]
+      title_tpl: "Kit pet accessory compatible para {model} (mini cepillo)"
+      must_include_tpl: ["{model_token}", "pet", "accessory"]
       must_not_include: ["trigger", "switch", "button", "pcb", "board"]
 
-  # 10 EXACTOS orientado a robots (consumibles recurrentes)
+  # Robot:
+  # 10 EXACTOS (con señales que pasan tu CATEGORY_PART_TERMS):
+  # 2 filtros + 2 cepillos + 3 accesorios (mop/bag/kit) + 1 soporte (dock/base) + 2 accesorios (wheel/cover con 'accessory')
   robot10:
     - catKey: filtro
       sku_suffix: robot-filter-pack
@@ -127,45 +134,46 @@ sku_packs:
     - catKey: cepillo
       sku_suffix: robot-main-brush
       intent: "compra"
-      title_tpl: "Cepillo principal compatible para {model}"
+      title_tpl: "Main brush compatible para {model}"
       must_include_tpl: ["{model_token}", "main", "brush"]
+      must_not_include: ["battery", "charger", "trigger", "switch", "button"]
     - catKey: cepillo
       sku_suffix: robot-side-brush-pack
       intent: "compra"
-      title_tpl: "Cepillos laterales compatibles (pack) para {model}"
+      title_tpl: "Side brush compatibles (pack) para {model}"
       must_include_tpl: ["{model_token}", "side", "brush"]
+      must_not_include: ["battery", "charger", "trigger", "switch", "button"]
 
     - catKey: accesorios
-      sku_suffix: robot-mop-pads
+      sku_suffix: robot-mop-accessory
       intent: "compra"
-      title_tpl: "Mopas/paños compatibles (pack) para {model}"
-      must_include_tpl: ["{model_token}", "mop"]
+      title_tpl: "Mop accessory compatible (pack) para {model}"
+      must_include_tpl: ["{model_token}", "mop", "accessory"]
     - catKey: accesorios
-      sku_suffix: robot-dust-bags
+      sku_suffix: robot-dust-bag-accessory
       intent: "compra"
-      title_tpl: "Bolsas autovaciado compatibles (pack) para {model}"
-      must_include_tpl: ["{model_token}", "dust", "bag"]
+      title_tpl: "Dust bag accessory compatible (pack) para {model}"
+      must_include_tpl: ["{model_token}", "dust", "bag", "accessory"]
     - catKey: accesorios
-      sku_suffix: robot-rollers-kit
+      sku_suffix: robot-kit-accessory
       intent: "compra"
-      title_tpl: "Kit consumibles compatible para {model} (cepillos+filtros)"
-      must_include_tpl: ["{model_token}", "kit"]
-
-    - catKey: cargador
-      sku_suffix: robot-dock-power
-      intent: "compra"
-      title_tpl: "Base/cargador compatible para {model}"
-      must_include_tpl: ["{model_token}", "dock"]
-      must_not_include: ["trigger", "switch", "button", "pcb", "board"]
+      title_tpl: "Accessory kit compatible para {model} (brush+filter)"
+      must_include_tpl: ["{model_token}", "kit", "accessory"]
 
     - catKey: soporte
-      sku_suffix: robot-brush-cover
+      sku_suffix: robot-dock-base
       intent: "compra"
-      title_tpl: "Tapa/guardacepillo compatible para {model}"
-      must_include_tpl: ["{model_token}", "cover"]
+      title_tpl: "Dock base compatible para {model}"
+      must_include_tpl: ["{model_token}", "dock", "base"]
+      must_not_include: ["trigger", "switch", "button", "pcb", "board"]
 
     - catKey: accesorios
-      sku_suffix: robot-wheel
+      sku_suffix: robot-wheel-accessory
       intent: "compra"
-      title_tpl: "Rueda delantera compatible para {model}"
-      must_include_tpl: ["{model_token}", "wheel"]
+      title_tpl: "Wheel accessory compatible para {model}"
+      must_include_tpl: ["{model_token}", "wheel", "accessory"]
+    - catKey: accesorios
+      sku_suffix: robot-cover-accessory
+      intent: "compra"
+      title_tpl: "Brush cover accessory compatible para {model}"
+      must_include_tpl: ["{model_token}", "cover", "accessory"]
