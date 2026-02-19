@@ -9,7 +9,7 @@
     {{- if .IsHome -}}
       {{- .Site.Title -}}
     {{- else -}}
-      {{- .Title }} �? {{ .Site.Title -}}
+      {{- .Title }} | {{ .Site.Title -}}
     {{- end -}}
   </title>
 
@@ -32,7 +32,7 @@
   <meta name="robots" content="{{ . }}">
 {{- else -}}
   {{- if .Scratch.Get "noindex" -}}
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, follow">
   {{- else -}}
     <meta name="robots" content="index, follow">
   {{- end -}}

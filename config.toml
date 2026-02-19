@@ -1,34 +1,14 @@
 baseURL = "https://recambios-aspirador.com/"
-languageCode = "es-es"
-title = "Recambios de Aspirador"
+canonifyURLs = false
 enableRobotsTXT = true
-
-# Consistencia de URLs (evita canónicos distintos por / sí / no)
-
 
 [sitemap]
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
 
-[permalinks]
-  marcas  = "/marcas/:slug/"
-  guias   = "/guias/:slug/"
-
 [outputs]
   home = ["HTML", "RSS", "SITEMAP"]
-  # Si NO quieres RSS por secciones, deja solo HTML (recomendado para evitar URLs “thin”)
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
-
-[outputFormats]
-  [outputFormats.SITEMAP]
-    mediaType = "application/xml"
-    baseName = "sitemap"
-    isPlainText = true
-    rel = "sitemap"
-
-[params]
-  siteName = "recambios-aspirador.com"
-  defaultDescription = "Guías y recambios compatibles por marca y modelo de aspirador. Baterías, filtros, cepillos y cargadores con enlaces verificados."

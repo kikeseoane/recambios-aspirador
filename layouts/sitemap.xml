@@ -1,0 +1,29 @@
+{{- /* layouts/sitemap.xml (compatible, sin set) */ -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>\n" | safeHTML -}}
+{{- printf "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" | safeHTML -}}
+
+{{/* Home */}}
+{{- if not (.Site.Home.Scratch.Get "noindex") -}}
+  {{- $r := "" -}}{{- with .Site.Home.Params.robots -}}{{- $r = lower . -}}{{- end -}}
+  {{- if not (and $r (strings.Contains $r "noindex")) -}}
+    {{- printf "  <url><loc>%s</loc></url>\n" .Site.Home.Permalink | safeHTML -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Sections */}}
+{{- range .Site.Sections -}}
+  {{- $r := "" -}}{{- with .Params.robots -}}{{- $r = lower . -}}{{- end -}}
+  {{- if and (not (.Scratch.Get "noindex")) (not (and $r (strings.Contains $r "noindex"))) -}}
+    {{- printf "  <url><loc>%s</loc></url>\n" .Permalink | safeHTML -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Regular pages */}}
+{{- range .Site.RegularPages -}}
+  {{- $r := "" -}}{{- with .Params.robots -}}{{- $r = lower . -}}{{- end -}}
+  {{- if and (not (.Scratch.Get "noindex")) (not (and $r (strings.Contains $r "noindex"))) -}}
+    {{- printf "  <url><loc>%s</loc></url>\n" .Permalink | safeHTML -}}
+  {{- end -}}
+{{- end -}}
+
+{{- printf "</urlset>\n" | safeHTML -}}
