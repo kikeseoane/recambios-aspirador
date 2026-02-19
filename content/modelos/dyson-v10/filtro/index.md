@@ -1,5 +1,5 @@
 ---
-title: Dyson V10 · Filtro
+title: Dyson V10 · Filtros
 draft: false
 generated: true
 brandKey: dyson

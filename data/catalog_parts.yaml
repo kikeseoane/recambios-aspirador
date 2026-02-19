@@ -1,0 +1,171 @@
+globals:
+  categorias_recambios:
+    - key: bateria
+      label: "Batería"
+      icon: "battery"
+      buy_intent: "compra"
+    - key: filtro
+      label: "Filtros"
+      icon: "filter"
+      buy_intent: "compra"
+    - key: cepillo
+      label: "Cepillos y rodillos"
+      icon: "brush"
+      buy_intent: "compra"
+    - key: cargador
+      label: "Cargadores y fuentes"
+      icon: "plug"
+      buy_intent: "compra"
+    - key: soporte
+      label: "Soportes y bases"
+      icon: "mount"
+      buy_intent: "compra"
+    - key: accesorios
+      label: "Accesorios"
+      icon: "tools"
+      buy_intent: "compra"
+
+  guias_genericas:
+    seguridad:
+      - "Desconecta el aspirador antes de manipular filtros, rodillos o batería."
+      - "No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco)."
+      - "Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento y fallos de carga."
+      - "Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones y cableado."
+    mantenimiento:
+      - "Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de succión."
+      - "Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce el caudal."
+      - "Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras."
+      - "Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor correcto."
+    compra:
+      - "Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo de anclaje)."
+      - "En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso general."
+      - "En rodillos, elige según suelo: soft roller para duro; multisuperficie para mixto."
+      - "Si tu aspirador es robot, compra packs (filtros + cepillos laterales) para abaratar mantenimiento."
+
+# Packs de SKUs (el build_catalog.py genera recambios a partir de aquí)
+# IMPORTANTE: cada pack debe producir EXACTAMENTE 10 items
+sku_packs:
+  # 10 EXACTOS: 2 bateria + 2 filtro + 2 cepillo + 1 cargador + 1 soporte + 2 accesorios
+  default10:
+    - catKey: bateria
+      sku_suffix: bat-std
+      intent: "compra"
+      title_tpl: "Batería compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery"]
+    - catKey: bateria
+      sku_suffix: bat-high
+      intent: "compra"
+      title_tpl: "Batería compatible alta capacidad para {model}"
+      must_include_tpl: ["{model_token}", "battery", "capacity"]
+
+    - catKey: filtro
+      sku_suffix: filt-post-hepa
+      intent: "compra"
+      title_tpl: "Filtro HEPA post-motor compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "hepa"]
+      must_not_include: ["battery", "charger", "trigger", "switch", "button"]
+    - catKey: filtro
+      sku_suffix: filt-pre-pack2
+      intent: "compra"
+      title_tpl: "Filtro pre-motor compatible (pack 2) para {model}"
+      must_include_tpl: ["{model_token}", "filter", "pre"]
+      must_not_include: ["battery", "charger", "trigger", "switch", "button"]
+
+    - catKey: cepillo
+      sku_suffix: brush-roller-main
+      intent: "compra"
+      title_tpl: "Rodillo/cepillo principal compatible para {model}"
+      must_include_tpl: ["{model_token}", "roller"]
+      must_not_include: ["battery", "filter", "charger", "trigger", "switch", "button"]
+    - catKey: cepillo
+      sku_suffix: brush-soft-fluffy
+      intent: "compra"
+      title_tpl: "Rodillo Soft/Fluffy compatible para {model}"
+      must_include_tpl: ["{model_token}", "roller", "fluffy"]
+      must_not_include: ["battery", "filter", "charger", "trigger", "switch", "button"]
+
+    - catKey: cargador
+      sku_suffix: charger-eu
+      intent: "compra"
+      title_tpl: "Cargador compatible EU para {model}"
+      must_include_tpl: ["{model_token}", "charger"]
+      must_not_include: ["battery", "filter", "trigger", "switch", "button", "pcb", "board"]
+
+    - catKey: soporte
+      sku_suffix: dock-wall
+      intent: "compra"
+      title_tpl: "Soporte de pared / dock compatible para {model}"
+      must_include_tpl: ["{model_token}", "dock", "wall"]
+      must_not_include: ["trigger", "switch", "button", "pcb", "board", "handle", "motor"]
+
+    - catKey: accesorios
+      sku_suffix: acc-kit-boquillas
+      intent: "compra"
+      title_tpl: "Kit accesorios compatible para {model} (boquillas y cepillos)"
+      must_include_tpl: ["{model_token}", "accessory"]
+      must_not_include: ["trigger", "switch", "button", "pcb", "board"]
+    - catKey: accesorios
+      sku_suffix: acc-pet
+      intent: "compra"
+      title_tpl: "Kit mascotas compatible para {model} (mini cepillo)"
+      must_include_tpl: ["{model_token}", "pet"]
+      must_not_include: ["trigger", "switch", "button", "pcb", "board"]
+
+  # 10 EXACTOS orientado a robots (consumibles recurrentes)
+  robot10:
+    - catKey: filtro
+      sku_suffix: robot-filter-pack
+      intent: "compra"
+      title_tpl: "Filtros compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "filter"]
+    - catKey: filtro
+      sku_suffix: robot-hepa-pack
+      intent: "compra"
+      title_tpl: "Filtros HEPA compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "hepa", "filter"]
+
+    - catKey: cepillo
+      sku_suffix: robot-main-brush
+      intent: "compra"
+      title_tpl: "Cepillo principal compatible para {model}"
+      must_include_tpl: ["{model_token}", "main", "brush"]
+    - catKey: cepillo
+      sku_suffix: robot-side-brush-pack
+      intent: "compra"
+      title_tpl: "Cepillos laterales compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "side", "brush"]
+
+    - catKey: accesorios
+      sku_suffix: robot-mop-pads
+      intent: "compra"
+      title_tpl: "Mopas/paños compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "mop"]
+    - catKey: accesorios
+      sku_suffix: robot-dust-bags
+      intent: "compra"
+      title_tpl: "Bolsas autovaciado compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "dust", "bag"]
+    - catKey: accesorios
+      sku_suffix: robot-rollers-kit
+      intent: "compra"
+      title_tpl: "Kit consumibles compatible para {model} (cepillos+filtros)"
+      must_include_tpl: ["{model_token}", "kit"]
+
+    - catKey: cargador
+      sku_suffix: robot-dock-power
+      intent: "compra"
+      title_tpl: "Base/cargador compatible para {model}"
+      must_include_tpl: ["{model_token}", "dock"]
+      must_not_include: ["trigger", "switch", "button", "pcb", "board"]
+
+    - catKey: soporte
+      sku_suffix: robot-brush-cover
+      intent: "compra"
+      title_tpl: "Tapa/guardacepillo compatible para {model}"
+      must_include_tpl: ["{model_token}", "cover"]
+
+    - catKey: accesorios
+      sku_suffix: robot-wheel
+      intent: "compra"
+      title_tpl: "Rueda delantera compatible para {model}"
+      must_include_tpl: ["{model_token}", "wheel"]

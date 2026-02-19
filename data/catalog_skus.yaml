@@ -1,0 +1,25 @@
+# data/catalog_skus.yaml
+# Overrides opcionales:
+# - model_overrides: aplica a TODOS los SKUs autogenerados de ese modelo (ej: añadir tokens negativos)
+# - sku_overrides: aplica SOLO a un SKU concreto
+
+model_overrides:
+  dyson-v11:
+    # Ej: forzar token SV14 y evitar V10/V15 en resultados mixtos
+    extra_model_tokens: ["sv14"]
+    extra_must_not_include: ["v10","v15"]
+
+  roborock-s7:
+    # Robots: conviene empujar “maintenance kit/consumables”
+    query_hint: "Roborock S7 consumables kit filter brush"
+    extra_must_include: ["s7"]
+    extra_must_not_include: ["s5","s6","s8"]
+
+sku_overrides:
+  # Ejemplo: afinar un SKU concreto (se referencia por SKU final generado)
+  # Formato SKU final: "{brandKey}-{modelSlug}-{catKey}-{suffix}"
+  dyson-dyson-v11-bateria-bat-std:
+    query: "Dyson V11 SV14 click-in battery 25.2V replacement"
+    must_include: ["v11","battery"]
+    must_not_include: ["v10","v15","trigger","switch","button","filter","charger","dock","wall mount","motor"]
+    model_tokens: ["v11","sv14"]

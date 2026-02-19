@@ -1,563 +1,2581 @@
 globals:
   categorias_recambios:
-    - key: bateria
-      label: "Batería"
-      icon: "battery"
-      buy_intent: "compra"
-    - key: filtro
-      label: "Filtros"
-      icon: "filter"
-      buy_intent: "compra"
-    - key: cepillo
-      label: "Cepillos y rodillos"
-      icon: "brush"
-      buy_intent: "compra"
-    - key: cargador
-      label: "Cargadores y fuentes"
-      icon: "plug"
-      buy_intent: "compra"
-    - key: soporte
-      label: "Soportes y bases"
-      icon: "mount"
-      buy_intent: "compra"
-    - key: accesorios
-      label: "Accesorios"
-      icon: "tools"
-      buy_intent: "compra"
-
-  # “Anti-basura” reusable
-  negatives_common: &neg_common
-    - "trigger"
-    - "switch"
-    - "button"
-    - "pcb"
-    - "board"
-    - "motherboard"
-    - "circuit"
-    - "handle"
-    - "motor"
-    - "main body"
-    - "for parts"
-
-  negatives_battery: &neg_battery
-    - "filter"
-    - "charger"
-    - "dock"
-    - "wall mount"
-    - "trigger"
-    - "switch"
-    - "button"
-    - "pcb"
-    - "board"
-
-  negatives_filter: &neg_filter
-    - "battery"
-    - "charger"
-    - "trigger"
-    - "switch"
-    - "button"
-
-  negatives_charger: &neg_charger
-    - "battery"
-    - "filter"
-    - "trigger"
-    - "switch"
-    - "button"
-
-  negatives_brush: &neg_brush
-    - "battery"
-    - "filter"
-    - "charger"
-    - "trigger"
-    - "switch"
-    - "button"
-
-  neg_mount: &neg_mount
-    - "trigger"
-    - "switch"
-    - "button"
-    - "pcb"
-    - "board"
-    - "handle"
-    - "motor"
-
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales) para abaratar
+      mantenimiento.
 brands:
   dyson:
-    name: "Dyson"
-    country_hint: "UK"
-    notes_brand: "Gama premium; alto volumen de búsquedas y recambios compatibles (batería, filtros, rodillos)."
+    name: Dyson
+    country_hint: UK
+    notes_brand: Gama premium sin cable con mucha demanda de recambios compatibles.
     models:
-      - model: "Dyson V11"
-        slug: "dyson-v11"
-        series: "V-Series"
-        year_range: "2019-2023"
-        intro: "Dyson V11 es uno de los modelos más comunes en hogares con mascotas: potencia alta + mantenimiento frecuente (filtro/rodillo/batería)."
-        seo:
-          title: "Dyson V11: recambios compatibles y solución de fallos (succión, batería, cepillo)"
-          description: "Recambios del Dyson V11 por categorías (batería, filtros, rodillos, cargador) + solución de fallos típicos."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          voltaje_nominal: "25.2V"
-          notas: "Batería click-in; familia SV14 frecuente."
-        problemas:
-          - key: "no-carga"
-            title: "Dyson V11 no carga"
-            intent: "info"
-            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
-          - key: "poca-succion"
-            title: "Dyson V11 tiene poca succión"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-no-gira"
-            title: "El cepillo del Dyson V11 no gira"
-            intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
-        recambios:
-          bateria:
-            - sku: "dyson-v11-sv14-battery-252v-std"
-              title: "Batería click-in compatible 25.2V para Dyson V11 (SV14)"
-              query: "Dyson V11 SV14 click-in battery 25.2V replacement"
-              must_include: ["v11", "sv14", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["v11", "sv14"]
-            - sku: "dyson-v11-sv14-battery-252v-highcap"
-              title: "Batería click-in compatible alta capacidad 25.2V para Dyson V11 (SV14)"
-              query: "Dyson V11 SV14 high capacity click-in battery 25.2V replacement"
-              must_include: ["v11", "sv14", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["v11", "sv14"]
-          filtro:
-            - sku: "dyson-v11-sv14-filter-post-hepa"
-              title: "Filtro HEPA post-motor compatible Dyson V11 (SV14)"
-              query: "Dyson V11 SV14 HEPA post filter replacement"
-              must_include: ["v11", "sv14", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["v11", "sv14"]
-            - sku: "dyson-v11-sv14-filter-pre-pack2"
-              title: "Filtro pre-motor compatible pack 2 Dyson V11 (SV14)"
-              query: "Dyson V11 SV14 pre filter replacement pack 2"
-              must_include: ["v11", "sv14", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["v11", "sv14"]
-          cepillo:
-            - sku: "dyson-v11-roller-high-torque"
-              title: "Rodillo compatible para cabezal High Torque Dyson V11"
-              query: "Dyson V11 high torque roller brush replacement"
-              must_include: ["v11", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["v11", "sv14"]
-            - sku: "dyson-v11-roller-fluffy-soft"
-              title: "Rodillo compatible tipo Fluffy/Soft para Dyson V11"
-              query: "Dyson V11 fluffy soft roller replacement"
-              must_include: ["v11", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["v11", "sv14"]
-          cargador:
-            - sku: "dyson-v11-charger-eu"
-              title: "Cargador compatible EU para Dyson V11"
-              query: "Dyson V11 charger EU replacement"
-              must_include: ["v11", "charger"]
-              must_not_include: *neg_charger
-              model_tokens: ["v11", "sv14"]
-          soporte:
-            - sku: "dyson-v11-wall-mount-dock"
-              title: "Soporte/base de pared compatible para Dyson V11"
-              query: "Dyson V11 wall mount dock station holder"
-              must_include: ["v11", "dock"]
-              must_not_include: *neg_mount
-              model_tokens: ["v11", "sv14"]
-          accesorios:
-            - sku: "dyson-v11-accessory-kit-crevice"
-              title: "Kit accesorios compatible Dyson V11 (boquilla rincones + cepillos)"
-              query: "Dyson V11 accessory kit crevice brush nozzle"
-              must_include: ["v11", "kit"]
-              must_not_include: *neg_common
-              model_tokens: ["v11", "sv14"]
-
-      - model: "Dyson V15 Detect"
-        slug: "dyson-v15-detect"
-        series: "V-Series"
-        year_range: "2021-actual"
-        intro: "Dyson V15 Detect es top de gama: mucha intención de compra y gran mercado de recambio compatible."
-        seo:
-          title: "Dyson V15 Detect: recambios compatibles y fallos frecuentes"
-          description: "Recambios y fallos típicos del Dyson V15 Detect (batería, filtros HEPA, rodillos, cargador)."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          voltaje_nominal: "25.2V"
-          notas: "Familia V15; mucha búsqueda de batería y filtro HEPA."
-        problemas:
-          - key: "no-carga"
-            title: "Dyson V15 no carga"
-            intent: "info"
-            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
-          - key: "poca-succion"
-            title: "Dyson V15 pierde potencia"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-ruido"
-            title: "Dyson V15 hace ruido en el cabezal"
-            intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
-        recambios:
-          bateria:
-            - sku: "dyson-v15-battery-252v-std"
-              title: "Batería compatible 25.2V para Dyson V15 Detect"
-              query: "Dyson V15 Detect battery 25.2V replacement"
-              must_include: ["v15", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["v15"]
-            - sku: "dyson-v15-battery-252v-highcap"
-              title: "Batería compatible alta capacidad 25.2V para Dyson V15 Detect"
-              query: "Dyson V15 high capacity battery 25.2V replacement"
-              must_include: ["v15", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["v15"]
-          filtro:
-            - sku: "dyson-v15-filter-hepa-post"
-              title: "Filtro HEPA post-motor compatible Dyson V15"
-              query: "Dyson V15 HEPA post filter replacement"
-              must_include: ["v15", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["v15"]
-            - sku: "dyson-v15-filter-pre-pack2"
-              title: "Filtro pre-motor compatible pack 2 Dyson V15"
-              query: "Dyson V15 pre filter replacement pack 2"
-              must_include: ["v15", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["v15"]
-          cepillo:
-            - sku: "dyson-v15-roller-fluffy-laser"
-              title: "Rodillo compatible tipo Fluffy/Laser para Dyson V15"
-              query: "Dyson V15 fluffy laser roller replacement"
-              must_include: ["v15", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["v15"]
-            - sku: "dyson-v15-roller-multisurface"
-              title: "Rodillo compatible multisuperficie para Dyson V15"
-              query: "Dyson V15 roller brush multisurface replacement"
-              must_include: ["v15", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["v15"]
-          cargador:
-            - sku: "dyson-v15-charger-eu"
-              title: "Cargador compatible EU para Dyson V15"
-              query: "Dyson V15 charger EU replacement"
-              must_include: ["v15", "charger"]
-              must_not_include: *neg_charger
-              model_tokens: ["v15"]
-          accesorios:
-            - sku: "dyson-v15-accessory-kit"
-              title: "Kit accesorios compatible Dyson V15 (rincones + tapicería)"
-              query: "Dyson V15 accessory kit crevice upholstery nozzle"
-              must_include: ["v15", "kit"]
-              must_not_include: *neg_common
-              model_tokens: ["v15"]
-
-      - model: "Dyson V16"
-        slug: "dyson-v16"
-        series: "V-Series"
-        year_range: "2023-actual"
-        intro: "Dyson V16 es gama alta reciente; gran intención de compra y recambio compatible (HEPA, rodillos, batería)."
-        seo:
-          title: "Dyson V16: recambios compatibles (filtros, rodillos, batería) y fallos típicos"
-          description: "Recambios compatibles Dyson V16 + fallos habituales: potencia irregular, filtros, cabezal y batería."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          voltaje_nominal: "25.2V"
-          notas: "Modelo reciente; usa tokens V16."
-        problemas:
-          - key: "poca-succion"
-            title: "Dyson V16 tiene poca succión"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-no-gira"
-            title: "El cepillo del Dyson V16 no gira"
-            intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
-        recambios:
-          bateria:
-            - sku: "dyson-v16-battery-252v-std"
-              title: "Batería compatible 25.2V para Dyson V16"
-              query: "Dyson V16 battery 25.2V replacement"
-              must_include: ["v16", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["v16"]
-          filtro:
-            - sku: "dyson-v16-filter-hepa-post"
-              title: "Filtro HEPA post-motor compatible Dyson V16"
-              query: "Dyson V16 HEPA post filter replacement"
-              must_include: ["v16", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["v16"]
-          cepillo:
-            - sku: "dyson-v16-roller-multisurface"
-              title: "Rodillo compatible multisuperficie para Dyson V16"
-              query: "Dyson V16 roller brush replacement"
-              must_include: ["v16", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["v16"]
-          cargador:
-            - sku: "dyson-v16-charger-eu"
-              title: "Cargador compatible EU para Dyson V16"
-              query: "Dyson V16 charger EU replacement"
-              must_include: ["v16", "charger"]
-              must_not_include: *neg_charger
-              model_tokens: ["v16"]
-
-  shark:
-    name: "Shark"
-    country_hint: "US/UK"
-    notes_brand: "Marca de altísima demanda en stick vacuums (pet-friendly). Modelos recientes suelen rankear muy alto."
-    models:
-      - model: "Shark PowerDetect Cordless Pet"
-        slug: "shark-powerdetect-cordless-pet"
-        series: "Cordless"
-        year_range: "2024-actual"
-        intro: "Shark PowerDetect es un superventas reciente en gamas sin cable; mucha intención de compra y accesorios."
-        seo:
-          title: "Shark PowerDetect: recambios, filtros y solución de problemas"
-          description: "Recambios compatibles Shark PowerDetect (filtros, cepillos/rodillos, cargador) + fallos típicos."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          notas: "Busca por 'PowerDetect' y 'Shark' para filtrar bien en AliExpress."
-        problemas:
-          - key: "poca-succion"
-            title: "Shark PowerDetect tiene poca succión"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-no-gira"
-            title: "El rodillo Shark no gira"
-            intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
-        recambios:
-          filtro:
-            - sku: "shark-powerdetect-filter-hepa"
-              title: "Filtro HEPA compatible para Shark PowerDetect"
-              query: "Shark PowerDetect HEPA filter replacement"
-              must_include: ["shark", "powerdetect", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["powerdetect"]
-          cepillo:
-            - sku: "shark-powerdetect-roller-brush"
-              title: "Rodillo/cepillo compatible para Shark PowerDetect"
-              query: "Shark PowerDetect roller brush replacement"
-              must_include: ["shark", "powerdetect", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["powerdetect"]
-          cargador:
-            - sku: "shark-powerdetect-charger"
-              title: "Cargador compatible para Shark PowerDetect"
-              query: "Shark PowerDetect charger replacement"
-              must_include: ["shark", "powerdetect", "charger"]
-              must_not_include: *neg_charger
-              model_tokens: ["powerdetect"]
-          accesorios:
-            - sku: "shark-powerdetect-accessory-kit"
-              title: "Kit accesorios compatible Shark (rincones + tapicería) para PowerDetect"
-              query: "Shark PowerDetect accessory kit crevice upholstery"
-              must_include: ["shark", "powerdetect", "kit"]
-              must_not_include: *neg_common
-              model_tokens: ["powerdetect"]
-
-  rowenta:
-    name: "Rowenta"
-    country_hint: "FR"
-    notes_brand: "Muy vendida en Europa/ES (X-Force Flex). Alto volumen de búsquedas por batería y filtros."
-    models:
-      - model: "Rowenta X-Force Flex 14.60"
-        slug: "rowenta-x-force-flex-1460"
-        series: "X-Force Flex"
-        year_range: "2021-actual"
-        intro: "Rowenta X-Force Flex 14.60 es un modelo muy común: la reposición típica es filtro, rodillo y batería."
-        seo:
-          title: "Rowenta X-Force Flex 14.60: recambios compatibles y fallos típicos"
-          description: "Recambios por categoría para Rowenta X-Force Flex 14.60: filtros, rodillos, cargador y batería."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          notas: "En AliExpress, usar token 'X-Force' + '14.60' en must_include."
-        problemas:
-          - key: "no-carga"
-            title: "Rowenta X-Force no carga"
-            intent: "info"
-            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
-          - key: "poca-succion"
-            title: "Rowenta X-Force pierde potencia"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-        recambios:
-          bateria:
-            - sku: "rowenta-xforce-1460-battery"
-              title: "Batería compatible para Rowenta X-Force Flex 14.60"
-              query: "Rowenta X-Force Flex 14.60 battery replacement"
-              must_include: ["rowenta", "x-force", "14.60", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["14.60", "x-force"]
-          filtro:
-            - sku: "rowenta-xforce-1460-filter"
-              title: "Filtro compatible para Rowenta X-Force Flex 14.60"
-              query: "Rowenta X-Force Flex 14.60 filter replacement"
-              must_include: ["rowenta", "x-force", "14.60", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["14.60", "x-force"]
-          cepillo:
-            - sku: "rowenta-xforce-1460-roller"
-              title: "Rodillo/cepillo compatible para Rowenta X-Force Flex 14.60"
-              query: "Rowenta X-Force Flex 14.60 roller brush replacement"
-              must_include: ["rowenta", "x-force", "14.60", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["14.60", "x-force"]
-          accesorios:
-            - sku: "rowenta-xforce-1460-accessory-kit"
-              title: "Kit accesorios compatible Rowenta X-Force (rincones + tapicería)"
-              query: "Rowenta X-Force Flex accessory kit crevice upholstery"
-              must_include: ["rowenta", "x-force", "kit"]
-              must_not_include: *neg_common
-              model_tokens: ["x-force"]
-
+    - model: Dyson V8
+      slug: dyson-v8
+      series: V-Series
+      year_range: 2016-2021
+      sku_pack: default10
+      model_tokens:
+      - v8
+      seo:
+        title: 'Dyson V8: recambios compatibles, fallos comunes y mantenimiento'
+        description: Compatibilidad, recambios por categorías, problemas típicos (succión,
+          batería, cepillo) y mantenimiento del Dyson V8.
+      problemas:
+      - key: no-carga
+        title: Dyson V8 no carga
+        intent: info
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      - key: poca-succion
+        title: Dyson V8 tiene poca succión
+        intent: info
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: cepillo-no-gira
+        title: El cepillo del Dyson V8 no gira
+        intent: info
+        cta:
+          catKey: cepillo
+          label: Ver rodillos compatibles
+      recambios:
+        bateria:
+        - sku: dyson-dyson-v8-bateria-bat-std
+          title: Batería compatible para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 bateria Batería compatible para Dyson V8
+          must_include:
+          - v8
+          - battery
+          model_tokens: &id001
+          - v8
+        - sku: dyson-dyson-v8-bateria-bat-high
+          title: Batería compatible alta capacidad para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 bateria Batería compatible alta capacidad para Dyson
+            V8
+          must_include:
+          - v8
+          - battery
+          - capacity
+          model_tokens: *id001
+        filtro:
+        - sku: dyson-dyson-v8-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 filtro Filtro HEPA post-motor compatible para Dyson
+            V8
+          must_include:
+          - v8
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id001
+        - sku: dyson-dyson-v8-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 filtro Filtro pre-motor compatible (pack 2) para Dyson
+            V8
+          must_include:
+          - v8
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id001
+        cepillo:
+        - sku: dyson-dyson-v8-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 cepillo Rodillo/cepillo principal compatible para
+            Dyson V8
+          must_include:
+          - v8
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id001
+        - sku: dyson-dyson-v8-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 cepillo Rodillo Soft/Fluffy compatible para Dyson
+            V8
+          must_include:
+          - v8
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id001
+        cargador:
+        - sku: dyson-dyson-v8-cargador-charger-eu
+          title: Cargador compatible EU para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 cargador Cargador compatible EU para Dyson V8
+          must_include:
+          - v8
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id001
+        soporte:
+        - sku: dyson-dyson-v8-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Dyson V8
+          intent: compra
+          query: Dyson Dyson V8 soporte Soporte de pared / dock compatible para Dyson
+            V8
+          must_include:
+          - v8
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id001
+        accesorios:
+        - sku: dyson-dyson-v8-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Dyson V8 (boquillas y cepillos)
+          intent: compra
+          query: Dyson Dyson V8 accesorios Kit accesorios compatible para Dyson V8
+            (boquillas y cepillos)
+          must_include:
+          - v8
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id001
+        - sku: dyson-dyson-v8-accesorios-acc-pet
+          title: Kit mascotas compatible para Dyson V8 (mini cepillo)
+          intent: compra
+          query: Dyson Dyson V8 accesorios Kit mascotas compatible para Dyson V8 (mini
+            cepillo)
+          must_include:
+          - v8
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id001
+    - model: Dyson V10
+      slug: dyson-v10
+      series: V-Series
+      year_range: 2018-2022
+      sku_pack: default10
+      model_tokens:
+      - v10
+      problemas:
+      - key: se-apaga-turbo
+        title: Dyson V10 se apaga en modo turbo
+        intent: info
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      - key: poca-succion
+        title: Dyson V10 tiene poca succión
+        intent: info
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bateria:
+        - sku: dyson-dyson-v10-bateria-bat-std
+          title: Batería compatible para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 bateria Batería compatible para Dyson V10
+          must_include:
+          - v10
+          - battery
+          model_tokens: &id002
+          - v10
+        - sku: dyson-dyson-v10-bateria-bat-high
+          title: Batería compatible alta capacidad para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 bateria Batería compatible alta capacidad para Dyson
+            V10
+          must_include:
+          - v10
+          - battery
+          - capacity
+          model_tokens: *id002
+        filtro:
+        - sku: dyson-dyson-v10-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 filtro Filtro HEPA post-motor compatible para Dyson
+            V10
+          must_include:
+          - v10
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id002
+        - sku: dyson-dyson-v10-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 filtro Filtro pre-motor compatible (pack 2) para
+            Dyson V10
+          must_include:
+          - v10
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id002
+        cepillo:
+        - sku: dyson-dyson-v10-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 cepillo Rodillo/cepillo principal compatible para
+            Dyson V10
+          must_include:
+          - v10
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id002
+        - sku: dyson-dyson-v10-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 cepillo Rodillo Soft/Fluffy compatible para Dyson
+            V10
+          must_include:
+          - v10
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id002
+        cargador:
+        - sku: dyson-dyson-v10-cargador-charger-eu
+          title: Cargador compatible EU para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 cargador Cargador compatible EU para Dyson V10
+          must_include:
+          - v10
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id002
+        soporte:
+        - sku: dyson-dyson-v10-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Dyson V10
+          intent: compra
+          query: Dyson Dyson V10 soporte Soporte de pared / dock compatible para Dyson
+            V10
+          must_include:
+          - v10
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id002
+        accesorios:
+        - sku: dyson-dyson-v10-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Dyson V10 (boquillas y cepillos)
+          intent: compra
+          query: Dyson Dyson V10 accesorios Kit accesorios compatible para Dyson V10
+            (boquillas y cepillos)
+          must_include:
+          - v10
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id002
+        - sku: dyson-dyson-v10-accesorios-acc-pet
+          title: Kit mascotas compatible para Dyson V10 (mini cepillo)
+          intent: compra
+          query: Dyson Dyson V10 accesorios Kit mascotas compatible para Dyson V10
+            (mini cepillo)
+          must_include:
+          - v10
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id002
+    - model: Dyson V11
+      slug: dyson-v11
+      series: V-Series
+      year_range: 2019-2023
+      sku_pack: default10
+      model_tokens:
+      - v11
+      - sv14
+      problemas:
+      - key: no-carga
+        title: Dyson V11 no carga
+        intent: info
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      - key: poca-succion
+        title: Dyson V11 tiene poca succión
+        intent: info
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: cepillo-no-gira
+        title: El cepillo del Dyson V11 no gira
+        intent: info
+        cta:
+          catKey: cepillo
+          label: Ver rodillos compatibles
+      recambios:
+        bateria:
+        - sku: dyson-dyson-v11-bateria-bat-std
+          title: Batería compatible para Dyson V11
+          intent: compra
+          query: Dyson V11 SV14 click-in battery 25.2V replacement
+          must_include:
+          - v11
+          - battery
+          must_not_include:
+          - v10
+          - v15
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          - motor
+          model_tokens:
+          - v11
+          - sv14
+        - sku: dyson-dyson-v11-bateria-bat-high
+          title: Batería compatible alta capacidad para Dyson V11
+          intent: compra
+          query: Dyson Dyson V11 bateria Batería compatible alta capacidad para Dyson
+            V11
+          must_include:
+          - v11
+          - battery
+          - capacity
+          must_not_include:
+          - v10
+          - v15
+          model_tokens: &id003
+          - v11
+          - sv14
+        filtro:
+        - sku: dyson-dyson-v11-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Dyson V11
+          intent: compra
+          query: Dyson Dyson V11 filtro Filtro HEPA post-motor compatible para Dyson
+            V11
+          must_include:
+          - v11
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          - v10
+          - v15
+          model_tokens: *id003
+        - sku: dyson-dyson-v11-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Dyson V11
+          intent: compra
+          query: Dyson Dyson V11 filtro Filtro pre-motor compatible (pack 2) para
+            Dyson V11
+          must_include:
+          - v11
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          - v10
+          - v15
+          model_tokens: *id003
+        cepillo:
+        - sku: dyson-dyson-v11-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Dyson V11
+          intent: compra
+          query: Dyson Dyson V11 cepillo Rodillo/cepillo principal compatible para
+            Dyson V11
+          must_include:
+          - v11
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          - v10
+          - v15
+          model_tokens: *id003
+        - sku: dyson-dyson-v11-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Dyson V11
+          intent: compra
+          query: Dyson Dyson V11 cepillo Rodillo Soft/Fluffy compatible para Dyson
+            V11
+          must_include:
+          - v11
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          - v10
+          - v15
+          model_tokens: *id003
+        cargador:
+        - sku: dyson-dyson-v11-cargador-charger-eu
+          title: Cargador compatible EU para Dyson V11
+          intent: compra
+          query: Dyson Dyson V11 cargador Cargador compatible EU para Dyson V11
+          must_include:
+          - v11
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - v10
+          - v15
+          model_tokens: *id003
+        soporte:
+        - sku: dyson-dyson-v11-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Dyson V11
+          intent: compra
+          query: Dyson Dyson V11 soporte Soporte de pared / dock compatible para Dyson
+            V11
+          must_include:
+          - v11
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          - v10
+          - v15
+          model_tokens: *id003
+        accesorios:
+        - sku: dyson-dyson-v11-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Dyson V11 (boquillas y cepillos)
+          intent: compra
+          query: Dyson Dyson V11 accesorios Kit accesorios compatible para Dyson V11
+            (boquillas y cepillos)
+          must_include:
+          - v11
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - v10
+          - v15
+          model_tokens: *id003
+        - sku: dyson-dyson-v11-accesorios-acc-pet
+          title: Kit mascotas compatible para Dyson V11 (mini cepillo)
+          intent: compra
+          query: Dyson Dyson V11 accesorios Kit mascotas compatible para Dyson V11
+            (mini cepillo)
+          must_include:
+          - v11
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - v10
+          - v15
+          model_tokens: *id003
+    - model: Dyson V12 Detect Slim
+      slug: dyson-v12-detect-slim
+      series: V-Series
+      year_range: 2021-actual
+      sku_pack: default10
+      model_tokens:
+      - v12
+      problemas:
+      - key: no-enciende
+        title: Dyson V12 no enciende o se apaga
+        intent: info
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      recambios:
+        bateria:
+        - sku: dyson-dyson-v12-detect-slim-bateria-bat-std
+          title: Batería compatible para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim bateria Batería compatible para Dyson
+            V12 Detect Slim
+          must_include:
+          - v12
+          - battery
+          model_tokens: &id004
+          - v12
+        - sku: dyson-dyson-v12-detect-slim-bateria-bat-high
+          title: Batería compatible alta capacidad para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim bateria Batería compatible alta capacidad
+            para Dyson V12 Detect Slim
+          must_include:
+          - v12
+          - battery
+          - capacity
+          model_tokens: *id004
+        filtro:
+        - sku: dyson-dyson-v12-detect-slim-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim filtro Filtro HEPA post-motor compatible
+            para Dyson V12 Detect Slim
+          must_include:
+          - v12
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        - sku: dyson-dyson-v12-detect-slim-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim filtro Filtro pre-motor compatible (pack
+            2) para Dyson V12 Detect Slim
+          must_include:
+          - v12
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        cepillo:
+        - sku: dyson-dyson-v12-detect-slim-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim cepillo Rodillo/cepillo principal compatible
+            para Dyson V12 Detect Slim
+          must_include:
+          - v12
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        - sku: dyson-dyson-v12-detect-slim-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim cepillo Rodillo Soft/Fluffy compatible
+            para Dyson V12 Detect Slim
+          must_include:
+          - v12
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        cargador:
+        - sku: dyson-dyson-v12-detect-slim-cargador-charger-eu
+          title: Cargador compatible EU para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim cargador Cargador compatible EU para
+            Dyson V12 Detect Slim
+          must_include:
+          - v12
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id004
+        soporte:
+        - sku: dyson-dyson-v12-detect-slim-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Dyson V12 Detect Slim
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim soporte Soporte de pared / dock compatible
+            para Dyson V12 Detect Slim
+          must_include:
+          - v12
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id004
+        accesorios:
+        - sku: dyson-dyson-v12-detect-slim-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Dyson V12 Detect Slim (boquillas y
+            cepillos)
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim accesorios Kit accesorios compatible
+            para Dyson V12 Detect Slim (boquillas y cepillos)
+          must_include:
+          - v12
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id004
+        - sku: dyson-dyson-v12-detect-slim-accesorios-acc-pet
+          title: Kit mascotas compatible para Dyson V12 Detect Slim (mini cepillo)
+          intent: compra
+          query: Dyson Dyson V12 Detect Slim accesorios Kit mascotas compatible para
+            Dyson V12 Detect Slim (mini cepillo)
+          must_include:
+          - v12
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id004
+    - model: Dyson V15 Detect
+      slug: dyson-v15-detect
+      series: V-Series
+      year_range: 2021-actual
+      sku_pack: default10
+      model_tokens:
+      - v15
+      problemas:
+      - key: no-enciende
+        title: Dyson V15 no enciende o se apaga
+        intent: info
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      recambios:
+        bateria:
+        - sku: dyson-dyson-v15-detect-bateria-bat-std
+          title: Batería compatible para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect bateria Batería compatible para Dyson V15
+            Detect
+          must_include:
+          - v15
+          - battery
+          model_tokens: &id005
+          - v15
+        - sku: dyson-dyson-v15-detect-bateria-bat-high
+          title: Batería compatible alta capacidad para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect bateria Batería compatible alta capacidad
+            para Dyson V15 Detect
+          must_include:
+          - v15
+          - battery
+          - capacity
+          model_tokens: *id005
+        filtro:
+        - sku: dyson-dyson-v15-detect-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect filtro Filtro HEPA post-motor compatible para
+            Dyson V15 Detect
+          must_include:
+          - v15
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id005
+        - sku: dyson-dyson-v15-detect-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect filtro Filtro pre-motor compatible (pack 2)
+            para Dyson V15 Detect
+          must_include:
+          - v15
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id005
+        cepillo:
+        - sku: dyson-dyson-v15-detect-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect cepillo Rodillo/cepillo principal compatible
+            para Dyson V15 Detect
+          must_include:
+          - v15
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id005
+        - sku: dyson-dyson-v15-detect-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect cepillo Rodillo Soft/Fluffy compatible para
+            Dyson V15 Detect
+          must_include:
+          - v15
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id005
+        cargador:
+        - sku: dyson-dyson-v15-detect-cargador-charger-eu
+          title: Cargador compatible EU para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect cargador Cargador compatible EU para Dyson
+            V15 Detect
+          must_include:
+          - v15
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id005
+        soporte:
+        - sku: dyson-dyson-v15-detect-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Dyson V15 Detect
+          intent: compra
+          query: Dyson Dyson V15 Detect soporte Soporte de pared / dock compatible
+            para Dyson V15 Detect
+          must_include:
+          - v15
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id005
+        accesorios:
+        - sku: dyson-dyson-v15-detect-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Dyson V15 Detect (boquillas y cepillos)
+          intent: compra
+          query: Dyson Dyson V15 Detect accesorios Kit accesorios compatible para
+            Dyson V15 Detect (boquillas y cepillos)
+          must_include:
+          - v15
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id005
+        - sku: dyson-dyson-v15-detect-accesorios-acc-pet
+          title: Kit mascotas compatible para Dyson V15 Detect (mini cepillo)
+          intent: compra
+          query: Dyson Dyson V15 Detect accesorios Kit mascotas compatible para Dyson
+            V15 Detect (mini cepillo)
+          must_include:
+          - v15
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id005
   cecotec:
-    name: "Cecotec"
-    country_hint: "ES"
-    notes_brand: "Marca con enorme presencia en España (Rockstar/Conga). Mucha búsqueda de filtros/rodillos/baterías."
+    name: Cecotec
+    country_hint: ES
+    notes_brand: Muy vendida en España. Conga y Rockstar con demanda alta de consumibles.
     models:
-      - model: "Cecotec Conga Rockstar 1500"
-        slug: "cecotec-rockstar-1500"
-        series: "Rockstar"
-        year_range: "2020-actual"
-        intro: "Conga Rockstar 1500 es una de las más comunes en ES. Recambios típicos: filtros, cepillo, batería."
-        seo:
-          title: "Cecotec Conga Rockstar 1500: recambios compatibles y fallos típicos"
-          description: "Recambios Conga Rockstar 1500: filtros, rodillos, batería y accesorios + problemas habituales."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          notas: "En AliExpress: 'Conga Rockstar 1500' suele aparecer literal."
-        problemas:
-          - key: "poca-succion"
-            title: "Conga Rockstar tiene poca succión"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-no-gira"
-            title: "Conga Rockstar: el cepillo no gira"
-            intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
-        recambios:
-          bateria:
-            - sku: "cecotec-rockstar-1500-battery"
-              title: "Batería compatible para Conga Rockstar 1500"
-              query: "Cecotec Conga Rockstar 1500 battery replacement"
-              must_include: ["conga", "rockstar", "1500", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["rockstar", "1500"]
-          filtro:
-            - sku: "cecotec-rockstar-1500-filter-hepa"
-              title: "Filtro HEPA compatible para Conga Rockstar 1500"
-              query: "Cecotec Conga Rockstar 1500 HEPA filter replacement"
-              must_include: ["conga", "rockstar", "1500", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["rockstar", "1500"]
-          cepillo:
-            - sku: "cecotec-rockstar-1500-roller"
-              title: "Rodillo/cepillo compatible para Conga Rockstar 1500"
-              query: "Cecotec Conga Rockstar 1500 roller brush replacement"
-              must_include: ["conga", "rockstar", "1500", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["rockstar", "1500"]
-          accesorios:
-            - sku: "cecotec-rockstar-accessory-kit"
-              title: "Kit accesorios compatible Conga Rockstar (rincones + tapicería)"
-              query: "Cecotec Conga Rockstar accessory kit crevice upholstery"
-              must_include: ["conga", "rockstar", "kit"]
-              must_not_include: *neg_common
-              model_tokens: ["rockstar"]
-
+    - model: Conga Rockstar 1500 Ultimate ErgoWet
+      slug: conga-rockstar-1500
+      series: Rockstar
+      year_range: 2020-actual
+      sku_pack: default10
+      model_tokens:
+      - '1500'
+      - rockstar
+      problemas:
+      - key: poca-succion
+        title: Conga Rockstar 1500 pierde potencia
+        intent: info
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bateria:
+        - sku: cecotec-conga-rockstar-1500-bateria-bat-std
+          title: Batería compatible para Conga Rockstar 1500 Ultimate ErgoWet
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet bateria Batería compatible
+            para Conga Rockstar 1500 Ultimate ErgoWet
+          must_include:
+          - '1500'
+          - battery
+          model_tokens: &id006
+          - '1500'
+          - rockstar
+        - sku: cecotec-conga-rockstar-1500-bateria-bat-high
+          title: Batería compatible alta capacidad para Conga Rockstar 1500 Ultimate
+            ErgoWet
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet bateria Batería compatible
+            alta capacidad para Conga Rockstar 1500 Ultimate
+          must_include:
+          - '1500'
+          - battery
+          - capacity
+          model_tokens: *id006
+        filtro:
+        - sku: cecotec-conga-rockstar-1500-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Conga Rockstar 1500 Ultimate
+            ErgoWet
+          intent: compra
+          query: 'Cecotec Conga Rockstar 1500 Ultimate ErgoWet filtro Filtro HEPA
+            post-motor compatible para Conga Rockstar 1500 Ultimate '
+          must_include:
+          - '1500'
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id006
+        - sku: cecotec-conga-rockstar-1500-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Conga Rockstar 1500 Ultimate
+            ErgoWet
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet filtro Filtro pre-motor
+            compatible (pack 2) para Conga Rockstar 1500 Ultima
+          must_include:
+          - '1500'
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id006
+        cepillo:
+        - sku: cecotec-conga-rockstar-1500-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Conga Rockstar 1500 Ultimate
+            ErgoWet
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet cepillo Rodillo/cepillo
+            principal compatible para Conga Rockstar 1500 Ultim
+          must_include:
+          - '1500'
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id006
+        - sku: cecotec-conga-rockstar-1500-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Conga Rockstar 1500 Ultimate
+            ErgoWet
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet cepillo Rodillo Soft/Fluffy
+            compatible para Conga Rockstar 1500 Ultimate Er
+          must_include:
+          - '1500'
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id006
+        cargador:
+        - sku: cecotec-conga-rockstar-1500-cargador-charger-eu
+          title: Cargador compatible EU para Conga Rockstar 1500 Ultimate ErgoWet
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet cargador Cargador compatible
+            EU para Conga Rockstar 1500 Ultimate ErgoWet
+          must_include:
+          - '1500'
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id006
+        soporte:
+        - sku: cecotec-conga-rockstar-1500-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Conga Rockstar 1500 Ultimate
+            ErgoWet
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet soporte Soporte de pared
+            / dock compatible para Conga Rockstar 1500 Ultimat
+          must_include:
+          - '1500'
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id006
+        accesorios:
+        - sku: cecotec-conga-rockstar-1500-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Conga Rockstar 1500 Ultimate ErgoWet
+            (boquillas y cepillos)
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet accesorios Kit accesorios
+            compatible para Conga Rockstar 1500 Ultimate Ergo
+          must_include:
+          - '1500'
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id006
+        - sku: cecotec-conga-rockstar-1500-accesorios-acc-pet
+          title: Kit mascotas compatible para Conga Rockstar 1500 Ultimate ErgoWet
+            (mini cepillo)
+          intent: compra
+          query: Cecotec Conga Rockstar 1500 Ultimate ErgoWet accesorios Kit mascotas
+            compatible para Conga Rockstar 1500 Ultimate ErgoWe
+          must_include:
+          - '1500'
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id006
+    - model: Conga Rockstar 2000
+      slug: conga-rockstar-2000
+      series: Rockstar
+      year_range: 2021-actual
+      sku_pack: default10
+      model_tokens:
+      - '2000'
+      - rockstar
+      problemas:
+      - key: bateria-dura-poco
+        title: 'Conga Rockstar 2000: la batería dura poco'
+        intent: info
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      recambios:
+        bateria:
+        - sku: cecotec-conga-rockstar-2000-bateria-bat-std
+          title: Batería compatible para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 bateria Batería compatible para Conga
+            Rockstar 2000
+          must_include:
+          - '2000'
+          - battery
+          model_tokens: &id007
+          - '2000'
+          - rockstar
+        - sku: cecotec-conga-rockstar-2000-bateria-bat-high
+          title: Batería compatible alta capacidad para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 bateria Batería compatible alta capacidad
+            para Conga Rockstar 2000
+          must_include:
+          - '2000'
+          - battery
+          - capacity
+          model_tokens: *id007
+        filtro:
+        - sku: cecotec-conga-rockstar-2000-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 filtro Filtro HEPA post-motor compatible
+            para Conga Rockstar 2000
+          must_include:
+          - '2000'
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        - sku: cecotec-conga-rockstar-2000-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 filtro Filtro pre-motor compatible (pack
+            2) para Conga Rockstar 2000
+          must_include:
+          - '2000'
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        cepillo:
+        - sku: cecotec-conga-rockstar-2000-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 cepillo Rodillo/cepillo principal compatible
+            para Conga Rockstar 2000
+          must_include:
+          - '2000'
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        - sku: cecotec-conga-rockstar-2000-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 cepillo Rodillo Soft/Fluffy compatible
+            para Conga Rockstar 2000
+          must_include:
+          - '2000'
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        cargador:
+        - sku: cecotec-conga-rockstar-2000-cargador-charger-eu
+          title: Cargador compatible EU para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 cargador Cargador compatible EU para
+            Conga Rockstar 2000
+          must_include:
+          - '2000'
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id007
+        soporte:
+        - sku: cecotec-conga-rockstar-2000-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Conga Rockstar 2000
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 soporte Soporte de pared / dock compatible
+            para Conga Rockstar 2000
+          must_include:
+          - '2000'
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id007
+        accesorios:
+        - sku: cecotec-conga-rockstar-2000-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Conga Rockstar 2000 (boquillas y cepillos)
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 accesorios Kit accesorios compatible
+            para Conga Rockstar 2000 (boquillas y cepillos)
+          must_include:
+          - '2000'
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id007
+        - sku: cecotec-conga-rockstar-2000-accesorios-acc-pet
+          title: Kit mascotas compatible para Conga Rockstar 2000 (mini cepillo)
+          intent: compra
+          query: Cecotec Conga Rockstar 2000 accesorios Kit mascotas compatible para
+            Conga Rockstar 2000 (mini cepillo)
+          must_include:
+          - '2000'
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id007
+  rowenta:
+    name: Rowenta
+    country_hint: FR
+    notes_brand: X-Force con mucho volumen en Europa. Alto potencial de recambios.
+    models:
+    - model: Rowenta X-Force Flex 11.60
+      slug: rowenta-xforce-1160
+      series: X-Force
+      year_range: 2020-actual
+      sku_pack: default10
+      model_tokens:
+      - '11.60'
+      - '1160'
+      - x-force
+      problemas:
+      - key: no-carga
+        title: Rowenta X-Force 11.60 no carga
+        intent: info
+        cta:
+          catKey: cargador
+          label: Ver cargadores compatibles
+      recambios:
+        bateria:
+        - sku: rowenta-rowenta-xforce-1160-bateria-bat-std
+          title: Batería compatible para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 bateria Batería compatible para
+            Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - battery
+          model_tokens: &id008
+          - '11.60'
+          - '1160'
+          - x-force
+        - sku: rowenta-rowenta-xforce-1160-bateria-bat-high
+          title: Batería compatible alta capacidad para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 bateria Batería compatible alta
+            capacidad para Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - battery
+          - capacity
+          model_tokens: *id008
+        filtro:
+        - sku: rowenta-rowenta-xforce-1160-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 filtro Filtro HEPA post-motor
+            compatible para Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        - sku: rowenta-rowenta-xforce-1160-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 filtro Filtro pre-motor compatible
+            (pack 2) para Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        cepillo:
+        - sku: rowenta-rowenta-xforce-1160-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 cepillo Rodillo/cepillo principal
+            compatible para Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        - sku: rowenta-rowenta-xforce-1160-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 cepillo Rodillo Soft/Fluffy compatible
+            para Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        cargador:
+        - sku: rowenta-rowenta-xforce-1160-cargador-charger-eu
+          title: Cargador compatible EU para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 cargador Cargador compatible EU
+            para Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id008
+        soporte:
+        - sku: rowenta-rowenta-xforce-1160-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Rowenta X-Force Flex 11.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 soporte Soporte de pared / dock
+            compatible para Rowenta X-Force Flex 11.60
+          must_include:
+          - '11.60'
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id008
+        accesorios:
+        - sku: rowenta-rowenta-xforce-1160-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Rowenta X-Force Flex 11.60 (boquillas
+            y cepillos)
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 accesorios Kit accesorios compatible
+            para Rowenta X-Force Flex 11.60 (boquillas y cep
+          must_include:
+          - '11.60'
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id008
+        - sku: rowenta-rowenta-xforce-1160-accesorios-acc-pet
+          title: Kit mascotas compatible para Rowenta X-Force Flex 11.60 (mini cepillo)
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 11.60 accesorios Kit mascotas compatible
+            para Rowenta X-Force Flex 11.60 (mini cepillo)
+          must_include:
+          - '11.60'
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id008
+    - model: Rowenta X-Force Flex 15.60
+      slug: rowenta-xforce-1560
+      series: X-Force
+      year_range: 2021-actual
+      sku_pack: default10
+      model_tokens:
+      - '15.60'
+      - '1560'
+      - x-force
+      problemas:
+      - key: cepillo-no-gira
+        title: 'Rowenta X-Force 15.60: el cepillo no gira'
+        intent: info
+        cta:
+          catKey: cepillo
+          label: Ver rodillos compatibles
+      recambios:
+        bateria:
+        - sku: rowenta-rowenta-xforce-1560-bateria-bat-std
+          title: Batería compatible para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 bateria Batería compatible para
+            Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - battery
+          model_tokens: &id009
+          - '15.60'
+          - '1560'
+          - x-force
+        - sku: rowenta-rowenta-xforce-1560-bateria-bat-high
+          title: Batería compatible alta capacidad para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 bateria Batería compatible alta
+            capacidad para Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - battery
+          - capacity
+          model_tokens: *id009
+        filtro:
+        - sku: rowenta-rowenta-xforce-1560-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 filtro Filtro HEPA post-motor
+            compatible para Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id009
+        - sku: rowenta-rowenta-xforce-1560-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 filtro Filtro pre-motor compatible
+            (pack 2) para Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id009
+        cepillo:
+        - sku: rowenta-rowenta-xforce-1560-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 cepillo Rodillo/cepillo principal
+            compatible para Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id009
+        - sku: rowenta-rowenta-xforce-1560-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 cepillo Rodillo Soft/Fluffy compatible
+            para Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id009
+        cargador:
+        - sku: rowenta-rowenta-xforce-1560-cargador-charger-eu
+          title: Cargador compatible EU para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 cargador Cargador compatible EU
+            para Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id009
+        soporte:
+        - sku: rowenta-rowenta-xforce-1560-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Rowenta X-Force Flex 15.60
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 soporte Soporte de pared / dock
+            compatible para Rowenta X-Force Flex 15.60
+          must_include:
+          - '15.60'
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id009
+        accesorios:
+        - sku: rowenta-rowenta-xforce-1560-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Rowenta X-Force Flex 15.60 (boquillas
+            y cepillos)
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 accesorios Kit accesorios compatible
+            para Rowenta X-Force Flex 15.60 (boquillas y cep
+          must_include:
+          - '15.60'
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id009
+        - sku: rowenta-rowenta-xforce-1560-accesorios-acc-pet
+          title: Kit mascotas compatible para Rowenta X-Force Flex 15.60 (mini cepillo)
+          intent: compra
+          query: Rowenta Rowenta X-Force Flex 15.60 accesorios Kit mascotas compatible
+            para Rowenta X-Force Flex 15.60 (mini cepillo)
+          must_include:
+          - '15.60'
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id009
   bosch:
-    name: "Bosch"
-    country_hint: "DE"
-    notes_brand: "Bosch Unlimited es muy vendida en Europa; recambios típicos: filtros, batería, rodillos."
+    name: Bosch
+    country_hint: DE
+    notes_brand: Unlimited con ecosistema de baterías. Tráfico transaccional fuerte.
     models:
-      - model: "Bosch Unlimited Series 7"
-        slug: "bosch-unlimited-series-7"
-        series: "Unlimited"
-        year_range: "2020-actual"
-        intro: "Bosch Unlimited Series 7: muy extendida. El mercado de recambio compatible se concentra en filtro/rodillo/batería."
-        seo:
-          title: "Bosch Unlimited Serie 7: recambios compatibles y fallos frecuentes"
-          description: "Recambios Bosch Unlimited Serie 7 por categorías + fallos típicos de pérdida de potencia y cepillo."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          notas: "En AliExpress, 'Bosch Unlimited' + 'Series 7' filtra bien."
-        problemas:
-          - key: "poca-succion"
-            title: "Bosch Unlimited pierde succión"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-        recambios:
-          bateria:
-            - sku: "bosch-unlimited-series7-battery"
-              title: "Batería compatible para Bosch Unlimited Serie 7"
-              query: "Bosch Unlimited Series 7 battery replacement"
-              must_include: ["bosch", "unlimited", "series", "battery"]
-              must_not_include: *neg_battery
-              model_tokens: ["unlimited", "series 7", "serie 7"]
-          filtro:
-            - sku: "bosch-unlimited-series7-filter"
-              title: "Filtro compatible para Bosch Unlimited Serie 7"
-              query: "Bosch Unlimited Series 7 filter replacement"
-              must_include: ["bosch", "unlimited", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["unlimited", "series 7", "serie 7"]
-          cepillo:
-            - sku: "bosch-unlimited-series7-roller"
-              title: "Rodillo/cepillo compatible para Bosch Unlimited Serie 7"
-              query: "Bosch Unlimited roller brush replacement"
-              must_include: ["bosch", "unlimited", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["unlimited", "series 7", "serie 7"]
-
-  samsung:
-    name: "Samsung"
-    country_hint: "KR"
-    notes_brand: "Jet es una familia muy vendida (Jet 75/90/95). Buen EPC en accesorios y filtros."
+    - model: Bosch Unlimited Serie 6
+      slug: bosch-unlimited-serie-6
+      series: Unlimited
+      year_range: 2019-actual
+      sku_pack: default10
+      model_tokens:
+      - serie 6
+      - series 6
+      problemas:
+      - key: poca-succion
+        title: Bosch Unlimited Serie 6 tiene poca succión
+        intent: info
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bateria:
+        - sku: bosch-bosch-unlimited-serie-6-bateria-bat-std
+          title: Batería compatible para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 bateria Batería compatible para Bosch
+            Unlimited Serie 6
+          must_include:
+          - bosch
+          - battery
+          model_tokens: &id010
+          - serie 6
+          - series 6
+        - sku: bosch-bosch-unlimited-serie-6-bateria-bat-high
+          title: Batería compatible alta capacidad para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 bateria Batería compatible alta capacidad
+            para Bosch Unlimited Serie 6
+          must_include:
+          - bosch
+          - battery
+          - capacity
+          model_tokens: *id010
+        filtro:
+        - sku: bosch-bosch-unlimited-serie-6-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 filtro Filtro HEPA post-motor compatible
+            para Bosch Unlimited Serie 6
+          must_include:
+          - bosch
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        - sku: bosch-bosch-unlimited-serie-6-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 filtro Filtro pre-motor compatible
+            (pack 2) para Bosch Unlimited Serie 6
+          must_include:
+          - bosch
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        cepillo:
+        - sku: bosch-bosch-unlimited-serie-6-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 cepillo Rodillo/cepillo principal compatible
+            para Bosch Unlimited Serie 6
+          must_include:
+          - bosch
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        - sku: bosch-bosch-unlimited-serie-6-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 cepillo Rodillo Soft/Fluffy compatible
+            para Bosch Unlimited Serie 6
+          must_include:
+          - bosch
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        cargador:
+        - sku: bosch-bosch-unlimited-serie-6-cargador-charger-eu
+          title: Cargador compatible EU para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 cargador Cargador compatible EU para
+            Bosch Unlimited Serie 6
+          must_include:
+          - bosch
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id010
+        soporte:
+        - sku: bosch-bosch-unlimited-serie-6-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Bosch Unlimited Serie 6
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 soporte Soporte de pared / dock compatible
+            para Bosch Unlimited Serie 6
+          must_include:
+          - bosch
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id010
+        accesorios:
+        - sku: bosch-bosch-unlimited-serie-6-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Bosch Unlimited Serie 6 (boquillas
+            y cepillos)
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 accesorios Kit accesorios compatible
+            para Bosch Unlimited Serie 6 (boquillas y cepillos)
+          must_include:
+          - bosch
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id010
+        - sku: bosch-bosch-unlimited-serie-6-accesorios-acc-pet
+          title: Kit mascotas compatible para Bosch Unlimited Serie 6 (mini cepillo)
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 6 accesorios Kit mascotas compatible
+            para Bosch Unlimited Serie 6 (mini cepillo)
+          must_include:
+          - bosch
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id010
+    - model: Bosch Unlimited Serie 7
+      slug: bosch-unlimited-serie-7
+      series: Unlimited
+      year_range: 2020-actual
+      sku_pack: default10
+      model_tokens:
+      - serie 7
+      - series 7
+      problemas:
+      - key: no-carga
+        title: Bosch Unlimited Serie 7 no carga
+        intent: info
+        cta:
+          catKey: cargador
+          label: Ver cargadores compatibles
+      recambios:
+        bateria:
+        - sku: bosch-bosch-unlimited-serie-7-bateria-bat-std
+          title: Batería compatible para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 bateria Batería compatible para Bosch
+            Unlimited Serie 7
+          must_include:
+          - bosch
+          - battery
+          model_tokens: &id011
+          - serie 7
+          - series 7
+        - sku: bosch-bosch-unlimited-serie-7-bateria-bat-high
+          title: Batería compatible alta capacidad para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 bateria Batería compatible alta capacidad
+            para Bosch Unlimited Serie 7
+          must_include:
+          - bosch
+          - battery
+          - capacity
+          model_tokens: *id011
+        filtro:
+        - sku: bosch-bosch-unlimited-serie-7-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 filtro Filtro HEPA post-motor compatible
+            para Bosch Unlimited Serie 7
+          must_include:
+          - bosch
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        - sku: bosch-bosch-unlimited-serie-7-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 filtro Filtro pre-motor compatible
+            (pack 2) para Bosch Unlimited Serie 7
+          must_include:
+          - bosch
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        cepillo:
+        - sku: bosch-bosch-unlimited-serie-7-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 cepillo Rodillo/cepillo principal compatible
+            para Bosch Unlimited Serie 7
+          must_include:
+          - bosch
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        - sku: bosch-bosch-unlimited-serie-7-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 cepillo Rodillo Soft/Fluffy compatible
+            para Bosch Unlimited Serie 7
+          must_include:
+          - bosch
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        cargador:
+        - sku: bosch-bosch-unlimited-serie-7-cargador-charger-eu
+          title: Cargador compatible EU para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 cargador Cargador compatible EU para
+            Bosch Unlimited Serie 7
+          must_include:
+          - bosch
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id011
+        soporte:
+        - sku: bosch-bosch-unlimited-serie-7-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Bosch Unlimited Serie 7
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 soporte Soporte de pared / dock compatible
+            para Bosch Unlimited Serie 7
+          must_include:
+          - bosch
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id011
+        accesorios:
+        - sku: bosch-bosch-unlimited-serie-7-accesorios-acc-kit-boquillas
+          title: Kit accesorios compatible para Bosch Unlimited Serie 7 (boquillas
+            y cepillos)
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 accesorios Kit accesorios compatible
+            para Bosch Unlimited Serie 7 (boquillas y cepillos)
+          must_include:
+          - bosch
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id011
+        - sku: bosch-bosch-unlimited-serie-7-accesorios-acc-pet
+          title: Kit mascotas compatible para Bosch Unlimited Serie 7 (mini cepillo)
+          intent: compra
+          query: Bosch Bosch Unlimited Serie 7 accesorios Kit mascotas compatible
+            para Bosch Unlimited Serie 7 (mini cepillo)
+          must_include:
+          - bosch
+          - pet
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id011
+  roborock:
+    name: Roborock
+    country_hint: CN
+    notes_brand: Top ventas en robots (S/Q series). Consumibles recurrentes.
     models:
-      - model: "Samsung Jet 90"
-        slug: "samsung-jet-90"
-        series: "Jet"
-        year_range: "2020-actual"
-        intro: "Samsung Jet 90: alto volumen de búsqueda de filtros HEPA y rodillos anti-enredos."
-        seo:
-          title: "Samsung Jet 90: recambios compatibles (filtros, rodillos, batería) y fallos"
-          description: "Catálogo por categorías para Samsung Jet 90 + fallos típicos de succión y cabezal."
-        specs:
-          tipo: "aspirador escoba sin cable"
-          notas: "Usa tokens 'Jet 90' + 'Samsung' en AliExpress."
-        problemas:
-          - key: "poca-succion"
-            title: "Samsung Jet 90 pierde potencia"
-            intent: "info"
-            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
-          - key: "cepillo-no-gira"
-            title: "Samsung Jet 90: el rodillo no gira"
-            intent: "info"
-            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
-        recambios:
-          filtro:
-            - sku: "samsung-jet90-filter-hepa"
-              title: "Filtro HEPA compatible para Samsung Jet 90"
-              query: "Samsung Jet 90 HEPA filter replacement"
-              must_include: ["samsung", "jet", "90", "filter"]
-              must_not_include: *neg_filter
-              model_tokens: ["jet 90", "jet90", "90"]
-          cepillo:
-            - sku: "samsung-jet90-roller-brush"
-              title: "Rodillo/cepillo compatible para Samsung Jet 90"
-              query: "Samsung Jet 90 roller brush replacement"
-              must_include: ["samsung", "jet", "90", "roller"]
-              must_not_include: *neg_brush
-              model_tokens: ["jet 90", "jet90", "90"]
-          cargador:
-            - sku: "samsung-jet90-charger"
-              title: "Cargador compatible para Samsung Jet 90"
-              query: "Samsung Jet 90 charger replacement"
-              must_include: ["samsung", "jet", "90", "charger"]
-              must_not_include: *neg_charger
-              model_tokens: ["jet 90", "jet90", "90"]
+    - model: Roborock S7
+      slug: roborock-s7
+      series: S-Series
+      year_range: 2021-actual
+      sku_pack: robot10
+      model_tokens:
+      - s7
+      - roborock
+      problemas:
+      - key: no-aspira
+        title: Roborock S7 no aspira bien
+        intent: info
+        cta:
+          catKey: cepillo
+          label: Ver cepillos compatibles
+      recambios:
+        filtro:
+        - sku: roborock-roborock-s7-filtro-robot-filter-pack
+          title: Filtros compatibles (pack) para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - filter
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: &id012
+          - s7
+          - roborock
+        - sku: roborock-roborock-s7-filtro-robot-hepa-pack
+          title: Filtros HEPA compatibles (pack) para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - hepa
+          - filter
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        cepillo:
+        - sku: roborock-roborock-s7-cepillo-robot-main-brush
+          title: Cepillo principal compatible para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - main
+          - brush
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        - sku: roborock-roborock-s7-cepillo-robot-side-brush-pack
+          title: Cepillos laterales compatibles (pack) para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - side
+          - brush
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        accesorios:
+        - sku: roborock-roborock-s7-accesorios-robot-mop-pads
+          title: Mopas/paños compatibles (pack) para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - mop
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        - sku: roborock-roborock-s7-accesorios-robot-dust-bags
+          title: Bolsas autovaciado compatibles (pack) para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - dust
+          - bag
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        - sku: roborock-roborock-s7-accesorios-robot-rollers-kit
+          title: Kit consumibles compatible para Roborock S7 (cepillos+filtros)
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - kit
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        - sku: roborock-roborock-s7-accesorios-robot-wheel
+          title: Rueda delantera compatible para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - wheel
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        cargador:
+        - sku: roborock-roborock-s7-cargador-robot-dock-power
+          title: Base/cargador compatible para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - dock
+          - s7
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+        soporte:
+        - sku: roborock-roborock-s7-soporte-robot-brush-cover
+          title: Tapa/guardacepillo compatible para Roborock S7
+          intent: compra
+          query: Roborock S7 consumables kit filter brush
+          must_include:
+          - s7
+          - cover
+          - s7
+          must_not_include:
+          - s5
+          - s6
+          - s8
+          model_tokens: *id012
+    - model: Roborock S8
+      slug: roborock-s8
+      series: S-Series
+      year_range: 2023-actual
+      sku_pack: robot10
+      model_tokens:
+      - s8
+      - roborock
+      problemas:
+      - key: ruido-cepillo
+        title: Roborock S8 hace ruido en el cepillo
+        intent: info
+        cta:
+          catKey: cepillo
+          label: Ver cepillos compatibles
+      recambios:
+        filtro:
+        - sku: roborock-roborock-s8-filtro-robot-filter-pack
+          title: Filtros compatibles (pack) para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 filtro Filtros compatibles (pack) para Roborock
+            S8
+          must_include:
+          - s8
+          - filter
+          model_tokens: &id013
+          - s8
+          - roborock
+        - sku: roborock-roborock-s8-filtro-robot-hepa-pack
+          title: Filtros HEPA compatibles (pack) para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 filtro Filtros HEPA compatibles (pack) para
+            Roborock S8
+          must_include:
+          - s8
+          - hepa
+          - filter
+          model_tokens: *id013
+        cepillo:
+        - sku: roborock-roborock-s8-cepillo-robot-main-brush
+          title: Cepillo principal compatible para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 cepillo Cepillo principal compatible para Roborock
+            S8
+          must_include:
+          - s8
+          - main
+          - brush
+          model_tokens: *id013
+        - sku: roborock-roborock-s8-cepillo-robot-side-brush-pack
+          title: Cepillos laterales compatibles (pack) para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 cepillo Cepillos laterales compatibles (pack)
+            para Roborock S8
+          must_include:
+          - s8
+          - side
+          - brush
+          model_tokens: *id013
+        accesorios:
+        - sku: roborock-roborock-s8-accesorios-robot-mop-pads
+          title: Mopas/paños compatibles (pack) para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 accesorios Mopas/paños compatibles (pack) para
+            Roborock S8
+          must_include:
+          - s8
+          - mop
+          model_tokens: *id013
+        - sku: roborock-roborock-s8-accesorios-robot-dust-bags
+          title: Bolsas autovaciado compatibles (pack) para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 accesorios Bolsas autovaciado compatibles (pack)
+            para Roborock S8
+          must_include:
+          - s8
+          - dust
+          - bag
+          model_tokens: *id013
+        - sku: roborock-roborock-s8-accesorios-robot-rollers-kit
+          title: Kit consumibles compatible para Roborock S8 (cepillos+filtros)
+          intent: compra
+          query: Roborock Roborock S8 accesorios Kit consumibles compatible para Roborock
+            S8 (cepillos+filtros)
+          must_include:
+          - s8
+          - kit
+          model_tokens: *id013
+        - sku: roborock-roborock-s8-accesorios-robot-wheel
+          title: Rueda delantera compatible para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 accesorios Rueda delantera compatible para Roborock
+            S8
+          must_include:
+          - s8
+          - wheel
+          model_tokens: *id013
+        cargador:
+        - sku: roborock-roborock-s8-cargador-robot-dock-power
+          title: Base/cargador compatible para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 cargador Base/cargador compatible para Roborock
+            S8
+          must_include:
+          - s8
+          - dock
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id013
+        soporte:
+        - sku: roborock-roborock-s8-soporte-robot-brush-cover
+          title: Tapa/guardacepillo compatible para Roborock S8
+          intent: compra
+          query: Roborock Roborock S8 soporte Tapa/guardacepillo compatible para Roborock
+            S8
+          must_include:
+          - s8
+          - cover
+          model_tokens: *id013
+  irobot:
+    name: iRobot
+    country_hint: US
+    notes_brand: 'Roomba: histórico enorme de ventas. Consumibles fáciles de monetizar.'
+    models:
+    - model: Roomba i7
+      slug: roomba-i7
+      series: Roomba
+      year_range: 2018-actual
+      sku_pack: robot10
+      model_tokens:
+      - i7
+      - roomba
+      problemas:
+      - key: no-carga
+        title: Roomba i7 no carga
+        intent: info
+        cta:
+          catKey: cargador
+          label: Ver bases/cargadores compatibles
+      recambios:
+        filtro:
+        - sku: irobot-roomba-i7-filtro-robot-filter-pack
+          title: Filtros compatibles (pack) para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 filtro Filtros compatibles (pack) para Roomba i7
+          must_include:
+          - i7
+          - filter
+          model_tokens: &id014
+          - i7
+          - roomba
+        - sku: irobot-roomba-i7-filtro-robot-hepa-pack
+          title: Filtros HEPA compatibles (pack) para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 filtro Filtros HEPA compatibles (pack) para Roomba
+            i7
+          must_include:
+          - i7
+          - hepa
+          - filter
+          model_tokens: *id014
+        cepillo:
+        - sku: irobot-roomba-i7-cepillo-robot-main-brush
+          title: Cepillo principal compatible para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 cepillo Cepillo principal compatible para Roomba
+            i7
+          must_include:
+          - i7
+          - main
+          - brush
+          model_tokens: *id014
+        - sku: irobot-roomba-i7-cepillo-robot-side-brush-pack
+          title: Cepillos laterales compatibles (pack) para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 cepillo Cepillos laterales compatibles (pack) para
+            Roomba i7
+          must_include:
+          - i7
+          - side
+          - brush
+          model_tokens: *id014
+        accesorios:
+        - sku: irobot-roomba-i7-accesorios-robot-mop-pads
+          title: Mopas/paños compatibles (pack) para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 accesorios Mopas/paños compatibles (pack) para Roomba
+            i7
+          must_include:
+          - i7
+          - mop
+          model_tokens: *id014
+        - sku: irobot-roomba-i7-accesorios-robot-dust-bags
+          title: Bolsas autovaciado compatibles (pack) para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 accesorios Bolsas autovaciado compatibles (pack)
+            para Roomba i7
+          must_include:
+          - i7
+          - dust
+          - bag
+          model_tokens: *id014
+        - sku: irobot-roomba-i7-accesorios-robot-rollers-kit
+          title: Kit consumibles compatible para Roomba i7 (cepillos+filtros)
+          intent: compra
+          query: iRobot Roomba i7 accesorios Kit consumibles compatible para Roomba
+            i7 (cepillos+filtros)
+          must_include:
+          - i7
+          - kit
+          model_tokens: *id014
+        - sku: irobot-roomba-i7-accesorios-robot-wheel
+          title: Rueda delantera compatible para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 accesorios Rueda delantera compatible para Roomba
+            i7
+          must_include:
+          - i7
+          - wheel
+          model_tokens: *id014
+        cargador:
+        - sku: irobot-roomba-i7-cargador-robot-dock-power
+          title: Base/cargador compatible para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 cargador Base/cargador compatible para Roomba i7
+          must_include:
+          - i7
+          - dock
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id014
+        soporte:
+        - sku: irobot-roomba-i7-soporte-robot-brush-cover
+          title: Tapa/guardacepillo compatible para Roomba i7
+          intent: compra
+          query: iRobot Roomba i7 soporte Tapa/guardacepillo compatible para Roomba
+            i7
+          must_include:
+          - i7
+          - cover
+          model_tokens: *id014
+    - model: Roomba j7
+      slug: roomba-j7
+      series: Roomba
+      year_range: 2021-actual
+      sku_pack: robot10
+      model_tokens:
+      - j7
+      - roomba
+      problemas:
+      - key: no-aspira
+        title: Roomba j7 no aspira bien
+        intent: info
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        filtro:
+        - sku: irobot-roomba-j7-filtro-robot-filter-pack
+          title: Filtros compatibles (pack) para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 filtro Filtros compatibles (pack) para Roomba j7
+          must_include:
+          - j7
+          - filter
+          model_tokens: &id015
+          - j7
+          - roomba
+        - sku: irobot-roomba-j7-filtro-robot-hepa-pack
+          title: Filtros HEPA compatibles (pack) para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 filtro Filtros HEPA compatibles (pack) para Roomba
+            j7
+          must_include:
+          - j7
+          - hepa
+          - filter
+          model_tokens: *id015
+        cepillo:
+        - sku: irobot-roomba-j7-cepillo-robot-main-brush
+          title: Cepillo principal compatible para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 cepillo Cepillo principal compatible para Roomba
+            j7
+          must_include:
+          - j7
+          - main
+          - brush
+          model_tokens: *id015
+        - sku: irobot-roomba-j7-cepillo-robot-side-brush-pack
+          title: Cepillos laterales compatibles (pack) para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 cepillo Cepillos laterales compatibles (pack) para
+            Roomba j7
+          must_include:
+          - j7
+          - side
+          - brush
+          model_tokens: *id015
+        accesorios:
+        - sku: irobot-roomba-j7-accesorios-robot-mop-pads
+          title: Mopas/paños compatibles (pack) para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 accesorios Mopas/paños compatibles (pack) para Roomba
+            j7
+          must_include:
+          - j7
+          - mop
+          model_tokens: *id015
+        - sku: irobot-roomba-j7-accesorios-robot-dust-bags
+          title: Bolsas autovaciado compatibles (pack) para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 accesorios Bolsas autovaciado compatibles (pack)
+            para Roomba j7
+          must_include:
+          - j7
+          - dust
+          - bag
+          model_tokens: *id015
+        - sku: irobot-roomba-j7-accesorios-robot-rollers-kit
+          title: Kit consumibles compatible para Roomba j7 (cepillos+filtros)
+          intent: compra
+          query: iRobot Roomba j7 accesorios Kit consumibles compatible para Roomba
+            j7 (cepillos+filtros)
+          must_include:
+          - j7
+          - kit
+          model_tokens: *id015
+        - sku: irobot-roomba-j7-accesorios-robot-wheel
+          title: Rueda delantera compatible para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 accesorios Rueda delantera compatible para Roomba
+            j7
+          must_include:
+          - j7
+          - wheel
+          model_tokens: *id015
+        cargador:
+        - sku: irobot-roomba-j7-cargador-robot-dock-power
+          title: Base/cargador compatible para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 cargador Base/cargador compatible para Roomba j7
+          must_include:
+          - j7
+          - dock
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id015
+        soporte:
+        - sku: irobot-roomba-j7-soporte-robot-brush-cover
+          title: Tapa/guardacepillo compatible para Roomba j7
+          intent: compra
+          query: iRobot Roomba j7 soporte Tapa/guardacepillo compatible para Roomba
+            j7
+          must_include:
+          - j7
+          - cover
+          model_tokens: *id015

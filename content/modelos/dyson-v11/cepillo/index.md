@@ -1,5 +1,5 @@
 ---
-title: Dyson V11 · Cepillo
+title: Dyson V11 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dyson

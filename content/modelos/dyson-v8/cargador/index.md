@@ -1,5 +1,5 @@
 ---
-title: Dyson V8 · Cargador
+title: Dyson V8 · Cargadores y fuentes
 draft: false
 generated: true
 brandKey: dyson

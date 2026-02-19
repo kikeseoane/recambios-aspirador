@@ -1,5 +1,5 @@
 ---
-title: Dyson V10 · Cepillo
+title: Dyson V10 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dyson

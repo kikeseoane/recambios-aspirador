@@ -1,0 +1,233 @@
+brands:
+  dyson:
+    name: "Dyson"
+    country_hint: "UK"
+    notes_brand: "Gama premium sin cable con mucha demanda de recambios compatibles."
+    models:
+      - model: "Dyson V8"
+        slug: "dyson-v8"
+        series: "V-Series"
+        year_range: "2016-2021"
+        sku_pack: "default10"
+        model_tokens: ["v8"]
+        seo:
+          title: "Dyson V8: recambios compatibles, fallos comunes y mantenimiento"
+          description: "Compatibilidad, recambios por categorías, problemas típicos (succión, batería, cepillo) y mantenimiento del Dyson V8."
+        problemas:
+          - key: "no-carga"
+            title: "Dyson V8 no carga"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "poca-succion"
+            title: "Dyson V8 tiene poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-no-gira"
+            title: "El cepillo del Dyson V8 no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
+      - model: "Dyson V10"
+        slug: "dyson-v10"
+        series: "V-Series"
+        year_range: "2018-2022"
+        sku_pack: "default10"
+        model_tokens: ["v10"]
+        problemas:
+          - key: "se-apaga-turbo"
+            title: "Dyson V10 se apaga en modo turbo"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "poca-succion"
+            title: "Dyson V10 tiene poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Dyson V11"
+        slug: "dyson-v11"
+        series: "V-Series"
+        year_range: "2019-2023"
+        sku_pack: "default10"
+        model_tokens: ["v11", "sv14"]
+        problemas:
+          - key: "no-carga"
+            title: "Dyson V11 no carga"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "poca-succion"
+            title: "Dyson V11 tiene poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-no-gira"
+            title: "El cepillo del Dyson V11 no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
+      - model: "Dyson V12 Detect Slim"
+        slug: "dyson-v12-detect-slim"
+        series: "V-Series"
+        year_range: "2021-actual"
+        sku_pack: "default10"
+        model_tokens: ["v12"]
+        problemas:
+          - key: "no-enciende"
+            title: "Dyson V12 no enciende o se apaga"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+      - model: "Dyson V15 Detect"
+        slug: "dyson-v15-detect"
+        series: "V-Series"
+        year_range: "2021-actual"
+        sku_pack: "default10"
+        model_tokens: ["v15"]
+        problemas:
+          - key: "no-enciende"
+            title: "Dyson V15 no enciende o se apaga"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+  cecotec:
+    name: "Cecotec"
+    country_hint: "ES"
+    notes_brand: "Muy vendida en España. Conga y Rockstar con demanda alta de consumibles."
+    models:
+      - model: "Conga Rockstar 1500 Ultimate ErgoWet"
+        slug: "conga-rockstar-1500"
+        series: "Rockstar"
+        year_range: "2020-actual"
+        sku_pack: "default10"
+        model_tokens: ["1500", "rockstar"]
+        problemas:
+          - key: "poca-succion"
+            title: "Conga Rockstar 1500 pierde potencia"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Conga Rockstar 2000"
+        slug: "conga-rockstar-2000"
+        series: "Rockstar"
+        year_range: "2021-actual"
+        sku_pack: "default10"
+        model_tokens: ["2000", "rockstar"]
+        problemas:
+          - key: "bateria-dura-poco"
+            title: "Conga Rockstar 2000: la batería dura poco"
+            intent: "info"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+  rowenta:
+    name: "Rowenta"
+    country_hint: "FR"
+    notes_brand: "X-Force con mucho volumen en Europa. Alto potencial de recambios."
+    models:
+      - model: "Rowenta X-Force Flex 11.60"
+        slug: "rowenta-xforce-1160"
+        series: "X-Force"
+        year_range: "2020-actual"
+        sku_pack: "default10"
+        model_tokens: ["11.60", "1160", "x-force"]
+        problemas:
+          - key: "no-carga"
+            title: "Rowenta X-Force 11.60 no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
+      - model: "Rowenta X-Force Flex 15.60"
+        slug: "rowenta-xforce-1560"
+        series: "X-Force"
+        year_range: "2021-actual"
+        sku_pack: "default10"
+        model_tokens: ["15.60", "1560", "x-force"]
+        problemas:
+          - key: "cepillo-no-gira"
+            title: "Rowenta X-Force 15.60: el cepillo no gira"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver rodillos compatibles" }
+
+  bosch:
+    name: "Bosch"
+    country_hint: "DE"
+    notes_brand: "Unlimited con ecosistema de baterías. Tráfico transaccional fuerte."
+    models:
+      - model: "Bosch Unlimited Serie 6"
+        slug: "bosch-unlimited-serie-6"
+        series: "Unlimited"
+        year_range: "2019-actual"
+        sku_pack: "default10"
+        model_tokens: ["serie 6", "series 6"]
+        problemas:
+          - key: "poca-succion"
+            title: "Bosch Unlimited Serie 6 tiene poca succión"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Bosch Unlimited Serie 7"
+        slug: "bosch-unlimited-serie-7"
+        series: "Unlimited"
+        year_range: "2020-actual"
+        sku_pack: "default10"
+        model_tokens: ["serie 7", "series 7"]
+        problemas:
+          - key: "no-carga"
+            title: "Bosch Unlimited Serie 7 no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
+  roborock:
+    name: "Roborock"
+    country_hint: "CN"
+    notes_brand: "Top ventas en robots (S/Q series). Consumibles recurrentes."
+    models:
+      - model: "Roborock S7"
+        slug: "roborock-s7"
+        series: "S-Series"
+        year_range: "2021-actual"
+        sku_pack: "robot10"
+        model_tokens: ["s7", "roborock"]
+        problemas:
+          - key: "no-aspira"
+            title: "Roborock S7 no aspira bien"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Roborock S8"
+        slug: "roborock-s8"
+        series: "S-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["s8", "roborock"]
+        problemas:
+          - key: "ruido-cepillo"
+            title: "Roborock S8 hace ruido en el cepillo"
+            intent: "info"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+  irobot:
+    name: "iRobot"
+    country_hint: "US"
+    notes_brand: "Roomba: histórico enorme de ventas. Consumibles fáciles de monetizar."
+    models:
+      - model: "Roomba i7"
+        slug: "roomba-i7"
+        series: "Roomba"
+        year_range: "2018-actual"
+        sku_pack: "robot10"
+        model_tokens: ["i7", "roomba"]
+        problemas:
+          - key: "no-carga"
+            title: "Roomba i7 no carga"
+            intent: "info"
+            cta: { catKey: "cargador", label: "Ver bases/cargadores compatibles" }
+
+      - model: "Roomba j7"
+        slug: "roomba-j7"
+        series: "Roomba"
+        year_range: "2021-actual"
+        sku_pack: "robot10"
+        model_tokens: ["j7", "roomba"]
+        problemas:
+          - key: "no-aspira"
+            title: "Roomba j7 no aspira bien"
+            intent: "info"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
