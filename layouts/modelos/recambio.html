@@ -54,6 +54,30 @@
     {{ end }}
   {{ end }}
 
+  {{/* Intro dinámica por categoría */}}
+  {{ $catIntro1 := printf "Encuentra %s compatibles para %s con una selección pensada para mantenimiento, sustitución y reparación habitual." ($catLabel | lower) $mtitle }}
+  {{ $catIntro2 := "Antes de comprar, revisa el modelo exacto, la serie, el encaje y las especificaciones clave del recambio." }}
+
+  {{ if eq $catKey "filtro" }}
+    {{ $catIntro1 = printf "Encuentra filtros compatibles para %s y elige la opción adecuada para mantener la potencia de aspiración y el filtrado." $mtitle }}
+    {{ $catIntro2 = "Comprueba forma, medidas, anclajes y si se trata de filtro HEPA, prefiltro o filtro trasero." }}
+  {{ else if eq $catKey "bateria" }}
+    {{ $catIntro1 = printf "Encuentra baterías compatibles para %s y revisa las opciones más habituales de sustitución cuando la autonomía baja o el equipo deja de funcionar correctamente." $mtitle }}
+    {{ $catIntro2 = "Verifica voltaje, capacidad, tipo de conector y compatibilidad exacta con la serie de tu aspirador." }}
+  {{ else if eq $catKey "cargador" }}
+    {{ $catIntro1 = printf "Encuentra cargadores compatibles para %s y compara opciones de reemplazo cuando el aspirador no carga o el adaptador original falla." $mtitle }}
+    {{ $catIntro2 = "Comprueba voltaje de salida, amperaje, conector y compatibilidad con tu versión exacta." }}
+  {{ else if eq $catKey "cepillo" }}
+    {{ $catIntro1 = printf "Encuentra cepillos compatibles para %s, tanto principales como motorizados, para recuperar el rendimiento sobre suelos y alfombras." $mtitle }}
+    {{ $catIntro2 = "Revisa forma, sistema de acople, medidas del rodillo y compatibilidad con el cabezal de tu modelo." }}
+  {{ else if eq $catKey "soporte" }}
+    {{ $catIntro1 = printf "Encuentra soportes compatibles para %s y revisa opciones de montaje o almacenamiento para tener el aspirador siempre listo." $mtitle }}
+    {{ $catIntro2 = "Comprueba puntos de anclaje, forma del soporte y compatibilidad con accesorios o cargadores." }}
+  {{ else if eq $catKey "accesorios" }}
+    {{ $catIntro1 = printf "Encuentra accesorios compatibles para %s, incluyendo boquillas, herramientas auxiliares y piezas de uso frecuente." $mtitle }}
+    {{ $catIntro2 = "Revisa el tipo de acople y si el accesorio está pensado para tu serie o para varias variantes del mismo modelo." }}
+  {{ end }}
+
   {{ $rec := index $model "recambios" }}
   {{ if not (and $rec (reflect.IsMap $rec)) }}
     {{ .Scratch.Set "noindex" true }}
@@ -87,10 +111,8 @@
   <div class="hero" style="margin-top:10px;">
     <div class="kicker">Recambios</div>
     <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
-    <p class="muted">
-      Selección de {{ $catLabel | lower }} para {{ $mtitle }} con enlaces verificados.
-      Antes de comprar, revisa compatibilidad (modelo/serie), medidas y conectores.
-    </p>
+    <p class="muted">{{ $catIntro1 }}</p>
+    <p class="muted">{{ $catIntro2 }}</p>
 
     <div class="chips">
       <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
@@ -99,10 +121,12 @@
     </div>
   </div>
 
-  {{/* ✅ ABOVE THE FOLD: Opciones populares (2-3 tarjetas) */}}
+  {{/* ABOVE THE FOLD: Opciones populares */}}
   <div class="panel" style="margin-top:14px;">
     <h2 style="margin-top:0;">Opciones populares</h2>
-    <p class="muted small">Atajos directos a recambios con mejor encaje típico para {{ $mtitle }}.</p>
+    <p class="muted small">
+      Selección rápida de {{ $catLabel | lower }} para {{ $mtitle }} con mejor encaje típico y compra más directa.
+    </p>
 
     <div class="products" style="margin-top:10px;">
       {{ $shown := 0 }}
@@ -129,24 +153,30 @@
 
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
-      <h2 style="margin-top:0;">Cómo acertar al 100% (checklist)</h2>
+      <h2 style="margin-top:0;">Cómo acertar al 100% con este recambio</h2>
       <ul class="list">
         <li><strong>Confirma el modelo exacto</strong>: serie, submodelo y referencias del fabricante.</li>
-        <li><strong>Comprueba encaje y conectores</strong>: pestañas, pines, forma del conector y polaridad.</li>
-        <li><strong>Revisa especificaciones</strong> (voltaje/capacidad/material) y fotos reales del anuncio.</li>
-        <li><strong>Si dudas entre dos opciones</strong>, prioriza la que indique compatibilidad explícita con {{ $mtitle }}.</li>
+        <li><strong>Comprueba encaje y conectores</strong>: pestañas, pines, forma del conector y polaridad cuando aplique.</li>
+        <li><strong>Revisa especificaciones</strong>: voltaje, capacidad, medidas, material o tipo de filtro según la pieza.</li>
+        <li><strong>Compara fotos reales</strong> del recambio y prioriza las opciones que indiquen compatibilidad explícita con {{ $mtitle }}.</li>
       </ul>
 
       <hr>
 
       <h2>Recambios disponibles</h2>
+      <p class="muted small">
+        Estas son las opciones disponibles de {{ $catLabel | lower }} para {{ $mtitle }} dentro del catálogo actual.
+      </p>
+
       <div class="products">
         {{ range $it := $items }}
           <div class="product">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="title">{{ index $it "title" }}</div>
-              {{ with (index $it "note") }}<div class="note muted" style="margin-top:10px;">{{ . }}</div>{{ end }}
+              {{ with (index $it "note") }}
+                <div class="note muted" style="margin-top:10px;">{{ . }}</div>
+              {{ end }}
               <div class="cta">
                 {{ $sku := index $it "sku" }}
                 {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
@@ -158,13 +188,12 @@
     </div>
 
     <aside class="panel">
-      <h2 style="margin-top:0;">¿Qué recambio necesito?</h2>
+      <h2 style="margin-top:0;">¿Qué recambio necesito realmente?</h2>
       <p class="muted">
-        Si tu problema es “no funciona / no carga / pierde potencia”, puede que el recambio correcto no sea este.
-        Mira las guías de diagnóstico y los recambios relacionados.
+        Si tu problema es “no funciona”, “no carga”, “pierde potencia” o “hace ruido”, puede que el recambio correcto no sea exactamente este.
+        Revisa los síntomas y entra en la guía que mejor encaje con tu caso.
       </p>
 
-      {{/* Problemas relacionados: lee model.problemas y muestra 3-6 */}}
       {{ $plist := index $model "problemas" }}
       {{ if and $plist (reflect.IsSlice $plist) (gt (len $plist) 0) }}
         <h3 style="margin-top:14px;">Problemas frecuentes</h3>
@@ -192,12 +221,11 @@
       </div>
 
       <p class="muted small" style="margin-top:12px;">
-        Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.
+        Algunos enlaces pueden ser de afiliación. El precio y la disponibilidad dependen del vendedor y del modelo exacto.
       </p>
     </aside>
   </div>
 
-  {{/* ✅ Crosslinks al FINAL (ya no ocultan los CTAs) */}}
   {{ partial "model_crosslinks.html" (dict
     "db" site.Data.aspiradores
     "brandKey" .Params.brandKey

@@ -30,6 +30,7 @@
 .\layouts\partials\offer_btn.html
 .\layouts\partials\schema\breadcrumbs.jsonld.html
 .\layouts\partials\schema\faq-problema.jsonld.html
+.\layouts\partials\schema\organization.jsonld.html
 .\layouts\robots.txt
 .\layouts\sitemap.xml
 
@@ -43,23 +44,64 @@ ARCHIVO: .\layouts\_default\baseof.html
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  {{ partial "schema/organization.jsonld.html" . }}
 
+  {{- /* =========================================================
+       TITLE SEO DINÁMICO
+     ========================================================= */ -}}
+  {{- $seoTitle := "" -}}
 
-  <title>
-    {{- if .IsHome -}}
-      {{- .Site.Title -}}
-    {{- else -}}
-      {{- .Title }} | {{ .Site.Title -}}
-    {{- end -}}
-  </title>
+  {{- if .IsHome -}}
+    {{- $seoTitle = .Site.Title -}}
 
-  {{- /* Description */ -}}
+  {{- else if and (eq .Section "modelos") (eq .Layout "problema") -}}
+    {{- $seoTitle = printf "%s: causas, soluciones y recambios compatibles" .Title -}}
+
+  {{- else if and (eq .Section "modelos") (eq .Layout "recambio") -}}
+    {{- $seoTitle = printf "%s compatibles | %s" .Title .Site.Title -}}
+
+  {{- else if and (eq .Section "modelos") .Params.brandKey -}}
+    {{- $seoTitle = printf "Recambios %s: filtros, baterías y cepillos compatibles" .Title -}}
+
+  {{- else if and (eq .Section "marcas") .Params.brandKey -}}
+    {{- $seoTitle = printf "Recambios %s: modelos, filtros y piezas compatibles" .Title -}}
+
+  {{- else if eq .Section "guias" -}}
+    {{- $seoTitle = printf "%s | Guía de recambios y mantenimiento" .Title -}}
+
+  {{- else -}}
+    {{- $seoTitle = printf "%s | %s" .Title .Site.Title -}}
+  {{- end -}}
+
+  <title>{{ $seoTitle }}</title>
+
+  {{- /* =========================================================
+       DESCRIPTION SEO DINÁMICA
+     ========================================================= */ -}}
   {{- $desc := "" -}}
+
   {{- if .Description -}}
     {{- $desc = .Description -}}
+
+  {{- else if and (eq .Section "modelos") (eq .Layout "problema") -}}
+    {{- $desc = printf "Descubre las causas más habituales de %s, cómo comprobar el fallo y qué recambios compatibles pueden ayudarte a solucionarlo." .Title -}}
+
+  {{- else if and (eq .Section "modelos") (eq .Layout "recambio") -}}
+    {{- $desc = printf "Encuentra %s compatibles, consejos para comprobar compatibilidad y recomendaciones para elegir el recambio adecuado." .Title -}}
+
+  {{- else if and (eq .Section "modelos") .Params.brandKey -}}
+    {{- $desc = printf "Encuentra recambios compatibles para %s: filtros, baterías, cepillos, cargadores y problemas frecuentes por modelo." .Title -}}
+
+  {{- else if and (eq .Section "marcas") .Params.brandKey -}}
+    {{- $desc = printf "Consulta modelos %s con recambios compatibles, filtros, baterías, cepillos y guías para elegir la pieza adecuada." .Title -}}
+
+  {{- else if eq .Section "guias" -}}
+    {{- $desc = printf "Guía sobre %s para elegir recambios compatibles, mantener el aspirador y evitar errores de compra." .Title -}}
+
   {{- else if .Site.Params.defaultDescription -}}
     {{- $desc = .Site.Params.defaultDescription -}}
   {{- end -}}
+
   {{- if $desc -}}
     <meta name="description" content="{{ $desc }}">
   {{- end -}}
@@ -68,28 +110,29 @@ ARCHIVO: .\layouts\_default\baseof.html
   {{- partial "head/canonical.html" . -}}
 
   {{/* Robots: respeta front matter si lo usas */}}
-{{- with .Params.robots -}}
-  <meta name="robots" content="{{ . }}">
-{{- else -}}
-  {{- if .Scratch.Get "noindex" -}}
-    <meta name="robots" content="noindex, follow">
+  {{- with .Params.robots -}}
+    <meta name="robots" content="{{ . }}">
   {{- else -}}
-    <meta name="robots" content="index, follow">
+    {{- if .Scratch.Get "noindex" -}}
+      <meta name="robots" content="noindex, follow">
+    {{- else -}}
+      <meta name="robots" content="index, follow">
+    {{- end -}}
   {{- end -}}
-{{- end -}}
-{{- partial "schema/breadcrumbs.jsonld.html" . -}}
 
-{{/* FAQ schema solo en layout problema y si hay FAQ */}}
-{{ if eq .Layout "problema" }}
-  {{ partial "schema/faq-problema.jsonld.html" . }}
-{{ end }}
+  {{- partial "schema/breadcrumbs.jsonld.html" . -}}
 
+  {{/* FAQ schema solo en layout problema y si hay FAQ */}}
+  {{ if eq .Layout "problema" }}
+    {{ partial "schema/faq-problema.jsonld.html" . }}
+  {{ end }}
 
-
-  {{- /* Open Graph */ -}}
+  {{- /* =========================================================
+       OPEN GRAPH
+     ========================================================= */ -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:title" content="{{ $seoTitle }}">
   <meta property="og:url" content="{{ .Permalink }}">
   {{- if $desc -}}
     <meta property="og:description" content="{{ $desc }}">
@@ -110,9 +153,11 @@ ARCHIVO: .\layouts\_default\baseof.html
     <meta property="og:image" content="{{ $ogimg | absURL }}">
   {{- end -}}
 
-  {{- /* Twitter */ -}}
+  {{- /* =========================================================
+       TWITTER
+     ========================================================= */ -}}
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta name="twitter:title" content="{{ $seoTitle }}">
   {{- if $desc -}}
     <meta name="twitter:description" content="{{ $desc }}">
   {{- end -}}
@@ -130,17 +175,16 @@ ARCHIVO: .\layouts\_default\baseof.html
 </head>
 
 <body>
-  {{- /* ✅ Header por defecto (si una plantilla no sobreescribe el bloque) */ -}}
+  {{- /* Header por defecto */ -}}
   {{- block "header" . -}}
     {{- partial "header.html" . -}}
   {{- end -}}
 
-<main class="container">
-  {{ block "main" . }}{{ end }}
-</main>
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
 
-
-  {{- /* ✅ Footer por defecto */ -}}
+  {{- /* Footer por defecto */ -}}
   {{- block "footer" . -}}
     {{- partial "footer.html" . -}}
   {{- end -}}
@@ -148,7 +192,6 @@ ARCHIVO: .\layouts\_default\baseof.html
   {{- block "scripts" . }}{{ end -}}
 </body>
 </html>
-
 
 ==================================================
 ARCHIVO: .\layouts\_default\list.html
@@ -388,7 +431,11 @@ ARCHIVO: .\layouts\index.html
           </div>
           <div class="card-body">
             <h3>{{ $b.name }}</h3>
-            <p class="muted">Modelos, fallos comunes y recambios compatibles.</p>
+            {{ with $b.notes_brand }}
+                <p class="muted">{{ . }}</p>
+              {{ else }}
+                <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
+              {{ end }}
             <div class="badges">
               <span class="badge hot">{{ len $b.models }} modelos</span>
               {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
@@ -464,21 +511,134 @@ ARCHIVO: .\layouts\marcas\single.html
   {{ $brandKey := .Params.brandKey }}
   {{ $brand := index $db.brands $brandKey }}
 
-  <h1>{{ $brand.name }}</h1>
-  <p class="muted">Modelos disponibles con recambios y fallos comunes.</p>
+  {{ if not $brand }}
+    {{ .Scratch.Set "noindex" true }}
 
-  <div class="grid">
-    {{ range $m := $brand.models }}
-      <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
-        {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
-        <h3>{{ $title }}</h3>
+    <h1>Marca no disponible</h1>
+    <p class="muted">No hemos encontrado datos para esta marca.</p>
 
-        {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
-      </a>
+    <div class="chips" style="margin-top:14px;">
+      <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
+      <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+    </div>
+
+  {{ else }}
+
+    {{ $brandName := $brand.name }}
+    {{ $models := $brand.models }}
+    {{ $modelCount := 0 }}
+    {{ if and $models (reflect.IsSlice $models) }}
+      {{ $modelCount = len $models }}
     {{ end }}
-  </div>
-{{ end }}
 
+    <div class="breadcrumbs">
+      <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
+      <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+      <span>{{ $brandName }}</span>
+    </div>
+
+    <div class="hero" style="margin-top:10px;">
+      <div class="kicker">Marca</div>
+      <h1>Recambios {{ $brandName }}</h1>
+
+      {{ with $brand.notes_brand }}
+        <p class="muted">{{ . }}</p>
+      {{ else }}
+        <p class="muted">
+          Encuentra recambios compatibles para aspiradores {{ $brandName }},
+          incluyendo filtros, baterías, cepillos, cargadores, soportes y accesorios
+          para los modelos más habituales de la marca.
+        </p>
+        <p class="muted">
+          En esta sección puedes acceder a fichas por modelo con recambios compatibles,
+          problemas frecuentes y recomendaciones para elegir la pieza correcta.
+        </p>
+      {{ end }}
+
+      <div class="chips">
+        <span class="chip active">{{ $modelCount }} modelos</span>
+        {{ with $brand.country_hint }}<span class="chip">{{ . }}</span>{{ end }}
+        <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+        <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
+        <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:12px;">
+      <div class="panel">
+        <h2 style="margin-top:0;">Modelos de {{ $brandName }}</h2>
+        <p class="muted small">
+          Selecciona tu modelo para ver filtros, baterías, cepillos y otros recambios compatibles,
+          además de problemas frecuentes y comprobaciones rápidas.
+        </p>
+
+        {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
+          <div class="grid cards">
+            {{ range $m := $models }}
+              {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
+              <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
+                <h3>{{ $title }}</h3>
+
+                {{ with $m.series }}
+                  <span class="badge">Serie {{ . }}</span>
+                {{ end }}
+
+                {{ with $m.year_range }}
+                  <p class="muted small" style="margin-top:8px;">{{ . }}</p>
+                {{ end }}
+
+                {{ $probs := index $m "problemas" }}
+                {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+                  <p class="muted small" style="margin-top:8px;">
+                    {{ len $probs }} problemas frecuentes
+                  </p>
+                {{ end }}
+              </a>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="muted">Todavía no hay modelos publicados para esta marca.</p>
+        {{ end }}
+      </div>
+
+      <aside class="panel">
+        <h2 style="margin-top:0;">Antes de comprar</h2>
+        <p class="muted small">
+          Antes de elegir un recambio {{ $brandName }}, confirma el modelo exacto,
+          la variante o serie y, si aplica, el tipo de encaje o conector.
+        </p>
+
+        <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
+          <div class="kicker">Consejos rápidos</div>
+          <ul class="small">
+            <li>Comprueba el modelo exacto en la etiqueta del aspirador.</li>
+            <li>Verifica si el recambio es válido para varias series o solo una variante.</li>
+            <li>En baterías y cargadores, revisa voltaje y conector.</li>
+            <li>En filtros y cepillos, compara forma, medidas y anclajes.</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="kicker">Atajos</div>
+          <div class="chips">
+            <a class="chip" href="{{ "/marcas/" | relURL }}">Más marcas</a>
+            <a class="chip" href="{{ "/modelos/" | relURL }}">Todos los modelos</a>
+            <a class="chip" href="{{ "/guias/" | relURL }}">Ver guías</a>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="kicker">Transparencia</div>
+        <p class="muted small">
+          Algunos enlaces pueden ser de afiliación. La compatibilidad, el precio y la disponibilidad
+          dependen del vendedor y del modelo exacto.
+        </p>
+      </aside>
+    </div>
+
+  {{ end }}
+{{ end }}
 
 ==================================================
 ARCHIVO: .\layouts\marcas\term.html
@@ -508,7 +668,11 @@ ARCHIVO: .\layouts\marcas\term.html
 
         <div class="card-body">
           <h3>{{ $b.name }}</h3>
-          <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+          {{ with $b.notes_brand }}
+  <p class="muted">{{ . }}</p>
+{{ else }}
+  <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
+{{ end }}
           <div class="badges">
             <span class="badge hot">{{ len $b.models }} modelos</span>
             {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
@@ -718,8 +882,21 @@ ARCHIVO: .\layouts\modelos\list.html
 
         <div class="hero" style="margin-top:10px;">
           <div class="kicker">Modelo</div>
-          <h1>{{ $mtitle }}</h1>
-          {{ with (index $model "intro") }}<p class="muted">{{ . }}</p>{{ end }}
+          <h1>Recambios {{ $mtitle }}</h1>
+
+          {{ with (index $model "intro") }}
+            <p class="muted">{{ . }}</p>
+          {{ else }}
+            <p class="muted">
+              Encuentra recambios compatibles para {{ $mtitle }}, incluyendo filtros, baterías,
+              cepillos, cargadores y otros accesorios habituales para mantenimiento y sustitución.
+            </p>
+            <p class="muted">
+              En esta ficha puedes ver las piezas más buscadas para {{ $mtitle }}, comprobar
+              compatibilidad rápida y acceder a problemas frecuentes relacionados con pérdida de
+              succión, fallos de carga o desgaste del cepillo.
+            </p>
+          {{ end }}
 
           <div class="chips">
             {{ with (index $model "series") }}<span class="chip active">Serie {{ . }}</span>{{ end }}
@@ -733,6 +910,10 @@ ARCHIVO: .\layouts\modelos\list.html
         <div class="two-col" style="margin-top:12px;">
           <div class="panel">
             <h2 style="margin-top:0;">Compatibilidad rápida</h2>
+            <p class="muted small">
+              Antes de comprar un recambio para {{ $mtitle }}, revisa la variante exacta del modelo,
+              el tipo de encaje y, en baterías o cargadores, el voltaje y el conector.
+            </p>
 
             {{ $compat := index $model "compatibilidad" }}
             {{ if $compat }}
@@ -933,7 +1114,6 @@ ARCHIVO: .\layouts\modelos\list.html
     {{ end }}
   {{ end }}
 {{ end }}
-
 
 ==================================================
 ARCHIVO: .\layouts\modelos\problema.html
@@ -1480,12 +1660,26 @@ Output: <img ...> o fallback texto
 ==================================================
 ARCHIVO: .\layouts\partials\footer.html
 ==================================================
-<footer class="site-footer">
+<footer class="footer">
   <div class="container">
-    <p class="muted">© {{ now.Format "2006" }} {{ site.Title }} � Información orientativa. Verifica compatibilidad antes de comprar.</p>
+
+    <p>
+      © {{ now.Year }} {{ .Site.Title }}
+    </p>
+
+    <nav class="legal">
+      <a href="/aviso-legal/">Aviso legal</a>
+      <a href="/privacidad/">Privacidad</a>
+      <a href="/afiliados/">Afiliados</a>
+      <a href="/sobre/">Sobre esta web</a>
+    </nav>
+
+    <p class="affiliate-note">
+      Esta web contiene enlaces de afiliado. Podemos recibir una comisión si realizas una compra.
+    </p>
+
   </div>
 </footer>
-
 
 ==================================================
 ARCHIVO: .\layouts\partials\get_guia.html
@@ -1682,7 +1876,7 @@ ARCHIVO: .\layouts\partials\marcas-grid.html
     {{ .Scratch.Set "noindex" true }}
     <div class="card">
       <h3>Marca no disponible</h3>
-      <p class="muted">No encontramos esa marca en el Catálogo actual.</p>
+      <p class="muted">No encontramos esa marca en el catálogo actual.</p>
       <a class="chip" href="{{ "/marcas/" | relURL }}">Volver a marcas</a>
     </div>
     {{ return }}
@@ -1693,18 +1887,32 @@ ARCHIVO: .\layouts\partials\marcas-grid.html
     <div class="grid cards">
       {{ range $m := $models }}
         {{ $mslug := (or $m.slug $m.canonical_slug) | urlize }}
+        {{ $probs := index $m "problemas" }}
+        {{ $hasProbs := and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+        {{ $series := index $m "series" }}
+        {{ $years := index $m "year_range" }}
+
         <a class="card card--with-icon" href="{{ (printf "/modelos/%s/" $mslug) | relURL }}">
           {{ partial "card_icon.html" (dict "kind" "model") }}
+
           <div class="card-body">
             {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
             <h3>{{ $title }}</h3>
 
-
             <div class="badges">
-              {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
-              {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}
+              {{ with $series }}<span class="badge">Serie {{ . }}</span>{{ end }}
+              {{ with $years }}<span class="badge">{{ . }}</span>{{ end }}
             </div>
-            <p class="muted" style="margin-top:10px;">Recambios compatibles + fallos comunes.</p>
+
+            {{ if $hasProbs }}
+              <p class="muted" style="margin-top:10px;">
+                Recambios compatibles y problemas frecuentes para este modelo.
+              </p>
+            {{ else }}
+              <p class="muted" style="margin-top:10px;">
+                Recambios compatibles y guía rápida de mantenimiento para este modelo.
+              </p>
+            {{ end }}
           </div>
         </a>
       {{ end }}
@@ -1720,13 +1928,32 @@ ARCHIVO: .\layouts\partials\marcas-grid.html
   <div class="grid cards">
     {{ range $k, $b := $brands }}
       {{ $slug := $k | urlize }}
+      {{ $notes := index $b "notes_brand" }}
+      {{ $modelCount := 0 }}
+      {{ with $b.models }}
+        {{ if reflect.IsSlice . }}
+          {{ $modelCount = len . }}
+        {{ end }}
+      {{ end }}
+
       <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
         {{ partial "card_icon.html" (dict "kind" "brand") }}
+
         <div class="card-body">
           <h3>{{ $b.name }}</h3>
-          <p class="muted">Ver modelos, fallos comunes y recambios compatibles.</p>
+
+          {{ with $notes }}
+            <p class="muted">{{ . }}</p>
+          {{ else }}
+{{ with $b.notes_brand }}
+  <p class="muted">{{ . }}</p>
+{{ else }}
+  <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
+{{ end }}
+          {{ end }}
+
           <div class="badges">
-            <span class="badge hot">{{ len $b.models }} modelos</span>
+            <span class="badge hot">{{ $modelCount }} modelos</span>
             {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
           </div>
         </div>
@@ -1734,7 +1961,6 @@ ARCHIVO: .\layouts\partials\marcas-grid.html
     {{ end }}
   </div>
 {{ end }}
-
 
 ==================================================
 ARCHIVO: .\layouts\partials\model_crosslinks.html
@@ -2120,6 +2346,24 @@ ARCHIVO: .\layouts\partials\schema\faq-problema.jsonld.html
 }
 </script>
 
+
+==================================================
+ARCHIVO: .\layouts\partials\schema\organization.jsonld.html
+==================================================
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "Información sobre recambios y mantenimiento de aspiradores.",
+  "founder": {
+    "@type": "Person",
+    "name": "Enrique Seoane"
+  },
+  "sameAs": []
+}
+</script>
 
 ==================================================
 ARCHIVO: .\layouts\robots.txt
