@@ -32,7 +32,11 @@
           </div>
           <div class="card-body">
             <h3>{{ $b.name }}</h3>
-            <p class="muted">Modelos, fallos comunes y recambios compatibles.</p>
+            {{ with $b.notes_brand }}
+                <p class="muted">{{ . }}</p>
+              {{ else }}
+                <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
+              {{ end }}
             <div class="badges">
               <span class="badge hot">{{ len $b.models }} modelos</span>
               {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
