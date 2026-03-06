@@ -1,5 +1,19 @@
-<footer class="site-footer">
+<footer class="footer">
   <div class="container">
-    <p class="muted">© {{ now.Format "2006" }} {{ site.Title }} � Información orientativa. Verifica compatibilidad antes de comprar.</p>
+
+    <p>
+      © {{ now.Year }} {{ .Site.Title }}
+    </p>
+
+    <nav class="legal">
+      <a href="/aviso-legal/">Aviso legal</a>
+      <a href="/privacidad/">Privacidad</a>
+      <a href="/afiliados/">Afiliados</a>
+    </nav>
+
+    <p class="affiliate-note">
+      Esta web contiene enlaces de afiliado. Podemos recibir una comisión si realizas una compra.
+    </p>
+
   </div>
 </footer>
