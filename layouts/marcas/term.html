@@ -6,7 +6,9 @@
     <div class="hero__inner">
       <div class="hero__kicker">Catálogo</div>
       <h1>Marcas</h1>
-      <p class="muted hero__copy">Elige una marca para ver sus modelos y recambios compatibles.</p>
+      <p class="muted hero__copy">
+        Elige una marca para ver sus modelos, recambios compatibles y problemas frecuentes.
+      </p>
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
@@ -15,25 +17,34 @@
     </div>
   </section>
 
-  <div class="grid cards">
-    {{ range $k, $b := $brands }}
-      {{ $slug := $k | urlize }}
-      <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-        {{ partial "card_icon.html" (dict "kind" "brand") }}
+  {{ if not $brands }}
+    <div class="card" style="margin-top:18px;">
+      <h3>Marcas en preparación</h3>
+      <p class="muted">Aún no hay marcas cargadas en el catálogo.</p>
+    </div>
+  {{ else }}
+    <div class="grid cards" style="margin-top:18px;">
+      {{ range $k, $b := $brands }}
+        {{ $slug := $k | urlize }}
+        <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          {{ partial "card_icon.html" (dict "kind" "brand") }}
 
-        <div class="card-body">
-          <h3>{{ $b.name }}</h3>
-          {{ with $b.notes_brand }}
-  <p class="muted">{{ . }}</p>
-{{ else }}
-  <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
-{{ end }}
-          <div class="badges">
-            <span class="badge hot">{{ len $b.models }} modelos</span>
-            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+          <div class="card-body">
+            <h3>{{ $b.name }}</h3>
+
+            {{ with $b.notes_brand }}
+              <p class="muted">{{ . }}</p>
+            {{ else }}
+              <p class="muted">Consulta modelos, recambios compatibles y problemas frecuentes de esta marca.</p>
+            {{ end }}
+
+            <div class="badges">
+              <span class="badge hot">{{ len $b.models }} modelos</span>
+              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+            </div>
           </div>
-        </div>
-      </a>
-    {{ end }}
-  </div>
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
 {{ end }}
