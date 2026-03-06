@@ -3,7 +3,9 @@
     <div class="hero__inner">
       <div class="hero__kicker">Marketplace de recambios</div>
       <h1>Recambios y guías por modelo</h1>
-      <p class="muted hero__copy">{{ site.Params.defaultDescription }}</p>
+      <p class="muted hero__copy">
+        Encuentra recambios compatibles, problemas frecuentes y guías de mantenimiento para aspiradores por marca y modelo.
+      </p>
 
       <div class="hero__links">
         <a class="btn btn--primary" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
@@ -21,31 +23,40 @@
     <span class="chip">{{ len $brands }} marcas</span>
   </div>
 
-  <div class="grid cards">
-    {{ range $k, $b := $brands }}
-      {{ $slug := $k | urlize }}
-      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-        <div class="card--with-icon">
-          <div class="card-icon-wrap">
-            {{ partial "card_icon.html" (dict "kind" "brand") }}
+  {{ if not $brands }}
+    <div class="card" style="margin-top:18px;">
+      <h3>Catálogo en preparación</h3>
+      <p class="muted">Aún no hay marcas cargadas en el catálogo.</p>
+    </div>
+  {{ else }}
+    <div class="grid cards" style="margin-top:18px;">
+      {{ range $k, $b := $brands }}
+        {{ $slug := $k | urlize }}
+        <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          <div class="card--with-icon">
+            <div class="card-icon-wrap">
+              {{ partial "card_icon.html" (dict "kind" "brand") }}
+            </div>
 
-          </div>
-          <div class="card-body">
-            <h3>{{ $b.name }}</h3>
-            {{ with $b.notes_brand }}
+            <div class="card-body">
+              <h3>{{ $b.name }}</h3>
+
+              {{ with $b.notes_brand }}
                 <p class="muted">{{ . }}</p>
               {{ else }}
-                <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
+                <p class="muted">Consulta modelos, recambios compatibles y problemas frecuentes de esta marca.</p>
               {{ end }}
-            <div class="badges">
-              <span class="badge hot">{{ len $b.models }} modelos</span>
-              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+
+              <div class="badges">
+                <span class="badge hot">{{ len $b.models }} modelos</span>
+                {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    {{ end }}
-  </div>
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
 
   <div class="section-head" style="margin-top:18px;">
     <h2>Atajos por tipo de recambio</h2>
