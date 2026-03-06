@@ -5,21 +5,62 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   {{ partial "schema/organization.jsonld.html" . }}
 
-  <title>
-    {{- if .IsHome -}}
-      {{- .Site.Title -}}
-    {{- else -}}
-      {{- .Title }} | {{ .Site.Title -}}
-    {{- end -}}
-  </title>
+  {{- /* =========================================================
+       TITLE SEO DINÁMICO
+     ========================================================= */ -}}
+  {{- $seoTitle := "" -}}
 
-  {{- /* Description */ -}}
+  {{- if .IsHome -}}
+    {{- $seoTitle = .Site.Title -}}
+
+  {{- else if and (eq .Section "modelos") (eq .Layout "problema") -}}
+    {{- $seoTitle = printf "%s: causas, soluciones y recambios compatibles" .Title -}}
+
+  {{- else if and (eq .Section "modelos") (eq .Layout "recambio") -}}
+    {{- $seoTitle = printf "%s compatibles | %s" .Title .Site.Title -}}
+
+  {{- else if and (eq .Section "modelos") .Params.brandKey -}}
+    {{- $seoTitle = printf "Recambios %s: filtros, baterías y cepillos compatibles" .Title -}}
+
+  {{- else if and (eq .Section "marcas") .Params.brandKey -}}
+    {{- $seoTitle = printf "Recambios %s: modelos, filtros y piezas compatibles" .Title -}}
+
+  {{- else if eq .Section "guias" -}}
+    {{- $seoTitle = printf "%s | Guía de recambios y mantenimiento" .Title -}}
+
+  {{- else -}}
+    {{- $seoTitle = printf "%s | %s" .Title .Site.Title -}}
+  {{- end -}}
+
+  <title>{{ $seoTitle }}</title>
+
+  {{- /* =========================================================
+       DESCRIPTION SEO DINÁMICA
+     ========================================================= */ -}}
   {{- $desc := "" -}}
+
   {{- if .Description -}}
     {{- $desc = .Description -}}
+
+  {{- else if and (eq .Section "modelos") (eq .Layout "problema") -}}
+    {{- $desc = printf "Descubre las causas más habituales de %s, cómo comprobar el fallo y qué recambios compatibles pueden ayudarte a solucionarlo." .Title -}}
+
+  {{- else if and (eq .Section "modelos") (eq .Layout "recambio") -}}
+    {{- $desc = printf "Encuentra %s compatibles, consejos para comprobar compatibilidad y recomendaciones para elegir el recambio adecuado." .Title -}}
+
+  {{- else if and (eq .Section "modelos") .Params.brandKey -}}
+    {{- $desc = printf "Encuentra recambios compatibles para %s: filtros, baterías, cepillos, cargadores y problemas frecuentes por modelo." .Title -}}
+
+  {{- else if and (eq .Section "marcas") .Params.brandKey -}}
+    {{- $desc = printf "Consulta modelos %s con recambios compatibles, filtros, baterías, cepillos y guías para elegir la pieza adecuada." .Title -}}
+
+  {{- else if eq .Section "guias" -}}
+    {{- $desc = printf "Guía sobre %s para elegir recambios compatibles, mantener el aspirador y evitar errores de compra." .Title -}}
+
   {{- else if .Site.Params.defaultDescription -}}
     {{- $desc = .Site.Params.defaultDescription -}}
   {{- end -}}
+
   {{- if $desc -}}
     <meta name="description" content="{{ $desc }}">
   {{- end -}}
@@ -28,28 +69,29 @@
   {{- partial "head/canonical.html" . -}}
 
   {{/* Robots: respeta front matter si lo usas */}}
-{{- with .Params.robots -}}
-  <meta name="robots" content="{{ . }}">
-{{- else -}}
-  {{- if .Scratch.Get "noindex" -}}
-    <meta name="robots" content="noindex, follow">
+  {{- with .Params.robots -}}
+    <meta name="robots" content="{{ . }}">
   {{- else -}}
-    <meta name="robots" content="index, follow">
+    {{- if .Scratch.Get "noindex" -}}
+      <meta name="robots" content="noindex, follow">
+    {{- else -}}
+      <meta name="robots" content="index, follow">
+    {{- end -}}
   {{- end -}}
-{{- end -}}
-{{- partial "schema/breadcrumbs.jsonld.html" . -}}
 
-{{/* FAQ schema solo en layout problema y si hay FAQ */}}
-{{ if eq .Layout "problema" }}
-  {{ partial "schema/faq-problema.jsonld.html" . }}
-{{ end }}
+  {{- partial "schema/breadcrumbs.jsonld.html" . -}}
 
+  {{/* FAQ schema solo en layout problema y si hay FAQ */}}
+  {{ if eq .Layout "problema" }}
+    {{ partial "schema/faq-problema.jsonld.html" . }}
+  {{ end }}
 
-
-  {{- /* Open Graph */ -}}
+  {{- /* =========================================================
+       OPEN GRAPH
+     ========================================================= */ -}}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:title" content="{{ $seoTitle }}">
   <meta property="og:url" content="{{ .Permalink }}">
   {{- if $desc -}}
     <meta property="og:description" content="{{ $desc }}">
@@ -70,9 +112,11 @@
     <meta property="og:image" content="{{ $ogimg | absURL }}">
   {{- end -}}
 
-  {{- /* Twitter */ -}}
+  {{- /* =========================================================
+       TWITTER
+     ========================================================= */ -}}
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta name="twitter:title" content="{{ $seoTitle }}">
   {{- if $desc -}}
     <meta name="twitter:description" content="{{ $desc }}">
   {{- end -}}
@@ -90,17 +134,16 @@
 </head>
 
 <body>
-  {{- /* ✅ Header por defecto (si una plantilla no sobreescribe el bloque) */ -}}
+  {{- /* Header por defecto */ -}}
   {{- block "header" . -}}
     {{- partial "header.html" . -}}
   {{- end -}}
 
-<main class="container">
-  {{ block "main" . }}{{ end }}
-</main>
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
 
-
-  {{- /* ✅ Footer por defecto */ -}}
+  {{- /* Footer por defecto */ -}}
   {{- block "footer" . -}}
     {{- partial "footer.html" . -}}
   {{- end -}}

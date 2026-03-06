@@ -3,17 +3,131 @@
   {{ $brandKey := .Params.brandKey }}
   {{ $brand := index $db.brands $brandKey }}
 
-  <h1>{{ $brand.name }}</h1>
-  <p class="muted">Modelos disponibles con recambios y fallos comunes.</p>
+  {{ if not $brand }}
+    {{ .Scratch.Set "noindex" true }}
 
-  <div class="grid">
-    {{ range $m := $brand.models }}
-      <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
-        {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
-        <h3>{{ $title }}</h3>
+    <h1>Marca no disponible</h1>
+    <p class="muted">No hemos encontrado datos para esta marca.</p>
 
-        {{ with $m.series }}<span class="badge">Serie {{ . }}</span>{{ end }}
-      </a>
+    <div class="chips" style="margin-top:14px;">
+      <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
+      <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+    </div>
+
+  {{ else }}
+
+    {{ $brandName := $brand.name }}
+    {{ $models := $brand.models }}
+    {{ $modelCount := 0 }}
+    {{ if and $models (reflect.IsSlice $models) }}
+      {{ $modelCount = len $models }}
     {{ end }}
-  </div>
+
+    <div class="breadcrumbs">
+      <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
+      <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+      <span>{{ $brandName }}</span>
+    </div>
+
+    <div class="hero" style="margin-top:10px;">
+      <div class="kicker">Marca</div>
+      <h1>Recambios {{ $brandName }}</h1>
+
+      {{ with $brand.notes_brand }}
+        <p class="muted">{{ . }}</p>
+      {{ else }}
+        <p class="muted">
+          Encuentra recambios compatibles para aspiradores {{ $brandName }},
+          incluyendo filtros, baterías, cepillos, cargadores, soportes y accesorios
+          para los modelos más habituales de la marca.
+        </p>
+        <p class="muted">
+          En esta sección puedes acceder a fichas por modelo con recambios compatibles,
+          problemas frecuentes y recomendaciones para elegir la pieza correcta.
+        </p>
+      {{ end }}
+
+      <div class="chips">
+        <span class="chip active">{{ $modelCount }} modelos</span>
+        {{ with $brand.country_hint }}<span class="chip">{{ . }}</span>{{ end }}
+        <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+        <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
+        <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:12px;">
+      <div class="panel">
+        <h2 style="margin-top:0;">Modelos de {{ $brandName }}</h2>
+        <p class="muted small">
+          Selecciona tu modelo para ver filtros, baterías, cepillos y otros recambios compatibles,
+          además de problemas frecuentes y comprobaciones rápidas.
+        </p>
+
+        {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
+          <div class="grid cards">
+            {{ range $m := $models }}
+              {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
+              <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
+                <h3>{{ $title }}</h3>
+
+                {{ with $m.series }}
+                  <span class="badge">Serie {{ . }}</span>
+                {{ end }}
+
+                {{ with $m.year_range }}
+                  <p class="muted small" style="margin-top:8px;">{{ . }}</p>
+                {{ end }}
+
+                {{ $probs := index $m "problemas" }}
+                {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+                  <p class="muted small" style="margin-top:8px;">
+                    {{ len $probs }} problemas frecuentes
+                  </p>
+                {{ end }}
+              </a>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="muted">Todavía no hay modelos publicados para esta marca.</p>
+        {{ end }}
+      </div>
+
+      <aside class="panel">
+        <h2 style="margin-top:0;">Antes de comprar</h2>
+        <p class="muted small">
+          Antes de elegir un recambio {{ $brandName }}, confirma el modelo exacto,
+          la variante o serie y, si aplica, el tipo de encaje o conector.
+        </p>
+
+        <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
+          <div class="kicker">Consejos rápidos</div>
+          <ul class="small">
+            <li>Comprueba el modelo exacto en la etiqueta del aspirador.</li>
+            <li>Verifica si el recambio es válido para varias series o solo una variante.</li>
+            <li>En baterías y cargadores, revisa voltaje y conector.</li>
+            <li>En filtros y cepillos, compara forma, medidas y anclajes.</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="kicker">Atajos</div>
+          <div class="chips">
+            <a class="chip" href="{{ "/marcas/" | relURL }}">Más marcas</a>
+            <a class="chip" href="{{ "/modelos/" | relURL }}">Todos los modelos</a>
+            <a class="chip" href="{{ "/guias/" | relURL }}">Ver guías</a>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="kicker">Transparencia</div>
+        <p class="muted small">
+          Algunos enlaces pueden ser de afiliación. La compatibilidad, el precio y la disponibilidad
+          dependen del vendedor y del modelo exacto.
+        </p>
+      </aside>
+    </div>
+
+  {{ end }}
 {{ end }}

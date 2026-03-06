@@ -193,8 +193,21 @@
 
         <div class="hero" style="margin-top:10px;">
           <div class="kicker">Modelo</div>
-          <h1>{{ $mtitle }}</h1>
-          {{ with (index $model "intro") }}<p class="muted">{{ . }}</p>{{ end }}
+          <h1>Recambios {{ $mtitle }}</h1>
+
+          {{ with (index $model "intro") }}
+            <p class="muted">{{ . }}</p>
+          {{ else }}
+            <p class="muted">
+              Encuentra recambios compatibles para {{ $mtitle }}, incluyendo filtros, baterías,
+              cepillos, cargadores y otros accesorios habituales para mantenimiento y sustitución.
+            </p>
+            <p class="muted">
+              En esta ficha puedes ver las piezas más buscadas para {{ $mtitle }}, comprobar
+              compatibilidad rápida y acceder a problemas frecuentes relacionados con pérdida de
+              succión, fallos de carga o desgaste del cepillo.
+            </p>
+          {{ end }}
 
           <div class="chips">
             {{ with (index $model "series") }}<span class="chip active">Serie {{ . }}</span>{{ end }}
@@ -208,6 +221,10 @@
         <div class="two-col" style="margin-top:12px;">
           <div class="panel">
             <h2 style="margin-top:0;">Compatibilidad rápida</h2>
+            <p class="muted small">
+              Antes de comprar un recambio para {{ $mtitle }}, revisa la variante exacta del modelo,
+              el tipo de encaje y, en baterías o cargadores, el voltaje y el conector.
+            </p>
 
             {{ $compat := index $model "compatibilidad" }}
             {{ if $compat }}
