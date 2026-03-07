@@ -402,7 +402,9 @@ ARCHIVO: .\layouts\index.html
     <div class="hero__inner">
       <div class="hero__kicker">Marketplace de recambios</div>
       <h1>Recambios y guías por modelo</h1>
-      <p class="muted hero__copy">{{ site.Params.defaultDescription }}</p>
+      <p class="muted hero__copy">
+        Encuentra recambios compatibles, problemas frecuentes y guías de mantenimiento para aspiradores por marca y modelo.
+      </p>
 
       <div class="hero__links">
         <a class="btn btn--primary" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
@@ -420,31 +422,40 @@ ARCHIVO: .\layouts\index.html
     <span class="chip">{{ len $brands }} marcas</span>
   </div>
 
-  <div class="grid cards">
-    {{ range $k, $b := $brands }}
-      {{ $slug := $k | urlize }}
-      <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-        <div class="card--with-icon">
-          <div class="card-icon-wrap">
-            {{ partial "card_icon.html" (dict "kind" "brand") }}
+  {{ if not $brands }}
+    <div class="card" style="margin-top:18px;">
+      <h3>Catálogo en preparación</h3>
+      <p class="muted">Aún no hay marcas cargadas en el catálogo.</p>
+    </div>
+  {{ else }}
+    <div class="grid cards" style="margin-top:18px;">
+      {{ range $k, $b := $brands }}
+        {{ $slug := $k | urlize }}
+        <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          <div class="card--with-icon">
+            <div class="card-icon-wrap">
+              {{ partial "card_icon.html" (dict "kind" "brand") }}
+            </div>
 
-          </div>
-          <div class="card-body">
-            <h3>{{ $b.name }}</h3>
-            {{ with $b.notes_brand }}
+            <div class="card-body">
+              <h3>{{ $b.name }}</h3>
+
+              {{ with $b.notes_brand }}
                 <p class="muted">{{ . }}</p>
               {{ else }}
-                <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
+                <p class="muted">Consulta modelos, recambios compatibles y problemas frecuentes de esta marca.</p>
               {{ end }}
-            <div class="badges">
-              <span class="badge hot">{{ len $b.models }} modelos</span>
-              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+
+              <div class="badges">
+                <span class="badge hot">{{ len $b.models }} modelos</span>
+                {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    {{ end }}
-  </div>
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
 
   <div class="section-head" style="margin-top:18px;">
     <h2>Atajos por tipo de recambio</h2>
@@ -492,7 +503,6 @@ ARCHIVO: .\layouts\index.html
     </a>
   </div>
 {{ end }}
-
 
 ==================================================
 ARCHIVO: .\layouts\marcas\list.html
@@ -651,7 +661,9 @@ ARCHIVO: .\layouts\marcas\term.html
     <div class="hero__inner">
       <div class="hero__kicker">Catálogo</div>
       <h1>Marcas</h1>
-      <p class="muted hero__copy">Elige una marca para ver sus modelos y recambios compatibles.</p>
+      <p class="muted hero__copy">
+        Elige una marca para ver sus modelos, recambios compatibles y problemas frecuentes.
+      </p>
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
@@ -660,29 +672,37 @@ ARCHIVO: .\layouts\marcas\term.html
     </div>
   </section>
 
-  <div class="grid cards">
-    {{ range $k, $b := $brands }}
-      {{ $slug := $k | urlize }}
-      <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-        {{ partial "card_icon.html" (dict "kind" "brand") }}
+  {{ if not $brands }}
+    <div class="card" style="margin-top:18px;">
+      <h3>Marcas en preparación</h3>
+      <p class="muted">Aún no hay marcas cargadas en el catálogo.</p>
+    </div>
+  {{ else }}
+    <div class="grid cards" style="margin-top:18px;">
+      {{ range $k, $b := $brands }}
+        {{ $slug := $k | urlize }}
+        <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          {{ partial "card_icon.html" (dict "kind" "brand") }}
 
-        <div class="card-body">
-          <h3>{{ $b.name }}</h3>
-          {{ with $b.notes_brand }}
-  <p class="muted">{{ . }}</p>
-{{ else }}
-  <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
-{{ end }}
-          <div class="badges">
-            <span class="badge hot">{{ len $b.models }} modelos</span>
-            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+          <div class="card-body">
+            <h3>{{ $b.name }}</h3>
+
+            {{ with $b.notes_brand }}
+              <p class="muted">{{ . }}</p>
+            {{ else }}
+              <p class="muted">Consulta modelos, recambios compatibles y problemas frecuentes de esta marca.</p>
+            {{ end }}
+
+            <div class="badges">
+              <span class="badge hot">{{ len $b.models }} modelos</span>
+              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+            </div>
           </div>
-        </div>
-      </a>
-    {{ end }}
-  </div>
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
 {{ end }}
-
 
 ==================================================
 ARCHIVO: .\layouts\modelos\list.html
@@ -691,7 +711,7 @@ ARCHIVO: .\layouts\modelos\list.html
      Opción B:
      - /modelos/                      -> content/modelos/_index.md (sección raíz)
      - /modelos/<model-slug>/         -> content/modelos/<model-slug>/_index.md (modelo como sección)
-     - /modelos/<model>/<cat>/        -> lo sigues llevando con layout "recambio" (idealmente también _index.md si vas full B)
+     - /modelos/<model>/<cat>/        -> layout "recambio"
      - /modelos/<model>/problemas/    -> _index.md
      - /modelos/<model>/problemas/<p>/ -> index.md
 */}}
@@ -699,53 +719,57 @@ ARCHIVO: .\layouts\modelos\list.html
 {{ define "main" }}
   {{ $db := site.Data.aspiradores }}
   {{ $brands := $db.brands }}
-
   {{ $brandKey := .Params.brandKey }}
 
   {{/* =========================================================
-       CASO 1: RAÍZ /modelos/  (NO hay brandKey)
+       CASO 1: RAÍZ /modelos/
      ========================================================= */}}
   {{ if not $brandKey }}
 
-    <div class="hero" style="margin-top:10px;">
-      <div class="kicker">Modelos</div>
-      <h1>{{ .Title }}</h1>
-      <p class="muted">Explora por marca y entra en la ficha del modelo para ver recambios y problemas.</p>
+    <section class="hero hero--bg hero--compact">
+      <div class="hero__inner">
+        <div class="hero__kicker">Modelos</div>
+        <h1>{{ .Title }}</h1>
+        <p class="muted hero__copy">
+          Explora por marca y entra en la ficha del modelo para ver recambios compatibles,
+          problemas frecuentes y guías de mantenimiento.
+        </p>
 
-      <div class="chips">
-        <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
-        <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-        <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
-        <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+        <div class="hero__links">
+          <a class="btn btn--ghost" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
+          <a class="btn btn--ghost" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+          <a class="btn btn--ghost" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
+          <a class="btn btn--ghost" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+        </div>
       </div>
-    </div>
+    </section>
 
     {{ if not $brands }}
-      <div class="card">
+      <div class="card" style="margin-top:18px;">
         <h2 style="margin-top:0;">Sin datos</h2>
-        <p class="muted">No se ha cargado <code>data/aspiradores.yaml</code> o no contiene <code>brands</code>.</p>
+        <p class="muted">No se ha cargado <code>data/aspiradores.yaml</code> o no contiene marcas.</p>
       </div>
     {{ else }}
-
-      <div class="grid cards" style="margin-top:14px;">
+      <div class="grid cards" style="margin-top:20px;">
         {{ range $k, $b := $brands }}
           {{ $brandSlug := ($k | urlize) }}
-          <div class="card">
-            <div class="breadcrumbs" style="margin:0 0 10px 0;">
-              <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-              <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
-              <a href="{{ (printf "/marcas/%s/" $brandSlug) | relURL }}">{{ $b.name }}</a>
-            </div>
+          {{ $models := $b.models }}
 
+          <div class="card">
             <h2 style="margin:0 0 8px 0;">{{ $b.name }}</h2>
 
-            {{ $models := $b.models }}
+            {{ with $b.notes_brand }}
+              <p class="muted">{{ . }}</p>
+            {{ else }}
+              <p class="muted">Consulta modelos, recambios compatibles y problemas frecuentes de esta marca.</p>
+            {{ end }}
+
             {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
               <p class="muted small" style="margin:0 0 10px 0;">{{ len $models }} modelos</p>
 
               <div class="chips" style="flex-wrap:wrap;">
                 {{ range $i, $m := $models }}
-                  {{ if lt $i 10 }}
+                  {{ if lt $i 8 }}
                     {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
                     {{ $mname := (index $m "model") | default $mid }}
                     {{ if $mid }}
@@ -753,7 +777,10 @@ ARCHIVO: .\layouts\modelos\list.html
                     {{ end }}
                   {{ end }}
                 {{ end }}
-                <a class="chip active" href="{{ (printf "/marcas/%s/" $brandSlug) | relURL }}">Ver todos los modelos</a>
+
+                <a class="chip active" href="{{ (printf "/marcas/%s/" $brandSlug) | relURL }}">
+                  Ver todos los modelos
+                </a>
               </div>
             {{ else }}
               <p class="muted">Aún no hay modelos cargados para esta marca.</p>
@@ -764,19 +791,17 @@ ARCHIVO: .\layouts\modelos\list.html
           </div>
         {{ end }}
       </div>
-
     {{ end }}
 
   {{ else }}
 
   {{/* =========================================================
-       CASO 2: /modelos/<model-slug>/  (SÍ hay brandKey)
+       CASO 2: /modelos/<model-slug>/
        Modelo = sección (branch bundle) -> usa list.html
      ========================================================= */}}
 
     {{ $modelSlug := (or .Params.modelSlug .Params.slug) | urlize }}
 
-    {{/* NO uses nil. Usamos dict vacío + with */}}
     {{ $brand := dict }}
     {{ if and $brands $brandKey }}
       {{ with (index $brands $brandKey) }}
@@ -789,6 +814,7 @@ ARCHIVO: .\layouts\modelos\list.html
 
       <h1>Modelo no disponible</h1>
       <p class="muted">No encontramos la marca asociada a este modelo.</p>
+
       <div class="chips" style="margin-top:14px;">
         <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
         <a class="chip" href="{{ "/modelos/" | relURL }}">Ver todos los modelos</a>
@@ -818,7 +844,6 @@ ARCHIVO: .\layouts\modelos\list.html
           <a href="{{ (printf "/marcas/%s/" ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a>
         </div>
 
-        {{/* OJO: aquí $model está vacío, usa $modelSlug */}}
         {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $modelSlug) }}
         <h1>{{ $title }}</h1>
 
@@ -835,9 +860,7 @@ ARCHIVO: .\layouts\modelos\list.html
 
       {{ else }}
 
-        {{/* ===== THIN CONTENT CHECK (modelo vacío real) ===== */}}
-
-        {{/* Recambios: en tu YAML es un MAP por categorías */}}
+        {{/* ===== THIN CONTENT CHECK ===== */}}
         {{ $hasRecambios := false }}
         {{ $rec := index $model "recambios" }}
         {{ if and $rec (reflect.IsMap $rec) }}
@@ -867,7 +890,7 @@ ARCHIVO: .\layouts\modelos\list.html
           {{ .Scratch.Set "noindex" true }}
         {{ end }}
 
-        {{/* ===== TÍTULO DEL MODELO (scope seguro) ===== */}}
+        {{/* ===== TÍTULO DEL MODELO ===== */}}
         {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
         {{ if not $mtitle }}
           {{ $mtitle = .Title }}
@@ -880,32 +903,34 @@ ARCHIVO: .\layouts\modelos\list.html
           <span>{{ $mtitle }}</span>
         </div>
 
-        <div class="hero" style="margin-top:10px;">
-          <div class="kicker">Modelo</div>
-          <h1>Recambios {{ $mtitle }}</h1>
+        <section class="hero hero--compact">
+          <div class="hero__inner">
+            <div class="hero__kicker">Modelo</div>
+            <h1>Recambios {{ $mtitle }}</h1>
 
-          {{ with (index $model "intro") }}
-            <p class="muted">{{ . }}</p>
-          {{ else }}
-            <p class="muted">
-              Encuentra recambios compatibles para {{ $mtitle }}, incluyendo filtros, baterías,
-              cepillos, cargadores y otros accesorios habituales para mantenimiento y sustitución.
-            </p>
-            <p class="muted">
-              En esta ficha puedes ver las piezas más buscadas para {{ $mtitle }}, comprobar
-              compatibilidad rápida y acceder a problemas frecuentes relacionados con pérdida de
-              succión, fallos de carga o desgaste del cepillo.
-            </p>
-          {{ end }}
+            {{ with (index $model "intro") }}
+              <p class="muted hero__copy">{{ . }}</p>
+            {{ else }}
+              <p class="muted hero__copy">
+                Encuentra recambios compatibles para {{ $mtitle }}, incluyendo filtros, baterías,
+                cepillos, cargadores y otros accesorios habituales para mantenimiento y sustitución.
+              </p>
+              <p class="muted hero__copy">
+                En esta ficha puedes ver las piezas más buscadas para {{ $mtitle }}, comprobar
+                compatibilidad rápida y acceder a problemas frecuentes relacionados con pérdida de
+                succión, fallos de carga o desgaste del cepillo.
+              </p>
+            {{ end }}
 
-          <div class="chips">
-            {{ with (index $model "series") }}<span class="chip active">Serie {{ . }}</span>{{ end }}
-            {{ with (index $model "year_range") }}<span class="chip">{{ . }}</span>{{ end }}
-            <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-            <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
-            <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+            <div class="hero__links">
+              {{ with (index $model "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
+              {{ with (index $model "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
+              <a class="btn btn--ghost" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+              <a class="btn btn--ghost" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
+              <a class="btn btn--ghost" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+            </div>
           </div>
-        </div>
+        </section>
 
         <div class="two-col" style="margin-top:12px;">
           <div class="panel">
@@ -930,8 +955,10 @@ ARCHIVO: .\layouts\modelos\list.html
 
             <hr>
 
-            <h2 style="margin-top:0;">Recambios compatibles</h2>
-            <p class="muted small">Verifica compatibilidad exacta (conectores, encaje y voltaje) antes de comprar.</p>
+            <h2 style="margin-top:0;">Recambios destacados</h2>
+            <p class="muted small">
+              Selección rápida de recambios compatibles para {{ $mtitle }}. Puedes entrar en cada categoría para ver más opciones.
+            </p>
 
             {{ $cats := $db.globals.categorias_recambios }}
             {{ $rec := index $model "recambios" }}
@@ -940,20 +967,22 @@ ARCHIVO: .\layouts\modelos\list.html
               {{ range $cat := $cats }}
                 {{ $catKey := index $cat "key" }}
                 {{ $catLabel := index $cat "label" }}
-                {{ $catIcon := index $cat "icon" }}
-
                 {{ $items := index $rec $catKey }}
-                {{ if $items }}
+
+                {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
                   <div class="section-head" style="margin-top:18px;">
-                    <h2 style="margin:0;">{{ $catLabel }}</h2>
-                    <a class="chip" href="{{ (printf "/modelos/%s/%s/" $modelSlug ($catKey|urlize)) | relURL }}">Ver todo</a>
+                    <h3 style="margin:0;">{{ $catLabel }}</h3>
+                    <a class="chip" href="{{ (printf "/modelos/%s/%s/" $modelSlug ($catKey | urlize)) | relURL }}">
+                      Ver todos
+                    </a>
                   </div>
 
                   <div class="products">
-                    {{ if reflect.IsSlice $items }}
-                      {{ range $it := $items }}
+                    {{ $shown := 0 }}
+                    {{ range $it := $items }}
+                      {{ if lt $shown 2 }}
                         <div class="product">
-                          <div class="img">{{ partial "cat_icon.html" (dict "catKey" ($catKey|urlize)) }}</div>
+                          <div class="img">{{ partial "cat_icon.html" (dict "catKey" ($catKey | urlize)) }}</div>
                           <div class="body">
                             <div class="title">{{ index $it "title" }}</div>
 
@@ -967,11 +996,8 @@ ARCHIVO: .\layouts\modelos\list.html
                             </div>
                           </div>
                         </div>
+                        {{ $shown = add $shown 1 }}
                       {{ end }}
-                    {{ else }}
-                      <div class="card">
-                        <p class="muted">Formato de recambios incorrecto (se esperaba una lista).</p>
-                      </div>
                     {{ end }}
                   </div>
                 {{ end }}
@@ -1071,7 +1097,6 @@ ARCHIVO: .\layouts\modelos\list.html
                   </ul>
                 {{ else if reflect.IsMap $compra }}
                   {{ with (index $compra "title") }}<div class="kicker">{{ . }}</div>{{ end }}
-
                   {{ $bullets := index $compra "bullets" }}
                   {{ if $bullets }}
                     {{ if reflect.IsSlice $bullets }}
@@ -1457,6 +1482,30 @@ ARCHIVO: .\layouts\modelos\recambio.html
     {{ end }}
   {{ end }}
 
+  {{/* Intro dinámica por categoría */}}
+  {{ $catIntro1 := printf "Encuentra %s compatibles para %s con una selección pensada para mantenimiento, sustitución y reparación habitual." ($catLabel | lower) $mtitle }}
+  {{ $catIntro2 := "Antes de comprar, revisa el modelo exacto, la serie, el encaje y las especificaciones clave del recambio." }}
+
+  {{ if eq $catKey "filtro" }}
+    {{ $catIntro1 = printf "Encuentra filtros compatibles para %s y elige la opción adecuada para mantener la potencia de aspiración y el filtrado." $mtitle }}
+    {{ $catIntro2 = "Comprueba forma, medidas, anclajes y si se trata de filtro HEPA, prefiltro o filtro trasero." }}
+  {{ else if eq $catKey "bateria" }}
+    {{ $catIntro1 = printf "Encuentra baterías compatibles para %s y revisa las opciones más habituales de sustitución cuando la autonomía baja o el equipo deja de funcionar correctamente." $mtitle }}
+    {{ $catIntro2 = "Verifica voltaje, capacidad, tipo de conector y compatibilidad exacta con la serie de tu aspirador." }}
+  {{ else if eq $catKey "cargador" }}
+    {{ $catIntro1 = printf "Encuentra cargadores compatibles para %s y compara opciones de reemplazo cuando el aspirador no carga o el adaptador original falla." $mtitle }}
+    {{ $catIntro2 = "Comprueba voltaje de salida, amperaje, conector y compatibilidad con tu versión exacta." }}
+  {{ else if eq $catKey "cepillo" }}
+    {{ $catIntro1 = printf "Encuentra cepillos compatibles para %s, tanto principales como motorizados, para recuperar el rendimiento sobre suelos y alfombras." $mtitle }}
+    {{ $catIntro2 = "Revisa forma, sistema de acople, medidas del rodillo y compatibilidad con el cabezal de tu modelo." }}
+  {{ else if eq $catKey "soporte" }}
+    {{ $catIntro1 = printf "Encuentra soportes compatibles para %s y revisa opciones de montaje o almacenamiento para tener el aspirador siempre listo." $mtitle }}
+    {{ $catIntro2 = "Comprueba puntos de anclaje, forma del soporte y compatibilidad con accesorios o cargadores." }}
+  {{ else if eq $catKey "accesorios" }}
+    {{ $catIntro1 = printf "Encuentra accesorios compatibles para %s, incluyendo boquillas, herramientas auxiliares y piezas de uso frecuente." $mtitle }}
+    {{ $catIntro2 = "Revisa el tipo de acople y si el accesorio está pensado para tu serie o para varias variantes del mismo modelo." }}
+  {{ end }}
+
   {{ $rec := index $model "recambios" }}
   {{ if not (and $rec (reflect.IsMap $rec)) }}
     {{ .Scratch.Set "noindex" true }}
@@ -1490,10 +1539,8 @@ ARCHIVO: .\layouts\modelos\recambio.html
   <div class="hero" style="margin-top:10px;">
     <div class="kicker">Recambios</div>
     <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
-    <p class="muted">
-      Selección de {{ $catLabel | lower }} para {{ $mtitle }} con enlaces verificados.
-      Antes de comprar, revisa compatibilidad (modelo/serie), medidas y conectores.
-    </p>
+    <p class="muted">{{ $catIntro1 }}</p>
+    <p class="muted">{{ $catIntro2 }}</p>
 
     <div class="chips">
       <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
@@ -1502,10 +1549,12 @@ ARCHIVO: .\layouts\modelos\recambio.html
     </div>
   </div>
 
-  {{/* ✅ ABOVE THE FOLD: Opciones populares (2-3 tarjetas) */}}
+  {{/* ABOVE THE FOLD: Opciones populares */}}
   <div class="panel" style="margin-top:14px;">
     <h2 style="margin-top:0;">Opciones populares</h2>
-    <p class="muted small">Atajos directos a recambios con mejor encaje típico para {{ $mtitle }}.</p>
+    <p class="muted small">
+      Selección rápida de {{ $catLabel | lower }} para {{ $mtitle }} con mejor encaje típico y compra más directa.
+    </p>
 
     <div class="products" style="margin-top:10px;">
       {{ $shown := 0 }}
@@ -1532,24 +1581,30 @@ ARCHIVO: .\layouts\modelos\recambio.html
 
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
-      <h2 style="margin-top:0;">Cómo acertar al 100% (checklist)</h2>
+      <h2 style="margin-top:0;">Cómo acertar al 100% con este recambio</h2>
       <ul class="list">
         <li><strong>Confirma el modelo exacto</strong>: serie, submodelo y referencias del fabricante.</li>
-        <li><strong>Comprueba encaje y conectores</strong>: pestañas, pines, forma del conector y polaridad.</li>
-        <li><strong>Revisa especificaciones</strong> (voltaje/capacidad/material) y fotos reales del anuncio.</li>
-        <li><strong>Si dudas entre dos opciones</strong>, prioriza la que indique compatibilidad explícita con {{ $mtitle }}.</li>
+        <li><strong>Comprueba encaje y conectores</strong>: pestañas, pines, forma del conector y polaridad cuando aplique.</li>
+        <li><strong>Revisa especificaciones</strong>: voltaje, capacidad, medidas, material o tipo de filtro según la pieza.</li>
+        <li><strong>Compara fotos reales</strong> del recambio y prioriza las opciones que indiquen compatibilidad explícita con {{ $mtitle }}.</li>
       </ul>
 
       <hr>
 
       <h2>Recambios disponibles</h2>
+      <p class="muted small">
+        Estas son las opciones disponibles de {{ $catLabel | lower }} para {{ $mtitle }} dentro del catálogo actual.
+      </p>
+
       <div class="products">
         {{ range $it := $items }}
           <div class="product">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="title">{{ index $it "title" }}</div>
-              {{ with (index $it "note") }}<div class="note muted" style="margin-top:10px;">{{ . }}</div>{{ end }}
+              {{ with (index $it "note") }}
+                <div class="note muted" style="margin-top:10px;">{{ . }}</div>
+              {{ end }}
               <div class="cta">
                 {{ $sku := index $it "sku" }}
                 {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
@@ -1561,13 +1616,12 @@ ARCHIVO: .\layouts\modelos\recambio.html
     </div>
 
     <aside class="panel">
-      <h2 style="margin-top:0;">¿Qué recambio necesito?</h2>
+      <h2 style="margin-top:0;">¿Qué recambio necesito realmente?</h2>
       <p class="muted">
-        Si tu problema es “no funciona / no carga / pierde potencia”, puede que el recambio correcto no sea este.
-        Mira las guías de diagnóstico y los recambios relacionados.
+        Si tu problema es “no funciona”, “no carga”, “pierde potencia” o “hace ruido”, puede que el recambio correcto no sea exactamente este.
+        Revisa los síntomas y entra en la guía que mejor encaje con tu caso.
       </p>
 
-      {{/* Problemas relacionados: lee model.problemas y muestra 3-6 */}}
       {{ $plist := index $model "problemas" }}
       {{ if and $plist (reflect.IsSlice $plist) (gt (len $plist) 0) }}
         <h3 style="margin-top:14px;">Problemas frecuentes</h3>
@@ -1595,12 +1649,11 @@ ARCHIVO: .\layouts\modelos\recambio.html
       </div>
 
       <p class="muted small" style="margin-top:12px;">
-        Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.
+        Algunos enlaces pueden ser de afiliación. El precio y la disponibilidad dependen del vendedor y del modelo exacto.
       </p>
     </aside>
   </div>
 
-  {{/* ✅ Crosslinks al FINAL (ya no ocultan los CTAs) */}}
   {{ partial "model_crosslinks.html" (dict
     "db" site.Data.aspiradores
     "brandKey" .Params.brandKey
@@ -1610,7 +1663,6 @@ ARCHIVO: .\layouts\modelos\recambio.html
   ) }}
 
 {{ end }}
-
 
 ==================================================
 ARCHIVO: .\layouts\partials\card_icon.html

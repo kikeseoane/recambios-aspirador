@@ -6,7 +6,8 @@
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
     <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
-    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brandKey }}</a><span class="sep">›</span>
+{{ $brand := index $db.brands $brandKey }}
+<a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name | default $brandKey }}</a><span class="sep">›</span>
     <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Modelo</a><span class="sep">›</span>
     <span>Problemas</span>
   </div>

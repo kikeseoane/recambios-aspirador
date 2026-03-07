@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  {{ if .IsHome }}
   {{ partial "schema/organization.jsonld.html" . }}
+{{ end }}
 
   {{- /* =========================================================
        TITLE SEO DINÁMICO
@@ -89,10 +91,14 @@
   {{- /* =========================================================
        OPEN GRAPH
      ========================================================= */ -}}
-  <meta property="og:site_name" content="{{ .Site.Title }}">
-  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-  <meta property="og:title" content="{{ $seoTitle }}">
-  <meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{- $ogType := "website" -}}
+{{- if and .IsPage (not .IsHome) -}}
+  {{- $ogType = "article" -}}
+{{- end -}}
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:title" content="{{ $seoTitle }}">
+<meta property="og:url" content="{{ .Permalink }}">
   {{- if $desc -}}
     <meta property="og:description" content="{{ $desc }}">
   {{- end -}}
