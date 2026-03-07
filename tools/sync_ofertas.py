@@ -220,7 +220,6 @@ def cache_clear() -> None:
                 p.unlink()
             except Exception:
                 pass
-    # intenta borrar directorios vacíos
     try:
         for d in sorted([x for x in CACHE_DIR.rglob("*") if x.is_dir()], key=lambda x: len(str(x)), reverse=True):
             try:
@@ -311,7 +310,6 @@ CATEGORY_PART_TERMS = {
 }
 
 CATEGORY_NEGATIVE_TERMS = {
-    # trampas típicas
     "soporte": ["trigger", "switch", "button", "pcb", "board", "handle", "motor"],
     "bateria": ["trigger", "switch", "button", "filter", "charger", "dock", "wall mount"],
     "filtro": ["battery", "charger", "trigger", "switch", "button"],
@@ -332,7 +330,6 @@ def cat_part_terms(cat: str) -> List[str]:
     for k, terms in CATEGORY_PART_TERMS.items():
         if k in c:
             return terms
-    # fallback heurístico
     if "bater" in c:
         return CATEGORY_PART_TERMS["bateria"]
     if "filt" in c:
@@ -359,7 +356,6 @@ def cat_negative_terms(cat: str) -> List[str]:
 def model_tokens_from_ctx(model: str) -> List[str]:
     t = nrm(model)
     tokens = [m.group(1).lower() for m in MODEL_TOKEN_RE.finditer(t)]
-    # heurística Dyson V11 -> SV14
     if "v11" in tokens and "sv14" not in tokens:
         tokens.append("sv14")
     return list(dict.fromkeys(tokens))
@@ -468,6 +464,55 @@ def build_keyword(ctx: Dict[str, Any]) -> str:
     return kw[:120]
 
 
+def compact_spaces(s: str) -> str:
+    return re.sub(r"\s+", " ", str(s or "")).strip()
+
+
+def choose_fallback_search_query(ctx: Dict[str, Any], query_override: str) -> str:
+    """
+    Prioridad:
+      1) query override
+      2) brand + model + category + item_title
+      3) brand + model + category
+      4) brand + model
+    """
+    candidates = [
+        query_override,
+        build_keyword(ctx),
+        " ".join([
+            str(ctx.get("brand") or ""),
+            str(ctx.get("model") or ""),
+            str(ctx.get("category") or ""),
+        ]),
+        " ".join([
+            str(ctx.get("brand") or ""),
+            str(ctx.get("model") or ""),
+        ]),
+    ]
+
+    for c in candidates:
+        c = compact_spaces(c)
+        if c:
+            return c[:120]
+    return ""
+
+
+def choose_fallback_search_label(ctx: Dict[str, Any], query_text: str) -> str:
+    category = compact_spaces(str(ctx.get("category") or ""))
+    model = compact_spaces(str(ctx.get("model") or ""))
+    brand = compact_spaces(str(ctx.get("brand") or ""))
+
+    if category and model:
+        return f"Buscar {category} para {model}"
+    if model:
+        return f"Buscar para {model}"
+    if brand and category:
+        return f"Buscar {category} {brand}"
+    if query_text:
+        return f"Buscar: {query_text}"
+    return "Buscar en AliExpress"
+
+
 def merge_overrides(
     sku: str,
     ctx: Dict[str, Any],
@@ -480,16 +525,13 @@ def merge_overrides(
       2) overrides en ofertas.yaml (offers_obj)
       3) defaults por categoría (solo para must_not)
     """
-    # query
     query = normalize(str(ctx.get("query") or ""))
     if not query:
         query = normalize(str(offers_obj.get("query") or ""))
 
-    # must include / not include
     must_include = ensure_list_str(ctx.get("must_include")) or ensure_list_str(offers_obj.get("must_include"))
     must_not_include = ensure_list_str(ctx.get("must_not_include")) or ensure_list_str(offers_obj.get("must_not_include"))
 
-    # model tokens
     model_tokens = [nrm(x) for x in (ensure_list_str(ctx.get("model_tokens")) or ensure_list_str(offers_obj.get("model_tokens")))]
 
     return query, must_include, must_not_include, model_tokens
@@ -523,19 +565,15 @@ def pick_best_promotion_link(
             if looks_bad(tt):
                 continue
 
-            # hard: modelo
             if req_models and not title_has_required_model(tt, req_models):
                 continue
 
-            # hard: categoría (alguna señal de la pieza)
             if not any(pt in tt for pt in part_terms):
                 continue
 
-            # hard: must_include
             if must_include and not contains_all(tt, must_include):
                 continue
 
-            # hard: must_not_include
             if must_not_include and contains_any(tt, must_not_include):
                 continue
 
@@ -597,7 +635,6 @@ def main() -> None:
     if not isinstance(offers, dict):
         offers = {}
 
-    # filtra SKUs si se pide
     only = [str(x).strip() for x in args.only_sku if str(x).strip()]
     if only:
         want = set([s for s in only if s in sku_ctx])
@@ -617,7 +654,6 @@ def main() -> None:
         obj = ensure_offer_obj(prev)
         before = dict(obj)
 
-        # placeholders base
         if is_placeholder(obj.get("estimated_price_range"), PLACEHOLDER_EST):
             obj["estimated_price_range"] = PLACEHOLDER_EST
 
@@ -644,10 +680,8 @@ def main() -> None:
             category = (ctx.get("category") or "")
             part_terms = cat_part_terms(category)
 
-            # negativos por categoría (default)
             must_not_default = cat_negative_terms(category)
 
-            # overrides desde catálogo/ofertas.yaml
             query, must_include, must_not_override, model_tokens_override = merge_overrides(
                 sku=sku,
                 ctx=ctx,
@@ -655,15 +689,25 @@ def main() -> None:
             )
             must_not_combined = [*must_not_default, *must_not_override]
 
-            # keywords fallback
-            kw0 = query if query else build_keyword(ctx)
+            fallback_search_query = choose_fallback_search_query(ctx, query)
+            fallback_search_label = choose_fallback_search_label(ctx, fallback_search_query)
+
             kws = [k for k in [
-                kw0,
-                " ".join([str(ctx.get("brand") or ""), str(ctx.get("model") or ""), str(ctx.get("category") or "")]).strip(),
-                " ".join([str(ctx.get("brand") or ""), str(ctx.get("model") or "")]).strip(),
+                fallback_search_query,
+                compact_spaces(" ".join([
+                    str(ctx.get("brand") or ""),
+                    str(ctx.get("model") or ""),
+                    str(ctx.get("category") or ""),
+                ])),
+                compact_spaces(" ".join([
+                    str(ctx.get("brand") or ""),
+                    str(ctx.get("model") or ""),
+                ])),
             ] if k]
 
             found = None
+            matched_kw = ""
+
             for kw in kws:
                 found = pick_best_promotion_link(
                     keyword=kw,
@@ -676,22 +720,33 @@ def main() -> None:
                     use_cache=use_cache,
                 )
                 if found:
+                    matched_kw = kw
                     break
 
             if found:
                 obj["url"] = found
+                obj["match_type"] = "exact_or_best_match"
+                obj["matched_query"] = matched_kw or fallback_search_query
+                obj["fallback_search_query"] = fallback_search_query
+                obj["fallback_search_label"] = fallback_search_label
                 obj.pop("needs_url", None)
                 obj["updated_at"] = today
                 filled_from_aliexpress += 1
             else:
-                # no pongas algo incorrecto: deja default + needs_url
                 if obj.get("url") != DEFAULT_URL:
                     obj["url"] = DEFAULT_URL
                     changed_urls_to_default += 1
+
                 obj["needs_url"] = True
+                obj["match_type"] = "fallback_search"
+                obj["fallback_search_query"] = fallback_search_query
+                obj["fallback_search_label"] = fallback_search_label
+                obj.pop("matched_query", None)
 
         else:
             obj.pop("needs_url", None)
+            if "match_type" not in obj:
+                obj["match_type"] = "manual_or_existing"
 
         if sku not in offers:
             offers[sku] = obj
@@ -701,7 +756,6 @@ def main() -> None:
             if before != obj:
                 updated += 1
 
-    # marcar huérfanos (solo si no estamos en modo only-sku)
     if not only:
         for sku, o in list(offers.items()):
             if sku not in set(sku_ctx.keys()):

@@ -1,7 +1,7 @@
 {{/* partials/offer_btn.html
 - Si hay URL (real o default) => botón
 - Si no hay URL => badge
-- Si needs_url => muestra etiqueta "pendiente" (opcional)
+- Si needs_url => muestra ayuda de búsqueda sugerida
 */}}
 
 {{ $sku := .sku | default "" }}
@@ -14,14 +14,36 @@
 {{ $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) }}
 {{ $url := (index $offer "url") | default "" }}
 {{ $needs := (index $offer "needs_url") | default false }}
+{{ $matchType := (index $offer "match_type") | default "" }}
+{{ $searchLabel := (index $offer "fallback_search_label") | default "" }}
+{{ $searchQuery := (index $offer "fallback_search_query") | default "" }}
+
+{{ $btnLabel := $label }}
+{{ if $needs }}
+  {{ $btnLabel = "Ver opciones en AliExpress" }}
+{{ end }}
 
 {{ if $url }}
-  <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored" target="_blank">
-    {{ $label }}
+  <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
+    {{ $btnLabel }}
   </a>
 
   {{ if $needs }}
-    <span class="badge" style="margin-left:8px;">pendiente</span>
+    <div class="offer-help" style="margin-top:6px;">
+      {{ if $searchLabel }}
+        <small class="muted">{{ $searchLabel }}</small>
+      {{ else }}
+        <small class="muted">Busca este recambio por modelo dentro de AliExpress</small>
+      {{ end }}
+
+      {{ if $searchQuery }}
+        <div style="margin-top:4px;">
+          <span class="badge">{{ $searchQuery }}</span>
+        </div>
+      {{ end }}
+    </div>
+  {{ else if eq $matchType "exact_or_best_match" }}
+    {{/* sin ayuda extra */}}
   {{ end }}
 
 {{ else if $sku }}
