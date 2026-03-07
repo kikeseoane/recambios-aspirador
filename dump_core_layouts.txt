@@ -44,7 +44,9 @@ ARCHIVO: .\layouts\_default\baseof.html
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  {{ if .IsHome }}
   {{ partial "schema/organization.jsonld.html" . }}
+{{ end }}
 
   {{- /* =========================================================
        TITLE SEO DINÁMICO
@@ -130,10 +132,14 @@ ARCHIVO: .\layouts\_default\baseof.html
   {{- /* =========================================================
        OPEN GRAPH
      ========================================================= */ -}}
-  <meta property="og:site_name" content="{{ .Site.Title }}">
-  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-  <meta property="og:title" content="{{ $seoTitle }}">
-  <meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{- $ogType := "website" -}}
+{{- if and .IsPage (not .IsHome) -}}
+  {{- $ogType = "article" -}}
+{{- end -}}
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:title" content="{{ $seoTitle }}">
+<meta property="og:url" content="{{ .Permalink }}">
   {{- if $desc -}}
     <meta property="og:description" content="{{ $desc }}">
   {{- end -}}
@@ -340,15 +346,15 @@ ARCHIVO: .\layouts\guia\single.html
           {{ range $bullets }}<li>{{ . }}</li>{{ end }}
         </ul>
       {{ else }}
-        <p class="muted">Contenido en preparaci�n.</p>
+        <p class="muted">Contenido en preparación.</p>
       {{ end }}
 
     {{ else }}
-      <p class="muted">Contenido en preparaci�n.</p>
+      <p class="muted">Contenido en preparación.</p>
     {{ end }}
 
   {{ else }}
-    <p class="muted">Contenido en preparaci�n.</p>
+    <p class="muted">Contenido en preparación.</p>
   {{ end }}
 {{ end }}
 
@@ -1380,7 +1386,8 @@ ARCHIVO: .\layouts\modelos\problemas.html
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
     <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
-    <a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brandKey }}</a><span class="sep">›</span>
+{{ $brand := index $db.brands $brandKey }}
+<a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name | default $brandKey }}</a><span class="sep">›</span>
     <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Modelo</a><span class="sep">›</span>
     <span>Problemas</span>
   </div>
@@ -2170,7 +2177,7 @@ ARCHIVO: .\layouts\partials\offer_btn.html
 {{ else if $sku }}
   <span class="badge">SKU: {{ $sku }}</span>
 {{ else }}
-  <span class="badge">En preparaci�n</span>
+  <span class="badge">En preparación</span>
 {{ end }}
 
 
@@ -2412,8 +2419,7 @@ ARCHIVO: .\layouts\partials\schema\organization.jsonld.html
   "founder": {
     "@type": "Person",
     "name": "Enrique Seoane"
-  },
-  "sameAs": []
+  }
 }
 </script>
 
@@ -2428,33 +2434,61 @@ Sitemap: {{ "sitemap.xml" | absURL }}
 ==================================================
 ARCHIVO: .\layouts\sitemap.xml
 ==================================================
-{{- /* layouts/sitemap.xml (compatible, sin set) */ -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>\n" | safeHTML -}}
 {{- printf "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" | safeHTML -}}
 
 {{/* Home */}}
-{{- if not (.Site.Home.Scratch.Get "noindex") -}}
-  {{- $r := "" -}}{{- with .Site.Home.Params.robots -}}{{- $r = lower . -}}{{- end -}}
-  {{- if not (and $r (strings.Contains $r "noindex")) -}}
-    {{- printf "  <url><loc>%s</loc></url>\n" .Site.Home.Permalink | safeHTML -}}
-  {{- end -}}
+{{- $homeRobots := "" -}}
+{{- with .Site.Home.Params.robots -}}{{- $homeRobots = lower . -}}{{- end -}}
+{{- if not (strings.Contains $homeRobots "noindex") -}}
+  <url>
+    <loc>{{ .Site.Home.Permalink }}</loc>
+    <lastmod>{{ (.Site.Home.Lastmod | default .Site.Home.Date).Format "2006-01-02" }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 {{- end -}}
 
 {{/* Sections */}}
 {{- range .Site.Sections -}}
-  {{- $r := "" -}}{{- with .Params.robots -}}{{- $r = lower . -}}{{- end -}}
-  {{- if and (not (.Scratch.Get "noindex")) (not (and $r (strings.Contains $r "noindex"))) -}}
-    {{- printf "  <url><loc>%s</loc></url>\n" .Permalink | safeHTML -}}
+  {{- $robots := "" -}}
+  {{- with .Params.robots -}}{{- $robots = lower . -}}{{- end -}}
+  {{- if not (strings.Contains $robots "noindex") -}}
+    <url>
+      <loc>{{ .Permalink }}</loc>
+      <lastmod>{{ (.Lastmod | default .Date).Format "2006-01-02" }}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+    </url>
   {{- end -}}
 {{- end -}}
 
 {{/* Regular pages */}}
 {{- range .Site.RegularPages -}}
-  {{- $r := "" -}}{{- with .Params.robots -}}{{- $r = lower . -}}{{- end -}}
-  {{- if and (not (.Scratch.Get "noindex")) (not (and $r (strings.Contains $r "noindex"))) -}}
-    {{- printf "  <url><loc>%s</loc></url>\n" .Permalink | safeHTML -}}
+  {{- $robots := "" -}}
+  {{- with .Params.robots -}}{{- $robots = lower . -}}{{- end -}}
+  {{- if not (strings.Contains $robots "noindex") -}}
+    {{- $priority := "0.5" -}}
+    {{- $changefreq := "weekly" -}}
+
+    {{- if and (eq .Section "modelos") (eq .Layout "recambio") -}}
+      {{- $priority = "0.8" -}}
+    {{- else if and (eq .Section "modelos") (eq .Layout "problema") -}}
+      {{- $priority = "0.7" -}}
+    {{- else if eq .Section "marcas" -}}
+      {{- $priority = "0.6" -}}
+    {{- else if eq .Section "guias" -}}
+      {{- $priority = "0.5" -}}
+      {{- $changefreq = "monthly" -}}
+    {{- end -}}
+
+    <url>
+      <loc>{{ .Permalink }}</loc>
+      <lastmod>{{ (.Lastmod | default .Date).Format "2006-01-02" }}</lastmod>
+      <changefreq>{{ $changefreq }}</changefreq>
+      <priority>{{ $priority }}</priority>
+    </url>
   {{- end -}}
 {{- end -}}
 
 {{- printf "</urlset>\n" | safeHTML -}}
-
