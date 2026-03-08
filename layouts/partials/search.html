@@ -1,20 +1,27 @@
 {{/* partials/search.html — buscador de modelos client-side */}}
 
-{{/* Construir índice JSON de todos los modelos */}}
-{{ $db := site.Data.aspiradores }}
+{{/* Construir índice JSON de todos los modelos en todos los verticals activos */}}
 {{ $index := slice }}
-{{ range $bk, $b := $db.brands }}
-  {{ range $b.models }}
-    {{ $slug := (or (index . "slug") (index . "canonical_slug")) | urlize }}
-    {{ $name := index . "model" | default "" }}
-    {{ if and $slug $name }}
-      {{ $index = $index | append (dict
-        "slug" $slug
-        "model" $name
-        "brand" $b.name
-        "brandSlug" ($bk | urlize)
-        "url" (printf "/modelos/%s/" $slug | relURL)
-      ) }}
+{{ $allVerticals := site.Data.verticals.verticals | default dict }}
+{{ range $vk, $vc := $allVerticals }}
+  {{ $vdb := index site.Data $vk }}
+  {{ if $vdb }}
+    {{ $isRoot := $vc.root | default true }}
+    {{ range $bk, $b := $vdb.brands }}
+      {{ range $b.models }}
+        {{ $slug := (or (index . "slug") (index . "canonical_slug")) | urlize }}
+        {{ $name := index . "model" | default "" }}
+        {{ if and $slug $name }}
+          {{ $url := cond $isRoot (printf "/modelos/%s/" $slug | relURL) (printf "/%s/modelos/%s/" $vk $slug | relURL) }}
+          {{ $index = $index | append (dict
+            "slug" $slug
+            "model" $name
+            "brand" $b.name
+            "brandSlug" ($bk | urlize)
+            "url" $url
+          ) }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

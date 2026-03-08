@@ -3,7 +3,8 @@
 - Si estamos en /marcas/<brand>/ => pinta cards de modelos de esa marca
 */}}
 
-{{ $db := site.Data.aspiradores }}
+{{ $verticalKey := .Params.vertical | default "aspiradores" }}
+{{ $db := index site.Data $verticalKey }}
 {{ $brands := $db.brands }}
 {{ $brandKey := .Params.brandKey }}
 

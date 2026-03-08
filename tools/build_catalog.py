@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
+import argparse
 import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -12,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PARTS_YAML = ROOT / "data" / "catalog_parts.yaml"
 BRANDS_YAML = ROOT / "data" / "catalog_brands.yaml"
 SKUS_YAML = ROOT / "data" / "catalog_skus.yaml"
-OUT_YAML = ROOT / "data" / "aspiradores.yaml"
+VERTICALS_YAML = ROOT / "data" / "verticals.yaml"
 
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -124,7 +125,7 @@ def compile_faq_pack(pack_items: List[dict], model_name: str, model_token: str) 
     return out
 
 
-def compile_catalog() -> dict:
+def compile_catalog(vertical: str = "aspiradores") -> dict:
     parts = load_yaml(PARTS_YAML)
     brands_doc = load_yaml(BRANDS_YAML)
     skus_doc = load_yaml(SKUS_YAML)
@@ -151,7 +152,11 @@ def compile_catalog() -> dict:
     # Validaciones base
     seen_model_slugs: set[str] = set()
 
-    for brand_key, brand_obj in brands.items():
+    for brand_key, brand_obj in list(brands.items()):
+        if isinstance(brand_obj, dict):
+            brand_vertical = brand_obj.get("vertical", "aspiradores")
+            if brand_vertical != vertical:
+                continue
         if not isinstance(brand_obj, dict):
             continue
 
@@ -340,9 +345,14 @@ def compile_catalog() -> dict:
 
 
 def main() -> None:
-    compiled = compile_catalog()
-    dump_yaml(OUT_YAML, compiled)
-    print(f"OK: catálogo compilado -> {OUT_YAML}")
+    ap = argparse.ArgumentParser(description="Compila el catálogo de recambios para un vertical")
+    ap.add_argument("--vertical", default="aspiradores", help="Vertical a compilar (default: aspiradores)")
+    args = ap.parse_args()
+
+    out_path = ROOT / "data" / f"{args.vertical}.yaml"
+    compiled = compile_catalog(vertical=args.vertical)
+    dump_yaml(out_path, compiled)
+    print(f"OK: catálogo compilado -> {out_path}")
 
 
 if __name__ == "__main__":

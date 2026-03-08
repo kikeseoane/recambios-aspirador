@@ -15,16 +15,16 @@
   {{- if .IsHome -}}
     {{- $seoTitle = .Site.Title -}}
 
-  {{- else if and (eq .Section "modelos") (eq .Layout "problema") -}}
+  {{- else if and (eq .Type "modelos") (eq .Layout "problema") -}}
     {{- $seoTitle = printf "%s: causas, soluciones y recambios compatibles" .Title -}}
 
-  {{- else if and (eq .Section "modelos") (eq .Layout "recambio") -}}
+  {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
     {{- $seoTitle = printf "%s compatibles | %s" .Title .Site.Title -}}
 
-  {{- else if and (eq .Section "modelos") .Params.brandKey -}}
+  {{- else if and (eq .Type "modelos") .Params.brandKey -}}
     {{- $seoTitle = printf "Recambios %s: filtros, baterías y cepillos compatibles" .Title -}}
 
-  {{- else if and (eq .Section "marcas") .Params.brandKey -}}
+  {{- else if and (eq .Type "marcas") .Params.brandKey -}}
     {{- $seoTitle = printf "Recambios %s: modelos, filtros y piezas compatibles" .Title -}}
 
   {{- else if eq .Section "guias" -}}
@@ -44,16 +44,16 @@
   {{- if .Description -}}
     {{- $desc = .Description -}}
 
-  {{- else if and (eq .Section "modelos") (eq .Layout "problema") -}}
+  {{- else if and (eq .Type "modelos") (eq .Layout "problema") -}}
     {{- $desc = printf "Descubre las causas más habituales de %s, cómo comprobar el fallo y qué recambios compatibles pueden ayudarte a solucionarlo." .Title -}}
 
-  {{- else if and (eq .Section "modelos") (eq .Layout "recambio") -}}
+  {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
     {{- $desc = printf "Encuentra %s compatibles, consejos para comprobar compatibilidad y recomendaciones para elegir el recambio adecuado." .Title -}}
 
-  {{- else if and (eq .Section "modelos") .Params.brandKey -}}
+  {{- else if and (eq .Type "modelos") .Params.brandKey -}}
     {{- $desc = printf "Encuentra recambios compatibles para %s: filtros, baterías, cepillos, cargadores y problemas frecuentes por modelo." .Title -}}
 
-  {{- else if and (eq .Section "marcas") .Params.brandKey -}}
+  {{- else if and (eq .Type "marcas") .Params.brandKey -}}
     {{- $desc = printf "Consulta modelos %s con recambios compatibles, filtros, baterías, cepillos y guías para elegir la pieza adecuada." .Title -}}
 
   {{- else if eq .Section "guias" -}}

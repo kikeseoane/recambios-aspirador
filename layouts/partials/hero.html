@@ -9,7 +9,8 @@
 {{ if eq $section "marcas" }}
   {{ if .Params.brandKey }}
     {{ $kicker = "Marca" }}
-    {{ $b := index site.Data.aspiradores.brands .Params.brandKey }}
+    {{ $vk := .Params.vertical | default "aspiradores" }}
+    {{ $b := index (index site.Data $vk).brands .Params.brandKey }}
     {{ if $b }}
       {{ $title = ($b.name | default $title) }}
     {{ end }}

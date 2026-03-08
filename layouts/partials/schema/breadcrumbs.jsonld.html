@@ -4,7 +4,8 @@
   {{- /* No emitimos schema si la página es noindex */ -}}
 {{- else -}}
 
-  {{- $db := site.Data.aspiradores -}}
+  {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
+  {{- $db := index site.Data $verticalKey -}}
   {{- $items := slice -}}
 
   {{/* Helpers */}}

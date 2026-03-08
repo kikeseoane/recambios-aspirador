@@ -3,7 +3,8 @@
 {{- if .Scratch.Get "noindex" -}}{{- return -}}{{- end -}}
 {{- if ne .Layout "problema" -}}{{- return -}}{{- end -}}
 
-{{- $db := site.Data.aspiradores -}}
+{{- $verticalKey := .Params.vertical | default "aspiradores" -}}
+{{- $db := index site.Data $verticalKey -}}
 {{- $bk := .Params.brandKey | default "" -}}
 {{- $ms := (.Params.modelSlug | default "") | urlize -}}
 {{- $pk := (.Params.problemKey | default "") | urlize -}}

@@ -1,294 +1,191 @@
-Perfecto. Viendo build_catalog.py, sí: este es el sitio correcto para meter mejoras comunes y estándar.
+Quiero que trabajes sobre mi proyecto actual para convertirlo en una base reutilizable que permita clonar la web “recambios-aspirador” hacia otros nichos, manteniendo al principio el acceso a esos nuevos contenidos desde la propia web principal actual.
+
+OBJETIVO REAL
+- Ya tengo una web funcional orientada a recambios de aspiradores/robots aspiradores.
+- Quiero reutilizar la misma arquitectura para lanzar otros nichos compatibles con el mismo patrón:
+  - marca
+  - modelo
+  - categorías de recambio/accesorio
+  - problemas
+  - enlaces a AliExpress
+- En una primera fase NO quiero dominios nuevos.
+- Quiero que esos nuevos nichos cuelguen inicialmente de la web actual y se acceda a ellos desde recambios-aspirador.
+- Más adelante, si un nicho demuestra tráfico suficiente, ya se podrá independizar.
+
+CONTEXTO TÉCNICO REAL
+El pipeline actual que sí usamos es este:
+1. editar:
+   - data/catalog_parts.yaml
+   - data/catalog_brands.yaml
+   - data/catalog_skus.yaml
+2. ejecutar:
+   - python tools/build_catalog.py
+   - python tools/generar.py --force
+   - python tools/sync_ofertas.py --no-cache --force
+
+Notas importantes:
+- data/aspiradores.yaml es generado
+- data/ofertas.yaml es generado
+- no quiero editar outputs generados a mano
+- armageddon_catalog.py queda fuera de este trabajo
+- no quiero unificar scripts todavía
+- el sistema actual funciona y no quiero romperlo
+
+OBJETIVO DE ARQUITECTURA
+Quiero que el proyecto deje de estar pensado solo para “aspiradores” y pase a ser una base multi-nicho, pero sin rehacerlo desde cero.
+
+La idea es:
+- seguir teniendo una web principal
+- dentro de esa web principal, poder colgar nuevos nichos experimentales
+- cada nicho debe poder reutilizar casi toda la lógica actual
+- el acceso inicial a esos nichos debe salir desde recambios-aspirador
+- después ya decidiré si los independizo o no
+
+LO QUE QUIERO QUE IMPLEMENTES
+
+1. Introducir el concepto de NICHO o VERTICAL en la arquitectura
+Quiero que exista una forma clara de definir nichos/verticales en los datos fuente.
+
+Ejemplos de verticales:
+- aspiradores
+- afeitadoras
+- herramientas-bateria
+- cafeteras
+
+Cada vertical debe poder tener:
+- key
+- label
+- slug
+- categorías permitidas
+- packs base opcionales
+- quizá copy o textos de entrada opcionales
+
+2. Asociar marcas y modelos a un vertical
+Cada marca/modelo debe pertenecer a un vertical.
+No quiero que todo siga asumiendo implícitamente “aspiradores”.
+
+3. Mantener el vertical actual funcionando
+Todo lo que ya existe debe seguir funcionando.
+No quiero romper:
+- build_catalog.py
+- generar.py
+- sync_ofertas.py
+- layouts actuales
+- contenido ya generado
+
+4. Permitir que el contenido de otros nichos cuelgue inicialmente de la web actual
+No quiero todavía dominios separados.
+Quiero que los nuevos nichos se publiquen como nuevas secciones o ramas dentro de la web actual.
+
+Ejemplo conceptual:
+- /aspiradores/
+- /afeitadoras/
+- /herramientas-bateria/
+
+o la estructura que veas más limpia y segura para el repo real.
+
+5. Preparar acceso desde la web principal actual
+Quiero que desde la web actual se pueda enlazar a estos nuevos nichos experimentales.
+No busco aún una mega home multi-nicho compleja, pero sí una forma clara de acceder a ellos desde el proyecto actual.
+
+6. Reutilizar al máximo la lógica ya existente
+Quiero que se reutilice:
+- la estructura YAML
+- la generación de catálogo
+- la generación de stubs
+- la lógica de ofertas
+- la lógica de recambios/categorías/problemas
+
+No quiero duplicar el sistema entero por cada nicho.
+
+QUÉ NO QUIERO
+- no quiero reescribir el proyecto desde cero
+- no quiero cambiar de stack
+- no quiero que me propongas una arquitectura abstracta excesiva
+- no quiero tocar armageddon_catalog.py
+- no quiero editar manualmente aspiradores.yaml ni ofertas.yaml
+- no quiero soluciones centradas solo en Dyson ni en ninguna marca
+- no quiero hardcodear un nicho futuro concreto dentro del core
+
+ENFOQUE DESEADO
+Quiero una refactorización incremental y segura.
+
+Piensa en algo así:
+- convertir “aspiradores” en el primer vertical soportado por el sistema
+- permitir añadir un segundo vertical de prueba
+- que build_catalog.py compile el catálogo con el vertical incluido
+- que generar.py genere contenido/stubs teniendo en cuenta el vertical
+- que sync_ofertas.py siga funcionando sin romperse
+- que la web actual pueda enlazar a esos verticales nuevos
+
+ENTREGABLES
+Quiero que me devuelvas todo esto:
+
+1. Diagnóstico del estado actual
+- qué partes del repo están acopladas a “aspiradores”
+- qué ya es reutilizable
+- qué habría que tocar sí o sí
+
+2. Propuesta de arquitectura mínima viable
+- cómo introducir verticales sin romper lo actual
+- cómo publicar nuevos nichos dentro de la misma web
+- cómo enlazarlos desde la web principal actual
+
+3. Cambios concretos en código
+Quiero el código completo, no solo ideas, de:
+- tools/build_catalog.py
+- tools/generar.py
+- cualquier partial/layout necesario
+- cualquier YAML fuente que haya que adaptar
+
+4. Ejemplos mínimos de YAML
+Quiero ejemplos de:
+- vertical actual aspiradores
+- un vertical futuro ficticio de prueba
+- cómo se asigna una marca/modelo a un vertical
+- cómo se definen categorías o packs por vertical
+
+5. Procedimiento final de uso
+Qué debo editar y en qué orden:
+- qué YAML fuente tocar
+- qué scripts ejecutar
+- qué se genera
+- cómo quedaría publicado dentro de la web actual
+
+6. Riesgos o puntos delicados
+- qué puede romper URLs
+- qué puede afectar a layouts existentes
+- qué conviene mantener compatible por ahora
+
+CRITERIOS DE CALIDAD
+- solución simple
+- segura
+- incremental
+- compatible con el pipeline actual
+- orientada a reutilizar masivamente la web en otros nichos
+- pensada para que el acceso inicial sea desde la propia web actual
+- sin sobreingeniería
+
+FORMA DE TRABAJAR
+Quiero que primero analices el funcionamiento real de:
+- tools/build_catalog.py
+- tools/generar.py
+- tools/sync_ofertas.py
+
+y a partir de ahí propongas e implementes la solución.
+
+No me des teoría genérica.
+No me des solo recomendaciones.
+Quiero una propuesta técnica concreta y aplicable al repo real.
+
+IMPORTANTE
+Trabaja con la idea de que:
+- recambios-aspirador es la web madre actual
+- los nuevos nichos serán “clones internos” al principio
+- el acceso a esos nichos debe salir desde la web actual
+- más adelante ya decidiré si alguno se independiza en dominio propio
+
+RESTRICCIÓN DE DISEÑO
+No quiero que la implementación final dependa de duplicar repositorios ni de mantener varias copias del mismo theme.
+Quiero una sola base técnica reutilizable, donde el nicho actual de aspiradores sea el primer caso ya soportado y los siguientes nichos entren como extensiones de la misma arquitectura.
 
-Ahora mismo este script hace muy bien una cosa:
-
-compila recambios automáticos por modelo a partir de sku_pack
-
-Pero todavía no compila capas estándar de contenido editorial, que es justo lo que te interesa para no depender de una marca concreta.
-
-Qué hace hoy build_catalog.py
-
-Genera por modelo:
-
-model
-
-slug
-
-model_tokens
-
-recambios
-
-y además permite:
-
-model_overrides
-
-sku_overrides
-
-Eso está bien para producto/enlace, pero se queda corto para escalar contenido SEO uniforme.
-
-La mejora buena: ampliar el compilador, no tocar el YAML final
-Objetivo
-
-Que build_catalog.py también genere, para cualquier marca/modelo:
-
-compatibilidad
-
-problemas
-
-faqs
-
-quizá intro
-
-a partir de packs estándar reutilizables.
-
-Cómo lo haría sin romper tu sistema
-1) Añadir nuevos bloques fuente
-
-En vez de meter lógica dura en Python, ampliaría catalog_parts.yaml con algo así:
-
-globals:
-  categorias_recambios:
-    - key: bateria
-      label: Batería
-    - key: filtro
-      label: Filtro
-
-problem_packs:
-  cordless_base:
-    - key: no-carga
-      title: "{model} no carga"
-      intent: info
-      cta_cat: bateria
-      symptoms:
-        - No enciende tras cargar
-        - La luz cambia pero no mantiene carga
-      causes:
-        - batería degradada
-        - cargador defectuoso
-      checks:
-        - probar otro enchufe
-        - revisar contactos
-      fix_hint: Si el cargador funciona, revisa batería y contactos.
-
-    - key: pierde-potencia
-      title: "{model} ha perdido potencia"
-      intent: info
-      cta_cat: filtro
-      symptoms:
-        - Aspira menos
-        - Se obstruye con facilidad
-      causes:
-        - filtro saturado
-        - conductos obstruidos
-      checks:
-        - limpiar filtro
-        - revisar tubo y cepillo
-      fix_hint: Si el filtro está saturado o roto, conviene sustituirlo.
-
-compatibility_packs:
-  cordless_base:
-    - Comprueba voltaje y formato antes de comprar.
-    - Revisa si tu versión usa batería click-in o con tornillos.
-    - Compara forma, enganche y medidas con la pieza original.
-
-faq_packs:
-  recambio_base:
-    - q: ¿Cómo compruebo si este recambio es compatible?
-      a: Revisa modelo exacto, forma, anclaje y especificaciones principales.
-    - q: ¿Sirve para varias versiones del mismo modelo?
-      a: No siempre. Algunas variantes cambian batería, filtro o sistema de anclaje.
-2) Referenciar esos packs desde catalog_brands.yaml
-
-Por modelo:
-
-brands:
-  xiaomi:
-    name: Xiaomi
-    models:
-      - model: Xiaomi G11
-        slug: xiaomi-g11
-        sku_pack: cordless_full
-        problem_pack: cordless_base
-        compatibility_pack: cordless_base
-        faq_pack: recambio_base
-
-Así no hay sesgo Dyson. Cualquier marca usa el mismo sistema.
-
-3) Hacer que build_catalog.py los compile
-
-En compile_catalog() añadiría:
-
-leer problem_packs
-
-leer compatibility_packs
-
-leer faq_packs
-
-aplicar plantillas {model} y {model_token}
-
-volcarlo dentro de m_out
-
-Cambios concretos en tu script
-A. Cargar nuevos bloques al principio de compile_catalog()
-
-Debajo de:
-
-globals_obj = parts.get("globals") or {}
-sku_packs = parts.get("sku_packs") or {}
-
-añadir:
-
-problem_packs = parts.get("problem_packs") or {}
-compatibility_packs = parts.get("compatibility_packs") or {}
-faq_packs = parts.get("faq_packs") or {}
-B. Funciones helper nuevas
-
-Añadiría encima de compile_catalog() algo así:
-
-def apply_tpl_list(items: List[str], model: str, model_token: str) -> List[str]:
-    out: List[str] = []
-    for x in items or []:
-        s = apply_tpl(str(x), model, model_token).strip()
-        if s:
-            out.append(s)
-    return out
-
-
-def compile_problem_pack(pack_items: List[dict], model_name: str, model_token: str) -> List[dict]:
-    out: List[dict] = []
-    for p in pack_items or []:
-        if not isinstance(p, dict):
-            continue
-        obj: Dict[str, Any] = {}
-        for k in ("key", "intent", "cta_cat", "fix_hint"):
-            if p.get(k):
-                obj[k] = apply_tpl(str(p.get(k)), model_name, model_token).strip()
-
-        if p.get("title"):
-            obj["title"] = apply_tpl(str(p["title"]), model_name, model_token).strip()
-
-        for lk in ("symptoms", "causes", "checks"):
-            vals = apply_tpl_list(ensure_list_str(p.get(lk)), model_name, model_token)
-            if vals:
-                obj[lk] = vals
-
-        out.append(obj)
-    return out
-
-
-def compile_faq_pack(pack_items: List[dict], model_name: str, model_token: str) -> List[dict]:
-    out: List[dict] = []
-    for p in pack_items or []:
-        if not isinstance(p, dict):
-            continue
-        q = apply_tpl(str(p.get("q") or ""), model_name, model_token).strip()
-        a = apply_tpl(str(p.get("a") or ""), model_name, model_token).strip()
-        if q and a:
-            out.append({"q": q, "a": a})
-    return out
-C. Dentro del loop de cada modelo
-
-Debajo de:
-
-model_tokens = ensure_list_str(m.get("model_tokens"))
-model_token = first_model_token(model_tokens, model_name)
-
-añadir:
-
-problem_pack = nrm(str(m.get("problem_pack") or ""))
-compatibility_pack = nrm(str(m.get("compatibility_pack") or ""))
-faq_pack = nrm(str(m.get("faq_pack") or ""))
-
-y validar:
-
-if problem_pack and problem_pack not in problem_packs:
-    raise SystemExit(f"ERROR: problem_pack '{problem_pack}' no existe en {PARTS_YAML}")
-if compatibility_pack and compatibility_pack not in compatibility_packs:
-    raise SystemExit(f"ERROR: compatibility_pack '{compatibility_pack}' no existe en {PARTS_YAML}")
-if faq_pack and faq_pack not in faq_packs:
-    raise SystemExit(f"ERROR: faq_pack '{faq_pack}' no existe en {PARTS_YAML}")
-D. Volcar contenido estándar en m_out
-
-Antes de compiled_models.append(m_out) añadir:
-
-            if compatibility_pack:
-                compiled_compat = apply_tpl_list(
-                    ensure_list_str(compatibility_packs.get(compatibility_pack)),
-                    model_name,
-                    model_token,
-                )
-                if compiled_compat:
-                    m_out["compatibilidad"] = compiled_compat
-
-            if problem_pack:
-                compiled_probs = compile_problem_pack(
-                    problem_packs.get(problem_pack) or [],
-                    model_name,
-                    model_token,
-                )
-                if compiled_probs:
-                    m_out["problemas"] = compiled_probs
-
-            if faq_pack:
-                compiled_faqs = compile_faq_pack(
-                    faq_packs.get(faq_pack) or [],
-                    model_name,
-                    model_token,
-                )
-                if compiled_faqs:
-                    m_out["faqs"] = compiled_faqs
-Qué ganas con esto
-Ventaja 1
-
-Crecimiento homogéneo
-No mejoras Dyson: mejoras el sistema para cualquier marca.
-
-Ventaja 2
-
-Más cobertura sin escribir mil veces lo mismo
-Cada modelo sale con una base editorial útil.
-
-Ventaja 3
-
-Menos thin content
-Tus layouts ya aprovechan compatibilidad, problemas, faqs.
-
-Ventaja 4
-
-Escala real
-Cuando metas Shark, Bosch, Rowenta, Xiaomi o Roborock, salen ya con la misma estructura.
-
-Prioridad real
-
-Yo haría esto en este orden:
-
-Hoy
-
-añadir problem_packs
-
-añadir compatibility_packs
-
-compilarlo en build_catalog.py
-
-Después
-
-faq_packs
-
-intro_packs
-
-quizá problem_overrides por modelo
-
-Mi veredicto
-
-Tu generador actual está bien planteado, pero solo cubre la capa SKU/recambio.
-La siguiente evolución natural es convertirlo en compilador completo de contenido estructurado, no solo de piezas.
-
-Si quieres, te doy ya el build_catalog.py completo modificado con soporte para:
-
-problem_pack
-
-compatibility_pack
-
-faq_pack
-
-sin tocar todavía nada más

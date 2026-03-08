@@ -27,7 +27,6 @@ except Exception:
 # Paths / constants
 # =========================
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "data" / "aspiradores.yaml"
 OFFERS = ROOT / "data" / "ofertas.yaml"
 
 DEFAULT_URL = "https://s.click.aliexpress.com/e/_c3VfQRLt"
@@ -661,11 +660,12 @@ def pick_best_promotion_link(
 # CLI
 # =========================
 def parse_args() -> argparse.Namespace:
-    ap = argparse.ArgumentParser(description="Sincroniza data/ofertas.yaml desde data/aspiradores.yaml + AliExpress API")
+    ap = argparse.ArgumentParser(description="Sincroniza data/ofertas.yaml desde data/<vertical>.yaml + AliExpress API")
     ap.add_argument("--clear-cache", action="store_true", help="Borra el cache y termina")
     ap.add_argument("--no-cache", action="store_true", help="Ignora cache (hace llamadas frescas)")
     ap.add_argument("--only-sku", action="append", default=[], help="Solo procesa este SKU (puedes repetir)")
     ap.add_argument("--force", action="store_true", help="Fuerza lookup incluso si ya hay URL no-default")
+    ap.add_argument("--vertical", default="aspiradores", help="Vertical a sincronizar (default: aspiradores)")
     return ap.parse_args()
 
 
@@ -682,7 +682,8 @@ def main() -> None:
 
     use_cache = not args.no_cache
 
-    catalog = load_yaml(CATALOG)
+    catalog_path = ROOT / "data" / f"{args.vertical}.yaml"
+    catalog = load_yaml(catalog_path)
     sku_ctx = sku_records_from_catalog(catalog)
     want = set(sku_ctx.keys())
 

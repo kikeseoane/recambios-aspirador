@@ -1,5 +1,6 @@
 {{ define "main" }}
-  {{ $db := site.Data.aspiradores }}
+  {{ $verticalKey := .Params.vertical | default "aspiradores" }}
+  {{ $db := index site.Data $verticalKey }}
   {{ $brandKey := .Params.brandKey }}
   {{ $modelSlug := .Params.modelSlug | urlize }}
 

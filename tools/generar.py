@@ -10,8 +10,8 @@ except ImportError:
     raise SystemExit("Falta PyYAML. Instala con: pip install pyyaml")
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "aspiradores.yaml"
 CONTENT = ROOT / "content"
+VERTICALS_YAML = ROOT / "data" / "verticals.yaml"
 
 
 def slugify(s: str) -> str:
@@ -108,10 +108,10 @@ def fm(
     return f"---\n{body}\n---\n"
 
 
-def load_db() -> dict:
-    if not DATA.exists():
-        raise SystemExit(f"No existe {DATA}")
-    return yaml.safe_load(DATA.read_text(encoding="utf-8")) or {}
+def load_db(data_path: Path) -> dict:
+    if not data_path.exists():
+        raise SystemExit(f"No existe {data_path}")
+    return yaml.safe_load(data_path.read_text(encoding="utf-8")) or {}
 
 
 # -------------------------------
@@ -227,69 +227,113 @@ def main() -> None:
         help="Limpia stubs generados (generated:true) en content/modelos, content/marcas y content/guias",
     )
 
+    ap.add_argument(
+        "--vertical",
+        default="aspiradores",
+        help="Vertical a generar (default: aspiradores)",
+    )
+
     args = ap.parse_args()
 
-    db = load_db()
+    # Load vertical config
+    vdata = yaml.safe_load(VERTICALS_YAML.read_text(encoding="utf-8")) or {} if VERTICALS_YAML.exists() else {}
+    vconf = (vdata.get("verticals") or {}).get(args.vertical) or {}
+    is_root = vconf.get("root", True) if vconf else (args.vertical == "aspiradores")
+
+    # Compute data path
+    data_path = ROOT / "data" / f"{args.vertical}.yaml"
+    db = load_db(data_path)
     brands = (db.get("brands", {}) or {})
 
+    # Compute content section dirs
+    if is_root:
+        section_modelos = CONTENT / "modelos"
+        section_marcas = CONTENT / "marcas"
+    else:
+        section_modelos = CONTENT / args.vertical / "modelos"
+        section_marcas = CONTENT / args.vertical / "marcas"
+
     if args.clean_all:
-        safe_clean_section(CONTENT / "modelos")
-        safe_clean_section(CONTENT / "marcas")
-        safe_clean_section(CONTENT / "guias")
+        safe_clean_section(section_modelos)
+        safe_clean_section(section_marcas)
+        if is_root:
+            safe_clean_section(CONTENT / "guias")
         print("OK: limpieza segura (generated:true) ejecutada.")
 
     if args.clean_modelos:
-        clean_modelos_dir()
+        if is_root:
+            clean_modelos_dir()
+        else:
+            safe_clean_section(section_modelos)
         print("OK: limpieza modelos (bruta) ejecutada.")
 
-    # Secciones (IMPORTANTE: sin slug ni type)
-    write_file(
-        CONTENT / "marcas" / "_index.md",
-        fm(title="Marcas", slug=None, kind=None, extra=None),
-        force=args.force,
-    )
-    write_file(
-        CONTENT / "modelos" / "_index.md",
-        fm(title="Modelos", slug=None, kind=None, extra=None),
-        force=args.force,
-    )
-    write_file(
-        CONTENT / "guias" / "_index.md",
-        fm(title="Guías", slug=None, kind=None, extra=None),
-        force=args.force,
-    )
+    if is_root:
+        # Secciones raíz (IMPORTANTE: sin slug ni type)
+        write_file(
+            CONTENT / "marcas" / "_index.md",
+            fm(title="Marcas", slug=None, kind=None, extra=None),
+            force=args.force,
+        )
+        write_file(
+            CONTENT / "modelos" / "_index.md",
+            fm(title="Modelos", slug=None, kind=None, extra=None),
+            force=args.force,
+        )
+        write_file(
+            CONTENT / "guias" / "_index.md",
+            fm(title="Guías", slug=None, kind=None, extra=None),
+            force=args.force,
+        )
+    else:
+        # Secciones para verticals no-root
+        write_file(
+            CONTENT / args.vertical / "_index.md",
+            fm(title=vconf.get("label", args.vertical)),
+            force=args.force,
+        )
+        write_file(
+            section_marcas / "_index.md",
+            fm(title="Marcas"),
+            force=args.force,
+        )
+        write_file(
+            section_modelos / "_index.md",
+            fm(title="Modelos"),
+            force=args.force,
+        )
 
-    # Guías genéricas (leaf pages) -> aquí SÍ usamos type="guia"
-    write_file(
-        CONTENT / "guias" / "seguridad.md",
-        fm(
-            title="Seguridad",
-            slug="seguridad",
-            kind="guia",
-            extra={"guideKey": "seguridad"},
-        ),
-        force=args.force,
-    )
-    write_file(
-        CONTENT / "guias" / "mantenimiento.md",
-        fm(
-            title="Mantenimiento",
-            slug="mantenimiento",
-            kind="guia",
-            extra={"guideKey": "mantenimiento"},
-        ),
-        force=args.force,
-    )
-    write_file(
-        CONTENT / "guias" / "compra.md",
-        fm(
-            title="Cómo elegir recambio",
-            slug="compra",
-            kind="guia",
-            extra={"guideKey": "compra"},
-        ),
-        force=args.force,
-    )
+    if is_root:
+        # Guías genéricas (leaf pages) -> aquí SÍ usamos type="guia"
+        write_file(
+            CONTENT / "guias" / "seguridad.md",
+            fm(
+                title="Seguridad",
+                slug="seguridad",
+                kind="guia",
+                extra={"guideKey": "seguridad"},
+            ),
+            force=args.force,
+        )
+        write_file(
+            CONTENT / "guias" / "mantenimiento.md",
+            fm(
+                title="Mantenimiento",
+                slug="mantenimiento",
+                kind="guia",
+                extra={"guideKey": "mantenimiento"},
+            ),
+            force=args.force,
+        )
+        write_file(
+            CONTENT / "guias" / "compra.md",
+            fm(
+                title="Cómo elegir recambio",
+                slug="compra",
+                kind="guia",
+                extra={"guideKey": "compra"},
+            ),
+            force=args.force,
+        )
 
     # Marcas + modelos
     for brand_key, brand in (brands.items() if isinstance(brands, dict) else []):
@@ -298,13 +342,16 @@ def main() -> None:
         brand_slug = slugify(brand_key)
 
         # Marca (branch bundle) -> _index.md
+        brand_extra: dict = {"brandKey": brand_key}
+        if not is_root:
+            brand_extra["vertical"] = args.vertical
         write_file(
-            CONTENT / "marcas" / brand_slug / "_index.md",
+            section_marcas / brand_slug / "_index.md",
             fm(
                 title=brand_name,
                 slug=None,
-                kind=None,
-                extra={"brandKey": brand_key},
+                kind="marcas" if not is_root else None,
+                extra=brand_extra,
             ),
             force=args.force,
         )
@@ -321,17 +368,20 @@ def main() -> None:
             model_slug = (m.get("slug") or "").strip() or slugify(f"{brand_key}-{model_name}")
             title = f"{brand_name} {model_name}".strip()
 
-            # ✅ MODELO = BRANCH bundle (_index.md)
-            model_dir = CONTENT / "modelos" / model_slug
+            # MODELO = BRANCH bundle (_index.md)
+            model_dir = section_modelos / model_slug
             model_index = ensure_model_branch_bundle(model_dir)
 
+            model_extra: dict = {"brandKey": brand_key, "modelSlug": model_slug}
+            if not is_root:
+                model_extra["vertical"] = args.vertical
             write_file(
                 model_index,
                 fm(
                     title=title,
                     slug=None,
-                    kind=None,
-                    extra={"brandKey": brand_key, "modelSlug": model_slug},
+                    kind="modelos" if not is_root else None,
+                    extra=model_extra,
                 ),
                 force=args.force,
             )
@@ -344,21 +394,24 @@ def main() -> None:
                         continue
 
                     cat_slug = slugify(cat_key)
-                    hub_dir = CONTENT / "modelos" / model_slug / cat_slug
+                    hub_dir = section_modelos / model_slug / cat_slug
                     hub_title = f"{brand_name} {model_name} · {cat_title_es(cat_key)}"
 
+                    hub_extra: dict = {
+                        "brandKey": brand_key,
+                        "modelSlug": model_slug,
+                        "catKey": cat_slug,
+                        "layout": "recambio",
+                    }
+                    if not is_root:
+                        hub_extra["vertical"] = args.vertical
                     write_file(
                         hub_dir / "index.md",
                         fm(
                             title=hub_title,
                             slug=None,
-                            kind=None,
-                            extra={
-                                "brandKey": brand_key,
-                                "modelSlug": model_slug,
-                                "catKey": cat_slug,
-                                "layout": "recambio",
-                            },
+                            kind="modelos" if not is_root else None,
+                            extra=hub_extra,
                         ),
                         force=args.force,
                     )
@@ -367,17 +420,20 @@ def main() -> None:
             problems = (m.get("problemas") or [])
             if isinstance(problems, list) and len(problems) > 0:
                 # HUB /modelos/<model>/problemas/ (branch bundle) -> _index.md
+                problemas_extra: dict = {
+                    "brandKey": brand_key,
+                    "modelSlug": model_slug,
+                    "layout": "problemas",
+                }
+                if not is_root:
+                    problemas_extra["vertical"] = args.vertical
                 write_file(
-                    CONTENT / "modelos" / model_slug / "problemas" / "_index.md",
+                    section_modelos / model_slug / "problemas" / "_index.md",
                     fm(
                         title=f"Problemas frecuentes de {title}",
                         slug=None,
-                        kind=None,
-                        extra={
-                            "brandKey": brand_key,
-                            "modelSlug": model_slug,
-                            "layout": "problemas",
-                        },
+                        kind="modelos" if not is_root else None,
+                        extra=problemas_extra,
                     ),
                     force=args.force,
                 )
@@ -391,19 +447,22 @@ def main() -> None:
                     if not pkey or not ptitle:
                         continue
 
-                    pdir = CONTENT / "modelos" / model_slug / "problemas" / pkey
+                    pdir = section_modelos / model_slug / "problemas" / pkey
+                    prob_extra: dict = {
+                        "brandKey": brand_key,
+                        "modelSlug": model_slug,
+                        "problemKey": pkey,
+                        "layout": "problema",
+                    }
+                    if not is_root:
+                        prob_extra["vertical"] = args.vertical
                     write_file(
                         pdir / "index.md",
                         fm(
                             title=ptitle,
                             slug=None,
-                            kind=None,
-                            extra={
-                                "brandKey": brand_key,
-                                "modelSlug": model_slug,
-                                "problemKey": pkey,
-                                "layout": "problema",
-                            },
+                            kind="modelos" if not is_root else None,
+                            extra=prob_extra,
                         ),
                         force=args.force,
                     )

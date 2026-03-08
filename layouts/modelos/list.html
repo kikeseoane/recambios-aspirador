@@ -8,7 +8,8 @@
 */}}
 
 {{ define "main" }}
-  {{ $db := site.Data.aspiradores }}
+  {{ $verticalKey := .Params.vertical | default "aspiradores" }}
+  {{ $db := index site.Data $verticalKey }}
   {{ $brands := $db.brands }}
   {{ $brandKey := .Params.brandKey }}
 

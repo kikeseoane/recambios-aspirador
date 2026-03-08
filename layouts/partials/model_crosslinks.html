@@ -1,10 +1,11 @@
 {{/* layouts/partials/model_crosslinks.html
 Input: dict
-  "db" site.Data.aspiradores
+  "db" — vertical db object
   "brandKey" .Params.brandKey
   "modelSlug" .Params.modelSlug
   "currentCat" (opcional) catKey actual
   "currentProblem" (opcional) problemKey actual
+  "verticalKey" (opcional) vertical key (default "aspiradores")
   "wrap" (opcional) bool (por defecto true)
 */}}
 
@@ -14,6 +15,9 @@ Input: dict
 {{ $currentCat := (.currentCat | default "" | urlize) }}
 {{ $currentProblem := (.currentProblem | default "" | urlize) }}
 {{ $wrap := (.wrap | default true) }}
+{{ $verticalKey := .verticalKey | default "aspiradores" }}
+{{ $vurls := partial "vertical_urls.html" $verticalKey }}
+{{ $modBase := $vurls.modBase }}
 
 {{ if not (and $db $brandKey $modelSlug) }}
   {{ return }}
@@ -57,7 +61,7 @@ Input: dict
           {{ $items := index $rec $ck }}
           {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
             {{ if ne $ck $currentCat }}
-              <a class="chip" href="{{ (printf "/modelos/%s/%s/" ($modelSlug|urlize) $ck) | relURL }}">{{ $label }}</a>
+              <a class="chip" href="{{ (printf "%s%s/%s/" $modBase ($modelSlug|urlize) $ck) | relURL }}">{{ $label }}</a>
             {{ else }}
               <span class="chip active">{{ $label }}</span>
             {{ end }}
@@ -76,7 +80,7 @@ Input: dict
           {{ $pk := (index $p "key" | urlize) }}
           {{ $pt := (index $p "title") | default $pk }}
           {{ if ne $pk $currentProblem }}
-            <a class="chip" href="{{ (printf "/modelos/%s/problemas/%s/" ($modelSlug|urlize) $pk) | relURL }}">{{ $pt }}</a>
+            <a class="chip" href="{{ (printf "%s%s/problemas/%s/" $modBase ($modelSlug|urlize) $pk) | relURL }}">{{ $pt }}</a>
           {{ else }}
             <span class="chip active">{{ $pt }}</span>
           {{ end }}

@@ -1,6 +1,7 @@
 {{/* layouts/modelos/recambio.html */}}
 {{ define "main" }}
-  {{ $db := site.Data.aspiradores }}
+  {{ $verticalKey := .Params.vertical | default "aspiradores" }}
+  {{ $db := index site.Data $verticalKey }}
   {{ $brands := $db.brands }}
 
   {{ $brandKey := .Params.brandKey | default "" }}
@@ -229,10 +230,11 @@
   </div>
 
   {{ partial "model_crosslinks.html" (dict
-    "db" site.Data.aspiradores
+    "db" $db
     "brandKey" .Params.brandKey
     "modelSlug" .Params.modelSlug
     "currentCat" .Params.catKey
+    "verticalKey" (.Params.vertical | default "aspiradores")
     "wrap" true
   ) }}
 

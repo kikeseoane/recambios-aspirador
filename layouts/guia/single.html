@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $db := site.Data.aspiradores }}
+  {{ $db := index site.Data "aspiradores" }}
   {{ $key := .Params.guideKey }}
 
   {{/* Obtener globals.guias_genericas de forma segura (sin nil) */}}
