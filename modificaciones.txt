@@ -1,0 +1,294 @@
+Perfecto. Viendo build_catalog.py, sí: este es el sitio correcto para meter mejoras comunes y estándar.
+
+Ahora mismo este script hace muy bien una cosa:
+
+compila recambios automáticos por modelo a partir de sku_pack
+
+Pero todavía no compila capas estándar de contenido editorial, que es justo lo que te interesa para no depender de una marca concreta.
+
+Qué hace hoy build_catalog.py
+
+Genera por modelo:
+
+model
+
+slug
+
+model_tokens
+
+recambios
+
+y además permite:
+
+model_overrides
+
+sku_overrides
+
+Eso está bien para producto/enlace, pero se queda corto para escalar contenido SEO uniforme.
+
+La mejora buena: ampliar el compilador, no tocar el YAML final
+Objetivo
+
+Que build_catalog.py también genere, para cualquier marca/modelo:
+
+compatibilidad
+
+problemas
+
+faqs
+
+quizá intro
+
+a partir de packs estándar reutilizables.
+
+Cómo lo haría sin romper tu sistema
+1) Añadir nuevos bloques fuente
+
+En vez de meter lógica dura en Python, ampliaría catalog_parts.yaml con algo así:
+
+globals:
+  categorias_recambios:
+    - key: bateria
+      label: Batería
+    - key: filtro
+      label: Filtro
+
+problem_packs:
+  cordless_base:
+    - key: no-carga
+      title: "{model} no carga"
+      intent: info
+      cta_cat: bateria
+      symptoms:
+        - No enciende tras cargar
+        - La luz cambia pero no mantiene carga
+      causes:
+        - batería degradada
+        - cargador defectuoso
+      checks:
+        - probar otro enchufe
+        - revisar contactos
+      fix_hint: Si el cargador funciona, revisa batería y contactos.
+
+    - key: pierde-potencia
+      title: "{model} ha perdido potencia"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - Aspira menos
+        - Se obstruye con facilidad
+      causes:
+        - filtro saturado
+        - conductos obstruidos
+      checks:
+        - limpiar filtro
+        - revisar tubo y cepillo
+      fix_hint: Si el filtro está saturado o roto, conviene sustituirlo.
+
+compatibility_packs:
+  cordless_base:
+    - Comprueba voltaje y formato antes de comprar.
+    - Revisa si tu versión usa batería click-in o con tornillos.
+    - Compara forma, enganche y medidas con la pieza original.
+
+faq_packs:
+  recambio_base:
+    - q: ¿Cómo compruebo si este recambio es compatible?
+      a: Revisa modelo exacto, forma, anclaje y especificaciones principales.
+    - q: ¿Sirve para varias versiones del mismo modelo?
+      a: No siempre. Algunas variantes cambian batería, filtro o sistema de anclaje.
+2) Referenciar esos packs desde catalog_brands.yaml
+
+Por modelo:
+
+brands:
+  xiaomi:
+    name: Xiaomi
+    models:
+      - model: Xiaomi G11
+        slug: xiaomi-g11
+        sku_pack: cordless_full
+        problem_pack: cordless_base
+        compatibility_pack: cordless_base
+        faq_pack: recambio_base
+
+Así no hay sesgo Dyson. Cualquier marca usa el mismo sistema.
+
+3) Hacer que build_catalog.py los compile
+
+En compile_catalog() añadiría:
+
+leer problem_packs
+
+leer compatibility_packs
+
+leer faq_packs
+
+aplicar plantillas {model} y {model_token}
+
+volcarlo dentro de m_out
+
+Cambios concretos en tu script
+A. Cargar nuevos bloques al principio de compile_catalog()
+
+Debajo de:
+
+globals_obj = parts.get("globals") or {}
+sku_packs = parts.get("sku_packs") or {}
+
+añadir:
+
+problem_packs = parts.get("problem_packs") or {}
+compatibility_packs = parts.get("compatibility_packs") or {}
+faq_packs = parts.get("faq_packs") or {}
+B. Funciones helper nuevas
+
+Añadiría encima de compile_catalog() algo así:
+
+def apply_tpl_list(items: List[str], model: str, model_token: str) -> List[str]:
+    out: List[str] = []
+    for x in items or []:
+        s = apply_tpl(str(x), model, model_token).strip()
+        if s:
+            out.append(s)
+    return out
+
+
+def compile_problem_pack(pack_items: List[dict], model_name: str, model_token: str) -> List[dict]:
+    out: List[dict] = []
+    for p in pack_items or []:
+        if not isinstance(p, dict):
+            continue
+        obj: Dict[str, Any] = {}
+        for k in ("key", "intent", "cta_cat", "fix_hint"):
+            if p.get(k):
+                obj[k] = apply_tpl(str(p.get(k)), model_name, model_token).strip()
+
+        if p.get("title"):
+            obj["title"] = apply_tpl(str(p["title"]), model_name, model_token).strip()
+
+        for lk in ("symptoms", "causes", "checks"):
+            vals = apply_tpl_list(ensure_list_str(p.get(lk)), model_name, model_token)
+            if vals:
+                obj[lk] = vals
+
+        out.append(obj)
+    return out
+
+
+def compile_faq_pack(pack_items: List[dict], model_name: str, model_token: str) -> List[dict]:
+    out: List[dict] = []
+    for p in pack_items or []:
+        if not isinstance(p, dict):
+            continue
+        q = apply_tpl(str(p.get("q") or ""), model_name, model_token).strip()
+        a = apply_tpl(str(p.get("a") or ""), model_name, model_token).strip()
+        if q and a:
+            out.append({"q": q, "a": a})
+    return out
+C. Dentro del loop de cada modelo
+
+Debajo de:
+
+model_tokens = ensure_list_str(m.get("model_tokens"))
+model_token = first_model_token(model_tokens, model_name)
+
+añadir:
+
+problem_pack = nrm(str(m.get("problem_pack") or ""))
+compatibility_pack = nrm(str(m.get("compatibility_pack") or ""))
+faq_pack = nrm(str(m.get("faq_pack") or ""))
+
+y validar:
+
+if problem_pack and problem_pack not in problem_packs:
+    raise SystemExit(f"ERROR: problem_pack '{problem_pack}' no existe en {PARTS_YAML}")
+if compatibility_pack and compatibility_pack not in compatibility_packs:
+    raise SystemExit(f"ERROR: compatibility_pack '{compatibility_pack}' no existe en {PARTS_YAML}")
+if faq_pack and faq_pack not in faq_packs:
+    raise SystemExit(f"ERROR: faq_pack '{faq_pack}' no existe en {PARTS_YAML}")
+D. Volcar contenido estándar en m_out
+
+Antes de compiled_models.append(m_out) añadir:
+
+            if compatibility_pack:
+                compiled_compat = apply_tpl_list(
+                    ensure_list_str(compatibility_packs.get(compatibility_pack)),
+                    model_name,
+                    model_token,
+                )
+                if compiled_compat:
+                    m_out["compatibilidad"] = compiled_compat
+
+            if problem_pack:
+                compiled_probs = compile_problem_pack(
+                    problem_packs.get(problem_pack) or [],
+                    model_name,
+                    model_token,
+                )
+                if compiled_probs:
+                    m_out["problemas"] = compiled_probs
+
+            if faq_pack:
+                compiled_faqs = compile_faq_pack(
+                    faq_packs.get(faq_pack) or [],
+                    model_name,
+                    model_token,
+                )
+                if compiled_faqs:
+                    m_out["faqs"] = compiled_faqs
+Qué ganas con esto
+Ventaja 1
+
+Crecimiento homogéneo
+No mejoras Dyson: mejoras el sistema para cualquier marca.
+
+Ventaja 2
+
+Más cobertura sin escribir mil veces lo mismo
+Cada modelo sale con una base editorial útil.
+
+Ventaja 3
+
+Menos thin content
+Tus layouts ya aprovechan compatibilidad, problemas, faqs.
+
+Ventaja 4
+
+Escala real
+Cuando metas Shark, Bosch, Rowenta, Xiaomi o Roborock, salen ya con la misma estructura.
+
+Prioridad real
+
+Yo haría esto en este orden:
+
+Hoy
+
+añadir problem_packs
+
+añadir compatibility_packs
+
+compilarlo en build_catalog.py
+
+Después
+
+faq_packs
+
+intro_packs
+
+quizá problem_overrides por modelo
+
+Mi veredicto
+
+Tu generador actual está bien planteado, pero solo cubre la capa SKU/recambio.
+La siguiente evolución natural es convertirlo en compilador completo de contenido estructurado, no solo de piezas.
+
+Si quieres, te doy ya el build_catalog.py completo modificado con soporte para:
+
+problem_pack
+
+compatibility_pack
+
+faq_pack
+
+sin tocar todavía nada más

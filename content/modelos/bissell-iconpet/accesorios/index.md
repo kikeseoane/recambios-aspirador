@@ -1,5 +1,5 @@
 ---
-title: Bissell ICONpet · Accesorios
+title: Bissell IconPet · Accesorios
 draft: false
 generated: true
 brandKey: bissell

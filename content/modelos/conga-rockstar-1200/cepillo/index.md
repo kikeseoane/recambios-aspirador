@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga Rockstar 1200 · Cepillos y rodillos
+title: Cecotec Rockstar 1200 · Cepillo
 draft: false
 generated: true
 brandKey: cecotec

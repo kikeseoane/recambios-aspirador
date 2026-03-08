@@ -1,5 +1,5 @@
 ---
-title: Rowenta X-Force Flex 8.60 · Soportes y bases
+title: Rowenta X-Force Flex 8.60 · Soporte
 draft: false
 generated: true
 brandKey: rowenta

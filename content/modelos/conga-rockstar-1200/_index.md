@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga Rockstar 1200
+title: Cecotec Rockstar 1200
 draft: false
 generated: true
 brandKey: cecotec

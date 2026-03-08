@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max XC8349/01 · Soportes y bases
+title: Philips SpeedPro Max Aqua · Soporte
 draft: false
 generated: true
 brandKey: philips

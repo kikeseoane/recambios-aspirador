@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba s9 · Cepillo
+title: iRobot Roomba s9+ · Cepillo
 draft: false
 generated: true
 brandKey: irobot

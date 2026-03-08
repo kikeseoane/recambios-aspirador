@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G9 · Cepillos y rodillos
+title: Xiaomi Vacuum Cleaner G9 · Cepillo
 draft: false
 generated: true
 brandKey: xiaomi

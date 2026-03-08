@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba s9 · Filtro
+title: iRobot Roomba s9+ · Filtro
 draft: false
 generated: true
 brandKey: irobot

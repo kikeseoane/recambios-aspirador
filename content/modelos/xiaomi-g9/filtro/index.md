@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G9 · Filtros
+title: Xiaomi Vacuum Cleaner G9 · Filtro
 draft: false
 generated: true
 brandKey: xiaomi

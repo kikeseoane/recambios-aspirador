@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max XC8349/01 · Filtros
+title: Philips SpeedPro Max Aqua · Filtro
 draft: false
 generated: true
 brandKey: philips

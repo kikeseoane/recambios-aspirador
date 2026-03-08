@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba s9 · Accesorios
+title: iRobot Roomba s9+ · Accesorios
 draft: false
 generated: true
 brandKey: irobot

@@ -1,5 +1,5 @@
 ---
-title: Rowenta X-Force Flex 8.60 · Cepillos y rodillos
+title: Rowenta X-Force Flex 8.60 · Cepillo
 draft: false
 generated: true
 brandKey: rowenta

@@ -1,5 +1,5 @@
 ---
-title: Dyson V6 · Cargadores y fuentes
+title: Dyson V6 · Cargador
 draft: false
 generated: true
 brandKey: dyson

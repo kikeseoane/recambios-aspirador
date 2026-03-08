@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga Rockstar 1200 · Cargadores y fuentes
+title: Cecotec Rockstar 1200 · Cargador
 draft: false
 generated: true
 brandKey: cecotec

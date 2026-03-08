@@ -1,5 +1,5 @@
 ---
-title: Bissell ICONpet · Cargador
+title: Bissell IconPet · Cargador
 draft: false
 generated: true
 brandKey: bissell

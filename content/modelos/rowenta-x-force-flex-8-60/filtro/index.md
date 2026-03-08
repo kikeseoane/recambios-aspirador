@@ -1,5 +1,5 @@
 ---
-title: Rowenta X-Force Flex 8.60 · Filtros
+title: Rowenta X-Force Flex 8.60 · Filtro
 draft: false
 generated: true
 brandKey: rowenta

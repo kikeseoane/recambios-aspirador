@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max XC8349/01 · Batería
+title: Philips SpeedPro Max Aqua · Batería
 draft: false
 generated: true
 brandKey: philips

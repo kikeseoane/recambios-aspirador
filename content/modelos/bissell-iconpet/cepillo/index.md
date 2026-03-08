@@ -1,5 +1,5 @@
 ---
-title: Bissell ICONpet · Cepillo
+title: Bissell IconPet · Cepillo
 draft: false
 generated: true
 brandKey: bissell

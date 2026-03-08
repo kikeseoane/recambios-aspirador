@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga Rockstar 1200 · Soportes y bases
+title: Cecotec Rockstar 1200 · Soporte
 draft: false
 generated: true
 brandKey: cecotec

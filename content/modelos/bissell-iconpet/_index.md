@@ -1,5 +1,5 @@
 ---
-title: Bissell ICONpet
+title: Bissell IconPet
 draft: false
 generated: true
 brandKey: bissell

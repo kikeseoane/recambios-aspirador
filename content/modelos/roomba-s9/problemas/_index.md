@@ -1,5 +1,5 @@
 ---
-title: Problemas frecuentes de iRobot Roomba s9
+title: Problemas frecuentes de iRobot Roomba s9+
 draft: false
 generated: true
 brandKey: irobot

@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max XC8349/01
+title: Philips SpeedPro Max Aqua
 draft: false
 generated: true
 brandKey: philips

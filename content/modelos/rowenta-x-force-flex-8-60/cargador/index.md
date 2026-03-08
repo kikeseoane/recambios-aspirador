@@ -1,5 +1,5 @@
 ---
-title: Rowenta X-Force Flex 8.60 · Cargadores y fuentes
+title: Rowenta X-Force Flex 8.60 · Cargador
 draft: false
 generated: true
 brandKey: rowenta

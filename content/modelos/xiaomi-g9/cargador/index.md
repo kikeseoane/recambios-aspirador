@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G9 · Cargadores y fuentes
+title: Xiaomi Vacuum Cleaner G9 · Cargador
 draft: false
 generated: true
 brandKey: xiaomi

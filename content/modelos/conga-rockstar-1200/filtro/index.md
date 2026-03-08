@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga Rockstar 1200 · Filtros
+title: Cecotec Rockstar 1200 · Filtro
 draft: false
 generated: true
 brandKey: cecotec

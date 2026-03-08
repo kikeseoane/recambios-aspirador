@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max XC8349/01 · Cepillos y rodillos
+title: Philips SpeedPro Max Aqua · Cepillo
 draft: false
 generated: true
 brandKey: philips

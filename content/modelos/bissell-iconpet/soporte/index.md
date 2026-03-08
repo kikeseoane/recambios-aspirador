@@ -1,5 +1,5 @@
 ---
-title: Bissell ICONpet · Soporte
+title: Bissell IconPet · Soporte
 draft: false
 generated: true
 brandKey: bissell

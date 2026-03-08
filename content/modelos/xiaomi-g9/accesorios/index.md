@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G9 · Accesorios
+title: Xiaomi Vacuum Cleaner G9 · Accesorios
 draft: false
 generated: true
 brandKey: xiaomi

@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max XC8349/01 · Cargadores y fuentes
+title: Philips SpeedPro Max Aqua · Cargador
 draft: false
 generated: true
 brandKey: philips

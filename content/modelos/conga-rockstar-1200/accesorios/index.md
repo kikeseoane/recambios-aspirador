@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga Rockstar 1200 · Accesorios
+title: Cecotec Rockstar 1200 · Accesorios
 draft: false
 generated: true
 brandKey: cecotec

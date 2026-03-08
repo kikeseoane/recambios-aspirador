@@ -1,5 +1,5 @@
 ---
-title: Bissell ICONpet · Filtro
+title: Bissell IconPet · Filtro
 draft: false
 generated: true
 brandKey: bissell

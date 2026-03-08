@@ -1,5 +1,5 @@
 ---
-title: Bissell ICONpet · Batería
+title: Bissell IconPet · Batería
 draft: false
 generated: true
 brandKey: bissell

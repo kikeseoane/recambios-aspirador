@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga Rockstar 1200 · Batería
+title: Cecotec Rockstar 1200 · Batería
 draft: false
 generated: true
 brandKey: cecotec
