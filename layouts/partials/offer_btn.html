@@ -18,21 +18,23 @@
 {{ $searchLabel := (index $offer "fallback_search_label") | default "" }}
 {{ $searchQuery := (index $offer "fallback_search_query") | default "" }}
 
-{{ if $needs }}
-  {{/* Sin enlace directo: construir búsqueda personalizada en AliExpress */}}
-  {{ $searchUrl := printf "https://es.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
-  {{ $btnText := $searchLabel | default "Buscar en AliExpress" }}
-  <a class="{{ $class }} btn-search" href="{{ $searchUrl }}" rel="nofollow noopener" target="_blank">
+{{ if $url }}
+  {{ $btnText := $label }}
+  {{ if $needs }}
+    {{ $btnText = $searchLabel | default "Ver opciones en AliExpress" }}
+  {{ else if eq $matchType "relaxed_fallback" }}
+    {{ $btnText = "Ver recambio compatible" }}
+  {{ end }}
+
+  <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
     {{ $btnText }}
   </a>
-  <div style="margin-top:5px;">
-    <small class="muted">Enlace directo a resultados de búsqueda · Sin filtro de precio</small>
-  </div>
 
-{{ else if $url }}
-  <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-    {{ $label }}
-  </a>
+  {{ if $needs }}
+    <div style="margin-top:5px;">
+      <small class="muted">No encontramos producto exacto · Resultado orientativo</small>
+    </div>
+  {{ end }}
 
 {{ else if $sku }}
   <span class="badge">En preparación</span>

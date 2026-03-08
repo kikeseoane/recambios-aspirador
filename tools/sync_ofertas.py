@@ -537,6 +537,53 @@ def merge_overrides(
     return query, must_include, must_not_include, model_tokens
 
 
+def pick_relaxed_link(
+    brand: str,
+    category: str,
+    part_terms: List[str],
+    use_cache: bool,
+) -> Optional[str]:
+    """
+    Búsqueda relajada sin filtro de modelo: solo marca + categoría.
+    Garantiza un enlace de afiliado aunque no haya producto exacto.
+    """
+    keyword = compact_spaces(f"{brand} {category} replacement")[:120]
+    if not keyword.strip():
+        return None
+
+    for lang in ("EN", "ES"):
+        resp = product_query(keyword, lang=lang, use_cache=use_cache)
+        prods = extract_products(resp)
+        if not prods:
+            continue
+
+        candidates = []
+        for p in prods:
+            title = p.get("product_title") or ""
+            if not title:
+                continue
+            tt = nrm(title)
+            if looks_bad(tt):
+                continue
+            if not any(pt in tt for pt in part_terms):
+                continue
+            candidates.append(p)
+
+        if not candidates:
+            continue
+
+        candidates.sort(
+            key=lambda p: get_orders(p) * 0.015 + get_commission_rate(p) * 0.4,
+            reverse=True,
+        )
+        best = candidates[0]
+        url = best.get("promotion_link") or best.get("product_detail_url")
+        if url:
+            return str(url).strip()
+
+    return None
+
+
 def pick_best_promotion_link(
     keyword: str,
     must_brand: str,
@@ -733,15 +780,32 @@ def main() -> None:
                 obj["updated_at"] = today
                 filled_from_aliexpress += 1
             else:
-                if obj.get("url") != DEFAULT_URL:
-                    obj["url"] = DEFAULT_URL
-                    changed_urls_to_default += 1
+                # Fallback relajado: busca en API solo marca + categoría
+                relaxed = pick_relaxed_link(
+                    brand=brand,
+                    category=category,
+                    part_terms=part_terms,
+                    use_cache=use_cache,
+                )
+                if relaxed:
+                    obj["url"] = relaxed
+                    obj["match_type"] = "relaxed_fallback"
+                    obj["fallback_search_query"] = fallback_search_query
+                    obj["fallback_search_label"] = fallback_search_label
+                    obj.pop("needs_url", None)
+                    obj.pop("matched_query", None)
+                    obj["updated_at"] = today
+                    filled_from_aliexpress += 1
+                else:
+                    if obj.get("url") != DEFAULT_URL:
+                        obj["url"] = DEFAULT_URL
+                        changed_urls_to_default += 1
 
-                obj["needs_url"] = True
-                obj["match_type"] = "fallback_search"
-                obj["fallback_search_query"] = fallback_search_query
-                obj["fallback_search_label"] = fallback_search_label
-                obj.pop("matched_query", None)
+                    obj["needs_url"] = True
+                    obj["match_type"] = "fallback_search"
+                    obj["fallback_search_query"] = fallback_search_query
+                    obj["fallback_search_label"] = fallback_search_label
+                    obj.pop("matched_query", None)
 
         else:
             obj.pop("needs_url", None)
