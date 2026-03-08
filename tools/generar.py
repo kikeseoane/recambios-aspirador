@@ -311,6 +311,29 @@ def main() -> None:
             force=True,
         )
 
+        # Guías para vertical no-root
+        guides_dir = CONTENT / args.vertical / "guias"
+        write_file(
+            guides_dir / "_index.md",
+            fm(title="Guías", kind="guia", extra={"vertical": args.vertical}),
+            force=True,
+        )
+        for guide_key, guide_title in [
+            ("compra", "Cómo elegir recambio"),
+            ("mantenimiento", "Mantenimiento"),
+            ("seguridad", "Seguridad"),
+        ]:
+            write_file(
+                guides_dir / f"{guide_key}.md",
+                fm(
+                    title=guide_title,
+                    slug=guide_key,
+                    kind="guia",
+                    extra={"guideKey": guide_key, "vertical": args.vertical},
+                ),
+                force=True,
+            )
+
     if is_root:
         # Guías genéricas (leaf pages) -> aquí SÍ usamos type="guia"
         write_file(

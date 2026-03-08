@@ -8,6 +8,7 @@
 {{ $homeURL := cond $isRoot "/" (printf "/%s/" $vconf.slug) | relURL }}
 {{ $marcasURL := cond $isRoot "/marcas/" (printf "/%s/marcas/" $vconf.slug) | relURL }}
 {{ $modelosURL := cond $isRoot "/modelos/" (printf "/%s/modelos/" $vconf.slug) | relURL }}
+{{ $guiasURL := cond $isRoot "/guias/" (printf "/%s/guias/" $vconf.slug) | relURL }}
 
 <header class="site-header">
   <div class="container header-inner">
@@ -24,7 +25,7 @@
       <nav class="nav" aria-label="Navegación principal">
         <a href="{{ $marcasURL }}">Marcas</a>
         <a href="{{ $modelosURL }}">Modelos</a>
-        <a href="{{ "/guias/" | relURL }}">Guías</a>
+        <a href="{{ $guiasURL }}">Guías</a>
       </nav>
     </div>
   </div>
