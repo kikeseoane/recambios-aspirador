@@ -138,26 +138,5 @@
     </a>
   </div>
 
-  {{ $allVerticals := site.Data.verticals.verticals | default dict }}
-  {{ $hasOtherVerticals := false }}
-  {{ range $vk, $vc := $allVerticals }}
-    {{ if not $vc.root }}{{ $hasOtherVerticals = true }}{{ end }}
-  {{ end }}
-  {{ if $hasOtherVerticals }}
-  <div class="section-head" style="margin-top:22px;">
-    <h2>Otros nichos</h2>
-  </div>
-  <div class="grid cards">
-    {{ range $vk, $vc := $allVerticals }}
-      {{ if not $vc.root }}
-        <a class="card" href="{{ (printf "/%s/" $vc.slug) | relURL }}">
-          <div class="card-body">
-            <h3>{{ $vc.label }}</h3>
-            <p class="muted">{{ $vc.description }}</p>
-          </div>
-        </a>
-      {{ end }}
-    {{ end }}
-  </div>
-  {{ end }}
+  {{ partial "cross_promo.html" (dict "currentVertical" "aspiradores") }}
 {{ end }}

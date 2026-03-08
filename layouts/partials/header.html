@@ -1,18 +1,29 @@
+{{ $vertKey := .Params.vertical | default "aspiradores" }}
+{{ $allVerts := site.Data.verticals.verticals | default dict }}
+{{ $vconf := index $allVerts $vertKey }}
+{{ $siteName := $vconf.site_name | default "Recambios Aspirador" }}
+{{ $tagline := $vconf.tagline | default "Marketplace de recambios" }}
+{{ $emoji := $vconf.emoji | default "🧩" }}
+{{ $isRoot := $vconf.root | default true }}
+{{ $homeURL := cond $isRoot "/" (printf "/%s/" $vconf.slug) | relURL }}
+{{ $marcasURL := cond $isRoot "/marcas/" (printf "/%s/marcas/" $vconf.slug) | relURL }}
+{{ $modelosURL := cond $isRoot "/modelos/" (printf "/%s/modelos/" $vconf.slug) | relURL }}
+
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{{ "/" | relURL }}" aria-label="Inicio">
-      <span class="brand-logo" aria-hidden="true">🧩</span>
+    <a class="brand" href="{{ $homeURL }}" aria-label="Inicio">
+      <span class="brand-logo" aria-hidden="true">{{ $emoji }}</span>
       <span class="brand-text">
-        <span class="brand-title">Recambios de Aspirador</span>
-        <span class="brand-sub">Marketplace</span>
+        <span class="brand-title">{{ $siteName }}</span>
+        <span class="brand-sub">{{ $tagline }}</span>
       </span>
     </a>
 
     <div style="display:flex;align-items:center;gap:10px;">
       {{ partial "search.html" . }}
       <nav class="nav" aria-label="Navegación principal">
-        <a href="{{ "/marcas/" | relURL }}">Marcas</a>
-        <a href="{{ "/modelos/" | relURL }}">Modelos</a>
+        <a href="{{ $marcasURL }}">Marcas</a>
+        <a href="{{ $modelosURL }}">Modelos</a>
         <a href="{{ "/guias/" | relURL }}">Guías</a>
       </nav>
     </div>

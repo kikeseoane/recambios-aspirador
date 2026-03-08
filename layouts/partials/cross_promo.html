@@ -1,0 +1,32 @@
+{{/* layouts/partials/cross_promo.html
+     Shows other verticals as cross-promotional cards
+     Usage: {{ partial "cross_promo.html" (dict "currentVertical" "aspiradores") }}
+*/}}
+{{ $current := .currentVertical | default "aspiradores" }}
+{{ $allVerts := site.Data.verticals.verticals | default dict }}
+
+{{ $others := slice }}
+{{ range $vk, $vc := $allVerts }}
+  {{ if ne $vk $current }}
+    {{ $others = $others | append (dict "key" $vk "conf" $vc) }}
+  {{ end }}
+{{ end }}
+
+{{ if $others }}
+<div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
+  <div class="kicker" style="margin-bottom:14px;">¿También necesitas recambios de…</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    {{ range $others }}
+      {{ $url := cond (.conf.root | default true) (printf "/" | relURL) (printf "/%s/" .conf.slug | relURL) }}
+      <a href="{{ $url }}"
+        style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba({{ .conf.color_rgb | default "100,100,100" }},.25);background:rgba({{ .conf.color_rgb | default "100,100,100" }},.06);text-decoration:none;color:inherit;font-size:14px;font-weight:600;transition:background .15s;"
+        onmouseover="this.style.background='rgba({{ .conf.color_rgb | default "100,100,100" }},.14)'"
+        onmouseout="this.style.background='rgba({{ .conf.color_rgb | default "100,100,100" }},.06)'"
+      >
+        <span style="font-size:18px;">{{ .conf.emoji }}</span>
+        <span>{{ .conf.label }}</span>
+      </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

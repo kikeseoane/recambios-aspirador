@@ -137,9 +137,19 @@
   {{- end -}}
 
   {{- block "head_extra" . }}{{ end -}}
+
+  {{- /* Per-vertical color theme */}}
+  {{- $vertKey := .Params.vertical | default "aspiradores" }}
+  {{- $allVerts := site.Data.verticals.verticals | default dict }}
+  {{- $vconf := index $allVerts $vertKey }}
+  {{- with $vconf }}
+    {{- if .primary }}
+  <style>:root{--primary:{{ .primary }};--primary-2:{{ .primary_2 }};}</style>
+    {{- end }}
+  {{- end }}
 </head>
 
-<body>
+<body data-vertical="{{ .Params.vertical | default "aspiradores" }}">
   {{- /* Header por defecto */ -}}
   {{- block "header" . -}}
     {{- partial "header.html" . -}}
