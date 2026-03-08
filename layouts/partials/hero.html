@@ -6,25 +6,29 @@
 {{ $copy := site.Params.defaultDescription }}
 {{ $links := slice }}
 
+{{ $vk := .Params.vertical | default "aspiradores" }}
+{{ $vurls := partial "vertical_urls.html" $vk }}
+{{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
+{{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+
 {{ if eq $section "marcas" }}
   {{ if .Params.brandKey }}
     {{ $kicker = "Marca" }}
-    {{ $vk := .Params.vertical | default "aspiradores" }}
     {{ $b := index (index site.Data $vk).brands .Params.brandKey }}
     {{ if $b }}
       {{ $title = ($b.name | default $title) }}
     {{ end }}
     {{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
     {{ $links = slice
-      (dict "label" "← Volver a marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
-      (dict "label" "Ver todos los modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+      (dict "label" "← Volver a marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
+      (dict "label" "Ver todos los modelos →" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
     }}
   {{ else }}
     {{ $kicker = "Catálogo" }}
     {{ $title = "Marcas" }}
     {{ $copy = "Elige una marca para ver sus modelos y recambios compatibles." }}
     {{ $links = slice
-      (dict "label" "Ver modelos" "href" ("/modelos/" | relURL) "class" "btn btn--ghost")
+      (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--ghost")
       (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
     }}
   {{ end }}
@@ -34,8 +38,8 @@
   {{ $title = "Guías rápidas" }}
   {{ $copy = "Compra con menos riesgo: compatibilidad, seguridad y mantenimiento." }}
   {{ $links = slice
-    (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+    (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
+    (dict "label" "Ver modelos →" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
   }}
 
 {{ else if eq $section "modelos" }}
@@ -43,7 +47,7 @@
   {{ $title = "Modelos" }}
   {{ $copy = "Catálogo de modelos con recambios compatibles y solución de problemas." }}
   {{ $links = slice
-    (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
+    (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
     (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
   }}
 
@@ -51,8 +55,8 @@
   {{ $kicker = "Recambios" }}
   {{ $copy = site.Params.defaultDescription }}
   {{ $links = slice
-    (dict "label" "Ver marcas" "href" ("/marcas/" | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver modelos →" "href" ("/modelos/" | relURL) "class" "btn btn--link")
+    (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
+    (dict "label" "Ver modelos →" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
   }}
 {{ end }}
 

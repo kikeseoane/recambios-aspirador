@@ -1,6 +1,9 @@
 {{ define "main" }}
   {{ $verticalKey := .Params.vertical | default "aspiradores" }}
   {{ $db := index site.Data $verticalKey }}
+  {{ $vurls := partial "vertical_urls.html" $verticalKey }}
+  {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
+  {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
   {{ $brands := $db.brands }}
 
   <section class="hero hero--bg hero--compact">
@@ -12,7 +15,7 @@
       </p>
 
       <div class="hero__links">
-        <a class="btn btn--ghost" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+        <a class="btn btn--ghost" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
         <a class="btn btn--link" href="{{ "/guias/" | relURL }}">Ver guías →</a>
       </div>
     </div>
@@ -27,7 +30,7 @@
     <div class="grid cards" style="margin-top:18px;">
       {{ range $k, $b := $brands }}
         {{ $slug := $k | urlize }}
-        <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+        <a class="card card--with-icon" href="{{ (printf "%s/%s/" $marcBase $slug) | relURL }}">
           {{ partial "card_icon.html" (dict "kind" "brand") }}
 
           <div class="card-body">

@@ -1,15 +1,18 @@
 {{ define "main" }}
   {{ $verticalKey := .Params.vertical | default "aspiradores" }}
   {{ $db := index site.Data $verticalKey }}
+  {{ $vurls := partial "vertical_urls.html" $verticalKey }}
+  {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
+  {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
   {{ $brandKey := .Params.brandKey }}
   {{ $modelSlug := .Params.modelSlug | urlize }}
 
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-    <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+    <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
 {{ $brand := index $db.brands $brandKey }}
-<a href="{{ (printf "/marcas/%s/" ($brandKey|urlize)) | relURL }}">{{ $brand.name | default $brandKey }}</a><span class="sep">›</span>
-    <a href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">Modelo</a><span class="sep">›</span>
+<a href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">{{ $brand.name | default $brandKey }}</a><span class="sep">›</span>
+    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">Modelo</a><span class="sep">›</span>
     <span>Problemas</span>
   </div>
 
@@ -33,7 +36,7 @@
       {{ range $p := $probs }}
         {{ $pkey := (index $p "key") | urlize }}
         {{ $ptitle := (index $p "title") | default $pkey }}
-        <a class="card" href="{{ (printf "/modelos/%s/problemas/%s/" $modelSlug $pkey) | relURL }}">
+        <a class="card" href="{{ (printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey) | relURL }}">
           <h3>{{ $ptitle }}</h3>
           {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
           {{ with (index $p "symptoms") }}

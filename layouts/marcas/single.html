@@ -1,6 +1,9 @@
 {{ define "main" }}
   {{ $verticalKey := .Params.vertical | default "aspiradores" }}
   {{ $db := index site.Data $verticalKey }}
+  {{ $vurls := partial "vertical_urls.html" $verticalKey }}
+  {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
+  {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
   {{ $brandKey := .Params.brandKey }}
   {{ $brand := index $db.brands $brandKey }}
 
@@ -11,8 +14,8 @@
     <p class="muted">No hemos encontrado datos para esta marca.</p>
 
     <div class="chips" style="margin-top:14px;">
-      <a class="chip" href="{{ "/marcas/" | relURL }}">Ver marcas</a>
-      <a class="chip" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
+      <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
+      <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
     </div>
 
   {{ else }}
@@ -26,7 +29,7 @@
 
     <div class="breadcrumbs">
       <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-      <a href="{{ "/marcas/" | relURL }}">Marcas</a><span class="sep">›</span>
+      <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
       <span>{{ $brandName }}</span>
     </div>
 
@@ -63,7 +66,7 @@
           <div class="grid cards">
             {{ range $m := $models }}
               {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
-              <a class="card" href="{{ (printf "/modelos/%s/" $m.slug) | relURL }}">
+              <a class="card" href="{{ (printf "%s/%s/" $modBase $m.slug) | relURL }}">
                 <h3>{{ $title }}</h3>
 
                 {{ with $m.series }}
@@ -108,8 +111,8 @@
         <div style="margin-top:12px;">
           <div class="kicker">Atajos</div>
           <div class="chips">
-            <a class="chip" href="{{ "/marcas/" | relURL }}">Más marcas</a>
-            <a class="chip" href="{{ "/modelos/" | relURL }}">Todos los modelos</a>
+            <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Más marcas</a>
+            <a class="chip" href="{{ (print $modBase "/") | relURL }}">Todos los modelos</a>
             <a class="chip" href="{{ "/guias/" | relURL }}">Ver guías</a>
           </div>
         </div>

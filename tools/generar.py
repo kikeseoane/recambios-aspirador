@@ -294,18 +294,21 @@ def main() -> None:
         # Secciones para verticals no-root
         write_file(
             CONTENT / args.vertical / "_index.md",
-            fm(title=vconf.get("label", args.vertical)),
-            force=args.force,
+            fm(
+                title=vconf.get("label", args.vertical),
+                extra={"vertical": args.vertical, "layout": "vertical_home"},
+            ),
+            force=True,  # always overwrite so layout/vertical is up to date
         )
         write_file(
             section_marcas / "_index.md",
-            fm(title="Marcas"),
-            force=args.force,
+            fm(title="Marcas", kind="marcas", extra={"vertical": args.vertical}),
+            force=True,
         )
         write_file(
             section_modelos / "_index.md",
-            fm(title="Modelos"),
-            force=args.force,
+            fm(title="Modelos", kind="modelos", extra={"vertical": args.vertical}),
+            force=True,
         )
 
     if is_root:
