@@ -200,9 +200,15 @@ def cat_title_es(cat_key: str) -> str:
     m = {
         "bateria": "Batería",
         "filtro": "Filtro",
-        "cepillo": "Cepillo",
+        "cepillo": "Cepillos y rodillos",
         "cargador": "Cargador",
         "accesorios": "Accesorios",
+        "laminas": "Láminas y cabezales",
+        "cabezal": "Cabezal",
+        "junta": "Juntas y sellos",
+        "deposito": "Depósito",
+        "cesta": "Cesta y bandejas",
+        "soporte": "Soporte",
     }
     return m.get(ck, cat_key.title())
 

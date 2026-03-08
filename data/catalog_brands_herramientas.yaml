@@ -1,0 +1,86 @@
+brands:
+  makita-ht:
+    name: Makita
+    vertical: herramientas
+    models:
+      - model: DHP485 Taladro 18V
+        slug: makita-dhp485
+        sku_pack: power-tool10
+        model_tokens: ["dhp485", "dhp48", "18v lxt"]
+        year_range: "2018-2024"
+        series: "LXT 18V"
+      - model: DGA452 Amoladora 18V
+        slug: makita-dga452
+        sku_pack: power-tool10
+        model_tokens: ["dga452", "dga45", "18v angle grinder"]
+        year_range: "2019-2024"
+        series: "LXT 18V"
+      - model: DHR202 Martillo 18V
+        slug: makita-dhr202
+        sku_pack: power-tool10
+        model_tokens: ["dhr202", "dhr20", "18v hammer"]
+        year_range: "2019-2024"
+        series: "LXT 18V"
+      - model: DJR187 Sierra sable 18V
+        slug: makita-djr187
+        sku_pack: power-tool10
+        model_tokens: ["djr187", "djr18", "18v reciprocating"]
+        year_range: "2020-2024"
+        series: "LXT 18V"
+
+  bosch-ht:
+    name: Bosch Professional
+    vertical: herramientas
+    models:
+      - model: GSR 18V-55 Taladro
+        slug: bosch-gsr18v55
+        sku_pack: power-tool10
+        model_tokens: ["gsr 18v-55", "gsr18v", "18v professional"]
+        year_range: "2020-2024"
+        series: "18V Professional"
+      - model: GBH 18V-26 Martillo
+        slug: bosch-gbh18v26
+        sku_pack: power-tool10
+        model_tokens: ["gbh 18v-26", "gbh18v", "18v sds"]
+        year_range: "2020-2024"
+        series: "18V Professional"
+      - model: GKS 18V-57 Sierra circular
+        slug: bosch-gks18v57
+        sku_pack: power-tool10
+        model_tokens: ["gks 18v-57", "gks18v", "18v saw"]
+        year_range: "2021-2024"
+        series: "18V Professional"
+
+  dewalt-ht:
+    name: DeWalt
+    vertical: herramientas
+    models:
+      - model: DCD791 Taladro 18V
+        slug: dewalt-dcd791
+        sku_pack: power-tool10
+        model_tokens: ["dcd791", "dcd79", "20v max"]
+        year_range: "2019-2024"
+        series: "20V MAX"
+      - model: DCF887 Atornillador de impacto
+        slug: dewalt-dcf887
+        sku_pack: power-tool10
+        model_tokens: ["dcf887", "dcf88", "impact driver"]
+        year_range: "2019-2024"
+        series: "20V MAX"
+
+  ryobi-ht:
+    name: Ryobi
+    vertical: herramientas
+    models:
+      - model: ONE+ R18PD Taladro 18V
+        slug: ryobi-r18pd
+        sku_pack: power-tool10
+        model_tokens: ["r18pd", "one+ 18v", "ryobi one"]
+        year_range: "2019-2024"
+        series: "ONE+ 18V"
+      - model: ONE+ R18AG Amoladora 18V
+        slug: ryobi-r18ag
+        sku_pack: power-tool10
+        model_tokens: ["r18ag", "one+ grinder", "ryobi grinder"]
+        year_range: "2020-2024"
+        series: "ONE+ 18V"

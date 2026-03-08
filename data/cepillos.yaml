@@ -1,0 +1,2342 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  oralb-cb:
+    name: Oral-B
+    models:
+    - model: iO Series 3
+      slug: oralb-io3
+      sku_pack: toothbrush10
+      model_tokens:
+      - io series 3
+      - io3
+      - io 3
+      year_range: 2021-2024
+      series: iO Series
+      recambios:
+        cabezal:
+        - sku: oralb-cb-oralb-io3-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 cabezal Pack 4 cabezales compatibles para iO Series
+            3
+          must_include:
+          - io3
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id001
+          - io series 3
+          - io3
+          - io 3
+        - sku: oralb-cb-oralb-io3-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 cabezal Pack 4 cabezales sensitive compatibles
+            para iO Series 3
+          must_include:
+          - io3
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id001
+        - sku: oralb-cb-oralb-io3-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 cabezal Pack 2 cabezales whitening compatibles
+            para iO Series 3
+          must_include:
+          - io3
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id001
+        - sku: oralb-cb-oralb-io3-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 cabezal Pack 4 cabezales 3D compatibles para iO
+            Series 3
+          must_include:
+          - io3
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id001
+        cargador:
+        - sku: oralb-cb-oralb-io3-cargador-charger-dental
+          title: Cargador compatible para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 cargador Cargador compatible para iO Series 3
+          must_include:
+          - io3
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id001
+        - sku: oralb-cb-oralb-io3-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 cargador Cable USB de carga compatible para iO
+            Series 3
+          must_include:
+          - io3
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id001
+        accesorios:
+        - sku: oralb-cb-oralb-io3-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 accesorios Estuche de viaje compatible para iO
+            Series 3
+          must_include:
+          - io3
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id001
+        - sku: oralb-cb-oralb-io3-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 accesorios Soporte / vaso compatible para iO Series
+            3
+          must_include:
+          - io3
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id001
+        - sku: oralb-cb-oralb-io3-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 accesorios Cabezal irrigador dental compatible
+            para iO Series 3
+          must_include:
+          - io3
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id001
+        - sku: oralb-cb-oralb-io3-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para iO Series 3
+          intent: compra
+          query: Oral-B iO Series 3 accesorios Kit accesorios dental compatible para
+            iO Series 3
+          must_include:
+          - io3
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id001
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: iO Series 3 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'iO Series 3: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: iO Series 3 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+    - model: iO Series 4
+      slug: oralb-io4
+      sku_pack: toothbrush10
+      model_tokens:
+      - io series 4
+      - io4
+      - io 4
+      year_range: 2021-2024
+      series: iO Series
+      recambios:
+        cabezal:
+        - sku: oralb-cb-oralb-io4-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 cabezal Pack 4 cabezales compatibles para iO Series
+            4
+          must_include:
+          - io4
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id002
+          - io series 4
+          - io4
+          - io 4
+        - sku: oralb-cb-oralb-io4-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 cabezal Pack 4 cabezales sensitive compatibles
+            para iO Series 4
+          must_include:
+          - io4
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id002
+        - sku: oralb-cb-oralb-io4-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 cabezal Pack 2 cabezales whitening compatibles
+            para iO Series 4
+          must_include:
+          - io4
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id002
+        - sku: oralb-cb-oralb-io4-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 cabezal Pack 4 cabezales 3D compatibles para iO
+            Series 4
+          must_include:
+          - io4
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id002
+        cargador:
+        - sku: oralb-cb-oralb-io4-cargador-charger-dental
+          title: Cargador compatible para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 cargador Cargador compatible para iO Series 4
+          must_include:
+          - io4
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id002
+        - sku: oralb-cb-oralb-io4-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 cargador Cable USB de carga compatible para iO
+            Series 4
+          must_include:
+          - io4
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id002
+        accesorios:
+        - sku: oralb-cb-oralb-io4-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 accesorios Estuche de viaje compatible para iO
+            Series 4
+          must_include:
+          - io4
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id002
+        - sku: oralb-cb-oralb-io4-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 accesorios Soporte / vaso compatible para iO Series
+            4
+          must_include:
+          - io4
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id002
+        - sku: oralb-cb-oralb-io4-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 accesorios Cabezal irrigador dental compatible
+            para iO Series 4
+          must_include:
+          - io4
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id002
+        - sku: oralb-cb-oralb-io4-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para iO Series 4
+          intent: compra
+          query: Oral-B iO Series 4 accesorios Kit accesorios dental compatible para
+            iO Series 4
+          must_include:
+          - io4
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id002
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: iO Series 4 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'iO Series 4: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: iO Series 4 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+    - model: iO Series 6
+      slug: oralb-io6
+      sku_pack: toothbrush10
+      model_tokens:
+      - io series 6
+      - io6
+      - io 6
+      year_range: 2021-2024
+      series: iO Series
+      recambios:
+        cabezal:
+        - sku: oralb-cb-oralb-io6-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 cabezal Pack 4 cabezales compatibles para iO Series
+            6
+          must_include:
+          - io6
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id003
+          - io series 6
+          - io6
+          - io 6
+        - sku: oralb-cb-oralb-io6-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 cabezal Pack 4 cabezales sensitive compatibles
+            para iO Series 6
+          must_include:
+          - io6
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id003
+        - sku: oralb-cb-oralb-io6-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 cabezal Pack 2 cabezales whitening compatibles
+            para iO Series 6
+          must_include:
+          - io6
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id003
+        - sku: oralb-cb-oralb-io6-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 cabezal Pack 4 cabezales 3D compatibles para iO
+            Series 6
+          must_include:
+          - io6
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id003
+        cargador:
+        - sku: oralb-cb-oralb-io6-cargador-charger-dental
+          title: Cargador compatible para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 cargador Cargador compatible para iO Series 6
+          must_include:
+          - io6
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id003
+        - sku: oralb-cb-oralb-io6-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 cargador Cable USB de carga compatible para iO
+            Series 6
+          must_include:
+          - io6
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id003
+        accesorios:
+        - sku: oralb-cb-oralb-io6-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 accesorios Estuche de viaje compatible para iO
+            Series 6
+          must_include:
+          - io6
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id003
+        - sku: oralb-cb-oralb-io6-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 accesorios Soporte / vaso compatible para iO Series
+            6
+          must_include:
+          - io6
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id003
+        - sku: oralb-cb-oralb-io6-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 accesorios Cabezal irrigador dental compatible
+            para iO Series 6
+          must_include:
+          - io6
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id003
+        - sku: oralb-cb-oralb-io6-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para iO Series 6
+          intent: compra
+          query: Oral-B iO Series 6 accesorios Kit accesorios dental compatible para
+            iO Series 6
+          must_include:
+          - io6
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id003
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: iO Series 6 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'iO Series 6: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: iO Series 6 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+    - model: iO Series 8
+      slug: oralb-io8
+      sku_pack: toothbrush10
+      model_tokens:
+      - io series 8
+      - io8
+      - io 8
+      year_range: 2022-2024
+      series: iO Series
+      recambios:
+        cabezal:
+        - sku: oralb-cb-oralb-io8-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 cabezal Pack 4 cabezales compatibles para iO Series
+            8
+          must_include:
+          - io8
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id004
+          - io series 8
+          - io8
+          - io 8
+        - sku: oralb-cb-oralb-io8-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 cabezal Pack 4 cabezales sensitive compatibles
+            para iO Series 8
+          must_include:
+          - io8
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id004
+        - sku: oralb-cb-oralb-io8-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 cabezal Pack 2 cabezales whitening compatibles
+            para iO Series 8
+          must_include:
+          - io8
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id004
+        - sku: oralb-cb-oralb-io8-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 cabezal Pack 4 cabezales 3D compatibles para iO
+            Series 8
+          must_include:
+          - io8
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id004
+        cargador:
+        - sku: oralb-cb-oralb-io8-cargador-charger-dental
+          title: Cargador compatible para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 cargador Cargador compatible para iO Series 8
+          must_include:
+          - io8
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id004
+        - sku: oralb-cb-oralb-io8-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 cargador Cable USB de carga compatible para iO
+            Series 8
+          must_include:
+          - io8
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id004
+        accesorios:
+        - sku: oralb-cb-oralb-io8-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 accesorios Estuche de viaje compatible para iO
+            Series 8
+          must_include:
+          - io8
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id004
+        - sku: oralb-cb-oralb-io8-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 accesorios Soporte / vaso compatible para iO Series
+            8
+          must_include:
+          - io8
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id004
+        - sku: oralb-cb-oralb-io8-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 accesorios Cabezal irrigador dental compatible
+            para iO Series 8
+          must_include:
+          - io8
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id004
+        - sku: oralb-cb-oralb-io8-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para iO Series 8
+          intent: compra
+          query: Oral-B iO Series 8 accesorios Kit accesorios dental compatible para
+            iO Series 8
+          must_include:
+          - io8
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id004
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: iO Series 8 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'iO Series 8: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: iO Series 8 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+    - model: Pro 3 3000
+      slug: oralb-pro3
+      sku_pack: toothbrush10
+      model_tokens:
+      - pro 3
+      - pro3
+      - oral-b pro 3000
+      year_range: 2020-2024
+      series: Pro
+      recambios:
+        cabezal:
+        - sku: oralb-cb-oralb-pro3-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 cabezal Pack 4 cabezales compatibles para Pro 3
+            3000
+          must_include:
+          - pro3
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id005
+          - pro 3
+          - pro3
+          - oral-b pro 3000
+        - sku: oralb-cb-oralb-pro3-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 cabezal Pack 4 cabezales sensitive compatibles
+            para Pro 3 3000
+          must_include:
+          - pro3
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id005
+        - sku: oralb-cb-oralb-pro3-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 cabezal Pack 2 cabezales whitening compatibles
+            para Pro 3 3000
+          must_include:
+          - pro3
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id005
+        - sku: oralb-cb-oralb-pro3-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 cabezal Pack 4 cabezales 3D compatibles para Pro
+            3 3000
+          must_include:
+          - pro3
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id005
+        cargador:
+        - sku: oralb-cb-oralb-pro3-cargador-charger-dental
+          title: Cargador compatible para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 cargador Cargador compatible para Pro 3 3000
+          must_include:
+          - pro3
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id005
+        - sku: oralb-cb-oralb-pro3-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 cargador Cable USB de carga compatible para Pro
+            3 3000
+          must_include:
+          - pro3
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id005
+        accesorios:
+        - sku: oralb-cb-oralb-pro3-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 accesorios Estuche de viaje compatible para Pro
+            3 3000
+          must_include:
+          - pro3
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id005
+        - sku: oralb-cb-oralb-pro3-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 accesorios Soporte / vaso compatible para Pro 3
+            3000
+          must_include:
+          - pro3
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id005
+        - sku: oralb-cb-oralb-pro3-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 accesorios Cabezal irrigador dental compatible
+            para Pro 3 3000
+          must_include:
+          - pro3
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id005
+        - sku: oralb-cb-oralb-pro3-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para Pro 3 3000
+          intent: compra
+          query: Oral-B Pro 3 3000 accesorios Kit accesorios dental compatible para
+            Pro 3 3000
+          must_include:
+          - pro3
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id005
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: Pro 3 3000 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'Pro 3 3000: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: Pro 3 3000 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+    - model: Vitality 100
+      slug: oralb-vitality100
+      sku_pack: toothbrush10
+      model_tokens:
+      - vitality 100
+      - vitality100
+      year_range: 2019-2024
+      series: Vitality
+      recambios:
+        cabezal:
+        - sku: oralb-cb-oralb-vitality100-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 cabezal Pack 4 cabezales compatibles para Vitality
+            100
+          must_include:
+          - vitality100
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id006
+          - vitality 100
+          - vitality100
+        - sku: oralb-cb-oralb-vitality100-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 cabezal Pack 4 cabezales sensitive compatibles
+            para Vitality 100
+          must_include:
+          - vitality100
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id006
+        - sku: oralb-cb-oralb-vitality100-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 cabezal Pack 2 cabezales whitening compatibles
+            para Vitality 100
+          must_include:
+          - vitality100
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id006
+        - sku: oralb-cb-oralb-vitality100-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 cabezal Pack 4 cabezales 3D compatibles para
+            Vitality 100
+          must_include:
+          - vitality100
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id006
+        cargador:
+        - sku: oralb-cb-oralb-vitality100-cargador-charger-dental
+          title: Cargador compatible para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 cargador Cargador compatible para Vitality 100
+          must_include:
+          - vitality100
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id006
+        - sku: oralb-cb-oralb-vitality100-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 cargador Cable USB de carga compatible para Vitality
+            100
+          must_include:
+          - vitality100
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id006
+        accesorios:
+        - sku: oralb-cb-oralb-vitality100-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 accesorios Estuche de viaje compatible para Vitality
+            100
+          must_include:
+          - vitality100
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id006
+        - sku: oralb-cb-oralb-vitality100-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 accesorios Soporte / vaso compatible para Vitality
+            100
+          must_include:
+          - vitality100
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id006
+        - sku: oralb-cb-oralb-vitality100-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 accesorios Cabezal irrigador dental compatible
+            para Vitality 100
+          must_include:
+          - vitality100
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id006
+        - sku: oralb-cb-oralb-vitality100-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para Vitality 100
+          intent: compra
+          query: Oral-B Vitality 100 accesorios Kit accesorios dental compatible para
+            Vitality 100
+          must_include:
+          - vitality100
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id006
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: Vitality 100 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'Vitality 100: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: Vitality 100 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+  philips-cb:
+    name: Philips Sonicare
+    models:
+    - model: ProtectiveClean 3100 HX3671
+      slug: philips-hx3671
+      sku_pack: toothbrush10
+      model_tokens:
+      - hx3671
+      - protectiveclean 3100
+      - hx36
+      year_range: 2019-2024
+      series: ProtectiveClean 3100
+      recambios:
+        cabezal:
+        - sku: philips-cb-philips-hx3671-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 cabezal Pack 4 cabezales
+            compatibles para ProtectiveClean 3100 HX3671
+          must_include:
+          - hx3671
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id007
+          - hx3671
+          - protectiveclean 3100
+          - hx36
+        - sku: philips-cb-philips-hx3671-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para ProtectiveClean 3100
+            HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 cabezal Pack 4 cabezales
+            sensitive compatibles para ProtectiveClean 3100 HX
+          must_include:
+          - hx3671
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id007
+        - sku: philips-cb-philips-hx3671-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para ProtectiveClean 3100
+            HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 cabezal Pack 2 cabezales
+            whitening compatibles para ProtectiveClean 3100 HX
+          must_include:
+          - hx3671
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id007
+        - sku: philips-cb-philips-hx3671-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 cabezal Pack 4 cabezales
+            3D compatibles para ProtectiveClean 3100 HX3671
+          must_include:
+          - hx3671
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id007
+        cargador:
+        - sku: philips-cb-philips-hx3671-cargador-charger-dental
+          title: Cargador compatible para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 cargador Cargador compatible
+            para ProtectiveClean 3100 HX3671
+          must_include:
+          - hx3671
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id007
+        - sku: philips-cb-philips-hx3671-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 cargador Cable USB de
+            carga compatible para ProtectiveClean 3100 HX3671
+          must_include:
+          - hx3671
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id007
+        accesorios:
+        - sku: philips-cb-philips-hx3671-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 accesorios Estuche de
+            viaje compatible para ProtectiveClean 3100 HX3671
+          must_include:
+          - hx3671
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id007
+        - sku: philips-cb-philips-hx3671-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 accesorios Soporte /
+            vaso compatible para ProtectiveClean 3100 HX3671
+          must_include:
+          - hx3671
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id007
+        - sku: philips-cb-philips-hx3671-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 accesorios Cabezal irrigador
+            dental compatible para ProtectiveClean 3100 HX
+          must_include:
+          - hx3671
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id007
+        - sku: philips-cb-philips-hx3671-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para ProtectiveClean 3100 HX3671
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 3100 HX3671 accesorios Kit accesorios
+            dental compatible para ProtectiveClean 3100 HX367
+          must_include:
+          - hx3671
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id007
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: ProtectiveClean 3100 HX3671 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'ProtectiveClean 3100 HX3671: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: ProtectiveClean 3100 HX3671 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+    - model: ProtectiveClean 5100 HX6857
+      slug: philips-hx6857
+      sku_pack: toothbrush10
+      model_tokens:
+      - hx6857
+      - protectiveclean 5100
+      - hx68
+      year_range: 2020-2024
+      series: ProtectiveClean 5100
+      recambios:
+        cabezal:
+        - sku: philips-cb-philips-hx6857-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 cabezal Pack 4 cabezales
+            compatibles para ProtectiveClean 5100 HX6857
+          must_include:
+          - hx6857
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id008
+          - hx6857
+          - protectiveclean 5100
+          - hx68
+        - sku: philips-cb-philips-hx6857-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para ProtectiveClean 5100
+            HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 cabezal Pack 4 cabezales
+            sensitive compatibles para ProtectiveClean 5100 HX
+          must_include:
+          - hx6857
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id008
+        - sku: philips-cb-philips-hx6857-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para ProtectiveClean 5100
+            HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 cabezal Pack 2 cabezales
+            whitening compatibles para ProtectiveClean 5100 HX
+          must_include:
+          - hx6857
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id008
+        - sku: philips-cb-philips-hx6857-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 cabezal Pack 4 cabezales
+            3D compatibles para ProtectiveClean 5100 HX6857
+          must_include:
+          - hx6857
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id008
+        cargador:
+        - sku: philips-cb-philips-hx6857-cargador-charger-dental
+          title: Cargador compatible para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 cargador Cargador compatible
+            para ProtectiveClean 5100 HX6857
+          must_include:
+          - hx6857
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id008
+        - sku: philips-cb-philips-hx6857-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 cargador Cable USB de
+            carga compatible para ProtectiveClean 5100 HX6857
+          must_include:
+          - hx6857
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id008
+        accesorios:
+        - sku: philips-cb-philips-hx6857-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 accesorios Estuche de
+            viaje compatible para ProtectiveClean 5100 HX6857
+          must_include:
+          - hx6857
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id008
+        - sku: philips-cb-philips-hx6857-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 accesorios Soporte /
+            vaso compatible para ProtectiveClean 5100 HX6857
+          must_include:
+          - hx6857
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id008
+        - sku: philips-cb-philips-hx6857-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 accesorios Cabezal irrigador
+            dental compatible para ProtectiveClean 5100 HX
+          must_include:
+          - hx6857
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id008
+        - sku: philips-cb-philips-hx6857-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para ProtectiveClean 5100 HX6857
+          intent: compra
+          query: Philips Sonicare ProtectiveClean 5100 HX6857 accesorios Kit accesorios
+            dental compatible para ProtectiveClean 5100 HX685
+          must_include:
+          - hx6857
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id008
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: ProtectiveClean 5100 HX6857 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'ProtectiveClean 5100 HX6857: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: ProtectiveClean 5100 HX6857 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.
+    - model: DiamondClean HX9352
+      slug: philips-hx9352
+      sku_pack: toothbrush10
+      model_tokens:
+      - hx9352
+      - diamondclean
+      - hx93
+      year_range: 2021-2024
+      series: DiamondClean
+      recambios:
+        cabezal:
+        - sku: philips-cb-philips-hx9352-cabezal-head-dental-pack4
+          title: Pack 4 cabezales compatibles para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 cabezal Pack 4 cabezales compatibles
+            para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - brush
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: &id009
+          - hx9352
+          - diamondclean
+          - hx93
+        - sku: philips-cb-philips-hx9352-cabezal-head-sensitiv-pack4
+          title: Pack 4 cabezales sensitive compatibles para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 cabezal Pack 4 cabezales sensitive
+            compatibles para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - sensitive
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id009
+        - sku: philips-cb-philips-hx9352-cabezal-head-whitening-pack2
+          title: Pack 2 cabezales whitening compatibles para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 cabezal Pack 2 cabezales whitening
+            compatibles para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - whitening
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id009
+        - sku: philips-cb-philips-hx9352-cabezal-head-3d-pack4
+          title: Pack 4 cabezales 3D compatibles para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 cabezal Pack 4 cabezales 3D
+            compatibles para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - 3d
+          - head
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id009
+        cargador:
+        - sku: philips-cb-philips-hx9352-cargador-charger-dental
+          title: Cargador compatible para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 cargador Cargador compatible
+            para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - charger
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id009
+        - sku: philips-cb-philips-hx9352-cargador-cable-dental-usb
+          title: Cable USB de carga compatible para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 cargador Cable USB de carga
+            compatible para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - usb
+          - cable
+          must_not_include:
+          - head
+          - brush
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id009
+        accesorios:
+        - sku: philips-cb-philips-hx9352-accesorios-acc-estuche-dental
+          title: Estuche de viaje compatible para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 accesorios Estuche de viaje
+            compatible para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - travel
+          - case
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - stand
+          model_tokens: *id009
+        - sku: philips-cb-philips-hx9352-accesorios-acc-soporte-dental
+          title: Soporte / vaso compatible para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 accesorios Soporte / vaso compatible
+            para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - stand
+          - holder
+          must_not_include:
+          - charger
+          - head
+          - brush
+          - case
+          model_tokens: *id009
+        - sku: philips-cb-philips-hx9352-accesorios-acc-irrigador
+          title: Cabezal irrigador dental compatible para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 accesorios Cabezal irrigador
+            dental compatible para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - irrigator
+          - water
+          - flosser
+          must_not_include:
+          - charger
+          - brush
+          - case
+          - stand
+          model_tokens: *id009
+        - sku: philips-cb-philips-hx9352-accesorios-acc-kit-dental
+          title: Kit accesorios dental compatible para DiamondClean HX9352
+          intent: compra
+          query: Philips Sonicare DiamondClean HX9352 accesorios Kit accesorios dental
+            compatible para DiamondClean HX9352
+          must_include:
+          - hx9352
+          - kit
+          - dental
+          - accessory
+          must_not_include:
+          - charger
+          - case
+          - stand
+          - irrigator
+          model_tokens: *id009
+      compatibilidad:
+      - Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie
+        IO que tienen conector diferente.
+      - 'Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2,
+        G3... no todos encajan en todos los modelos.'
+      - 'Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses
+        un cargador de otro dispositivo.'
+      - 'La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto):
+        el cargador debe ser el correcto para ese modelo.'
+      - Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque
+        el mango sea similar.
+      problemas:
+      - key: no-carga-cepillo
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si el cepillo lleva más de 3 años en uso, la batería interna puede
+          estar al final de su vida útil.
+        title: DiamondClean HX9352 no carga o batería dura poco
+        symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+        causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+        checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      - key: cabezal-gastado
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes
+          si las cerdas se doblan. Los packs de 4 son la opción más económica.
+        title: 'DiamondClean HX9352: cabezal muy gastado, no limpia bien'
+        symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+        causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+        checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      - key: vibra-menos-cepillo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si tras una carga completa sigue con poca potencia, prueba sin cabezal
+          para ver si el eje vibra con normalidad.
+        title: DiamondClean HX9352 vibra menos o parece más lento
+        symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+        causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+        checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?
+        a: Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras
+          pierden el color. Con uso intensivo puede ser necesario cada 2 meses.
+      - q: ¿Los cabezales compatibles son igual de buenos que los originales?
+        a: Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que
+          especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de
+          nylon suave.
+      - q: ¿Puedo usar el cargador de otro cepillo Oral-B con el mío?
+        a: La mayoría de cargadores Oral-B son compatibles entre modelos de la misma
+          gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre
+          el voltaje de salida.
+      - q: ¿Es seguro dejar el cepillo cargando toda la noche?
+        a: Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo,
+          para prolongar la vida de la batería es mejor evitar mantenerlo conectado
+          permanentemente.

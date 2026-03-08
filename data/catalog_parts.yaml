@@ -24,6 +24,26 @@ globals:
       label: "Accesorios"
       icon: "tools"
       buy_intent: "compra"
+    - key: laminas
+      label: "Láminas y cabezales"
+      icon: "blade"
+      buy_intent: "compra"
+    - key: cabezal
+      label: "Cabezales de recambio"
+      icon: "head"
+      buy_intent: "compra"
+    - key: junta
+      label: "Juntas y sellos"
+      icon: "seal"
+      buy_intent: "compra"
+    - key: deposito
+      label: "Depósitos y tanques"
+      icon: "tank"
+      buy_intent: "compra"
+    - key: cesta
+      label: "Cestas y bandejas"
+      icon: "basket"
+      buy_intent: "compra"
 
   guias_genericas:
     seguridad:
@@ -178,6 +198,321 @@ sku_packs:
       title_tpl: "Brush cover accessory compatible para {model}"
       must_include_tpl: ["{model_token}", "cover", "accessory"]
 
+  # Afeitadora eléctrica: 2 laminas + 2 cabezal + 2 cargador + 4 accesorios = 10
+  shaver10:
+    - catKey: laminas
+      sku_suffix: foil-std
+      intent: "compra"
+      title_tpl: "Láminas compatibles para {model}"
+      must_include_tpl: ["{model_token}", "foil"]
+      must_not_include: ["charger", "case", "brush", "stand"]
+    - catKey: laminas
+      sku_suffix: foil-pack3
+      intent: "compra"
+      title_tpl: "Pack 3 láminas compatibles para {model}"
+      must_include_tpl: ["{model_token}", "foil", "replacement"]
+      must_not_include: ["charger", "case", "brush", "stand"]
+    - catKey: cabezal
+      sku_suffix: head-std
+      intent: "compra"
+      title_tpl: "Cabezal de recambio compatible para {model}"
+      must_include_tpl: ["{model_token}", "head", "replacement"]
+      must_not_include: ["charger", "case", "foil", "stand"]
+    - catKey: cabezal
+      sku_suffix: head-pack4
+      intent: "compra"
+      title_tpl: "Pack 4 cabezales compatibles para {model}"
+      must_include_tpl: ["{model_token}", "head", "pack"]
+      must_not_include: ["charger", "case", "foil", "stand"]
+    - catKey: cargador
+      sku_suffix: charger-shaver
+      intent: "compra"
+      title_tpl: "Cargador compatible para {model}"
+      must_include_tpl: ["{model_token}", "charger"]
+      must_not_include: ["foil", "head", "case", "stand", "brush"]
+    - catKey: cargador
+      sku_suffix: cable-shaver
+      intent: "compra"
+      title_tpl: "Cable / adaptador compatible para {model}"
+      must_include_tpl: ["{model_token}", "cable", "adapter"]
+      must_not_include: ["foil", "head", "case", "stand", "brush"]
+    - catKey: accesorios
+      sku_suffix: acc-trimmer
+      intent: "compra"
+      title_tpl: "Accesorio perfilador/barbero compatible para {model}"
+      must_include_tpl: ["{model_token}", "trimmer", "accessory"]
+      must_not_include: ["charger", "foil", "head", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-funda
+      intent: "compra"
+      title_tpl: "Funda / estuche de viaje compatible para {model}"
+      must_include_tpl: ["{model_token}", "case", "travel"]
+      must_not_include: ["charger", "foil", "head", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-limpiador
+      intent: "compra"
+      title_tpl: "Solución limpiadora compatible para {model}"
+      must_include_tpl: ["{model_token}", "cleaning", "solution"]
+      must_not_include: ["charger", "foil", "head", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-kit-shaver
+      intent: "compra"
+      title_tpl: "Kit accesorios compatible para {model}"
+      must_include_tpl: ["{model_token}", "kit", "accessory"]
+      must_not_include: ["charger", "foil", "head", "stand"]
+
+  # Cafetera: 2 filtro + 2 junta + 2 deposito + 4 accesorios = 10
+  cafetera10:
+    - catKey: filtro
+      sku_suffix: filtro-agua
+      intent: "compra"
+      title_tpl: "Filtro de agua compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "water"]
+      must_not_include: ["gasket", "seal", "tank", "jug", "frother"]
+    - catKey: filtro
+      sku_suffix: filtro-cafe
+      intent: "compra"
+      title_tpl: "Filtro portacápsulas compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "coffee"]
+      must_not_include: ["water", "gasket", "seal", "tank", "jug"]
+    - catKey: junta
+      sku_suffix: junta-cafetera
+      intent: "compra"
+      title_tpl: "Junta de goma compatible para {model}"
+      must_include_tpl: ["{model_token}", "gasket", "seal"]
+      must_not_include: ["filter", "tank", "frother", "tray"]
+    - catKey: junta
+      sku_suffix: junta-grupo
+      intent: "compra"
+      title_tpl: "Junta de grupo / oring compatible para {model}"
+      must_include_tpl: ["{model_token}", "o-ring", "group"]
+      must_not_include: ["filter", "tank", "frother", "tray"]
+    - catKey: deposito
+      sku_suffix: deposito-agua
+      intent: "compra"
+      title_tpl: "Depósito de agua compatible para {model}"
+      must_include_tpl: ["{model_token}", "water", "tank"]
+      must_not_include: ["filter", "gasket", "frother", "tray"]
+    - catKey: deposito
+      sku_suffix: deposito-leche
+      intent: "compra"
+      title_tpl: "Depósito / recipiente leche compatible para {model}"
+      must_include_tpl: ["{model_token}", "milk", "container"]
+      must_not_include: ["filter", "gasket", "water tank", "tray"]
+    - catKey: accesorios
+      sku_suffix: acc-espumador
+      intent: "compra"
+      title_tpl: "Espumador de leche compatible para {model}"
+      must_include_tpl: ["{model_token}", "frother", "accessory"]
+      must_not_include: ["filter", "gasket", "tank", "tray"]
+    - catKey: accesorios
+      sku_suffix: acc-bandeja
+      intent: "compra"
+      title_tpl: "Bandeja recogetazas compatible para {model}"
+      must_include_tpl: ["{model_token}", "drip", "tray"]
+      must_not_include: ["filter", "gasket", "tank", "frother"]
+    - catKey: accesorios
+      sku_suffix: acc-kit-mant
+      intent: "compra"
+      title_tpl: "Kit mantenimiento compatible para {model}"
+      must_include_tpl: ["{model_token}", "maintenance", "kit"]
+      must_not_include: ["filter", "gasket", "tank", "tray"]
+    - catKey: accesorios
+      sku_suffix: acc-descalc
+      intent: "compra"
+      title_tpl: "Descalcificador compatible para {model}"
+      must_include_tpl: ["{model_token}", "descaler", "descaling"]
+      must_not_include: ["filter", "gasket", "tank", "tray"]
+
+  # Herramientas batería: 2 bateria + 2 cargador + 5 accesorios + 1 soporte = 10
+  power-tool10:
+    - catKey: bateria
+      sku_suffix: bat-tool-std
+      intent: "compra"
+      title_tpl: "Batería compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery"]
+      must_not_include: ["charger", "bit", "drill", "blade", "case"]
+    - catKey: bateria
+      sku_suffix: bat-tool-pack2
+      intent: "compra"
+      title_tpl: "Pack 2 baterías compatibles para {model}"
+      must_include_tpl: ["{model_token}", "battery", "pack"]
+      must_not_include: ["charger", "bit", "drill", "blade", "case"]
+    - catKey: cargador
+      sku_suffix: charger-tool-rapid
+      intent: "compra"
+      title_tpl: "Cargador rápido compatible para {model}"
+      must_include_tpl: ["{model_token}", "charger", "fast"]
+      must_not_include: ["battery", "bit", "blade", "drill chuck", "case"]
+    - catKey: cargador
+      sku_suffix: charger-tool-std
+      intent: "compra"
+      title_tpl: "Cargador estándar compatible para {model}"
+      must_include_tpl: ["{model_token}", "charger"]
+      must_not_include: ["battery", "bit", "blade", "drill chuck", "case"]
+    - catKey: accesorios
+      sku_suffix: acc-puntas
+      intent: "compra"
+      title_tpl: "Set de puntas/brocas compatibles para {model}"
+      must_include_tpl: ["{model_token}", "bit", "set"]
+      must_not_include: ["battery", "charger", "blade", "case"]
+    - catKey: accesorios
+      sku_suffix: acc-disco
+      intent: "compra"
+      title_tpl: "Disco de corte compatible para {model}"
+      must_include_tpl: ["{model_token}", "disc", "cutting"]
+      must_not_include: ["battery", "charger", "bit", "case"]
+    - catKey: accesorios
+      sku_suffix: acc-hoja
+      intent: "compra"
+      title_tpl: "Hoja de sierra compatible para {model}"
+      must_include_tpl: ["{model_token}", "blade", "saw"]
+      must_not_include: ["battery", "charger", "disc", "case"]
+    - catKey: accesorios
+      sku_suffix: acc-portabrocas
+      intent: "compra"
+      title_tpl: "Portabrocas / chuck compatible para {model}"
+      must_include_tpl: ["{model_token}", "chuck", "drill"]
+      must_not_include: ["battery", "charger", "disc", "blade", "case"]
+    - catKey: accesorios
+      sku_suffix: acc-kit-tool
+      intent: "compra"
+      title_tpl: "Kit accesorios compatible para {model}"
+      must_include_tpl: ["{model_token}", "kit", "accessory"]
+      must_not_include: ["battery", "charger", "disc", "blade"]
+    - catKey: soporte
+      sku_suffix: soporte-herramienta
+      intent: "compra"
+      title_tpl: "Soporte / funda compatible para {model}"
+      must_include_tpl: ["{model_token}", "case", "bag"]
+      must_not_include: ["battery", "charger", "bit", "blade"]
+
+  # Cepillo dental eléctrico: 4 cabezal + 2 cargador + 4 accesorios = 10
+  toothbrush10:
+    - catKey: cabezal
+      sku_suffix: head-dental-pack4
+      intent: "compra"
+      title_tpl: "Pack 4 cabezales compatibles para {model}"
+      must_include_tpl: ["{model_token}", "brush", "head", "pack"]
+      must_not_include: ["charger", "case", "stand", "irrigator"]
+    - catKey: cabezal
+      sku_suffix: head-sensitiv-pack4
+      intent: "compra"
+      title_tpl: "Pack 4 cabezales sensitive compatibles para {model}"
+      must_include_tpl: ["{model_token}", "sensitive", "head"]
+      must_not_include: ["charger", "case", "stand", "irrigator"]
+    - catKey: cabezal
+      sku_suffix: head-whitening-pack2
+      intent: "compra"
+      title_tpl: "Pack 2 cabezales whitening compatibles para {model}"
+      must_include_tpl: ["{model_token}", "whitening", "head"]
+      must_not_include: ["charger", "case", "stand", "irrigator"]
+    - catKey: cabezal
+      sku_suffix: head-3d-pack4
+      intent: "compra"
+      title_tpl: "Pack 4 cabezales 3D compatibles para {model}"
+      must_include_tpl: ["{model_token}", "3d", "head"]
+      must_not_include: ["charger", "case", "stand", "irrigator"]
+    - catKey: cargador
+      sku_suffix: charger-dental
+      intent: "compra"
+      title_tpl: "Cargador compatible para {model}"
+      must_include_tpl: ["{model_token}", "charger"]
+      must_not_include: ["head", "brush", "case", "stand", "irrigator"]
+    - catKey: cargador
+      sku_suffix: cable-dental-usb
+      intent: "compra"
+      title_tpl: "Cable USB de carga compatible para {model}"
+      must_include_tpl: ["{model_token}", "usb", "cable"]
+      must_not_include: ["head", "brush", "case", "stand", "irrigator"]
+    - catKey: accesorios
+      sku_suffix: acc-estuche-dental
+      intent: "compra"
+      title_tpl: "Estuche de viaje compatible para {model}"
+      must_include_tpl: ["{model_token}", "travel", "case"]
+      must_not_include: ["charger", "head", "brush", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-soporte-dental
+      intent: "compra"
+      title_tpl: "Soporte / vaso compatible para {model}"
+      must_include_tpl: ["{model_token}", "stand", "holder"]
+      must_not_include: ["charger", "head", "brush", "case"]
+    - catKey: accesorios
+      sku_suffix: acc-irrigador
+      intent: "compra"
+      title_tpl: "Cabezal irrigador dental compatible para {model}"
+      must_include_tpl: ["{model_token}", "irrigator", "water", "flosser"]
+      must_not_include: ["charger", "brush", "case", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-kit-dental
+      intent: "compra"
+      title_tpl: "Kit accesorios dental compatible para {model}"
+      must_include_tpl: ["{model_token}", "kit", "dental", "accessory"]
+      must_not_include: ["charger", "case", "stand", "irrigator"]
+
+  # Freidora de aire: 2 cesta + 1 filtro + 1 soporte + 6 accesorios = 10
+  airfryer10:
+    - catKey: cesta
+      sku_suffix: cesta-airfryer
+      intent: "compra"
+      title_tpl: "Cesta de repuesto compatible para {model}"
+      must_include_tpl: ["{model_token}", "basket", "replacement"]
+      must_not_include: ["rack", "paper", "silicone", "skewer", "stand"]
+    - catKey: cesta
+      sku_suffix: bandeja-grill
+      intent: "compra"
+      title_tpl: "Bandeja / rejilla grill compatible para {model}"
+      must_include_tpl: ["{model_token}", "rack", "grill"]
+      must_not_include: ["basket", "paper", "silicone", "skewer", "stand"]
+    - catKey: filtro
+      sku_suffix: filtro-carbon-af
+      intent: "compra"
+      title_tpl: "Filtro de carbono compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "carbon"]
+      must_not_include: ["basket", "rack", "silicone", "skewer", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-molde-silicona
+      intent: "compra"
+      title_tpl: "Moldes de silicona compatibles para {model}"
+      must_include_tpl: ["{model_token}", "silicone", "mold"]
+      must_not_include: ["basket", "rack", "filter", "skewer", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-liner-papel
+      intent: "compra"
+      title_tpl: "Papel perforado / liner compatible para {model}"
+      must_include_tpl: ["{model_token}", "paper", "liner", "parchment"]
+      must_not_include: ["basket", "rack", "filter", "skewer", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-spit-asador
+      intent: "compra"
+      title_tpl: "Asador / spit rotisserie compatible para {model}"
+      must_include_tpl: ["{model_token}", "rotisserie", "spit"]
+      must_not_include: ["basket", "rack", "filter", "paper", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-brochetas
+      intent: "compra"
+      title_tpl: "Brochetas / skewers compatibles para {model}"
+      must_include_tpl: ["{model_token}", "skewer", "kebab"]
+      must_not_include: ["basket", "rack", "filter", "paper", "stand"]
+    - catKey: accesorios
+      sku_suffix: acc-kit-af
+      intent: "compra"
+      title_tpl: "Kit accesorios compatible para {model}"
+      must_include_tpl: ["{model_token}", "accessory", "kit"]
+      must_not_include: ["basket", "rack", "filter", "paper"]
+    - catKey: accesorios
+      sku_suffix: acc-pinzas-silicona
+      intent: "compra"
+      title_tpl: "Pinzas de silicona compatibles para {model}"
+      must_include_tpl: ["{model_token}", "tong", "silicone"]
+      must_not_include: ["basket", "rack", "filter", "paper", "skewer"]
+    - catKey: soporte
+      sku_suffix: soporte-freidora
+      intent: "compra"
+      title_tpl: "Soporte elevador / estante compatible para {model}"
+      must_include_tpl: ["{model_token}", "rack", "stand", "shelf"]
+      must_not_include: ["basket", "filter", "paper", "skewer", "silicone"]
+
 # =========================================================
 # PROBLEM PACKS
 # REGLA: {model} y {model_token} se sustituyen en compilación
@@ -293,6 +628,281 @@ problem_packs:
         - Revisar las ruedas por objetos atrapados
       fix_hint: "Los cepillos laterales suelen doblarse con el uso. Son piezas baratas de cambiar y mejoran notablemente el resultado."
 
+  shaver_base:
+    - key: lamina-desgastada
+      title: "{model}: lámina desgastada o raya la piel"
+      intent: info
+      cta_cat: laminas
+      symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+      causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+      checks:
+        - Revisar la lámina a contraluz: si hay agujeros o deformaciones hay que cambiarla
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      fix_hint: "Philips recomienda sustituir la lámina cada 2 años; Braun cada 18 meses con uso diario."
+
+    - key: no-carga-afeitadora
+      title: "{model} no carga o tiene poca autonomía"
+      intent: info
+      cta_cat: cargador
+      symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+      causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+      checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      fix_hint: "Si la batería no aguanta más de 15 minutos tras carga completa, es probable que necesite reemplazarse."
+
+    - key: cabezal-no-oscila
+      title: "{model}: el cabezal no oscila o gira mal"
+      intent: info
+      cta_cat: cabezal
+      symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+      causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+      checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      fix_hint: "Si después de limpiar el cabezal sigue rígido, sustituirlo suele ser la solución más económica frente a reparación."
+
+  cafetera_base:
+    - key: no-hace-presion
+      title: "{model} no hace presión o el café sale aguado"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+      causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+      checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      fix_hint: "Una junta de grupo endurecida es la causa más habitual de pérdida de presión en cafeteras de cápsulas."
+
+    - key: pierde-agua
+      title: "{model} pierde agua o hace goteo"
+      intent: info
+      cta_cat: junta
+      symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+      causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+      checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      fix_hint: "Las juntas de goma se endurecen con el calor y la cal. Suelen costar menos de 5€ y son fáciles de cambiar."
+
+    - key: no-calienta-cafe
+      title: "{model} no calienta o el café sale frío"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+      causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+      checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      fix_hint: "El descalcificado regular (cada 3 meses) previene el 80% de los problemas de temperatura. Usa descalcificador específico para cafeteras."
+
+  power_tool_base:
+    - key: bateria-no-carga
+      title: "{model}: batería no carga o poca duración"
+      intent: info
+      cta_cat: bateria
+      symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+      causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+      checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      fix_hint: "Las baterías de herramientas duran 3-5 años con uso intensivo. Una batería compatible de buena calidad puede costar la mitad que la original."
+
+    - key: no-arranca-herramienta
+      title: "{model} no arranca o pierde par"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+      causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+      checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      fix_hint: "Si el problema persiste con batería cargada, el gatillo o el motor pueden necesitar revisión en servicio técnico."
+
+    - key: vibra-herramienta
+      title: "{model} vibra o hace ruido excesivo"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+      causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+      checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      fix_hint: "Un disco o broca desgastados son la causa más frecuente de vibración. Cambiarlos es barato y rápido."
+
+  toothbrush_base:
+    - key: no-carga-cepillo
+      title: "{model} no carga o batería dura poco"
+      intent: info
+      cta_cat: cargador
+      symptoms:
+        - El cepillo no se enciende tras la carga
+        - La batería dura menos de 5 minutos
+        - El indicador de batería parpadea inmediatamente
+      causes:
+        - Batería interna degradada por ciclos
+        - Cargador o base de carga dañada
+        - Fallo en la carga inalámbrica (acumulación de humedad)
+      checks:
+        - Limpiar la base de carga y los contactos con un paño seco
+        - Probar en otra toma de corriente
+        - Dejar el cepillo en carga 24h sin interrumpir el ciclo
+      fix_hint: "Si el cepillo lleva más de 3 años en uso, la batería interna puede estar al final de su vida útil."
+
+    - key: cabezal-gastado
+      title: "{model}: cabezal muy gastado, no limpia bien"
+      intent: info
+      cta_cat: cabezal
+      symptoms:
+        - Las cerdas están dobladas o desgastadas
+        - La limpieza ya no es tan eficaz
+        - Las cerdas indicadoras han perdido el color
+      causes:
+        - Cabezal con más de 3 meses de uso
+        - Presión excesiva al cepillar
+        - Uso de pasta muy abrasiva
+      checks:
+        - Revisar si las cerdas indicadoras han perdido el color azul
+        - Verificar que las cerdas no están dobladas hacia los lados
+        - Asegurarse de que el cabezal encaja correctamente en el mango
+      fix_hint: "Los dentistas recomiendan cambiar el cabezal cada 3 meses o antes si las cerdas se doblan. Los packs de 4 son la opción más económica."
+
+    - key: vibra-menos-cepillo
+      title: "{model} vibra menos o parece más lento"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - La vibración se siente más débil que antes
+        - El modo de limpieza seleccionado no parece activo
+        - El mango se calienta durante el uso
+      causes:
+        - Batería baja o degradada
+        - Cabezal mal encajado que frena el motor
+        - Humedad interna por exposición excesiva al agua
+      checks:
+        - Cargar completamente el cepillo (1-2 horas)
+        - Retirar y volver a encajar el cabezal firmemente
+        - Verificar que el cabezal no tiene obstrucción en el eje de vibración
+      fix_hint: "Si tras una carga completa sigue con poca potencia, prueba sin cabezal para ver si el eje vibra con normalidad."
+
+  airfryer_base:
+    - key: cesta-deteriorada
+      title: "{model}: cesta deteriorada o antiadherente dañado"
+      intent: info
+      cta_cat: cesta
+      symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+      causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+      checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      fix_hint: "Una cesta con recubrimiento dañado debería sustituirse: los fragmentos pueden contaminar los alimentos."
+
+    - key: no-calienta-freidora
+      title: "{model} no alcanza temperatura o calienta poco"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+      causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+      checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      fix_hint: "La acumulación de grasa en la resistencia es la causa más frecuente de pérdida de eficiencia. Limpia tras cada uso intensivo."
+
+    - key: humo-olor-plastico
+      title: "{model} hace humo o desprende olor a plástico"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+      causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+      checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      fix_hint: "En el primer uso es normal un leve olor. Si persiste después de varios usos, limpia a fondo la resistencia o sustituye el filtro."
+
 # =========================================================
 # COMPATIBILITY PACKS
 # =========================================================
@@ -310,6 +920,41 @@ compatibility_packs:
     - "En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro (L/R)."
     - "En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips, magnético)."
     - "Para docks y bases: algunos modelos tienen versiones con y sin autovaciado que no son compatibles entre sí."
+
+  shaver_base:
+    - "Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas o cabezal."
+    - "Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX no son intercambiables."
+    - "Los cargadores Philips usan distintos conectores según la antigüedad del modelo (redondo 2 pines vs. USB-C)."
+    - "Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de láminas de la misma marca."
+    - "Verifica siempre el año de fabricación para cabezales: los modelos antiguos pueden tener anclaje diferente."
+
+  cafetera_base:
+    - "Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas variantes cambian las piezas."
+    - "Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro de diferencia puede impedir el sellado."
+    - "Los depósitos de agua suelen ser específicos por serie aunque visualmente parezcan iguales."
+    - "Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo: sus cápsulas y piezas son distintas."
+    - "Los descalcificadores son casi siempre universales, pero algunos fabricantes invalidan garantías si no usan el suyo."
+
+  power_tool_base:
+    - "Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables aunque parezca que encajan."
+    - "Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí aunque la forma sea parecida."
+    - "Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean del mismo voltaje."
+    - "En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del agujero central."
+    - "Los portabrocas tienen rosca específica: comprueba el paso de rosca antes de comprar uno compatible."
+
+  toothbrush_base:
+    - "Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie IO que tienen conector diferente."
+    - "Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2, G3... no todos encajan en todos los modelos."
+    - "Los cargadores de cepillos eléctricos tienen voltajes específicos: no uses un cargador de otro dispositivo."
+    - "La mayoría de cepillos eléctricos tienen carga inductiva (sin contacto): el cargador debe ser el correcto para ese modelo."
+    - "Los cabezales de Oral-B Pro/Vitality son distintos a los de la serie iO aunque el mango sea similar."
+
+  airfryer_base:
+    - "Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L, 7,6L): no son intercambiables."
+    - "Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas y accesorios distintos."
+    - "Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide el diámetro interior de tu cesta."
+    - "El papel perforado debe ser del tamaño correcto para no bloquear la circulación de aire."
+    - "Los filtros de carbono son específicos por modelo: comprueba la referencia antes de comprar."
 
 # =========================================================
 # FAQ PACKS
@@ -334,3 +979,53 @@ faq_packs:
       a: "Los kits suelen incluir filtros, cepillos laterales y principal. Verifica qué contiene cada kit ya que la composición varía según fabricante y modelo."
     - q: "¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?"
       a: "Ambas opciones existen. Los packs suelen ser más económicos si necesitas varios consumibles a la vez. Las piezas sueltas son útiles si solo falla un componente concreto."
+
+  shaver_base:
+    - q: "¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?"
+      a: "Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si notas que la piel se irrita o el afeitado tira más de lo normal, es momento de cambiarlas."
+    - q: "¿Los cabezales compatibles son tan buenos como los originales?"
+      a: "Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que indiquen explícitamente compatibilidad con tu modelo y serie."
+    - q: "¿Puedo usar el cargador de otra afeitadora Philips con la mía?"
+      a: "Solo si el voltaje de salida y el conector son idénticos. Los modelos más recientes usan USB-C mientras los antiguos tienen conector redondo de 2 pines."
+    - q: "¿Es normal que la afeitadora genere calor al cargar?"
+      a: "Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto o el indicador de carga parpadea rápidamente, puede haber un problema con la batería o el cargador."
+
+  cafetera_base:
+    - q: "¿Cada cuánto debo descalcificar mi cafetera?"
+      a: "Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique. La cal es la causa principal de averías en cafeteras de presión."
+    - q: "¿Los filtros de agua de cafetera son universales?"
+      a: "No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de referencia de tu modelo antes de comprar."
+    - q: "¿Puedo cambiar la junta de mi cafetera yo mismo?"
+      a: "Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas la junta correcta (verifica las medidas en mm) y seguir un tutorial del modelo específico."
+    - q: "¿Por qué la cafetera pierde presión después de años de uso?"
+      a: "La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado regular y la sustitución de juntas cada 2-3 años suelen resolver el problema."
+
+  power_tool_base:
+    - q: "¿Puedo usar una batería de mayor Ah en mi herramienta?"
+      a: "Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad (Ah) dará más autonomía sin afectar al motor."
+    - q: "¿Las baterías compatibles dañan la herramienta?"
+      a: "Las baterías compatibles de calidad con BMS (sistema de gestión de batería) son seguras. Evita las de marcas desconocidas sin protecciones electrónicas."
+    - q: "¿Con qué frecuencia debo cambiar las brocas o discos?"
+      a: "Cuando notes que el corte requiere más presión, el resultado es rugoso o la broca se calienta rápido. Una broca gastada daña tanto el material como la herramienta."
+    - q: "¿Puedo dejar la batería cargando toda la noche?"
+      a: "Los cargadores modernos tienen corte automático al llegar al 100%, por lo que no debería haber problema. Aun así, evitar la carga prolongada permanente prolonga la vida de la batería."
+
+  toothbrush_base:
+    - q: "¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?"
+      a: "Los dentistas recomiendan cada 3 meses o antes si las cerdas indicadoras pierden el color. Con uso intensivo puede ser necesario cada 2 meses."
+    - q: "¿Los cabezales compatibles son igual de buenos que los originales?"
+      a: "Los cabezales compatibles de calidad ofrecen limpieza similar. Busca que especifiquen compatibilidad con tu modelo exacto y que las cerdas sean de nylon suave."
+    - q: "¿Puedo usar el cargador de otro cepillo Oral-B con el mío?"
+      a: "La mayoría de cargadores Oral-B son compatibles entre modelos de la misma gama. Sin embargo, los modelos iO usan un cargador diferente. Verifica siempre el voltaje de salida."
+    - q: "¿Es seguro dejar el cepillo cargando toda la noche?"
+      a: "Sí, los cargadores modernos tienen protección de sobrecarga. Sin embargo, para prolongar la vida de la batería es mejor evitar mantenerlo conectado permanentemente."
+
+  airfryer_base:
+    - q: "¿Puedo usar papel de horno normal en la freidora de aire?"
+      a: "Sí, pero debe ser papel perforado para no bloquear la circulación de aire. El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar la máquina."
+    - q: "¿Con qué frecuencia hay que cambiar el filtro de carbono?"
+      a: "Cada 2-3 meses con uso regular. Si notas olores más intensos durante la cocción, es señal de que el filtro está saturado."
+    - q: "¿Es seguro usar la cesta si el antiadherente tiene arañazos?"
+      a: "Si el antiadherente se está desprendiendo o hay fragmentos visibles, es mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento no suponen riesgo."
+    - q: "¿Los accesorios de silicona son aptos para freidoras de aire?"
+      a: "Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima del accesorio antes de usarlo y mide bien el diámetro de tu cesta."

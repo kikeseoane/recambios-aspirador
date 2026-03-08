@@ -1,0 +1,11 @@
+---
+title: Philips Airfryer Airfryer HD9252 3.5L · Cesta y bandejas
+draft: false
+generated: true
+type: modelos
+brandKey: philips-af-fr
+modelSlug: philips-hd9252
+catKey: cesta
+layout: recambio
+vertical: freidoras
+---

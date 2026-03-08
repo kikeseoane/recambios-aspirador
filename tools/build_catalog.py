@@ -29,6 +29,31 @@ SKU_PACK_DEFAULTS: Dict[str, Dict[str, str]] = {
         "problem_pack": "robot_base",
         "faq_pack": "robot_base",
     },
+    "shaver10": {
+        "compatibility_pack": "shaver_base",
+        "problem_pack": "shaver_base",
+        "faq_pack": "shaver_base",
+    },
+    "cafetera10": {
+        "compatibility_pack": "cafetera_base",
+        "problem_pack": "cafetera_base",
+        "faq_pack": "cafetera_base",
+    },
+    "power-tool10": {
+        "compatibility_pack": "power_tool_base",
+        "problem_pack": "power_tool_base",
+        "faq_pack": "power_tool_base",
+    },
+    "toothbrush10": {
+        "compatibility_pack": "toothbrush_base",
+        "problem_pack": "toothbrush_base",
+        "faq_pack": "toothbrush_base",
+    },
+    "airfryer10": {
+        "compatibility_pack": "airfryer_base",
+        "problem_pack": "airfryer_base",
+        "faq_pack": "airfryer_base",
+    },
 }
 
 
@@ -127,7 +152,14 @@ def compile_faq_pack(pack_items: List[dict], model_name: str, model_token: str) 
 
 def compile_catalog(vertical: str = "aspiradores") -> dict:
     parts = load_yaml(PARTS_YAML)
-    brands_doc = load_yaml(BRANDS_YAML)
+    # Vertical-specific brands file takes priority
+    vertical_brands_path = ROOT / "data" / f"catalog_brands_{vertical}.yaml"
+    if vertical_brands_path.exists():
+        brands_doc = load_yaml(vertical_brands_path)
+        using_vertical_file = True
+    else:
+        brands_doc = load_yaml(BRANDS_YAML)
+        using_vertical_file = False
     skus_doc = load_yaml(SKUS_YAML)
 
     globals_obj = parts.get("globals") or {}
@@ -153,12 +185,13 @@ def compile_catalog(vertical: str = "aspiradores") -> dict:
     seen_model_slugs: set[str] = set()
 
     for brand_key, brand_obj in list(brands.items()):
-        if isinstance(brand_obj, dict):
+        if not isinstance(brand_obj, dict):
+            continue
+        # If using main brands file, filter by vertical
+        if not using_vertical_file:
             brand_vertical = brand_obj.get("vertical", "aspiradores")
             if brand_vertical != vertical:
                 continue
-        if not isinstance(brand_obj, dict):
-            continue
 
         brand_name = nrm(str(brand_obj.get("name") or brand_key))
         b_out: Dict[str, Any] = {

@@ -1,0 +1,2813 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  philips-cf:
+    name: Philips
+    models:
+    - model: 3200 EP1220
+      slug: philips-ep1220
+      sku_pack: cafetera10
+      model_tokens:
+      - ep1220
+      - '3200'
+      - ep12
+      year_range: 2020-2024
+      series: 3200 Series
+      recambios:
+        filtro:
+        - sku: philips-cf-philips-ep1220-filtro-filtro-agua
+          title: Filtro de agua compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 filtro Filtro de agua compatible para 3200 EP1220
+          must_include:
+          - ep1220
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id001
+          - ep1220
+          - '3200'
+          - ep12
+        - sku: philips-cf-philips-ep1220-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 filtro Filtro portacápsulas compatible para 3200
+            EP1220
+          must_include:
+          - ep1220
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id001
+        junta:
+        - sku: philips-cf-philips-ep1220-junta-junta-cafetera
+          title: Junta de goma compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 junta Junta de goma compatible para 3200 EP1220
+          must_include:
+          - ep1220
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id001
+        - sku: philips-cf-philips-ep1220-junta-junta-grupo
+          title: Junta de grupo / oring compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 junta Junta de grupo / oring compatible para
+            3200 EP1220
+          must_include:
+          - ep1220
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id001
+        deposito:
+        - sku: philips-cf-philips-ep1220-deposito-deposito-agua
+          title: Depósito de agua compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 deposito Depósito de agua compatible para 3200
+            EP1220
+          must_include:
+          - ep1220
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id001
+        - sku: philips-cf-philips-ep1220-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 deposito Depósito / recipiente leche compatible
+            para 3200 EP1220
+          must_include:
+          - ep1220
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id001
+        accesorios:
+        - sku: philips-cf-philips-ep1220-accesorios-acc-espumador
+          title: Espumador de leche compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 accesorios Espumador de leche compatible para
+            3200 EP1220
+          must_include:
+          - ep1220
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id001
+        - sku: philips-cf-philips-ep1220-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 accesorios Bandeja recogetazas compatible para
+            3200 EP1220
+          must_include:
+          - ep1220
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id001
+        - sku: philips-cf-philips-ep1220-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 accesorios Kit mantenimiento compatible para
+            3200 EP1220
+          must_include:
+          - ep1220
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id001
+        - sku: philips-cf-philips-ep1220-accesorios-acc-descalc
+          title: Descalcificador compatible para 3200 EP1220
+          intent: compra
+          query: Philips 3200 EP1220 accesorios Descalcificador compatible para 3200
+            EP1220
+          must_include:
+          - ep1220
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id001
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: 3200 EP1220 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: 3200 EP1220 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: 3200 EP1220 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: 3300 EP3221
+      slug: philips-ep3221
+      sku_pack: cafetera10
+      model_tokens:
+      - ep3221
+      - '3300'
+      - ep32
+      year_range: 2021-2024
+      series: 3300 Series
+      recambios:
+        filtro:
+        - sku: philips-cf-philips-ep3221-filtro-filtro-agua
+          title: Filtro de agua compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 filtro Filtro de agua compatible para 3300 EP3221
+          must_include:
+          - ep3221
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id002
+          - ep3221
+          - '3300'
+          - ep32
+        - sku: philips-cf-philips-ep3221-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 filtro Filtro portacápsulas compatible para 3300
+            EP3221
+          must_include:
+          - ep3221
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id002
+        junta:
+        - sku: philips-cf-philips-ep3221-junta-junta-cafetera
+          title: Junta de goma compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 junta Junta de goma compatible para 3300 EP3221
+          must_include:
+          - ep3221
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id002
+        - sku: philips-cf-philips-ep3221-junta-junta-grupo
+          title: Junta de grupo / oring compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 junta Junta de grupo / oring compatible para
+            3300 EP3221
+          must_include:
+          - ep3221
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id002
+        deposito:
+        - sku: philips-cf-philips-ep3221-deposito-deposito-agua
+          title: Depósito de agua compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 deposito Depósito de agua compatible para 3300
+            EP3221
+          must_include:
+          - ep3221
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id002
+        - sku: philips-cf-philips-ep3221-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 deposito Depósito / recipiente leche compatible
+            para 3300 EP3221
+          must_include:
+          - ep3221
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id002
+        accesorios:
+        - sku: philips-cf-philips-ep3221-accesorios-acc-espumador
+          title: Espumador de leche compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 accesorios Espumador de leche compatible para
+            3300 EP3221
+          must_include:
+          - ep3221
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id002
+        - sku: philips-cf-philips-ep3221-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 accesorios Bandeja recogetazas compatible para
+            3300 EP3221
+          must_include:
+          - ep3221
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id002
+        - sku: philips-cf-philips-ep3221-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 accesorios Kit mantenimiento compatible para
+            3300 EP3221
+          must_include:
+          - ep3221
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id002
+        - sku: philips-cf-philips-ep3221-accesorios-acc-descalc
+          title: Descalcificador compatible para 3300 EP3221
+          intent: compra
+          query: Philips 3300 EP3221 accesorios Descalcificador compatible para 3300
+            EP3221
+          must_include:
+          - ep3221
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id002
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: 3300 EP3221 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: 3300 EP3221 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: 3300 EP3221 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: 4300 EP4321
+      slug: philips-ep4321
+      sku_pack: cafetera10
+      model_tokens:
+      - ep4321
+      - '4300'
+      - ep43
+      year_range: 2022-2024
+      series: 4300 Series
+      recambios:
+        filtro:
+        - sku: philips-cf-philips-ep4321-filtro-filtro-agua
+          title: Filtro de agua compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 filtro Filtro de agua compatible para 4300 EP4321
+          must_include:
+          - ep4321
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id003
+          - ep4321
+          - '4300'
+          - ep43
+        - sku: philips-cf-philips-ep4321-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 filtro Filtro portacápsulas compatible para 4300
+            EP4321
+          must_include:
+          - ep4321
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id003
+        junta:
+        - sku: philips-cf-philips-ep4321-junta-junta-cafetera
+          title: Junta de goma compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 junta Junta de goma compatible para 4300 EP4321
+          must_include:
+          - ep4321
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id003
+        - sku: philips-cf-philips-ep4321-junta-junta-grupo
+          title: Junta de grupo / oring compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 junta Junta de grupo / oring compatible para
+            4300 EP4321
+          must_include:
+          - ep4321
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id003
+        deposito:
+        - sku: philips-cf-philips-ep4321-deposito-deposito-agua
+          title: Depósito de agua compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 deposito Depósito de agua compatible para 4300
+            EP4321
+          must_include:
+          - ep4321
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id003
+        - sku: philips-cf-philips-ep4321-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 deposito Depósito / recipiente leche compatible
+            para 4300 EP4321
+          must_include:
+          - ep4321
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id003
+        accesorios:
+        - sku: philips-cf-philips-ep4321-accesorios-acc-espumador
+          title: Espumador de leche compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 accesorios Espumador de leche compatible para
+            4300 EP4321
+          must_include:
+          - ep4321
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id003
+        - sku: philips-cf-philips-ep4321-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 accesorios Bandeja recogetazas compatible para
+            4300 EP4321
+          must_include:
+          - ep4321
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id003
+        - sku: philips-cf-philips-ep4321-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 accesorios Kit mantenimiento compatible para
+            4300 EP4321
+          must_include:
+          - ep4321
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id003
+        - sku: philips-cf-philips-ep4321-accesorios-acc-descalc
+          title: Descalcificador compatible para 4300 EP4321
+          intent: compra
+          query: Philips 4300 EP4321 accesorios Descalcificador compatible para 4300
+            EP4321
+          must_include:
+          - ep4321
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id003
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: 4300 EP4321 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: 4300 EP4321 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: 4300 EP4321 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Senseo HD6553
+      slug: philips-hd6553
+      sku_pack: cafetera10
+      model_tokens:
+      - hd6553
+      - senseo
+      - hd65
+      year_range: 2019-2024
+      series: Senseo
+      recambios:
+        filtro:
+        - sku: philips-cf-philips-hd6553-filtro-filtro-agua
+          title: Filtro de agua compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 filtro Filtro de agua compatible para Senseo
+            HD6553
+          must_include:
+          - hd6553
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id004
+          - hd6553
+          - senseo
+          - hd65
+        - sku: philips-cf-philips-hd6553-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 filtro Filtro portacápsulas compatible para
+            Senseo HD6553
+          must_include:
+          - hd6553
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id004
+        junta:
+        - sku: philips-cf-philips-hd6553-junta-junta-cafetera
+          title: Junta de goma compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 junta Junta de goma compatible para Senseo
+            HD6553
+          must_include:
+          - hd6553
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id004
+        - sku: philips-cf-philips-hd6553-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 junta Junta de grupo / oring compatible para
+            Senseo HD6553
+          must_include:
+          - hd6553
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id004
+        deposito:
+        - sku: philips-cf-philips-hd6553-deposito-deposito-agua
+          title: Depósito de agua compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 deposito Depósito de agua compatible para Senseo
+            HD6553
+          must_include:
+          - hd6553
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id004
+        - sku: philips-cf-philips-hd6553-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 deposito Depósito / recipiente leche compatible
+            para Senseo HD6553
+          must_include:
+          - hd6553
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id004
+        accesorios:
+        - sku: philips-cf-philips-hd6553-accesorios-acc-espumador
+          title: Espumador de leche compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 accesorios Espumador de leche compatible para
+            Senseo HD6553
+          must_include:
+          - hd6553
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id004
+        - sku: philips-cf-philips-hd6553-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 accesorios Bandeja recogetazas compatible para
+            Senseo HD6553
+          must_include:
+          - hd6553
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id004
+        - sku: philips-cf-philips-hd6553-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 accesorios Kit mantenimiento compatible para
+            Senseo HD6553
+          must_include:
+          - hd6553
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id004
+        - sku: philips-cf-philips-hd6553-accesorios-acc-descalc
+          title: Descalcificador compatible para Senseo HD6553
+          intent: compra
+          query: Philips Senseo HD6553 accesorios Descalcificador compatible para
+            Senseo HD6553
+          must_include:
+          - hd6553
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id004
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Senseo HD6553 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Senseo HD6553 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Senseo HD6553 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+  delonghi-cf:
+    name: DeLonghi
+    models:
+    - model: Magnifica Evo ECAM290
+      slug: delonghi-ecam290
+      sku_pack: cafetera10
+      model_tokens:
+      - ecam290
+      - magnifica evo
+      - ecam29
+      year_range: 2021-2024
+      series: Magnifica Evo
+      recambios:
+        filtro:
+        - sku: delonghi-cf-delonghi-ecam290-filtro-filtro-agua
+          title: Filtro de agua compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 filtro Filtro de agua compatible para
+            Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id005
+          - ecam290
+          - magnifica evo
+          - ecam29
+        - sku: delonghi-cf-delonghi-ecam290-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 filtro Filtro portacápsulas compatible
+            para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id005
+        junta:
+        - sku: delonghi-cf-delonghi-ecam290-junta-junta-cafetera
+          title: Junta de goma compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 junta Junta de goma compatible para
+            Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id005
+        - sku: delonghi-cf-delonghi-ecam290-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 junta Junta de grupo / oring compatible
+            para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id005
+        deposito:
+        - sku: delonghi-cf-delonghi-ecam290-deposito-deposito-agua
+          title: Depósito de agua compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 deposito Depósito de agua compatible
+            para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id005
+        - sku: delonghi-cf-delonghi-ecam290-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 deposito Depósito / recipiente leche
+            compatible para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id005
+        accesorios:
+        - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-espumador
+          title: Espumador de leche compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 accesorios Espumador de leche compatible
+            para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id005
+        - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 accesorios Bandeja recogetazas compatible
+            para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id005
+        - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 accesorios Kit mantenimiento compatible
+            para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id005
+        - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-descalc
+          title: Descalcificador compatible para Magnifica Evo ECAM290
+          intent: compra
+          query: DeLonghi Magnifica Evo ECAM290 accesorios Descalcificador compatible
+            para Magnifica Evo ECAM290
+          must_include:
+          - ecam290
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id005
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Magnifica Evo ECAM290 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Magnifica Evo ECAM290 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Magnifica Evo ECAM290 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Magnifica S ECAM22
+      slug: delonghi-ecam22
+      sku_pack: cafetera10
+      model_tokens:
+      - ecam22
+      - magnifica s
+      - ecam2
+      year_range: 2020-2024
+      series: Magnifica S
+      recambios:
+        filtro:
+        - sku: delonghi-cf-delonghi-ecam22-filtro-filtro-agua
+          title: Filtro de agua compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 filtro Filtro de agua compatible para
+            Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id006
+          - ecam22
+          - magnifica s
+          - ecam2
+        - sku: delonghi-cf-delonghi-ecam22-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 filtro Filtro portacápsulas compatible
+            para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id006
+        junta:
+        - sku: delonghi-cf-delonghi-ecam22-junta-junta-cafetera
+          title: Junta de goma compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 junta Junta de goma compatible para Magnifica
+            S ECAM22
+          must_include:
+          - ecam22
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id006
+        - sku: delonghi-cf-delonghi-ecam22-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 junta Junta de grupo / oring compatible
+            para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id006
+        deposito:
+        - sku: delonghi-cf-delonghi-ecam22-deposito-deposito-agua
+          title: Depósito de agua compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 deposito Depósito de agua compatible
+            para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id006
+        - sku: delonghi-cf-delonghi-ecam22-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 deposito Depósito / recipiente leche
+            compatible para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id006
+        accesorios:
+        - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-espumador
+          title: Espumador de leche compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 accesorios Espumador de leche compatible
+            para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id006
+        - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 accesorios Bandeja recogetazas compatible
+            para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id006
+        - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 accesorios Kit mantenimiento compatible
+            para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id006
+        - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-descalc
+          title: Descalcificador compatible para Magnifica S ECAM22
+          intent: compra
+          query: DeLonghi Magnifica S ECAM22 accesorios Descalcificador compatible
+            para Magnifica S ECAM22
+          must_include:
+          - ecam22
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id006
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Magnifica S ECAM22 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Magnifica S ECAM22 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Magnifica S ECAM22 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Dinamica ECAM350
+      slug: delonghi-ecam350
+      sku_pack: cafetera10
+      model_tokens:
+      - ecam350
+      - dinamica
+      - ecam35
+      year_range: 2022-2024
+      series: Dinamica
+      recambios:
+        filtro:
+        - sku: delonghi-cf-delonghi-ecam350-filtro-filtro-agua
+          title: Filtro de agua compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 filtro Filtro de agua compatible para Dinamica
+            ECAM350
+          must_include:
+          - ecam350
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id007
+          - ecam350
+          - dinamica
+          - ecam35
+        - sku: delonghi-cf-delonghi-ecam350-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 filtro Filtro portacápsulas compatible
+            para Dinamica ECAM350
+          must_include:
+          - ecam350
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id007
+        junta:
+        - sku: delonghi-cf-delonghi-ecam350-junta-junta-cafetera
+          title: Junta de goma compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 junta Junta de goma compatible para Dinamica
+            ECAM350
+          must_include:
+          - ecam350
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id007
+        - sku: delonghi-cf-delonghi-ecam350-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 junta Junta de grupo / oring compatible
+            para Dinamica ECAM350
+          must_include:
+          - ecam350
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id007
+        deposito:
+        - sku: delonghi-cf-delonghi-ecam350-deposito-deposito-agua
+          title: Depósito de agua compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 deposito Depósito de agua compatible para
+            Dinamica ECAM350
+          must_include:
+          - ecam350
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id007
+        - sku: delonghi-cf-delonghi-ecam350-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 deposito Depósito / recipiente leche compatible
+            para Dinamica ECAM350
+          must_include:
+          - ecam350
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id007
+        accesorios:
+        - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-espumador
+          title: Espumador de leche compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 accesorios Espumador de leche compatible
+            para Dinamica ECAM350
+          must_include:
+          - ecam350
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id007
+        - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 accesorios Bandeja recogetazas compatible
+            para Dinamica ECAM350
+          must_include:
+          - ecam350
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id007
+        - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 accesorios Kit mantenimiento compatible
+            para Dinamica ECAM350
+          must_include:
+          - ecam350
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id007
+        - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-descalc
+          title: Descalcificador compatible para Dinamica ECAM350
+          intent: compra
+          query: DeLonghi Dinamica ECAM350 accesorios Descalcificador compatible para
+            Dinamica ECAM350
+          must_include:
+          - ecam350
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id007
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Dinamica ECAM350 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Dinamica ECAM350 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Dinamica ECAM350 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+  nespresso-cf:
+    name: Nespresso
+    models:
+    - model: Essenza Mini EN85
+      slug: nespresso-en85
+      sku_pack: cafetera10
+      model_tokens:
+      - en85
+      - essenza mini
+      year_range: 2019-2024
+      series: Essenza Mini
+      recambios:
+        filtro:
+        - sku: nespresso-cf-nespresso-en85-filtro-filtro-agua
+          title: Filtro de agua compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 filtro Filtro de agua compatible para
+            Essenza Mini EN85
+          must_include:
+          - en85
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id008
+          - en85
+          - essenza mini
+        - sku: nespresso-cf-nespresso-en85-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 filtro Filtro portacápsulas compatible
+            para Essenza Mini EN85
+          must_include:
+          - en85
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id008
+        junta:
+        - sku: nespresso-cf-nespresso-en85-junta-junta-cafetera
+          title: Junta de goma compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 junta Junta de goma compatible para Essenza
+            Mini EN85
+          must_include:
+          - en85
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id008
+        - sku: nespresso-cf-nespresso-en85-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 junta Junta de grupo / oring compatible
+            para Essenza Mini EN85
+          must_include:
+          - en85
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id008
+        deposito:
+        - sku: nespresso-cf-nespresso-en85-deposito-deposito-agua
+          title: Depósito de agua compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 deposito Depósito de agua compatible
+            para Essenza Mini EN85
+          must_include:
+          - en85
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id008
+        - sku: nespresso-cf-nespresso-en85-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 deposito Depósito / recipiente leche
+            compatible para Essenza Mini EN85
+          must_include:
+          - en85
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id008
+        accesorios:
+        - sku: nespresso-cf-nespresso-en85-accesorios-acc-espumador
+          title: Espumador de leche compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 accesorios Espumador de leche compatible
+            para Essenza Mini EN85
+          must_include:
+          - en85
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id008
+        - sku: nespresso-cf-nespresso-en85-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 accesorios Bandeja recogetazas compatible
+            para Essenza Mini EN85
+          must_include:
+          - en85
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id008
+        - sku: nespresso-cf-nespresso-en85-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 accesorios Kit mantenimiento compatible
+            para Essenza Mini EN85
+          must_include:
+          - en85
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id008
+        - sku: nespresso-cf-nespresso-en85-accesorios-acc-descalc
+          title: Descalcificador compatible para Essenza Mini EN85
+          intent: compra
+          query: Nespresso Essenza Mini EN85 accesorios Descalcificador compatible
+            para Essenza Mini EN85
+          must_include:
+          - en85
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id008
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Essenza Mini EN85 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Essenza Mini EN85 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Essenza Mini EN85 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Vertuo Next GCA1
+      slug: nespresso-gca1
+      sku_pack: cafetera10
+      model_tokens:
+      - gca1
+      - vertuo next
+      - vertuo
+      year_range: 2021-2024
+      series: Vertuo Next
+      recambios:
+        filtro:
+        - sku: nespresso-cf-nespresso-gca1-filtro-filtro-agua
+          title: Filtro de agua compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 filtro Filtro de agua compatible para
+            Vertuo Next GCA1
+          must_include:
+          - gca1
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id009
+          - gca1
+          - vertuo next
+          - vertuo
+        - sku: nespresso-cf-nespresso-gca1-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 filtro Filtro portacápsulas compatible
+            para Vertuo Next GCA1
+          must_include:
+          - gca1
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id009
+        junta:
+        - sku: nespresso-cf-nespresso-gca1-junta-junta-cafetera
+          title: Junta de goma compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 junta Junta de goma compatible para Vertuo
+            Next GCA1
+          must_include:
+          - gca1
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id009
+        - sku: nespresso-cf-nespresso-gca1-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 junta Junta de grupo / oring compatible
+            para Vertuo Next GCA1
+          must_include:
+          - gca1
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id009
+        deposito:
+        - sku: nespresso-cf-nespresso-gca1-deposito-deposito-agua
+          title: Depósito de agua compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 deposito Depósito de agua compatible para
+            Vertuo Next GCA1
+          must_include:
+          - gca1
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id009
+        - sku: nespresso-cf-nespresso-gca1-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 deposito Depósito / recipiente leche compatible
+            para Vertuo Next GCA1
+          must_include:
+          - gca1
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id009
+        accesorios:
+        - sku: nespresso-cf-nespresso-gca1-accesorios-acc-espumador
+          title: Espumador de leche compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 accesorios Espumador de leche compatible
+            para Vertuo Next GCA1
+          must_include:
+          - gca1
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id009
+        - sku: nespresso-cf-nespresso-gca1-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 accesorios Bandeja recogetazas compatible
+            para Vertuo Next GCA1
+          must_include:
+          - gca1
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id009
+        - sku: nespresso-cf-nespresso-gca1-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 accesorios Kit mantenimiento compatible
+            para Vertuo Next GCA1
+          must_include:
+          - gca1
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id009
+        - sku: nespresso-cf-nespresso-gca1-accesorios-acc-descalc
+          title: Descalcificador compatible para Vertuo Next GCA1
+          intent: compra
+          query: Nespresso Vertuo Next GCA1 accesorios Descalcificador compatible
+            para Vertuo Next GCA1
+          must_include:
+          - gca1
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id009
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Vertuo Next GCA1 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Vertuo Next GCA1 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Vertuo Next GCA1 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+  bosch-cf:
+    name: Bosch
+    models:
+    - model: Tassimo Happy TAS1002
+      slug: bosch-tas1002
+      sku_pack: cafetera10
+      model_tokens:
+      - tas1002
+      - tassimo happy
+      - tassimo
+      year_range: 2019-2024
+      series: Tassimo
+      recambios:
+        filtro:
+        - sku: bosch-cf-bosch-tas1002-filtro-filtro-agua
+          title: Filtro de agua compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 filtro Filtro de agua compatible para
+            Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id010
+          - tas1002
+          - tassimo happy
+          - tassimo
+        - sku: bosch-cf-bosch-tas1002-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 filtro Filtro portacápsulas compatible
+            para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id010
+        junta:
+        - sku: bosch-cf-bosch-tas1002-junta-junta-cafetera
+          title: Junta de goma compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 junta Junta de goma compatible para Tassimo
+            Happy TAS1002
+          must_include:
+          - tas1002
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id010
+        - sku: bosch-cf-bosch-tas1002-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 junta Junta de grupo / oring compatible
+            para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id010
+        deposito:
+        - sku: bosch-cf-bosch-tas1002-deposito-deposito-agua
+          title: Depósito de agua compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 deposito Depósito de agua compatible
+            para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id010
+        - sku: bosch-cf-bosch-tas1002-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 deposito Depósito / recipiente leche
+            compatible para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id010
+        accesorios:
+        - sku: bosch-cf-bosch-tas1002-accesorios-acc-espumador
+          title: Espumador de leche compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 accesorios Espumador de leche compatible
+            para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id010
+        - sku: bosch-cf-bosch-tas1002-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 accesorios Bandeja recogetazas compatible
+            para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id010
+        - sku: bosch-cf-bosch-tas1002-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 accesorios Kit mantenimiento compatible
+            para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id010
+        - sku: bosch-cf-bosch-tas1002-accesorios-acc-descalc
+          title: Descalcificador compatible para Tassimo Happy TAS1002
+          intent: compra
+          query: Bosch Tassimo Happy TAS1002 accesorios Descalcificador compatible
+            para Tassimo Happy TAS1002
+          must_include:
+          - tas1002
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id010
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Tassimo Happy TAS1002 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Tassimo Happy TAS1002 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Tassimo Happy TAS1002 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Tassimo My Way TAS6002
+      slug: bosch-tas6002
+      sku_pack: cafetera10
+      model_tokens:
+      - tas6002
+      - tassimo my way
+      year_range: 2020-2024
+      series: Tassimo My Way
+      recambios:
+        filtro:
+        - sku: bosch-cf-bosch-tas6002-filtro-filtro-agua
+          title: Filtro de agua compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 filtro Filtro de agua compatible para
+            Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - filter
+          - water
+          must_not_include:
+          - gasket
+          - seal
+          - tank
+          - jug
+          - frother
+          model_tokens: &id011
+          - tas6002
+          - tassimo my way
+        - sku: bosch-cf-bosch-tas6002-filtro-filtro-cafe
+          title: Filtro portacápsulas compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 filtro Filtro portacápsulas compatible
+            para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - filter
+          - coffee
+          must_not_include:
+          - water
+          - gasket
+          - seal
+          - tank
+          - jug
+          model_tokens: *id011
+        junta:
+        - sku: bosch-cf-bosch-tas6002-junta-junta-cafetera
+          title: Junta de goma compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 junta Junta de goma compatible para
+            Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - gasket
+          - seal
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id011
+        - sku: bosch-cf-bosch-tas6002-junta-junta-grupo
+          title: Junta de grupo / oring compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 junta Junta de grupo / oring compatible
+            para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - o-ring
+          - group
+          must_not_include:
+          - filter
+          - tank
+          - frother
+          - tray
+          model_tokens: *id011
+        deposito:
+        - sku: bosch-cf-bosch-tas6002-deposito-deposito-agua
+          title: Depósito de agua compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 deposito Depósito de agua compatible
+            para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - water
+          - tank
+          must_not_include:
+          - filter
+          - gasket
+          - frother
+          - tray
+          model_tokens: *id011
+        - sku: bosch-cf-bosch-tas6002-deposito-deposito-leche
+          title: Depósito / recipiente leche compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 deposito Depósito / recipiente leche
+            compatible para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - milk
+          - container
+          must_not_include:
+          - filter
+          - gasket
+          - water tank
+          - tray
+          model_tokens: *id011
+        accesorios:
+        - sku: bosch-cf-bosch-tas6002-accesorios-acc-espumador
+          title: Espumador de leche compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 accesorios Espumador de leche compatible
+            para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - frother
+          - accessory
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id011
+        - sku: bosch-cf-bosch-tas6002-accesorios-acc-bandeja
+          title: Bandeja recogetazas compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 accesorios Bandeja recogetazas compatible
+            para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - drip
+          - tray
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - frother
+          model_tokens: *id011
+        - sku: bosch-cf-bosch-tas6002-accesorios-acc-kit-mant
+          title: Kit mantenimiento compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 accesorios Kit mantenimiento compatible
+            para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - maintenance
+          - kit
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id011
+        - sku: bosch-cf-bosch-tas6002-accesorios-acc-descalc
+          title: Descalcificador compatible para Tassimo My Way TAS6002
+          intent: compra
+          query: Bosch Tassimo My Way TAS6002 accesorios Descalcificador compatible
+            para Tassimo My Way TAS6002
+          must_include:
+          - tas6002
+          - descaler
+          - descaling
+          must_not_include:
+          - filter
+          - gasket
+          - tank
+          - tray
+          model_tokens: *id011
+      compatibilidad:
+      - Comprueba el número de modelo completo (ECAM290.61, EP3221/40...) ya que pequeñas
+        variantes cambian las piezas.
+      - 'Las juntas de cafetera tienen medidas precisas en milímetros: un milímetro
+        de diferencia puede impedir el sellado.'
+      - Los depósitos de agua suelen ser específicos por serie aunque visualmente
+        parezcan iguales.
+      - 'Para cápsulas Nespresso, verifica si tu máquina es Original Line o Vertuo:
+        sus cápsulas y piezas son distintas.'
+      - Los descalcificadores son casi siempre universales, pero algunos fabricantes
+        invalidan garantías si no usan el suyo.
+      problemas:
+      - key: no-hace-presion
+        intent: info
+        cta_cat: filtro
+        fix_hint: Una junta de grupo endurecida es la causa más habitual de pérdida
+          de presión en cafeteras de cápsulas.
+        title: Tassimo My Way TAS6002 no hace presión o el café sale aguado
+        symptoms:
+        - El café gotea en lugar de salir en chorro
+        - El espresso no tiene crema o es muy fina
+        - La máquina hace ruido pero apenas sale líquido
+        causes:
+        - Filtro de agua obstruido o saturado
+        - Junta de grupo desgastada o reseca
+        - Bomba de presión deteriorada
+        checks:
+        - Sustituir el filtro de agua si lleva más de 2 meses
+        - Revisar que la junta del portafiltros está en buen estado
+        - Ejecutar ciclo de descalcificación si hace más de 3 meses
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Las juntas de goma se endurecen con el calor y la cal. Suelen costar
+          menos de 5€ y son fáciles de cambiar.
+        title: Tassimo My Way TAS6002 pierde agua o hace goteo
+        symptoms:
+        - Hay charco de agua bajo la cafetera
+        - Goteo desde el portafiltros durante el ciclo
+        - El depósito se vacía más rápido de lo normal
+        causes:
+        - Junta de grupo desgastada o fisurada
+        - Depósito mal encajado o con grieta
+        - Tuberías internas con acumulación de cal que rompe el sellado
+        checks:
+        - Retirar y revisar la junta del portafiltros
+        - Comprobar que el depósito está bien encajado sin grietas
+        - Descalcificar si hay mucha acumulación de cal en el circuito
+      - key: no-calienta-cafe
+        intent: info
+        cta_cat: accesorios
+        fix_hint: El descalcificado regular (cada 3 meses) previene el 80% de los
+          problemas de temperatura. Usa descalcificador específico para cafeteras.
+        title: Tassimo My Way TAS6002 no calienta o el café sale frío
+        symptoms:
+        - El café sale tibio en lugar de caliente
+        - La máquina tarda más de lo normal en calentar
+        - El vapor es débil o no sale
+        causes:
+        - Acumulación de cal en el thermoblock
+        - Resistencia eléctrica deteriorada
+        - Termostato defectuoso
+        checks:
+        - Ejecutar ciclo de descalcificación completo
+        - Precalentar la taza antes del café
+        - Verificar que la temperatura está en el ajuste máximo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.

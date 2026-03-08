@@ -1,0 +1,2323 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  philips-af:
+    name: Philips
+    models:
+    - model: Series 3000 S3710
+      slug: philips-s3710
+      sku_pack: shaver10
+      model_tokens:
+      - s3710
+      - series 3000
+      - s3000
+      year_range: 2019-2024
+      series: Series 3000
+      recambios:
+        laminas:
+        - sku: philips-af-philips-s3710-laminas-foil-std
+          title: Láminas compatibles para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 laminas Láminas compatibles para Series
+            3000 S3710
+          must_include:
+          - s3710
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id001
+          - s3710
+          - series 3000
+          - s3000
+        - sku: philips-af-philips-s3710-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 laminas Pack 3 láminas compatibles para
+            Series 3000 S3710
+          must_include:
+          - s3710
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id001
+        cabezal:
+        - sku: philips-af-philips-s3710-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 cabezal Cabezal de recambio compatible
+            para Series 3000 S3710
+          must_include:
+          - s3710
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id001
+        - sku: philips-af-philips-s3710-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 cabezal Pack 4 cabezales compatibles para
+            Series 3000 S3710
+          must_include:
+          - s3710
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id001
+        cargador:
+        - sku: philips-af-philips-s3710-cargador-charger-shaver
+          title: Cargador compatible para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 cargador Cargador compatible para Series
+            3000 S3710
+          must_include:
+          - s3710
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id001
+        - sku: philips-af-philips-s3710-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 cargador Cable / adaptador compatible para
+            Series 3000 S3710
+          must_include:
+          - s3710
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id001
+        accesorios:
+        - sku: philips-af-philips-s3710-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 accesorios Accesorio perfilador/barbero
+            compatible para Series 3000 S3710
+          must_include:
+          - s3710
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id001
+        - sku: philips-af-philips-s3710-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 accesorios Funda / estuche de viaje compatible
+            para Series 3000 S3710
+          must_include:
+          - s3710
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id001
+        - sku: philips-af-philips-s3710-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 accesorios Solución limpiadora compatible
+            para Series 3000 S3710
+          must_include:
+          - s3710
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id001
+        - sku: philips-af-philips-s3710-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 3000 S3710
+          intent: compra
+          query: Philips Series 3000 S3710 accesorios Kit accesorios compatible para
+            Series 3000 S3710
+          must_include:
+          - s3710
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id001
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 3000 S3710: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 3000 S3710 no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 3000 S3710: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+    - model: Series 5000 S5585
+      slug: philips-s5585
+      sku_pack: shaver10
+      model_tokens:
+      - s5585
+      - series 5000
+      - s5000
+      year_range: 2020-2024
+      series: Series 5000
+      recambios:
+        laminas:
+        - sku: philips-af-philips-s5585-laminas-foil-std
+          title: Láminas compatibles para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 laminas Láminas compatibles para Series
+            5000 S5585
+          must_include:
+          - s5585
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id002
+          - s5585
+          - series 5000
+          - s5000
+        - sku: philips-af-philips-s5585-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 laminas Pack 3 láminas compatibles para
+            Series 5000 S5585
+          must_include:
+          - s5585
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id002
+        cabezal:
+        - sku: philips-af-philips-s5585-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 cabezal Cabezal de recambio compatible
+            para Series 5000 S5585
+          must_include:
+          - s5585
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id002
+        - sku: philips-af-philips-s5585-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 cabezal Pack 4 cabezales compatibles para
+            Series 5000 S5585
+          must_include:
+          - s5585
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id002
+        cargador:
+        - sku: philips-af-philips-s5585-cargador-charger-shaver
+          title: Cargador compatible para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 cargador Cargador compatible para Series
+            5000 S5585
+          must_include:
+          - s5585
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id002
+        - sku: philips-af-philips-s5585-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 cargador Cable / adaptador compatible para
+            Series 5000 S5585
+          must_include:
+          - s5585
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id002
+        accesorios:
+        - sku: philips-af-philips-s5585-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 accesorios Accesorio perfilador/barbero
+            compatible para Series 5000 S5585
+          must_include:
+          - s5585
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id002
+        - sku: philips-af-philips-s5585-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 accesorios Funda / estuche de viaje compatible
+            para Series 5000 S5585
+          must_include:
+          - s5585
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id002
+        - sku: philips-af-philips-s5585-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 accesorios Solución limpiadora compatible
+            para Series 5000 S5585
+          must_include:
+          - s5585
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id002
+        - sku: philips-af-philips-s5585-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 5000 S5585
+          intent: compra
+          query: Philips Series 5000 S5585 accesorios Kit accesorios compatible para
+            Series 5000 S5585
+          must_include:
+          - s5585
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id002
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 5000 S5585: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 5000 S5585 no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 5000 S5585: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+    - model: Series 7000 S7788
+      slug: philips-s7788
+      sku_pack: shaver10
+      model_tokens:
+      - s7788
+      - series 7000
+      - s7000
+      year_range: 2021-2024
+      series: Series 7000
+      recambios:
+        laminas:
+        - sku: philips-af-philips-s7788-laminas-foil-std
+          title: Láminas compatibles para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 laminas Láminas compatibles para Series
+            7000 S7788
+          must_include:
+          - s7788
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id003
+          - s7788
+          - series 7000
+          - s7000
+        - sku: philips-af-philips-s7788-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 laminas Pack 3 láminas compatibles para
+            Series 7000 S7788
+          must_include:
+          - s7788
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id003
+        cabezal:
+        - sku: philips-af-philips-s7788-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 cabezal Cabezal de recambio compatible
+            para Series 7000 S7788
+          must_include:
+          - s7788
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id003
+        - sku: philips-af-philips-s7788-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 cabezal Pack 4 cabezales compatibles para
+            Series 7000 S7788
+          must_include:
+          - s7788
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id003
+        cargador:
+        - sku: philips-af-philips-s7788-cargador-charger-shaver
+          title: Cargador compatible para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 cargador Cargador compatible para Series
+            7000 S7788
+          must_include:
+          - s7788
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id003
+        - sku: philips-af-philips-s7788-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 cargador Cable / adaptador compatible para
+            Series 7000 S7788
+          must_include:
+          - s7788
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id003
+        accesorios:
+        - sku: philips-af-philips-s7788-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 accesorios Accesorio perfilador/barbero
+            compatible para Series 7000 S7788
+          must_include:
+          - s7788
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id003
+        - sku: philips-af-philips-s7788-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 accesorios Funda / estuche de viaje compatible
+            para Series 7000 S7788
+          must_include:
+          - s7788
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id003
+        - sku: philips-af-philips-s7788-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 accesorios Solución limpiadora compatible
+            para Series 7000 S7788
+          must_include:
+          - s7788
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id003
+        - sku: philips-af-philips-s7788-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 7000 S7788
+          intent: compra
+          query: Philips Series 7000 S7788 accesorios Kit accesorios compatible para
+            Series 7000 S7788
+          must_include:
+          - s7788
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id003
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 7000 S7788: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 7000 S7788 no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 7000 S7788: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+    - model: Series 9000 SP9860
+      slug: philips-sp9860
+      sku_pack: shaver10
+      model_tokens:
+      - sp9860
+      - series 9000 prestige
+      - s9000
+      year_range: 2022-2024
+      series: Series 9000 Prestige
+      recambios:
+        laminas:
+        - sku: philips-af-philips-sp9860-laminas-foil-std
+          title: Láminas compatibles para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 laminas Láminas compatibles para Series
+            9000 SP9860
+          must_include:
+          - sp9860
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id004
+          - sp9860
+          - series 9000 prestige
+          - s9000
+        - sku: philips-af-philips-sp9860-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 laminas Pack 3 láminas compatibles para
+            Series 9000 SP9860
+          must_include:
+          - sp9860
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id004
+        cabezal:
+        - sku: philips-af-philips-sp9860-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 cabezal Cabezal de recambio compatible
+            para Series 9000 SP9860
+          must_include:
+          - sp9860
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id004
+        - sku: philips-af-philips-sp9860-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 cabezal Pack 4 cabezales compatibles para
+            Series 9000 SP9860
+          must_include:
+          - sp9860
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id004
+        cargador:
+        - sku: philips-af-philips-sp9860-cargador-charger-shaver
+          title: Cargador compatible para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 cargador Cargador compatible para Series
+            9000 SP9860
+          must_include:
+          - sp9860
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id004
+        - sku: philips-af-philips-sp9860-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 cargador Cable / adaptador compatible
+            para Series 9000 SP9860
+          must_include:
+          - sp9860
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id004
+        accesorios:
+        - sku: philips-af-philips-sp9860-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 accesorios Accesorio perfilador/barbero
+            compatible para Series 9000 SP9860
+          must_include:
+          - sp9860
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id004
+        - sku: philips-af-philips-sp9860-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 accesorios Funda / estuche de viaje compatible
+            para Series 9000 SP9860
+          must_include:
+          - sp9860
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id004
+        - sku: philips-af-philips-sp9860-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 accesorios Solución limpiadora compatible
+            para Series 9000 SP9860
+          must_include:
+          - sp9860
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id004
+        - sku: philips-af-philips-sp9860-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 9000 SP9860
+          intent: compra
+          query: Philips Series 9000 SP9860 accesorios Kit accesorios compatible para
+            Series 9000 SP9860
+          must_include:
+          - sp9860
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id004
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 9000 SP9860: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 9000 SP9860 no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 9000 SP9860: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+    - model: OneBlade QP2730
+      slug: philips-qp2730
+      sku_pack: shaver10
+      model_tokens:
+      - qp2730
+      - oneblade
+      - qp27
+      year_range: 2021-2024
+      series: OneBlade
+      recambios:
+        laminas:
+        - sku: philips-af-philips-qp2730-laminas-foil-std
+          title: Láminas compatibles para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 laminas Láminas compatibles para OneBlade
+            QP2730
+          must_include:
+          - qp2730
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id005
+          - qp2730
+          - oneblade
+          - qp27
+        - sku: philips-af-philips-qp2730-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 laminas Pack 3 láminas compatibles para OneBlade
+            QP2730
+          must_include:
+          - qp2730
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id005
+        cabezal:
+        - sku: philips-af-philips-qp2730-cabezal-head-std
+          title: Cabezal de recambio compatible para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 cabezal Cabezal de recambio compatible para
+            OneBlade QP2730
+          must_include:
+          - qp2730
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id005
+        - sku: philips-af-philips-qp2730-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 cabezal Pack 4 cabezales compatibles para
+            OneBlade QP2730
+          must_include:
+          - qp2730
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id005
+        cargador:
+        - sku: philips-af-philips-qp2730-cargador-charger-shaver
+          title: Cargador compatible para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 cargador Cargador compatible para OneBlade
+            QP2730
+          must_include:
+          - qp2730
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id005
+        - sku: philips-af-philips-qp2730-cargador-cable-shaver
+          title: Cable / adaptador compatible para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 cargador Cable / adaptador compatible para
+            OneBlade QP2730
+          must_include:
+          - qp2730
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id005
+        accesorios:
+        - sku: philips-af-philips-qp2730-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 accesorios Accesorio perfilador/barbero compatible
+            para OneBlade QP2730
+          must_include:
+          - qp2730
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id005
+        - sku: philips-af-philips-qp2730-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 accesorios Funda / estuche de viaje compatible
+            para OneBlade QP2730
+          must_include:
+          - qp2730
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id005
+        - sku: philips-af-philips-qp2730-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 accesorios Solución limpiadora compatible
+            para OneBlade QP2730
+          must_include:
+          - qp2730
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id005
+        - sku: philips-af-philips-qp2730-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para OneBlade QP2730
+          intent: compra
+          query: Philips OneBlade QP2730 accesorios Kit accesorios compatible para
+            OneBlade QP2730
+          must_include:
+          - qp2730
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id005
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'OneBlade QP2730: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: OneBlade QP2730 no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'OneBlade QP2730: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+  braun-af:
+    name: Braun
+    models:
+    - model: Series 3 3010
+      slug: braun-3010
+      sku_pack: shaver10
+      model_tokens:
+      - '3010'
+      - series 3
+      - braun series3
+      year_range: 2020-2024
+      series: Series 3
+      recambios:
+        laminas:
+        - sku: braun-af-braun-3010-laminas-foil-std
+          title: Láminas compatibles para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 laminas Láminas compatibles para Series 3 3010
+          must_include:
+          - '3010'
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id006
+          - '3010'
+          - series 3
+          - braun series3
+        - sku: braun-af-braun-3010-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 laminas Pack 3 láminas compatibles para Series
+            3 3010
+          must_include:
+          - '3010'
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id006
+        cabezal:
+        - sku: braun-af-braun-3010-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 cabezal Cabezal de recambio compatible para Series
+            3 3010
+          must_include:
+          - '3010'
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id006
+        - sku: braun-af-braun-3010-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 cabezal Pack 4 cabezales compatibles para Series
+            3 3010
+          must_include:
+          - '3010'
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id006
+        cargador:
+        - sku: braun-af-braun-3010-cargador-charger-shaver
+          title: Cargador compatible para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 cargador Cargador compatible para Series 3 3010
+          must_include:
+          - '3010'
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id006
+        - sku: braun-af-braun-3010-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 cargador Cable / adaptador compatible para Series
+            3 3010
+          must_include:
+          - '3010'
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id006
+        accesorios:
+        - sku: braun-af-braun-3010-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 accesorios Accesorio perfilador/barbero compatible
+            para Series 3 3010
+          must_include:
+          - '3010'
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id006
+        - sku: braun-af-braun-3010-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 accesorios Funda / estuche de viaje compatible
+            para Series 3 3010
+          must_include:
+          - '3010'
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id006
+        - sku: braun-af-braun-3010-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 accesorios Solución limpiadora compatible para
+            Series 3 3010
+          must_include:
+          - '3010'
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id006
+        - sku: braun-af-braun-3010-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 3 3010
+          intent: compra
+          query: Braun Series 3 3010 accesorios Kit accesorios compatible para Series
+            3 3010
+          must_include:
+          - '3010'
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id006
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 3 3010: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 3 3010 no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 3 3010: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+    - model: Series 5 5018s
+      slug: braun-5018s
+      sku_pack: shaver10
+      model_tokens:
+      - 5018s
+      - '5018'
+      - series 5
+      year_range: 2021-2024
+      series: Series 5
+      recambios:
+        laminas:
+        - sku: braun-af-braun-5018s-laminas-foil-std
+          title: Láminas compatibles para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s laminas Láminas compatibles para Series 5 5018s
+          must_include:
+          - 5018s
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id007
+          - 5018s
+          - '5018'
+          - series 5
+        - sku: braun-af-braun-5018s-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s laminas Pack 3 láminas compatibles para Series
+            5 5018s
+          must_include:
+          - 5018s
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id007
+        cabezal:
+        - sku: braun-af-braun-5018s-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s cabezal Cabezal de recambio compatible para
+            Series 5 5018s
+          must_include:
+          - 5018s
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id007
+        - sku: braun-af-braun-5018s-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s cabezal Pack 4 cabezales compatibles para Series
+            5 5018s
+          must_include:
+          - 5018s
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id007
+        cargador:
+        - sku: braun-af-braun-5018s-cargador-charger-shaver
+          title: Cargador compatible para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s cargador Cargador compatible para Series 5 5018s
+          must_include:
+          - 5018s
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id007
+        - sku: braun-af-braun-5018s-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s cargador Cable / adaptador compatible para Series
+            5 5018s
+          must_include:
+          - 5018s
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id007
+        accesorios:
+        - sku: braun-af-braun-5018s-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s accesorios Accesorio perfilador/barbero compatible
+            para Series 5 5018s
+          must_include:
+          - 5018s
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id007
+        - sku: braun-af-braun-5018s-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s accesorios Funda / estuche de viaje compatible
+            para Series 5 5018s
+          must_include:
+          - 5018s
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id007
+        - sku: braun-af-braun-5018s-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s accesorios Solución limpiadora compatible para
+            Series 5 5018s
+          must_include:
+          - 5018s
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id007
+        - sku: braun-af-braun-5018s-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 5 5018s
+          intent: compra
+          query: Braun Series 5 5018s accesorios Kit accesorios compatible para Series
+            5 5018s
+          must_include:
+          - 5018s
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id007
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 5 5018s: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 5 5018s no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 5 5018s: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+    - model: Series 7 7071cc
+      slug: braun-7071cc
+      sku_pack: shaver10
+      model_tokens:
+      - 7071cc
+      - '7071'
+      - series 7
+      year_range: 2022-2024
+      series: Series 7
+      recambios:
+        laminas:
+        - sku: braun-af-braun-7071cc-laminas-foil-std
+          title: Láminas compatibles para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc laminas Láminas compatibles para Series 7 7071cc
+          must_include:
+          - 7071cc
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id008
+          - 7071cc
+          - '7071'
+          - series 7
+        - sku: braun-af-braun-7071cc-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc laminas Pack 3 láminas compatibles para Series
+            7 7071cc
+          must_include:
+          - 7071cc
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id008
+        cabezal:
+        - sku: braun-af-braun-7071cc-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc cabezal Cabezal de recambio compatible para
+            Series 7 7071cc
+          must_include:
+          - 7071cc
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id008
+        - sku: braun-af-braun-7071cc-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc cabezal Pack 4 cabezales compatibles para Series
+            7 7071cc
+          must_include:
+          - 7071cc
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id008
+        cargador:
+        - sku: braun-af-braun-7071cc-cargador-charger-shaver
+          title: Cargador compatible para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc cargador Cargador compatible para Series 7
+            7071cc
+          must_include:
+          - 7071cc
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id008
+        - sku: braun-af-braun-7071cc-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc cargador Cable / adaptador compatible para
+            Series 7 7071cc
+          must_include:
+          - 7071cc
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id008
+        accesorios:
+        - sku: braun-af-braun-7071cc-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc accesorios Accesorio perfilador/barbero compatible
+            para Series 7 7071cc
+          must_include:
+          - 7071cc
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id008
+        - sku: braun-af-braun-7071cc-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc accesorios Funda / estuche de viaje compatible
+            para Series 7 7071cc
+          must_include:
+          - 7071cc
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id008
+        - sku: braun-af-braun-7071cc-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc accesorios Solución limpiadora compatible para
+            Series 7 7071cc
+          must_include:
+          - 7071cc
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id008
+        - sku: braun-af-braun-7071cc-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 7 7071cc
+          intent: compra
+          query: Braun Series 7 7071cc accesorios Kit accesorios compatible para Series
+            7 7071cc
+          must_include:
+          - 7071cc
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id008
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 7 7071cc: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 7 7071cc no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 7 7071cc: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
+    - model: Series 9 Pro 9467cc
+      slug: braun-9467cc
+      sku_pack: shaver10
+      model_tokens:
+      - 9467cc
+      - '9467'
+      - series 9 pro
+      year_range: 2022-2024
+      series: Series 9 Pro
+      recambios:
+        laminas:
+        - sku: braun-af-braun-9467cc-laminas-foil-std
+          title: Láminas compatibles para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc laminas Láminas compatibles para Series
+            9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - foil
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: &id009
+          - 9467cc
+          - '9467'
+          - series 9 pro
+        - sku: braun-af-braun-9467cc-laminas-foil-pack3
+          title: Pack 3 láminas compatibles para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc laminas Pack 3 láminas compatibles para
+            Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - foil
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - brush
+          - stand
+          model_tokens: *id009
+        cabezal:
+        - sku: braun-af-braun-9467cc-cabezal-head-std
+          title: Cabezal de recambio compatible para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc cabezal Cabezal de recambio compatible
+            para Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - head
+          - replacement
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id009
+        - sku: braun-af-braun-9467cc-cabezal-head-pack4
+          title: Pack 4 cabezales compatibles para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc cabezal Pack 4 cabezales compatibles para
+            Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - head
+          - pack
+          must_not_include:
+          - charger
+          - case
+          - foil
+          - stand
+          model_tokens: *id009
+        cargador:
+        - sku: braun-af-braun-9467cc-cargador-charger-shaver
+          title: Cargador compatible para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc cargador Cargador compatible para Series
+            9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - charger
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id009
+        - sku: braun-af-braun-9467cc-cargador-cable-shaver
+          title: Cable / adaptador compatible para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc cargador Cable / adaptador compatible para
+            Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - cable
+          - adapter
+          must_not_include:
+          - foil
+          - head
+          - case
+          - stand
+          - brush
+          model_tokens: *id009
+        accesorios:
+        - sku: braun-af-braun-9467cc-accesorios-acc-trimmer
+          title: Accesorio perfilador/barbero compatible para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc accesorios Accesorio perfilador/barbero
+            compatible para Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - trimmer
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id009
+        - sku: braun-af-braun-9467cc-accesorios-acc-funda
+          title: Funda / estuche de viaje compatible para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc accesorios Funda / estuche de viaje compatible
+            para Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - case
+          - travel
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id009
+        - sku: braun-af-braun-9467cc-accesorios-acc-limpiador
+          title: Solución limpiadora compatible para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc accesorios Solución limpiadora compatible
+            para Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - cleaning
+          - solution
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id009
+        - sku: braun-af-braun-9467cc-accesorios-acc-kit-shaver
+          title: Kit accesorios compatible para Series 9 Pro 9467cc
+          intent: compra
+          query: Braun Series 9 Pro 9467cc accesorios Kit accesorios compatible para
+            Series 9 Pro 9467cc
+          must_include:
+          - 9467cc
+          - kit
+          - accessory
+          must_not_include:
+          - charger
+          - foil
+          - head
+          - stand
+          model_tokens: *id009
+      compatibilidad:
+      - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
+        o cabezal.
+      - 'Las láminas y cuchillas varían por número de modelo: S3XXX, S5XXX, S7XXX
+        no son intercambiables.'
+      - Los cargadores Philips usan distintos conectores según la antigüedad del modelo
+        (redondo 2 pines vs. USB-C).
+      - Los accesorios OneBlade (QP/QG) no son compatibles con las afeitadoras de
+        láminas de la misma marca.
+      - 'Verifica siempre el año de fabricación para cabezales: los modelos antiguos
+        pueden tener anclaje diferente.'
+      problemas:
+      - key: lamina-desgastada
+        intent: info
+        cta_cat: laminas
+        fix_hint: Philips recomienda sustituir la lámina cada 2 años; Braun cada 18
+          meses con uso diario.
+        title: 'Series 9 Pro 9467cc: lámina desgastada o raya la piel'
+        symptoms:
+        - La afeitadora raya o irrita la piel
+        - El afeitado ya no es tan apurado como antes
+        - Nota que el vello "tira" en lugar de cortarse limpiamente
+        causes:
+        - Lámina metálica desgastada por el uso
+        - Cabezal con más de 18-24 meses de uso intensivo
+        - Pelo muy grueso o rizado que desgasta más la lámina
+        checks:
+        - '{''Revisar la lámina a contraluz'': ''si hay agujeros o deformaciones hay
+          que cambiarla''}'
+        - Comprobar si el problema mejora tras limpiar bien el cabezal
+        - Verificar que el cabezal está correctamente encajado
+      - key: no-carga-afeitadora
+        intent: info
+        cta_cat: cargador
+        fix_hint: Si la batería no aguanta más de 15 minutos tras carga completa,
+          es probable que necesite reemplazarse.
+        title: Series 9 Pro 9467cc no carga o tiene poca autonomía
+        symptoms:
+        - La batería dura menos de 20 minutos
+        - El indicador de carga no responde al conectar
+        - Se apaga sin avisar durante el afeitado
+        causes:
+        - Batería degradada tras 2-3 años de uso
+        - Cargador o cable dañado
+        - Contactos de carga sucios u oxidados
+        checks:
+        - Limpiar los contactos con un paño seco
+        - Probar con otra toma de corriente o adaptador
+        - Verificar que el cargador está caliente (normal) o frío (fallo)
+      - key: cabezal-no-oscila
+        intent: info
+        cta_cat: cabezal
+        fix_hint: Si después de limpiar el cabezal sigue rígido, sustituirlo suele
+          ser la solución más económica frente a reparación.
+        title: 'Series 9 Pro 9467cc: el cabezal no oscila o gira mal'
+        symptoms:
+        - El cabezal está rígido y no se adapta al contorno de la cara
+        - Se escucha un clic o ruido al presionar el cabezal
+        - El afeitado es desigual por zonas
+        causes:
+        - Mecanismo de oscilación bloqueado por acumulación de residuos
+        - Cabezal dañado o deformado por caída
+        - Resorte del cabezal roto
+        checks:
+        - Desmonta el cabezal y elimina acumulaciones de vello
+        - Verifica que el cabezal encaja correctamente al volver a montarlo
+        - Comprueba si el cabezal oscila libremente a mano sin la máquina
+      faqs:
+      - q: ¿Con qué frecuencia debo cambiar las láminas de mi afeitadora?
+        a: Philips recomienda cada 2 años; Braun cada 18 meses con uso diario. Si
+          notas que la piel se irrita o el afeitado tira más de lo normal, es momento
+          de cambiarlas.
+      - q: ¿Los cabezales compatibles son tan buenos como los originales?
+        a: Los compatibles de calidad ofrecen un rendimiento muy similar. Busca que
+          indiquen explícitamente compatibilidad con tu modelo y serie.
+      - q: ¿Puedo usar el cargador de otra afeitadora Philips con la mía?
+        a: Solo si el voltaje de salida y el conector son idénticos. Los modelos más
+          recientes usan USB-C mientras los antiguos tienen conector redondo de 2
+          pines.
+      - q: ¿Es normal que la afeitadora genere calor al cargar?
+        a: Sí, es normal que se caliente ligeramente. Si está muy caliente al tacto
+          o el indicador de carga parpadea rápidamente, puede haber un problema con
+          la batería o el cargador.
