@@ -1,0 +1,137 @@
+{{ define "main" }}
+  {{- /* ============================================================
+       vertical_home.html
+       Rich home page for non-root verticals (afeitadoras, cafeteras,
+       herramientas, cepillos, freidoras).
+       Requires front matter: vertical: <key>
+       ============================================================ */}}
+
+  {{- $vertKey := .Params.vertical | default "afeitadoras" }}
+  {{- $db      := index site.Data $vertKey }}
+  {{- $brands  := $db.brands | default dict }}
+  {{- $allVerts := site.Data.verticals.verticals | default dict }}
+  {{- $vconf   := index $allVerts $vertKey }}
+
+  {{- /* ── Totals ──────────────────────────────────────────────── */}}
+  {{- $totalMarcas  := len $brands }}
+  {{- $totalModelos := 0 }}
+  {{- $totalSkus    := 0 }}
+  {{- range $brands }}
+    {{- $totalModelos = add $totalModelos (len .models) }}
+    {{- range .models }}
+      {{- $rec := index . "recambios" }}
+      {{- if and $rec (reflect.IsMap $rec) }}
+        {{- range $rec }}
+          {{- if reflect.IsSlice . }}{{- $totalSkus = add $totalSkus (len .) }}{{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+  {{- /* ── Hero copy & description ─────────────────────────────── */}}
+  {{- $heroCopy := $vconf.hero_copy | default $vconf.description }}
+  {{- $slug     := $vconf.slug }}
+
+  {{/* ── HERO ──────────────────────────────────────────────────── */}}
+  <section class="hero hero--bg">
+    <div class="hero__inner">
+      <div class="hero__kicker">{{ $vconf.label }}</div>
+      <h1>Recambios {{ $vconf.label | strings.TrimPrefix "Recambios de " }} compatibles por modelo</h1>
+      <p class="muted hero__copy">{{ $heroCopy }}</p>
+
+      <div class="hero__links">
+        <a class="btn btn--primary" href="{{ (printf "/%s/marcas/" $slug) | relURL }}">Ver marcas</a>
+        <a class="btn btn--ghost"   href="{{ (printf "/%s/modelos/" $slug) | relURL }}">Ver modelos</a>
+      </div>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;">
+        <span class="badge hot">{{ $totalMarcas }} marcas</span>
+        <span class="badge hot">{{ $totalModelos }} modelos</span>
+        {{ if gt $totalSkus 0 }}
+        <span class="badge hot">{{ $totalSkus }} recambios en catálogo</span>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* ── BRANDS GRID ─────────────────────────────────────────── */}}
+  <div class="section-head">
+    <h2>Marcas</h2>
+    <span class="chip">{{ $totalMarcas }} marcas</span>
+  </div>
+
+  {{ if not $brands }}
+    <div class="card" style="margin-top:18px;">
+      <h3>Catálogo en preparación</h3>
+      <p class="muted">Aún no hay marcas cargadas en el catálogo.</p>
+    </div>
+  {{ else }}
+    <div class="grid cards" style="margin-top:18px;">
+      {{- /* Sort brands alphabetically by name */}}
+      {{- $brandsList := slice }}
+      {{- range $k, $b := $brands }}
+        {{- $brandsList = $brandsList | append (dict "key" $k "brand" $b) }}
+      {{- end }}
+      {{- $brandsList = sort $brandsList "brand.name" }}
+
+      {{- range $brandsList }}
+        {{- $k    := .key }}
+        {{- $b    := .brand }}
+        {{- $bslug := $k | urlize }}
+        <a class="card card--with-icon" href="{{ (printf "/%s/marcas/%s/" $slug $bslug) | relURL }}">
+          {{ partial "card_icon.html" (dict "kind" "brand") }}
+          <div class="card-body">
+            <h3>{{ $b.name }}</h3>
+            <p class="muted">Recambios compatibles para {{ $b.name }}: láminas, cabezales, cargadores y accesorios.</p>
+            <div class="badges">
+              <span class="badge hot">{{ len $b.models }} modelos</span>
+              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+            </div>
+          </div>
+        </a>
+      {{- end }}
+    </div>
+  {{ end }}
+
+  {{/* ── CATEGORY SHORTCUTS ──────────────────────────────────── */}}
+  {{- $cats := $db.globals.categorias_recambios | default slice }}
+  {{- if $cats }}
+  <div class="section-head" style="margin-top:18px;">
+    <h2>¿Qué recambio necesitas?</h2>
+    <span class="chip">Categorías</span>
+  </div>
+  <div class="grid cards">
+    {{- range $cats }}
+    <div class="card">
+      <div class="card-body">
+        <h3>{{ .label }}</h3>
+        <p class="muted">Encuentra {{ .label | lower }} compatibles con verificación de modelo.</p>
+      </div>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  {{/* ── FAQ ─────────────────────────────────────────────────── */}}
+  {{- $faq := $vconf.faq | default slice }}
+  {{- if $faq }}
+  <div class="section-head" style="margin-top:28px;">
+    <h2>Preguntas frecuentes</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px;">
+    {{- range $faq }}
+    <div class="panel">
+      <p style="font-weight:700;margin:0 0 6px;">{{ .q }}</p>
+      <p class="muted" style="margin:0;">{{ .a }}</p>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  {{/* ── CROSS-PROMO ─────────────────────────────────────────── */}}
+  <div class="section-head" style="margin-top:28px;">
+    <h2>¿Buscas otros recambios?</h2>
+  </div>
+  {{ partial "cross_promo.html" (dict "currentVertical" $vertKey) }}
+
+{{ end }}
