@@ -177,3 +177,160 @@ sku_packs:
       intent: "compra"
       title_tpl: "Brush cover accessory compatible para {model}"
       must_include_tpl: ["{model_token}", "cover", "accessory"]
+
+# =========================================================
+# PROBLEM PACKS
+# REGLA: {model} y {model_token} se sustituyen en compilación
+# =========================================================
+problem_packs:
+  cordless_base:
+    - key: no-carga
+      title: "{model} no carga"
+      intent: info
+      cta_cat: bateria
+      symptoms:
+        - No enciende tras cargar
+        - La luz de carga parpadea pero no mantiene carga
+        - La batería se descarga muy rápido
+      causes:
+        - Batería degradada o agotada
+        - Cargador defectuoso o mal contacto
+        - Contactos de carga oxidados
+      checks:
+        - Probar con otro enchufe o base de carga
+        - Revisar que los contactos estén limpios y sin óxido
+        - Comprobar si el cargador original calienta o hace ruido
+      fix_hint: "Si el cargador funciona correctamente, lo más probable es que necesites sustituir la batería."
+
+    - key: pierde-potencia
+      title: "{model} ha perdido potencia de aspiración"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - Aspira menos que antes
+        - Se obstruye con facilidad
+        - El motor suena más fuerte de lo normal
+      causes:
+        - Filtro saturado o sucio
+        - Conductos o tubo obstruidos
+        - Rodillo con pelo o hilos enredados
+      checks:
+        - Limpiar o sustituir el filtro
+        - Revisar el tubo y la boquilla por obstrucciones
+        - Limpiar el rodillo de pelo y suciedad
+      fix_hint: "Si tras limpiar el filtro y eliminar obstrucciones no mejora, considera sustituir el filtro por uno nuevo."
+
+    - key: cepillo-no-gira
+      title: "{model}: el cepillo o rodillo no gira"
+      intent: info
+      cta_cat: cepillo
+      symptoms:
+        - El rodillo no gira al encender
+        - Se escucha el motor pero el cepillo está parado
+        - La aspiración es muy débil sobre alfombras
+      causes:
+        - Pelo o hilos enredados bloqueando el rodillo
+        - Rodillo desgastado o roto
+        - Fallo en el módulo de tracción del cepillo
+      checks:
+        - Retirar manualmente pelo e hilos del rodillo
+        - Verificar que el rodillo encaja y gira libremente a mano
+        - Comprobar que no hay objetos atrapados en el eje
+      fix_hint: "Si el rodillo gira libre a mano pero no con el motor, puede que el módulo de transmisión esté dañado."
+
+  robot_base:
+    - key: no-aspira
+      title: "{model} no aspira bien"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - El robot pasa pero el suelo sigue sucio
+        - Hace ruido pero no recoge bien
+        - El depósito se llena muy rápido o nada
+      causes:
+        - Filtro saturado o bloqueado
+        - Cepillo lateral o principal con pelo enredado
+        - Depósito mal colocado o lleno
+      checks:
+        - Limpiar o sustituir el filtro HEPA
+        - Retirar pelo del cepillo principal y laterales
+        - Vaciar y recolocar el depósito correctamente
+      fix_hint: "Un filtro saturado es la causa más común. Sustitúyelo si lleva más de 2-3 meses en uso."
+
+    - key: mopas-no-mojan
+      title: "{model}: las mopas no mojan o manchan"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - El suelo queda igual tras el fregado
+        - La mopa sale seca después del ciclo
+        - Deja marcas o rayas en el suelo
+      causes:
+        - Mopa desgastada o sucia
+        - Depósito de agua vacío o mal colocado
+        - Módulo de mopa obstruido
+      checks:
+        - Rellenar el depósito de agua con agua limpia
+        - Revisar que la mopa está bien sujeta al módulo
+        - Sustituir la mopa si está muy usada o deformada
+      fix_hint: "Las mopas de microfibra se desgastan con el uso. Sustitúyelas cada 1-2 meses con uso regular."
+
+    - key: ruido-cepillo
+      title: "{model} hace ruido en el cepillo"
+      intent: info
+      cta_cat: cepillo
+      symptoms:
+        - Sonido extraño o rasqueo durante la limpieza
+        - Vibración inusual en el robot
+        - El robot se detiene al pasar por ciertas zonas
+      causes:
+        - Pelo o hilos enredados en el cepillo principal
+        - Cepillo lateral doblado o roto
+        - Objeto atrapado en la rueda o cepillo
+      checks:
+        - Retirar pelo del cepillo principal con tijeras
+        - Inspeccionar cepillos laterales y sustituir si están doblados
+        - Revisar las ruedas por objetos atrapados
+      fix_hint: "Los cepillos laterales suelen doblarse con el uso. Son piezas baratas de cambiar y mejoran notablemente el resultado."
+
+# =========================================================
+# COMPATIBILITY PACKS
+# =========================================================
+compatibility_packs:
+  cordless_base:
+    - "Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar cualquier recambio."
+    - "En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector (click-in vs. tornillos)."
+    - "En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas."
+    - "En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto) según tu caso."
+    - "Compara fotos reales del recambio con tu pieza original antes de comprar."
+
+  robot_base:
+    - "Comprueba el número de modelo completo: pequeñas variantes pueden cambiar el sistema de fijación."
+    - "En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide con tu unidad."
+    - "En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro (L/R)."
+    - "En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips, magnético)."
+    - "Para docks y bases: algunos modelos tienen versiones con y sin autovaciado que no son compatibles entre sí."
+
+# =========================================================
+# FAQ PACKS
+# =========================================================
+faq_packs:
+  recambio_base:
+    - q: "¿Cómo compruebo si este recambio es compatible con mi aspirador?"
+      a: "Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute, Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con la pieza original."
+    - q: "¿Los recambios compatibles son igual de buenos que los originales?"
+      a: "Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad explícita con tu modelo."
+    - q: "¿Con qué frecuencia debo cambiar el filtro?"
+      a: "Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida de succión. Los filtros lavables se limpian mensualmente y se sustituyen anualmente."
+    - q: "¿Puedo usar una batería de mayor capacidad que la original?"
+      a: "Solo si el voltaje es idéntico y el formato físico encaja. Una batería de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre la compatibilidad de voltaje."
+
+  robot_base:
+    - q: "¿Con qué frecuencia debo cambiar los consumibles del robot?"
+      a: "Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular."
+    - q: "¿Cómo sé qué cepillo lateral es el correcto para mi robot?"
+      a: "Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos llevan uno de cada lado (L+R). Busca el número de referencia en la pieza original."
+    - q: "¿Los kits de accesorios incluyen todo lo que necesito?"
+      a: "Los kits suelen incluir filtros, cepillos laterales y principal. Verifica qué contiene cada kit ya que la composición varía según fabricante y modelo."
+    - q: "¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?"
+      a: "Ambas opciones existen. Los packs suelen ser más económicos si necesitas varios consumibles a la vez. Las piezas sueltas son útiles si solo falla un componente concreto."

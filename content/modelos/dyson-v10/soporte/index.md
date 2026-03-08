@@ -1,5 +1,5 @@
 ---
-title: Dyson V10 · Soportes y bases
+title: Dyson V10 · Soporte
 draft: false
 generated: true
 brandKey: dyson

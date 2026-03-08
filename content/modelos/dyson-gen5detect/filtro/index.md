@@ -1,5 +1,5 @@
 ---
-title: Dyson Gen5detect · Filtros
+title: Dyson Gen5detect · Filtro
 draft: false
 generated: true
 brandKey: dyson

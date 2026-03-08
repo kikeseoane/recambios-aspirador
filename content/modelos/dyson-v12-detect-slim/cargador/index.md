@@ -1,5 +1,5 @@
 ---
-title: Dyson V12 Detect Slim · Cargadores y fuentes
+title: Dyson V12 Detect Slim · Cargador
 draft: false
 generated: true
 brandKey: dyson

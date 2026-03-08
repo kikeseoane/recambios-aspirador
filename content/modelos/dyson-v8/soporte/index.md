@@ -1,5 +1,5 @@
 ---
-title: Dyson V8 · Soportes y bases
+title: Dyson V8 · Soporte
 draft: false
 generated: true
 brandKey: dyson

@@ -1,5 +1,5 @@
 ---
-title: Dyson Gen5detect · Soportes y bases
+title: Dyson Gen5detect · Soporte
 draft: false
 generated: true
 brandKey: dyson

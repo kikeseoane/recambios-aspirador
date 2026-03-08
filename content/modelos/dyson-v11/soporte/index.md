@@ -1,5 +1,5 @@
 ---
-title: Dyson V11 · Soportes y bases
+title: Dyson V11 · Soporte
 draft: false
 generated: true
 brandKey: dyson

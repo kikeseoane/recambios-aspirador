@@ -1,5 +1,5 @@
 ---
-title: Dyson Gen5detect · Cargadores y fuentes
+title: Dyson Gen5detect · Cargador
 draft: false
 generated: true
 brandKey: dyson

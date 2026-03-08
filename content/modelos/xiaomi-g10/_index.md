@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G10
+title: Xiaomi Vacuum Cleaner G10
 draft: false
 generated: true
 brandKey: xiaomi

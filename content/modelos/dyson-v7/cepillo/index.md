@@ -1,5 +1,5 @@
 ---
-title: Dyson V7 · Cepillos y rodillos
+title: Dyson V7 · Cepillo
 draft: false
 generated: true
 brandKey: dyson

@@ -1,5 +1,5 @@
 ---
-title: Samsung Jet 75 · Soportes y bases
+title: Samsung Jet 75 · Soporte
 draft: false
 generated: true
 brandKey: samsung

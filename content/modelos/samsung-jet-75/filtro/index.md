@@ -1,5 +1,5 @@
 ---
-title: Samsung Jet 75 · Filtros
+title: Samsung Jet 75 · Filtro
 draft: false
 generated: true
 brandKey: samsung

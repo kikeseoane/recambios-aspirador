@@ -1,5 +1,5 @@
 ---
-title: Dyson V15 Detect · Soportes y bases
+title: Dyson V15 Detect · Soporte
 draft: false
 generated: true
 brandKey: dyson

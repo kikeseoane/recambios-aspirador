@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G11 · Filtros
+title: Xiaomi Vacuum Cleaner G11 · Filtro
 draft: false
 generated: true
 brandKey: xiaomi

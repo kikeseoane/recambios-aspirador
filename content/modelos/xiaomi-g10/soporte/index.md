@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G10 · Soportes y bases
+title: Xiaomi Vacuum Cleaner G10 · Soporte
 draft: false
 generated: true
 brandKey: xiaomi

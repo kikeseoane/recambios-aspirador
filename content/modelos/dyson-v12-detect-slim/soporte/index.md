@@ -1,5 +1,5 @@
 ---
-title: Dyson V12 Detect Slim · Soportes y bases
+title: Dyson V12 Detect Slim · Soporte
 draft: false
 generated: true
 brandKey: dyson

@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G11 · Batería
+title: Xiaomi Vacuum Cleaner G11 · Batería
 draft: false
 generated: true
 brandKey: xiaomi

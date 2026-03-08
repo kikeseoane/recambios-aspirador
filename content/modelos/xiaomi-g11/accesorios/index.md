@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G11 · Accesorios
+title: Xiaomi Vacuum Cleaner G11 · Accesorios
 draft: false
 generated: true
 brandKey: xiaomi

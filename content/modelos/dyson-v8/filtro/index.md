@@ -1,5 +1,5 @@
 ---
-title: Dyson V8 · Filtros
+title: Dyson V8 · Filtro
 draft: false
 generated: true
 brandKey: dyson

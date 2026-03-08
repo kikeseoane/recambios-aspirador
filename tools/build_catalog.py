@@ -16,6 +16,20 @@ OUT_YAML = ROOT / "data" / "aspiradores.yaml"
 
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
+# Packs por defecto según sku_pack (se puede sobreescribir por modelo en catalog_brands.yaml)
+SKU_PACK_DEFAULTS: Dict[str, Dict[str, str]] = {
+    "stick10": {
+        "compatibility_pack": "cordless_base",
+        "problem_pack": "cordless_base",
+        "faq_pack": "recambio_base",
+    },
+    "robot10": {
+        "compatibility_pack": "robot_base",
+        "problem_pack": "robot_base",
+        "faq_pack": "robot_base",
+    },
+}
+
 
 def load_yaml(path: Path) -> dict:
     if not path.exists():
@@ -69,6 +83,47 @@ def apply_tpl(text: str, model: str, model_token: str) -> str:
     return (text or "").replace("{model}", model).replace("{model_token}", model_token)
 
 
+def apply_tpl_list(items: List[str], model: str, model_token: str) -> List[str]:
+    out: List[str] = []
+    for x in items or []:
+        s = apply_tpl(str(x), model, model_token).strip()
+        if s:
+            out.append(s)
+    return out
+
+
+def compile_problem_pack(pack_items: List[dict], model_name: str, model_token: str) -> List[dict]:
+    out: List[dict] = []
+    for p in pack_items or []:
+        if not isinstance(p, dict):
+            continue
+        obj: Dict[str, Any] = {}
+        for k in ("key", "intent", "cta_cat", "fix_hint"):
+            if p.get(k):
+                obj[k] = apply_tpl(str(p[k]), model_name, model_token).strip()
+        if p.get("title"):
+            obj["title"] = apply_tpl(str(p["title"]), model_name, model_token).strip()
+        for lk in ("symptoms", "causes", "checks"):
+            vals = apply_tpl_list(ensure_list_str(p.get(lk)), model_name, model_token)
+            if vals:
+                obj[lk] = vals
+        if obj:
+            out.append(obj)
+    return out
+
+
+def compile_faq_pack(pack_items: List[dict], model_name: str, model_token: str) -> List[dict]:
+    out: List[dict] = []
+    for p in pack_items or []:
+        if not isinstance(p, dict):
+            continue
+        q = apply_tpl(str(p.get("q") or ""), model_name, model_token).strip()
+        a = apply_tpl(str(p.get("a") or ""), model_name, model_token).strip()
+        if q and a:
+            out.append({"q": q, "a": a})
+    return out
+
+
 def compile_catalog() -> dict:
     parts = load_yaml(PARTS_YAML)
     brands_doc = load_yaml(BRANDS_YAML)
@@ -76,6 +131,9 @@ def compile_catalog() -> dict:
 
     globals_obj = parts.get("globals") or {}
     sku_packs = parts.get("sku_packs") or {}
+    problem_packs = parts.get("problem_packs") or {}
+    compatibility_packs = parts.get("compatibility_packs") or {}
+    faq_packs = parts.get("faq_packs") or {}
     categories = globals_obj.get("categorias_recambios") or []
     valid_cats = {str(c.get("key")).strip() for c in categories if isinstance(c, dict) and c.get("key")}
 
@@ -132,6 +190,19 @@ def compile_catalog() -> dict:
 
             model_tokens = ensure_list_str(m.get("model_tokens"))
             model_token = first_model_token(model_tokens, model_name)
+
+            # Derivar packs de contenido editorial (explícito en YAML > defecto por sku_pack)
+            pack_defaults = SKU_PACK_DEFAULTS.get(sku_pack, {})
+            compatibility_pack = nrm(str(m.get("compatibility_pack") or pack_defaults.get("compatibility_pack") or ""))
+            faq_pack = nrm(str(m.get("faq_pack") or pack_defaults.get("faq_pack") or ""))
+            problem_pack = nrm(str(m.get("problem_pack") or pack_defaults.get("problem_pack") or ""))
+
+            if compatibility_pack and compatibility_pack not in compatibility_packs:
+                raise SystemExit(f"ERROR: compatibility_pack '{compatibility_pack}' no existe en {PARTS_YAML}")
+            if faq_pack and faq_pack not in faq_packs:
+                raise SystemExit(f"ERROR: faq_pack '{faq_pack}' no existe en {PARTS_YAML}")
+            if problem_pack and problem_pack not in problem_packs:
+                raise SystemExit(f"ERROR: problem_pack '{problem_pack}' no existe en {PARTS_YAML}")
 
             m_out: Dict[str, Any] = dict(m)  # copia campos (seo/specs/problemas/etc)
             m_out["model"] = model_name
@@ -226,6 +297,40 @@ def compile_catalog() -> dict:
                     raise SystemExit(f"ERROR: modelo {model_slug} debería tener 10 SKUs (pack={sku_pack}) y tiene {n_skus}")
 
             m_out["recambios"] = recambios
+
+            # Token efectivo para plantillas de contenido editorial
+            tpl_token = effective_model_token if sku_pack else model_token
+
+            # Compilar compatibilidad (siempre, es campo nuevo)
+            if compatibility_pack:
+                compiled_compat = apply_tpl_list(
+                    ensure_list_str(compatibility_packs.get(compatibility_pack)),
+                    model_name,
+                    tpl_token,
+                )
+                if compiled_compat:
+                    m_out["compatibilidad"] = compiled_compat
+
+            # Compilar problemas desde pack solo si el modelo no tiene problemas manuales
+            if problem_pack and not m_out.get("problemas"):
+                compiled_probs = compile_problem_pack(
+                    problem_packs.get(problem_pack) or [],
+                    model_name,
+                    tpl_token,
+                )
+                if compiled_probs:
+                    m_out["problemas"] = compiled_probs
+
+            # Compilar FAQs (siempre, es campo nuevo)
+            if faq_pack:
+                compiled_faqs = compile_faq_pack(
+                    faq_packs.get(faq_pack) or [],
+                    model_name,
+                    tpl_token,
+                )
+                if compiled_faqs:
+                    m_out["faqs"] = compiled_faqs
+
             compiled_models.append(m_out)
 
         b_out["models"] = compiled_models

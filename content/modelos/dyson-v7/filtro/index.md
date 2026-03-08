@@ -1,5 +1,5 @@
 ---
-title: Dyson V7 · Filtros
+title: Dyson V7 · Filtro
 draft: false
 generated: true
 brandKey: dyson

@@ -1,5 +1,5 @@
 ---
-title: Dyson V12 Detect Slim · Filtros
+title: Dyson V12 Detect Slim · Filtro
 draft: false
 generated: true
 brandKey: dyson

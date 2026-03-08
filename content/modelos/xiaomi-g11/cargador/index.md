@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Mi Vacuum Cleaner G11 · Cargadores y fuentes
+title: Xiaomi Vacuum Cleaner G11 · Cargador
 draft: false
 generated: true
 brandKey: xiaomi

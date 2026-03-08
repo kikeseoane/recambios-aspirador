@@ -1,5 +1,5 @@
 ---
-title: Dyson V15 Detect · Cepillos y rodillos
+title: Dyson V15 Detect · Cepillo
 draft: false
 generated: true
 brandKey: dyson

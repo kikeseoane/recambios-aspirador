@@ -1,5 +1,5 @@
 ---
-title: Dyson V10 · Cargadores y fuentes
+title: Dyson V10 · Cargador
 draft: false
 generated: true
 brandKey: dyson

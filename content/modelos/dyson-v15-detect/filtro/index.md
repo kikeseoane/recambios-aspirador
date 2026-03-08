@@ -1,5 +1,5 @@
 ---
-title: Dyson V15 Detect · Filtros
+title: Dyson V15 Detect · Filtro
 draft: false
 generated: true
 brandKey: dyson

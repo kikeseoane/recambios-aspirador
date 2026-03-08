@@ -1,5 +1,5 @@
 ---
-title: Samsung Jet 75 · Cargadores y fuentes
+title: Samsung Jet 75 · Cargador
 draft: false
 generated: true
 brandKey: samsung

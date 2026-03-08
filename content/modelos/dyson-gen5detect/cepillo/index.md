@@ -1,5 +1,5 @@
 ---
-title: Dyson Gen5detect · Cepillos y rodillos
+title: Dyson Gen5detect · Cepillo
 draft: false
 generated: true
 brandKey: dyson

@@ -1,5 +1,5 @@
 ---
-title: Dyson V15 Detect · Cargadores y fuentes
+title: Dyson V15 Detect · Cargador
 draft: false
 generated: true
 brandKey: dyson

@@ -1,5 +1,5 @@
 ---
-title: Dyson V8 · Cepillos y rodillos
+title: Dyson V8 · Cepillo
 draft: false
 generated: true
 brandKey: dyson
