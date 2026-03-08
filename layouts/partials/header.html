@@ -8,10 +8,13 @@
       </span>
     </a>
 
-    <nav class="nav" aria-label="Navegación principal">
-      <a href="{{ "/marcas/" | relURL }}">Marcas</a>
-      <a href="{{ "/modelos/" | relURL }}">Modelos</a>
-      <a href="{{ "/guias/" | relURL }}">Guías</a>
-    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      {{ partial "search.html" . }}
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="{{ "/marcas/" | relURL }}">Marcas</a>
+        <a href="{{ "/modelos/" | relURL }}">Modelos</a>
+        <a href="{{ "/guias/" | relURL }}">Guías</a>
+      </nav>
+    </div>
   </div>
 </header>

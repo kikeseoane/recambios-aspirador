@@ -29,30 +29,24 @@
       <span>{{ $brandName }}</span>
     </div>
 
-    <div class="hero" style="margin-top:10px;">
-      <div class="kicker">Marca</div>
-      <h1>Recambios {{ $brandName }}</h1>
+    <div class="hero hero--bg hero--compact" style="margin-top:10px;">
+      <div class="hero__inner">
+        <div class="hero__kicker">Marca</div>
+        <h1>Recambios {{ $brandName }}</h1>
 
-      {{ with $brand.notes_brand }}
-        <p class="muted">{{ . }}</p>
-      {{ else }}
-        <p class="muted">
+        <p class="muted hero__copy">
           Encuentra recambios compatibles para aspiradores {{ $brandName }},
           incluyendo filtros, baterías, cepillos, cargadores, soportes y accesorios
           para los modelos más habituales de la marca.
         </p>
-        <p class="muted">
-          En esta sección puedes acceder a fichas por modelo con recambios compatibles,
-          problemas frecuentes y recomendaciones para elegir la pieza correcta.
-        </p>
-      {{ end }}
 
-      <div class="chips">
-        <span class="chip active">{{ $modelCount }} modelos</span>
-        {{ with $brand.country_hint }}<span class="chip">{{ . }}</span>{{ end }}
-        <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-        <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
-        <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+        <div class="hero__links">
+          <span class="badge hot">{{ $modelCount }} modelos</span>
+          {{ with $brand.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+          <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+          <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
+          <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+        </div>
       </div>
     </div>
 

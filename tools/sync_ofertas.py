@@ -253,8 +253,17 @@ def ali_call_flat(method: str, biz_params: Dict[str, Any], use_cache: bool = Tru
         if cached is not None:
             return cached
 
-    r = requests.post(API_URL, data=params, timeout=30)
-    r.raise_for_status()
+    for _attempt in range(4):
+        try:
+            r = requests.post(API_URL, data=params, timeout=45)
+            r.raise_for_status()
+            break
+        except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectionError) as exc:
+            wait = 2 ** (_attempt + 2)  # 4s, 8s, 16s, 32s
+            print(f"  [timeout/conn] intento {_attempt+1}/4 — reintentando en {wait}s ({exc})")
+            if _attempt == 3:
+                raise
+            time.sleep(wait)
     data = r.json()
 
     if "error_response" in data:
@@ -692,6 +701,8 @@ def main() -> None:
     un_orphaned = 0
     changed_urls_to_default = 0
     filled_from_aliexpress = 0
+    _processed = 0
+    SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
     today = datetime.now().date().isoformat()
 
@@ -819,6 +830,11 @@ def main() -> None:
             offers[sku] = obj
             if before != obj:
                 updated += 1
+
+        _processed += 1
+        if _processed % SAVE_EVERY == 0:
+            dump_yaml(OFFERS, {"offers": offers})
+            print(f"  [checkpoint] {_processed}/{len(want)} SKUs — guardado parcial")
 
     if not only:
         for sku, o in list(offers.items()):

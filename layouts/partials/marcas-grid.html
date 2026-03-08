@@ -68,18 +68,24 @@
   {{ end }}
 
 {{ else }}
+  {{/* Ordenar marcas alfabéticamente */}}
+  {{ $brandsList := slice }}
+  {{ range $k, $b := $brands }}
+    {{ $brandsList = $brandsList | append (dict "key" $k "brand" $b) }}
+  {{ end }}
+  {{ $brandsList = sort $brandsList "brand.name" }}
+
   <div class="grid cards">
-    {{ range $k, $b := $brands }}
+    {{ range $brandsList }}
+      {{ $k := .key }}
+      {{ $b := .brand }}
       {{ $slug := $k | urlize }}
-      {{ $notes := index $b "notes_brand" }}
       {{ $modelCount := 0 }}
       {{ with $b.models }}
-        {{ if reflect.IsSlice . }}
-          {{ $modelCount = len . }}
-        {{ end }}
+        {{ if reflect.IsSlice . }}{{ $modelCount = len . }}{{ end }}
       {{ end }}
 
-      {{/* Determinar tipo de aspirador para texto dinámico */}}
+      {{/* Texto dinámico según tipo de aspirador */}}
       {{ $hasRobot := false }}
       {{ $hasStick := false }}
       {{ range $b.models }}
@@ -88,22 +94,16 @@
         {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
       {{ end }}
       {{ $typeText := "aspiradores" }}
-      {{ if and $hasRobot $hasStick }}
-        {{ $typeText = "robots y aspiradores sin cable" }}
-      {{ else if $hasRobot }}
-        {{ $typeText = "robots aspiradores" }}
-      {{ else if $hasStick }}
-        {{ $typeText = "aspiradores sin cable" }}
+      {{ if and $hasRobot $hasStick }}{{ $typeText = "robots y aspiradores sin cable" }}
+      {{ else if $hasRobot }}{{ $typeText = "robots aspiradores" }}
+      {{ else if $hasStick }}{{ $typeText = "aspiradores sin cable" }}
       {{ end }}
 
       <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
         {{ partial "card_icon.html" (dict "kind" "brand") }}
-
         <div class="card-body">
           <h3>{{ $b.name }}</h3>
-
           <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterías, cepillos y accesorios.</p>
-
           <div class="badges">
             <span class="badge hot">{{ $modelCount }} modelos</span>
           </div>

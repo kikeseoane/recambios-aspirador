@@ -1,10 +1,28 @@
 {{ define "main" }}
+  {{ $db := site.Data.aspiradores }}
+  {{ $brands := $db.brands }}
+
+  {{/* Calcular totales para el hero */}}
+  {{ $totalModels := 0 }}
+  {{ $totalSkus := 0 }}
+  {{ range $brands }}
+    {{ $totalModels = add $totalModels (len .models) }}
+    {{ range .models }}
+      {{ $rec := index . "recambios" }}
+      {{ if and $rec (reflect.IsMap $rec) }}
+        {{ range $rec }}
+          {{ if reflect.IsSlice . }}{{ $totalSkus = add $totalSkus (len .) }}{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
   <section class="hero hero--bg">
     <div class="hero__inner">
       <div class="hero__kicker">Marketplace de recambios</div>
-      <h1>Recambios y guías por modelo</h1>
+      <h1>Recambios compatibles por modelo</h1>
       <p class="muted hero__copy">
-        Encuentra recambios compatibles, problemas frecuentes y guías de mantenimiento para aspiradores por marca y modelo.
+        Encuentra recambios para tu aspirador por marca y modelo: filtros, baterías, cepillos, cargadores y accesorios con enlaces de compra directa.
       </p>
 
       <div class="hero__links">
@@ -12,11 +30,14 @@
         <a class="btn btn--ghost" href="{{ "/modelos/" | relURL }}">Ver modelos</a>
         <a class="btn btn--link" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio →</a>
       </div>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;">
+        <span class="badge hot">{{ len $brands }} marcas</span>
+        <span class="badge hot">{{ $totalModels }} modelos</span>
+        <span class="badge hot">{{ $totalSkus }} recambios en catálogo</span>
+      </div>
     </div>
   </section>
-
-  {{ $db := site.Data.aspiradores }}
-  {{ $brands := $db.brands }}
 
   <div class="section-head">
     <h2>Marcas</h2>
@@ -30,27 +51,40 @@
     </div>
   {{ else }}
     <div class="grid cards" style="margin-top:18px;">
+      {{/* Ordenar marcas por nombre */}}
+      {{ $brandsList := slice }}
       {{ range $k, $b := $brands }}
+        {{ $brandsList = $brandsList | append (dict "key" $k "brand" $b) }}
+      {{ end }}
+      {{ $brandsList = sort $brandsList "brand.name" }}
+
+      {{ range $brandsList }}
+        {{ $k := .key }}
+        {{ $b := .brand }}
         {{ $slug := $k | urlize }}
-        <a class="card" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-          <div class="card--with-icon">
-            <div class="card-icon-wrap">
-              {{ partial "card_icon.html" (dict "kind" "brand") }}
-            </div>
 
-            <div class="card-body">
-              <h3>{{ $b.name }}</h3>
+        {{/* Texto dinámico según tipo */}}
+        {{ $hasRobot := false }}
+        {{ $hasStick := false }}
+        {{ range $b.models }}
+          {{ $pack := index . "sku_pack" | default "" }}
+          {{ if eq $pack "robot10" }}{{ $hasRobot = true }}{{ end }}
+          {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
+        {{ end }}
+        {{ $typeText := "aspiradores" }}
+        {{ if and $hasRobot $hasStick }}{{ $typeText = "robots y aspiradores sin cable" }}
+        {{ else if $hasRobot }}{{ $typeText = "robots aspiradores" }}
+        {{ else if $hasStick }}{{ $typeText = "aspiradores sin cable" }}
+        {{ end }}
 
-              {{ with $b.notes_brand }}
-                <p class="muted">{{ . }}</p>
-              {{ else }}
-                <p class="muted">Consulta modelos, recambios compatibles y problemas frecuentes de esta marca.</p>
-              {{ end }}
-
-              <div class="badges">
-                <span class="badge hot">{{ len $b.models }} modelos</span>
-                {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
-              </div>
+        <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          {{ partial "card_icon.html" (dict "kind" "brand") }}
+          <div class="card-body">
+            <h3>{{ $b.name }}</h3>
+            <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterías, cepillos y accesorios.</p>
+            <div class="badges">
+              <span class="badge hot">{{ len $b.models }} modelos</span>
+              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
             </div>
           </div>
         </a>
