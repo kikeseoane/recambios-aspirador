@@ -108,8 +108,9 @@
     <span>{{ $catLabel }}</span>
   </div>
 
-  <div class="hero" style="margin-top:10px;">
-    <div class="kicker">Recambios</div>
+  <div class="hero hero--bg hero--compact" style="margin-top:10px;">
+    <div class="hero__inner">
+    <div class="hero__kicker">Recambios</div>
     <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
     <p class="muted">{{ $catIntro1 }}</p>
     <p class="muted">{{ $catIntro2 }}</p>
@@ -118,6 +119,7 @@
       <a class="chip" href="{{ (printf "/modelos/%s/" $modelSlug) | relURL }}">← Volver al modelo</a>
       <a class="chip" href="{{ "/guias/compra/" | relURL }}">Guía: cómo elegir recambio</a>
       <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+    </div>
     </div>
   </div>
 

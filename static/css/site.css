@@ -503,3 +503,60 @@ hr{border:none;border-top:1px solid var(--border);margin:22px 0}
   gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
+
+/* =========================
+   Panel + Two-col layout
+   ========================= */
+.panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.two-col{
+  display:grid;
+  gap:16px;
+  grid-template-columns:1fr;
+  align-items:start;
+}
+@media (min-width:860px){
+  .two-col{ grid-template-columns:1fr 340px; }
+}
+
+.cols-2{
+  display:grid;
+  gap:14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* =========================
+   Kicker (eyebrow label)
+   ========================= */
+.kicker{
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+/* =========================
+   Breadcrumbs separator
+   ========================= */
+.breadcrumbs .sep{
+  margin:0 6px;
+  color:var(--muted);
+  opacity:.5;
+}
+
+/* =========================
+   Badge warn
+   ========================= */
+.badge.warn{
+  border-color:rgba(234,88,12,.35);
+  background:rgba(234,88,12,.10);
+  color:#c2410c;
+}

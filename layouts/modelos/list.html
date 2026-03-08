@@ -49,11 +49,23 @@
           <div class="card">
             <h2 style="margin:0 0 8px 0;">{{ $b.name }}</h2>
 
-            {{ with $b.notes_brand }}
-              <p class="muted">{{ . }}</p>
-            {{ else }}
-              <p class="muted">Consulta modelos, recambios compatibles y problemas frecuentes de esta marca.</p>
+            {{/* Texto dinámico según tipo de aspiradores de la marca */}}
+            {{ $hasRobot := false }}
+            {{ $hasStick := false }}
+            {{ range $b.models }}
+              {{ $pack := index . "sku_pack" | default "" }}
+              {{ if eq $pack "robot10" }}{{ $hasRobot = true }}{{ end }}
+              {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
             {{ end }}
+            {{ $typeText := "aspiradores" }}
+            {{ if and $hasRobot $hasStick }}
+              {{ $typeText = "robots y aspiradores sin cable" }}
+            {{ else if $hasRobot }}
+              {{ $typeText = "robots aspiradores" }}
+            {{ else if $hasStick }}
+              {{ $typeText = "aspiradores sin cable" }}
+            {{ end }}
+            <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterías, cepillos y accesorios.</p>
 
             {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
               <p class="muted small" style="margin:0 0 10px 0;">{{ len $models }} modelos</p>
@@ -418,6 +430,19 @@
                 <a class="chip" href="{{ "/modelos/" | relURL }}">Todos los modelos</a>
               </div>
             </div>
+
+            {{/* ===== FAQs ===== */}}
+            {{ $faqs := index $model "faqs" }}
+            {{ if and $faqs (reflect.IsSlice $faqs) (gt (len $faqs) 0) }}
+              <hr>
+              <div class="kicker">Preguntas frecuentes</div>
+              {{ range $faqs }}
+                <details style="margin-top:10px;border:1px solid var(--border);border-radius:10px;padding:10px 14px;">
+                  <summary style="font-weight:700;cursor:pointer;">{{ index . "q" }}</summary>
+                  <p class="muted small" style="margin:8px 0 0;">{{ index . "a" }}</p>
+                </details>
+              {{ end }}
+            {{ end }}
 
             <hr>
 
