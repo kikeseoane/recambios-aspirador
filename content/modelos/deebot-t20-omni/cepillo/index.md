@@ -1,5 +1,5 @@
 ---
-title: ECOVACS DEEBOT T20 Omni · Cepillo
+title: ECOVACS DEEBOT T20 Omni · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: ecovacs

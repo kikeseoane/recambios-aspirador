@@ -1,5 +1,5 @@
 ---
-title: Roborock S5 Max · Cepillo
+title: Roborock S5 Max · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: roborock

@@ -1,5 +1,5 @@
 ---
-title: Ultenic T10 · Cepillo
+title: Ultenic T10 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: ultenic

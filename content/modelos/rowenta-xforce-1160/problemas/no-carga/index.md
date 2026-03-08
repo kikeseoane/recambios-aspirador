@@ -1,5 +1,5 @@
 ---
-title: Rowenta X-Force 11.60 no carga
+title: Rowenta X-Force Flex 11.60 no carga
 draft: false
 generated: true
 brandKey: rowenta

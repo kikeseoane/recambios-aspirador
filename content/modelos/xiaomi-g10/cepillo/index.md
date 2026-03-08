@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Vacuum Cleaner G10 · Cepillo
+title: Xiaomi Vacuum Cleaner G10 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: xiaomi

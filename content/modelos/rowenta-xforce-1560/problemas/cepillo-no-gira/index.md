@@ -1,5 +1,5 @@
 ---
-title: 'Rowenta X-Force 15.60: el cepillo no gira'
+title: 'Rowenta X-Force Flex 15.60: el cepillo o rodillo no gira'
 draft: false
 generated: true
 brandKey: rowenta

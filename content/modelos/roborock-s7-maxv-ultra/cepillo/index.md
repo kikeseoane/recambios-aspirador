@@ -1,5 +1,5 @@
 ---
-title: Roborock S7 MaxV Ultra · Cepillo
+title: Roborock S7 MaxV Ultra · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: roborock

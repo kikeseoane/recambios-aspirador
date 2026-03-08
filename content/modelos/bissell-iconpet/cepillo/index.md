@@ -1,5 +1,5 @@
 ---
-title: Bissell IconPet · Cepillo
+title: Bissell IconPet · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: bissell

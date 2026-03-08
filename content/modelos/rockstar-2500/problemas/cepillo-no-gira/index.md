@@ -1,5 +1,5 @@
 ---
-title: 'Rockstar 2500: el cepillo no gira'
+title: 'Rockstar 2500: el cepillo o rodillo no gira'
 draft: false
 generated: true
 brandKey: cecotec

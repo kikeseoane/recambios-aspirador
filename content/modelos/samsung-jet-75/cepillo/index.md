@@ -1,5 +1,5 @@
 ---
-title: Samsung Jet 75 · Cepillo
+title: Samsung Jet 75 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: samsung

@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba 692 · Cepillo
+title: iRobot Roomba 692 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: irobot

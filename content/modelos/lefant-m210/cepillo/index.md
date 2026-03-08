@@ -1,5 +1,5 @@
 ---
-title: Lefant M210 · Cepillo
+title: Lefant M210 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: lefant

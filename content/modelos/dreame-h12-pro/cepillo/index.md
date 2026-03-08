@@ -1,5 +1,5 @@
 ---
-title: Dreame H12 Pro · Cepillo
+title: Dreame H12 Pro · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dreame

@@ -1,5 +1,5 @@
 ---
-title: Tineco Floor One S5 · Cepillo
+title: Tineco Floor One S5 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: tineco

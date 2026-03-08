@@ -1,5 +1,5 @@
 ---
-title: Roborock S6 Pure · Cepillo
+title: Roborock S6 Pure · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: roborock

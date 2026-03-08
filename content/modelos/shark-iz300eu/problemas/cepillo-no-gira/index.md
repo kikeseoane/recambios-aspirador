@@ -1,5 +1,5 @@
 ---
-title: 'Shark IZ300EU: el rodillo no gira'
+title: 'Shark IZ300EU: el cepillo o rodillo no gira'
 draft: false
 generated: true
 brandKey: shark

@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga 4690 · Cepillo
+title: Cecotec Conga 4690 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: cecotec

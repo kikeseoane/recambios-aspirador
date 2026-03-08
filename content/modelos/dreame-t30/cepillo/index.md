@@ -1,5 +1,5 @@
 ---
-title: Dreame T30 · Cepillo
+title: Dreame T30 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dreame

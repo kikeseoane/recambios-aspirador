@@ -1,5 +1,5 @@
 ---
-title: Bissell CrossWave · Cepillo
+title: Bissell CrossWave · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: bissell

@@ -1,5 +1,5 @@
 ---
-title: Shark IZ201EU · Cepillo
+title: Shark IZ201EU · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: shark

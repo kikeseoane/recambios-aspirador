@@ -1,5 +1,5 @@
 ---
-title: Cecotec Rockstar 1200 · Cepillo
+title: Cecotec Rockstar 1200 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: cecotec

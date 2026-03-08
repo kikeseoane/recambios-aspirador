@@ -1,5 +1,5 @@
 ---
-title: Eufy RoboVac L70 Hybrid · Cepillo
+title: Eufy RoboVac L70 Hybrid · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: eufy

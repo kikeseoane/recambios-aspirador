@@ -1,5 +1,5 @@
 ---
-title: Medion Robot Vacuum · Cepillo
+title: Medion Robot Vacuum · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: medion

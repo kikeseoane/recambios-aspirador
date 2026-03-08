@@ -1,5 +1,5 @@
 ---
-title: Cecotec Conga 2290 · Cepillo
+title: Cecotec Conga 2290 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: cecotec

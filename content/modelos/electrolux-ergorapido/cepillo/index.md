@@ -1,5 +1,5 @@
 ---
-title: Electrolux Ergorapido · Cepillo
+title: Electrolux Ergorapido · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: electrolux

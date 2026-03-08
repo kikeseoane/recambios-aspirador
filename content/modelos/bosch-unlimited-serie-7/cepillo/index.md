@@ -1,5 +1,5 @@
 ---
-title: Bosch Unlimited Serie 7 · Cepillo
+title: Bosch Unlimited Serie 7 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: bosch

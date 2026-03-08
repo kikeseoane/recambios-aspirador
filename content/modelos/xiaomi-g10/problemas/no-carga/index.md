@@ -1,5 +1,5 @@
 ---
-title: Xiaomi G10 no carga
+title: Xiaomi Vacuum Cleaner G10 no carga
 draft: false
 generated: true
 brandKey: xiaomi

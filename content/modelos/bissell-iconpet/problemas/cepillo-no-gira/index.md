@@ -1,5 +1,5 @@
 ---
-title: 'Bissell ICONpet: el cepillo no gira'
+title: 'Bissell IconPet: el cepillo o rodillo no gira'
 draft: false
 generated: true
 brandKey: bissell

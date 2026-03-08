@@ -1,5 +1,5 @@
 ---
-title: Roborock Q8 Max · Cepillo
+title: Roborock Q8 Max · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: roborock

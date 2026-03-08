@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Max · Cepillo
+title: Philips SpeedPro Max · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: philips

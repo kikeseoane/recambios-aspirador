@@ -1,5 +1,5 @@
 ---
-title: Proscenic P11 · Cepillo
+title: Proscenic P11 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: proscenic

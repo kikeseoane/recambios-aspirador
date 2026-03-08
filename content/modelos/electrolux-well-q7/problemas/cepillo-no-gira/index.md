@@ -1,5 +1,5 @@
 ---
-title: 'Electrolux Well Q7: el cepillo no gira'
+title: 'Electrolux Well Q7: el cepillo o rodillo no gira'
 draft: false
 generated: true
 brandKey: electrolux

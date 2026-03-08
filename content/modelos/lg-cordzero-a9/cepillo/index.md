@@ -1,5 +1,5 @@
 ---
-title: LG CordZero A9 · Cepillo
+title: LG CordZero A9 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: lg

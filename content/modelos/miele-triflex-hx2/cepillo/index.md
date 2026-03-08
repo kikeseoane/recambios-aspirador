@@ -1,5 +1,5 @@
 ---
-title: Miele Triflex HX2 · Cepillo
+title: Miele Triflex HX2 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: miele

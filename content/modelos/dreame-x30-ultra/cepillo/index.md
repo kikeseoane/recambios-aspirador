@@ -1,5 +1,5 @@
 ---
-title: Dreame X30 Ultra · Cepillo
+title: Dreame X30 Ultra · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dreame

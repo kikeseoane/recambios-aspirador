@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba i3 · Cepillo
+title: iRobot Roomba i3 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: irobot

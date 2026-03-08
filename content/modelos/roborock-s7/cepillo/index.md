@@ -1,5 +1,5 @@
 ---
-title: Roborock S7 · Cepillo
+title: Roborock S7 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: roborock

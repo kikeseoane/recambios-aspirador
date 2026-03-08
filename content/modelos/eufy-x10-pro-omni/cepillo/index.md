@@ -1,5 +1,5 @@
 ---
-title: Eufy X10 Pro Omni · Cepillo
+title: Eufy X10 Pro Omni · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: eufy

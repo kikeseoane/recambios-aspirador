@@ -1,5 +1,5 @@
 ---
-title: Roborock S8 Pro Ultra · Cepillo
+title: Roborock S8 Pro Ultra · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: roborock

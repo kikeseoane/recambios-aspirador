@@ -1,5 +1,5 @@
 ---
-title: Hoover H-Free 500 · Cepillo
+title: Hoover H-Free 500 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: hoover

@@ -152,10 +152,22 @@ def compile_faq_pack(pack_items: List[dict], model_name: str, model_token: str) 
 
 def compile_catalog(vertical: str = "aspiradores") -> dict:
     parts = load_yaml(PARTS_YAML)
-    # Vertical-specific brands file takes priority
-    vertical_brands_path = ROOT / "data" / f"catalog_brands_{vertical}.yaml"
-    if vertical_brands_path.exists():
-        brands_doc = load_yaml(vertical_brands_path)
+    # Brand loading: per-brand directory > vertical-specific file > main file
+    brands_dir = ROOT / "data" / "brands" / vertical
+    brands_path_specific = ROOT / "data" / f"catalog_brands_{vertical}.yaml"
+
+    if brands_dir.exists() and any(brands_dir.glob("*.yaml")):
+        # Load from per-brand files
+        brands_raw: Dict[str, Any] = {}
+        for bf in sorted(brands_dir.glob("*.yaml")):
+            bd = yaml.safe_load(bf.read_text(encoding="utf-8")) or {}
+            bk = bd.get("brand_key") or bf.stem
+            brand_data = {k: v for k, v in bd.items() if k != "brand_key"}
+            brands_raw[bk] = brand_data
+        brands_doc = {"brands": brands_raw}
+        using_vertical_file = True
+    elif brands_path_specific.exists():
+        brands_doc = load_yaml(brands_path_specific)
         using_vertical_file = True
     else:
         brands_doc = load_yaml(BRANDS_YAML)

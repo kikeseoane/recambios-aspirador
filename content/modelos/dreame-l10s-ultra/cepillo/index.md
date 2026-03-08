@@ -1,5 +1,5 @@
 ---
-title: Dreame L10s Ultra · Cepillo
+title: Dreame L10s Ultra · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dreame

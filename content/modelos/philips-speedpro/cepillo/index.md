@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro · Cepillo
+title: Philips SpeedPro · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: philips

@@ -1,5 +1,5 @@
 ---
-title: El cepillo del Dyson V11 no gira
+title: 'Dyson V11: el cepillo o rodillo no gira'
 draft: false
 generated: true
 brandKey: dyson

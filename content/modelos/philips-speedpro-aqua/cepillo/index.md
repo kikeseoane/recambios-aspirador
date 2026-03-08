@@ -1,5 +1,5 @@
 ---
-title: Philips SpeedPro Aqua · Cepillo
+title: Philips SpeedPro Aqua · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: philips

@@ -1,5 +1,5 @@
 ---
-title: ECOVACS DEEBOT OZMO T8 AIVI · Cepillo
+title: ECOVACS DEEBOT OZMO T8 AIVI · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: ecovacs

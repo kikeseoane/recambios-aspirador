@@ -1,5 +1,5 @@
 ---
-title: Dreame L20 Ultra · Cepillo
+title: Dreame L20 Ultra · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dreame

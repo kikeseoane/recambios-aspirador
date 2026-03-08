@@ -1,5 +1,5 @@
 ---
-title: Dreame D10 Plus · Cepillo
+title: Dreame D10 Plus · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dreame

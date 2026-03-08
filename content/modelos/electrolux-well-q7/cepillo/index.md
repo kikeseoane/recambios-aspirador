@@ -1,5 +1,5 @@
 ---
-title: Electrolux Well Q7 · Cepillo
+title: Electrolux Well Q7 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: electrolux

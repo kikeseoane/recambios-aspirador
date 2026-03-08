@@ -1,5 +1,5 @@
 ---
-title: ECOVACS DEEBOT X1 Omni · Cepillo
+title: ECOVACS DEEBOT X1 Omni · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: ecovacs

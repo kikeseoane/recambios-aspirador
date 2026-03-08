@@ -1,5 +1,5 @@
 ---
-title: Dyson V12 Detect Slim · Cepillo
+title: Dyson V12 Detect Slim · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: dyson

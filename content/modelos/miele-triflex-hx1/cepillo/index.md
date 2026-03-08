@@ -1,5 +1,5 @@
 ---
-title: Miele Triflex HX1 · Cepillo
+title: Miele Triflex HX1 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: miele

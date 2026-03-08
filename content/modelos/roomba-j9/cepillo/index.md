@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba j9 · Cepillo
+title: iRobot Roomba j9 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: irobot

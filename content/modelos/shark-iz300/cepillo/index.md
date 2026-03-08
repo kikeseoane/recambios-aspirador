@@ -1,5 +1,5 @@
 ---
-title: Shark IZ300 · Cepillo
+title: Shark IZ300 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: shark

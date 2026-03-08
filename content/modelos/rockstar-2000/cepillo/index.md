@@ -1,5 +1,5 @@
 ---
-title: Cecotec Rockstar 2000 · Cepillo
+title: Cecotec Rockstar 2000 · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: cecotec

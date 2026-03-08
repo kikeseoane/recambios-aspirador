@@ -1,5 +1,5 @@
 ---
-title: Proscenic M8 Pro · Cepillo
+title: Proscenic M8 Pro · Cepillos y rodillos
 draft: false
 generated: true
 brandKey: proscenic
