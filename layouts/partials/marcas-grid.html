@@ -79,25 +79,33 @@
         {{ end }}
       {{ end }}
 
+      {{/* Determinar tipo de aspirador para texto dinámico */}}
+      {{ $hasRobot := false }}
+      {{ $hasStick := false }}
+      {{ range $b.models }}
+        {{ $pack := index . "sku_pack" | default "" }}
+        {{ if eq $pack "robot10" }}{{ $hasRobot = true }}{{ end }}
+        {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
+      {{ end }}
+      {{ $typeText := "aspiradores" }}
+      {{ if and $hasRobot $hasStick }}
+        {{ $typeText = "robots y aspiradores sin cable" }}
+      {{ else if $hasRobot }}
+        {{ $typeText = "robots aspiradores" }}
+      {{ else if $hasStick }}
+        {{ $typeText = "aspiradores sin cable" }}
+      {{ end }}
+
       <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
         {{ partial "card_icon.html" (dict "kind" "brand") }}
 
         <div class="card-body">
           <h3>{{ $b.name }}</h3>
 
-          {{ with $notes }}
-            <p class="muted">{{ . }}</p>
-          {{ else }}
-{{ with $b.notes_brand }}
-  <p class="muted">{{ . }}</p>
-{{ else }}
-  <p class="muted">Modelos, recambios compatibles y problemas frecuentes por marca.</p>
-{{ end }}
-          {{ end }}
+          <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterías, cepillos y accesorios.</p>
 
           <div class="badges">
             <span class="badge hot">{{ $modelCount }} modelos</span>
-            {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
           </div>
         </div>
       </a>
