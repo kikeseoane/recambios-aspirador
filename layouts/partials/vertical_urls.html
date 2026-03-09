@@ -6,6 +6,8 @@ Returns: dict {modBase, marcBase}
 {{ $vconf := (index (site.Data.verticals.verticals | default dict) $vk) | default dict }}
 {{ $isRoot := $vconf.root | default true }}
 {{ return dict
-  "modBase" (cond $isRoot "/modelos/" (printf "/%s/modelos/" $vk))
-  "marcBase" (cond $isRoot "/marcas/" (printf "/%s/marcas/" $vk))
+  "modBase"   (cond $isRoot "/modelos/" (printf "/%s/modelos/" $vk))
+  "marcBase"  (cond $isRoot "/marcas/" (printf "/%s/marcas/" $vk))
+  "guiasBase" (cond $isRoot "/guias/" (printf "/%s/guias/" $vk))
+  "homeBase"  (cond $isRoot "/" (printf "/%s/" $vk))
 }}

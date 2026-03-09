@@ -6,6 +6,11 @@
 
   {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
   {{- $db := index site.Data $verticalKey -}}
+  {{- $vurls := partial "vertical_urls.html" $verticalKey -}}
+  {{- $modBase := $vurls.modBase | strings.TrimSuffix "/" -}}
+  {{- $marcBase := $vurls.marcBase | strings.TrimSuffix "/" -}}
+  {{- $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" -}}
+  {{- $homeBase := $vurls.homeBase | strings.TrimSuffix "/" -}}
   {{- $items := slice -}}
 
   {{/* Helpers */}}
@@ -55,7 +60,7 @@
   {{- end -}}
 
   {{/* Inicio siempre */}}
-  {{- $items = $items | append (dict "name" "Inicio" "url" ("/" | absURL)) -}}
+  {{- $items = $items | append (dict "name" "Inicio" "url" ((print $homeBase "/") | absURL)) -}}
 
   {{/* HOME */}}
   {{- if .IsHome -}}
@@ -63,16 +68,16 @@
 
   {{/* GUIAS */}}
   {{- else if eq .Section "guias" -}}
-    {{- $items = $items | append (dict "name" "Guías" "url" ("/guias/" | absURL)) -}}
+    {{- $items = $items | append (dict "name" "Guías" "url" ((print $guiasBase "/") | absURL)) -}}
     {{- if .IsPage -}}
       {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
     {{- end -}}
 
   {{/* MARCAS */}}
   {{- else if eq .Section "marcas" -}}
-    {{- $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) -}}
+    {{- $items = $items | append (dict "name" "Marcas" "url" ((print $marcBase "/") | absURL)) -}}
     {{- if $brandKey -}}
-      {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "/marcas/%s/" ($brandKey|urlize)) | absURL)) -}}
+      {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "%s/%s/" $marcBase ($brandKey|urlize)) | absURL)) -}}
     {{- end -}}
 
   {{/* MODELOS */}}
@@ -80,14 +85,14 @@
 
     {{/* /modelos/ listado */}}
     {{- if and .IsSection (not $modelSlug) -}}
-      {{- $items = $items | append (dict "name" "Modelos" "url" ("/modelos/" | absURL)) -}}
+      {{- $items = $items | append (dict "name" "Modelos" "url" ((print $modBase "/") | absURL)) -}}
 
     {{- else -}}
       {{/* Modelo y derivados */}}
-      {{- $items = $items | append (dict "name" "Marcas" "url" ("/marcas/" | absURL)) -}}
+      {{- $items = $items | append (dict "name" "Marcas" "url" ((print $marcBase "/") | absURL)) -}}
 
       {{- if $brandKey -}}
-        {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "/marcas/%s/" ($brandKey|urlize)) | absURL)) -}}
+        {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "%s/%s/" $marcBase ($brandKey|urlize)) | absURL)) -}}
       {{- end -}}
 
       {{- if $modelSlug -}}
@@ -97,7 +102,7 @@
         {{- else -}}
           {{- $modelTitle = ($modelName | default $modelSlug) -}}
         {{- end -}}
-        {{- $items = $items | append (dict "name" $modelTitle "url" ((printf "/modelos/%s/" $modelSlug) | absURL)) -}}
+        {{- $items = $items | append (dict "name" $modelTitle "url" ((printf "%s/%s/" $modBase $modelSlug) | absURL)) -}}
       {{- end -}}
 
       {{/* Hub de recambio por categoría */}}
@@ -112,7 +117,7 @@
 
       {{/* Problema individual */}}
       {{- if $problemKey -}}
-        {{- $items = $items | append (dict "name" "Problemas" "url" ((printf "/modelos/%s/problemas/" $modelSlug) | absURL)) -}}
+        {{- $items = $items | append (dict "name" "Problemas" "url" ((printf "%s/%s/problemas/" $modBase $modelSlug) | absURL)) -}}
         {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
       {{- end -}}
 

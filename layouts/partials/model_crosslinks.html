@@ -18,6 +18,7 @@ Input: dict
 {{ $verticalKey := .verticalKey | default "aspiradores" }}
 {{ $vurls := partial "vertical_urls.html" $verticalKey }}
 {{ $modBase := $vurls.modBase }}
+{{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
 
 {{ if not (and $db $brandKey $modelSlug) }}
   {{ return }}
@@ -94,8 +95,8 @@ Input: dict
   <div class="kicker">Evita compras incompatibles</div>
   <p class="muted small" style="margin-top:6px;">Checklist rápida antes de comprar recambio.</p>
   <div class="chips" style="margin-top:10px;">
-    <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-    <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
-    <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+    <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Cómo elegir recambio</a>
+    <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+    <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
   </div>
 {{ if $wrap }}</div>{{ end }}

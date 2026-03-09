@@ -4,6 +4,7 @@
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+  {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brandKey := .Params.brandKey }}
   {{ $brand := index $db.brands $brandKey }}
 
@@ -47,9 +48,9 @@
         <div class="hero__links">
           <span class="badge hot">{{ $modelCount }} modelos</span>
           {{ with $brand.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
-          <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-          <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
-          <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+          <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Cómo elegir recambio</a>
+          <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+          <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
         </div>
       </div>
     </div>
@@ -113,7 +114,7 @@
           <div class="chips">
             <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Más marcas</a>
             <a class="chip" href="{{ (print $modBase "/") | relURL }}">Todos los modelos</a>
-            <a class="chip" href="{{ "/guias/" | relURL }}">Ver guías</a>
+            <a class="chip" href="{{ (print $guiasBase "/") | relURL }}">Ver guías</a>
           </div>
         </div>
 

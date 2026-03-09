@@ -10,6 +10,7 @@
 {{ $vurls := partial "vertical_urls.html" $vk }}
 {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
 {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+{{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
 
 {{ if eq $section "marcas" }}
   {{ if .Params.brandKey }}
@@ -29,7 +30,7 @@
     {{ $copy = "Elige una marca para ver sus modelos y recambios compatibles." }}
     {{ $links = slice
       (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--ghost")
-      (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
+      (dict "label" "Ver guías →" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
     }}
   {{ end }}
 
@@ -48,7 +49,7 @@
   {{ $copy = "Catálogo de modelos con recambios compatibles y solución de problemas." }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver guías →" "href" ("/guias/" | relURL) "class" "btn btn--link")
+    (dict "label" "Ver guías →" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
   }}
 
 {{ else }}

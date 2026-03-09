@@ -13,6 +13,7 @@
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+  {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brands := $db.brands }}
   {{ $brandKey := .Params.brandKey }}
 
@@ -32,9 +33,9 @@
 
         <div class="hero__links">
           <a class="btn btn--ghost" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
-          <a class="btn btn--ghost" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-          <a class="btn btn--ghost" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
-          <a class="btn btn--ghost" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+          <a class="btn btn--ghost" href="{{ (print $guiasBase "/compra/") | relURL }}">Cómo elegir recambio</a>
+          <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+          <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
         </div>
       </div>
     </section>
@@ -229,9 +230,9 @@
             <div class="hero__links">
               {{ with (index $model "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
               {{ with (index $model "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
-              <a class="btn btn--ghost" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
-              <a class="btn btn--ghost" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
-              <a class="btn btn--ghost" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
+              <a class="btn btn--ghost" href="{{ (print $guiasBase "/compra/") | relURL }}">Cómo elegir recambio</a>
+              <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+              <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
             </div>
           </div>
         </section>
