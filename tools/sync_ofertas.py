@@ -28,6 +28,7 @@ except Exception:
 # =========================
 ROOT = Path(__file__).resolve().parents[1]
 OFFERS = ROOT / "data" / "ofertas.yaml"
+VERTICALS_YAML = ROOT / "data" / "verticals.yaml"
 
 DEFAULT_URL = "https://s.click.aliexpress.com/e/_c3VfQRLt"
 
@@ -103,6 +104,32 @@ def normalize(s: str) -> str:
 
 def nrm(s: str) -> str:
     return " ".join((s or "").lower().split())
+
+
+def available_verticals() -> List[str]:
+    verticals_doc = load_yaml(VERTICALS_YAML)
+    verticals_obj = verticals_doc.get("verticals")
+    if not isinstance(verticals_obj, dict):
+        return ["aspiradores"]
+
+    out: List[str] = []
+    for vertical in verticals_obj.keys():
+        if (ROOT / "data" / f"{vertical}.yaml").exists():
+            out.append(str(vertical).strip())
+    return out or ["aspiradores"]
+
+
+def resolve_verticals(raw_vertical: str) -> List[str]:
+    wanted = [x.strip() for x in str(raw_vertical or "all").split(",") if x.strip()]
+    all_verticals = available_verticals()
+    if not wanted or wanted == ["all"] or "all" in wanted:
+        return all_verticals
+
+    resolved = [v for v in wanted if v in all_verticals]
+    missing = [v for v in wanted if v not in all_verticals]
+    if missing:
+        raise SystemExit(f"Vertical(es) no válidas: {', '.join(missing)}. Disponibles: {', '.join(all_verticals)}")
+    return resolved
 
 
 # =========================
@@ -550,6 +577,19 @@ def unique_keywords(candidates: List[str]) -> List[str]:
     return out
 
 
+def sku_records_from_verticals(verticals: List[str]) -> Dict[str, Dict[str, Any]]:
+    out: Dict[str, Dict[str, Any]] = {}
+    for vertical in verticals:
+        catalog_path = ROOT / "data" / f"{vertical}.yaml"
+        catalog = load_yaml(catalog_path)
+        vertical_records = sku_records_from_catalog(catalog)
+        for sku, ctx in vertical_records.items():
+            ctx_copy = dict(ctx)
+            ctx_copy["vertical"] = vertical
+            out[sku] = ctx_copy
+    return out
+
+
 def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include: List[str]) -> List[str]:
     brand = compact_spaces(str(ctx.get("brand") or ""))
     model = compact_spaces(str(ctx.get("model") or ""))
@@ -762,7 +802,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--no-cache", action="store_true", help="Ignora cache (hace llamadas frescas)")
     ap.add_argument("--only-sku", action="append", default=[], help="Solo procesa este SKU (puedes repetir)")
     ap.add_argument("--force", action="store_true", help="Fuerza lookup incluso si ya hay URL no-default")
-    ap.add_argument("--vertical", default="aspiradores", help="Vertical a sincronizar (default: aspiradores)")
+    ap.add_argument("--vertical", default="all", help="Vertical a sincronizar: una, varias separadas por comas, o 'all' (default)")
     return ap.parse_args()
 
 
@@ -779,9 +819,8 @@ def main() -> None:
 
     use_cache = not args.no_cache
 
-    catalog_path = ROOT / "data" / f"{args.vertical}.yaml"
-    catalog = load_yaml(catalog_path)
-    sku_ctx = sku_records_from_catalog(catalog)
+    selected_verticals = resolve_verticals(args.vertical)
+    sku_ctx = sku_records_from_verticals(selected_verticals)
     want = set(sku_ctx.keys())
 
     offers_doc = load_yaml(OFFERS)
@@ -922,7 +961,7 @@ def main() -> None:
             dump_yaml(OFFERS, {"offers": offers})
             print(f"  [checkpoint] {_processed}/{len(want)} SKUs — guardado parcial")
 
-    if not only:
+    if not only and set(selected_verticals) == set(available_verticals()):
         for sku, o in list(offers.items()):
             if sku not in set(sku_ctx.keys()):
                 o = ensure_offer_obj(o)
@@ -934,6 +973,7 @@ def main() -> None:
     dump_yaml(OFFERS, {"offers": offers})
 
     print("OK: sync_ofertas (AliExpress autolinks + catalog overrides + cache flags)")
+    print(f"  Verticales:            {', '.join(selected_verticals)}")
     print(f"  Cache:                 {'ON' if use_cache else 'OFF'} (TTL={CACHE_TTL_SECONDS}s)")
     print(f"  SKUs en catálogo:       {len(set(sku_ctx.keys()))}")
     print(f"  Procesados ahora:       {len(want)}")
