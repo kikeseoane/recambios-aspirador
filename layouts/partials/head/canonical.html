@@ -1,25 +1,38 @@
-{{/* Canonical absoluto y limpio. Respeta .Params.canonical si existe */}}
+{{/* Canonical absoluto y limpio. Respeta .Params.canonical si existe. */}}
 
 {{- if or (.Scratch.Get "noindex") (and (.Params.robots) (strings.Contains (lower .Params.robots) "noindex")) -}}
-  {{- /* No canonical en noindex */ -}}
   {{- return -}}
 {{- end -}}
 
-{{- $u := "" -}}
+{{- $base := site.BaseURL | default "https://recambios-aspirador.com/" -}}
+{{- $base = replaceRE `^https?://www\.` `https://` $base -}}
+{{- $base = strings.TrimSuffix "/" $base -}}
 
+{{- $u := "" -}}
 {{- with .Params.canonical -}}
-  {{- $u = . -}}
+  {{- $u = strings.TrimSpace . -}}
 {{- else -}}
-  {{- $u = .Permalink -}}
+  {{- $u = printf "%s%s" $base .RelPermalink -}}
 {{- end -}}
 
-{{/* Limpia querystring y hash por seguridad */}}
+{{- if and (not (strings.HasPrefix $u "http://")) (not (strings.HasPrefix $u "https://")) -}}
+  {{- if not (strings.HasPrefix $u "/") -}}
+    {{- $u = printf "/%s" $u -}}
+  {{- end -}}
+  {{- $u = printf "%s%s" $base $u -}}
+{{- end -}}
+
 {{- $u = replaceRE `\?.*$` `` $u -}}
 {{- $u = replaceRE `#.*$` `` $u -}}
+{{- $u = replaceRE `^http://` `https://` $u -}}
+{{- $u = replaceRE `^https://www\.` `https://` $u -}}
 
-{{/* Normaliza barra final SOLO si parece URL "de directorio" */}}
-{{- if and (not (strings.HasSuffix $u "/")) (not (strings.HasSuffix $u ".html")) -}}
-  {{- $u = printf "%s/" $u -}}
+{{- $path := replaceRE `^https://[^/]+` `` $u -}}
+{{- if eq $path "" -}}
+  {{- $path = "/" -}}
+{{- end -}}
+{{- if and (not (strings.HasSuffix $path "/")) (not (findRE `\.[a-z0-9]{2,8}$` $path)) -}}
+  {{- $path = printf "%s/" $path -}}
 {{- end -}}
 
-<link rel="canonical" href="{{ $u }}">
+<link rel="canonical" href="{{ printf "%s%s" $base $path }}">
