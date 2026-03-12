@@ -56,6 +56,20 @@ SKU_PACK_DEFAULTS: Dict[str, Dict[str, str]] = {
     },
 }
 
+CATEGORY_QUERY_TERMS: Dict[str, List[str]] = {
+    "bateria": ["battery", "replacement"],
+    "filtro": ["filter", "replacement"],
+    "cargador": ["charger", "adapter"],
+    "cepillo": ["brush", "roller"],
+    "soporte": ["dock", "wall mount"],
+    "accesorios": ["accessory", "kit"],
+    "laminas": ["foil", "replacement"],
+    "cabezal": ["head", "replacement"],
+    "junta": ["gasket", "seal"],
+    "deposito": ["tank", "container"],
+    "cesta": ["basket", "tray"],
+}
+
 
 def load_yaml(path: Path) -> dict:
     if not path.exists():
@@ -98,6 +112,29 @@ def first_model_token(model_tokens: List[str], model_name: str) -> str:
             return tt
     # Fallback: primera palabra del modelo
     return (model_name.split()[:1] or ["model"])[0].lower()
+
+
+def category_query_terms(cat_key: str) -> List[str]:
+    return CATEGORY_QUERY_TERMS.get(cat_key, ["replacement", "part"])
+
+
+def build_search_query(
+    brand_name: str,
+    model_name: str,
+    cat_key: str,
+    must_include: List[str],
+    title: str,
+    query_hint: str,
+) -> str:
+    if query_hint:
+        return query_hint[:120]
+
+    seed_terms = [x.strip() for x in must_include[:3] if x.strip()]
+    if not seed_terms:
+        seed_terms = category_query_terms(cat_key)
+
+    query = " ".join([brand_name, model_name, *seed_terms, title]).strip()
+    return query[:120]
 
 
 def build_sku_id(brand_key: str, model_slug: str, cat_key: str, suffix: str) -> str:
@@ -298,10 +335,6 @@ def compile_catalog(vertical: str = "aspiradores") -> dict:
                     title_tpl = nrm(str(p.get("title_tpl") or "Recambio compatible para {model}"))
                     title = apply_tpl(title_tpl, model_name, effective_model_token)
 
-                    # query: hint por modelo > plantilla simple
-                    query = query_hint or f"{brand_name} {model_name} {cat_key} {title}".strip()
-                    query = query[:120]
-
                     must_include = []
                     for x in ensure_list_str(p.get("must_include_tpl")):
                         must_include.append(apply_tpl(x, model_name, effective_model_token))
@@ -310,6 +343,15 @@ def compile_catalog(vertical: str = "aspiradores") -> dict:
 
                     must_not_include = ensure_list_str(p.get("must_not_include"))
                     must_not_include = [*must_not_include, *extra_must_not_include]
+
+                    query = build_search_query(
+                        brand_name=brand_name,
+                        model_name=model_name,
+                        cat_key=cat_key,
+                        must_include=must_include,
+                        title=title,
+                        query_hint=query_hint,
+                    )
 
                     item = {
                         "sku": sku,

@@ -184,6 +184,12 @@
 
         {{ $guias := index $model "guias" }}
         {{ $hasGuias := and $guias (reflect.IsSlice $guias) (gt (len $guias) 0) }}
+        {{ $catCount := 0 }}
+        {{ if $hasRecambios }}{{ $catCount = len $rec }}{{ end }}
+        {{ $problemCount := 0 }}
+        {{ if $hasProblemas }}{{ $problemCount = len $probs }}{{ end }}
+        {{ $guideCount := 0 }}
+        {{ if $hasGuias }}{{ $guideCount = len $guias }}{{ end }}
 
         {{ $introLen := 0 }}
         {{ with (index $model "intro") }}
@@ -234,11 +240,34 @@
               <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
               <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
             </div>
+
+            <div class="hero-stats hero-stats--compact">
+              <div class="hero-stat">
+                <span class="hero-stat__value">{{ $catCount }}</span>
+                <span class="hero-stat__label">categorias</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat__value">{{ $problemCount }}</span>
+                <span class="hero-stat__label">problemas guiados</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat__value">{{ $guideCount }}</span>
+                <span class="hero-stat__label">bloques extra</span>
+              </div>
+            </div>
           </div>
         </section>
 
+        <div class="model-anchor-bar">
+          <a class="chip active" href="#compatibilidad">Compatibilidad</a>
+          <a class="chip" href="#recambios-destacados">Recambios</a>
+          {{ if $hasProblemas }}<a class="chip" href="#problemas-frecuentes">Problemas</a>{{ end }}
+          <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
+        </div>
+
         <div class="two-col" style="margin-top:12px;">
           <div class="panel">
+            <div id="compatibilidad"></div>
             <h2 style="margin-top:0;">Compatibilidad rápida</h2>
             <p class="muted small">
               Antes de comprar un recambio para {{ $mtitle }}, revisa la variante exacta del modelo,
@@ -260,6 +289,7 @@
 
             <hr>
 
+            <div id="recambios-destacados"></div>
             <h2 style="margin-top:0;">Recambios destacados</h2>
             <p class="muted small">
               Selección rápida de recambios compatibles para {{ $mtitle }}. Puedes entrar en cada categoría para ver más opciones.
@@ -316,6 +346,7 @@
             {{/* ===== Problemas frecuentes ===== */}}
             {{ $probs := index $model "problemas" }}
             {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+              <div id="problemas-frecuentes"></div>
               <h2 style="margin-top:0;">Problemas frecuentes</h2>
               <p class="muted small">Diagnósticos rápidos con checks y recambios recomendados.</p>
 
@@ -396,8 +427,18 @@
           </div>
 
           <aside class="panel">
+            <div id="antes-de-comprar"></div>
             <h2 style="margin-top:0;">Antes de comprar</h2>
             <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
+
+            <div class="checklist-card">
+              <div class="kicker">Verificacion express</div>
+              <ul class="list small">
+                <li>Modelo exacto y variante de serie.</li>
+                <li>Conector, encaje o tipo de base.</li>
+                <li>Voltaje y capacidad si compras bateria o cargador.</li>
+              </ul>
+            </div>
 
             {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
 

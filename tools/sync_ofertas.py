@@ -317,6 +317,20 @@ CATEGORY_PART_TERMS = {
     "accesorios": ["accessory", "accessories", "kit", "crevice", "tool", "brush", "nozzle", "boquilla"],
 }
 
+CATEGORY_QUERY_TERMS = {
+    "bateria": ["battery", "replacement"],
+    "filtro": ["filter", "replacement"],
+    "cargador": ["charger", "adapter"],
+    "cepillo": ["brush", "roller"],
+    "soporte": ["dock", "wall mount"],
+    "accesorios": ["accessory", "kit"],
+    "laminas": ["foil", "replacement"],
+    "cabezal": ["head", "replacement"],
+    "junta": ["gasket", "seal"],
+    "deposito": ["tank", "container"],
+    "cesta": ["basket", "tray"],
+}
+
 CATEGORY_NEGATIVE_TERMS = {
     "soporte": ["trigger", "switch", "button", "pcb", "board", "handle", "motor"],
     "bateria": ["trigger", "switch", "button", "filter", "charger", "dock", "wall mount"],
@@ -326,6 +340,16 @@ CATEGORY_NEGATIVE_TERMS = {
 }
 
 MODEL_TOKEN_RE = re.compile(r"\b(v\d{1,2}|sv\d{2}|dc\d{2,3})\b", re.IGNORECASE)
+GENERIC_MODEL_WORD_RE = re.compile(r"[a-z0-9][a-z0-9+.-]{1,}", re.IGNORECASE)
+QUERY_NOISE_RE = re.compile(
+    r"\b(compatible|compatibles|para|repuesto|recambio|replacement|spare|kit|pack)\b",
+    re.IGNORECASE,
+)
+MODEL_STOPWORDS = {
+    "series", "serie", "robot", "aspirador", "aspiradora", "vacuum", "cordless",
+    "airfryer", "freidora", "cafetera", "coffee", "maker", "shaver", "toothbrush",
+    "taladro", "drill", "martillo", "sierra", "amoladora", "impacto", "one", "plus",
+}
 
 
 def looks_bad(title: str) -> bool:
@@ -361,9 +385,39 @@ def cat_negative_terms(cat: str) -> List[str]:
     return []
 
 
+def cat_query_terms(cat: str) -> List[str]:
+    c = nrm(cat)
+    for k, terms in CATEGORY_QUERY_TERMS.items():
+        if k in c:
+            return terms
+    return cat_part_terms(cat)[:2]
+
+
+def extract_identifier_tokens(text: str) -> List[str]:
+    raw_tokens = [t.lower().strip(" .,/()[]") for t in GENERIC_MODEL_WORD_RE.findall(nrm(text))]
+    out: List[str] = []
+    for idx, tok in enumerate(raw_tokens):
+        if len(tok) < 2 or tok in MODEL_STOPWORDS:
+            continue
+        has_digit = any(ch.isdigit() for ch in tok)
+        prev_tok = raw_tokens[idx - 1] if idx > 0 else ""
+        next_tok = raw_tokens[idx + 1] if idx + 1 < len(raw_tokens) else ""
+
+        keep = False
+        if has_digit:
+            keep = True
+        elif tok.isalpha() and 2 <= len(tok) <= 5:
+            keep = any(any(ch.isdigit() for ch in n) for n in (prev_tok, next_tok))
+
+        if keep and tok not in out:
+            out.append(tok)
+    return out[:5]
+
+
 def model_tokens_from_ctx(model: str) -> List[str]:
     t = nrm(model)
     tokens = [m.group(1).lower() for m in MODEL_TOKEN_RE.finditer(t)]
+    tokens.extend(extract_identifier_tokens(t))
     if "v11" in tokens and "sv14" not in tokens:
         tokens.append("sv14")
     return list(dict.fromkeys(tokens))
@@ -476,6 +530,46 @@ def compact_spaces(s: str) -> str:
     return re.sub(r"\s+", " ", str(s or "")).strip()
 
 
+def clean_query_fragment(text: str) -> str:
+    cleaned = QUERY_NOISE_RE.sub(" ", normalize(text))
+    return compact_spaces(cleaned)
+
+
+def unique_keywords(candidates: List[str]) -> List[str]:
+    seen = set()
+    out: List[str] = []
+    for candidate in candidates:
+        keyword = compact_spaces(candidate)[:120]
+        if not keyword:
+            continue
+        key = keyword.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(keyword)
+    return out
+
+
+def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include: List[str]) -> List[str]:
+    brand = compact_spaces(str(ctx.get("brand") or ""))
+    model = compact_spaces(str(ctx.get("model") or ""))
+    item_title = clean_query_fragment(str(ctx.get("item_title") or ""))
+    category_terms = " ".join(cat_query_terms(str(ctx.get("category") or ""))[:2])
+    include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
+    model_tokens = " ".join(model_tokens_from_ctx(model)[:3])
+
+    candidates = [
+        query_override,
+        " ".join([brand, model, include_terms]),
+        " ".join([brand, model, category_terms]),
+        " ".join([brand, model_tokens, category_terms]),
+        " ".join([brand, model, item_title]),
+        build_keyword(ctx),
+        " ".join([brand, model]),
+    ]
+    return unique_keywords(candidates)
+
+
 def choose_fallback_search_query(ctx: Dict[str, Any], query_override: str) -> str:
     """
     Prioridad:
@@ -555,39 +649,41 @@ def pick_relaxed_link(
     Búsqueda relajada sin filtro de modelo: solo marca + categoría.
     Garantiza un enlace de afiliado aunque no haya producto exacto.
     """
-    keyword = compact_spaces(f"{brand} {category} replacement")[:120]
+    relaxed_terms = " ".join(cat_query_terms(category)[:2])
+    keyword = compact_spaces(f"{brand} {relaxed_terms} replacement")[:120]
     if not keyword.strip():
         return None
 
     for lang in ("EN", "ES"):
-        resp = product_query(keyword, lang=lang, use_cache=use_cache)
-        prods = extract_products(resp)
-        if not prods:
-            continue
-
-        candidates = []
-        for p in prods:
-            title = p.get("product_title") or ""
-            if not title:
+        for page_no in (1, 2):
+            resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+            prods = extract_products(resp)
+            if not prods:
                 continue
-            tt = nrm(title)
-            if looks_bad(tt):
-                continue
-            if not any(pt in tt for pt in part_terms):
-                continue
-            candidates.append(p)
 
-        if not candidates:
-            continue
+            candidates = []
+            for p in prods:
+                title = p.get("product_title") or ""
+                if not title:
+                    continue
+                tt = nrm(title)
+                if looks_bad(tt):
+                    continue
+                if not any(pt in tt for pt in part_terms):
+                    continue
+                candidates.append(p)
 
-        candidates.sort(
-            key=lambda p: get_orders(p) * 0.015 + get_commission_rate(p) * 0.4,
-            reverse=True,
-        )
-        best = candidates[0]
-        url = best.get("promotion_link") or best.get("product_detail_url")
-        if url:
-            return str(url).strip()
+            if not candidates:
+                continue
+
+            candidates.sort(
+                key=lambda p: get_orders(p) * 0.015 + get_commission_rate(p) * 0.4,
+                reverse=True,
+            )
+            best = candidates[0]
+            url = best.get("promotion_link") or best.get("product_detail_url")
+            if url:
+                return str(url).strip()
 
     return None
 
@@ -605,53 +701,54 @@ def pick_best_promotion_link(
     req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
 
     for lang in ("EN", "ES"):
-        resp = product_query(keyword, lang=lang, use_cache=use_cache)
-        prods = extract_products(resp)
-        if not prods:
-            continue
-
-        candidates = []
-        for p in prods:
-            title = p.get("product_title") or ""
-            if not title:
+        for page_no in (1, 2):
+            resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+            prods = extract_products(resp)
+            if not prods:
                 continue
 
-            tt = nrm(title)
-            if looks_bad(tt):
+            candidates = []
+            for p in prods:
+                title = p.get("product_title") or ""
+                if not title:
+                    continue
+
+                tt = nrm(title)
+                if looks_bad(tt):
+                    continue
+
+                if req_models and not title_has_required_model(tt, req_models):
+                    continue
+
+                if not any(pt in tt for pt in part_terms):
+                    continue
+
+                if must_include and not contains_all(tt, must_include):
+                    continue
+
+                if must_not_include and contains_any(tt, must_not_include):
+                    continue
+
+                candidates.append(p)
+
+            if not candidates:
                 continue
 
-            if req_models and not title_has_required_model(tt, req_models):
-                continue
+            candidates.sort(
+                key=lambda p: score_product(
+                    p.get("product_title") or "",
+                    p,
+                    must_brand=nrm(must_brand),
+                    part_terms=part_terms,
+                    req_models=req_models,
+                ),
+                reverse=True,
+            )
 
-            if not any(pt in tt for pt in part_terms):
-                continue
-
-            if must_include and not contains_all(tt, must_include):
-                continue
-
-            if must_not_include and contains_any(tt, must_not_include):
-                continue
-
-            candidates.append(p)
-
-        if not candidates:
-            continue
-
-        candidates.sort(
-            key=lambda p: score_product(
-                p.get("product_title") or "",
-                p,
-                must_brand=nrm(must_brand),
-                part_terms=part_terms,
-                req_models=req_models,
-            ),
-            reverse=True,
-        )
-
-        best = candidates[0]
-        url = best.get("promotion_link") or best.get("product_detail_url")
-        if url:
-            return str(url).strip()
+            best = candidates[0]
+            url = best.get("promotion_link") or best.get("product_detail_url")
+            if url:
+                return str(url).strip()
 
     return None
 
@@ -748,21 +845,9 @@ def main() -> None:
             )
             must_not_combined = [*must_not_default, *must_not_override]
 
-            fallback_search_query = choose_fallback_search_query(ctx, query)
+            kws = build_search_keywords(ctx, query, must_include)
+            fallback_search_query = kws[0] if kws else choose_fallback_search_query(ctx, query)
             fallback_search_label = choose_fallback_search_label(ctx, fallback_search_query)
-
-            kws = [k for k in [
-                fallback_search_query,
-                compact_spaces(" ".join([
-                    str(ctx.get("brand") or ""),
-                    str(ctx.get("model") or ""),
-                    str(ctx.get("category") or ""),
-                ])),
-                compact_spaces(" ".join([
-                    str(ctx.get("brand") or ""),
-                    str(ctx.get("model") or ""),
-                ])),
-            ] if k]
 
             found = None
             matched_kw = ""
