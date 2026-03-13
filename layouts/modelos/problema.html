@@ -15,7 +15,7 @@
   {{ if or (not $brandKey) (not $modelSlug) (not $problemKey) }}
     {{ .Scratch.Set "noindex" true }}
     <h1>Problema no disponible</h1>
-    <p class="muted">Faltan parámetros para mostrar esta página.</p>
+    <p class="muted">Faltan parametros para mostrar esta pagina.</p>
     <div class="chips" style="margin-top:12px;">
       <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
       <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
@@ -23,7 +23,6 @@
     {{ return }}
   {{ end }}
 
-  {{/* Marca */}}
   {{ $brand := dict }}
   {{ if and $brands (isset $brands $brandKey) }}
     {{ $brand = index $brands $brandKey }}
@@ -37,7 +36,6 @@
     {{ return }}
   {{ end }}
 
-  {{/* Modelo */}}
   {{ $model := dict }}
   {{ range $m := ($brand.models | default (slice)) }}
     {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | default "" | urlize }}
@@ -48,8 +46,8 @@
 
   {{ if not (len $model) }}
     {{ .Scratch.Set "noindex" true }}
-    <h1>Problema en preparación</h1>
-    <p class="muted">No encontramos el modelo en el catálogo.</p>
+    <h1>Problema en preparacion</h1>
+    <p class="muted">No encontramos el modelo en el catalogo.</p>
     <div class="chips" style="margin-top:12px;">
       <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
       <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
@@ -60,7 +58,6 @@
   {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
   {{ if not $mtitle }}{{ $mtitle = $modelSlug }}{{ end }}
 
-  {{/* Problema (desde YAML) */}}
   {{ $p := dict }}
   {{ $plist := index $model "problemas" }}
   {{ if and $plist (reflect.IsSlice $plist) }}
@@ -74,12 +71,12 @@
 
   {{ if not (len $p) }}
     {{ .Scratch.Set "noindex" true }}
-    <h1>Problema en preparación</h1>
-    <p class="muted">Aún no tenemos esta guía de diagnóstico.</p>
+    <h1>Problema en preparacion</h1>
+    <p class="muted">Aun no tenemos esta guia de diagnostico.</p>
     <div class="chips" style="margin-top:12px;">
       <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">← Volver al modelo</a>
       <a class="chip" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver problemas del modelo</a>
-      <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">Más modelos {{ $brand.name }}</a>
+      <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">Mas modelos {{ $brand.name }}</a>
     </div>
     {{ return }}
   {{ end }}
@@ -112,17 +109,17 @@
 
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
-      <h2 style="margin-top:0;">Diagnóstico rápido</h2>
+      <h2 style="margin-top:0;">Diagnostico rapido</h2>
       <ol class="list">
-        <li><strong>Revisa lo básico</strong>: encajes, depósito, filtros y obstrucciones visibles.</li>
+        <li><strong>Revisa lo basico</strong>: encajes, deposito, filtros y obstrucciones visibles.</li>
         <li><strong>Una variable cada vez</strong>: prueba cambios de uno en uno para aislar la causa.</li>
-        <li><strong>Confirma compatibilidad</strong> antes de comprar: modelo/serie, conectores, medidas y fotos reales.</li>
+        <li><strong>Confirma compatibilidad</strong> antes de comprar: modelo, serie, conectores, medidas y fotos reales.</li>
       </ol>
 
       {{ $sym := index $p "symptoms" }}
       {{ if and $sym (reflect.IsSlice $sym) (gt (len $sym) 0) }}
         <hr>
-        <h2>Síntomas habituales</h2>
+        <h2>Sintomas habituales</h2>
         <ul class="list">
           {{ range $sym }}<li>{{ . }}</li>{{ end }}
         </ul>
@@ -131,7 +128,7 @@
       {{ $checks := index $p "checks" }}
       {{ if and $checks (reflect.IsSlice $checks) (gt (len $checks) 0) }}
         <hr>
-        <h2>Comprobaciones rápidas</h2>
+        <h2>Comprobaciones rapidas</h2>
         <ul class="list">
           {{ range $checks }}<li>{{ . }}</li>{{ end }}
         </ul>
@@ -147,7 +144,6 @@
         </ul>
       {{ end }}
 
-      {{/* FAQ visible opcional (si lo metes en YAML) */}}
       {{ $faqs := index $p "faqs" }}
       {{ if and $faqs (reflect.IsSlice $faqs) (gt (len $faqs) 0) }}
         <hr>
@@ -173,7 +169,6 @@
         <a class="btn-buy" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">{{ $label }}</a>
         <p class="muted small" style="margin-top:10px;">Verifica encaje, conector y especificaciones antes de comprar.</p>
 
-        {{/* 3 opciones (si existen) */}}
         {{ $rec := index $model "recambios" }}
         {{ if and $rec (reflect.IsMap $rec) }}
           {{ $items := index $rec $catKey }}
@@ -201,14 +196,12 @@
             </div>
           {{ end }}
         {{ end }}
-
       {{ else }}
-        <p class="muted">Estamos preparando la recomendación de recambio para este problema.</p>
+        <p class="muted">Estamos preparando la recomendacion de recambio para este problema.</p>
       {{ end }}
 
       <hr>
 
-      {{/* Crosslinks: sin wrap */}}
       {{ partial "model_crosslinks.html" (dict
         "db" $db
         "brandKey" .Params.brandKey
@@ -219,7 +212,7 @@
       ) }}
 
       <p class="muted small" style="margin-top:12px;">
-        Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.
+        Algunos enlaces pueden ser de afiliacion. Precio y disponibilidad dependen del vendedor.
       </p>
     </aside>
   </div>
