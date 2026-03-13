@@ -1,6 +1,7 @@
 {{ define "main" }}
   {{ $verticalKey := .Params.vertical | default "aspiradores" }}
   {{ $db := index site.Data $verticalKey }}
+  {{ $vconf := (index site.Data.verticals.verticals $verticalKey) | default dict }}
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
@@ -28,6 +29,9 @@
       {{ $modelCount = len $models }}
     {{ end }}
 
+    {{ $verticalLabel := $vconf.label | default "recambios compatibles" }}
+    {{ $verticalDesc := $vconf.description | default "recambios compatibles por modelo" }}
+
     <div class="breadcrumbs">
       <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
       <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
@@ -40,15 +44,18 @@
         <h1>Recambios {{ $brandName }}</h1>
 
         <p class="muted hero__copy">
-          Encuentra recambios compatibles para aspiradores {{ $brandName }},
-          incluyendo filtros, baterías, cepillos, cargadores, soportes y accesorios
-          para los modelos más habituales de la marca.
+          Encuentra {{ $verticalLabel | lower }} {{ $brandName }} y entra en cada modelo para ver compatibilidad,
+          piezas habituales, problemas frecuentes y accesos directos a compra.
+        </p>
+        <p class="muted hero__copy">
+          Esta vertical cubre {{ $verticalDesc | lower }} con foco en decision rapida, menos error de compra
+          y mejor orientacion por modelo exacto.
         </p>
 
         <div class="hero__links">
           <span class="badge hot">{{ $modelCount }} modelos</span>
           {{ with $brand.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
-          <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Cómo elegir recambio</a>
+          <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
           <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
           <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
         </div>
@@ -59,8 +66,8 @@
       <div class="panel">
         <h2 style="margin-top:0;">Modelos de {{ $brandName }}</h2>
         <p class="muted small">
-          Selecciona tu modelo para ver filtros, baterías, cepillos y otros recambios compatibles,
-          además de problemas frecuentes y comprobaciones rápidas.
+          Selecciona tu modelo para ver piezas compatibles, bloques de compatibilidad, problemas frecuentes
+          y accesos rapidos a las categorias clave.
         </p>
 
         {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
@@ -88,33 +95,33 @@
             {{ end }}
           </div>
         {{ else }}
-          <p class="muted">Todavía no hay modelos publicados para esta marca.</p>
+          <p class="muted">Todavia no hay modelos publicados para esta marca.</p>
         {{ end }}
       </div>
 
       <aside class="panel">
         <h2 style="margin-top:0;">Antes de comprar</h2>
         <p class="muted small">
-          Antes de elegir un recambio {{ $brandName }}, confirma el modelo exacto,
-          la variante o serie y, si aplica, el tipo de encaje o conector.
+          Antes de elegir un recambio {{ $brandName }}, confirma el modelo exacto, la variante o serie y,
+          si aplica, el tipo de encaje, conector, medida o plataforma.
         </p>
 
         <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
-          <div class="kicker">Consejos rápidos</div>
+          <div class="kicker">Consejos rapidos</div>
           <ul class="small">
-            <li>Comprueba el modelo exacto en la etiqueta del aspirador.</li>
-            <li>Verifica si el recambio es válido para varias series o solo una variante.</li>
-            <li>En baterías y cargadores, revisa voltaje y conector.</li>
-            <li>En filtros y cepillos, compara forma, medidas y anclajes.</li>
+            <li>Comprueba el modelo exacto en la etiqueta del equipo.</li>
+            <li>Verifica si el recambio sirve para una sola serie o para varias variantes.</li>
+            <li>Revisa conectores, voltaje, medidas o sistema de acople segun la pieza.</li>
+            <li>Prioriza fichas que expliquen compatibilidad y no solo nombre comercial.</li>
           </ul>
         </div>
 
         <div style="margin-top:12px;">
           <div class="kicker">Atajos</div>
           <div class="chips">
-            <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Más marcas</a>
+            <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Mas marcas</a>
             <a class="chip" href="{{ (print $modBase "/") | relURL }}">Todos los modelos</a>
-            <a class="chip" href="{{ (print $guiasBase "/") | relURL }}">Ver guías</a>
+            <a class="chip" href="{{ (print $guiasBase "/") | relURL }}">Ver guias</a>
           </div>
         </div>
 
@@ -122,7 +129,7 @@
 
         <div class="kicker">Transparencia</div>
         <p class="muted small">
-          Algunos enlaces pueden ser de afiliación. La compatibilidad, el precio y la disponibilidad
+          Algunos enlaces pueden ser de afiliacion. La compatibilidad, el precio y la disponibilidad
           dependen del vendedor y del modelo exacto.
         </p>
       </aside>
