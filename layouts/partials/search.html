@@ -52,12 +52,19 @@
 
 <script>
 (function(){
-  const INDEX = {{ $index | jsonify }};
+  const RAW_INDEX = {{ $index | jsonify | safeJS }};
+  const INDEX = Array.isArray(RAW_INDEX)
+    ? RAW_INDEX
+    : (typeof RAW_INDEX === 'string' ? JSON.parse(RAW_INDEX) : []);
   const btn   = document.getElementById('search-btn');
   const modal = document.getElementById('search-modal');
   const input = document.getElementById('search-input');
   const results = document.getElementById('search-results');
   const closeBtn = document.getElementById('search-close');
+
+  if(!btn || !modal || !input || !results || !closeBtn){
+    return;
+  }
 
   function open(){ modal.style.display='block'; input.value=''; render(''); setTimeout(()=>input.focus(),50); }
   function close(){ modal.style.display='none'; }
