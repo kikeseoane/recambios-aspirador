@@ -8,7 +8,7 @@
 {{ end }}
 
   {{- /* =========================================================
-       TITLE SEO DINÁMICO
+       TITLE SEO DINAMICO
      ========================================================= */ -}}
   {{- $seoTitle := "" -}}
 
@@ -22,13 +22,13 @@
     {{- $seoTitle = printf "%s compatibles | %s" .Title .Site.Title -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
-    {{- $seoTitle = printf "Recambios %s: filtros, baterías y cepillos compatibles" .Title -}}
+    {{- $seoTitle = printf "Recambios %s: filtros, baterias y cepillos compatibles" .Title -}}
 
   {{- else if and (eq .Type "marcas") .Params.brandKey -}}
     {{- $seoTitle = printf "Recambios %s: modelos, filtros y piezas compatibles" .Title -}}
 
   {{- else if eq .Section "guias" -}}
-    {{- $seoTitle = printf "%s | Guía de recambios y mantenimiento" .Title -}}
+    {{- $seoTitle = printf "%s | Guia de recambios y mantenimiento" .Title -}}
 
   {{- else -}}
     {{- $seoTitle = printf "%s | %s" .Title .Site.Title -}}
@@ -37,7 +37,7 @@
   <title>{{ $seoTitle }}</title>
 
   {{- /* =========================================================
-       DESCRIPTION SEO DINÁMICA
+       DESCRIPTION SEO DINAMICA
      ========================================================= */ -}}
   {{- $desc := "" -}}
 
@@ -45,19 +45,19 @@
     {{- $desc = .Description -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "problema") -}}
-    {{- $desc = printf "Descubre las causas más habituales de %s, cómo comprobar el fallo y qué recambios compatibles pueden ayudarte a solucionarlo." .Title -}}
+    {{- $desc = printf "Descubre las causas mas habituales de %s, como comprobar el fallo y que recambios compatibles pueden ayudarte a solucionarlo." .Title -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
     {{- $desc = printf "Encuentra %s compatibles, consejos para comprobar compatibilidad y recomendaciones para elegir el recambio adecuado." .Title -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
-    {{- $desc = printf "Encuentra recambios compatibles para %s: filtros, baterías, cepillos, cargadores y problemas frecuentes por modelo." .Title -}}
+    {{- $desc = printf "Encuentra recambios compatibles para %s: filtros, baterias, cepillos, cargadores y problemas frecuentes por modelo." .Title -}}
 
   {{- else if and (eq .Type "marcas") .Params.brandKey -}}
-    {{- $desc = printf "Consulta modelos %s con recambios compatibles, filtros, baterías, cepillos y guías para elegir la pieza adecuada." .Title -}}
+    {{- $desc = printf "Consulta modelos %s con recambios compatibles, filtros, baterias, cepillos y guias para elegir la pieza adecuada." .Title -}}
 
   {{- else if eq .Section "guias" -}}
-    {{- $desc = printf "Guía sobre %s para elegir recambios compatibles, mantener el aspirador y evitar errores de compra." .Title -}}
+    {{- $desc = printf "Guia sobre %s para elegir recambios compatibles, mantener el aspirador y evitar errores de compra." .Title -}}
 
   {{- else if .Site.Params.defaultDescription -}}
     {{- $desc = .Site.Params.defaultDescription -}}
@@ -67,10 +67,8 @@
     <meta name="description" content="{{ $desc }}">
   {{- end -}}
 
-  {{- /* Canonical */ -}}
   {{- partial "head/canonical.html" . -}}
 
-  {{/* Robots: respeta front matter si lo usas */}}
   {{- with .Params.robots -}}
     <meta name="robots" content="{{ . }}">
   {{- else -}}
@@ -83,27 +81,22 @@
 
   {{- partial "schema/breadcrumbs.jsonld.html" . -}}
 
-  {{/* FAQ schema solo en layout problema y si hay FAQ */}}
   {{ if eq .Layout "problema" }}
     {{ partial "schema/faq-problema.jsonld.html" . }}
   {{ end }}
 
-  {{- /* =========================================================
-       OPEN GRAPH
-     ========================================================= */ -}}
-<meta property="og:site_name" content="{{ .Site.Title }}">
-{{- $ogType := "website" -}}
-{{- if and .IsPage (not .IsHome) -}}
-  {{- $ogType = "article" -}}
-{{- end -}}
-<meta property="og:type" content="{{ $ogType }}">
-<meta property="og:title" content="{{ $seoTitle }}">
-<meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{- $ogType := "website" -}}
+  {{- if and .IsPage (not .IsHome) -}}
+    {{- $ogType = "article" -}}
+  {{- end -}}
+  <meta property="og:type" content="{{ $ogType }}">
+  <meta property="og:title" content="{{ $seoTitle }}">
+  <meta property="og:url" content="{{ .Permalink }}">
   {{- if $desc -}}
     <meta property="og:description" content="{{ $desc }}">
   {{- end -}}
 
-  {{- /* og:image (opcional) */ -}}
   {{- $ogimg := "" -}}
   {{- with .Params.image -}}
     {{- $ogimg = . -}}
@@ -118,9 +111,6 @@
     <meta property="og:image" content="{{ $ogimg | absURL }}">
   {{- end -}}
 
-  {{- /* =========================================================
-       TWITTER
-     ========================================================= */ -}}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ $seoTitle }}">
   {{- if $desc -}}
@@ -138,7 +128,6 @@
 
   {{- block "head_extra" . }}{{ end -}}
 
-  {{- /* Per-vertical color theme */}}
   {{- $vertKey := .Params.vertical | default "aspiradores" }}
   {{- $allVerts := site.Data.verticals.verticals | default dict }}
   {{- $vconf := index $allVerts $vertKey }}
@@ -150,12 +139,10 @@
 </head>
 
 <body data-vertical="{{ .Params.vertical | default "aspiradores" }}">
-  {{- /* Header por defecto */ -}}
   {{- block "header" . -}}
     {{- partial "header.html" . -}}
   {{- end -}}
 
-  {{- /* Cross-promo bar: show on all pages */}}
   {{- if true }}
   {{- $vertKey := .Params.vertical | default "aspiradores" }}
   {{- $allVerts := site.Data.verticals.verticals | default dict }}
@@ -168,7 +155,7 @@
   {{- if $others }}
   <div class="cross-bar" role="navigation" aria-label="Otros recambios">
     <div class="container" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;">
-      <span style="color:var(--muted);font-size:12px;font-weight:700;white-space:nowrap;letter-spacing:.03em;">TAMBIÉN:</span>
+      <span style="color:var(--muted);font-size:12px;font-weight:700;white-space:nowrap;letter-spacing:.03em;">TAMBIEN:</span>
       {{- range $others }}
         {{- $url := cond (.conf.root | default true) ("/" | relURL) (printf "/%s/" .conf.slug | relURL) }}
         <a href="{{ $url }}" style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;border:1px solid rgba({{ .conf.color_rgb | default "100,100,100" }},.28);background:rgba({{ .conf.color_rgb | default "100,100,100" }},.07);font-weight:600;font-size:12px;color:inherit;text-decoration:none;white-space:nowrap;">{{ .conf.emoji }} {{ .conf.label }}</a>
@@ -182,7 +169,6 @@
     {{ block "main" . }}{{ end }}
   </main>
 
-  {{- /* Footer por defecto */ -}}
   {{- block "footer" . -}}
     {{- partial "footer.html" . -}}
   {{- end -}}
