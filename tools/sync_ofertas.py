@@ -279,17 +279,22 @@ def ali_call_flat(method: str, biz_params: Dict[str, Any], use_cache: bool = Tru
         if cached is not None:
             return cached
 
+    r: Optional[requests.Response] = None
     for _attempt in range(4):
         try:
             r = requests.post(API_URL, data=params, timeout=45)
             r.raise_for_status()
             break
-        except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectionError) as exc:
+        except requests.exceptions.HTTPError:
+            raise
+        except requests.exceptions.RequestException as exc:
             wait = 2 ** (_attempt + 2)  # 4s, 8s, 16s, 32s
-            print(f"  [timeout/conn] intento {_attempt+1}/4 — reintentando en {wait}s ({exc})")
+            print(f"  [request] intento {_attempt+1}/4 - reintentando en {wait}s ({exc})")
             if _attempt == 3:
                 raise
             time.sleep(wait)
+    if r is None:
+        raise RuntimeError(f"No se pudo obtener respuesta de AliExpress para method={method}")
     data = r.json()
 
     if "error_response" in data:
@@ -696,7 +701,11 @@ def pick_relaxed_link(
 
     for lang in ("EN", "ES"):
         for page_no in (1, 2):
-            resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+            try:
+                resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+            except Exception as exc:
+                print(f"  [relaxed-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
+                continue
             prods = extract_products(resp)
             if not prods:
                 continue
@@ -742,7 +751,11 @@ def pick_best_promotion_link(
 
     for lang in ("EN", "ES"):
         for page_no in (1, 2):
-            resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+            try:
+                resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+            except Exception as exc:
+                print(f"  [query-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
+                continue
             prods = extract_products(resp)
             if not prods:
                 continue
@@ -838,6 +851,7 @@ def main() -> None:
     un_orphaned = 0
     changed_urls_to_default = 0
     filled_from_aliexpress = 0
+    failed_skus = 0
     _processed = 0
     SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
