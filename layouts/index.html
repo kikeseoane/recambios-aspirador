@@ -23,14 +23,20 @@
   {{ end }}
   {{ $brandsList = sort $brandsList "brand.name" }}
 
-  <section class="hero hero--bg hero--home">
+  <section class="hero hero--bg hero--home hero--home-upgraded">
     <div class="hero__inner">
-      <div class="hero__kicker">Compra con menos riesgo</div>
+      <div class="hero__kicker">Compra con menos error</div>
       <h1>Encuentra el recambio exacto antes de perder tiempo con piezas que no encajan</h1>
       <p class="muted hero__copy">
-        Filtramos el catalogo por modelo y tipo de pieza para que llegues antes a filtros, baterias,
-        cepillos, cargadores y kits compatibles con tu aspirador.
+        Navega por marca, modelo y tipo de pieza para llegar antes a filtros, baterias, cepillos,
+        cargadores y accesorios compatibles sin comprar a ciegas.
       </p>
+
+      <div class="hero-proofline">
+        <span class="badge hot">Compatibilidad por modelo</span>
+        <span class="badge blue">Checks de encaje y voltaje</span>
+        <span class="badge">Sin frameworks pesados</span>
+      </div>
 
       <div class="hero__links">
         <a class="btn btn--primary" href="{{ "/modelos/" | relURL }}">Buscar por modelo</a>
@@ -38,14 +44,20 @@
         <a class="btn btn--link" href="{{ "/guias/compra/" | relURL }}">Ver checklist de compatibilidad -></a>
       </div>
 
+      <p class="hero-microcopy">Empieza por el modelo exacto. Es la forma mas rapida de recortar errores antes del clic afiliado.</p>
+
       <div class="hero-mini-stats">
         <div class="hero-mini-stat">
           <strong>Compra con menos error</strong>
-          <span>prioriza modelo, encaje y voltaje antes del clic</span>
+          <span>modelo, encaje y voltaje antes del clic</span>
         </div>
         <div class="hero-mini-stat">
           <strong>Decision mas rapida</strong>
-          <span>separamos filtros, baterias, cepillos y cargadores</span>
+          <span>piezas separadas por categoria y problema</span>
+        </div>
+        <div class="hero-mini-stat">
+          <strong>Salida util</strong>
+          <span>busqueda guiada cuando falta ficha cerrada</span>
         </div>
       </div>
 
@@ -65,11 +77,16 @@
       </div>
     </div>
 
-    <div class="hero__aside">
-      <div class="spotlight-card">
-        <div class="kicker">Ruta recomendada</div>
-        <h3>Empieza por el modelo exacto</h3>
-        <p class="muted">Si coinciden modelo, conector y formato de pieza, el porcentaje de error baja de forma clara.</p>
+    <div class="hero__aside hero__aside--visual">
+      <div class="hero-visual-card">
+        <div class="hero-visual-card__top">
+          <div>
+            <div class="kicker">Ruta recomendada</div>
+            <h3>Modelo exacto -> categoria -> validacion final</h3>
+          </div>
+          <span class="badge hot">Ruta CRO</span>
+        </div>
+        <img class="hero-visual-art" src="{{ "/img/placeholders/hero-compatibility.svg" | relURL }}" alt="Esquema visual de compatibilidad entre modelo, pieza y verificacion" loading="eager" width="640" height="420">
         <div class="spotlight-list">
           <span class="badge hot">1. Busca tu modelo</span>
           <span class="badge hot">2. Abre la categoria</span>
@@ -77,161 +94,230 @@
         </div>
       </div>
 
-      <div class="spotlight-card spotlight-card--soft">
-        <div class="kicker">Categorias mas buscadas</div>
-        <div class="quick-pills">
-          {{ range first 5 $cats }}
-            <span class="chip">{{ .label }}</span>
-          {{ end }}
+      <div class="hero-stack-grid">
+        <div class="spotlight-card">
+          <div class="kicker">Categorias mas buscadas</div>
+          <div class="quick-pills">
+            {{ range first 5 $cats }}
+              <span class="chip">{{ .label }}</span>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="spotlight-card spotlight-card--soft">
+          <div class="kicker">Confianza</div>
+          <p class="muted">Comparas pieza, conector y tipo de fallo antes de salir al vendedor.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="home-proof">
-    <article class="home-proof__item">
-      <div class="kicker">Senal fuerte</div>
-      <h3>Primero modelo exacto, luego pieza</h3>
-      <p class="muted">El sitio ya no empuja a comprar a ciegas. La ruta principal prioriza compatibilidad antes que catalogo bruto.</p>
-    </article>
-    <article class="home-proof__item">
-      <div class="kicker">Ruta comercial</div>
-      <h3>Salida util aunque falte ficha cerrada</h3>
-      <p class="muted">Cuando no existe match exacto, el usuario sigue teniendo una busqueda guiada en lugar de un callejon sin salida.</p>
-    </article>
-    <article class="home-proof__item">
-      <div class="kicker">Defensa SEO</div>
-      <h3>Menos basura, mas paginas con senal real</h3>
-      <p class="muted">El generador ya empieza a cortar modelos y problemas flojos para no inflar el sitio con URLs debiles.</p>
-    </article>
-  </section>
-
-  <section class="feature-strip">
-    <article class="feature-strip__item">
-      <div class="kicker">Paso 1</div>
-      <h3>Busca tu modelo exacto</h3>
-      <p class="muted">Evita comprar por intuicion. El modelo es la referencia que mas reduce errores.</p>
-    </article>
-    <article class="feature-strip__item">
-      <div class="kicker">Paso 2</div>
-      <h3>Compara la categoria correcta</h3>
-      <p class="muted">Cada ficha separa baterias, filtros, cepillos, cargadores y accesorios para decidir mas rapido.</p>
-    </article>
-    <article class="feature-strip__item">
-      <div class="kicker">Paso 3</div>
-      <h3>Compra con contexto</h3>
-      <p class="muted">Anadimos guias y checks basicos para revisar encaje, voltaje y variantes antes de pagar.</p>
-    </article>
-  </section>
-
-  <div class="section-head">
-    <h2>Marcas principales</h2>
-    <span class="chip">{{ len $brands }} marcas</span>
-  </div>
-
-  {{ if not $brands }}
-    <div class="card" style="margin-top:18px;">
-      <h3>Catalogo en preparacion</h3>
-      <p class="muted">Aun no hay marcas cargadas en el catalogo.</p>
+  <section class="trust-strip">
+    <div class="trust-strip__item">
+      <strong>Compatibilidad guiada</strong>
+      <span>modelo, serie, encaje y voltaje visibles</span>
     </div>
-  {{ else }}
-    <div class="grid cards" style="margin-top:18px;">
-      {{ range $brandsList }}
-        {{ $k := .key }}
-        {{ $b := .brand }}
-        {{ $slug := $k | urlize }}
+    <div class="trust-strip__item">
+      <strong>Diagnostico previo</strong>
+      <span>problema -> checks -> pieza probable</span>
+    </div>
+    <div class="trust-strip__item">
+      <strong>Enlaces verificados</strong>
+      <span>salida comercial con contexto, no CTA ciego</span>
+    </div>
+  </section>
 
-        {{ $hasRobot := false }}
-        {{ $hasStick := false }}
-        {{ range $b.models }}
-          {{ $pack := index . "sku_pack" | default "" }}
-          {{ if eq $pack "robot10" }}{{ $hasRobot = true }}{{ end }}
-          {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
-        {{ end }}
-        {{ $typeText := "aspiradores" }}
-        {{ if and $hasRobot $hasStick }}{{ $typeText = "robots y aspiradores sin cable" }}
-        {{ else if $hasRobot }}{{ $typeText = "robots aspiradores" }}
-        {{ else if $hasStick }}{{ $typeText = "aspiradores sin cable" }}
-        {{ end }}
+  <section class="home-section home-section--soft">
+    <div class="section-head">
+      <h2>Marcas principales</h2>
+      <span class="chip">{{ len $brands }} marcas</span>
+    </div>
 
-        <a class="card card--with-icon" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
-          {{ partial "card_icon.html" (dict "kind" "brand") }}
-          <div class="card-body">
-            <h3>{{ $b.name }}</h3>
-            <p class="muted">Accede a recambios compatibles para {{ $typeText }} {{ $b.name }} y entra en la ficha del modelo para ver piezas y checks de compra.</p>
-            <div class="badges">
-              <span class="badge hot">{{ len $b.models }} modelos</span>
-              {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+    {{ if not $brands }}
+      <div class="card" style="margin-top:18px;">
+        <h3>Catalogo en preparacion</h3>
+        <p class="muted">Aun no hay marcas cargadas en el catalogo.</p>
+      </div>
+    {{ else }}
+      <div class="grid cards cards--brands" style="margin-top:18px;">
+        {{ range $brandsList }}
+          {{ $k := .key }}
+          {{ $b := .brand }}
+          {{ $slug := $k | urlize }}
+
+          {{ $hasRobot := false }}
+          {{ $hasStick := false }}
+          {{ range $b.models }}
+            {{ $pack := index . "sku_pack" | default "" }}
+            {{ if eq $pack "robot10" }}{{ $hasRobot = true }}{{ end }}
+            {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
+          {{ end }}
+          {{ $typeText := "aspiradores" }}
+          {{ if and $hasRobot $hasStick }}{{ $typeText = "robots y aspiradores sin cable" }}
+          {{ else if $hasRobot }}{{ $typeText = "robots aspiradores" }}
+          {{ else if $hasStick }}{{ $typeText = "aspiradores sin cable" }}
+          {{ end }}
+
+          <a class="card card--with-icon card--brand" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+            {{ partial "card_icon.html" (dict "kind" "brand") }}
+            <div class="card-body">
+              <div class="card-eyebrow">Marca</div>
+              <h3>{{ $b.name }}</h3>
+              <p class="muted">Accede a recambios compatibles para {{ $typeText }} {{ $b.name }} y entra en la ficha del modelo para validar la compra.</p>
+              <div class="badges">
+                <span class="badge hot">{{ len $b.models }} modelos</span>
+                {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
             </div>
-          </div>
-        </a>
+            <span class="card-arrow">-></span>
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+
+  <section class="home-section home-section--contrast">
+    <div class="section-head">
+      <h2>Explora por necesidad</h2>
+      <span class="chip">Categorias mas buscadas</span>
+    </div>
+
+    <div class="intent-grid intent-grid--featured">
+      {{ range first 6 $cats }}
+        <article class="intent-card intent-card--feature">
+          <div class="kicker">{{ .buy_intent | default "compra" }}</div>
+          <h3>{{ .label }}</h3>
+          <p class="muted">Encuentra modelos con {{ lower .label }} compatibles y revisa la ficha antes de salir a comprar.</p>
+          <div class="badges"><span class="badge blue">Verificacion por modelo</span></div>
+        </article>
       {{ end }}
     </div>
-  {{ end }}
+  </section>
 
-  <div class="section-head" style="margin-top:18px;">
-    <h2>Atajos que retienen mejor</h2>
-    <span class="chip">Menos rebote, mas contexto</span>
-  </div>
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Como acertar con el recambio</h2>
+      <span class="chip">Proceso recomendado</span>
+    </div>
 
-  <div class="grid cards cards--wide">
-    <a class="card card--spotlight" href="{{ "/guias/compra/" | relURL }}">
-      <div class="card--with-icon">
-        <div class="card-icon-wrap">
-          <img src="{{ "/img/icons/cargador.svg" | relURL }}" alt="" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>Checklist antes de comprar</h3>
-          <p class="muted">Encaje, voltaje, conectores, variantes y senales para descartar anuncios dudosos.</p>
-          <div class="badges"><span class="badge blue">Guia clave</span></div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="{{ "/guias/mantenimiento/" | relURL }}">
-      <div class="card--with-icon">
-        <div class="card-icon-wrap">
-          <img src="{{ "/img/icons/cepillo.svg" | relURL }}" alt="" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>Mantenimiento que evita averias</h3>
-          <p class="muted">Filtros, rodillos y obstrucciones: lo primero que conviene revisar antes de sustituir piezas.</p>
-          <div class="badges"><span class="badge blue">Guia</span></div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="{{ "/guias/seguridad/" | relURL }}">
-      <div class="card--with-icon">
-        <div class="card-icon-wrap">
-          <img src="{{ "/img/icons/bateria.svg" | relURL }}" alt="" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>Seguridad al manipular recambios</h3>
-          <p class="muted">Pautas basicas antes de tocar baterias, fuentes de alimentacion o piezas con desgaste.</p>
-          <div class="badges"><span class="badge blue">Guia</span></div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="section-head" style="margin-top:22px;">
-    <h2>Explora por necesidad</h2>
-    <span class="chip">Navegacion rapida</span>
-  </div>
-
-  <div class="intent-grid">
-    {{ range first 6 $cats }}
-      <article class="intent-card">
-        <div class="kicker">{{ .buy_intent | default "compra" }}</div>
-        <h3>{{ .label }}</h3>
-        <p class="muted">Encuentra modelos con {{ lower .label }} compatibles y revisa la ficha antes de salir a comprar.</p>
+    <section class="feature-strip feature-strip--upgraded">
+      <article class="feature-strip__item">
+        <div class="kicker">Paso 1</div>
+        <h3>Busca tu modelo exacto</h3>
+        <p class="muted">Evita comprar por intuicion. El modelo es la referencia que mas reduce errores.</p>
       </article>
-    {{ end }}
-  </div>
+      <article class="feature-strip__item">
+        <div class="kicker">Paso 2</div>
+        <h3>Compara la categoria correcta</h3>
+        <p class="muted">Cada ficha separa baterias, filtros, cepillos, cargadores y accesorios para decidir mas rapido.</p>
+      </article>
+      <article class="feature-strip__item">
+        <div class="kicker">Paso 3</div>
+        <h3>Valida antes de pagar</h3>
+        <p class="muted">Encaje, voltaje, conector y variante exacta antes de salir al vendedor.</p>
+      </article>
+    </section>
 
-  <div class="section-head" style="margin-top:22px;">
-    <h2>Buscas otros recambios?</h2>
-  </div>
-  {{ partial "cross_promo.html" (dict "currentVertical" "aspiradores") }}
+    <div class="home-proof home-proof--dense">
+      <article class="home-proof__item">
+        <div class="kicker">Senal fuerte</div>
+        <h3>Primero modelo exacto, luego pieza</h3>
+        <p class="muted">La ruta principal prioriza compatibilidad antes que catalogo bruto.</p>
+      </article>
+      <article class="home-proof__item">
+        <div class="kicker">Ruta comercial</div>
+        <h3>Salida util aunque falte ficha cerrada</h3>
+        <p class="muted">Cuando no existe match exacto, el usuario sigue teniendo busqueda guiada.</p>
+      </article>
+      <article class="home-proof__item">
+        <div class="kicker">Defensa SEO</div>
+        <h3>Menos basura, mas paginas con senal real</h3>
+        <p class="muted">El generador ya empieza a cortar modelos y problemas flojos.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-section home-section--soft">
+    <div class="section-head">
+      <h2>Guias y checklists que retienen mejor</h2>
+      <span class="chip">Menos rebote, mas contexto</span>
+    </div>
+
+    <div class="grid cards cards--wide">
+      <a class="card card--spotlight card--guide" href="{{ "/guias/compra/" | relURL }}">
+        <div class="card--with-icon">
+          <div class="card-icon-wrap">
+            <img src="{{ "/img/icons/cargador.svg" | relURL }}" alt="" loading="lazy" width="28" height="28">
+          </div>
+          <div class="card-body">
+            <div class="card-eyebrow">Guia clave</div>
+            <h3>Checklist antes de comprar</h3>
+            <p class="muted">Encaje, voltaje, conectores, variantes y senales para descartar anuncios dudosos.</p>
+            <div class="badges"><span class="badge blue">Reducir error</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="card card--guide" href="{{ "/guias/mantenimiento/" | relURL }}">
+        <div class="card--with-icon">
+          <div class="card-icon-wrap">
+            <img src="{{ "/img/icons/cepillo.svg" | relURL }}" alt="" loading="lazy" width="28" height="28">
+          </div>
+          <div class="card-body">
+            <div class="card-eyebrow">Guia</div>
+            <h3>Mantenimiento que evita averias</h3>
+            <p class="muted">Filtros, rodillos y obstrucciones: lo primero que conviene revisar antes de sustituir piezas.</p>
+            <div class="badges"><span class="badge blue">Prevencion</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="card card--guide" href="{{ "/guias/seguridad/" | relURL }}">
+        <div class="card--with-icon">
+          <div class="card-icon-wrap">
+            <img src="{{ "/img/icons/bateria.svg" | relURL }}" alt="" loading="lazy" width="28" height="28">
+          </div>
+          <div class="card-body">
+            <div class="card-eyebrow">Guia</div>
+            <h3>Seguridad al manipular recambios</h3>
+            <p class="muted">Pautas basicas antes de tocar baterias, fuentes de alimentacion o piezas con desgaste.</p>
+            <div class="badges"><span class="badge blue">Seguridad</span></div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-section home-section--contrast">
+    <div class="section-head">
+      <h2>Senales de confianza</h2>
+      <span class="chip">Compatibilidad y verificacion</span>
+    </div>
+
+    <div class="trust-grid">
+      <article class="trust-card">
+        <div class="kicker">Compatibilidad</div>
+        <h3>Modelo y variante antes de comprar</h3>
+        <p class="muted">Las fichas empujan a validar submodelo, serie y tipo de pieza antes del clic saliente.</p>
+      </article>
+      <article class="trust-card">
+        <div class="kicker">Electrica</div>
+        <h3>Voltaje, conector y capacidad visibles</h3>
+        <p class="muted">Baterias y cargadores ya tienen microcopy de validacion para reducir compras fallidas.</p>
+      </article>
+      <article class="trust-card">
+        <div class="kicker">Ruta guiada</div>
+        <h3>Problema -> checks -> pieza probable</h3>
+        <p class="muted">No se empuja a comprar directamente si antes toca diagnosticar el fallo real.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Buscas otros recambios?</h2>
+      <span class="chip">Cross-links de nicho</span>
+    </div>
+    {{ partial "cross_promo.html" (dict "currentVertical" "aspiradores") }}
+  </section>
 {{ end }}
