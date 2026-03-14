@@ -1,8 +1,21 @@
-﻿{{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ if .Content }}
-    {{ .Content }}
-  {{ else }}
-    <p class="muted">Página sin contenido.</p>
-  {{ end }}
+{{ define "main" }}
+  <section class="hero hero--bg hero--compact hero--editorial">
+    <div class="hero__inner">
+      <div class="hero__kicker">Informacion</div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="hero__copy">{{ . }}</p>
+      {{ else }}
+        <p class="hero__copy">Informacion de soporte y contexto sobre el proyecto, su funcionamiento y las condiciones de uso del sitio.</p>
+      {{ end }}
+    </div>
+  </section>
+
+  <article class="article article--legal">
+    {{ if .Content }}
+      {{ .Content }}
+    {{ else }}
+      <p class="muted">Pagina sin contenido.</p>
+    {{ end }}
+  </article>
 {{ end }}

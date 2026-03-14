@@ -862,6 +862,24 @@ hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
 .article p, .article li { font-size: 16px; line-height: 1.7; }
 .article ul { padding-left: 20px; }
 .article li { margin: 10px 0; }
+.article--legal {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.97), rgba(255,248,240,.97));
+}
+
+.article--legal::before {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  border-radius: calc(var(--radius-lg) - 6px);
+  border: 1px solid rgba(var(--primary-rgb), .08);
+  pointer-events: none;
+}
+
+.article--legal > * {
+  position: relative;
+}
 @media (max-width: 720px) { .article { padding: 18px 16px; } }
 
 /* ----------------------------------------------------------------
