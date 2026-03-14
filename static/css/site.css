@@ -97,6 +97,12 @@ p  { line-height: 1.65; }
   padding-block: 10px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -148,6 +154,24 @@ p  { line-height: 1.65; }
   gap: 4px;
 }
 
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--primary-rgb), .2);
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), .09), rgba(255,255,255,.92));
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-cta:hover {
+  border-color: rgba(var(--primary-rgb), .32);
+}
+
 .nav a {
   color: var(--muted);
   font-weight: 600;
@@ -161,7 +185,9 @@ p  { line-height: 1.65; }
 @media (max-width: 720px) {
   .header-inner { flex-direction: column; align-items: stretch; gap: 8px; }
   .brand { justify-content: flex-start; }
+  .header-actions { flex-direction: column; align-items: stretch; }
   .nav { justify-content: space-between; }
+  .header-cta { width: 100%; }
   .nav a {
     flex: 1;
     text-align: center;
@@ -845,15 +871,46 @@ hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
   margin-top: 48px;
   padding: 28px 0;
   border-top: 1px solid var(--border);
-  background: var(--surface);
+  background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,247,239,.94));
   font-size: 14px;
   color: var(--muted);
 }
 
-.site-footer .legal { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.footer-kicker {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.footer-title {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--fg);
+}
+
+.site-footer .legal {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
 .site-footer .legal a { color: var(--muted); }
 .site-footer .legal a:hover { color: var(--fg); }
 .site-footer .affiliate-note { margin-top: 10px; font-size: 12px; opacity: .75; }
+
+.footer-meta p + p {
+  margin-top: 8px;
+}
 
 /* ----------------------------------------------------------------
    Misc helpers
@@ -880,5 +937,9 @@ hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
   .pagination ul {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 }

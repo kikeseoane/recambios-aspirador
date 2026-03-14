@@ -1,20 +1,25 @@
 <footer class="site-footer">
-  <div class="container">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p class="footer-kicker">Compra con menos error</p>
+      <p class="footer-title">{{ .Site.Title }}</p>
+      <p class="affiliate-note">
+        Informacion orientada a compatibilidad, mantenimiento y diagnostico de recambios por modelo.
+      </p>
+    </div>
 
-    <p>
-      © {{ now.Year }} {{ .Site.Title }}
-    </p>
-
-    <nav class="legal">
+    <nav class="legal" aria-label="Enlaces legales">
       <a href="/aviso-legal/">Aviso legal</a>
       <a href="/privacidad/">Privacidad</a>
       <a href="/afiliados/">Afiliados</a>
       <a href="/sobre/">Sobre esta web</a>
     </nav>
 
-    <p class="affiliate-note">
-      Esta web contiene enlaces de afiliado. Podemos recibir una comisión si realizas una compra.
-    </p>
-
+    <div class="footer-meta">
+      <p>© {{ now.Year }} {{ .Site.Title }}</p>
+      <p class="affiliate-note">
+        Esta web contiene enlaces de afiliado. Podemos recibir una comision si realizas una compra.
+      </p>
+    </div>
   </div>
 </footer>

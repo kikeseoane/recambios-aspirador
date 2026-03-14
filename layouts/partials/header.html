@@ -2,8 +2,8 @@
 {{ $allVerts := site.Data.verticals.verticals | default dict }}
 {{ $vconf := index $allVerts $vertKey }}
 {{ $siteName := $vconf.site_name | default "Recambios Aspirador" }}
-{{ $tagline := $vconf.tagline | default "Marketplace de recambios" }}
-{{ $emoji := $vconf.emoji | default "🧩" }}
+{{ $tagline := $vconf.tagline | default "Recambios compatibles por modelo" }}
+{{ $emoji := $vconf.emoji | default "*" }}
 {{ $isRoot := $vconf.root | default true }}
 {{ $homeURL := cond $isRoot "/" (printf "/%s/" $vconf.slug) | relURL }}
 {{ $marcasURL := cond $isRoot "/marcas/" (printf "/%s/marcas/" $vconf.slug) | relURL }}
@@ -20,14 +20,14 @@
       </span>
     </a>
 
-    <div style="display:flex;align-items:center;gap:10px;">
-      <a href="{{ $modelosURL }}" aria-label="Buscar modelo" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:14px;color:var(--muted);text-decoration:none;">
-        <span>Buscar modelo</span>
+    <div class="header-actions">
+      <a href="{{ $modelosURL }}" class="header-cta" aria-label="Buscar por modelo">
+        Buscar modelo
       </a>
-      <nav class="nav" aria-label="Navegación principal">
+      <nav class="nav" aria-label="Navegacion principal">
         <a href="{{ $marcasURL }}">Marcas</a>
         <a href="{{ $modelosURL }}">Modelos</a>
-        <a href="{{ $guiasURL }}">Guías</a>
+        <a href="{{ $guiasURL }}">Guias</a>
       </nav>
     </div>
   </div>
