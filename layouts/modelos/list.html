@@ -321,7 +321,7 @@
                     {{ $shown := 0 }}
                     {{ range $idx, $it := $items }}
                       {{ if lt $shown 2 }}
-                        <div class="product">
+                        <div class="product{{ if eq $shown 0 }} product--featured{{ end }}">
                           <div class="img">{{ partial "cat_icon.html" (dict "catKey" ($catKey | urlize)) }}</div>
                           <div class="body">
                             <div class="product-meta">

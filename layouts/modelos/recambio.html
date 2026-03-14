@@ -176,7 +176,7 @@
       {{ $shown := 0 }}
       {{ range $idx, $it := $items }}
         {{ if lt $shown 3 }}
-          <div class="product">
+          <div class="product{{ if eq $shown 0 }} product--featured{{ end }}">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
@@ -209,7 +209,7 @@
       <h2>Recambios disponibles</h2>
       <div class="products">
         {{ range $idx, $it := $items }}
-          <div class="product">
+          <div class="product{{ if eq $idx 0 }} product--featured{{ end }}">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
