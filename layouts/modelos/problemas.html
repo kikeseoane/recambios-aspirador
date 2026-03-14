@@ -4,7 +4,6 @@
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
-  {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brandKey := .Params.brandKey }}
   {{ $modelSlug := .Params.modelSlug | urlize }}
 
@@ -39,8 +38,7 @@
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
-        <a class="btn btn--link" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Guia de mantenimiento</a>
-        <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+        <a class="btn btn--link" href="#problemas-listado">Ver problemas</a>
       </div>
 
       <div class="hero-mini-stats">
@@ -69,7 +67,7 @@
 
   {{ $probs := index $model "problemas" }}
   {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
-    <div class="grid cards">
+    <div id="problemas-listado" class="grid cards">
       {{ range $p := $probs }}
         {{ $pkey := (index $p "key") | urlize }}
         {{ $ptitle := (index $p "title") | default $pkey }}

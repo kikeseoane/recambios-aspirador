@@ -18,7 +18,6 @@ Input: dict
 {{ $verticalKey := .verticalKey | default "aspiradores" }}
 {{ $vurls := partial "vertical_urls.html" $verticalKey }}
 {{ $modBase := $vurls.modBase }}
-{{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
 
 {{ if not (and $db $brandKey $modelSlug) }}
   {{ return }}
@@ -90,14 +89,5 @@ Input: dict
       </section>
     {{ end }}
 
-    <section class="crosslink-card">
-      <div class="kicker">Guias utiles</div>
-      <p class="muted small">Bloques de ayuda para revisar encaje, voltaje, mantenimiento y seguridad.</p>
-      <div class="chips" style="margin-top:10px;">
-        <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
-        <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
-        <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
-      </div>
-    </section>
   </div>
 {{ if $wrap }}</div>{{ end }}

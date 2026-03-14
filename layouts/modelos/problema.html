@@ -5,7 +5,6 @@
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
-  {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brands := $db.brands }}
 
   {{ $brandKey := .Params.brandKey | default "" }}
@@ -72,7 +71,7 @@
   {{ if not (len $p) }}
     {{ .Scratch.Set "noindex" true }}
     <h1>Problema en preparacion</h1>
-    <p class="muted">Aun no tenemos esta guia de diagnostico.</p>
+    <p class="muted">Aun no tenemos este diagnostico disponible.</p>
     <div class="chips" style="margin-top:12px;">
       <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
       <a class="chip" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver problemas del modelo</a>
@@ -102,8 +101,7 @@
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
         <a class="btn btn--link" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver todos los problemas</a>
-        <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
-        <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+        {{ if $catKey }}<a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">Ir al recambio</a>{{ end }}
       </div>
 
       <div class="hero-mini-stats">

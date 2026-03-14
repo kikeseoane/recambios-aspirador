@@ -235,9 +235,8 @@
             <div class="hero__links">
               {{ with (index $model "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
               {{ with (index $model "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
-              <a class="btn btn--ghost" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
-              <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
-              <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+              <a class="btn btn--ghost" href="#recambios-destacados">Ver recambios</a>
+              {{ if $hasProblemas }}<a class="btn btn--ghost" href="#problemas-frecuentes">Ver problemas</a>{{ end }}
             </div>
 
             <div class="hero-stats hero-stats--compact">
@@ -262,7 +261,6 @@
           <a class="chip" href="#recambios-destacados">Recambios</a>
           {{ if $hasProblemas }}<a class="chip" href="#problemas-frecuentes">Problemas</a>{{ end }}
           <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
-          <a class="chip" href="#guias-utiles">Guias</a>
         </div>
 
         {{ partial "compatibility_guard.html" (dict
@@ -459,40 +457,7 @@
               </ul>
             </div>
 
-            {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
-
-            <div class="panel panel--dashed">
-              {{ if $compra }}
-                {{ if reflect.IsSlice $compra }}
-                  <div class="kicker">Como elegir recambio compatible</div>
-                  <ul class="small">
-                    {{ range $compra }}<li>{{ . }}</li>{{ end }}
-                  </ul>
-                {{ else if reflect.IsMap $compra }}
-                  {{ with (index $compra "title") }}<div class="kicker">{{ . }}</div>{{ end }}
-                  {{ $bullets := index $compra "bullets" }}
-                  {{ if $bullets }}
-                    {{ if reflect.IsSlice $bullets }}
-                      <ul class="small">
-                        {{ range $bullets }}<li>{{ . }}</li>{{ end }}
-                      </ul>
-                    {{ else }}
-                      <p class="muted small">{{ $bullets }}</p>
-                    {{ end }}
-                  {{ else }}
-                    <p class="muted small">Revisa modelo exacto, encajes y politica de devolucion.</p>
-                  {{ end }}
-                {{ else }}
-                  <div class="kicker">Como elegir recambio compatible</div>
-                  <p class="muted small">Revisa modelo exacto, encajes y politica de devolucion.</p>
-                {{ end }}
-              {{ else }}
-                <div class="kicker">Como elegir recambio compatible</div>
-                <p class="muted small">Revisa modelo exacto, encajes y politica de devolucion.</p>
-              {{ end }}
-            </div>
-
-            <div id="guias-utiles" class="sidebar-block">
+            <div class="sidebar-block">
               <div class="kicker">Atajos</div>
               <div class="chips">
                 <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Mas marcas</a>
