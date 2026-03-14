@@ -364,7 +364,7 @@
               <h2 style="margin-top:0;">Problemas frecuentes</h2>
               <p class="muted small">Solo si el recambio principal no encaja con tu caso.</p>
 
-              <div class="grid cards">
+              <div class="grid cards cards--support">
                 {{ range $p := $probs }}
                   {{ $pkey := (index $p "key") | urlize }}
                   {{ $ptitle := (index $p "title") | default $pkey }}
@@ -400,7 +400,7 @@
                   {{ range $probs2 }}
                     {{ $pkey := (index . "key") | urlize }}
                     {{ $ptitle := index . "title" | default $pkey }}
-                    <div class="panel" style="padding:16px;">
+                    <div class="panel panel--support" style="padding:16px;">
                       <div class="badge warn" style="margin-bottom:8px;">Problema frecuente</div>
                       <h3 style="margin:0 0 10px;">{{ $ptitle }}</h3>
 
@@ -421,7 +421,7 @@
                       {{ end }}
 
                       {{ if $pkey }}
-                        <a class="chip" style="margin-top:8px;font-size:12px;" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico</a>
+                        <a class="section-link" style="display:inline-block;margin-top:8px;" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico</a>
                       {{ end }}
                     </div>
                   {{ end }}
@@ -431,7 +431,7 @@
                   {{ range $probs2 }}
                     {{ $pkey := (index . "key") | urlize }}
                     {{ $ptitle := index . "title" | default $pkey }}
-                    <a class="chip" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">{{ $ptitle }}</a>
+                    <a class="section-link" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">{{ $ptitle }}</a>
                   {{ end }}
                 </div>
               {{ end }}
