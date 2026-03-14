@@ -49,7 +49,7 @@
     <h1>Problema en preparacion</h1>
     <p class="muted">No encontramos el modelo en el catalogo.</p>
     <div class="chips" style="margin-top:12px;">
-      <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
+      <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
       <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
     </div>
     {{ return }}
@@ -74,37 +74,67 @@
     <h1>Problema en preparacion</h1>
     <p class="muted">Aun no tenemos esta guia de diagnostico.</p>
     <div class="chips" style="margin-top:12px;">
-      <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">← Volver al modelo</a>
+      <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
       <a class="chip" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver problemas del modelo</a>
-      <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">Mas modelos {{ $brand.name }}</a>
+      <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Mas modelos {{ $brand.name }}</a>
     </div>
     {{ return }}
   {{ end }}
 
   {{ $ptitle := (index $p "title") | default .Title }}
+  {{ $catKey := (index $p "cta_cat") | default "" | urlize }}
 
   <div class="breadcrumbs">
-    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-    <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
-    <a href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
-    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">›</span>
-    <a href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Problemas</a><span class="sep">›</span>
+    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
+    <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Problemas</a><span class="sep">></span>
     <span>{{ $ptitle }}</span>
   </div>
 
-  <div class="hero hero--bg hero--compact" style="margin-top:10px;">
+  <div class="hero hero--bg hero--compact hero--editorial" style="margin-top:10px;">
     <div class="hero__inner">
       <div class="hero__kicker">Problema</div>
       <h1>{{ $ptitle }}</h1>
       {{ with (index $p "intro") }}<p class="muted hero__copy">{{ . }}</p>{{ end }}
 
       <div class="hero__links">
-        <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">← Volver al modelo</a>
-        <a class="chip" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver todos los problemas</a>
-        <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
-        <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+        <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
+        <a class="btn btn--link" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver todos los problemas</a>
+        <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+        <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+      </div>
+
+      <div class="hero-mini-stats">
+        <div class="hero-mini-stat">
+          <strong>Diagnostico guiado</strong>
+          <span>sintomas, checks y salida a pieza probable</span>
+        </div>
+        <div class="hero-mini-stat">
+          <strong>Sin salto ciego</strong>
+          <span>la recomendacion comercial se apoya en contexto util</span>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="grid cards cards--wide" style="margin-top:14px;">
+    <article class="card">
+      <div class="kicker">Paso 1</div>
+      <h3>Descarta lo basico</h3>
+      <p class="muted">Antes de comprar nada, revisa filtro, deposito, obstrucciones y puntos de encaje visibles.</p>
+    </article>
+    <article class="card">
+      <div class="kicker">Paso 2</div>
+      <h3>Haz una prueba cada vez</h3>
+      <p class="muted">Aislar una variable reduce falsas conclusiones y evita comprar la pieza equivocada.</p>
+    </article>
+    <article class="card">
+      <div class="kicker">Paso 3</div>
+      <h3>Valida compatibilidad al final</h3>
+      <p class="muted">Cuando llegues al recambio, toca confirmar modelo, serie, medidas y conectores reales.</p>
+    </article>
   </div>
 
   <div class="two-col" style="margin-top:12px;">
@@ -162,11 +192,17 @@
     <aside class="panel">
       <h2 style="margin-top:0;">Recambio recomendado</h2>
 
-      {{ $catKey := (index $p "cta_cat") | default "" | urlize }}
       {{ $label := "Ver recambios compatibles" }}
 
       {{ if $catKey }}
-        <a class="btn-buy" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">{{ $label }}</a>
+        <div class="checklist-card">
+          <div class="kicker">Salida sugerida</div>
+          <p class="muted small">La pieza probable no sustituye el diagnostico. Usala despues de pasar los checks anteriores.</p>
+        </div>
+
+        <div style="margin-top:12px;">
+          <a class="btn-buy" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">{{ $label }}</a>
+        </div>
         <p class="muted small" style="margin-top:10px;">Verifica encaje, conector y especificaciones antes de comprar.</p>
 
         {{ $rec := index $model "recambios" }}

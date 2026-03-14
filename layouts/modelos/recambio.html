@@ -32,7 +32,7 @@
     {{ .Scratch.Set "noindex" true }}
     <h1>Modelo en preparacion</h1>
     <p class="muted">No encontramos el modelo en el catalogo.</p>
-    <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
+    <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
     {{ return }}
   {{ end }}
 
@@ -103,32 +103,61 @@
   {{ end }}
 
   <div class="breadcrumbs">
-    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-    <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
-    <a href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
-    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">›</span>
+    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
+    <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
     <span>{{ $catLabel }}</span>
   </div>
 
-  <div class="hero hero--bg hero--compact" style="margin-top:10px;">
+  <div class="hero hero--bg hero--compact hero--editorial" style="margin-top:10px;">
     <div class="hero__inner">
       <div class="hero__kicker">Recambios</div>
       <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
-      <p class="muted">{{ $catIntro1 }}</p>
-      <p class="muted">{{ $catIntro2 }}</p>
+      <p class="muted hero__copy">{{ $catIntro1 }}</p>
+      <p class="muted hero__copy">{{ $catIntro2 }}</p>
 
-      <div class="chips">
-        <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">← Volver al modelo</a>
-        <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Guia: como elegir recambio</a>
-        <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+      <div class="hero__links">
+        <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
+        <a class="btn btn--link" href="{{ (print $guiasBase "/compra/") | relURL }}">Guia: como elegir recambio</a>
+        <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+      </div>
+
+      <div class="hero-mini-stats">
+        <div class="hero-mini-stat">
+          <strong>{{ len $items }} opciones</strong>
+          <span>catalogadas para esta categoria</span>
+        </div>
+        <div class="hero-mini-stat">
+          <strong>Modelo primero</strong>
+          <span>reduce errores de compatibilidad antes del clic</span>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="grid cards cards--wide" style="margin-top:14px;">
+    <article class="card">
+      <div class="kicker">Check 1</div>
+      <h3>Confirma variante y serie</h3>
+      <p class="muted">No compres solo por nombre comercial. Prioriza submodelo, revision y foto real del encaje.</p>
+    </article>
+    <article class="card">
+      <div class="kicker">Check 2</div>
+      <h3>Revisa voltaje, medidas o conector</h3>
+      <p class="muted">La categoria correcta no garantiza compatibilidad total. Falta validar la ficha tecnica.</p>
+    </article>
+    <article class="card">
+      <div class="kicker">Check 3</div>
+      <h3>Compra con salida util</h3>
+      <p class="muted">Si no hay producto exacto cerrado, la pagina ya ofrece busqueda guiada en vez de un CTA muerto.</p>
+    </article>
   </div>
 
   <div class="panel" style="margin-top:14px;">
     <h2 style="margin-top:0;">Opciones populares</h2>
     <p class="muted small">
-      Seleccion rapida de {{ $catLabel | lower }} para {{ $mtitle }} con mejor encaje tipico y compra mas directa.
+      Seleccion rapida de {{ $catLabel | lower }} para {{ $mtitle }} con mejor encaje tipico y salida de compra mas directa.
     </p>
 
     <div class="products" style="margin-top:10px;">
@@ -156,10 +185,10 @@
 
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
-      <h2 style="margin-top:0;">Como acertar al 100% con este recambio</h2>
+      <h2 style="margin-top:0;">Como acertar al comprar este recambio</h2>
       <ul class="list">
         <li><strong>Confirma el modelo exacto</strong>: serie, submodelo y referencias del fabricante.</li>
-        <li><strong>Comprueba encaje y conectores</strong>: pestañas, pines, forma del conector y polaridad cuando aplique.</li>
+        <li><strong>Comprueba encaje y conectores</strong>: pestanas, pines, forma del conector y polaridad cuando aplique.</li>
         <li><strong>Revisa especificaciones</strong>: voltaje, capacidad, medidas, material o tipo de filtro segun la pieza.</li>
         <li><strong>Compara fotos reales</strong> del recambio y prioriza las opciones que indiquen compatibilidad explicita con {{ $mtitle }}.</li>
       </ul>
@@ -191,7 +220,19 @@
     </div>
 
     <aside class="panel">
-      <h2 style="margin-top:0;">¿Que recambio necesito realmente?</h2>
+      <h2 style="margin-top:0;">Antes de salir a comprar</h2>
+      <div class="checklist-card">
+        <div class="kicker">Decision rapida</div>
+        <ul class="list small">
+          <li>Confirma si el fallo real apunta a esta pieza.</li>
+          <li>Revisa fotos del anclaje y del conector.</li>
+          <li>Evita anuncios que no citan tu modelo o serie.</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <h3 style="margin-top:0;">Puede que necesites otra pieza</h3>
       <p class="muted">
         Si tu problema es "no funciona", "no carga", "pierde potencia" o "hace ruido", puede que el recambio correcto no sea exactamente este.
         Revisa los sintomas y entra en la guia que mejor encaje con tu caso.
@@ -199,7 +240,6 @@
 
       {{ $plist := index $model "problemas" }}
       {{ if and $plist (reflect.IsSlice $plist) (gt (len $plist) 0) }}
-        <h3 style="margin-top:14px;">Problemas frecuentes</h3>
         <div class="chips" style="margin-top:8px;">
           {{ $pshown := 0 }}
           {{ range $p := $plist }}
