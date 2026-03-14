@@ -264,6 +264,17 @@
           <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
         </div>
 
+        {{ partial "compatibility_guard.html" (dict
+          "title" (printf "Compatibilidad segura para %s" $mtitle)
+          "intro" "Este bloque resume las comprobaciones que mas reducen compras incompatibles antes de salir al vendedor."
+          "badge" "Compatibilidad"
+          "checks" (slice
+            "Confirma el nombre exacto del modelo y su variante"
+            "Revisa serie, ano o revision si aparecen en la ficha"
+            "Compara encaje, conector o formato de la pieza"
+          )
+        ) }}
+
         <div class="two-col" style="margin-top:12px;">
           <div class="panel">
             <div id="compatibilidad"></div>

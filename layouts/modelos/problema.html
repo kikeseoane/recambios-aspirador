@@ -137,6 +137,17 @@
     </article>
   </div>
 
+  {{ partial "compatibility_guard.html" (dict
+    "title" "Antes de comprar la pieza probable"
+    "intro" "El diagnostico orienta, pero aun tienes que validar compatibilidad real para no cambiar una pieza util por error."
+    "badge" "Revision final"
+    "checks" (slice
+      "Comprueba si el sintoma coincide con el fallo real"
+      "Valida modelo, serie y tipo de pieza sugerida"
+      "Compara fotos, conectores y medidas con el recambio"
+    )
+  ) }}
+
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
       <h2 style="margin-top:0;">Diagnostico rapido</h2>

@@ -154,6 +154,17 @@
     </article>
   </div>
 
+  {{ partial "compatibility_guard.html" (dict
+    "title" (printf "Checklist de compatibilidad para %s" $catLabel)
+    "intro" "La categoria correcta ayuda, pero la compra segura depende de validar estas tres senales antes del clic."
+    "badge" "Compra segura"
+    "checks" (slice
+      "Submodelo o variante exacta del equipo"
+      "Conector, acople, forma o medidas de la pieza"
+      "Voltaje o capacidad si compras bateria o cargador"
+    )
+  ) }}
+
   <div class="panel" style="margin-top:14px;">
     <h2 style="margin-top:0;">Opciones populares</h2>
     <p class="muted small">

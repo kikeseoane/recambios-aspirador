@@ -1,0 +1,25 @@
+{{ $title := .title | default "Compatibilidad y compra segura" }}
+{{ $intro := .intro | default "Antes de comprar, confirma el modelo exacto y valida las senales que mas reducen errores." }}
+{{ $checks := .checks | default (slice
+  "Modelo exacto y variante de serie"
+  "Encaje, conector o tipo de anclaje"
+  "Voltaje, capacidad o medidas cuando aplique"
+) }}
+{{ $badge := .badge | default "Filtro de error" }}
+
+<section class="compat-guard">
+  <div class="compat-guard__head">
+    <span class="badge blue">{{ $badge }}</span>
+    <h2>{{ $title }}</h2>
+    <p class="muted">{{ $intro }}</p>
+  </div>
+
+  <div class="compat-guard__grid">
+    {{ range $checks }}
+      <article class="compat-guard__item">
+        <div class="compat-guard__tick">OK</div>
+        <p>{{ . }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
