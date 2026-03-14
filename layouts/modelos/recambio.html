@@ -82,7 +82,7 @@
   {{ $rec := index $model "recambios" }}
   {{ if not (and $rec (reflect.IsMap $rec)) }}
     {{ .Scratch.Set "noindex" true }}
-    <div class="card" style="margin-top:14px;">
+    <div class="card mt-14">
       <h3>En preparacion</h3>
       <p class="muted">Aun no tenemos recambios cargados para este modelo.</p>
       <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">Volver al modelo</a>
@@ -93,7 +93,7 @@
   {{ $items := (index $rec $catKey) }}
   {{ if not (and $items (reflect.IsSlice $items) (gt (len $items) 0)) }}
     {{ .Scratch.Set "noindex" true }}
-    <div class="card" style="margin-top:14px;">
+    <div class="card mt-14">
       <h3>En preparacion</h3>
       <p class="muted">Aun no tenemos recambios listados en esta categoria.</p>
       <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">Volver al modelo</a>
@@ -109,7 +109,7 @@
     <span>{{ $catLabel }}</span>
   </div>
 
-  <div class="hero hero--bg hero--compact hero--editorial" style="margin-top:10px;">
+  <div class="hero hero--bg hero--compact hero--editorial mt-10">
     <div class="hero__inner">
       <div class="hero__kicker">Recambios</div>
       <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
@@ -141,7 +141,7 @@
     <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
   </div>
 
-  <div id="checklist-compra" class="grid cards cards--wide cards--support" style="margin-top:14px;">
+  <div id="checklist-compra" class="grid cards cards--wide cards--support mt-14">
     <article class="card">
       <div class="kicker">Check 1</div>
       <h3>Confirma variante y serie</h3>
@@ -170,9 +170,9 @@
     )
   ) }}
 
-  <div id="opciones-populares" class="panel panel--commerce" style="margin-top:14px;">
-    <h2 style="margin-top:0;">Opciones populares</h2>
-    <div class="products" style="margin-top:10px;">
+  <div id="opciones-populares" class="panel panel--commerce mt-14">
+    <h2 class="title-reset">Opciones populares</h2>
+    <div class="products mt-10">
       {{ $shown := 0 }}
       {{ range $idx, $it := $items }}
         {{ if lt $shown 3 }}
@@ -203,7 +203,7 @@
     </div>
   </div>
 
-  <div class="two-col" style="margin-top:12px;">
+  <div class="two-col mt-12">
     <div class="panel panel--commerce">
       <div id="recambios-disponibles"></div>
       <h2>Recambios disponibles</h2>
@@ -267,7 +267,7 @@
 
       {{ $plist := index $model "problemas" }}
       {{ if and $plist (reflect.IsSlice $plist) (gt (len $plist) 0) }}
-        <div class="support-links" style="margin-top:8px;">
+        <div class="support-links mt-8">
           {{ $pshown := 0 }}
           {{ range $p := $plist }}
             {{ if lt $pshown 6 }}
@@ -283,7 +283,7 @@
         <hr>
       {{ end }}
 
-      <p class="muted small" style="margin-top:12px;">
+      <p class="muted small mt-12">
         Algunos enlaces pueden ser de afiliacion. El precio y la disponibilidad dependen del vendedor y del modelo exacto.
       </p>
     </aside>

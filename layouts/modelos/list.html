@@ -49,18 +49,18 @@
     </section>
 
     {{ if not $brands }}
-      <div class="card" style="margin-top:18px;">
-        <h2 style="margin-top:0;">Sin datos</h2>
+      <div class="card mt-18">
+        <h2 class="title-reset">Sin datos</h2>
         <p class="muted">No se ha cargado el catalogo de marcas o no contiene datos validos.</p>
       </div>
     {{ else }}
-      <div class="grid cards" style="margin-top:20px;">
+      <div class="grid cards mt-20">
         {{ range $k, $b := $brands }}
           {{ $brandSlug := ($k | urlize) }}
           {{ $models := $b.models }}
 
           <div class="card">
-            <h2 style="margin:0 0 8px 0;">{{ $b.name }}</h2>
+            <h2 class="title-compact">{{ $b.name }}</h2>
 
             {{ $hasRobot := false }}
             {{ $hasStick := false }}
@@ -80,9 +80,9 @@
             <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterias, cepillos y accesorios.</p>
 
             {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
-              <p class="muted small" style="margin:0 0 10px 0;">{{ len $models }} modelos</p>
+              <p class="muted small text-compact">{{ len $models }} modelos</p>
 
-              <div class="chips" style="flex-wrap:wrap;">
+              <div class="chips chips-wrap">
                 {{ range $i, $m := $models }}
                   {{ if lt $i 8 }}
                     {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
@@ -125,7 +125,7 @@
       <h1>Modelo no disponible</h1>
       <p class="muted">No encontramos la marca asociada a este modelo.</p>
 
-      <div class="chips" style="margin-top:14px;">
+      <div class="chips mt-14">
         <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
         <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver todos los modelos</a>
       </div>
@@ -158,10 +158,10 @@
 
         <p class="muted">Estamos terminando de preparar la ficha de este modelo.</p>
 
-        <div class="card" style="margin-top:14px;">
+        <div class="card mt-14">
           <h3>Mientras tanto</h3>
           <p class="muted">Puedes volver a la marca y elegir otro modelo disponible.</p>
-          <div class="chips" style="margin-top:10px;">
+          <div class="chips mt-10">
             <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Ver modelos {{ $brand.name }}</a>
             <a class="chip" href="{{ (print $modBase "/") | relURL }}">Todos los modelos</a>
           </div>
@@ -276,7 +276,7 @@
         ) }}
         </div>
 
-        <div class="two-col" style="margin-top:12px;">
+        <div class="two-col mt-12">
           <div class="panel panel--commerce">
             <div id="compatibilidad"></div>
             <h2 style="margin-top:0;">Compatibilidad rapida</h2>
@@ -312,8 +312,8 @@
                 {{ $items := index $rec $catKey }}
 
                 {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
-                  <div class="section-head" style="margin-top:18px;">
-                    <h3 style="margin:0;">{{ $catLabel }}</h3>
+                  <div class="section-head section-head--spaced">
+                    <h3 class="title-reset">{{ $catLabel }}</h3>
                     <a class="section-link" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug ($catKey | urlize)) | relURL }}">
                       Mas opciones
                     </a>
@@ -373,7 +373,7 @@
                     {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
                     {{ with (index $p "symptoms") }}
                       {{ if reflect.IsSlice . }}
-                        <p class="muted" style="margin-top:8px;">Sintomas: {{ index . 0 }}</p>
+                        <p class="muted mt-8">Sintomas: {{ index . 0 }}</p>
                       {{ end }}
                     {{ end }}
                   </a>
@@ -396,18 +396,18 @@
             {{ if and $probs2 (reflect.IsSlice $probs2) (gt (len $probs2) 0) }}
               <h2 style="margin-top:0;">Fallos comunes y checks</h2>
               {{ if $hasRichProbs }}
-                <div class="grid cols-2" style="margin-top:14px;">
+                <div class="grid cols-2 mt-14">
                   {{ range $probs2 }}
                     {{ $pkey := (index . "key") | urlize }}
                     {{ $ptitle := index . "title" | default $pkey }}
-                    <div class="panel panel--support" style="padding:16px;">
-                      <div class="badge warn" style="margin-bottom:8px;">Problema frecuente</div>
-                      <h3 style="margin:0 0 10px;">{{ $ptitle }}</h3>
+                    <div class="panel panel--support panel--compact">
+                      <div class="badge warn mb-8">Problema frecuente</div>
+                      <h3 class="title-compact">{{ $ptitle }}</h3>
 
                       {{ $sym := index . "symptoms" }}
                       {{ if and $sym (reflect.IsSlice $sym) (gt (len $sym) 0) }}
                         <div class="kicker">Sintomas</div>
-                        <ul class="list small" style="margin:4px 0 10px;">
+                        <ul class="list small list-compact">
                           {{ range $sym }}<li>{{ . }}</li>{{ end }}
                         </ul>
                       {{ end }}
@@ -415,19 +415,19 @@
                       {{ $chk := index . "checks" }}
                       {{ if and $chk (reflect.IsSlice $chk) (gt (len $chk) 0) }}
                         <div class="kicker">Comprobaciones</div>
-                        <ul class="list small" style="margin:4px 0 10px;">
+                        <ul class="list small list-compact">
                           {{ range first 3 $chk }}<li>{{ . }}</li>{{ end }}
                         </ul>
                       {{ end }}
 
                       {{ if $pkey }}
-                        <a class="section-link" style="display:inline-block;margin-top:8px;" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico</a>
+                        <a class="section-link section-link--inline mt-8" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico</a>
                       {{ end }}
                     </div>
                   {{ end }}
                 </div>
               {{ else }}
-                <div class="chips" style="margin-top:12px;">
+                <div class="chips mt-12">
                   {{ range $probs2 }}
                     {{ $pkey := (index . "key") | urlize }}
                     {{ $ptitle := index . "title" | default $pkey }}
@@ -478,9 +478,9 @@
               <hr>
               <div class="kicker">Preguntas frecuentes</div>
               {{ range $faqs }}
-                <details style="margin-top:10px;border:1px solid var(--border);border-radius:10px;padding:10px 14px;">
-                  <summary style="font-weight:700;cursor:pointer;">{{ index . "q" }}</summary>
-                  <p class="muted small" style="margin:8px 0 0;">{{ index . "a" }}</p>
+                <details class="details-card mt-10">
+                  <summary class="summary-strong">{{ index . "q" }}</summary>
+                  <p class="muted small mt-8">{{ index . "a" }}</p>
                 </details>
               {{ end }}
             {{ end }}

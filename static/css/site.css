@@ -237,6 +237,37 @@ p  { line-height: 1.65; }
   white-space: nowrap;
 }
 
+.cross-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.cross-bar__label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: .03em;
+}
+
+.cross-bar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 12px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 /* ----------------------------------------------------------------
    Hero
    ---------------------------------------------------------------- */
@@ -688,6 +719,10 @@ p  { line-height: 1.65; }
 .section-link:hover {
   opacity: 1;
   color: var(--primary);
+}
+
+.section-link--inline {
+  display: inline-block;
 }
 
 .support-links {
@@ -1272,6 +1307,50 @@ p  { line-height: 1.65; }
 .card--model {
   min-height: 100%;
 }
+
+.title-reset {
+  margin-top: 0;
+}
+
+.title-compact {
+  margin: 0 0 8px;
+}
+
+.text-compact {
+  margin: 0 0 10px;
+}
+
+.chips-wrap {
+  flex-wrap: wrap;
+}
+
+.section-head--spaced {
+  margin-top: 18px;
+}
+
+.list-compact {
+  margin: 4px 0 10px;
+}
+
+.details-card {
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.summary-strong {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mt-8 { margin-top: 8px; }
+.mt-10 { margin-top: 10px; }
+.mt-12 { margin-top: 12px; }
+.mt-14 { margin-top: 14px; }
+.mt-18 { margin-top: 18px; }
+.mt-20 { margin-top: 20px; }
+.mb-8 { margin-bottom: 8px; }
 
 .pagination {
   margin-top: 20px;
