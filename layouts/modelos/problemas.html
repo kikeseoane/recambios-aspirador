@@ -35,7 +35,7 @@
     <div class="hero__inner">
       <div class="hero__kicker">Diagnostico</div>
       <h1>{{ .Title }}</h1>
-      <p class="hero__copy">Rutas de diagnostico por sintomas para {{ $mtitle }}: revisa comprobaciones basicas, descarta fallos comunes y acota la pieza mas probable.</p>
+      <p class="hero__copy">Rutas de diagnostico por sintomas para {{ $mtitle }}: revisa comprobaciones basicas, descarta fallos comunes y acota la pieza mas probable antes de cambiar nada.</p>
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
@@ -46,11 +46,11 @@
       <div class="hero-mini-stats">
         <div class="hero-mini-stat">
           <strong>Sintoma y comprobacion</strong>
-          <span>primero revisa el fallo antes de pasar a una pieza</span>
+          <span>primero revisa ruido, carga, encaje o desgaste antes de pasar a una pieza</span>
         </div>
         <div class="hero-mini-stat">
           <strong>Problema y pieza probable</strong>
-          <span>la pieza se plantea solo despues de confirmar el fallo mas probable</span>
+          <span>la pieza se plantea solo despues de confirmar el fallo y la compatibilidad</span>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
 
   {{ partial "compatibility_guard.html" (dict
     "title" "Como usar este hub de problemas"
-    "intro" "Empieza por el sintoma, sigue con las comprobaciones basicas y valida compatibilidad solo cuando el fallo encaje."
+    "intro" "Empieza por el sintoma, sigue con las comprobaciones basicas y valida serie, encaje o voltaje solo cuando el fallo encaje."
     "badge" "Metodo"
     "checks" (slice
       "Elige el problema que mejor describa el fallo real"

@@ -129,8 +129,8 @@
           <span>catalogadas para esta categoria</span>
         </div>
         <div class="hero-mini-stat">
-          <strong>Modelo primero</strong>
-          <span>reduce errores de compatibilidad antes de abrir una oferta</span>
+          <strong>Revision previa</strong>
+          <span>serie, encaje y dato tecnico antes de abrir una oferta</span>
         </div>
       </div>
     </div>
@@ -140,23 +140,23 @@
     <article class="card">
       <div class="kicker">Check 1</div>
       <h3>Confirma variante y serie</h3>
-      <p class="muted">No compres solo por nombre comercial. Prioriza submodelo, revision y foto real del encaje.</p>
+      <p class="muted">No compres solo por nombre comercial. Prioriza submodelo, revision, referencia y foto real del encaje.</p>
     </article>
     <article class="card">
       <div class="kicker">Check 2</div>
       <h3>Revisa voltaje, medidas o conector</h3>
-      <p class="muted">La categoria correcta no garantiza compatibilidad total. Falta validar la ficha tecnica.</p>
+      <p class="muted">La categoria correcta no garantiza compatibilidad total. Falta validar voltaje, amperaje, diametro o conector segun la pieza.</p>
     </article>
       <article class="card">
         <div class="kicker">Check 3</div>
-        <h3>Mas contexto antes de elegir</h3>
-        <p class="muted">Si falta una referencia exacta, la pagina mantiene opciones para afinar la busqueda con mas criterio.</p>
+        <h3>Confirma la referencia util</h3>
+        <p class="muted">Si falta una referencia exacta, la pagina mantiene opciones para afinar por serie, encaje o referencia equivalente.</p>
       </article>
   </div>
 
   {{ partial "compatibility_guard.html" (dict
     "title" (printf "Checklist de compatibilidad para %s" $catLabel)
-    "intro" "La categoria correcta ayuda, pero la compatibilidad real depende de validar estas tres senales antes de abrir una oferta."
+    "intro" "La categoria correcta ayuda, pero la compatibilidad real depende de validar serie, encaje y datos tecnicos antes de abrir una oferta."
     "badge" "Compra segura"
     "checks" (slice
       "Submodelo o variante exacta del equipo"
