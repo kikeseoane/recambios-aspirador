@@ -113,7 +113,10 @@
 
   <section class="home-section home-section--soft">
     <div class="section-head">
-      <h2>Marcas principales</h2>
+      <div>
+        <div class="section-head__meta">Catalogo</div>
+        <h2>Marcas principales</h2>
+      </div>
       <span class="chip">{{ len $brands }} marcas</span>
     </div>
 
@@ -124,9 +127,9 @@
       </div>
     {{ else }}
       <div class="grid cards cards--brands mt-18">
-        {{ range $brandsList }}
-          {{ $k := .key }}
-          {{ $b := .brand }}
+        {{ range $idx, $item := $brandsList }}
+          {{ $k := $item.key }}
+          {{ $b := $item.brand }}
           {{ $slug := $k | urlize }}
 
           {{ $hasRobot := false }}
@@ -142,13 +145,14 @@
           {{ else if $hasStick }}{{ $typeText = "aspiradores sin cable" }}
           {{ end }}
 
-          <a class="card card--with-icon card--brand" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
+          <a class="card card--with-icon card--brand{{ if eq $idx 0 }} card--brand-featured{{ end }}" href="{{ (printf "/marcas/%s/" $slug) | relURL }}">
             {{ partial "card_icon.html" (dict "kind" "brand") }}
             <div class="card-body">
               <div class="card-eyebrow">Marca</div>
               <h3>{{ $b.name }}</h3>
               <p class="muted">Accede a recambios compatibles para {{ $typeText }} {{ $b.name }} y entra en la ficha del modelo para revisar compatibilidad.</p>
               <div class="badges">
+                {{ if eq $idx 0 }}<span class="badge blue">Entrada recomendada</span>{{ end }}
                 <span class="badge hot">{{ len $b.models }} modelos</span>
                 {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
               </div>
@@ -162,7 +166,10 @@
 
   <section class="home-section home-section--contrast">
     <div class="section-head">
-      <h2>Explora por necesidad</h2>
+      <div>
+        <div class="section-head__meta">Entrada rapida</div>
+        <h2>Explora por necesidad</h2>
+      </div>
       <span class="chip">Categorias mas buscadas</span>
     </div>
 
@@ -180,7 +187,10 @@
 
   <section class="home-section">
     <div class="section-head">
-      <h2>Como acertar con el recambio</h2>
+      <div>
+        <div class="section-head__meta">Metodo</div>
+        <h2>Como acertar con el recambio</h2>
+      </div>
       <span class="chip">Proceso recomendado</span>
     </div>
 
@@ -206,7 +216,10 @@
 
   <section class="home-section home-section--soft">
     <div class="section-head">
-      <h2>Guias utiles para validar compatibilidad</h2>
+      <div>
+        <div class="section-head__meta">Ayuda</div>
+        <h2>Guias utiles para validar compatibilidad</h2>
+      </div>
       <span class="chip">Serie, conector y voltaje</span>
     </div>
 
@@ -257,7 +270,10 @@
 
   <section class="home-section">
     <div class="section-head">
-      <h2>Buscas otros recambios?</h2>
+      <div>
+        <div class="section-head__meta">Otros nichos</div>
+        <h2>Buscas otros recambios?</h2>
+      </div>
       <span class="chip">Cross-links de nicho</span>
     </div>
     {{ partial "cross_promo.html" (dict "currentVertical" "aspiradores") }}
