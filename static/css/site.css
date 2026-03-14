@@ -1290,12 +1290,24 @@ p  { line-height: 1.65; }
 }
 
 .product .body  { flex: 1; min-width: 0; }
+.product-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
 .product .title {
   font-weight: 800;
   font-size: 14px;
   line-height: 1.35;
 }
 .product .cta   { margin-top: 10px; }
+
+.product-note {
+  margin-top: 10px;
+  font-size: 13px;
+}
 
 .product .note {
   position: relative;

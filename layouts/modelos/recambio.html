@@ -174,10 +174,6 @@
 
   <div id="opciones-populares" class="panel" style="margin-top:14px;">
     <h2 style="margin-top:0;">Opciones populares</h2>
-    <p class="muted small">
-      Seleccion rapida de {{ $catLabel | lower }} para {{ $mtitle }} con mejor encaje tipico y salida de compra mas directa.
-    </p>
-
     <div class="products" style="margin-top:10px;">
       {{ $shown := 0 }}
       {{ range $it := $items }}
@@ -207,21 +203,7 @@
   <div class="two-col" style="margin-top:12px;">
     <div class="panel">
       <div id="recambios-disponibles"></div>
-      <h2 style="margin-top:0;">Como acertar al comprar este recambio</h2>
-      <ul class="list">
-        <li><strong>Confirma el modelo exacto</strong>: serie, submodelo y referencias del fabricante.</li>
-        <li><strong>Comprueba encaje y conectores</strong>: pestanas, pines, forma del conector y polaridad cuando aplique.</li>
-        <li><strong>Revisa especificaciones</strong>: voltaje, capacidad, medidas, material o tipo de filtro segun la pieza.</li>
-        <li><strong>Compara fotos reales</strong> del recambio y prioriza las opciones que indiquen compatibilidad explicita con {{ $mtitle }}.</li>
-      </ul>
-
-      <hr>
-
       <h2>Recambios disponibles</h2>
-      <p class="muted small">
-        Estas son las opciones disponibles de {{ $catLabel | lower }} para {{ $mtitle }} dentro del catalogo actual.
-      </p>
-
       <div class="products">
         {{ range $it := $items }}
           <div class="product">
