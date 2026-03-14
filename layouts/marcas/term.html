@@ -7,9 +7,9 @@
   {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brands := $db.brands }}
 
-  <section class="hero hero--bg hero--compact">
+  <section class="hero hero--bg hero--compact hero--editorial">
     <div class="hero__inner">
-      <div class="hero__kicker">Catálogo</div>
+      <div class="hero__kicker">Catalogo</div>
       <h1>Marcas</h1>
       <p class="muted hero__copy">
         Elige una marca para ver sus modelos, recambios compatibles y problemas frecuentes.
@@ -17,15 +17,26 @@
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
-        <a class="btn btn--link" href="{{ (print $guiasBase "/") | relURL }}">Ver guías →</a>
+        <a class="btn btn--link" href="{{ (print $guiasBase "/") | relURL }}">Ver guias -></a>
+      </div>
+
+      <div class="hero-mini-stats">
+        <div class="hero-mini-stat">
+          <strong>Por marca</strong>
+          <span>filtras rapido antes de entrar en el modelo exacto</span>
+        </div>
+        <div class="hero-mini-stat">
+          <strong>Menos ruido</strong>
+          <span>cada ficha empuja a compatibilidad y no a catalogo ciego</span>
+        </div>
       </div>
     </div>
   </section>
 
   {{ if not $brands }}
     <div class="card" style="margin-top:18px;">
-      <h3>Marcas en preparación</h3>
-      <p class="muted">Aún no hay marcas cargadas en el catálogo.</p>
+      <h3>Marcas en preparacion</h3>
+      <p class="muted">Aun no hay marcas cargadas en el catalogo.</p>
     </div>
   {{ else }}
     <div class="grid cards" style="margin-top:18px;">

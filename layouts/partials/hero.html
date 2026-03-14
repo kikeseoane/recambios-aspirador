@@ -2,11 +2,13 @@
 
 {{ $section := .Section }}
 {{ $title := .Title }}
-{{ $kicker := "Catálogo" }}
+{{ $kicker := "Catalogo" }}
 {{ $copy := site.Params.defaultDescription }}
 {{ $links := slice }}
+{{ $metrics := slice }}
 
 {{ $vk := .Params.vertical | default "aspiradores" }}
+{{ $vconf := (index site.Data.verticals.verticals $vk) | default dict }}
 {{ $vurls := partial "vertical_urls.html" $vk }}
 {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
 {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
@@ -18,50 +20,64 @@
     {{ $b := index (index site.Data $vk).brands .Params.brandKey }}
     {{ if $b }}
       {{ $title = ($b.name | default $title) }}
+      {{ $metrics = slice
+        (dict "value" (len ($b.models | default slice)) "label" "modelos activos")
+        (dict "value" "1 ruta" "label" "hacia compra por modelo")
+      }}
     {{ end }}
-    {{ $copy = "Elige tu modelo para ver recambios compatibles, checks y fallos comunes." }}
+    {{ $copy = "Elige tu modelo para ver compatibilidad, piezas clave, problemas frecuentes y accesos directos a compra." }}
     {{ $links = slice
-      (dict "label" "← Volver a marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
-      (dict "label" "Ver todos los modelos →" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
+      (dict "label" "<- Volver a marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
+      (dict "label" "Ver todos los modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
     }}
   {{ else }}
-    {{ $kicker = "Catálogo" }}
+    {{ $kicker = "Catalogo" }}
     {{ $title = "Marcas" }}
-    {{ $copy = "Elige una marca para ver sus modelos y recambios compatibles." }}
+    {{ $copy = "Explora las marcas activas y entra en sus modelos para resolver compatibilidad y compra con menos error." }}
     {{ $links = slice
       (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--ghost")
-      (dict "label" "Ver guías →" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
+      (dict "label" "Ver guias" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
     }}
   {{ end }}
 
 {{ else if eq $section "guias" }}
-  {{ $kicker = "Guías" }}
-  {{ $title = "Guías rápidas" }}
-  {{ $copy = "Compra con menos riesgo: compatibilidad, seguridad y mantenimiento." }}
+  {{ $kicker = "Guias" }}
+  {{ $title = "Guias rapidas" }}
+  {{ $copy = "Reduce errores de compra con checks de compatibilidad, mantenimiento y seguridad antes de tocar ninguna pieza." }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver modelos →" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
+    (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
+  }}
+  {{ $metrics = slice
+    (dict "value" "3 pasos" "label" "antes de comprar")
+    (dict "value" "0 humo" "label" "solo checks utiles")
   }}
 
 {{ else if eq $section "modelos" }}
   {{ $kicker = "Modelos" }}
   {{ $title = "Modelos" }}
-  {{ $copy = "Catálogo de modelos con recambios compatibles y solución de problemas." }}
+  {{ $copy = "Catalogo de modelos con recambios compatibles, rutas de diagnostico y acceso rapido a las piezas mas buscadas." }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver guías →" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
+    (dict "label" "Ver guias" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
+  }}
+  {{ $metrics = slice
+    (dict "value" "Por modelo" "label" "menos error de compra")
+    (dict "value" "Por categoria" "label" "decision mas rapida")
   }}
 
 {{ else }}
   {{ $kicker = "Recambios" }}
-  {{ $copy = site.Params.defaultDescription }}
+  {{ with $vconf.description }}
+    {{ $copy = . }}
+  {{ end }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
-    (dict "label" "Ver modelos →" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
+    (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
   }}
 {{ end }}
 
-<section class="hero hero--bg hero--compact">
+<section class="hero hero--bg hero--compact hero--editorial">
   <div class="hero__inner">
     <div class="hero__kicker">{{ $kicker }}</div>
     <h1 class="hero__title">{{ $title }}</h1>
@@ -71,6 +87,17 @@
       <div class="hero__links">
         {{ range $links }}
           <a class="{{ .class }}" href="{{ .href }}">{{ .label }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{ if gt (len $metrics) 0 }}
+      <div class="hero-mini-stats">
+        {{ range $metrics }}
+          <div class="hero-mini-stat">
+            <strong>{{ .value }}</strong>
+            <span>{{ .label }}</span>
+          </div>
         {{ end }}
       </div>
     {{ end }}

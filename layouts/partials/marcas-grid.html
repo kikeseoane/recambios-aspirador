@@ -12,7 +12,7 @@
 {{ $brandKey := .Params.brandKey }}
 
 {{ if not $brands }}
-  <p class="muted">No hay marcas cargadas en data/aspiradores.yaml</p>
+  <p class="muted">No hay marcas cargadas en el catalogo activo.</p>
   {{ return }}
 {{ end }}
 
@@ -23,7 +23,7 @@
     {{ .Scratch.Set "noindex" true }}
     <div class="card">
       <h3>Marca no disponible</h3>
-      <p class="muted">No encontramos esa marca en el catálogo actual.</p>
+      <p class="muted">No encontramos esa marca en el catalogo actual.</p>
       <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Volver a marcas</a>
     </div>
     {{ return }}
@@ -57,7 +57,7 @@
               </p>
             {{ else }}
               <p class="muted" style="margin-top:10px;">
-                Recambios compatibles y guía rápida de mantenimiento para este modelo.
+                Recambios compatibles y guia rapida de mantenimiento para este modelo.
               </p>
             {{ end }}
           </div>
@@ -72,7 +72,7 @@
   {{ end }}
 
 {{ else }}
-  {{/* Ordenar marcas alfabéticamente */}}
+      {{/* Ordenar marcas alfabeticamente */}}
   {{ $brandsList := slice }}
   {{ range $k, $b := $brands }}
     {{ $brandsList = $brandsList | append (dict "key" $k "brand" $b) }}
@@ -89,7 +89,7 @@
         {{ if reflect.IsSlice . }}{{ $modelCount = len . }}{{ end }}
       {{ end }}
 
-      {{/* Texto dinámico según tipo de aspirador */}}
+      {{/* Texto dinamico segun tipo de aspirador */}}
       {{ $hasRobot := false }}
       {{ $hasStick := false }}
       {{ range $b.models }}
@@ -107,7 +107,7 @@
         {{ partial "card_icon.html" (dict "kind" "brand") }}
         <div class="card-body">
           <h3>{{ $b.name }}</h3>
-          <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterías, cepillos y accesorios.</p>
+          <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterias, cepillos y accesorios.</p>
           <div class="badges">
             <span class="badge hot">{{ $modelCount }} modelos</span>
           </div>

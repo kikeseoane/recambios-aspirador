@@ -1,12 +1,19 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <p class="muted">Guías genéricas reutilizadas para todos los modelos.</p>
+  <section class="hero hero--bg hero--compact hero--editorial">
+    <div class="hero__inner">
+      <div class="hero__kicker">Guias</div>
+      <h1>{{ .Title }}</h1>
+      <p class="muted hero__copy">Guias genericas reutilizadas para todos los modelos, pensadas para reducir errores antes de comprar o manipular una pieza.</p>
+    </div>
+  </section>
 
-  <div class="grid">
+  <div class="grid cards">
     {{ range .Pages }}
       <a class="card" href="{{ .RelPermalink }}">
+        <div class="kicker">Guia reutilizable</div>
         <h3>{{ .Title }}</h3>
-        <span class="badge">Guía</span>
+        <p class="muted">Checks practicos de compatibilidad, mantenimiento y seguridad aplicables a distintas familias de modelos.</p>
+        <span class="badge blue">Guia</span>
       </a>
     {{ end }}
   </div>

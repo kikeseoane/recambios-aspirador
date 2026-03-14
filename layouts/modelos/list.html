@@ -1,9 +1,9 @@
 {{/* layouts/modelos/list.html
-     Opción B:
-     - /modelos/                      -> content/modelos/_index.md (sección raíz)
-     - /modelos/<model-slug>/         -> content/modelos/<model-slug>/_index.md (modelo como sección)
-     - /modelos/<model>/<cat>/        -> layout "recambio"
-     - /modelos/<model>/problemas/    -> _index.md
+     Opcion B:
+     - /modelos/                       -> content/modelos/_index.md (seccion raiz)
+     - /modelos/<model-slug>/          -> content/modelos/<model-slug>/_index.md (modelo como seccion)
+     - /modelos/<model>/<cat>/         -> layout "recambio"
+     - /modelos/<model>/problemas/     -> _index.md
      - /modelos/<model>/problemas/<p>/ -> index.md
 */}}
 
@@ -17,25 +17,33 @@
   {{ $brands := $db.brands }}
   {{ $brandKey := .Params.brandKey }}
 
-  {{/* =========================================================
-       CASO 1: RAÍZ /modelos/
-     ========================================================= */}}
   {{ if not $brandKey }}
 
-    <section class="hero hero--bg hero--compact">
+    <section class="hero hero--bg hero--compact hero--editorial">
       <div class="hero__inner">
         <div class="hero__kicker">Modelos</div>
         <h1>{{ .Title }}</h1>
         <p class="muted hero__copy">
           Explora por marca y entra en la ficha del modelo para ver recambios compatibles,
-          problemas frecuentes y guías de mantenimiento.
+          problemas frecuentes y guias de mantenimiento.
         </p>
 
         <div class="hero__links">
           <a class="btn btn--ghost" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
-          <a class="btn btn--ghost" href="{{ (print $guiasBase "/compra/") | relURL }}">Cómo elegir recambio</a>
+          <a class="btn btn--ghost" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
           <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
           <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+        </div>
+
+        <div class="hero-mini-stats">
+          <div class="hero-mini-stat">
+            <strong>Ruta central</strong>
+            <span>modelo exacto antes que categoria suelta</span>
+          </div>
+          <div class="hero-mini-stat">
+            <strong>Mas control</strong>
+            <span>filtros, baterias y cepillos separados por ficha</span>
+          </div>
         </div>
       </div>
     </section>
@@ -43,7 +51,7 @@
     {{ if not $brands }}
       <div class="card" style="margin-top:18px;">
         <h2 style="margin-top:0;">Sin datos</h2>
-        <p class="muted">No se ha cargado <code>data/aspiradores.yaml</code> o no contiene marcas.</p>
+        <p class="muted">No se ha cargado el catalogo de marcas o no contiene datos validos.</p>
       </div>
     {{ else }}
       <div class="grid cards" style="margin-top:20px;">
@@ -54,7 +62,6 @@
           <div class="card">
             <h2 style="margin:0 0 8px 0;">{{ $b.name }}</h2>
 
-            {{/* Texto dinámico según tipo de aspiradores de la marca */}}
             {{ $hasRobot := false }}
             {{ $hasStick := false }}
             {{ range $b.models }}
@@ -70,7 +77,7 @@
             {{ else if $hasStick }}
               {{ $typeText = "aspiradores sin cable" }}
             {{ end }}
-            <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterías, cepillos y accesorios.</p>
+            <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterias, cepillos y accesorios.</p>
 
             {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
               <p class="muted small" style="margin:0 0 10px 0;">{{ len $models }} modelos</p>
@@ -91,7 +98,7 @@
                 </a>
               </div>
             {{ else }}
-              <p class="muted">Aún no hay modelos cargados para esta marca.</p>
+              <p class="muted">Aun no hay modelos cargados para esta marca.</p>
               <div class="chips">
                 <a class="chip" href="{{ (printf "%s/%s/" $marcBase $brandSlug) | relURL }}">Ir a la marca</a>
               </div>
@@ -102,11 +109,6 @@
     {{ end }}
 
   {{ else }}
-
-  {{/* =========================================================
-       CASO 2: /modelos/<model-slug>/
-       Modelo = sección (branch bundle) -> usa list.html
-     ========================================================= */}}
 
     {{ $modelSlug := (or .Params.modelSlug .Params.slug) | urlize }}
 
@@ -130,7 +132,6 @@
 
     {{ else }}
 
-      {{/* Buscar modelo en YAML */}}
       {{ $model := dict }}
       {{ $models := $brand.models }}
 
@@ -147,8 +148,8 @@
         {{ .Scratch.Set "noindex" true }}
 
         <div class="breadcrumbs">
-          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-          <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
+          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
+          <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
           <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a>
         </div>
 
@@ -168,7 +169,6 @@
 
       {{ else }}
 
-        {{/* ===== THIN CONTENT CHECK ===== */}}
         {{ $hasRecambios := false }}
         {{ $rec := index $model "recambios" }}
         {{ if and $rec (reflect.IsMap $rec) }}
@@ -201,20 +201,19 @@
           {{ .Scratch.Set "noindex" true }}
         {{ end }}
 
-        {{/* ===== TÍTULO DEL MODELO ===== */}}
         {{ $mtitle := partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
         {{ if not $mtitle }}
           {{ $mtitle = .Title }}
         {{ end }}
 
         <div class="breadcrumbs">
-          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-          <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
-          <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">›</span>
+          <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
+          <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
+          <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">></span>
           <span>{{ $mtitle }}</span>
         </div>
 
-        <section class="hero hero--compact">
+        <section class="hero hero--compact hero--editorial">
           <div class="hero__inner">
             <div class="hero__kicker">Modelo</div>
             <h1>Recambios {{ $mtitle }}</h1>
@@ -223,20 +222,20 @@
               <p class="muted hero__copy">{{ . }}</p>
             {{ else }}
               <p class="muted hero__copy">
-                Encuentra recambios compatibles para {{ $mtitle }}, incluyendo filtros, baterías,
-                cepillos, cargadores y otros accesorios habituales para mantenimiento y sustitución.
+                Encuentra recambios compatibles para {{ $mtitle }}, incluyendo filtros, baterias,
+                cepillos, cargadores y otros accesorios habituales para mantenimiento y sustitucion.
               </p>
               <p class="muted hero__copy">
-                En esta ficha puedes ver las piezas más buscadas para {{ $mtitle }}, comprobar
-                compatibilidad rápida y acceder a problemas frecuentes relacionados con pérdida de
-                succión, fallos de carga o desgaste del cepillo.
+                En esta ficha puedes ver las piezas mas buscadas para {{ $mtitle }}, comprobar
+                compatibilidad rapida y acceder a problemas frecuentes relacionados con perdida de
+                succion, fallos de carga o desgaste del cepillo.
               </p>
             {{ end }}
 
             <div class="hero__links">
               {{ with (index $model "series") }}<span class="badge">Serie {{ . }}</span>{{ end }}
               {{ with (index $model "year_range") }}<span class="badge">{{ . }}</span>{{ end }}
-              <a class="btn btn--ghost" href="{{ (print $guiasBase "/compra/") | relURL }}">Cómo elegir recambio</a>
+              <a class="btn btn--ghost" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
               <a class="btn btn--ghost" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
               <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
             </div>
@@ -268,10 +267,10 @@
         <div class="two-col" style="margin-top:12px;">
           <div class="panel">
             <div id="compatibilidad"></div>
-            <h2 style="margin-top:0;">Compatibilidad rápida</h2>
+            <h2 style="margin-top:0;">Compatibilidad rapida</h2>
             <p class="muted small">
               Antes de comprar un recambio para {{ $mtitle }}, revisa la variante exacta del modelo,
-              el tipo de encaje y, en baterías o cargadores, el voltaje y el conector.
+              el tipo de encaje y, en baterias o cargadores, el voltaje y el conector.
             </p>
 
             {{ $compat := index $model "compatibilidad" }}
@@ -292,7 +291,7 @@
             <div id="recambios-destacados"></div>
             <h2 style="margin-top:0;">Recambios destacados</h2>
             <p class="muted small">
-              Selección rápida de recambios compatibles para {{ $mtitle }}. Puedes entrar en cada categoría para ver más opciones.
+              Seleccion rapida de recambios compatibles para {{ $mtitle }}. Puedes entrar en cada categoria para ver mas opciones.
             </p>
 
             {{ $cats := $db.globals.categorias_recambios }}
@@ -338,17 +337,16 @@
                 {{ end }}
               {{ end }}
             {{ else }}
-              <p class="muted">Aún no hay recambios cargados para este modelo.</p>
+              <p class="muted">Aun no hay recambios cargados para este modelo.</p>
             {{ end }}
 
             <hr>
 
-            {{/* ===== Problemas frecuentes ===== */}}
             {{ $probs := index $model "problemas" }}
             {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
               <div id="problemas-frecuentes"></div>
               <h2 style="margin-top:0;">Problemas frecuentes</h2>
-              <p class="muted small">Diagnósticos rápidos con checks y recambios recomendados.</p>
+              <p class="muted small">Diagnosticos rapidos con checks y recambios recomendados.</p>
 
               <div class="grid cards">
                 {{ range $p := $probs }}
@@ -359,7 +357,7 @@
                     {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
                     {{ with (index $p "symptoms") }}
                       {{ if reflect.IsSlice . }}
-                        <p class="muted" style="margin-top:8px;">Síntomas: {{ index . 0 }}</p>
+                        <p class="muted" style="margin-top:8px;">Sintomas: {{ index . 0 }}</p>
                       {{ end }}
                     {{ end }}
                   </a>
@@ -369,7 +367,6 @@
               <hr>
             {{ end }}
 
-            {{/* === Problemas / síntomas === */}}
             {{ $probs2 := index $model "problemas" }}
             {{ $hasRichProbs := false }}
             {{ if and $probs2 (reflect.IsSlice $probs2) }}
@@ -393,7 +390,7 @@
 
                       {{ $sym := index . "symptoms" }}
                       {{ if and $sym (reflect.IsSlice $sym) (gt (len $sym) 0) }}
-                        <div class="kicker">Síntomas</div>
+                        <div class="kicker">Sintomas</div>
                         <ul class="list small" style="margin:4px 0 10px;">
                           {{ range $sym }}<li>{{ . }}</li>{{ end }}
                         </ul>
@@ -408,13 +405,12 @@
                       {{ end }}
 
                       {{ if $pkey }}
-                        <a class="chip" style="margin-top:8px;font-size:12px;" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnóstico →</a>
+                        <a class="chip" style="margin-top:8px;font-size:12px;" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico -></a>
                       {{ end }}
                     </div>
                   {{ end }}
                 </div>
               {{ else }}
-                {{/* problemas sin síntomas — mostrar como chips */}}
                 <div class="chips" style="margin-top:12px;">
                   {{ range $probs2 }}
                     {{ $pkey := (index . "key") | urlize }}
@@ -429,7 +425,7 @@
           <aside class="panel">
             <div id="antes-de-comprar"></div>
             <h2 style="margin-top:0;">Antes de comprar</h2>
-            <p class="muted small">Checklist rápida para evitar incompatibilidades.</p>
+            <p class="muted small">Checklist rapida para evitar incompatibilidades.</p>
 
             <div class="checklist-card">
               <div class="kicker">Verificacion express</div>
@@ -445,7 +441,7 @@
             <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
               {{ if $compra }}
                 {{ if reflect.IsSlice $compra }}
-                  <div class="kicker">Cómo elegir recambio compatible</div>
+                  <div class="kicker">Como elegir recambio compatible</div>
                   <ul class="small">
                     {{ range $compra }}<li>{{ . }}</li>{{ end }}
                   </ul>
@@ -461,28 +457,27 @@
                       <p class="muted small">{{ $bullets }}</p>
                     {{ end }}
                   {{ else }}
-                    <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+                    <p class="muted small">Revisa modelo exacto, encajes y politica de devolucion.</p>
                   {{ end }}
                 {{ else }}
-                  <div class="kicker">Cómo elegir recambio compatible</div>
-                  <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+                  <div class="kicker">Como elegir recambio compatible</div>
+                  <p class="muted small">Revisa modelo exacto, encajes y politica de devolucion.</p>
                 {{ end }}
               {{ else }}
-                <div class="kicker">Cómo elegir recambio compatible</div>
-                <p class="muted small">Revisa modelo exacto, encajes y política de devolución.</p>
+                <div class="kicker">Como elegir recambio compatible</div>
+                <p class="muted small">Revisa modelo exacto, encajes y politica de devolucion.</p>
               {{ end }}
             </div>
 
             <div style="margin-top:12px;">
               <div class="kicker">Atajos</div>
               <div class="chips">
-                <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Más marcas</a>
-                <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Más modelos {{ $brand.name }}</a>
+                <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Mas marcas</a>
+                <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Mas modelos {{ $brand.name }}</a>
                 <a class="chip" href="{{ (print $modBase "/") | relURL }}">Todos los modelos</a>
               </div>
             </div>
 
-            {{/* ===== FAQs ===== */}}
             {{ $faqs := index $model "faqs" }}
             {{ if and $faqs (reflect.IsSlice $faqs) (gt (len $faqs) 0) }}
               <hr>
@@ -498,7 +493,7 @@
             <hr>
 
             <div class="kicker">Transparencia</div>
-            <p class="muted small">Algunos enlaces pueden ser de afiliación. Precio y disponibilidad dependen del vendedor.</p>
+            <p class="muted small">Algunos enlaces pueden ser de afiliacion. Precio y disponibilidad dependen del vendedor.</p>
           </aside>
         </div>
 
