@@ -4,7 +4,6 @@
   {{ $allVerts := site.Data.verticals.verticals | default dict }}
   {{ $vconf := index $allVerts $vertKey }}
 
-  {{/* Load guide from verticals.yaml if available, else from aspiradores db */}}
   {{ $g := "" }}
   {{ $guideTitle := "" }}
 
@@ -20,7 +19,6 @@
   {{ end }}
 
   {{ if not $g }}
-    {{/* Fallback: aspiradores db guias_genericas */}}
     {{ $db := index site.Data "aspiradores" }}
     {{ $gg := "" }}
     {{ with $db }}{{ with .globals }}{{ with .guias_genericas }}{{ $gg = . }}{{ end }}{{ end }}{{ end }}
@@ -39,24 +37,33 @@
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
 
+  {{ $homeURL := "/" | relURL }}
+  {{ if and $vconf (ne $vertKey "aspiradores") }}
+    {{ $homeURL = (printf "/%s/" ($vconf.slug | default $vertKey)) | relURL }}
+  {{ end }}
+
   {{ $vLabel := $vconf.label | default "Recambios" }}
   {{ $displayTitle := $guideTitle | default .Title }}
+  {{ $guidesURL := printf "%s/guias/" (cond (eq $vertKey "aspiradores") "" (printf "/%s" ($vconf.slug | default $vertKey))) | relURL }}
 
   <div class="breadcrumbs">
-    <a href="{{ cond (eq $vertKey "aspiradores") "/" (printf "/%s/" $vconf.slug) | relURL }}">Inicio</a>
-    <span class="sep">›</span>
-    <a href="{{ printf "%s/guias/" (cond (eq $vertKey "aspiradores") "" (printf "/%s" $vconf.slug)) | relURL }}">Guías</a>
-    <span class="sep">›</span>
+    <a href="{{ $homeURL }}">Inicio</a>
+    <span class="sep">></span>
+    <a href="{{ $guidesURL }}">Guias</a>
+    <span class="sep">></span>
     <span>{{ $displayTitle }}</span>
   </div>
 
-  <div class="hero hero--bg hero--compact" style="margin-top:10px;">
+  <div class="hero hero--bg hero--compact hero--editorial" style="margin-top:10px;">
     <div class="hero__inner">
       <div class="hero__kicker">{{ $vLabel }}</div>
       <h1>{{ $displayTitle }}</h1>
+      <p class="muted hero__copy">
+        Usa esta guia para revisar lo basico y vuelve al catalogo por modelo antes de abrir una oferta.
+      </p>
       <div class="hero__links">
-        <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
-        <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
+        <a class="btn btn--primary" href="{{ (print $modBase "/") | relURL }}">Buscar por modelo</a>
+        <a class="btn btn--ghost" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
       </div>
     </div>
   </div>
@@ -76,36 +83,50 @@
               {{ range $bullets }}<li>{{ . }}</li>{{ end }}
             </ul>
           {{ else }}
-            <p class="muted">Contenido en preparación.</p>
+            <p class="muted">Contenido en preparacion.</p>
           {{ end }}
         {{ end }}
       {{ else }}
-        <p class="muted">Contenido en preparación.</p>
+        <p class="muted">Contenido en preparacion.</p>
       {{ end }}
     </div>
 
     <aside class="panel">
-      <h2 style="margin-top:0;">Atajos</h2>
-      <div class="chips" style="flex-direction:column;align-items:flex-start;gap:8px;">
+      <h2 style="margin-top:0;">Paso siguiente</h2>
+      <p class="muted">
+        Esta guia ayuda a revisar compatibilidad, pero la compra conviene hacerla desde la ficha del modelo y su categoria de recambio.
+      </p>
+
+      <div class="sidebar-flow__steps" style="margin-top:12px;">
+        <div class="sidebar-flow__step"><strong>1.</strong><span>Localiza tu modelo exacto.</span></div>
+        <div class="sidebar-flow__step"><strong>2.</strong><span>Entra en la categoria de recambio.</span></div>
+        <div class="sidebar-flow__step"><strong>3.</strong><span>Abre la oferta que mejor encaje.</span></div>
+      </div>
+
+      <div class="chips" style="margin-top:14px;">
+        <a class="chip" href="{{ (print $modBase "/") | relURL }}">Buscar por modelo</a>
+        <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ir a marcas</a>
+      </div>
+
+      <hr>
+
+      <div class="kicker">Otras guias</div>
+      <div class="chips" style="flex-wrap:wrap;gap:8px;margin-top:8px;">
         {{ if eq $vertKey "aspiradores" }}
-          <a class="chip" href="{{ "/guias/compra/" | relURL }}">Cómo elegir recambio</a>
+          <a class="chip" href="{{ "/guias/compra/" | relURL }}">Compra</a>
           <a class="chip" href="{{ "/guias/mantenimiento/" | relURL }}">Mantenimiento</a>
           <a class="chip" href="{{ "/guias/seguridad/" | relURL }}">Seguridad</a>
         {{ else }}
-          <a class="chip" href="{{ printf "/%s/guias/compra/" $vertKey | relURL }}">Cómo elegir recambio</a>
+          <a class="chip" href="{{ printf "/%s/guias/compra/" $vertKey | relURL }}">Compra</a>
           <a class="chip" href="{{ printf "/%s/guias/mantenimiento/" $vertKey | relURL }}">Mantenimiento</a>
           <a class="chip" href="{{ printf "/%s/guias/seguridad/" $vertKey | relURL }}">Seguridad</a>
         {{ end }}
       </div>
+
       <hr>
-      <div class="kicker">También en</div>
-      <div class="chips" style="flex-wrap:wrap;gap:8px;margin-top:8px;">
-        <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Marcas</a>
-        <a class="chip" href="{{ (print $modBase "/") | relURL }}">Modelos</a>
-      </div>
-      <hr>
+
       <p class="muted small">
-        Algunos enlaces pueden ser de afiliación. Compatibilidad y precios dependen del vendedor.
+        Algunos enlaces pueden ser de afiliacion. Compatibilidad y precios dependen del vendedor.
       </p>
     </aside>
   </div>

@@ -2,6 +2,19 @@
   {{ partial "hero.html" . }}
 
   <div class="container section">
+    <div class="panel" style="margin-bottom:16px;">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Uso recomendado</div>
+          <h2 style="margin:4px 0 0;">Consulta y vuelve al modelo</h2>
+        </div>
+        <a class="btn btn--primary" href="{{ "modelos/" | relURL }}">Buscar por modelo</a>
+      </div>
+      <p class="muted" style="margin:10px 0 0;">
+        Estas guias ayudan a revisar compatibilidad o mantenimiento, pero la compra final conviene hacerla desde la ficha del modelo.
+      </p>
+    </div>
+
     <div class="grid cards">
       {{ range .Pages.ByWeight }}
         <a class="card card--with-icon" href="{{ .RelPermalink }}">
@@ -13,7 +26,7 @@
             {{ else }}
               <p class="muted">Checklist y consejos aplicables a tu modelo.</p>
             {{ end }}
-            <div class="badges"><span class="badge blue">Guía</span></div>
+            <div class="badges"><span class="badge blue">Guia</span></div>
           </div>
         </a>
       {{ end }}
