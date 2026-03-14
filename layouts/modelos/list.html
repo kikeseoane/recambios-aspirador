@@ -262,6 +262,7 @@
           <a class="chip" href="#recambios-destacados">Recambios</a>
           {{ if $hasProblemas }}<a class="chip" href="#problemas-frecuentes">Problemas</a>{{ end }}
           <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
+          <a class="chip" href="#guias-utiles">Guias</a>
         </div>
 
         {{ partial "compatibility_guard.html" (dict
@@ -434,6 +435,18 @@
           </div>
 
           <aside class="panel">
+            <div class="sidebar-flow">
+              <div class="kicker">Ruta recomendada</div>
+              <h2 style="margin-top:0;">Orden de revision</h2>
+              <div class="sidebar-flow__steps">
+                <div class="sidebar-flow__step"><strong>1.</strong><span>Confirma modelo, serie y variante.</span></div>
+                <div class="sidebar-flow__step"><strong>2.</strong><span>Revisa la categoria y el encaje.</span></div>
+                <div class="sidebar-flow__step"><strong>3.</strong><span>Si falla, pasa por problemas y checks.</span></div>
+              </div>
+            </div>
+
+            <hr>
+
             <div id="antes-de-comprar"></div>
             <h2 style="margin-top:0;">Antes de comprar</h2>
             <p class="muted small">Checklist rapida para evitar incompatibilidades.</p>
@@ -449,7 +462,7 @@
 
             {{ $compra := partial "get_guia.html" (dict "db" $db "key" "compra") }}
 
-            <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
+            <div class="panel panel--dashed">
               {{ if $compra }}
                 {{ if reflect.IsSlice $compra }}
                   <div class="kicker">Como elegir recambio compatible</div>
@@ -480,7 +493,7 @@
               {{ end }}
             </div>
 
-            <div style="margin-top:12px;">
+            <div id="guias-utiles" class="sidebar-block">
               <div class="kicker">Atajos</div>
               <div class="chips">
                 <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Mas marcas</a>

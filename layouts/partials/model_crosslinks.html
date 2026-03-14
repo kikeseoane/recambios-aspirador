@@ -41,55 +41,63 @@ Input: dict
 {{ $cats := $db.globals.categorias_recambios }}
 {{ $probs := index $model "problemas" }}
 
-{{ if $wrap }}<div class="panel" style="margin-top:18px;">{{ end }}
-  <div class="kicker">Siguiente paso</div>
-  <h2 style="margin:8px 0 6px;">Mas cosas utiles para {{ $mtitle }}</h2>
-  <p class="muted small">Enlaces rapidos para comparar recambios, revisar sintomas y reducir errores de compra.</p>
+{{ if $wrap }}<div class="panel panel--crosslinks" style="margin-top:18px;">{{ end }}
+  <div class="crosslink-head">
+    <div>
+      <div class="kicker">Siguiente paso</div>
+      <h2 style="margin:8px 0 6px;">Navegacion util para {{ $mtitle }}</h2>
+      <p class="muted small">Accesos directos para comparar recambios, revisar sintomas y confirmar compatibilidad sin salirte de la ficha.</p>
+    </div>
+  </div>
 
-  {{ if and $cats (reflect.IsSlice $cats) $rec (reflect.IsMap $rec) }}
-    <div style="margin-top:12px;">
-      <div class="kicker">Recambios por categoria</div>
-      <div class="chips" style="margin-top:8px;">
-        {{ range $cat := $cats }}
-          {{ $ck := (index $cat "key") | urlize }}
-          {{ $label := index $cat "label" }}
-          {{ $items := index $rec $ck }}
-          {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
-            {{ if ne $ck $currentCat }}
-              <a class="chip" href="{{ (printf "%s%s/%s/" $modBase ($modelSlug | urlize) $ck) | relURL }}">{{ $label }}</a>
-            {{ else }}
-              <span class="chip active">{{ $label }}</span>
+  <div class="crosslink-grid">
+    {{ if and $cats (reflect.IsSlice $cats) $rec (reflect.IsMap $rec) }}
+      <section class="crosslink-card">
+        <div class="kicker">Recambios por categoria</div>
+        <p class="muted small">Ve directo a la pieza correcta segun tipo de recambio.</p>
+        <div class="chips" style="margin-top:10px;">
+          {{ range $cat := $cats }}
+            {{ $ck := (index $cat "key") | urlize }}
+            {{ $label := index $cat "label" }}
+            {{ $items := index $rec $ck }}
+            {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+              {{ if ne $ck $currentCat }}
+                <a class="chip" href="{{ (printf "%s%s/%s/" $modBase ($modelSlug | urlize) $ck) | relURL }}">{{ $label }}</a>
+              {{ else }}
+                <span class="chip active">{{ $label }}</span>
+              {{ end }}
             {{ end }}
           {{ end }}
-        {{ end }}
-      </div>
-    </div>
-  {{ end }}
+        </div>
+      </section>
+    {{ end }}
 
-  {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
-    <div style="margin-top:14px;">
-      <div class="kicker">Problemas frecuentes</div>
-      <div class="chips" style="margin-top:8px;">
-        {{ range $p := $probs }}
-          {{ $pk := (index $p "key" | urlize) }}
-          {{ $pt := (index $p "title") | default $pk }}
-          {{ if ne $pk $currentProblem }}
-            <a class="chip" href="{{ (printf "%s%s/problemas/%s/" $modBase ($modelSlug | urlize) $pk) | relURL }}">{{ $pt }}</a>
-          {{ else }}
-            <span class="chip active">{{ $pt }}</span>
+    {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+      <section class="crosslink-card">
+        <div class="kicker">Problemas frecuentes</div>
+        <p class="muted small">Salta al sintoma que mejor describe el fallo antes de cambiar piezas.</p>
+        <div class="chips" style="margin-top:10px;">
+          {{ range $p := $probs }}
+            {{ $pk := (index $p "key" | urlize) }}
+            {{ $pt := (index $p "title") | default $pk }}
+            {{ if ne $pk $currentProblem }}
+              <a class="chip" href="{{ (printf "%s%s/problemas/%s/" $modBase ($modelSlug | urlize) $pk) | relURL }}">{{ $pt }}</a>
+            {{ else }}
+              <span class="chip active">{{ $pt }}</span>
+            {{ end }}
           {{ end }}
-        {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    <section class="crosslink-card">
+      <div class="kicker">Guias utiles</div>
+      <p class="muted small">Bloques de ayuda para revisar encaje, voltaje, mantenimiento y seguridad.</p>
+      <div class="chips" style="margin-top:10px;">
+        <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
+        <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
+        <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
       </div>
-    </div>
-  {{ end }}
-
-  <hr>
-
-  <div class="kicker">Evita compras incompatibles</div>
-  <p class="muted small" style="margin-top:6px;">Checklist rapida antes de comprar cualquier recambio para {{ $mtitle }}.</p>
-  <div class="chips" style="margin-top:10px;">
-    <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
-    <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
-    <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+    </section>
   </div>
 {{ if $wrap }}</div>{{ end }}
