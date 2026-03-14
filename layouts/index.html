@@ -98,7 +98,7 @@
         <div class="spotlight-card spotlight-card--soft">
           <div class="kicker">Confianza</div>
           <p class="muted">Antes de abrir una oferta, conviene revisar encaje, conector, voltaje y compatibilidad del anuncio.</p>
-          <div class="trust-box" style="margin-top:12px;">
+          <div class="trust-box mt-12">
             <strong>Confianza</strong>
             <ul class="list small">
               <li>Busca primero por modelo exacto.</li>
@@ -118,12 +118,12 @@
     </div>
 
     {{ if not $brands }}
-      <div class="card" style="margin-top:18px;">
+      <div class="card mt-18">
         <h3>Catalogo en preparacion</h3>
         <p class="muted">Aun no hay marcas cargadas en el catalogo.</p>
       </div>
     {{ else }}
-      <div class="grid cards cards--brands" style="margin-top:18px;">
+      <div class="grid cards cards--brands mt-18">
         {{ range $brandsList }}
           {{ $k := .key }}
           {{ $b := .brand }}

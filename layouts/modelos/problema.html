@@ -15,7 +15,7 @@
     {{ .Scratch.Set "noindex" true }}
     <h1>Problema no disponible</h1>
     <p class="muted">Faltan parametros para mostrar esta pagina.</p>
-    <div class="chips" style="margin-top:12px;">
+    <div class="chips mt-12">
       <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
       <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
     </div>
@@ -47,7 +47,7 @@
     {{ .Scratch.Set "noindex" true }}
     <h1>Problema en preparacion</h1>
     <p class="muted">No encontramos el modelo en el catalogo.</p>
-    <div class="chips" style="margin-top:12px;">
+    <div class="chips mt-12">
       <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Volver a {{ $brand.name }}</a>
       <a class="chip" href="{{ (print $modBase "/") | relURL }}">Ver modelos</a>
     </div>
@@ -92,7 +92,7 @@
     <span>{{ $ptitle }}</span>
   </div>
 
-  <div class="hero hero--bg hero--compact hero--editorial" style="margin-top:10px;">
+  <div class="hero hero--bg hero--compact hero--editorial mt-10">
     <div class="hero__inner">
       <div class="hero__kicker">Problema</div>
       <h1>{{ $ptitle }}</h1>
@@ -117,7 +117,7 @@
     </div>
   </div>
 
-  <div class="grid cards cards--wide" style="margin-top:14px;">
+  <div class="grid cards cards--wide mt-14">
     <article class="card">
       <div class="kicker">Paso 1</div>
       <h3>Descarta lo basico</h3>
@@ -146,9 +146,9 @@
     )
   ) }}
 
-  <div class="two-col" style="margin-top:12px;">
+  <div class="two-col mt-12">
     <div class="panel">
-      <h2 style="margin-top:0;">Diagnostico rapido</h2>
+      <h2 class="title-reset">Diagnostico rapido</h2>
       <ol class="list">
         <li><strong>Revisa lo basico</strong>: encajes, deposito, filtros y obstrucciones visibles.</li>
         <li><strong>Una variable cada vez</strong>: prueba cambios de uno en uno para aislar la causa.</li>
@@ -171,7 +171,7 @@
         <ul class="list">
           {{ range $checks }}<li>{{ . }}</li>{{ end }}
         </ul>
-        {{ with (index $p "fix_hint") }}<p class="muted small" style="margin-top:10px;">{{ . }}</p>{{ end }}
+        {{ with (index $p "fix_hint") }}<p class="muted small mt-10">{{ . }}</p>{{ end }}
       {{ end }}
 
       {{ $causes := index $p "causes" }}
@@ -189,9 +189,9 @@
         <h2>Preguntas frecuentes</h2>
         <div class="faq">
           {{ range $fa := $faqs }}
-            <details class="card" style="margin-top:10px;">
+            <details class="card mt-10">
               <summary><strong>{{ index $fa "q" }}</strong></summary>
-              <div class="muted" style="margin-top:8px;">{{ index $fa "a" }}</div>
+              <div class="muted mt-8">{{ index $fa "a" }}</div>
             </details>
           {{ end }}
         </div>
@@ -199,7 +199,7 @@
     </div>
 
     <aside class="panel">
-      <h2 style="margin-top:0;">Recambio recomendado</h2>
+      <h2 class="title-reset">Recambio recomendado</h2>
 
       {{ $label := "Ver recambios compatibles" }}
 
@@ -209,18 +209,18 @@
           <p class="muted small">La pieza probable no sustituye el diagnostico. Usala despues de pasar los checks anteriores.</p>
         </div>
 
-        <div style="margin-top:12px;">
+        <div class="mt-12">
           <a class="btn-buy" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">{{ $label }}</a>
         </div>
-        <p class="muted small" style="margin-top:10px;">Verifica encaje, conector y especificaciones antes de comprar.</p>
+        <p class="muted small mt-10">Verifica encaje, conector y especificaciones antes de comprar.</p>
 
         {{ $rec := index $model "recambios" }}
         {{ if and $rec (reflect.IsMap $rec) }}
           {{ $items := index $rec $catKey }}
           {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
             <hr>
-            <h3 style="margin-top:0;">Opciones populares</h3>
-            <div class="products" style="margin-top:10px;">
+            <h3 class="title-reset">Opciones populares</h3>
+            <div class="products mt-10">
               {{ $shown := 0 }}
               {{ range $it := $items }}
                 {{ if lt $shown 3 }}
@@ -228,8 +228,8 @@
                     <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
                     <div class="body">
                       <div class="title">{{ index $it "title" }}</div>
-                      {{ with (index $it "note") }}<div class="note muted" style="margin-top:10px;">{{ . }}</div>{{ end }}
-                      <div class="cta" style="margin-top:10px;">
+                      {{ with (index $it "note") }}<div class="note muted mt-10">{{ . }}</div>{{ end }}
+                      <div class="cta mt-10">
                         {{ $sku := index $it "sku" }}
                         {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
                       </div>
@@ -256,7 +256,7 @@
         "wrap" false
       ) }}
 
-      <p class="muted small" style="margin-top:12px;">
+      <p class="muted small mt-12">
         Algunos enlaces pueden ser de afiliacion. Precio y disponibilidad dependen del vendedor.
       </p>
     </aside>
