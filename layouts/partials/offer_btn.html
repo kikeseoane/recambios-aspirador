@@ -27,23 +27,31 @@
     {{ $btnText = "Ver compatibilidad y precio" }}
   {{ end }}
 
-  <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-    {{ $btnText }}
-  </a>
+  <div class="offer-action">
+    <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
+      {{ $btnText }}
+    </a>
 
-  {{ if $needs }}
-    <div style="margin-top:5px;">
-      <small class="muted">Resultado orientativo para seguir comparando compatibilidad</small>
-    </div>
-  {{ end }}
+    {{ if $needs }}
+      <div class="offer-action__note">
+        <small class="muted">Resultado orientativo para seguir comparando compatibilidad</small>
+      </div>
+    {{ else }}
+      <div class="offer-action__note">
+        <small class="muted">Abre una oferta externa en una pestaña nueva</small>
+      </div>
+    {{ end }}
+  </div>
 
 {{ else if $sku }}
   {{ if $searchURL }}
-    <a class="{{ $class }}" href="{{ $searchURL }}" rel="nofollow sponsored noopener" target="_blank">
-      {{ $searchLabel | default "Ver opciones compatibles" }}
-    </a>
-    <div style="margin-top:5px;">
-      <small class="muted">Busqueda guiada para encontrar una opcion compatible</small>
+    <div class="offer-action">
+      <a class="{{ $class }}" href="{{ $searchURL }}" rel="nofollow sponsored noopener" target="_blank">
+        {{ $searchLabel | default "Ver opciones compatibles" }}
+      </a>
+      <div class="offer-action__note">
+        <small class="muted">Busqueda guiada para encontrar una opcion compatible</small>
+      </div>
     </div>
   {{ else }}
     <span class="badge">En preparacion</span>

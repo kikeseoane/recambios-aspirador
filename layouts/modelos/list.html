@@ -319,15 +319,20 @@
 
                   <div class="products">
                     {{ $shown := 0 }}
-                    {{ range $it := $items }}
+                    {{ range $idx, $it := $items }}
                       {{ if lt $shown 2 }}
                         <div class="product">
                           <div class="img">{{ partial "cat_icon.html" (dict "catKey" ($catKey | urlize)) }}</div>
                           <div class="body">
                             <div class="product-meta">
-                              <span class="badge blue">Opcion destacada</span>
+                              <span class="badge blue">Top {{ add $idx 1 }}</span>
+                              <span class="product-flag">Salida directa</span>
                             </div>
                             <div class="title">{{ index $it "title" }}</div>
+                            <div class="product-kpis">
+                              <span>Precio y opciones</span>
+                              <span>Oferta externa</span>
+                            </div>
 
                             {{ with (index $it "note") }}
                               <div class="note muted product-note">{{ . }}</div>

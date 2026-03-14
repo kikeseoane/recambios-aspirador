@@ -174,15 +174,20 @@
     <h2 style="margin-top:0;">Opciones populares</h2>
     <div class="products" style="margin-top:10px;">
       {{ $shown := 0 }}
-      {{ range $it := $items }}
+      {{ range $idx, $it := $items }}
         {{ if lt $shown 3 }}
           <div class="product">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
-                <span class="badge blue">Opcion destacada</span>
+                <span class="badge blue">Top {{ add $idx 1 }}</span>
+                <span class="product-flag">Salida rapida</span>
               </div>
               <div class="title">{{ index $it "title" }}</div>
+              <div class="product-kpis">
+                <span>Compra directa</span>
+                <span>Abre oferta externa</span>
+              </div>
               {{ with (index $it "note") }}
                 <div class="note muted product-note">{{ . }}</div>
               {{ end }}
@@ -203,14 +208,19 @@
       <div id="recambios-disponibles"></div>
       <h2>Recambios disponibles</h2>
       <div class="products">
-        {{ range $it := $items }}
+        {{ range $idx, $it := $items }}
           <div class="product">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
                 <span class="badge">Compatible</span>
+                {{ if lt $idx 3 }}<span class="product-flag">Mas visto</span>{{ end }}
               </div>
               <div class="title">{{ index $it "title" }}</div>
+              <div class="product-kpis">
+                <span>Ver precio</span>
+                <span>Comparar encaje</span>
+              </div>
               {{ with (index $it "note") }}
                 <div class="note muted product-note">{{ . }}</div>
               {{ end }}
