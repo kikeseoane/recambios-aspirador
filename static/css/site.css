@@ -936,6 +936,34 @@ p  { line-height: 1.65; }
   margin-top: 18px;
 }
 
+.series-overview {
+  margin-top: 14px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(var(--primary-rgb), .1);
+  background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,246,237,.82));
+  box-shadow: var(--shadow-sm);
+}
+
+.series-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-top: 16px;
+}
+
+.series-card {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(var(--primary-rgb), .1);
+  background: rgba(255,255,255,.82);
+  box-shadow: var(--shadow-sm);
+}
+
+.series-card h3 {
+  margin: 0 0 4px;
+}
+
 .pagination {
   margin-top: 20px;
   padding: 14px 16px;

@@ -1,0 +1,43 @@
+{{ $brand := .brand }}
+{{ $models := $brand.models | default slice }}
+
+{{ $seriesMap := dict }}
+{{ range $m := $models }}
+  {{ $series := index $m "series" | default "Otras series" }}
+  {{ $existing := index $seriesMap $series | default (dict "count" 0 "years" (slice)) }}
+  {{ $years := index $existing "years" | default (slice) }}
+  {{ with (index $m "year_range") }}
+    {{ $years = $years | append . }}
+  {{ end }}
+  {{ $seriesMap = merge $seriesMap (dict $series (dict
+    "count" (add ((index $existing "count") | default 0) 1)
+    "years" $years
+  )) }}
+{{ end }}
+
+{{ $seriesList := slice }}
+{{ range $name, $meta := $seriesMap }}
+  {{ $seriesList = $seriesList | append (dict "name" $name "count" (index $meta "count") "years" (delimit ((index $meta "years") | uniq) " · ")) }}
+{{ end }}
+{{ $seriesList = sort $seriesList "count" "desc" }}
+
+{{ if gt (len $seriesList) 0 }}
+  <section class="series-overview">
+    <div class="section-head" style="margin-top:0;">
+      <h2>Series y plataformas</h2>
+      <span class="chip">{{ len $seriesList }} familias</span>
+    </div>
+    <div class="series-grid">
+      {{ range first 6 $seriesList }}
+        <article class="series-card">
+          <div class="kicker">Serie</div>
+          <h3>{{ .name }}</h3>
+          <p class="muted">{{ .count }} modelos mapeados</p>
+          {{ with .years }}
+            <p class="muted small" style="margin-top:8px;">{{ . }}</p>
+          {{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
