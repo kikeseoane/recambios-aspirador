@@ -937,6 +937,28 @@ p  { line-height: 1.65; }
   margin-top: 12px;
 }
 
+.trust-box {
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(var(--primary-rgb), .14);
+  background: rgba(255,255,255,.86);
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-box strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.trust-box .list {
+  margin: 0;
+}
+
 .compat-guard {
   margin: 0 0 14px;
   padding: 20px;

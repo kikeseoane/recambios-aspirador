@@ -1,7 +1,7 @@
 {{/* partials/offer_btn.html */}}
 
 {{ $sku := .sku | default "" }}
-{{ $label := .label | default "Ver oferta" }}
+{{ $label := .label | default "Ver precio y opciones" }}
 {{ $class := .class | default "btn-buy" }}
 
 {{ $offersDoc := site.Data.ofertas }}
@@ -22,9 +22,9 @@
 {{ if $url }}
   {{ $btnText := $label }}
   {{ if $needs }}
-    {{ $btnText = $searchLabel | default "Ver opciones en AliExpress" }}
+    {{ $btnText = $searchLabel | default "Ver opciones compatibles" }}
   {{ else if eq $matchType "relaxed_fallback" }}
-    {{ $btnText = "Ver recambio compatible" }}
+    {{ $btnText = "Ver compatibilidad y precio" }}
   {{ end }}
 
   <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
@@ -33,17 +33,17 @@
 
   {{ if $needs }}
     <div style="margin-top:5px;">
-      <small class="muted">No encontramos producto exacto · Resultado orientativo</small>
+      <small class="muted">Resultado orientativo para seguir comparando compatibilidad</small>
     </div>
   {{ end }}
 
 {{ else if $sku }}
   {{ if $searchURL }}
     <a class="{{ $class }}" href="{{ $searchURL }}" rel="nofollow sponsored noopener" target="_blank">
-      {{ $searchLabel | default "Buscar en AliExpress" }}
+      {{ $searchLabel | default "Ver opciones compatibles" }}
     </a>
     <div style="margin-top:5px;">
-      <small class="muted">No hay ficha exacta cerrada · Busqueda guiada por compatibilidad</small>
+      <small class="muted">Busqueda guiada para encontrar una opcion compatible</small>
     </div>
   {{ else }}
     <span class="badge">En preparacion</span>
