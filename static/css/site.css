@@ -964,6 +964,24 @@ p  { line-height: 1.65; }
   margin: 0 0 4px;
 }
 
+.brand-model-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.brand-model-group {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(var(--primary-rgb), .08);
+  background: rgba(255,255,255,.62);
+}
+
+.card--model {
+  min-height: 100%;
+}
+
 .pagination {
   margin-top: 20px;
   padding: 14px 16px;

@@ -73,29 +73,7 @@
         </p>
 
         {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
-          <div class="grid cards">
-            {{ range $m := $models }}
-              {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
-              <a class="card" href="{{ (printf "%s/%s/" $modBase $m.slug) | relURL }}">
-                <h3>{{ $title }}</h3>
-
-                {{ with $m.series }}
-                  <span class="badge">Serie {{ . }}</span>
-                {{ end }}
-
-                {{ with $m.year_range }}
-                  <p class="muted small" style="margin-top:8px;">{{ . }}</p>
-                {{ end }}
-
-                {{ $probs := index $m "problemas" }}
-                {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
-                  <p class="muted small" style="margin-top:8px;">
-                    {{ len $probs }} problemas frecuentes
-                  </p>
-                {{ end }}
-              </a>
-            {{ end }}
-          </div>
+          {{ partial "brand_model_groups.html" (dict "brand" $brand "modBase" $modBase) }}
         {{ else }}
           <p class="muted">Todavia no hay modelos publicados para esta marca.</p>
         {{ end }}

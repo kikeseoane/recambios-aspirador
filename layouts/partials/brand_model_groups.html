@@ -1,0 +1,50 @@
+{{ $brand := .brand }}
+{{ $modBase := .modBase }}
+
+{{ $groups := dict }}
+{{ range $m := ($brand.models | default slice) }}
+  {{ $series := index $m "series" | default "Otras series" }}
+  {{ $existing := index $groups $series | default (slice) }}
+  {{ $groups = merge $groups (dict $series ($existing | append $m)) }}
+{{ end }}
+
+{{ $groupList := slice }}
+{{ range $name, $items := $groups }}
+  {{ $groupList = $groupList | append (dict "name" $name "items" $items "count" (len $items)) }}
+{{ end }}
+{{ $groupList = sort $groupList "count" "desc" }}
+
+{{ if gt (len $groupList) 0 }}
+  <div class="brand-model-groups">
+    {{ range $group := $groupList }}
+      <section class="brand-model-group">
+        <div class="section-head" style="margin-top:0;">
+          <h3>{{ $group.name }}</h3>
+          <span class="chip">{{ $group.count }} modelos</span>
+        </div>
+        <div class="grid cards" style="margin-top:14px;">
+          {{ range $m := $group.items }}
+            {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
+            {{ $slug := or $m.slug $m.canonical_slug }}
+            <a class="card card--model" href="{{ (printf "%s/%s/" $modBase $slug) | relURL }}">
+              <div class="card-eyebrow">Modelo</div>
+              <h3>{{ $title }}</h3>
+
+              <div class="badges">
+                <span class="badge">Serie {{ $group.name }}</span>
+                {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
+
+              {{ $probs := index $m "problemas" }}
+              {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+                <p class="muted small" style="margin-top:10px;">{{ len $probs }} problemas frecuentes mapeados</p>
+              {{ else }}
+                <p class="muted small" style="margin-top:10px;">Compatibilidad y recambios por categoria</p>
+              {{ end }}
+            </a>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  </div>
+{{ end }}
