@@ -213,6 +213,48 @@ def cat_title_es(cat_key: str) -> str:
     return m.get(ck, cat_key.title())
 
 
+def has_meaningful_recambios(rec: object) -> bool:
+    if not isinstance(rec, dict):
+        return False
+    for items in rec.values():
+        if isinstance(items, list) and len(items) > 0:
+            return True
+    return False
+
+
+def has_meaningful_problem(problem: object) -> bool:
+    if not isinstance(problem, dict):
+        return False
+    title = (problem.get("title") or "").strip()
+    cta_cat = (problem.get("cta_cat") or "").strip()
+    symptoms = problem.get("symptoms")
+    checks = problem.get("checks")
+    causes = problem.get("causes")
+    faqs = problem.get("faqs")
+    return bool(
+        title and (
+            cta_cat
+            or (isinstance(symptoms, list) and len(symptoms) > 0)
+            or (isinstance(checks, list) and len(checks) > 0)
+            or (isinstance(causes, list) and len(causes) > 0)
+            or (isinstance(faqs, list) and len(faqs) > 0)
+        )
+    )
+
+
+def has_meaningful_model(model: object) -> bool:
+    if not isinstance(model, dict):
+        return False
+    if has_meaningful_recambios(model.get("recambios")):
+        return True
+    problems = model.get("problemas")
+    if isinstance(problems, list):
+        for problem in problems:
+            if has_meaningful_problem(problem):
+                return True
+    return False
+
+
 # -------------------------------
 # Main
 # -------------------------------
@@ -392,6 +434,8 @@ def main() -> None:
         for m in (brand.get("models", []) or []):
             if not isinstance(m, dict):
                 continue
+            if not has_meaningful_model(m):
+                continue
 
             model_name_raw = (m.get("model") or "").strip()
             model_name = clean_model_name(brand_name, model_name_raw)
@@ -451,6 +495,9 @@ def main() -> None:
             # Problemas (solo si existen)
             problems = (m.get("problemas") or [])
             if isinstance(problems, list) and len(problems) > 0:
+                valid_problems = [p for p in problems if has_meaningful_problem(p)]
+                if not valid_problems:
+                    continue
                 # HUB /modelos/<model>/problemas/ (branch bundle) -> _index.md
                 problemas_extra: dict = {
                     "brandKey": brand_key,
@@ -471,9 +518,7 @@ def main() -> None:
                 )
 
                 # Problemas individuales (leaf bundles) -> index.md
-                for p in problems:
-                    if not isinstance(p, dict):
-                        continue
+                for p in valid_problems:
                     pkey = slugify(p.get("key") or "")
                     ptitle = (p.get("title") or "").strip()
                     if not pkey or not ptitle:
