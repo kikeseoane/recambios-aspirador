@@ -643,6 +643,20 @@ p  { line-height: 1.65; }
   color: var(--muted);
 }
 
+.section-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  opacity: .72;
+  transition: opacity .12s, color .12s;
+}
+
+.section-link:hover {
+  opacity: 1;
+  color: var(--primary);
+}
+
 /* ----------------------------------------------------------------
    Grid
    ---------------------------------------------------------------- */

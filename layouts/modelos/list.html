@@ -314,8 +314,8 @@
                 {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
                   <div class="section-head" style="margin-top:18px;">
                     <h3 style="margin:0;">{{ $catLabel }}</h3>
-                    <a class="chip" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug ($catKey | urlize)) | relURL }}">
-                      Ver todos
+                    <a class="section-link" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug ($catKey | urlize)) | relURL }}">
+                      Mas opciones
                     </a>
                   </div>
 
