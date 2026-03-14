@@ -25,7 +25,7 @@
         (dict "value" "1 ruta" "label" "hacia compra por modelo")
       }}
     {{ end }}
-    {{ $copy = "Elige tu modelo para ver compatibilidad, piezas clave, problemas frecuentes y accesos directos a compra." }}
+    {{ $copy = "Elige tu modelo para ver compatibilidad, piezas clave, problemas frecuentes y accesos directos a cada categoria de recambio." }}
     {{ $links = slice
       (dict "label" "<- Volver a marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
       (dict "label" "Ver todos los modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
@@ -33,7 +33,7 @@
   {{ else }}
     {{ $kicker = "Catalogo" }}
     {{ $title = "Marcas" }}
-    {{ $copy = "Explora las marcas activas y entra en sus modelos para resolver compatibilidad y compra con menos error." }}
+    {{ $copy = "Explora las marcas activas y entra en sus modelos para revisar compatibilidad, series y piezas frecuentes con mas contexto." }}
     {{ $links = slice
       (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--ghost")
       (dict "label" "Ver guias" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
@@ -43,14 +43,14 @@
 {{ else if eq $section "guias" }}
   {{ $kicker = "Guias" }}
   {{ $title = "Guias rapidas" }}
-  {{ $copy = "Reduce errores de compra con checks de compatibilidad, mantenimiento y seguridad antes de tocar ninguna pieza." }}
+  {{ $copy = "Consulta checks de compatibilidad, mantenimiento y seguridad antes de elegir una pieza o desmontar el equipo." }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
     (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
   }}
   {{ $metrics = slice
-    (dict "value" "3 pasos" "label" "antes de comprar")
-    (dict "value" "0 humo" "label" "solo checks utiles")
+    (dict "value" "3 pasos" "label" "antes de elegir")
+    (dict "value" "Checks claros" "label" "para revisar compatibilidad")
   }}
 
 {{ else if eq $section "modelos" }}
@@ -62,8 +62,8 @@
     (dict "label" "Ver guias" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
   }}
   {{ $metrics = slice
-    (dict "value" "Por modelo" "label" "menos error de compra")
-    (dict "value" "Por categoria" "label" "decision mas rapida")
+    (dict "value" "Por modelo" "label" "compatibilidad mas clara")
+    (dict "value" "Por categoria" "label" "busqueda mas rapida")
   }}
 
 {{ else }}

@@ -130,7 +130,7 @@
         </div>
         <div class="hero-mini-stat">
           <strong>Modelo primero</strong>
-          <span>reduce errores de compatibilidad antes del clic</span>
+          <span>reduce errores de compatibilidad antes de abrir una oferta</span>
         </div>
       </div>
     </div>
@@ -147,16 +147,16 @@
       <h3>Revisa voltaje, medidas o conector</h3>
       <p class="muted">La categoria correcta no garantiza compatibilidad total. Falta validar la ficha tecnica.</p>
     </article>
-    <article class="card">
-      <div class="kicker">Check 3</div>
-      <h3>Compra con salida util</h3>
-      <p class="muted">Si no hay producto exacto cerrado, la pagina ya ofrece busqueda guiada en vez de un CTA muerto.</p>
-    </article>
+      <article class="card">
+        <div class="kicker">Check 3</div>
+        <h3>Mas contexto antes de elegir</h3>
+        <p class="muted">Si falta una referencia exacta, la pagina mantiene opciones para afinar la busqueda con mas criterio.</p>
+      </article>
   </div>
 
   {{ partial "compatibility_guard.html" (dict
     "title" (printf "Checklist de compatibilidad para %s" $catLabel)
-    "intro" "La categoria correcta ayuda, pero la compra segura depende de validar estas tres senales antes del clic."
+    "intro" "La categoria correcta ayuda, pero la compatibilidad real depende de validar estas tres senales antes de abrir una oferta."
     "badge" "Compra segura"
     "checks" (slice
       "Submodelo o variante exacta del equipo"

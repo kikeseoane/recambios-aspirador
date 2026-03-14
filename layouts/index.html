@@ -25,39 +25,39 @@
 
   <section class="hero hero--bg hero--home hero--home-upgraded">
     <div class="hero__inner">
-      <div class="hero__kicker">Compra con menos error</div>
+      <div class="hero__kicker">Compatibilidad por modelo</div>
       <h1>Encuentra el recambio exacto antes de perder tiempo con piezas que no encajan</h1>
       <p class="muted hero__copy">
-        Navega por marca, modelo y tipo de pieza para llegar antes a filtros, baterias, cepillos,
-        cargadores y accesorios compatibles sin comprar a ciegas.
+        Navega por marca, modelo y tipo de pieza para encontrar filtros, baterias, cepillos,
+        cargadores y accesorios compatibles con una revision mas clara antes de elegir.
       </p>
 
       <div class="hero-proofline">
         <span class="badge hot">Compatibilidad por modelo</span>
         <span class="badge blue">Checks de encaje y voltaje</span>
-        <span class="badge">Sin frameworks pesados</span>
+        <span class="badge">Navegacion clara</span>
       </div>
 
       <div class="hero__links">
         <a class="btn btn--primary" href="{{ "/modelos/" | relURL }}">Buscar por modelo</a>
         <a class="btn btn--ghost" href="{{ "/marcas/" | relURL }}">Explorar marcas</a>
-        <a class="btn btn--link" href="{{ "/guias/compra/" | relURL }}">Ver checklist de compatibilidad -></a>
+        <a class="btn btn--link" href="{{ "/guias/compra/" | relURL }}">Ver guia de compatibilidad</a>
       </div>
 
-      <p class="hero-microcopy">Empieza por el modelo exacto. Es la forma mas rapida de recortar errores antes del clic afiliado.</p>
+      <p class="hero-microcopy">Empieza por el modelo exacto para filtrar variantes, conectores y medidas con mas criterio.</p>
 
       <div class="hero-mini-stats">
         <div class="hero-mini-stat">
-          <strong>Compra con menos error</strong>
-          <span>modelo, encaje y voltaje antes del clic</span>
+          <strong>Revision por modelo</strong>
+          <span>modelo, encaje y voltaje visibles en la ruta principal</span>
         </div>
         <div class="hero-mini-stat">
-          <strong>Decision mas rapida</strong>
-          <span>piezas separadas por categoria y problema</span>
+          <strong>Navegacion mas clara</strong>
+          <span>piezas separadas por categoria, problema y serie</span>
         </div>
         <div class="hero-mini-stat">
-          <strong>Salida util</strong>
-          <span>busqueda guiada cuando falta ficha cerrada</span>
+          <strong>Contexto antes de elegir</strong>
+          <span>checks y alternativas cuando una ficha necesita mas validacion</span>
         </div>
       </div>
 
@@ -82,9 +82,9 @@
         <div class="hero-visual-card__top">
           <div>
             <div class="kicker">Ruta recomendada</div>
-            <h3>Modelo exacto -> categoria -> validacion final</h3>
+            <h3>Modelo exacto, categoria adecuada y comprobacion final</h3>
           </div>
-          <span class="badge hot">Ruta CRO</span>
+          <span class="badge hot">Ruta principal</span>
         </div>
         <img class="hero-visual-art" src="{{ "/img/placeholders/hero-compatibility.svg" | relURL }}" alt="Esquema visual de compatibilidad entre modelo, pieza y verificacion" loading="eager" width="640" height="420">
         <div class="spotlight-list">
@@ -106,7 +106,7 @@
 
         <div class="spotlight-card spotlight-card--soft">
           <div class="kicker">Confianza</div>
-          <p class="muted">Comparas pieza, conector y tipo de fallo antes de salir al vendedor.</p>
+          <p class="muted">La ruta de compra prioriza compatibilidad, sintomas y referencias visibles antes de abrir una oferta.</p>
         </div>
       </div>
     </div>
@@ -163,7 +163,7 @@
             <div class="card-body">
               <div class="card-eyebrow">Marca</div>
               <h3>{{ $b.name }}</h3>
-              <p class="muted">Accede a recambios compatibles para {{ $typeText }} {{ $b.name }} y entra en la ficha del modelo para validar la compra.</p>
+              <p class="muted">Accede a recambios compatibles para {{ $typeText }} {{ $b.name }} y entra en la ficha del modelo para revisar compatibilidad.</p>
               <div class="badges">
                 <span class="badge hot">{{ len $b.models }} modelos</span>
                 {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
@@ -187,7 +187,7 @@
         <article class="intent-card intent-card--feature">
           <div class="kicker">{{ .buy_intent | default "compra" }}</div>
           <h3>{{ .label }}</h3>
-          <p class="muted">Encuentra modelos con {{ lower .label }} compatibles y revisa la ficha antes de salir a comprar.</p>
+          <p class="muted">Encuentra modelos con {{ lower .label }} compatibles y revisa la ficha antes de abrir una oferta.</p>
           <div class="badges"><span class="badge blue">Verificacion por modelo</span></div>
         </article>
       {{ end }}
@@ -214,33 +214,33 @@
       <article class="feature-strip__item">
         <div class="kicker">Paso 3</div>
         <h3>Valida antes de pagar</h3>
-        <p class="muted">Encaje, voltaje, conector y variante exacta antes de salir al vendedor.</p>
+        <p class="muted">Encaje, voltaje, conector y variante exacta antes de abrir una oferta.</p>
       </article>
     </section>
 
     <div class="home-proof home-proof--dense">
       <article class="home-proof__item">
-        <div class="kicker">Senal fuerte</div>
+        <div class="kicker">Base del catalogo</div>
         <h3>Primero modelo exacto, luego pieza</h3>
         <p class="muted">La ruta principal prioriza compatibilidad antes que catalogo bruto.</p>
       </article>
       <article class="home-proof__item">
-        <div class="kicker">Ruta comercial</div>
-        <h3>Salida util aunque falte ficha cerrada</h3>
-        <p class="muted">Cuando no existe match exacto, el usuario sigue teniendo busqueda guiada.</p>
+        <div class="kicker">Cobertura util</div>
+        <h3>Alternativas cuando falta una ficha exacta</h3>
+        <p class="muted">Si una pieza necesita mas confirmacion, la ruta sigue ofreciendo contexto para afinar la busqueda.</p>
       </article>
       <article class="home-proof__item">
-        <div class="kicker">Defensa SEO</div>
-        <h3>Menos basura, mas paginas con senal real</h3>
-        <p class="muted">El generador ya empieza a cortar modelos y problemas flojos.</p>
+        <div class="kicker">Cobertura limpia</div>
+        <h3>Mas paginas utiles y menos ruido</h3>
+        <p class="muted">La estructura prioriza modelos, problemas y categorias con senal real de compatibilidad.</p>
       </article>
     </div>
   </section>
 
   <section class="home-section home-section--soft">
     <div class="section-head">
-      <h2>Guias y checklists que retienen mejor</h2>
-      <span class="chip">Menos rebote, mas contexto</span>
+      <h2>Guias y checklists utiles</h2>
+      <span class="chip">Mas contexto antes de elegir</span>
     </div>
 
     <div class="grid cards cards--wide">
@@ -291,24 +291,24 @@
   <section class="home-section home-section--contrast">
     <div class="section-head">
       <h2>Senales de confianza</h2>
-      <span class="chip">Compatibilidad y verificacion</span>
+      <span class="chip">Compatibilidad visible</span>
     </div>
 
     <div class="trust-grid">
       <article class="trust-card">
         <div class="kicker">Compatibilidad</div>
         <h3>Modelo y variante antes de comprar</h3>
-        <p class="muted">Las fichas empujan a validar submodelo, serie y tipo de pieza antes del clic saliente.</p>
+        <p class="muted">Las fichas priorizan submodelo, serie y tipo de pieza antes de abrir una oferta externa.</p>
       </article>
       <article class="trust-card">
         <div class="kicker">Electrica</div>
         <h3>Voltaje, conector y capacidad visibles</h3>
-        <p class="muted">Baterias y cargadores ya tienen microcopy de validacion para reducir compras fallidas.</p>
+        <p class="muted">Baterias y cargadores muestran microcopys de validacion para reducir compras fallidas.</p>
       </article>
       <article class="trust-card">
-        <div class="kicker">Ruta guiada</div>
-        <h3>Problema -> checks -> pieza probable</h3>
-        <p class="muted">No se empuja a comprar directamente si antes toca diagnosticar el fallo real.</p>
+        <div class="kicker">Diagnostico</div>
+        <h3>Problema, comprobaciones y pieza probable</h3>
+        <p class="muted">La ruta diagnostica ayuda a revisar el fallo antes de pasar a la pieza mas probable.</p>
       </article>
     </div>
   </section>

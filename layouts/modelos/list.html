@@ -266,7 +266,7 @@
 
         {{ partial "compatibility_guard.html" (dict
           "title" (printf "Compatibilidad segura para %s" $mtitle)
-          "intro" "Este bloque resume las comprobaciones que mas reducen compras incompatibles antes de salir al vendedor."
+          "intro" "Este bloque resume las comprobaciones que mas ayudan a validar compatibilidad antes de abrir una oferta."
           "badge" "Compatibilidad"
           "checks" (slice
             "Confirma el nombre exacto del modelo y su variante"
@@ -416,7 +416,7 @@
                       {{ end }}
 
                       {{ if $pkey }}
-                        <a class="chip" style="margin-top:8px;font-size:12px;" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico -></a>
+                        <a class="chip" style="margin-top:8px;font-size:12px;" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico</a>
                       {{ end }}
                     </div>
                   {{ end }}

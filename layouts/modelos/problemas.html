@@ -35,7 +35,7 @@
     <div class="hero__inner">
       <div class="hero__kicker">Diagnostico</div>
       <h1>{{ .Title }}</h1>
-      <p class="hero__copy">Rutas de diagnostico por sintomas para {{ $mtitle }}: revisa checks, descarta fallos comunes y llega antes a la pieza probable.</p>
+      <p class="hero__copy">Rutas de diagnostico por sintomas para {{ $mtitle }}: revisa comprobaciones basicas, descarta fallos comunes y acota la pieza mas probable.</p>
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
@@ -45,12 +45,12 @@
 
       <div class="hero-mini-stats">
         <div class="hero-mini-stat">
-          <strong>Sintoma -> check</strong>
-          <span>menos compra impulsiva y mas descarte real</span>
+          <strong>Sintoma y comprobacion</strong>
+          <span>primero revisa el fallo antes de pasar a una pieza</span>
         </div>
         <div class="hero-mini-stat">
-          <strong>Problema -> pieza</strong>
-          <span>solo despues de confirmar el fallo mas probable</span>
+          <strong>Problema y pieza probable</strong>
+          <span>la pieza se plantea solo despues de confirmar el fallo mas probable</span>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
 
   {{ partial "compatibility_guard.html" (dict
     "title" "Como usar este hub de problemas"
-    "intro" "No empieces por la compra. Empieza por el sintoma, luego pasa los checks y por ultimo valida compatibilidad."
+    "intro" "Empieza por el sintoma, sigue con las comprobaciones basicas y valida compatibilidad solo cuando el fallo encaje."
     "badge" "Metodo"
     "checks" (slice
       "Elige el problema que mejor describa el fallo real"
@@ -81,7 +81,7 @@
             {{ if reflect.IsSlice . }}<p class="muted" style="margin-top:8px;">Sintoma tipico: {{ index . 0 }}</p>{{ end }}
           {{ end }}
           {{ with (index $p "cta_cat") }}
-            <div class="badges"><span class="badge hot">Salida a recambio</span></div>
+            <div class="badges"><span class="badge hot">Ver recambio relacionado</span></div>
           {{ end }}
         </a>
       {{ end }}
