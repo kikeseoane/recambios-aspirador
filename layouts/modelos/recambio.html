@@ -185,13 +185,16 @@
           <div class="product">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
+              <div class="product-meta">
+                <span class="badge blue">Opcion destacada</span>
+              </div>
               <div class="title">{{ index $it "title" }}</div>
               {{ with (index $it "note") }}
-                <div class="note muted" style="margin-top:10px;">{{ . }}</div>
+                <div class="note muted product-note">{{ . }}</div>
               {{ end }}
               <div class="cta">
                 {{ $sku := index $it "sku" }}
-                {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
+                {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver precio y opciones" "class" "btn-buy") }}
               </div>
             </div>
           </div>
@@ -224,13 +227,16 @@
           <div class="product">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
+              <div class="product-meta">
+                <span class="badge">Compatible</span>
+              </div>
               <div class="title">{{ index $it "title" }}</div>
               {{ with (index $it "note") }}
-                <div class="note muted" style="margin-top:10px;">{{ . }}</div>
+                <div class="note muted product-note">{{ . }}</div>
               {{ end }}
               <div class="cta">
                 {{ $sku := index $it "sku" }}
-                {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
+                {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver precio y opciones" "class" "btn-buy") }}
               </div>
             </div>
           </div>
