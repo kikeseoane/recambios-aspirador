@@ -4,22 +4,10 @@
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+  {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brandKey := .Params.brandKey }}
   {{ $modelSlug := .Params.modelSlug | urlize }}
 
-  <div class="breadcrumbs">
-    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">›</span>
-    <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">›</span>
-{{ $brand := index $db.brands $brandKey }}
-<a href="{{ (printf "%s/%s/" $marcBase ($brandKey|urlize)) | relURL }}">{{ $brand.name | default $brandKey }}</a><span class="sep">›</span>
-    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">Modelo</a><span class="sep">›</span>
-    <span>Problemas</span>
-  </div>
-
-  <h1>{{ .Title }}</h1>
-  <p class="muted">Diagnósticos rápidos: síntomas → checks → recambio recomendado.</p>
-
-  {{/* Para pintar cards, reutiliza el YAML del modelo */}}
   {{ $brand := index $db.brands $brandKey }}
   {{ $model := dict }}
   {{ if $brand }}
@@ -30,6 +18,55 @@
     {{ end }}
   {{ end }}
 
+  {{ $mtitle := "Modelo" }}
+  {{ if and $brand $model }}
+    {{ $mtitle = partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
+  {{ end }}
+
+  <div class="breadcrumbs">
+    <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
+    <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name | default $brandKey }}</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
+    <span>Problemas</span>
+  </div>
+
+  <section class="hero hero--bg hero--compact hero--editorial" style="margin-top:10px;">
+    <div class="hero__inner">
+      <div class="hero__kicker">Diagnostico</div>
+      <h1>{{ .Title }}</h1>
+      <p class="hero__copy">Rutas de diagnostico por sintomas para {{ $mtitle }}: revisa checks, descarta fallos comunes y llega antes a la pieza probable.</p>
+
+      <div class="hero__links">
+        <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
+        <a class="btn btn--link" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Guia de mantenimiento</a>
+        <a class="btn btn--ghost" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+      </div>
+
+      <div class="hero-mini-stats">
+        <div class="hero-mini-stat">
+          <strong>Sintoma -> check</strong>
+          <span>menos compra impulsiva y mas descarte real</span>
+        </div>
+        <div class="hero-mini-stat">
+          <strong>Problema -> pieza</strong>
+          <span>solo despues de confirmar el fallo mas probable</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ partial "compatibility_guard.html" (dict
+    "title" "Como usar este hub de problemas"
+    "intro" "No empieces por la compra. Empieza por el sintoma, luego pasa los checks y por ultimo valida compatibilidad."
+    "badge" "Metodo"
+    "checks" (slice
+      "Elige el problema que mejor describa el fallo real"
+      "Haz las comprobaciones rapidas antes de comprar"
+      "Si la pieza probable coincide, valida modelo y encaje"
+    )
+  ) }}
+
   {{ $probs := index $model "problemas" }}
   {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
     <div class="grid cards">
@@ -37,18 +74,30 @@
         {{ $pkey := (index $p "key") | urlize }}
         {{ $ptitle := (index $p "title") | default $pkey }}
         <a class="card" href="{{ (printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey) | relURL }}">
+          <div class="kicker">Problema frecuente</div>
           <h3>{{ $ptitle }}</h3>
           {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
           {{ with (index $p "symptoms") }}
-            {{ if reflect.IsSlice . }}<p class="muted" style="margin-top:8px;">Síntoma típico: {{ index . 0 }}</p>{{ end }}
+            {{ if reflect.IsSlice . }}<p class="muted" style="margin-top:8px;">Sintoma tipico: {{ index . 0 }}</p>{{ end }}
+          {{ end }}
+          {{ with (index $p "cta_cat") }}
+            <div class="badges"><span class="badge hot">Salida a recambio</span></div>
           {{ end }}
         </a>
       {{ end }}
     </div>
+
+    {{ partial "model_crosslinks.html" (dict
+      "db" $db
+      "brandKey" $brandKey
+      "modelSlug" $modelSlug
+      "verticalKey" $verticalKey
+      "wrap" true
+    ) }}
   {{ else }}
     <div class="card">
-      <h3>En preparación</h3>
-      <p class="muted">Aún no hay problemas publicados para este modelo.</p>
+      <h3>En preparacion</h3>
+      <p class="muted">Aun no hay problemas publicados para este modelo.</p>
     </div>
   {{ end }}
 {{ end }}
