@@ -758,6 +758,17 @@ p  { line-height: 1.65; }
   box-shadow: var(--shadow-sm);
 }
 
+.panel--commerce {
+  box-shadow: 0 10px 24px rgba(13, 36, 74, .08);
+  border-color: rgba(var(--primary-rgb), .14);
+}
+
+.panel--support {
+  background: rgba(255,255,255,.72);
+  border-color: rgba(var(--primary-rgb), .08);
+  box-shadow: none;
+}
+
 .list > .card,
 .container.list > .card,
 .pagination {
@@ -824,6 +835,17 @@ p  { line-height: 1.65; }
 .intent-card,
 .checklist-card {
   padding: 18px;
+}
+
+.cards--support .card,
+.panel--support .checklist-card,
+.panel--support .sidebar-flow {
+  background: rgba(255,255,255,.74);
+  box-shadow: none;
+}
+
+.cards--support .card {
+  border-color: rgba(var(--primary-rgb), .08);
 }
 
 .feature-strip__item h3,
@@ -931,6 +953,11 @@ p  { line-height: 1.65; }
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.support-guard {
+  opacity: .88;
+  margin-top: 10px;
 }
 
 .sidebar-block {

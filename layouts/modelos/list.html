@@ -263,6 +263,7 @@
           <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
         </div>
 
+        <div class="support-guard">
         {{ partial "compatibility_guard.html" (dict
           "title" (printf "Compatibilidad segura para %s" $mtitle)
           "intro" "Este bloque resume las comprobaciones que mas ayudan a validar serie, variante, encaje o voltaje antes de abrir una oferta."
@@ -273,9 +274,10 @@
             "Compara encaje, conector o formato de la pieza"
           )
         ) }}
+        </div>
 
         <div class="two-col" style="margin-top:12px;">
-          <div class="panel">
+          <div class="panel panel--commerce">
             <div id="compatibilidad"></div>
             <h2 style="margin-top:0;">Compatibilidad rapida</h2>
             <p class="muted small">
@@ -360,7 +362,7 @@
             {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
               <div id="problemas-frecuentes"></div>
               <h2 style="margin-top:0;">Problemas frecuentes</h2>
-              <p class="muted small">Diagnosticos rapidos con checks y recambios recomendados.</p>
+              <p class="muted small">Solo si el recambio principal no encaja con tu caso.</p>
 
               <div class="grid cards">
                 {{ range $p := $probs }}
@@ -436,7 +438,7 @@
             {{ end }}
           </div>
 
-          <aside class="panel">
+          <aside class="panel panel--support">
             <div class="sidebar-flow">
               <div class="kicker">Ruta recomendada</div>
               <h2 style="margin-top:0;">Orden de revision</h2>
