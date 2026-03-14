@@ -9,16 +9,31 @@
 
 <section class="compat-guard">
   <div class="compat-guard__head">
-    <span class="badge blue">{{ $badge }}</span>
-    <h2>{{ $title }}</h2>
-    <p class="muted">{{ $intro }}</p>
+    <div class="compat-guard__eyebrow">
+      <span class="badge blue">{{ $badge }}</span>
+      <span class="compat-guard__meta">Revision previa</span>
+    </div>
+    <div class="compat-guard__title-row">
+      <div>
+        <h2>{{ $title }}</h2>
+        <p class="muted">{{ $intro }}</p>
+      </div>
+      <div class="compat-guard__legend" aria-hidden="true">
+        <span>Serie</span>
+        <span>Encaje</span>
+        <span>Voltaje</span>
+      </div>
+    </div>
   </div>
 
   <div class="compat-guard__grid">
-    {{ range $checks }}
+    {{ range $i, $check := $checks }}
       <article class="compat-guard__item">
-        <div class="compat-guard__tick">OK</div>
-        <p>{{ . }}</p>
+        <div class="compat-guard__tick">R{{ add $i 1 }}</div>
+        <div class="compat-guard__copy">
+          <span class="compat-guard__label">Revision {{ add $i 1 }}</span>
+          <p>{{ $check }}</p>
+        </div>
       </article>
     {{ end }}
   </div>
