@@ -141,22 +141,86 @@
     <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
   </div>
 
-  <div id="checklist-compra" class="grid cards cards--wide cards--support mt-14">
-    <article class="card">
-      <div class="kicker">Check 1</div>
-      <h3>Confirma variante y serie</h3>
-      <p class="muted">No compres solo por nombre comercial. Prioriza submodelo, revision, referencia y foto real del encaje.</p>
-    </article>
-    <article class="card">
-      <div class="kicker">Check 2</div>
-      <h3>Revisa voltaje, medidas o conector</h3>
-      <p class="muted">La categoria correcta no garantiza compatibilidad total. Falta validar voltaje, amperaje, diametro o conector segun la pieza.</p>
-    </article>
-      <article class="card">
-        <div class="kicker">Check 3</div>
-        <h3>Confirma la referencia util</h3>
-        <p class="muted">Si falta una referencia exacta, la pagina mantiene opciones para afinar por serie, encaje o referencia equivalente.</p>
+  {{/* ---- Checks especificos por categoria ---- */}}
+  {{ $check1Title := "Confirma variante y serie" }}
+  {{ $check1Body  := "No compres solo por nombre comercial. Prioriza submodelo, revision y foto real del encaje antes de abrir ninguna oferta." }}
+  {{ $check2Title := "Verifica medidas o conector" }}
+  {{ $check2Body  := "La categoria correcta no garantiza compatibilidad total. Valida voltaje, amperaje, diametro o tipo de conector segun la pieza." }}
+  {{ $check3Title := "Compara fotos del anclaje" }}
+  {{ $check3Body  := "Si falta una referencia exacta, compara fotos del anclaje real con el anuncio antes de confirmar la compra." }}
+
+  {{ if eq $catKey "filtro" }}
+    {{ $check1Title = "Tipo de filtro: HEPA, prefiltro o trasero" }}
+    {{ $check1Body  = "Los filtros no son intercambiables entre tipos. Confirma si necesitas filtro HEPA, prefiltro de espuma o filtro de salida de aire antes de buscar." }}
+    {{ $check2Title = "Forma, medidas y puntos de anclaje" }}
+    {{ $check2Body  = "Muchos filtros son similares en aspecto pero distintos en medidas o sistema de encaje. Compara dimensiones exactas y pestanas de fijacion." }}
+    {{ $check3Title = "Frecuencia de cambio recomendada" }}
+    {{ $check3Body  = "Un filtro HEPA deteriorado reduce la succion aunque parezca limpio. Cambialo cada 6-12 meses segun el uso." }}
+  {{ else if eq $catKey "bateria" }}
+    {{ $check1Title = "Voltaje y capacidad exactos" }}
+    {{ $check1Body  = "El voltaje debe coincidir exactamente con el original. Un voltaje incorrecto puede danar el aspirador o no funcionar. Revisa la etiqueta de la bateria actual." }}
+    {{ $check2Title = "Tipo de conector y polaridad" }}
+    {{ $check2Body  = "El conector debe encajar fisicamente y con la polaridad correcta. Una bateria identica en voltaje puede no conectar si el conector es distinto." }}
+    {{ $check3Title = "Capacidad en mAh: mayor no siempre es compatible" }}
+    {{ $check3Body  = "Una mayor capacidad puede alargar la autonomia, pero algunos aspiradores tienen limitaciones fisicas o electricas. Confirma con la documentacion del modelo." }}
+  {{ else if eq $catKey "cargador" }}
+    {{ $check1Title = "Voltaje de salida y amperaje" }}
+    {{ $check1Body  = "Un cargador con voltaje o amperaje incorrecto puede danar la bateria o no cargar el aspirador. Revisa siempre los datos del cargador original." }}
+    {{ $check2Title = "Tipo y forma del conector" }}
+    {{ $check2Body  = "El conector del cargador debe encajar fisicamente en el puerto del aspirador. Compara fotos del conector antes de comprar." }}
+    {{ $check3Title = "Compatibilidad con la version exacta del modelo" }}
+    {{ $check3Body  = "Algunos modelos tienen varias revisiones con conectores distintos. Confirma que el cargador cita explicitamente tu version o serie." }}
+  {{ else if eq $catKey "cepillo" }}
+    {{ $check1Title = "Cepillo principal o cepillo motorizado" }}
+    {{ $check1Body  = "Son piezas distintas con funciones diferentes. El cepillo motorizado requiere conexion electrica al cabezal. Confirma que tipo de cepillo tiene tu modelo." }}
+    {{ $check2Title = "Medidas del rodillo y sistema de acople" }}
+    {{ $check2Body  = "Las medidas del rodillo y el sistema de fijacion al cabezal deben coincidir exactamente. Un cepillo de longitud incorrecta no encajara." }}
+    {{ $check3Title = "Compatibilidad con alfombra vs suelo duro" }}
+    {{ $check3Body  = "Algunos cepillos son especificos para suelo duro, otros para alfombra o multisuelo. Elige segun el uso principal del aspirador." }}
+  {{ else if eq $catKey "soporte" }}
+    {{ $check1Title = "Puntos de anclaje y tipo de montaje" }}
+    {{ $check1Body  = "El soporte debe coincidir con los puntos de anclaje del aspirador y el tipo de montaje (pared, base, vertical). Confirma que cita tu modelo exacto." }}
+    {{ $check2Title = "Compatibilidad con el cargador incluido" }}
+    {{ $check2Body  = "Algunos soportes integran cargador y otros solo son de almacenamiento. Comprueba si necesitas carga integrada o solo almacenaje." }}
+    {{ $check3Title = "Material y carga maxima" }}
+    {{ $check3Body  = "Verifica que el soporte aguanta el peso del aspirador con todos sus accesorios. Los soportes de pared baratos pueden ceder con el tiempo." }}
+  {{ else if eq $catKey "accesorios" }}
+    {{ $check1Title = "Tipo de acople: sistema propio o universal" }}
+    {{ $check1Body  = "Muchos accesorios usan acoplamientos propietarios que solo encajan con modelos de la misma marca o serie. Un accesorio universal puede no encajar correctamente." }}
+    {{ $check2Title = "Diametro del tubo y tipo de conexion" }}
+    {{ $check2Body  = "El diametro de conexion al tubo o directamente al cuerpo del aspirador debe coincidir. Compara fotos del punto de union antes de comprar." }}
+    {{ $check3Title = "Variante del modelo: mismo nombre, distintos conectores" }}
+    {{ $check3Body  = "Algunos modelos tienen versiones con conectores distintos segun el mercado o el ano. Confirma que el accesorio cita tu variante exacta." }}
+  {{ end }}
+
+  <div id="checklist-compra" class="antes-de-comprar mt-14">
+    <div class="antes-de-comprar__header">
+      <span class="badge badge--best">Antes de comprar</span>
+      <h2 class="antes-de-comprar__title">3 checks clave para {{ $catLabel | lower }} compatibles con {{ $mtitle }}</h2>
+    </div>
+    <div class="antes-de-comprar__grid">
+      <article class="antes-de-comprar__item">
+        <div class="antes-de-comprar__num">1</div>
+        <div class="antes-de-comprar__body">
+          <h3>{{ $check1Title }}</h3>
+          <p class="muted">{{ $check1Body }}</p>
+        </div>
       </article>
+      <article class="antes-de-comprar__item">
+        <div class="antes-de-comprar__num">2</div>
+        <div class="antes-de-comprar__body">
+          <h3>{{ $check2Title }}</h3>
+          <p class="muted">{{ $check2Body }}</p>
+        </div>
+      </article>
+      <article class="antes-de-comprar__item">
+        <div class="antes-de-comprar__num">3</div>
+        <div class="antes-de-comprar__body">
+          <h3>{{ $check3Title }}</h3>
+          <p class="muted">{{ $check3Body }}</p>
+        </div>
+      </article>
+    </div>
   </div>
 
   {{ partial "compatibility_guard.html" (dict

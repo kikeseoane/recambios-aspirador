@@ -1738,6 +1738,110 @@ hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
 }
 
 /* ----------------------------------------------------------------
+   Brand cats — chips de categorias disponibles en pagina de marca
+   ---------------------------------------------------------------- */
+.brand-cats__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand-cat-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg);
+  transition: border-color .15s, background .15s;
+}
+
+.brand-cat-chip:hover {
+  border-color: var(--primary);
+  background: rgba(var(--primary-rgb), .04);
+}
+
+.brand-cat-chip__icon {
+  opacity: .75;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* ----------------------------------------------------------------
+   Antes de comprar — bloque de checks especificos por categoria
+   ---------------------------------------------------------------- */
+.antes-de-comprar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.antes-de-comprar__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.antes-de-comprar__title {
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 800;
+  color: var(--fg);
+  line-height: 1.3;
+}
+
+.antes-de-comprar__grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .antes-de-comprar__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.antes-de-comprar__item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.antes-de-comprar__num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(var(--primary-rgb), .10);
+  border: 1.5px solid rgba(var(--primary-rgb), .22);
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.antes-de-comprar__body h3 {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+
+.antes-de-comprar__body p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ----------------------------------------------------------------
    Badge variante: Mas compatible (verde para primer SKU de lista)
    ---------------------------------------------------------------- */
 .badge--best {

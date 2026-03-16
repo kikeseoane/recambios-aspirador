@@ -29,8 +29,24 @@
       {{ $modelCount = len $models }}
     {{ end }}
 
+    {{/* Calcular estadisticas de la marca */}}
+    {{ $robotCount := 0 }}
+    {{ $stickCount := 0 }}
+    {{ $totalProblemas := 0 }}
+    {{ $catsWithContent := 0 }}
+    {{ if and $models (reflect.IsSlice $models) }}
+      {{ range $models }}
+        {{ $pack := index . "sku_pack" | default "" }}
+        {{ if eq $pack "robot10" }}{{ $robotCount = add $robotCount 1 }}{{ end }}
+        {{ if eq $pack "stick10" }}{{ $stickCount = add $stickCount 1 }}{{ end }}
+        {{ $probs := index . "problemas" }}
+        {{ if and $probs (reflect.IsSlice $probs) }}
+          {{ $totalProblemas = add $totalProblemas (len $probs) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
     {{ $verticalLabel := $vconf.label | default "recambios compatibles" }}
-    {{ $verticalDesc := $vconf.description | default "recambios compatibles por modelo" }}
 
     <div class="breadcrumbs">
       <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
@@ -44,32 +60,77 @@
         <h1>Recambios {{ $brandName }}</h1>
 
         <p class="muted hero__copy">
-          Encuentra {{ $verticalLabel | lower }} {{ $brandName }} y entra en cada modelo para ver compatibilidad,
-          piezas habituales, problemas frecuentes y accesos directos a compra.
+          Guia de recambios compatibles para {{ $brandName }}:
+          {{ if and (gt $robotCount 0) (gt $stickCount 0) }}
+            robots aspiradores y aspiradores sin cable,
+          {{ else if gt $robotCount 0 }}
+            robots aspiradores,
+          {{ else if gt $stickCount 0 }}
+            aspiradores sin cable,
+          {{ end }}
+          con filtros, baterias, cepillos, cargadores y accesorios organizados por modelo exacto.
         </p>
         <p class="muted hero__copy">
-          Esta vertical cubre {{ $verticalDesc | lower }} con foco en decision rapida, menos error de compra
-          y mejor orientacion por modelo exacto.
+          Cada ficha incluye la lista de piezas habituales, problemas frecuentes con
+          diagnostico guiado y acceso directo a opciones de compra compatibles.
         </p>
 
         <div class="hero__links">
           <span class="badge hot">{{ $modelCount }} modelos</span>
+          {{ if gt $robotCount 0 }}<span class="badge">{{ $robotCount }} robots</span>{{ end }}
+          {{ if gt $stickCount 0 }}<span class="badge">{{ $stickCount }} sin cable</span>{{ end }}
           {{ with $brand.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
-          <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
-          <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
-          <a class="chip" href="{{ (print $guiasBase "/seguridad/") | relURL }}">Seguridad</a>
+          {{ if gt $totalProblemas 0 }}<span class="badge blue">{{ $totalProblemas }} diagnosticos</span>{{ end }}
+        </div>
+
+        <div class="hero-mini-stats">
+          <div class="hero-mini-stat">
+            <strong>{{ $modelCount }} modelos</strong>
+            <span>con recambios por categoria</span>
+          </div>
+          {{ if gt $totalProblemas 0 }}
+          <div class="hero-mini-stat">
+            <strong>{{ $totalProblemas }} problemas</strong>
+            <span>con diagnostico guiado</span>
+          </div>
+          {{ end }}
+          <div class="hero-mini-stat">
+            <strong>Compatibilidad</strong>
+            <span>verificada por modelo exacto</span>
+          </div>
         </div>
       </div>
     </div>
 
     {{ partial "brand_series_overview.html" (dict "brand" $brand) }}
 
-    <div class="two-col" style="margin-top:12px;">
+    {{/* Categorias destacadas para esta marca */}}
+    {{ $cats := $db.globals.categorias_recambios }}
+    {{ if and $cats (reflect.IsSlice $cats) (gt (len $cats) 0) }}
+    <div class="brand-cats mt-14">
+      <div class="section-head section-head--spaced">
+        <h2 class="title-reset">Categorias de recambio</h2>
+        <span class="muted small">Disponibles en todos los modelos {{ $brandName }}</span>
+      </div>
+      <div class="brand-cats__grid mt-10">
+        {{ range $cats }}
+          {{ $catKey := index . "key" | urlize }}
+          {{ $catLabel := index . "label" }}
+          <div class="brand-cat-chip">
+            <span class="brand-cat-chip__icon">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</span>
+            <span class="brand-cat-chip__label">{{ $catLabel }}</span>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="two-col mt-14">
       <div class="panel">
-        <h2 style="margin-top:0;">Modelos de {{ $brandName }}</h2>
+        <h2 style="margin-top:0;">Modelos {{ $brandName }}</h2>
         <p class="muted small">
-          Selecciona tu modelo para ver piezas compatibles, bloques de compatibilidad, problemas frecuentes
-          y accesos rapidos a las categorias clave.
+          Selecciona tu modelo para ver piezas compatibles, compatibilidad rapida,
+          problemas frecuentes y acceso directo a compra.
         </p>
 
         {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
@@ -82,26 +143,42 @@
       <aside class="panel">
         <h2 style="margin-top:0;">Antes de comprar</h2>
         <p class="muted small">
-          Antes de elegir un recambio {{ $brandName }}, confirma el modelo exacto, la variante o serie y,
-          si aplica, el tipo de encaje, conector, medida o plataforma.
+          Antes de elegir un recambio {{ $brandName }}, confirma el modelo exacto, la variante o serie
+          y, si aplica, el tipo de encaje, conector, medida o plataforma.
         </p>
 
-        <div class="panel" style="box-shadow:none;background:#fff;border-style:dashed;">
-          <div class="kicker">Consejos rapidos</div>
-          <ul class="small">
-            <li>Comprueba el modelo exacto en la etiqueta del equipo.</li>
-            <li>Verifica si el recambio sirve para una sola serie o para varias variantes.</li>
-            <li>Revisa conectores, voltaje, medidas o sistema de acople segun la pieza.</li>
-            <li>Prioriza fichas que expliquen compatibilidad y no solo nombre comercial.</li>
-          </ul>
+        <div class="antes-de-comprar mt-12" style="padding:18px;">
+          <div class="antes-de-comprar__grid" style="grid-template-columns:1fr;">
+            <article class="antes-de-comprar__item">
+              <div class="antes-de-comprar__num">1</div>
+              <div class="antes-de-comprar__body">
+                <h3>Modelo exacto en la etiqueta</h3>
+                <p class="muted">El nombre comercial no basta. Busca la referencia completa en la etiqueta inferior o trasera del equipo.</p>
+              </div>
+            </article>
+            <article class="antes-de-comprar__item">
+              <div class="antes-de-comprar__num">2</div>
+              <div class="antes-de-comprar__body">
+                <h3>Variante o serie, no solo gama</h3>
+                <p class="muted">{{ $brandName }} tiene varios modelos con nombre similar pero conectores o voltajes distintos. La variante importa.</p>
+              </div>
+            </article>
+            <article class="antes-de-comprar__item">
+              <div class="antes-de-comprar__num">3</div>
+              <div class="antes-de-comprar__body">
+                <h3>Foto del encaje antes de comprar</h3>
+                <p class="muted">Compara la foto del conector, anclaje o forma del recambio con la pieza original. Ahorra devoluciones.</p>
+              </div>
+            </article>
+          </div>
         </div>
 
-        <div style="margin-top:12px;">
-          <div class="kicker">Atajos</div>
-          <div class="chips">
-            <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Mas marcas</a>
-            <a class="chip" href="{{ (print $modBase "/") | relURL }}">Todos los modelos</a>
-            <a class="chip" href="{{ (print $guiasBase "/") | relURL }}">Ver guias</a>
+        <div style="margin-top:14px;">
+          <div class="kicker">Accesos rapidos</div>
+          <div class="chips mt-8">
+            <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Otras marcas</a>
+            <a class="chip" href="{{ (print $guiasBase "/compra/") | relURL }}">Como elegir recambio</a>
+            <a class="chip" href="{{ (print $guiasBase "/mantenimiento/") | relURL }}">Mantenimiento</a>
           </div>
         </div>
 
