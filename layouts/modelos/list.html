@@ -169,23 +169,37 @@
 
       {{ else }}
 
-        {{ $hasRecambios := false }}
+        {{/* --- Umbral de thin content (umbral elevado) ---
+             Un modelo necesita cumplir AL MENOS UNO de estos criterios para indexarse:
+             A) 2 o mas categorias de recambios con items reales
+             B) Al menos 2 problemas con datos ricos (symptoms o checks)
+             Si no cumple ninguno: noindex para reducir crawl budget y ruido SEO.
+        */}}
         {{ $rec := index $model "recambios" }}
+        {{ $catsWithItems := 0 }}
         {{ if and $rec (reflect.IsMap $rec) }}
           {{ range $k, $v := $rec }}
             {{ if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
-              {{ $hasRecambios = true }}
+              {{ $catsWithItems = add $catsWithItems 1 }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ $hasRecambios := gt $catsWithItems 0 }}
+
+        {{ $probs := index $model "problemas" }}
+        {{ $hasProblemas := and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+        {{ $richProbCount := 0 }}
+        {{ if $hasProblemas }}
+          {{ range $probs }}
+            {{ if or (index . "symptoms") (index . "checks") (index . "causes") }}
+              {{ $richProbCount = add $richProbCount 1 }}
             {{ end }}
           {{ end }}
         {{ end }}
 
-        {{ $probs := index $model "problemas" }}
-        {{ $hasProblemas := and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
-
         {{ $guias := index $model "guias" }}
         {{ $hasGuias := and $guias (reflect.IsSlice $guias) (gt (len $guias) 0) }}
-        {{ $catCount := 0 }}
-        {{ if $hasRecambios }}{{ $catCount = len $rec }}{{ end }}
+        {{ $catCount := $catsWithItems }}
         {{ $problemCount := 0 }}
         {{ if $hasProblemas }}{{ $problemCount = len $probs }}{{ end }}
         {{ $guideCount := 0 }}
@@ -196,7 +210,10 @@
           {{ $introLen = len (plainify .) }}
         {{ end }}
 
-        {{ $isThin := and (not $hasRecambios) (not $hasProblemas) (not $hasGuias) (lt $introLen 80) }}
+        {{/* Criterios de calidad: necesita recambios en 2+ cats O 2+ problemas ricos */}}
+        {{ $hasEnoughRecambios := ge $catsWithItems 2 }}
+        {{ $hasEnoughProblemas := ge $richProbCount 2 }}
+        {{ $isThin := not (or $hasEnoughRecambios $hasEnoughProblemas) }}
         {{ if $isThin }}
           {{ .Scratch.Set "noindex" true }}
         {{ end }}
@@ -342,7 +359,7 @@
 
                             <div class="cta">
                               {{ $sku := index $it "sku" }}
-                              {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver precio y opciones" "class" "btn-buy") }}
+                              {{ partial "offer_btn.html" (dict "sku" $sku "catKey" $catKey "modelName" $mtitle "class" "btn-buy" "hideTrust" true) }}
                             </div>
                           </div>
                         </div>

@@ -1724,16 +1724,130 @@ hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
 
 .site-footer .legal {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  flex-direction: column;
+  margin-top: 0;
 }
-.site-footer .legal a { color: var(--muted); }
+.site-footer .legal a { color: var(--muted); font-size: 13px; }
 .site-footer .legal a:hover { color: var(--fg); }
 .site-footer .affiliate-note { margin-top: 10px; font-size: 12px; opacity: .75; }
 
 .footer-meta p + p {
   margin-top: 8px;
+}
+
+/* ----------------------------------------------------------------
+   Badge variante: Mas compatible (verde para primer SKU de lista)
+   ---------------------------------------------------------------- */
+.badge--best {
+  border-color: rgba(21, 128, 61, .28);
+  background: rgba(21, 128, 61, .08);
+  color: #166534;
+}
+
+/* ----------------------------------------------------------------
+   SKU spec chips — especificaciones tecnicas en cards de producto
+   ---------------------------------------------------------------- */
+.sku-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.sku-spec-chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(var(--primary-rgb), .07);
+  border: 1px solid rgba(var(--primary-rgb), .18);
+  color: var(--primary);
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------
+   Offer trust badge — trust indicator antes del boton de compra
+   ---------------------------------------------------------------- */
+.offer-trust {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.offer-trust__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(21, 128, 61, .12);
+  color: #166534;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.offer-trust__text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #166534;
+}
+
+/* ----------------------------------------------------------------
+   Footer — nuevos elementos del footer enriquecido
+   ---------------------------------------------------------------- */
+.footer-tagline {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.footer-desc {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.footer-scale {
+  margin-top: 8px;
+}
+
+.footer-nav-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 10px;
+}
+
+.footer-copyright {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.footer-affiliate {
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.footer-affiliate-link {
+  color: var(--accent);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.footer-affiliate-link:hover {
+  opacity: .8;
 }
 
 /* ----------------------------------------------------------------

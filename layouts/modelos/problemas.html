@@ -1,4 +1,9 @@
 {{ define "main" }}
+  {{/* Hub de problemas por modelo: no aporta valor editorial propio, el valor
+       esta en las paginas individuales de problema. Noindex para limpiar crawl
+       budget y concentrar senales en las paginas de diagnostico reales. */}}
+  {{ .Scratch.Set "noindex" true }}
+
   {{ $verticalKey := .Params.vertical | default "aspiradores" }}
   {{ $db := index site.Data $verticalKey }}
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}

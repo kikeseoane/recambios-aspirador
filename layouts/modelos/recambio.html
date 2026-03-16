@@ -180,20 +180,39 @@
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
-                <span class="badge blue">Top {{ add $idx 1 }}</span>
-                <span class="product-flag">Salida rapida</span>
+                {{ if eq $shown 0 }}
+                  <span class="badge badge--best">Mas compatible</span>
+                {{ else }}
+                  <span class="badge blue">Opcion {{ add $shown 1 }}</span>
+                {{ end }}
               </div>
               <div class="title">{{ index $it "title" }}</div>
-              <div class="product-kpis">
-                <span>Compra directa</span>
-                <span>Abre oferta externa</span>
-              </div>
+
+              {{/* Chips de especificacion tecnica extraidos de los campos del SKU */}}
+              {{ $specs := slice }}
+              {{ with (index $it "voltage") }}{{ $specs = $specs | append (printf "%sV" .) }}{{ end }}
+              {{ with (index $it "capacity") }}{{ $specs = $specs | append (printf "%s mAh" .) }}{{ end }}
+              {{ with (index $it "connector") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ with (index $it "filter_type") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ with (index $it "brush_type") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ with (index $it "spec") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ if gt (len $specs) 0 }}
+                <div class="sku-specs">
+                  {{ range $specs }}<span class="sku-spec-chip">{{ . }}</span>{{ end }}
+                </div>
+              {{ end }}
+
               {{ with (index $it "note") }}
                 <div class="note muted product-note">{{ . }}</div>
               {{ end }}
               <div class="cta">
                 {{ $sku := index $it "sku" }}
-                {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver precio y opciones" "class" "btn-buy") }}
+                {{ partial "offer_btn.html" (dict
+                  "sku" $sku
+                  "catKey" $catKey
+                  "modelName" $mtitle
+                  "class" "btn-buy"
+                ) }}
               </div>
             </div>
           </div>
@@ -213,20 +232,40 @@
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
-                <span class="badge">Compatible</span>
-                {{ if lt $idx 3 }}<span class="product-flag">Mas visto</span>{{ end }}
+                {{ if eq $idx 0 }}
+                  <span class="badge badge--best">Mas compatible</span>
+                {{ else }}
+                  <span class="badge">Compatible</span>
+                {{ end }}
               </div>
               <div class="title">{{ index $it "title" }}</div>
-              <div class="product-kpis">
-                <span>Ver precio</span>
-                <span>Comparar encaje</span>
-              </div>
+
+              {{/* Chips de especificacion tecnica */}}
+              {{ $specs := slice }}
+              {{ with (index $it "voltage") }}{{ $specs = $specs | append (printf "%sV" .) }}{{ end }}
+              {{ with (index $it "capacity") }}{{ $specs = $specs | append (printf "%s mAh" .) }}{{ end }}
+              {{ with (index $it "connector") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ with (index $it "filter_type") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ with (index $it "brush_type") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ with (index $it "spec") }}{{ $specs = $specs | append . }}{{ end }}
+              {{ if gt (len $specs) 0 }}
+                <div class="sku-specs">
+                  {{ range $specs }}<span class="sku-spec-chip">{{ . }}</span>{{ end }}
+                </div>
+              {{ end }}
+
               {{ with (index $it "note") }}
                 <div class="note muted product-note">{{ . }}</div>
               {{ end }}
               <div class="cta">
                 {{ $sku := index $it "sku" }}
-                {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver precio y opciones" "class" "btn-buy") }}
+                {{ partial "offer_btn.html" (dict
+                  "sku" $sku
+                  "catKey" $catKey
+                  "modelName" $mtitle
+                  "class" "btn-buy"
+                  "hideTrust" true
+                ) }}
               </div>
             </div>
           </div>
