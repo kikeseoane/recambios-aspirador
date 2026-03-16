@@ -83,111 +83,160 @@
   {{ $ptitle := (index $p "title") | default .Title }}
   {{ $catKey := (index $p "cta_cat") | default "" | urlize }}
 
+  {{/* --- Datos del problema --- */}}
+  {{ $sym    := index $p "symptoms" }}
+  {{ $causes := index $p "causes" }}
+  {{ $checks := index $p "checks" }}
+  {{ $fixHint := index $p "fix_hint" | default "" }}
+  {{ $faqs   := index $p "faqs" }}
+  {{ $hasSym    := and $sym    (reflect.IsSlice $sym)    (gt (len $sym)    0) }}
+  {{ $hasCauses := and $causes (reflect.IsSlice $causes) (gt (len $causes) 0) }}
+  {{ $hasChecks := and $checks (reflect.IsSlice $checks) (gt (len $checks) 0) }}
+  {{ $hasFaqs   := and $faqs  (reflect.IsSlice $faqs)   (gt (len $faqs)   0) }}
+
+  {{/* Recambios relacionados al problema */}}
+  {{ $recItems := slice }}
+  {{ if $catKey }}
+    {{ $rec := index $model "recambios" }}
+    {{ if and $rec (reflect.IsMap $rec) }}
+      {{ $ri := index $rec $catKey }}
+      {{ if and $ri (reflect.IsSlice $ri) }}{{ $recItems = $ri }}{{ end }}
+    {{ end }}
+  {{ end }}
+
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
     <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
     <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">></span>
     <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
-    <a href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Problemas</a><span class="sep">></span>
     <span>{{ $ptitle }}</span>
   </div>
 
   <div class="hero hero--bg hero--compact hero--editorial mt-10">
     <div class="hero__inner">
-      <div class="hero__kicker">Problema</div>
+      <div class="hero__kicker">Diagnostico — {{ $mtitle }}</div>
       <h1>{{ $ptitle }}</h1>
       {{ with (index $p "intro") }}<p class="muted hero__copy">{{ . }}</p>{{ end }}
 
-      <div class="hero__links">
-        <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
-        <a class="btn btn--link" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver todos los problemas</a>
-        {{ if $catKey }}<a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">Ir al recambio</a>{{ end }}
-      </div>
+      {{/* Chips de sintomas en el hero — identificacion rapida */}}
+      {{ if $hasSym }}
+        <div class="problema-sym-chips">
+          {{ range $sym }}<span class="problema-sym-chip">{{ . }}</span>{{ end }}
+        </div>
+      {{ end }}
 
-      <div class="hero-mini-stats">
-        <div class="hero-mini-stat">
-          <strong>Diagnostico guiado</strong>
-          <span>sintomas, checks y salida a pieza probable</span>
-        </div>
-        <div class="hero-mini-stat">
-          <strong>Sin salto ciego</strong>
-          <span>la recomendacion comercial se apoya en contexto util</span>
-        </div>
+      <div class="hero__links">
+        <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">← Volver al modelo</a>
+        {{ if $catKey }}<a class="btn btn--primary" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">Ver recambio relacionado</a>{{ end }}
       </div>
     </div>
   </div>
 
-  <div class="grid cards cards--wide mt-14">
-    <article class="card">
-      <div class="kicker">Paso 1</div>
-      <h3>Descarta lo basico</h3>
-      <p class="muted">Antes de comprar nada, revisa filtro, deposito, obstrucciones y puntos de encaje visibles.</p>
-    </article>
-    <article class="card">
-      <div class="kicker">Paso 2</div>
-      <h3>Haz una prueba cada vez</h3>
-      <p class="muted">Aislar una variable reduce falsas conclusiones y evita comprar la pieza equivocada.</p>
-    </article>
-    <article class="card">
-      <div class="kicker">Paso 3</div>
-      <h3>Valida compatibilidad al final</h3>
-      <p class="muted">Cuando llegues al recambio, toca confirmar modelo, serie, medidas y conectores reales.</p>
-    </article>
-  </div>
+  {{/* --- CTA prominente de recambio ANTES del contenido de diagnostico --- */}}
+  {{ if and $catKey (gt (len $recItems) 0) }}
+    <div class="problema-cta-box mt-14">
+      <div class="problema-cta-box__info">
+        <span class="badge badge--best">Recambio mas probable</span>
+        <h2 class="problema-cta-box__title">
+          {{ if $fixHint }}{{ $fixHint }}{{ else }}La pieza que mas frecuentemente soluciona este fallo es:{{ end }}
+        </h2>
+        <p class="muted small">Valida modelo, encaje y especificaciones antes de abrir la oferta.</p>
+      </div>
+      <div class="problema-cta-box__products">
+        {{ $shown := 0 }}
+        {{ range $it := $recItems }}
+          {{ if lt $shown 2 }}
+            <div class="problema-cta-product">
+              <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
+              <div class="body">
+                {{ if eq $shown 0 }}<span class="badge badge--best">Mas compatible</span>{{ end }}
+                <div class="title">{{ index $it "title" }}</div>
+                <div class="cta mt-8">
+                  {{ $sku := index $it "sku" }}
+                  {{ partial "offer_btn.html" (dict
+                    "sku" $sku
+                    "catKey" $catKey
+                    "modelName" $mtitle
+                    "class" "btn-buy"
+                  ) }}
+                </div>
+              </div>
+            </div>
+            {{ $shown = add $shown 1 }}
+          {{ end }}
+        {{ end }}
+        {{ if gt (len $recItems) 2 }}
+          <a class="problema-cta-more" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">
+            Ver todas las opciones compatibles →
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  {{ else if $catKey }}
+    <div class="problema-cta-box problema-cta-box--simple mt-14">
+      <span class="badge badge--best">Recambio relacionado</span>
+      {{ if $fixHint }}<p class="problema-cta-box__title">{{ $fixHint }}</p>{{ end }}
+      <a class="btn-buy mt-10" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">Ver recambios compatibles</a>
+      <p class="muted small mt-8">Verifica encaje, serie y especificaciones antes de comprar.</p>
+    </div>
+  {{ end }}
 
-  {{ partial "compatibility_guard.html" (dict
-    "title" "Antes de comprar la pieza probable"
-    "intro" "El diagnostico orienta, pero aun tienes que validar compatibilidad real para no cambiar una pieza util por error."
-    "badge" "Revision final"
-    "checks" (slice
-      "Comprueba si el sintoma coincide con el fallo real"
-      "Valida modelo, serie y tipo de pieza sugerida"
-      "Compara fotos, conectores y medidas con el recambio"
-    )
-  ) }}
-
-  <div class="two-col mt-12">
+  <div class="two-col mt-14">
     <div class="panel">
-      <h2 class="title-reset">Diagnostico rapido</h2>
-      <ol class="list">
-        <li><strong>Revisa lo basico</strong>: encajes, deposito, filtros y obstrucciones visibles.</li>
-        <li><strong>Una variable cada vez</strong>: prueba cambios de uno en uno para aislar la causa.</li>
-        <li><strong>Confirma compatibilidad</strong> antes de comprar: modelo, serie, conectores, medidas y fotos reales.</li>
-      </ol>
 
-      {{ $sym := index $p "symptoms" }}
-      {{ if and $sym (reflect.IsSlice $sym) (gt (len $sym) 0) }}
-        <hr>
-        <h2>Sintomas habituales</h2>
-        <ul class="list">
-          {{ range $sym }}<li>{{ . }}</li>{{ end }}
-        </ul>
+      {{/* CAUSAS — lo más útil para quien diagnostica */}}
+      {{ if $hasCauses }}
+        <h2 class="title-reset">Causas probables</h2>
+        <p class="muted small">Ordenadas de mas a menos frecuente:</p>
+        <ol class="problema-causes mt-10">
+          {{ range $i, $c := $causes }}
+            <li class="problema-cause">
+              <span class="problema-cause__num">{{ add $i 1 }}</span>
+              <span>{{ $c }}</span>
+            </li>
+          {{ end }}
+        </ol>
       {{ end }}
 
-      {{ $checks := index $p "checks" }}
-      {{ if and $checks (reflect.IsSlice $checks) (gt (len $checks) 0) }}
-        <hr>
-        <h2>Comprobaciones rapidas</h2>
-        <ul class="list">
-          {{ range $checks }}<li>{{ . }}</li>{{ end }}
-        </ul>
-        {{ with (index $p "fix_hint") }}<p class="muted small mt-10">{{ . }}</p>{{ end }}
+      {{/* CHECKS — pasos de diagnostico accionables */}}
+      {{ if $hasChecks }}
+        {{ if $hasCauses }}<hr>{{ end }}
+        <h2 {{ if not $hasCauses }}class="title-reset"{{ end }}>Comprobaciones paso a paso</h2>
+        <ol class="problema-checks mt-10">
+          {{ range $i, $c := $checks }}
+            <li class="problema-check">
+              <div class="problema-check__num">{{ add $i 1 }}</div>
+              <div class="problema-check__text">{{ $c }}</div>
+            </li>
+          {{ end }}
+        </ol>
+        {{ if $fixHint }}
+          <div class="problema-fix-hint mt-12">
+            <span class="problema-fix-hint__icon">→</span>
+            <p>{{ $fixHint }}</p>
+          </div>
+        {{ end }}
       {{ end }}
 
-      {{ $causes := index $p "causes" }}
-      {{ if and $causes (reflect.IsSlice $causes) (gt (len $causes) 0) }}
+      {{/* SINTOMAS — confirma que es tu caso */}}
+      {{ if $hasSym }}
         <hr>
-        <h2>Causas probables</h2>
-        <ul class="list">
-          {{ range $causes }}<li>{{ . }}</li>{{ end }}
-        </ul>
+        <h2>¿Reconoces estos sintomas?</h2>
+        <div class="problema-sym-list mt-10">
+          {{ range $sym }}
+            <div class="problema-sym-item">
+              <span class="problema-sym-item__dot" aria-hidden="true"></span>
+              <span>{{ . }}</span>
+            </div>
+          {{ end }}
+        </div>
       {{ end }}
 
-      {{ $faqs := index $p "faqs" }}
-      {{ if and $faqs (reflect.IsSlice $faqs) (gt (len $faqs) 0) }}
+      {{/* FAQS */}}
+      {{ if $hasFaqs }}
         <hr>
         <h2>Preguntas frecuentes</h2>
-        <div class="faq">
+        <div class="faq mt-10">
           {{ range $fa := $faqs }}
             <details class="card mt-10">
               <summary><strong>{{ index $fa "q" }}</strong></summary>
@@ -196,54 +245,35 @@
           {{ end }}
         </div>
       {{ end }}
+
     </div>
 
-    <aside class="panel">
-      <h2 class="title-reset">Recambio recomendado</h2>
+    <aside class="panel panel--support panel--compact">
 
-      {{ $label := "Ver recambios compatibles" }}
-
+      {{/* CTA secundario en sidebar si no hay recambios directos */}}
       {{ if $catKey }}
-        <div class="checklist-card">
-          <div class="kicker">Salida sugerida</div>
-          <p class="muted small">La pieza probable no sustituye el diagnostico. Usala despues de pasar los checks anteriores.</p>
+        <div class="kicker">Salida recomendada</div>
+        <h3 style="margin-top:4px;">Si el diagnostico apunta a esta pieza</h3>
+        <div class="offer-trust mt-6">
+          <span class="offer-trust__icon" aria-hidden="true">✓</span>
+          <span class="offer-trust__text">Compatibilidad verificada para {{ $mtitle }}</span>
         </div>
-
-        <div class="mt-12">
-          <a class="btn-buy" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">{{ $label }}</a>
-        </div>
-        <p class="muted small mt-10">Verifica encaje, conector y especificaciones antes de comprar.</p>
-
-        {{ $rec := index $model "recambios" }}
-        {{ if and $rec (reflect.IsMap $rec) }}
-          {{ $items := index $rec $catKey }}
-          {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
-            <hr>
-            <h3 class="title-reset">Opciones populares</h3>
-            <div class="products mt-10">
-              {{ $shown := 0 }}
-              {{ range $it := $items }}
-                {{ if lt $shown 3 }}
-                  <div class="product">
-                    <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
-                    <div class="body">
-                      <div class="title">{{ index $it "title" }}</div>
-                      {{ with (index $it "note") }}<div class="note muted mt-10">{{ . }}</div>{{ end }}
-                      <div class="cta mt-10">
-                        {{ $sku := index $it "sku" }}
-                        {{ partial "offer_btn.html" (dict "sku" $sku "label" "Ver oferta" "class" "btn-buy") }}
-                      </div>
-                    </div>
-                  </div>
-                  {{ $shown = add $shown 1 }}
-                {{ end }}
-              {{ end }}
-            </div>
-          {{ end }}
-        {{ end }}
-      {{ else }}
-        <p class="muted">Estamos preparando la recomendacion de recambio para este problema.</p>
+        <a class="btn-buy mt-10" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}" style="width:100%;justify-content:center;">
+          Ver recambios compatibles
+        </a>
+        <p class="muted small mt-8">Verifica encaje, serie y datos tecnicos antes de comprar.</p>
+        <hr>
       {{ end }}
+
+      {{/* Checklist rapido de diagnostico */}}
+      <div class="kicker">Antes de comprar</div>
+      <div class="checklist-card mt-8">
+        <ul class="list small">
+          <li>Confirma que el sintoma coincide con el fallo real.</li>
+          <li>Haz las comprobaciones de arriba antes de salir.</li>
+          <li>Valida modelo, serie y encaje en el anuncio.</li>
+        </ul>
+      </div>
 
       <hr>
 

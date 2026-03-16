@@ -1779,6 +1779,247 @@ hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
 }
 
 /* ----------------------------------------------------------------
+   Problema — chips de sintomas en el hero
+   ---------------------------------------------------------------- */
+.problema-sym-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.problema-sym-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(234, 88, 12, .09);
+  border: 1px solid rgba(234, 88, 12, .22);
+  color: #c2410c;
+}
+
+.problema-sym-chip::before {
+  content: "!";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(234, 88, 12, .18);
+  font-size: 10px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   Problema — CTA box prominente antes del diagnostico
+   ---------------------------------------------------------------- */
+.problema-cta-box {
+  background: var(--surface);
+  border: 1.5px solid rgba(var(--primary-rgb), .25);
+  border-top: 3px solid rgba(var(--primary-rgb), .6);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.problema-cta-box__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.problema-cta-box__title {
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--fg);
+}
+
+.problema-cta-box__products {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .problema-cta-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .problema-cta-box__info { margin-bottom: 0; }
+}
+
+.problema-cta-product {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  background: rgba(var(--primary-rgb), .03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.problema-cta-product .img {
+  flex-shrink: 0;
+  width: 36px;
+}
+
+.problema-cta-product .title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.problema-cta-more {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: underline;
+  display: block;
+  margin-top: 4px;
+}
+
+.problema-cta-box--simple {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ----------------------------------------------------------------
+   Problema — causas numeradas
+   ---------------------------------------------------------------- */
+.problema-causes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.problema-cause {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.problema-cause__num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(234, 88, 12, .10);
+  border: 1px solid rgba(234, 88, 12, .22);
+  color: #c2410c;
+  font-size: 11px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ----------------------------------------------------------------
+   Problema — checks numerados con estilo de pasos
+   ---------------------------------------------------------------- */
+.problema-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.problema-check {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.problema-check__num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(var(--primary-rgb), .10);
+  border: 1.5px solid rgba(var(--primary-rgb), .25);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problema-check__text {
+  font-size: 14px;
+  line-height: 1.55;
+  padding-top: 4px;
+}
+
+/* ----------------------------------------------------------------
+   Problema — fix hint destacado
+   ---------------------------------------------------------------- */
+.problema-fix-hint {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: rgba(21, 128, 61, .07);
+  border: 1px solid rgba(21, 128, 61, .20);
+  border-radius: var(--radius);
+}
+
+.problema-fix-hint__icon {
+  font-size: 18px;
+  font-weight: 900;
+  color: #166534;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.problema-fix-hint p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #166534;
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------------------
+   Problema — lista de sintomas visual
+   ---------------------------------------------------------------- */
+.problema-sym-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.problema-sym-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.problema-sym-item__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(234, 88, 12, .5);
+}
+
+/* ----------------------------------------------------------------
    Brand cats — chips de categorias disponibles en pagina de marca
    ---------------------------------------------------------------- */
 .brand-cats__grid {
