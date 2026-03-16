@@ -1,0 +1,110 @@
+{{- /* layouts/_default/sitemap.xml
+     Sitemap custom que:
+     1. Excluye paginas con layout "problemas" (hubs de navegacion sin valor editorial)
+     2. Excluye paginas donde robots=noindex en front matter
+     3. Excluye paginas de categoria (recambio) sin SKUs en el catalogo
+     4. Excluye hubs de modelo con contenido insuficiente
+     5. Asigna prioridad diferenciada por tipo de pagina
+*/ -}}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{- range site.Pages }}
+
+    {{- /* ---- Exclusiones por robots en front matter ---- */}}
+    {{- if and .Params.robots (in .Params.robots "noindex") }}{{ continue }}{{ end }}
+
+    {{- /* ---- Excluir hubs de problemas (layout: problemas) ---- */}}
+    {{- if eq .Layout "problemas" }}{{ continue }}{{ end }}
+
+    {{- /* ---- Excluir paginas de categoria sin SKUs ---- */}}
+    {{- if eq .Layout "recambio" }}
+      {{- $verticalKey := .Params.vertical | default "aspiradores" }}
+      {{- $db := index site.Data $verticalKey }}
+      {{- $brandKey := .Params.brandKey | default "" }}
+      {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize }}
+      {{- $catKey := .Params.catKey | default "" | urlize }}
+      {{- $itemCount := 0 }}
+      {{- if and $db $db.brands $brandKey }}
+        {{- $brand := index $db.brands $brandKey }}
+        {{- if $brand }}
+          {{- range ($brand.models | default (slice)) }}
+            {{- $mid := (or (index . "slug") (index . "canonical_slug") (index . "id")) | urlize }}
+            {{- if eq $mid $modelSlug }}
+              {{- $rec := index . "recambios" }}
+              {{- if and $rec (reflect.IsMap $rec) }}
+                {{- $catItems := index $rec $catKey }}
+                {{- if and $catItems (reflect.IsSlice $catItems) }}
+                  {{- $itemCount = len $catItems }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+      {{- if lt $itemCount 1 }}{{ continue }}{{ end }}
+    {{- end }}
+
+    {{- /* ---- Excluir hubs de modelo con contenido insuficiente ---- */}}
+    {{- if and (eq .Type "modelos") .Params.brandKey (not .Params.catKey) (not .Params.problemKey) (ne .Layout "problemas") }}
+      {{- $verticalKey := .Params.vertical | default "aspiradores" }}
+      {{- $db := index site.Data $verticalKey }}
+      {{- $brandKey := .Params.brandKey | default "" }}
+      {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize }}
+      {{- $catsWithItems := 0 }}
+      {{- $richProbCount := 0 }}
+      {{- if and $db $db.brands $brandKey }}
+        {{- $brand := index $db.brands $brandKey }}
+        {{- if $brand }}
+          {{- range ($brand.models | default (slice)) }}
+            {{- $mid := (or (index . "slug") (index . "canonical_slug") (index . "id")) | urlize }}
+            {{- if eq $mid $modelSlug }}
+              {{- $rec := index . "recambios" }}
+              {{- if and $rec (reflect.IsMap $rec) }}
+                {{- range $k, $v := $rec }}
+                  {{- if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
+                    {{- $catsWithItems = add $catsWithItems 1 }}
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+              {{- range (index . "problemas" | default (slice)) }}
+                {{- if or (index . "symptoms") (index . "checks") (index . "causes") }}
+                  {{- $richProbCount = add $richProbCount 1 }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+      {{- if not (or (ge $catsWithItems 2) (ge $richProbCount 2)) }}{{ continue }}{{ end }}
+    {{- end }}
+
+    {{- /* ---- Prioridad por tipo de pagina ---- */}}
+    {{- $priority := "0.5" }}
+    {{- if .IsHome }}
+      {{- $priority = "1.0" }}
+    {{- else if eq .Section "marcas" }}
+      {{- $priority = "0.85" }}
+    {{- else if eq .Section "guias" }}
+      {{- $priority = "0.80" }}
+    {{- else if and (eq .Type "modelos") .Params.brandKey (not .Params.catKey) }}
+      {{- $priority = "0.65" }}
+    {{- else if eq .Layout "recambio" }}
+      {{- $priority = "0.55" }}
+    {{- else if eq .Layout "problema" }}
+      {{- $priority = "0.50" }}
+    {{- end }}
+
+    {{- /* ---- Changefreq por tipo ---- */}}
+    {{- $changefreq := "weekly" }}
+    {{- if eq .Section "guias" }}{{ $changefreq = "monthly" }}{{ end }}
+    {{- if eq .Layout "problema" }}{{ $changefreq = "monthly" }}{{ end }}
+
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{ with .Lastmod }}<lastmod>{{ .Format "2006-01-02" }}</lastmod>{{ end }}
+    <changefreq>{{ $changefreq }}</changefreq>
+    <priority>{{ $priority }}</priority>
+  </url>
+  {{- end }}
+</urlset>

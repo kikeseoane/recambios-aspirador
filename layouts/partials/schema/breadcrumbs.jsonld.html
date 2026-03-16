@@ -1,7 +1,9 @@
 {{/* layouts/partials/schema/breadcrumbs.jsonld.html */}}
 
-{{- if .Scratch.Get "noindex" -}}
-  {{- /* No emitimos schema si la página es noindex */ -}}
+{{- $skipSchema := partial "is_noindex.html" . -}}
+
+{{- if $skipSchema -}}
+  {{- /* No emitimos schema si la pagina es noindex */ -}}
 {{- else -}}
 
   {{- $verticalKey := .Params.vertical | default "aspiradores" -}}

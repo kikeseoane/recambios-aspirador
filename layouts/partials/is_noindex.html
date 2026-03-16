@@ -1,0 +1,83 @@
+{{/* layouts/partials/is_noindex.html
+     Devuelve true si la pagina actual debe ser noindex, false si no.
+     Encapsula la logica de thin content para evitar duplicarla en
+     baseof.html, sitemap.xml y breadcrumbs.jsonld.html.
+
+     Uso: {{ $noindex := partial "is_noindex.html" . }}
+
+     Criterios de noindex:
+     1. .Params.robots contiene "noindex" (front matter explicito)
+     2. Layout "problemas" — hub de navegacion sin valor editorial
+     3. Layout "recambio" — categoria sin SKUs en el catalogo
+     4. Hub de modelo con <2 cats con items Y <2 problemas ricos
+*/}}
+
+{{- $noindex := false -}}
+
+{{- if and .Params.robots (in .Params.robots "noindex") -}}
+  {{- $noindex = true -}}
+
+{{- else if eq .Layout "problemas" -}}
+  {{- $noindex = true -}}
+
+{{- else if eq .Layout "recambio" -}}
+  {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
+  {{- $db := index site.Data $verticalKey -}}
+  {{- $brandKey := .Params.brandKey | default "" -}}
+  {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize -}}
+  {{- $catKey := .Params.catKey | default "" | urlize -}}
+  {{- $itemCount := 0 -}}
+  {{- if and $db $db.brands $brandKey -}}
+    {{- $brand := index $db.brands $brandKey -}}
+    {{- if $brand -}}
+      {{- range ($brand.models | default (slice)) -}}
+        {{- $mid := (or (index . "slug") (index . "canonical_slug") (index . "id")) | urlize -}}
+        {{- if eq $mid $modelSlug -}}
+          {{- $rec := index . "recambios" -}}
+          {{- if and $rec (reflect.IsMap $rec) -}}
+            {{- $catItems := index $rec $catKey -}}
+            {{- if and $catItems (reflect.IsSlice $catItems) -}}
+              {{- $itemCount = len $catItems -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if lt $itemCount 1 -}}{{- $noindex = true -}}{{- end -}}
+
+{{- else if and (eq .Type "modelos") .Params.brandKey -}}
+  {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
+  {{- $db := index site.Data $verticalKey -}}
+  {{- $brandKey := .Params.brandKey | default "" -}}
+  {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize -}}
+  {{- $catsWithItems := 0 -}}
+  {{- $richProbCount := 0 -}}
+  {{- if and $db $db.brands $brandKey -}}
+    {{- $brand := index $db.brands $brandKey -}}
+    {{- if $brand -}}
+      {{- range ($brand.models | default (slice)) -}}
+        {{- $mid := (or (index . "slug") (index . "canonical_slug") (index . "id")) | urlize -}}
+        {{- if eq $mid $modelSlug -}}
+          {{- $rec := index . "recambios" -}}
+          {{- if and $rec (reflect.IsMap $rec) -}}
+            {{- range $k, $v := $rec -}}
+              {{- if and $v (reflect.IsSlice $v) (gt (len $v) 0) -}}
+                {{- $catsWithItems = add $catsWithItems 1 -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          {{- range (index . "problemas" | default (slice)) -}}
+            {{- if or (index . "symptoms") (index . "checks") (index . "causes") -}}
+              {{- $richProbCount = add $richProbCount 1 -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not (or (ge $catsWithItems 2) (ge $richProbCount 2)) -}}{{- $noindex = true -}}{{- end -}}
+
+{{- end -}}
+
+{{- return $noindex -}}
