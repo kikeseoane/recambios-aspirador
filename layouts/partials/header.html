@@ -10,6 +10,13 @@
 {{ $modelosURL := cond $isRoot "/modelos/" (printf "/%s/modelos/" $vconf.slug) | relURL }}
 {{ $guiasURL := cond $isRoot "/guias/" (printf "/%s/guias/" $vconf.slug) | relURL }}
 
+{{/* Calcula el numero de modelos para el badge de escala */}}
+{{ $db := index site.Data $vertKey }}
+{{ $modelCount := 0 }}
+{{ if and $db $db.brands }}
+  {{ range $db.brands }}{{ $modelCount = add $modelCount (len .models) }}{{ end }}
+{{ end }}
+
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{{ $homeURL }}" aria-label="Inicio">
@@ -19,6 +26,15 @@
         <span class="brand-sub">{{ $tagline }}</span>
       </span>
     </a>
+
+    <div class="header-trust" aria-hidden="true">
+      {{ if gt $modelCount 0 }}
+        <span class="header-trust__item">
+          <span class="header-trust__num">{{ $modelCount }}</span> modelos
+        </span>
+      {{ end }}
+      <span class="header-trust__item header-trust__item--check">✓ Compatibilidad verificada</span>
+    </div>
 
     <div class="header-actions">
       <a href="{{ $modelosURL }}" class="header-cta" aria-label="Buscar por modelo">
