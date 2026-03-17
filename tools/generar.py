@@ -444,8 +444,9 @@ def main() -> None:
             model_slug = (m.get("slug") or "").strip() or slugify(f"{brand_key}-{model_name}")
             title = f"{brand_name} {model_name}".strip()
 
-            # MODELO = BRANCH bundle (_index.md)
-            model_dir = section_modelos / model_slug
+            # MODELO = BRANCH bundle bajo marcas/<brand>/<model>/_index.md
+            # (Phase 4: modelos viven bajo la jerarquía de marcas)
+            model_dir = section_marcas / brand_slug / model_slug
             model_index = ensure_model_branch_bundle(model_dir)
 
             model_extra: dict = {"brandKey": brand_key, "modelSlug": model_slug}
@@ -456,7 +457,7 @@ def main() -> None:
                 fm(
                     title=title,
                     slug=None,
-                    kind="modelos" if not is_root else None,
+                    kind="modelos",  # siempre, para que Hugo use layouts/modelos/
                     extra=model_extra,
                 ),
                 force=args.force,
@@ -470,7 +471,7 @@ def main() -> None:
                         continue
 
                     cat_slug = slugify(cat_key)
-                    hub_dir = section_modelos / model_slug / cat_slug
+                    hub_dir = section_marcas / brand_slug / model_slug / cat_slug
                     hub_title = f"{brand_name} {model_name} · {cat_title_es(cat_key)}"
 
                     hub_extra: dict = {
@@ -486,7 +487,7 @@ def main() -> None:
                         fm(
                             title=hub_title,
                             slug=None,
-                            kind="modelos" if not is_root else None,
+                            kind="modelos",  # siempre
                             extra=hub_extra,
                         ),
                         force=args.force,
@@ -498,7 +499,7 @@ def main() -> None:
                 valid_problems = [p for p in problems if has_meaningful_problem(p)]
                 if not valid_problems:
                     continue
-                # HUB /modelos/<model>/problemas/ (branch bundle) -> _index.md
+                # HUB /marcas/<brand>/<model>/problemas/ (branch bundle) -> _index.md
                 problemas_extra: dict = {
                     "brandKey": brand_key,
                     "modelSlug": model_slug,
@@ -507,11 +508,11 @@ def main() -> None:
                 if not is_root:
                     problemas_extra["vertical"] = args.vertical
                 write_file(
-                    section_modelos / model_slug / "problemas" / "_index.md",
+                    section_marcas / brand_slug / model_slug / "problemas" / "_index.md",
                     fm(
                         title=f"Problemas frecuentes de {title}",
                         slug=None,
-                        kind="modelos" if not is_root else None,
+                        kind="modelos",  # siempre
                         extra=problemas_extra,
                     ),
                     force=args.force,
@@ -524,7 +525,7 @@ def main() -> None:
                     if not pkey or not ptitle:
                         continue
 
-                    pdir = section_modelos / model_slug / "problemas" / pkey
+                    pdir = section_marcas / brand_slug / model_slug / "problemas" / pkey
                     prob_extra: dict = {
                         "brandKey": brand_key,
                         "modelSlug": model_slug,
@@ -538,7 +539,7 @@ def main() -> None:
                         fm(
                             title=ptitle,
                             slug=None,
-                            kind="modelos" if not is_root else None,
+                            kind="modelos",  # siempre
                             extra=prob_extra,
                         ),
                         force=args.force,

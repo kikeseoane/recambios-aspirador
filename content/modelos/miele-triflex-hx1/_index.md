@@ -1,7 +1,0 @@
----
-title: Miele Triflex HX1
-draft: false
-generated: true
-brandKey: miele
-modelSlug: miele-triflex-hx1
----

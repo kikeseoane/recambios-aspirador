@@ -1,0 +1,10 @@
+---
+title: 'Electrolux Ergorapido: el cepillo o rodillo no gira'
+draft: false
+generated: true
+type: modelos
+brandKey: electrolux
+modelSlug: electrolux-ergorapido
+problemKey: cepillo-no-gira
+layout: problema
+---

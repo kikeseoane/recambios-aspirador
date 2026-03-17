@@ -31,7 +31,7 @@
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
     <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
     <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name | default $brandKey }}</a><span class="sep">></span>
-    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
     <span>Problemas</span>
   </div>
 
@@ -42,7 +42,7 @@
       <p class="hero__copy">Rutas de diagnostico por sintomas para {{ $mtitle }}: revisa comprobaciones basicas, descarta fallos comunes y acota la pieza mas probable antes de cambiar nada.</p>
 
       <div class="hero__links">
-        <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
+        <a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}"><- Volver al modelo</a>
         <a class="btn btn--link" href="#problemas-listado">Ver problemas</a>
       </div>
 
@@ -76,7 +76,7 @@
       {{ range $p := $probs }}
         {{ $pkey := (index $p "key") | urlize }}
         {{ $ptitle := (index $p "title") | default $pkey }}
-        <a class="card" href="{{ (printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey) | relURL }}">
+        <a class="card" href="{{ (printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $pkey) | relURL }}">
           <div class="kicker">Problema frecuente</div>
           <h3>{{ $ptitle }}</h3>
           {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}

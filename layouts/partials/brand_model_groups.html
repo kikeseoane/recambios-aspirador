@@ -1,5 +1,6 @@
 {{ $brand := .brand }}
-{{ $modBase := .modBase }}
+{{ $brandKey := .brandKey | urlize }}
+{{ $marcBase := .marcBase | strings.TrimSuffix "/" }}
 
 {{ $groups := dict }}
 {{ range $m := ($brand.models | default slice) }}
@@ -26,7 +27,7 @@
           {{ range $m := $group.items }}
             {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
             {{ $slug := or $m.slug $m.canonical_slug }}
-            <a class="card card--model" href="{{ (printf "%s/%s/" $modBase $slug) | relURL }}">
+            <a class="card card--model" href="{{ (printf "%s/%s/%s/" $marcBase $brandKey $slug) | relURL }}">
               <div class="card-eyebrow">Modelo</div>
               <h3>{{ $title }}</h3>
 

@@ -153,7 +153,7 @@
         </p>
 
         {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
-          {{ partial "brand_model_groups.html" (dict "brand" $brand "modBase" $modBase) }}
+          {{ partial "brand_model_groups.html" (dict "brand" $brand "brandKey" $brandKey "marcBase" $marcBase) }}
         {{ else }}
           <p class="muted">Todavia no hay modelos publicados para esta marca.</p>
         {{ end }}

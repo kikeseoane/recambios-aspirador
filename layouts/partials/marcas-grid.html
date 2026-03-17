@@ -39,7 +39,7 @@
         {{ $series := index $m "series" }}
         {{ $years := index $m "year_range" }}
 
-        <a class="card card--with-icon" href="{{ (printf "%s/%s/" $modBase $mslug) | relURL }}">
+        <a class="card card--with-icon" href="{{ (printf "%s/%s/%s/" $marcBase $brandKey $mslug) | relURL }}">
           {{ partial "card_icon.html" (dict "kind" "model") }}
 
           <div class="card-body">

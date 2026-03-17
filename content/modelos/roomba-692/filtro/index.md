@@ -1,9 +1,0 @@
----
-title: iRobot Roomba 692 · Filtro
-draft: false
-generated: true
-brandKey: irobot
-modelSlug: roomba-692
-catKey: filtro
-layout: recambio
----

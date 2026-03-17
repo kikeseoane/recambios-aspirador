@@ -73,8 +73,8 @@
     <h1>Problema en preparacion</h1>
     <p class="muted">Aun no tenemos este diagnostico disponible.</p>
     <div class="chips" style="margin-top:12px;">
-      <a class="chip" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}"><- Volver al modelo</a>
-      <a class="chip" href="{{ (printf "%s/%s/problemas/" $modBase $modelSlug) | relURL }}">Ver problemas del modelo</a>
+      <a class="chip" href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}"><- Volver al modelo</a>
+      <a class="chip" href="{{ (printf "%s/%s/%s/problemas/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}">Ver problemas del modelo</a>
       <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Mas modelos {{ $brand.name }}</a>
     </div>
     {{ return }}
@@ -108,7 +108,7 @@
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
     <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
     <a href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">{{ $brand.name }}</a><span class="sep">></span>
-    <a href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
+    <a href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}">{{ $mtitle }}</a><span class="sep">></span>
     <span>{{ $ptitle }}</span>
   </div>
 
@@ -126,8 +126,8 @@
       {{ end }}
 
       <div class="hero__links">
-        <a class="btn btn--ghost" href="{{ (printf "%s/%s/" $modBase $modelSlug) | relURL }}">← Volver al modelo</a>
-        {{ if $catKey }}<a class="btn btn--primary" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">Ver recambio relacionado</a>{{ end }}
+        <a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}">← Volver al modelo</a>
+        {{ if $catKey }}<a class="btn btn--primary" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | relURL }}">Ver recambio relacionado</a>{{ end }}
       </div>
     </div>
   </div>
@@ -166,7 +166,7 @@
           {{ end }}
         {{ end }}
         {{ if gt (len $recItems) 2 }}
-          <a class="problema-cta-more" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">
+          <a class="problema-cta-more" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | relURL }}">
             Ver todas las opciones compatibles →
           </a>
         {{ end }}
@@ -176,7 +176,7 @@
     <div class="problema-cta-box problema-cta-box--simple mt-14">
       <span class="badge badge--best">Recambio relacionado</span>
       {{ if $fixHint }}<p class="problema-cta-box__title">{{ $fixHint }}</p>{{ end }}
-      <a class="btn-buy mt-10" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}">Ver recambios compatibles</a>
+      <a class="btn-buy mt-10" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | relURL }}">Ver recambios compatibles</a>
       <p class="muted small mt-8">Verifica encaje, serie y especificaciones antes de comprar.</p>
     </div>
   {{ end }}
@@ -258,7 +258,7 @@
           <span class="offer-trust__icon" aria-hidden="true">✓</span>
           <span class="offer-trust__text">Compatibilidad verificada para {{ $mtitle }}</span>
         </div>
-        <a class="btn-buy mt-10" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug $catKey) | relURL }}" style="width:100%;justify-content:center;">
+        <a class="btn-buy mt-10" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | relURL }}" style="width:100%;justify-content:center;">
           Ver recambios compatibles
         </a>
         <p class="muted small mt-8">Verifica encaje, serie y datos tecnicos antes de comprar.</p>

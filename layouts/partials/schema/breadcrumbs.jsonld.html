@@ -82,47 +82,40 @@
       {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "%s/%s/" $marcBase ($brandKey|urlize)) | absURL)) -}}
     {{- end -}}
 
-  {{/* MODELOS */}}
-  {{- else if eq .Section "modelos" -}}
+  {{/* MODELOS — type:modelos independiente de la seccion fisica */}}
+  {{- else if eq .Type "modelos" -}}
 
-    {{/* /modelos/ listado */}}
-    {{- if and .IsSection (not $modelSlug) -}}
-      {{- $items = $items | append (dict "name" "Modelos" "url" ((print $modBase "/") | absURL)) -}}
+    {{/* Modelos viven bajo /marcas/<brand>/<model>/ */}}
+    {{- $items = $items | append (dict "name" "Marcas" "url" ((print $marcBase "/") | absURL)) -}}
 
-    {{- else -}}
-      {{/* Modelo y derivados */}}
-      {{- $items = $items | append (dict "name" "Marcas" "url" ((print $marcBase "/") | absURL)) -}}
+    {{- if $brandKey -}}
+      {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "%s/%s/" $marcBase ($brandKey|urlize)) | absURL)) -}}
+    {{- end -}}
 
-      {{- if $brandKey -}}
-        {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "%s/%s/" $marcBase ($brandKey|urlize)) | absURL)) -}}
+    {{- if $modelSlug -}}
+      {{- $modelTitle := "" -}}
+      {{- if $brandName -}}
+        {{- $modelTitle = partial "model_title.html" (dict "brandName" $brandName "modelName" ($modelName | default $modelSlug)) -}}
+      {{- else -}}
+        {{- $modelTitle = ($modelName | default $modelSlug) -}}
       {{- end -}}
+      {{- $items = $items | append (dict "name" $modelTitle "url" ((printf "%s/%s/%s/" $marcBase ($brandKey|urlize) $modelSlug) | absURL)) -}}
+    {{- end -}}
 
-      {{- if $modelSlug -}}
-        {{- $modelTitle := "" -}}
-        {{- if $brandName -}}
-          {{- $modelTitle = partial "model_title.html" (dict "brandName" $brandName "modelName" ($modelName | default $modelSlug)) -}}
-        {{- else -}}
-          {{- $modelTitle = ($modelName | default $modelSlug) -}}
-        {{- end -}}
-        {{- $items = $items | append (dict "name" $modelTitle "url" ((printf "%s/%s/" $modBase $modelSlug) | absURL)) -}}
-      {{- end -}}
+    {{/* Hub de recambio por categoría */}}
+    {{- if and $catKey (not $problemKey) -}}
+      {{- $items = $items | append (dict "name" ($catLabel | default $catKey) "url" (.Permalink)) -}}
+    {{- end -}}
 
-      {{/* Hub de recambio por categoría */}}
-      {{- if and $catKey (not $problemKey) -}}
-        {{- $items = $items | append (dict "name" ($catLabel | default $catKey) "url" (.Permalink)) -}}
-      {{- end -}}
+    {{/* Hub problemas */}}
+    {{- if and (eq .Layout "problemas") $modelSlug -}}
+      {{- $items = $items | append (dict "name" "Problemas" "url" (.Permalink)) -}}
+    {{- end -}}
 
-      {{/* Hub problemas */}}
-      {{- if and (eq .Layout "problemas") $modelSlug -}}
-        {{- $items = $items | append (dict "name" "Problemas" "url" (.Permalink)) -}}
-      {{- end -}}
-
-      {{/* Problema individual */}}
-      {{- if $problemKey -}}
-        {{- $items = $items | append (dict "name" "Problemas" "url" ((printf "%s/%s/problemas/" $modBase $modelSlug) | absURL)) -}}
-        {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
-      {{- end -}}
-
+    {{/* Problema individual */}}
+    {{- if $problemKey -}}
+      {{- $items = $items | append (dict "name" "Problemas" "url" ((printf "%s/%s/%s/problemas/" $marcBase ($brandKey|urlize) $modelSlug) | absURL)) -}}
+      {{- $items = $items | append (dict "name" .Title "url" (.Permalink)) -}}
     {{- end -}}
 
   {{/* FALLBACK genérico */}}

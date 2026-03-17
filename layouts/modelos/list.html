@@ -88,7 +88,7 @@
                     {{ $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
                     {{ $mname := (index $m "model") | default $mid }}
                     {{ if $mid }}
-                      <a class="chip" href="{{ (printf "%s/%s/" $modBase $mid) | relURL }}">{{ $mname }}</a>
+                      <a class="chip" href="{{ (printf "%s/%s/%s/" $marcBase $brandSlug $mid) | relURL }}">{{ $mname }}</a>
                     {{ end }}
                   {{ end }}
                 {{ end }}
@@ -331,7 +331,7 @@
                 {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
                   <div class="section-head section-head--spaced">
                     <h3 class="title-reset">{{ $catLabel }}</h3>
-                    <a class="section-link" href="{{ (printf "%s/%s/%s/" $modBase $modelSlug ($catKey | urlize)) | relURL }}">
+                    <a class="section-link" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug ($catKey | urlize)) | relURL }}">
                       Mas opciones
                     </a>
                   </div>
@@ -385,7 +385,7 @@
                 {{ range $p := $probs }}
                   {{ $pkey := (index $p "key") | urlize }}
                   {{ $ptitle := (index $p "title") | default $pkey }}
-                  <a class="card" href="{{ (printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey) | relURL }}">
+                  <a class="card" href="{{ (printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $pkey) | relURL }}">
                     <h3>{{ $ptitle }}</h3>
                     {{ with (index $p "intent") }}<span class="badge blue">{{ . }}</span>{{ end }}
                     {{ with (index $p "symptoms") }}
@@ -438,7 +438,7 @@
                       {{ end }}
 
                       {{ if $pkey }}
-                        <a class="section-link section-link--inline mt-8" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">Ver diagnostico</a>
+                        <a class="section-link section-link--inline mt-8" href="{{ printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $pkey | relURL }}">Ver diagnostico</a>
                       {{ end }}
                     </div>
                   {{ end }}
@@ -448,7 +448,7 @@
                   {{ range $probs2 }}
                     {{ $pkey := (index . "key") | urlize }}
                     {{ $ptitle := index . "title" | default $pkey }}
-                    <a class="section-link" href="{{ printf "%s/%s/problemas/%s/" $modBase $modelSlug $pkey | relURL }}">{{ $ptitle }}</a>
+                    <a class="section-link" href="{{ printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $pkey | relURL }}">{{ $ptitle }}</a>
                   {{ end }}
                 </div>
               {{ end }}

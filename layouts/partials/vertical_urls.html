@@ -1,13 +1,18 @@
 {{/* partials/vertical_urls.html
 Input: verticalKey string
-Returns: dict {modBase, marcBase}
+Returns: dict {marcBase, guiasBase, homeBase}
+
+Nota: modBase es un alias de marcBase. Desde Phase 4, los modelos
+viven bajo /marcas/<brand>/<model>/ — no existe /modelos/ independiente.
+Las URLs de modelo deben construirse como: $marcBase/$brandKey/$modelSlug/
 */}}
 {{ $vk := . | default "aspiradores" }}
 {{ $vconf := (index (site.Data.verticals.verticals | default dict) $vk) | default dict }}
 {{ $isRoot := $vconf.root | default true }}
+{{ $marc := cond $isRoot "/marcas/" (printf "/%s/marcas/" $vk) }}
 {{ return dict
-  "modBase"   (cond $isRoot "/modelos/" (printf "/%s/modelos/" $vk))
-  "marcBase"  (cond $isRoot "/marcas/" (printf "/%s/marcas/" $vk))
+  "modBase"   $marc
+  "marcBase"  $marc
   "guiasBase" (cond $isRoot "/guias/" (printf "/%s/guias/" $vk))
   "homeBase"  (cond $isRoot "/" (printf "/%s/" $vk))
 }}

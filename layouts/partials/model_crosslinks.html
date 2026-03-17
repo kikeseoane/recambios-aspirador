@@ -17,7 +17,7 @@ Input: dict
 {{ $wrap := (.wrap | default true) }}
 {{ $verticalKey := .verticalKey | default "aspiradores" }}
 {{ $vurls := partial "vertical_urls.html" $verticalKey }}
-{{ $modBase := $vurls.modBase }}
+{{ $marcBase := $vurls.marcBase }}
 
 {{ if not (and $db $brandKey $modelSlug) }}
   {{ return }}
@@ -61,7 +61,7 @@ Input: dict
             {{ $items := index $rec $ck }}
             {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
               {{ if ne $ck $currentCat }}
-                <a class="chip" href="{{ (printf "%s%s/%s/" $modBase ($modelSlug | urlize) $ck) | relURL }}">{{ $label }}</a>
+                <a class="chip" href="{{ (printf "%s%s/%s/%s/" $marcBase ($brandKey | urlize) ($modelSlug | urlize) $ck) | relURL }}">{{ $label }}</a>
               {{ else }}
                 <span class="chip active">{{ $label }}</span>
               {{ end }}
@@ -80,7 +80,7 @@ Input: dict
             {{ $pk := (index $p "key" | urlize) }}
             {{ $pt := (index $p "title") | default $pk }}
             {{ if ne $pk $currentProblem }}
-              <a class="chip" href="{{ (printf "%s%s/problemas/%s/" $modBase ($modelSlug | urlize) $pk) | relURL }}">{{ $pt }}</a>
+              <a class="chip" href="{{ (printf "%s%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) ($modelSlug | urlize) $pk) | relURL }}">{{ $pt }}</a>
             {{ else }}
               <span class="chip active">{{ $pt }}</span>
             {{ end }}

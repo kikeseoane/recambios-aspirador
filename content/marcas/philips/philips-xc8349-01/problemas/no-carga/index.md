@@ -1,0 +1,10 @@
+---
+title: Philips SpeedPro Max Aqua no carga
+draft: false
+generated: true
+type: modelos
+brandKey: philips
+modelSlug: philips-xc8349-01
+problemKey: no-carga
+layout: problema
+---
