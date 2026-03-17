@@ -95,13 +95,37 @@
   {{ end }}
 
   {{- $cats := $db.globals.categorias_recambios | default slice }}
-  {{- if $cats }}
+
+  {{/* Filtrar cats a las que realmente usa esta vertical */}}
+  {{- $usedCatKeys := slice }}
+  {{- range $brands }}
+    {{- range .models }}
+      {{- $rec := index . "recambios" }}
+      {{- if and $rec (reflect.IsMap $rec) }}
+        {{- range $k, $v := $rec }}
+          {{- if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
+            {{- if not (in $usedCatKeys $k) }}
+              {{- $usedCatKeys = $usedCatKeys | append $k }}
+            {{- end }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- $filteredCats := slice }}
+  {{- range $cats }}
+    {{- if in $usedCatKeys .key }}
+      {{- $filteredCats = $filteredCats | append . }}
+    {{- end }}
+  {{- end }}
+
+  {{- if $filteredCats }}
     <div class="section-head" style="margin-top:18px;">
       <h2>Que recambio necesitas?</h2>
       <span class="chip">Categorias</span>
     </div>
     <div class="grid cards">
-      {{- range $cats }}
+      {{- range $filteredCats }}
         <div class="card">
           <div class="card-body">
             <h3>{{ .label }}</h3>

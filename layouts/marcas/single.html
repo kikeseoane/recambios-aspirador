@@ -104,16 +104,35 @@
 
     {{ partial "brand_series_overview.html" (dict "brand" $brand) }}
 
-    {{/* Categorias destacadas para esta marca */}}
+    {{/* Categorias destacadas para esta marca — solo las que usa esta marca */}}
     {{ $cats := $db.globals.categorias_recambios }}
-    {{ if and $cats (reflect.IsSlice $cats) (gt (len $cats) 0) }}
+    {{ $usedCatKeysBrand := slice }}
+    {{ range $models }}
+      {{ $rec := index . "recambios" }}
+      {{ if and $rec (reflect.IsMap $rec) }}
+        {{ range $k, $v := $rec }}
+          {{ if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
+            {{ if not (in $usedCatKeysBrand $k) }}
+              {{ $usedCatKeysBrand = $usedCatKeysBrand | append $k }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $filteredCatsBrand := slice }}
+    {{ range $cats }}
+      {{ if in $usedCatKeysBrand (.key | urlize) }}
+        {{ $filteredCatsBrand = $filteredCatsBrand | append . }}
+      {{ end }}
+    {{ end }}
+    {{ if and $filteredCatsBrand (gt (len $filteredCatsBrand) 0) }}
     <div class="brand-cats mt-14">
       <div class="section-head section-head--spaced">
         <h2 class="title-reset">Categorias de recambio</h2>
         <span class="muted small">Disponibles en todos los modelos {{ $brandName }}</span>
       </div>
       <div class="brand-cats__grid mt-10">
-        {{ range $cats }}
+        {{ range $filteredCatsBrand }}
           {{ $catKey := index . "key" | urlize }}
           {{ $catLabel := index . "label" }}
           <div class="brand-cat-chip">
