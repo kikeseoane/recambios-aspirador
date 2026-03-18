@@ -3,6 +3,12 @@ brands:
     name: Makita
     vertical: herramientas
     models:
+      - model: DHP484 Taladro percutor 18V
+        slug: makita-dhp484
+        sku_pack: power-tool10
+        model_tokens: ["dhp484", "dhp48", "18v lxt drill"]
+        year_range: "2018-2024"
+        series: "LXT 18V"
       - model: DHP485 Taladro 18V
         slug: makita-dhp485
         sku_pack: power-tool10
@@ -27,6 +33,24 @@ brands:
         model_tokens: ["djr187", "djr18", "18v reciprocating"]
         year_range: "2020-2024"
         series: "LXT 18V"
+      - model: DSS610 Sierra circular 18V
+        slug: makita-dss610
+        sku_pack: power-tool10
+        model_tokens: ["dss610", "dss61", "18v circular saw"]
+        year_range: "2019-2024"
+        series: "LXT 18V"
+      - model: BL1850B Batería 18V 5Ah
+        slug: makita-bl1850b
+        sku_pack: power-tool10
+        model_tokens: ["bl1850b", "bl1850", "18v 5ah battery"]
+        year_range: "2018-2024"
+        series: "LXT 18V Battery"
+      - model: DC18RC Cargador rápido 18V
+        slug: makita-dc18rc
+        sku_pack: power-tool10
+        model_tokens: ["dc18rc", "dc18", "18v fast charger"]
+        year_range: "2018-2024"
+        series: "LXT 18V Charger"
 
   bosch-ht:
     name: Bosch Professional
@@ -50,6 +74,18 @@ brands:
         model_tokens: ["gks 18v-57", "gks18v", "18v saw"]
         year_range: "2021-2024"
         series: "18V Professional"
+      - model: GDR 18V-160 Atornillador de impacto
+        slug: bosch-gdr18v160
+        sku_pack: power-tool10
+        model_tokens: ["gdr 18v-160", "gdr18v", "18v impact"]
+        year_range: "2021-2024"
+        series: "18V Professional"
+      - model: GWS 18V-10 Amoladora
+        slug: bosch-gws18v10
+        sku_pack: power-tool10
+        model_tokens: ["gws 18v-10", "gws18v", "18v grinder"]
+        year_range: "2022-2024"
+        series: "18V Professional"
 
   dewalt-ht:
     name: DeWalt
@@ -67,6 +103,24 @@ brands:
         model_tokens: ["dcf887", "dcf88", "impact driver"]
         year_range: "2019-2024"
         series: "20V MAX"
+      - model: DCS565 Sierra circular 18V
+        slug: dewalt-dcs565
+        sku_pack: power-tool10
+        model_tokens: ["dcs565", "dcs56", "dewalt circular"]
+        year_range: "2020-2024"
+        series: "20V MAX"
+      - model: DCG405 Amoladora 18V
+        slug: dewalt-dcg405
+        sku_pack: power-tool10
+        model_tokens: ["dcg405", "dcg40", "dewalt grinder"]
+        year_range: "2020-2024"
+        series: "20V MAX"
+      - model: DCB205 Batería 18V 5Ah
+        slug: dewalt-dcb205
+        sku_pack: power-tool10
+        model_tokens: ["dcb205", "dcb20", "20v 5ah battery"]
+        year_range: "2019-2024"
+        series: "20V MAX Battery"
 
   ryobi-ht:
     name: Ryobi
@@ -84,3 +138,44 @@ brands:
         model_tokens: ["r18ag", "one+ grinder", "ryobi grinder"]
         year_range: "2020-2024"
         series: "ONE+ 18V"
+      - model: ONE+ R18CS Sierra circular 18V
+        slug: ryobi-r18cs
+        sku_pack: power-tool10
+        model_tokens: ["r18cs", "one+ circular", "ryobi circular"]
+        year_range: "2020-2024"
+        series: "ONE+ 18V"
+      - model: ONE+ RB18L40 Batería 18V 4Ah
+        slug: ryobi-rb18l40
+        sku_pack: power-tool10
+        model_tokens: ["rb18l40", "rb18l", "ryobi 18v 4ah"]
+        year_range: "2019-2024"
+        series: "ONE+ 18V Battery"
+
+  milwaukee-ht:
+    name: Milwaukee
+    vertical: herramientas
+    models:
+      - model: M18 Fuel 2803 Taladro
+        slug: milwaukee-m18-2803
+        sku_pack: power-tool10
+        model_tokens: ["2803", "m18 fuel drill", "milwaukee m18"]
+        year_range: "2019-2024"
+        series: "M18 Fuel"
+      - model: M18 Fuel 2780 Amoladora
+        slug: milwaukee-m18-2780
+        sku_pack: power-tool10
+        model_tokens: ["2780", "m18 fuel grinder", "milwaukee grinder"]
+        year_range: "2020-2024"
+        series: "M18 Fuel"
+      - model: M12 2407 Taladro compacto
+        slug: milwaukee-m12-2407
+        sku_pack: power-tool10
+        model_tokens: ["2407", "m12 drill", "milwaukee m12"]
+        year_range: "2020-2024"
+        series: "M12"
+      - model: M18 48-11-1850 Batería 5Ah
+        slug: milwaukee-m18-48111850
+        sku_pack: power-tool10
+        model_tokens: ["48-11-1850", "m18 5ah", "milwaukee battery"]
+        year_range: "2019-2024"
+        series: "M18 Battery"

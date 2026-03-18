@@ -573,6 +573,78 @@ problem_packs:
         - Comprobar que no hay objetos atrapados en el eje
       fix_hint: "Si el rodillo gira libre a mano pero no con el motor, puede que el módulo de transmisión esté dañado."
 
+    - key: se-apaga-solo
+      title: "{model} se apaga solo sin avisar"
+      intent: info
+      cta_cat: bateria
+      symptoms:
+        - El aspirador se apaga a mitad del uso
+        - Se reinicia o corta la alimentación de repente
+        - La luz de batería parpadea justo antes de apagarse
+      causes:
+        - Batería con celdas degradadas que no aguantan la carga de pico
+        - Sobrecalentamiento del motor por filtro saturado o rodillo bloqueado
+        - Protección térmica activada por uso prolongado
+      checks:
+        - Limpiar el filtro y el rodillo antes de volver a encender
+        - Dejar reposar 10 minutos si se ha usado mucho rato seguido
+        - Comprobar si la autonomía mejora después de un ciclo de carga completo
+      fix_hint: "Si el problema ocurre desde el principio del uso y no tras uso prolongado, la batería suele ser la causa raíz."
+
+    - key: hace-ruido
+      title: "{model} hace ruido extraño o fuerte"
+      intent: info
+      cta_cat: cepillo
+      symptoms:
+        - Sonido nuevo o más fuerte de lo normal al aspirar
+        - Vibración inusual en el mango o cabezal
+        - Ruido de raspado o clic al pasar por suelos
+      causes:
+        - Pelo, hilo o pequeño objeto atrapado en el rodillo o eje
+        - Rodillo desgastado que roza la carcasa
+        - Obstrucción parcial en el tubo o boquilla
+      checks:
+        - Apagar y retirar el rodillo para inspeccionarlo manualmente
+        - Revisar el tubo y la boquilla por objetos que puedan vibrar
+        - Comprobar si el ruido desaparece sin la boquilla conectada
+      fix_hint: "Un raspado rítmico suele indicar objeto en el rodillo. Un silbido agudo suele indicar obstrucción en el conducto."
+
+    - key: mal-olor
+      title: "{model} desprende mal olor al aspirar"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - Olor a quemado, polvo o a sucio al encender
+        - El olor aumenta al aspirar alfombras o pelo de mascotas
+        - El ambiente queda con mal olor después de aspirar
+      causes:
+        - Filtro saturado que recircula el polvo por el aire
+        - Rodillo con pelo acumulado que se calienta con el motor
+        - Depósito o contenedor sin limpiar durante mucho tiempo
+      checks:
+        - Limpiar o sustituir el filtro
+        - Limpiar el rodillo y retirar todo el pelo acumulado
+        - Vaciar y lavar el depósito o contenedor de polvo
+      fix_hint: "Si el mal olor persiste con filtro limpio y rodillo limpio, puede que el motor haya absorbido partículas. Revisa el filtro post-motor."
+
+    - key: no-arranca
+      title: "{model} no enciende o no arranca"
+      intent: info
+      cta_cat: bateria
+      symptoms:
+        - No responde al pulsar el botón de encendido
+        - El LED no parpadea ni se enciende
+        - Arranca un segundo y se vuelve a apagar
+      causes:
+        - Batería completamente descargada o dañada
+        - Cargador sin alimentación o con conector suelto
+        - Bloqueo de seguridad por rodillo bloqueado o sobrecalentamiento previo
+      checks:
+        - Conectar el cargador y esperar 30 minutos antes de volver a intentar
+        - Verificar que el cargador está conectado a la corriente y la luz está encendida
+        - Comprobar que el rodillo gira libre y no hay obstrucciones
+      fix_hint: "Si tras carga completa sigue sin arrancar, el problema puede ser la batería o el controlador. La batería es la pieza más fácil de sustituir primero."
+
   robot_base:
     - key: no-aspira
       title: "{model} no aspira bien"
@@ -627,6 +699,78 @@ problem_packs:
         - Inspeccionar cepillos laterales y sustituir si están doblados
         - Revisar las ruedas por objetos atrapados
       fix_hint: "Los cepillos laterales suelen doblarse con el uso. Son piezas baratas de cambiar y mejoran notablemente el resultado."
+
+    - key: no-vuelve-base
+      title: "{model} no encuentra la base de carga o no vuelve"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - El robot termina la limpieza en mitad de la habitación
+        - El robot gira en círculos buscando la base sin encontrarla
+        - La app indica "buscando base" pero nunca regresa
+      causes:
+        - Sensor de infrarrojos de la base sucio o bloqueado
+        - Base de carga movida o colocada en posición incorrecta
+        - Obstáculos entre la última posición del robot y la base
+      checks:
+        - Limpiar los sensores frontales del robot con un paño seco
+        - Reubicar la base en una pared libre y sin muebles a los lados
+        - Asegurarse de que la base tiene alimentación y la luz está encendida
+      fix_hint: "La base debe estar en una pared despejada, sin objetos a menos de 1m a cada lado y a 1,5m de escaleras."
+
+    - key: ruedas-bloqueadas
+      title: "{model}: las ruedas están bloqueadas o el robot no se mueve"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - El robot gira sobre sí mismo sin avanzar
+        - Una rueda parece atascada o hace ruido al rodar
+        - El robot se detiene y emite un error de movimiento
+      causes:
+        - Pelo o suciedad enredada en los ejes de las ruedas
+        - Rueda caída en un escalón o atrapada bajo un mueble
+        - Módulo de rueda dañado por impacto
+      checks:
+        - Levantar el robot y girar las ruedas manualmente
+        - Retirar todo el pelo e hilos del eje de cada rueda
+        - Comprobar que las ruedas muestran resistencia elástica (muelle interno)
+      fix_hint: "Si una rueda no hace retorno elástico al presionarla hacia arriba, el muelle interno puede estar roto y la rueda puede necesitar sustitución."
+
+    - key: mapa-errores
+      title: "{model}: el mapa es incorrecto o el robot se pierde"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - El mapa de la app no se corresponde con la distribución real
+        - El robot pasa dos veces por el mismo sitio o se salta zonas
+        - Después de mover el robot, el mapa queda inconsistente
+      causes:
+        - Sensor LiDAR o de pared sucio que lee mal las distancias
+        - Entorno con mucha luz directa que interfiere con los sensores
+        - Firmware desactualizado con bugs de mapeo corregidos en versiones nuevas
+      checks:
+        - Limpiar el sensor LiDAR (torreta giratoria) con un paño suave
+        - Borrar el mapa guardado y hacer una limpieza completa desde cero
+        - Verificar si hay actualización de firmware disponible en la app
+      fix_hint: "Borrar el mapa y dejar que el robot explore de nuevo suele corregir la mayoría de errores de cartografía."
+
+    - key: no-arranca-robot
+      title: "{model} no enciende o no inicia la limpieza"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - El robot no responde al pulsar el botón o desde la app
+        - La base de carga está encendida pero el robot no carga
+        - La app muestra el robot como "desconectado" o "sin batería"
+      causes:
+        - Batería interna muy descargada o degradada
+        - Contactos de la base de carga sucios u oxidados
+        - Fallo en la conexión WiFi que impide el control desde la app
+      checks:
+        - Limpiar los contactos metálicos del robot y de la base con un paño seco
+        - Colocar el robot manualmente sobre la base y esperar 2 horas
+        - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
+      fix_hint: "Si los contactos están limpios pero el robot sigue sin cargar, el problema puede ser la batería interna. Es la pieza más habitual de sustituir en robots con más de 3 años."
 
   shaver_base:
     - key: lamina-desgastada

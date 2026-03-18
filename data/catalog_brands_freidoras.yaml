@@ -15,6 +15,12 @@ brands:
         model_tokens: ["af160", "ninja af160"]
         year_range: "2021-2024"
         series: "Air Fryer"
+      - model: AF300 DualZone 7.6L
+        slug: ninja-af300
+        sku_pack: airfryer10
+        model_tokens: ["af300", "ninja af300", "dual zone af300"]
+        year_range: "2022-2024"
+        series: "DualZone"
       - model: Foodi Dual Zone AF400
         slug: ninja-af400
         sku_pack: airfryer10
@@ -27,11 +33,23 @@ brands:
         model_tokens: ["af160uk", "foodi max"]
         year_range: "2022-2024"
         series: "Foodi MAX"
+      - model: Speedi SF301
+        slug: ninja-sf301
+        sku_pack: airfryer10
+        model_tokens: ["sf301", "ninja speedi", "rapid cooker"]
+        year_range: "2023-2024"
+        series: "Speedi"
 
   philips-af-fr:
     name: Philips Airfryer
     vertical: freidoras
     models:
+      - model: Airfryer Compact HD9200
+        slug: philips-hd9200
+        sku_pack: airfryer10
+        model_tokens: ["hd9200", "airfryer compact", "hd92"]
+        year_range: "2019-2024"
+        series: "Airfryer Compact"
       - model: Airfryer HD9252 3.5L
         slug: philips-hd9252
         sku_pack: airfryer10
@@ -50,11 +68,23 @@ brands:
         model_tokens: ["hd9860", "airfryer xxl", "hd98"]
         year_range: "2022-2024"
         series: "Airfryer XXL"
+      - model: Airfryer Connected HD9255
+        slug: philips-hd9255
+        sku_pack: airfryer10
+        model_tokens: ["hd9255", "airfryer connected", "hd92 smart"]
+        year_range: "2022-2024"
+        series: "Airfryer Connected"
 
   cosori-af:
     name: Cosori
     vertical: freidoras
     models:
+      - model: Lite 3.8L CAF-L301
+        slug: cosori-caf-l301
+        sku_pack: airfryer10
+        model_tokens: ["caf-l301", "cosori lite", "cosori 3.8"]
+        year_range: "2021-2024"
+        series: "Lite"
       - model: Pro II CAF-L501
         slug: cosori-caf-l501
         sku_pack: airfryer10
@@ -67,6 +97,12 @@ brands:
         model_tokens: ["caf-p583", "dual blaze"]
         year_range: "2023-2024"
         series: "Dual Blaze"
+      - model: TurboBlaze 6L CAF-T601
+        slug: cosori-caf-t601
+        sku_pack: airfryer10
+        model_tokens: ["caf-t601", "turboblaze", "cosori turbo"]
+        year_range: "2023-2024"
+        series: "TurboBlaze"
 
   tefal-af:
     name: Tefal
@@ -78,6 +114,12 @@ brands:
         model_tokens: ["ey2018", "easy fry essential", "ey20"]
         year_range: "2021-2024"
         series: "Easy Fry Essential"
+      - model: Easy Fry Compact EY3018
+        slug: tefal-ey3018
+        sku_pack: airfryer10
+        model_tokens: ["ey3018", "easy fry compact", "ey30"]
+        year_range: "2021-2024"
+        series: "Easy Fry Compact"
       - model: Easy Fry Deluxe EY5018
         slug: tefal-ey5018
         sku_pack: airfryer10
@@ -90,3 +132,26 @@ brands:
         model_tokens: ["ey7818", "easy fry genius xl", "ey78"]
         year_range: "2022-2024"
         series: "Easy Fry Genius XL"
+      - model: ActiFry Genius Snacking AH960
+        slug: tefal-ah960
+        sku_pack: airfryer10
+        model_tokens: ["ah960", "actifry genius", "actifry snacking"]
+        year_range: "2020-2024"
+        series: "ActiFry Genius"
+
+  instantpot-af:
+    name: Instant Pot
+    vertical: freidoras
+    models:
+      - model: Instant Vortex Plus 6QT
+        slug: instant-vortex-plus-6qt
+        sku_pack: airfryer10
+        model_tokens: ["vortex plus", "vortex 6qt", "instant vortex"]
+        year_range: "2021-2024"
+        series: "Vortex Plus"
+      - model: Instant Vortex 4QT
+        slug: instant-vortex-4qt
+        sku_pack: airfryer10
+        model_tokens: ["vortex 4qt", "instant vortex 4", "vortex mini"]
+        year_range: "2021-2024"
+        series: "Vortex"

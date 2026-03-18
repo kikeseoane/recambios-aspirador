@@ -587,6 +587,265 @@ brands:
       - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
         a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
           del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+    - model: AF300 DualZone 7.6L
+      slug: ninja-af300
+      sku_pack: airfryer10
+      model_tokens:
+      - af300
+      - ninja af300
+      - dual zone af300
+      year_range: 2022-2024
+      series: DualZone
+      recambios:
+        cesta:
+        - sku: ninja-af-ninja-af300-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 basket replacement Cesta de repuesto
+            compatible para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id003
+          - af300
+          - ninja af300
+          - dual zone af300
+        - sku: ninja-af-ninja-af300-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 rack grill Bandeja / rejilla grill
+            compatible para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id003
+        filtro:
+        - sku: ninja-af-ninja-af300-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 filter carbon Filtro de carbono compatible
+            para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id003
+        accesorios:
+        - sku: ninja-af-ninja-af300-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 silicone mold Moldes de silicona
+            compatibles para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id003
+        - sku: ninja-af-ninja-af300-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 paper liner Papel perforado / liner
+            compatible para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id003
+        - sku: ninja-af-ninja-af300-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 rotisserie spit Asador / spit rotisserie
+            compatible para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id003
+        - sku: ninja-af-ninja-af300-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 skewer kebab Brochetas / skewers
+            compatibles para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id003
+        - sku: ninja-af-ninja-af300-accesorios-acc-kit-af
+          title: Kit accesorios compatible para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 accessory kit Kit accesorios compatible
+            para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id003
+        - sku: ninja-af-ninja-af300-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 tong silicone Pinzas de silicona
+            compatibles para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id003
+        soporte:
+        - sku: ninja-af-ninja-af300-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para AF300 DualZone 7.6L
+          intent: compra
+          query: Ninja AF300 DualZone 7.6L af300 rack stand Soporte elevador / estante
+            compatible para AF300 DualZone 7.6L
+          must_include:
+          - af300
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id003
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'AF300 DualZone 7.6L: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: AF300 DualZone 7.6L no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: AF300 DualZone 7.6L hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
     - model: Foodi Dual Zone AF400
       slug: ninja-af400
       sku_pack: airfryer10
@@ -613,7 +872,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id003
+          model_tokens: &id004
           - af400
           - dual zone
           - foodi dual
@@ -632,7 +891,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id003
+          model_tokens: *id004
         filtro:
         - sku: ninja-af-ninja-af400-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Foodi Dual Zone AF400
@@ -649,7 +908,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id003
+          model_tokens: *id004
         accesorios:
         - sku: ninja-af-ninja-af400-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Foodi Dual Zone AF400
@@ -666,7 +925,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: ninja-af-ninja-af400-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Foodi Dual Zone AF400
           intent: compra
@@ -683,7 +942,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: ninja-af-ninja-af400-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Foodi Dual Zone AF400
           intent: compra
@@ -699,7 +958,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: ninja-af-ninja-af400-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Foodi Dual Zone AF400
           intent: compra
@@ -715,7 +974,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: ninja-af-ninja-af400-accesorios-acc-kit-af
           title: Kit accesorios compatible para Foodi Dual Zone AF400
           intent: compra
@@ -730,7 +989,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: ninja-af-ninja-af400-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Foodi Dual Zone AF400
           intent: compra
@@ -746,7 +1005,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id003
+          model_tokens: *id004
         soporte:
         - sku: ninja-af-ninja-af400-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Foodi Dual Zone AF400
@@ -764,7 +1023,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id003
+          model_tokens: *id004
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -871,7 +1130,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id004
+          model_tokens: &id005
           - af160uk
           - foodi max
         - sku: ninja-af-ninja-af160uk-cesta-bandeja-grill
@@ -889,7 +1148,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id004
+          model_tokens: *id005
         filtro:
         - sku: ninja-af-ninja-af160uk-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Foodi MAX AF160UK
@@ -906,7 +1165,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id004
+          model_tokens: *id005
         accesorios:
         - sku: ninja-af-ninja-af160uk-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Foodi MAX AF160UK
@@ -923,7 +1182,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: ninja-af-ninja-af160uk-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Foodi MAX AF160UK
           intent: compra
@@ -940,7 +1199,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: ninja-af-ninja-af160uk-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Foodi MAX AF160UK
           intent: compra
@@ -956,7 +1215,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: ninja-af-ninja-af160uk-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Foodi MAX AF160UK
           intent: compra
@@ -972,7 +1231,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: ninja-af-ninja-af160uk-accesorios-acc-kit-af
           title: Kit accesorios compatible para Foodi MAX AF160UK
           intent: compra
@@ -987,7 +1246,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: ninja-af-ninja-af160uk-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Foodi MAX AF160UK
           intent: compra
@@ -1003,7 +1262,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id004
+          model_tokens: *id005
         soporte:
         - sku: ninja-af-ninja-af160uk-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Foodi MAX AF160UK
@@ -1021,7 +1280,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id004
+          model_tokens: *id005
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -1103,9 +1362,527 @@ brands:
       - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
         a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
           del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+    - model: Speedi SF301
+      slug: ninja-sf301
+      sku_pack: airfryer10
+      model_tokens:
+      - sf301
+      - ninja speedi
+      - rapid cooker
+      year_range: 2023-2024
+      series: Speedi
+      recambios:
+        cesta:
+        - sku: ninja-af-ninja-sf301-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 basket replacement Cesta de repuesto compatible
+            para Speedi SF301
+          must_include:
+          - sf301
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id006
+          - sf301
+          - ninja speedi
+          - rapid cooker
+        - sku: ninja-af-ninja-sf301-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 rack grill Bandeja / rejilla grill compatible
+            para Speedi SF301
+          must_include:
+          - sf301
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id006
+        filtro:
+        - sku: ninja-af-ninja-sf301-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 filter carbon Filtro de carbono compatible
+            para Speedi SF301
+          must_include:
+          - sf301
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id006
+        accesorios:
+        - sku: ninja-af-ninja-sf301-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 silicone mold Moldes de silicona compatibles
+            para Speedi SF301
+          must_include:
+          - sf301
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id006
+        - sku: ninja-af-ninja-sf301-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 paper liner Papel perforado / liner compatible
+            para Speedi SF301
+          must_include:
+          - sf301
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id006
+        - sku: ninja-af-ninja-sf301-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 rotisserie spit Asador / spit rotisserie
+            compatible para Speedi SF301
+          must_include:
+          - sf301
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id006
+        - sku: ninja-af-ninja-sf301-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 skewer kebab Brochetas / skewers compatibles
+            para Speedi SF301
+          must_include:
+          - sf301
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id006
+        - sku: ninja-af-ninja-sf301-accesorios-acc-kit-af
+          title: Kit accesorios compatible para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 accessory kit Kit accesorios compatible
+            para Speedi SF301
+          must_include:
+          - sf301
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id006
+        - sku: ninja-af-ninja-sf301-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 tong silicone Pinzas de silicona compatibles
+            para Speedi SF301
+          must_include:
+          - sf301
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id006
+        soporte:
+        - sku: ninja-af-ninja-sf301-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para Speedi SF301
+          intent: compra
+          query: Ninja Speedi SF301 sf301 rack stand Soporte elevador / estante compatible
+            para Speedi SF301
+          must_include:
+          - sf301
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id006
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'Speedi SF301: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: Speedi SF301 no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: Speedi SF301 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
   philips-af-fr:
     name: Philips Airfryer
     models:
+    - model: Airfryer Compact HD9200
+      slug: philips-hd9200
+      sku_pack: airfryer10
+      model_tokens:
+      - hd9200
+      - airfryer compact
+      - hd92
+      year_range: 2019-2024
+      series: Airfryer Compact
+      recambios:
+        cesta:
+        - sku: philips-af-fr-philips-hd9200-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 basket replacement
+            Cesta de repuesto compatible para Airfryer Compact HD
+          must_include:
+          - hd9200
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id007
+          - hd9200
+          - airfryer compact
+          - hd92
+        - sku: philips-af-fr-philips-hd9200-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 rack grill Bandeja
+            / rejilla grill compatible para Airfryer Compact HD92
+          must_include:
+          - hd9200
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id007
+        filtro:
+        - sku: philips-af-fr-philips-hd9200-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 filter carbon Filtro
+            de carbono compatible para Airfryer Compact HD9200
+          must_include:
+          - hd9200
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id007
+        accesorios:
+        - sku: philips-af-fr-philips-hd9200-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 silicone mold Moldes
+            de silicona compatibles para Airfryer Compact HD920
+          must_include:
+          - hd9200
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id007
+        - sku: philips-af-fr-philips-hd9200-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 paper liner Papel
+            perforado / liner compatible para Airfryer Compact HD9
+          must_include:
+          - hd9200
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id007
+        - sku: philips-af-fr-philips-hd9200-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 rotisserie spit Asador
+            / spit rotisserie compatible para Airfryer Compac
+          must_include:
+          - hd9200
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id007
+        - sku: philips-af-fr-philips-hd9200-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 skewer kebab Brochetas
+            / skewers compatibles para Airfryer Compact HD920
+          must_include:
+          - hd9200
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id007
+        - sku: philips-af-fr-philips-hd9200-accesorios-acc-kit-af
+          title: Kit accesorios compatible para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 accessory kit Kit
+            accesorios compatible para Airfryer Compact HD9200
+          must_include:
+          - hd9200
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id007
+        - sku: philips-af-fr-philips-hd9200-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 tong silicone Pinzas
+            de silicona compatibles para Airfryer Compact HD920
+          must_include:
+          - hd9200
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id007
+        soporte:
+        - sku: philips-af-fr-philips-hd9200-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para Airfryer Compact HD9200
+          intent: compra
+          query: Philips Airfryer Airfryer Compact HD9200 hd9200 rack stand Soporte
+            elevador / estante compatible para Airfryer Compact H
+          must_include:
+          - hd9200
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id007
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'Airfryer Compact HD9200: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: Airfryer Compact HD9200 no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: Airfryer Compact HD9200 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
     - model: Airfryer HD9252 3.5L
       slug: philips-hd9252
       sku_pack: airfryer10
@@ -1132,7 +1909,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id005
+          model_tokens: &id008
           - hd9252
           - airfryer essential
           - hd92
@@ -1151,7 +1928,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id005
+          model_tokens: *id008
         filtro:
         - sku: philips-af-fr-philips-hd9252-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer HD9252 3.5L
@@ -1168,7 +1945,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id005
+          model_tokens: *id008
         accesorios:
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer HD9252 3.5L
@@ -1185,7 +1962,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id005
+          model_tokens: *id008
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer HD9252 3.5L
           intent: compra
@@ -1202,7 +1979,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id005
+          model_tokens: *id008
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer HD9252 3.5L
           intent: compra
@@ -1218,7 +1995,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id005
+          model_tokens: *id008
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer HD9252 3.5L
           intent: compra
@@ -1234,7 +2011,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id005
+          model_tokens: *id008
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer HD9252 3.5L
           intent: compra
@@ -1249,7 +2026,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id005
+          model_tokens: *id008
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer HD9252 3.5L
           intent: compra
@@ -1265,7 +2042,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id005
+          model_tokens: *id008
         soporte:
         - sku: philips-af-fr-philips-hd9252-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer HD9252 3.5L
@@ -1283,7 +2060,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id005
+          model_tokens: *id008
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -1391,7 +2168,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id006
+          model_tokens: &id009
           - hd9650
           - airfryer xl
           - hd96
@@ -1410,7 +2187,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id006
+          model_tokens: *id009
         filtro:
         - sku: philips-af-fr-philips-hd9650-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer XL HD9650
@@ -1427,7 +2204,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id006
+          model_tokens: *id009
         accesorios:
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer XL HD9650
@@ -1444,7 +2221,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id006
+          model_tokens: *id009
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer XL HD9650
           intent: compra
@@ -1461,7 +2238,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id006
+          model_tokens: *id009
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer XL HD9650
           intent: compra
@@ -1477,7 +2254,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id006
+          model_tokens: *id009
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer XL HD9650
           intent: compra
@@ -1493,7 +2270,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id006
+          model_tokens: *id009
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer XL HD9650
           intent: compra
@@ -1508,7 +2285,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id006
+          model_tokens: *id009
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer XL HD9650
           intent: compra
@@ -1524,7 +2301,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id006
+          model_tokens: *id009
         soporte:
         - sku: philips-af-fr-philips-hd9650-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer XL HD9650
@@ -1542,7 +2319,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id006
+          model_tokens: *id009
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -1650,7 +2427,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id007
+          model_tokens: &id010
           - hd9860
           - airfryer xxl
           - hd98
@@ -1669,7 +2446,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id007
+          model_tokens: *id010
         filtro:
         - sku: philips-af-fr-philips-hd9860-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer XXL HD9860
@@ -1686,7 +2463,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id007
+          model_tokens: *id010
         accesorios:
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer XXL HD9860
@@ -1703,7 +2480,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id007
+          model_tokens: *id010
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer XXL HD9860
           intent: compra
@@ -1720,7 +2497,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id007
+          model_tokens: *id010
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer XXL HD9860
           intent: compra
@@ -1736,7 +2513,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id007
+          model_tokens: *id010
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer XXL HD9860
           intent: compra
@@ -1752,7 +2529,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id007
+          model_tokens: *id010
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer XXL HD9860
           intent: compra
@@ -1767,7 +2544,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id007
+          model_tokens: *id010
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer XXL HD9860
           intent: compra
@@ -1783,7 +2560,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id007
+          model_tokens: *id010
         soporte:
         - sku: philips-af-fr-philips-hd9860-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer XXL HD9860
@@ -1801,7 +2578,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id007
+          model_tokens: *id010
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -1883,9 +2660,527 @@ brands:
       - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
         a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
           del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+    - model: Airfryer Connected HD9255
+      slug: philips-hd9255
+      sku_pack: airfryer10
+      model_tokens:
+      - hd9255
+      - airfryer connected
+      - hd92 smart
+      year_range: 2022-2024
+      series: Airfryer Connected
+      recambios:
+        cesta:
+        - sku: philips-af-fr-philips-hd9255-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 basket replacement
+            Cesta de repuesto compatible para Airfryer Connecte
+          must_include:
+          - hd9255
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id011
+          - hd9255
+          - airfryer connected
+          - hd92 smart
+        - sku: philips-af-fr-philips-hd9255-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para Airfryer Connected HD9255
+          intent: compra
+          query: 'Philips Airfryer Airfryer Connected HD9255 hd9255 rack grill Bandeja
+            / rejilla grill compatible para Airfryer Connected '
+          must_include:
+          - hd9255
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id011
+        filtro:
+        - sku: philips-af-fr-philips-hd9255-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 filter carbon Filtro
+            de carbono compatible para Airfryer Connected HD9
+          must_include:
+          - hd9255
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id011
+        accesorios:
+        - sku: philips-af-fr-philips-hd9255-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 silicone mold Moldes
+            de silicona compatibles para Airfryer Connected H
+          must_include:
+          - hd9255
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id011
+        - sku: philips-af-fr-philips-hd9255-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 paper liner Papel
+            perforado / liner compatible para Airfryer Connected
+          must_include:
+          - hd9255
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id011
+        - sku: philips-af-fr-philips-hd9255-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 rotisserie spit
+            Asador / spit rotisserie compatible para Airfryer Conn
+          must_include:
+          - hd9255
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id011
+        - sku: philips-af-fr-philips-hd9255-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 skewer kebab Brochetas
+            / skewers compatibles para Airfryer Connected H
+          must_include:
+          - hd9255
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id011
+        - sku: philips-af-fr-philips-hd9255-accesorios-acc-kit-af
+          title: Kit accesorios compatible para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 accessory kit Kit
+            accesorios compatible para Airfryer Connected HD9255
+          must_include:
+          - hd9255
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id011
+        - sku: philips-af-fr-philips-hd9255-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 tong silicone Pinzas
+            de silicona compatibles para Airfryer Connected H
+          must_include:
+          - hd9255
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id011
+        soporte:
+        - sku: philips-af-fr-philips-hd9255-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para Airfryer Connected HD9255
+          intent: compra
+          query: Philips Airfryer Airfryer Connected HD9255 hd9255 rack stand Soporte
+            elevador / estante compatible para Airfryer Connect
+          must_include:
+          - hd9255
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id011
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'Airfryer Connected HD9255: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: Airfryer Connected HD9255 no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: Airfryer Connected HD9255 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
   cosori-af:
     name: Cosori
     models:
+    - model: Lite 3.8L CAF-L301
+      slug: cosori-caf-l301
+      sku_pack: airfryer10
+      model_tokens:
+      - caf-l301
+      - cosori lite
+      - cosori 3.8
+      year_range: 2021-2024
+      series: Lite
+      recambios:
+        cesta:
+        - sku: cosori-af-cosori-caf-l301-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite basket replacement Cesta de repuesto
+            compatible para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id012
+          - caf-l301
+          - cosori lite
+          - cosori 3.8
+        - sku: cosori-af-cosori-caf-l301-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite rack grill Bandeja / rejilla grill
+            compatible para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id012
+        filtro:
+        - sku: cosori-af-cosori-caf-l301-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite filter carbon Filtro de carbono compatible
+            para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id012
+        accesorios:
+        - sku: cosori-af-cosori-caf-l301-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite silicone mold Moldes de silicona compatibles
+            para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id012
+        - sku: cosori-af-cosori-caf-l301-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite paper liner Papel perforado / liner
+            compatible para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id012
+        - sku: cosori-af-cosori-caf-l301-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite rotisserie spit Asador / spit rotisserie
+            compatible para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id012
+        - sku: cosori-af-cosori-caf-l301-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite skewer kebab Brochetas / skewers compatibles
+            para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id012
+        - sku: cosori-af-cosori-caf-l301-accesorios-acc-kit-af
+          title: Kit accesorios compatible para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite accessory kit Kit accesorios compatible
+            para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id012
+        - sku: cosori-af-cosori-caf-l301-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite tong silicone Pinzas de silicona compatibles
+            para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id012
+        soporte:
+        - sku: cosori-af-cosori-caf-l301-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para Lite 3.8L CAF-L301
+          intent: compra
+          query: Cosori Lite 3.8L CAF-L301 lite rack stand Soporte elevador / estante
+            compatible para Lite 3.8L CAF-L301
+          must_include:
+          - lite
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id012
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'Lite 3.8L CAF-L301: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: Lite 3.8L CAF-L301 no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: Lite 3.8L CAF-L301 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
     - model: Pro II CAF-L501
       slug: cosori-caf-l501
       sku_pack: airfryer10
@@ -1912,7 +3207,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id008
+          model_tokens: &id013
           - caf-l501
           - pro ii
           - cosori pro
@@ -1931,7 +3226,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id008
+          model_tokens: *id013
         filtro:
         - sku: cosori-af-cosori-caf-l501-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Pro II CAF-L501
@@ -1948,7 +3243,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id008
+          model_tokens: *id013
         accesorios:
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Pro II CAF-L501
@@ -1965,7 +3260,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id008
+          model_tokens: *id013
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Pro II CAF-L501
           intent: compra
@@ -1982,7 +3277,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id008
+          model_tokens: *id013
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Pro II CAF-L501
           intent: compra
@@ -1998,7 +3293,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id008
+          model_tokens: *id013
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Pro II CAF-L501
           intent: compra
@@ -2014,7 +3309,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id008
+          model_tokens: *id013
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-kit-af
           title: Kit accesorios compatible para Pro II CAF-L501
           intent: compra
@@ -2029,7 +3324,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id008
+          model_tokens: *id013
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Pro II CAF-L501
           intent: compra
@@ -2045,7 +3340,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id008
+          model_tokens: *id013
         soporte:
         - sku: cosori-af-cosori-caf-l501-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Pro II CAF-L501
@@ -2063,7 +3358,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id008
+          model_tokens: *id013
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -2170,7 +3465,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id009
+          model_tokens: &id014
           - caf-p583
           - dual blaze
         - sku: cosori-af-cosori-caf-p583-cesta-bandeja-grill
@@ -2188,7 +3483,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id009
+          model_tokens: *id014
         filtro:
         - sku: cosori-af-cosori-caf-p583-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Dual Blaze CAF-P583
@@ -2205,7 +3500,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id009
+          model_tokens: *id014
         accesorios:
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Dual Blaze CAF-P583
@@ -2222,7 +3517,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id009
+          model_tokens: *id014
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Dual Blaze CAF-P583
           intent: compra
@@ -2239,7 +3534,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id009
+          model_tokens: *id014
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Dual Blaze CAF-P583
           intent: compra
@@ -2255,7 +3550,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id009
+          model_tokens: *id014
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Dual Blaze CAF-P583
           intent: compra
@@ -2271,7 +3566,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id009
+          model_tokens: *id014
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-kit-af
           title: Kit accesorios compatible para Dual Blaze CAF-P583
           intent: compra
@@ -2286,7 +3581,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id009
+          model_tokens: *id014
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Dual Blaze CAF-P583
           intent: compra
@@ -2302,7 +3597,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id009
+          model_tokens: *id014
         soporte:
         - sku: cosori-af-cosori-caf-p583-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Dual Blaze CAF-P583
@@ -2320,7 +3615,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id009
+          model_tokens: *id014
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -2402,6 +3697,265 @@ brands:
       - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
         a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
           del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+    - model: TurboBlaze 6L CAF-T601
+      slug: cosori-caf-t601
+      sku_pack: airfryer10
+      model_tokens:
+      - caf-t601
+      - turboblaze
+      - cosori turbo
+      year_range: 2023-2024
+      series: TurboBlaze
+      recambios:
+        cesta:
+        - sku: cosori-af-cosori-caf-t601-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze basket replacement Cesta
+            de repuesto compatible para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id015
+          - caf-t601
+          - turboblaze
+          - cosori turbo
+        - sku: cosori-af-cosori-caf-t601-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze rack grill Bandeja / rejilla
+            grill compatible para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id015
+        filtro:
+        - sku: cosori-af-cosori-caf-t601-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze filter carbon Filtro de
+            carbono compatible para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id015
+        accesorios:
+        - sku: cosori-af-cosori-caf-t601-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze silicone mold Moldes de
+            silicona compatibles para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id015
+        - sku: cosori-af-cosori-caf-t601-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze paper liner Papel perforado
+            / liner compatible para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id015
+        - sku: cosori-af-cosori-caf-t601-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze rotisserie spit Asador /
+            spit rotisserie compatible para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id015
+        - sku: cosori-af-cosori-caf-t601-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze skewer kebab Brochetas /
+            skewers compatibles para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id015
+        - sku: cosori-af-cosori-caf-t601-accesorios-acc-kit-af
+          title: Kit accesorios compatible para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze accessory kit Kit accesorios
+            compatible para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id015
+        - sku: cosori-af-cosori-caf-t601-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze tong silicone Pinzas de
+            silicona compatibles para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id015
+        soporte:
+        - sku: cosori-af-cosori-caf-t601-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para TurboBlaze 6L CAF-T601
+          intent: compra
+          query: Cosori TurboBlaze 6L CAF-T601 turboblaze rack stand Soporte elevador
+            / estante compatible para TurboBlaze 6L CAF-T601
+          must_include:
+          - turboblaze
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id015
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'TurboBlaze 6L CAF-T601: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: TurboBlaze 6L CAF-T601 no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: TurboBlaze 6L CAF-T601 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
   tefal-af:
     name: Tefal
     models:
@@ -2431,7 +3985,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id010
+          model_tokens: &id016
           - ey2018
           - easy fry essential
           - ey20
@@ -2450,7 +4004,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id010
+          model_tokens: *id016
         filtro:
         - sku: tefal-af-tefal-ey2018-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Easy Fry Essential EY2018
@@ -2467,7 +4021,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id010
+          model_tokens: *id016
         accesorios:
         - sku: tefal-af-tefal-ey2018-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Easy Fry Essential EY2018
@@ -2484,7 +4038,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id010
+          model_tokens: *id016
         - sku: tefal-af-tefal-ey2018-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Easy Fry Essential EY2018
           intent: compra
@@ -2501,7 +4055,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id010
+          model_tokens: *id016
         - sku: tefal-af-tefal-ey2018-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Easy Fry Essential EY2018
           intent: compra
@@ -2517,7 +4071,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id010
+          model_tokens: *id016
         - sku: tefal-af-tefal-ey2018-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Easy Fry Essential EY2018
           intent: compra
@@ -2533,7 +4087,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id010
+          model_tokens: *id016
         - sku: tefal-af-tefal-ey2018-accesorios-acc-kit-af
           title: Kit accesorios compatible para Easy Fry Essential EY2018
           intent: compra
@@ -2548,7 +4102,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id010
+          model_tokens: *id016
         - sku: tefal-af-tefal-ey2018-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Easy Fry Essential EY2018
           intent: compra
@@ -2564,7 +4118,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id010
+          model_tokens: *id016
         soporte:
         - sku: tefal-af-tefal-ey2018-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Easy Fry Essential EY2018
@@ -2582,7 +4136,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id010
+          model_tokens: *id016
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -2664,6 +4218,265 @@ brands:
       - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
         a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
           del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+    - model: Easy Fry Compact EY3018
+      slug: tefal-ey3018
+      sku_pack: airfryer10
+      model_tokens:
+      - ey3018
+      - easy fry compact
+      - ey30
+      year_range: 2021-2024
+      series: Easy Fry Compact
+      recambios:
+        cesta:
+        - sku: tefal-af-tefal-ey3018-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 basket replacement Cesta de
+            repuesto compatible para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id017
+          - ey3018
+          - easy fry compact
+          - ey30
+        - sku: tefal-af-tefal-ey3018-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 rack grill Bandeja / rejilla
+            grill compatible para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id017
+        filtro:
+        - sku: tefal-af-tefal-ey3018-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 filter carbon Filtro de carbono
+            compatible para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id017
+        accesorios:
+        - sku: tefal-af-tefal-ey3018-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 silicone mold Moldes de silicona
+            compatibles para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id017
+        - sku: tefal-af-tefal-ey3018-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 paper liner Papel perforado
+            / liner compatible para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id017
+        - sku: tefal-af-tefal-ey3018-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 rotisserie spit Asador / spit
+            rotisserie compatible para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id017
+        - sku: tefal-af-tefal-ey3018-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 skewer kebab Brochetas / skewers
+            compatibles para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id017
+        - sku: tefal-af-tefal-ey3018-accesorios-acc-kit-af
+          title: Kit accesorios compatible para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 accessory kit Kit accesorios
+            compatible para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id017
+        - sku: tefal-af-tefal-ey3018-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 tong silicone Pinzas de silicona
+            compatibles para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id017
+        soporte:
+        - sku: tefal-af-tefal-ey3018-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para Easy Fry Compact EY3018
+          intent: compra
+          query: Tefal Easy Fry Compact EY3018 ey3018 rack stand Soporte elevador
+            / estante compatible para Easy Fry Compact EY3018
+          must_include:
+          - ey3018
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id017
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'Easy Fry Compact EY3018: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: Easy Fry Compact EY3018 no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: Easy Fry Compact EY3018 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
     - model: Easy Fry Deluxe EY5018
       slug: tefal-ey5018
       sku_pack: airfryer10
@@ -2690,7 +4503,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id011
+          model_tokens: &id018
           - ey5018
           - easy fry deluxe
           - ey50
@@ -2709,7 +4522,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id011
+          model_tokens: *id018
         filtro:
         - sku: tefal-af-tefal-ey5018-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Easy Fry Deluxe EY5018
@@ -2726,7 +4539,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id011
+          model_tokens: *id018
         accesorios:
         - sku: tefal-af-tefal-ey5018-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Easy Fry Deluxe EY5018
@@ -2743,7 +4556,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id011
+          model_tokens: *id018
         - sku: tefal-af-tefal-ey5018-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Easy Fry Deluxe EY5018
           intent: compra
@@ -2760,7 +4573,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id011
+          model_tokens: *id018
         - sku: tefal-af-tefal-ey5018-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Easy Fry Deluxe EY5018
           intent: compra
@@ -2776,7 +4589,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id011
+          model_tokens: *id018
         - sku: tefal-af-tefal-ey5018-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Easy Fry Deluxe EY5018
           intent: compra
@@ -2792,7 +4605,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id011
+          model_tokens: *id018
         - sku: tefal-af-tefal-ey5018-accesorios-acc-kit-af
           title: Kit accesorios compatible para Easy Fry Deluxe EY5018
           intent: compra
@@ -2807,7 +4620,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id011
+          model_tokens: *id018
         - sku: tefal-af-tefal-ey5018-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Easy Fry Deluxe EY5018
           intent: compra
@@ -2823,7 +4636,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id011
+          model_tokens: *id018
         soporte:
         - sku: tefal-af-tefal-ey5018-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Easy Fry Deluxe EY5018
@@ -2841,7 +4654,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id011
+          model_tokens: *id018
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -2949,7 +4762,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: &id012
+          model_tokens: &id019
           - ey7818
           - easy fry genius xl
           - ey78
@@ -2968,7 +4781,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id012
+          model_tokens: *id019
         filtro:
         - sku: tefal-af-tefal-ey7818-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Easy Fry Genius XL EY7818
@@ -2985,7 +4798,7 @@ brands:
           - silicone
           - skewer
           - stand
-          model_tokens: *id012
+          model_tokens: *id019
         accesorios:
         - sku: tefal-af-tefal-ey7818-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Easy Fry Genius XL EY7818
@@ -3002,7 +4815,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id012
+          model_tokens: *id019
         - sku: tefal-af-tefal-ey7818-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Easy Fry Genius XL EY7818
           intent: compra
@@ -3019,7 +4832,7 @@ brands:
           - filter
           - skewer
           - stand
-          model_tokens: *id012
+          model_tokens: *id019
         - sku: tefal-af-tefal-ey7818-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Easy Fry Genius XL EY7818
           intent: compra
@@ -3035,7 +4848,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id012
+          model_tokens: *id019
         - sku: tefal-af-tefal-ey7818-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Easy Fry Genius XL EY7818
           intent: compra
@@ -3051,7 +4864,7 @@ brands:
           - filter
           - paper
           - stand
-          model_tokens: *id012
+          model_tokens: *id019
         - sku: tefal-af-tefal-ey7818-accesorios-acc-kit-af
           title: Kit accesorios compatible para Easy Fry Genius XL EY7818
           intent: compra
@@ -3066,7 +4879,7 @@ brands:
           - rack
           - filter
           - paper
-          model_tokens: *id012
+          model_tokens: *id019
         - sku: tefal-af-tefal-ey7818-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Easy Fry Genius XL EY7818
           intent: compra
@@ -3082,7 +4895,7 @@ brands:
           - filter
           - paper
           - skewer
-          model_tokens: *id012
+          model_tokens: *id019
         soporte:
         - sku: tefal-af-tefal-ey7818-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Easy Fry Genius XL EY7818
@@ -3100,7 +4913,7 @@ brands:
           - paper
           - skewer
           - silicone
-          model_tokens: *id012
+          model_tokens: *id019
       compatibilidad:
       - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
         7,6L): no son intercambiables.'
@@ -3155,6 +4968,788 @@ brands:
         fix_hint: En el primer uso es normal un leve olor. Si persiste después de
           varios usos, limpia a fondo la resistencia o sustituye el filtro.
         title: Easy Fry Genius XL EY7818 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+    - model: ActiFry Genius Snacking AH960
+      slug: tefal-ah960
+      sku_pack: airfryer10
+      model_tokens:
+      - ah960
+      - actifry genius
+      - actifry snacking
+      year_range: 2020-2024
+      series: ActiFry Genius
+      recambios:
+        cesta:
+        - sku: tefal-af-tefal-ah960-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 basket replacement Cesta
+            de repuesto compatible para ActiFry Genius Snacking A
+          must_include:
+          - ah960
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id020
+          - ah960
+          - actifry genius
+          - actifry snacking
+        - sku: tefal-af-tefal-ah960-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 rack grill Bandeja / rejilla
+            grill compatible para ActiFry Genius Snacking AH9
+          must_include:
+          - ah960
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id020
+        filtro:
+        - sku: tefal-af-tefal-ah960-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 filter carbon Filtro de
+            carbono compatible para ActiFry Genius Snacking AH960
+          must_include:
+          - ah960
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id020
+        accesorios:
+        - sku: tefal-af-tefal-ah960-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 silicone mold Moldes de
+            silicona compatibles para ActiFry Genius Snacking AH96
+          must_include:
+          - ah960
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id020
+        - sku: tefal-af-tefal-ah960-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 paper liner Papel perforado
+            / liner compatible para ActiFry Genius Snacking AH
+          must_include:
+          - ah960
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id020
+        - sku: tefal-af-tefal-ah960-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para ActiFry Genius Snacking
+            AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 rotisserie spit Asador
+            / spit rotisserie compatible para ActiFry Genius Snacki
+          must_include:
+          - ah960
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id020
+        - sku: tefal-af-tefal-ah960-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 skewer kebab Brochetas
+            / skewers compatibles para ActiFry Genius Snacking AH96
+          must_include:
+          - ah960
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id020
+        - sku: tefal-af-tefal-ah960-accesorios-acc-kit-af
+          title: Kit accesorios compatible para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 accessory kit Kit accesorios
+            compatible para ActiFry Genius Snacking AH960
+          must_include:
+          - ah960
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id020
+        - sku: tefal-af-tefal-ah960-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para ActiFry Genius Snacking AH960
+          intent: compra
+          query: Tefal ActiFry Genius Snacking AH960 ah960 tong silicone Pinzas de
+            silicona compatibles para ActiFry Genius Snacking AH96
+          must_include:
+          - ah960
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id020
+        soporte:
+        - sku: tefal-af-tefal-ah960-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para ActiFry Genius Snacking
+            AH960
+          intent: compra
+          query: 'Tefal ActiFry Genius Snacking AH960 ah960 rack stand Soporte elevador
+            / estante compatible para ActiFry Genius Snacking '
+          must_include:
+          - ah960
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id020
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'ActiFry Genius Snacking AH960: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: ActiFry Genius Snacking AH960 no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: ActiFry Genius Snacking AH960 hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+  instantpot-af:
+    name: Instant Pot
+    models:
+    - model: Instant Vortex Plus 6QT
+      slug: instant-vortex-plus-6qt
+      sku_pack: airfryer10
+      model_tokens:
+      - vortex plus
+      - vortex 6qt
+      - instant vortex
+      year_range: 2021-2024
+      series: Vortex Plus
+      recambios:
+        cesta:
+        - sku: instantpot-af-instant-vortex-plus-6qt-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant basket replacement Cesta
+            de repuesto compatible para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id021
+          - vortex plus
+          - vortex 6qt
+          - instant vortex
+        - sku: instantpot-af-instant-vortex-plus-6qt-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant rack grill Bandeja /
+            rejilla grill compatible para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id021
+        filtro:
+        - sku: instantpot-af-instant-vortex-plus-6qt-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant filter carbon Filtro
+            de carbono compatible para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id021
+        accesorios:
+        - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant silicone mold Moldes
+            de silicona compatibles para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id021
+        - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant paper liner Papel perforado
+            / liner compatible para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id021
+        - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant rotisserie spit Asador
+            / spit rotisserie compatible para Instant Vortex Plus
+          must_include:
+          - instant
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id021
+        - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant skewer kebab Brochetas
+            / skewers compatibles para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id021
+        - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-kit-af
+          title: Kit accesorios compatible para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant accessory kit Kit accesorios
+            compatible para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id021
+        - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant tong silicone Pinzas
+            de silicona compatibles para Instant Vortex Plus 6QT
+          must_include:
+          - instant
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id021
+        soporte:
+        - sku: instantpot-af-instant-vortex-plus-6qt-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para Instant Vortex Plus 6QT
+          intent: compra
+          query: Instant Pot Instant Vortex Plus 6QT instant rack stand Soporte elevador
+            / estante compatible para Instant Vortex Plus 6Q
+          must_include:
+          - instant
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id021
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'Instant Vortex Plus 6QT: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: Instant Vortex Plus 6QT no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: Instant Vortex Plus 6QT hace humo o desprende olor a plástico
+        symptoms:
+        - Sale humo visible por las rejillas
+        - Olor fuerte a plástico o quemado al encender
+        - El humo activa el detector de humo de casa
+        causes:
+        - Grasa acumulada en la resistencia calefactora
+        - Primer uso con recubrimiento de fábrica (normal al principio)
+        - Filtro de carbono saturado
+        checks:
+        - Lavar bien la cesta y bandeja antes del primer uso
+        - Limpiar la resistencia si hay restos de grasa visibles
+        - Sustituir el filtro de carbono si lleva más de 3 meses
+      faqs:
+      - q: ¿Puedo usar papel de horno normal en la freidora de aire?
+        a: Sí, pero debe ser papel perforado para no bloquear la circulación de aire.
+          El papel sin agujeros puede hacer que la comida no quede crujiente y sobrecalentar
+          la máquina.
+      - q: ¿Con qué frecuencia hay que cambiar el filtro de carbono?
+        a: Cada 2-3 meses con uso regular. Si notas olores más intensos durante la
+          cocción, es señal de que el filtro está saturado.
+      - q: ¿Es seguro usar la cesta si el antiadherente tiene arañazos?
+        a: Si el antiadherente se está desprendiendo o hay fragmentos visibles, es
+          mejor sustituir la cesta. Los arañazos superficiales sin desprendimiento
+          no suponen riesgo.
+      - q: ¿Los accesorios de silicona son aptos para freidoras de aire?
+        a: Sí, siempre que soporten al menos 200-220°C. Verifica la temperatura máxima
+          del accesorio antes de usarlo y mide bien el diámetro de tu cesta.
+    - model: Instant Vortex 4QT
+      slug: instant-vortex-4qt
+      sku_pack: airfryer10
+      model_tokens:
+      - vortex 4qt
+      - instant vortex 4
+      - vortex mini
+      year_range: 2021-2024
+      series: Vortex
+      recambios:
+        cesta:
+        - sku: instantpot-af-instant-vortex-4qt-cesta-cesta-airfryer
+          title: Cesta de repuesto compatible para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant basket replacement Cesta de
+            repuesto compatible para Instant Vortex 4QT
+          must_include:
+          - instant
+          - basket
+          - replacement
+          must_not_include:
+          - rack
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: &id022
+          - vortex 4qt
+          - instant vortex 4
+          - vortex mini
+        - sku: instantpot-af-instant-vortex-4qt-cesta-bandeja-grill
+          title: Bandeja / rejilla grill compatible para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant rack grill Bandeja / rejilla
+            grill compatible para Instant Vortex 4QT
+          must_include:
+          - instant
+          - rack
+          - grill
+          must_not_include:
+          - basket
+          - paper
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id022
+        filtro:
+        - sku: instantpot-af-instant-vortex-4qt-filtro-filtro-carbon-af
+          title: Filtro de carbono compatible para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant filter carbon Filtro de carbono
+            compatible para Instant Vortex 4QT
+          must_include:
+          - instant
+          - filter
+          - carbon
+          must_not_include:
+          - basket
+          - rack
+          - silicone
+          - skewer
+          - stand
+          model_tokens: *id022
+        accesorios:
+        - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-molde-silicona
+          title: Moldes de silicona compatibles para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant silicone mold Moldes de silicona
+            compatibles para Instant Vortex 4QT
+          must_include:
+          - instant
+          - silicone
+          - mold
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id022
+        - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-liner-papel
+          title: Papel perforado / liner compatible para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant paper liner Papel perforado
+            / liner compatible para Instant Vortex 4QT
+          must_include:
+          - instant
+          - paper
+          - liner
+          - parchment
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - skewer
+          - stand
+          model_tokens: *id022
+        - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-spit-asador
+          title: Asador / spit rotisserie compatible para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant rotisserie spit Asador / spit
+            rotisserie compatible para Instant Vortex 4QT
+          must_include:
+          - instant
+          - rotisserie
+          - spit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id022
+        - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-brochetas
+          title: Brochetas / skewers compatibles para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant skewer kebab Brochetas / skewers
+            compatibles para Instant Vortex 4QT
+          must_include:
+          - instant
+          - skewer
+          - kebab
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - stand
+          model_tokens: *id022
+        - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-kit-af
+          title: Kit accesorios compatible para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant accessory kit Kit accesorios
+            compatible para Instant Vortex 4QT
+          must_include:
+          - instant
+          - accessory
+          - kit
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          model_tokens: *id022
+        - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-pinzas-silicona
+          title: Pinzas de silicona compatibles para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant tong silicone Pinzas de silicona
+            compatibles para Instant Vortex 4QT
+          must_include:
+          - instant
+          - tong
+          - silicone
+          must_not_include:
+          - basket
+          - rack
+          - filter
+          - paper
+          - skewer
+          model_tokens: *id022
+        soporte:
+        - sku: instantpot-af-instant-vortex-4qt-soporte-soporte-freidora
+          title: Soporte elevador / estante compatible para Instant Vortex 4QT
+          intent: compra
+          query: Instant Pot Instant Vortex 4QT instant rack stand Soporte elevador
+            / estante compatible para Instant Vortex 4QT
+          must_include:
+          - instant
+          - rack
+          - stand
+          - shelf
+          must_not_include:
+          - basket
+          - filter
+          - paper
+          - skewer
+          - silicone
+          model_tokens: *id022
+      compatibilidad:
+      - 'Las cestas y bandejas de freidoras son específicas por capacidad (3,8L, 5,2L,
+        7,6L): no son intercambiables.'
+      - 'Ninja tiene varias generaciones: AF100, AF160, Foodi Dual Zone tienen cestas
+        y accesorios distintos.'
+      - 'Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide
+        el diámetro interior de tu cesta.'
+      - El papel perforado debe ser del tamaño correcto para no bloquear la circulación
+        de aire.
+      - 'Los filtros de carbono son específicos por modelo: comprueba la referencia
+        antes de comprar.'
+      problemas:
+      - key: cesta-deteriorada
+        intent: info
+        cta_cat: cesta
+        fix_hint: 'Una cesta con recubrimiento dañado debería sustituirse: los fragmentos
+          pueden contaminar los alimentos.'
+        title: 'Instant Vortex 4QT: cesta deteriorada o antiadherente dañado'
+        symptoms:
+        - El recubrimiento antiadherente se pela o tiene arañazos
+        - Los alimentos se pegan a la cesta
+        - Hay manchas permanentes que no se eliminan
+        causes:
+        - Uso de utensilios metálicos que rayan el recubrimiento
+        - Limpieza con estropajos abrasivos
+        - Sobrepasar la temperatura máxima recomendada
+        checks:
+        - Revisar si el antiadherente está levantado o desprendido
+        - Comprobar que no hay óxido en zonas sin recubrimiento
+        - Verificar que la cesta encaja correctamente en el cajón
+      - key: no-calienta-freidora
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La acumulación de grasa en la resistencia es la causa más frecuente
+          de pérdida de eficiencia. Limpia tras cada uso intensivo.
+        title: Instant Vortex 4QT no alcanza temperatura o calienta poco
+        symptoms:
+        - Los alimentos salen blandos aunque se programa mucho tiempo
+        - La freidora no llega a la temperatura seleccionada
+        - El tiempo de cocción es el doble del normal
+        causes:
+        - Resistencia eléctrica con depósitos de grasa acumulados
+        - Ventilador interno con obstrucción
+        - Termostato defectuoso
+        checks:
+        - Limpiar a fondo la resistencia con un paño húmedo (sin abrasivos)
+        - Asegurarse de que el cajón y la cesta están bien colocados
+        - Verificar que la ventilación exterior no está bloqueada
+      - key: humo-olor-plastico
+        intent: info
+        cta_cat: filtro
+        fix_hint: En el primer uso es normal un leve olor. Si persiste después de
+          varios usos, limpia a fondo la resistencia o sustituye el filtro.
+        title: Instant Vortex 4QT hace humo o desprende olor a plástico
         symptoms:
         - Sale humo visible por las rejillas
         - Olor fuerte a plástico o quemado al encender

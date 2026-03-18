@@ -856,6 +856,10 @@ def main() -> None:
     SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
     today = datetime.now().date().isoformat()
+    _t0 = time.time()
+    _total_want = len(want)
+
+    print(f"  Iniciando procesado de {_total_want} SKUs...")
 
     for sku in sorted(want):
         ctx = sku_ctx.get(sku) or {}
@@ -971,9 +975,16 @@ def main() -> None:
                 updated += 1
 
         _processed += 1
+        _elapsed = time.time() - _t0
+        _rate = _processed / _elapsed if _elapsed > 0 else 0
+        _remaining = _total_want - _processed
+        _eta_s = int(_remaining / _rate) if _rate > 0 else 0
+        _eta_str = f"{_eta_s//3600:02d}h{(_eta_s%3600)//60:02d}m{_eta_s%60:02d}s" if _eta_s >= 3600 else f"{_eta_s//60:02d}m{_eta_s%60:02d}s"
+        _status = "✓" if obj.get("url") and obj.get("url") != DEFAULT_URL else "~"
+        print(f"  [{_processed:4d}/{_total_want}] {_status} {sku[:55]:<55} | elapsed {int(_elapsed//60):02d}m{int(_elapsed%60):02d}s ETA {_eta_str}", flush=True)
         if _processed % SAVE_EVERY == 0:
             dump_yaml(OFFERS, {"offers": offers})
-            print(f"  [checkpoint] {_processed}/{len(want)} SKUs — guardado parcial")
+            print(f"  --- checkpoint guardado ({filled_from_aliexpress} AliExpress, {added} nuevos, {updated} actualizados) ---", flush=True)
 
     if not only and set(selected_verticals) == set(available_verticals()):
         for sku, o in list(offers.items()):

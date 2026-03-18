@@ -3,6 +3,12 @@ brands:
     name: Philips
     vertical: cafeteras
     models:
+      - model: 2200 EP2220
+        slug: philips-ep2220
+        sku_pack: cafetera10
+        model_tokens: ["ep2220", "2200", "ep22"]
+        year_range: "2019-2024"
+        series: "2200 Series"
       - model: 3200 EP1220
         slug: philips-ep1220
         sku_pack: cafetera10
@@ -21,35 +27,71 @@ brands:
         model_tokens: ["ep4321", "4300", "ep43"]
         year_range: "2022-2024"
         series: "4300 Series"
+      - model: 4300 LatteGo EP4343
+        slug: philips-ep4343
+        sku_pack: cafetera10
+        model_tokens: ["ep4343", "lattego", "ep43 lattego"]
+        year_range: "2022-2024"
+        series: "4300 LatteGo"
+      - model: 5400 EP5441
+        slug: philips-ep5441
+        sku_pack: cafetera10
+        model_tokens: ["ep5441", "5400", "ep54"]
+        year_range: "2022-2024"
+        series: "5400 Series"
       - model: Senseo HD6553
         slug: philips-hd6553
         sku_pack: cafetera10
         model_tokens: ["hd6553", "senseo", "hd65"]
         year_range: "2019-2024"
         series: "Senseo"
+      - model: Senseo Viva Café HD6563
+        slug: philips-hd6563
+        sku_pack: cafetera10
+        model_tokens: ["hd6563", "senseo viva", "hd6563"]
+        year_range: "2019-2024"
+        series: "Senseo Viva Café"
 
   delonghi-cf:
     name: DeLonghi
     vertical: cafeteras
     models:
-      - model: Magnifica Evo ECAM290
-        slug: delonghi-ecam290
-        sku_pack: cafetera10
-        model_tokens: ["ecam290", "magnifica evo", "ecam29"]
-        year_range: "2021-2024"
-        series: "Magnifica Evo"
       - model: Magnifica S ECAM22
         slug: delonghi-ecam22
         sku_pack: cafetera10
         model_tokens: ["ecam22", "magnifica s", "ecam2"]
         year_range: "2020-2024"
         series: "Magnifica S"
+      - model: Magnifica Evo ECAM290
+        slug: delonghi-ecam290
+        sku_pack: cafetera10
+        model_tokens: ["ecam290", "magnifica evo", "ecam29"]
+        year_range: "2021-2024"
+        series: "Magnifica Evo"
       - model: Dinamica ECAM350
         slug: delonghi-ecam350
         sku_pack: cafetera10
         model_tokens: ["ecam350", "dinamica", "ecam35"]
         year_range: "2022-2024"
         series: "Dinamica"
+      - model: Prima Donna Elite ECAM650
+        slug: delonghi-ecam650
+        sku_pack: cafetera10
+        model_tokens: ["ecam650", "prima donna elite", "ecam65"]
+        year_range: "2021-2024"
+        series: "Prima Donna Elite"
+      - model: La Specialista Arte EC9155
+        slug: delonghi-ec9155
+        sku_pack: cafetera10
+        model_tokens: ["ec9155", "la specialista arte", "ec91"]
+        year_range: "2021-2024"
+        series: "La Specialista"
+      - model: Dedica Style EC685
+        slug: delonghi-ec685
+        sku_pack: cafetera10
+        model_tokens: ["ec685", "dedica", "dedica style"]
+        year_range: "2018-2024"
+        series: "Dedica"
 
   nespresso-cf:
     name: Nespresso
@@ -61,12 +103,30 @@ brands:
         model_tokens: ["en85", "essenza mini"]
         year_range: "2019-2024"
         series: "Essenza Mini"
+      - model: Citiz C113
+        slug: nespresso-c113
+        sku_pack: cafetera10
+        model_tokens: ["c113", "citiz", "nespresso citiz"]
+        year_range: "2019-2024"
+        series: "Citiz"
       - model: Vertuo Next GCA1
         slug: nespresso-gca1
         sku_pack: cafetera10
         model_tokens: ["gca1", "vertuo next", "vertuo"]
         year_range: "2021-2024"
         series: "Vertuo Next"
+      - model: Vertuo Pop GCV2
+        slug: nespresso-gcv2
+        sku_pack: cafetera10
+        model_tokens: ["gcv2", "vertuo pop", "vertuo pop"]
+        year_range: "2023-2024"
+        series: "Vertuo Pop"
+      - model: Lattissima Touch F521
+        slug: nespresso-f521
+        sku_pack: cafetera10
+        model_tokens: ["f521", "lattissima touch", "lattissima"]
+        year_range: "2020-2024"
+        series: "Lattissima Touch"
 
   bosch-cf:
     name: Bosch
@@ -78,9 +138,67 @@ brands:
         model_tokens: ["tas1002", "tassimo happy", "tassimo"]
         year_range: "2019-2024"
         series: "Tassimo"
+      - model: Tassimo Suny TAS3204
+        slug: bosch-tas3204
+        sku_pack: cafetera10
+        model_tokens: ["tas3204", "tassimo suny", "suny"]
+        year_range: "2020-2024"
+        series: "Tassimo Suny"
       - model: Tassimo My Way TAS6002
         slug: bosch-tas6002
         sku_pack: cafetera10
         model_tokens: ["tas6002", "tassimo my way"]
         year_range: "2020-2024"
         series: "Tassimo My Way"
+      - model: VeroCafe CTL636
+        slug: bosch-ctl636
+        sku_pack: cafetera10
+        model_tokens: ["ctl636", "verocafe", "ctl63"]
+        year_range: "2021-2024"
+        series: "VeroCafe"
+
+  krups-cf:
+    name: Krups
+    vertical: cafeteras
+    models:
+      - model: Barista EA8298
+        slug: krups-ea8298
+        sku_pack: cafetera10
+        model_tokens: ["ea8298", "barista", "krups ea82"]
+        year_range: "2020-2024"
+        series: "Barista"
+      - model: EA8910 Espresso Automática
+        slug: krups-ea8910
+        sku_pack: cafetera10
+        model_tokens: ["ea8910", "krups ea89", "espresso automatica"]
+        year_range: "2021-2024"
+        series: "EA8910"
+      - model: Dolce Gusto Genio S KP340
+        slug: krups-kp340
+        sku_pack: cafetera10
+        model_tokens: ["kp340", "genio s", "dolce gusto"]
+        year_range: "2021-2024"
+        series: "Dolce Gusto"
+
+  melitta-cf:
+    name: Melitta
+    vertical: cafeteras
+    models:
+      - model: Solo E950
+        slug: melitta-e950
+        sku_pack: cafetera10
+        model_tokens: ["e950", "solo e950", "melitta solo"]
+        year_range: "2018-2024"
+        series: "Solo"
+      - model: Barista Smart TS
+        slug: melitta-barista-smart
+        sku_pack: cafetera10
+        model_tokens: ["barista smart", "barista ts", "melitta barista"]
+        year_range: "2021-2024"
+        series: "Barista Smart"
+      - model: Passione OT F531
+        slug: melitta-f531
+        sku_pack: cafetera10
+        model_tokens: ["f531", "passione", "melitta passione"]
+        year_range: "2020-2024"
+        series: "Passione"

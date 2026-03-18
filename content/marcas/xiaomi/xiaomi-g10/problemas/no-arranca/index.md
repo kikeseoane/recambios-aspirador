@@ -1,0 +1,10 @@
+---
+title: Xiaomi Vacuum Cleaner G10 no enciende o no arranca
+draft: false
+generated: true
+type: modelos
+brandKey: xiaomi
+modelSlug: xiaomi-g10
+problemKey: no-arranca
+layout: problema
+---

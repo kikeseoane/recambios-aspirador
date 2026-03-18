@@ -73,6 +73,257 @@ brands:
   makita-ht:
     name: Makita
     models:
+    - model: DHP484 Taladro percutor 18V
+      slug: makita-dhp484
+      sku_pack: power-tool10
+      model_tokens:
+      - dhp484
+      - dhp48
+      - 18v lxt drill
+      year_range: 2018-2024
+      series: LXT 18V
+      recambios:
+        bateria:
+        - sku: makita-ht-makita-dhp484-bateria-bat-tool-std
+          title: Batería compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 battery Batería compatible
+            para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id001
+          - dhp484
+          - dhp48
+          - 18v lxt drill
+        - sku: makita-ht-makita-dhp484-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 battery pack Pack 2 baterías
+            compatibles para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id001
+        cargador:
+        - sku: makita-ht-makita-dhp484-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 charger fast Cargador rápido
+            compatible para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id001
+        - sku: makita-ht-makita-dhp484-cargador-charger-tool-std
+          title: Cargador estándar compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 charger Cargador estándar
+            compatible para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id001
+        accesorios:
+        - sku: makita-ht-makita-dhp484-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 bit set Set de puntas/brocas
+            compatibles para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id001
+        - sku: makita-ht-makita-dhp484-accesorios-acc-disco
+          title: Disco de corte compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 disc cutting Disco de corte
+            compatible para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id001
+        - sku: makita-ht-makita-dhp484-accesorios-acc-hoja
+          title: Hoja de sierra compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 blade saw Hoja de sierra
+            compatible para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id001
+        - sku: makita-ht-makita-dhp484-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 chuck drill Portabrocas
+            / chuck compatible para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id001
+        - sku: makita-ht-makita-dhp484-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 kit accessory Kit accesorios
+            compatible para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id001
+        soporte:
+        - sku: makita-ht-makita-dhp484-soporte-soporte-herramienta
+          title: Soporte / funda compatible para DHP484 Taladro percutor 18V
+          intent: compra
+          query: Makita DHP484 Taladro percutor 18V dhp484 case bag Soporte / funda
+            compatible para DHP484 Taladro percutor 18V
+          must_include:
+          - dhp484
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id001
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'DHP484 Taladro percutor 18V: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: DHP484 Taladro percutor 18V no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: DHP484 Taladro percutor 18V vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
     - model: DHP485 Taladro 18V
       slug: makita-dhp485
       sku_pack: power-tool10
@@ -98,7 +349,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id001
+          model_tokens: &id002
           - dhp485
           - dhp48
           - 18v lxt
@@ -117,7 +368,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id001
+          model_tokens: *id002
         cargador:
         - sku: makita-ht-makita-dhp485-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DHP485 Taladro 18V
@@ -134,7 +385,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id001
+          model_tokens: *id002
         - sku: makita-ht-makita-dhp485-cargador-charger-tool-std
           title: Cargador estándar compatible para DHP485 Taladro 18V
           intent: compra
@@ -149,7 +400,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id001
+          model_tokens: *id002
         accesorios:
         - sku: makita-ht-makita-dhp485-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DHP485 Taladro 18V
@@ -165,7 +416,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id001
+          model_tokens: *id002
         - sku: makita-ht-makita-dhp485-accesorios-acc-disco
           title: Disco de corte compatible para DHP485 Taladro 18V
           intent: compra
@@ -180,7 +431,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id001
+          model_tokens: *id002
         - sku: makita-ht-makita-dhp485-accesorios-acc-hoja
           title: Hoja de sierra compatible para DHP485 Taladro 18V
           intent: compra
@@ -195,7 +446,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id001
+          model_tokens: *id002
         - sku: makita-ht-makita-dhp485-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DHP485 Taladro 18V
           intent: compra
@@ -211,7 +462,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id001
+          model_tokens: *id002
         - sku: makita-ht-makita-dhp485-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DHP485 Taladro 18V
           intent: compra
@@ -226,7 +477,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id001
+          model_tokens: *id002
         soporte:
         - sku: makita-ht-makita-dhp485-soporte-soporte-herramienta
           title: Soporte / funda compatible para DHP485 Taladro 18V
@@ -242,7 +493,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id001
+          model_tokens: *id002
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -349,7 +600,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id002
+          model_tokens: &id003
           - dga452
           - dga45
           - 18v angle grinder
@@ -368,7 +619,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id002
+          model_tokens: *id003
         cargador:
         - sku: makita-ht-makita-dga452-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DGA452 Amoladora 18V
@@ -385,7 +636,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id002
+          model_tokens: *id003
         - sku: makita-ht-makita-dga452-cargador-charger-tool-std
           title: Cargador estándar compatible para DGA452 Amoladora 18V
           intent: compra
@@ -400,7 +651,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id002
+          model_tokens: *id003
         accesorios:
         - sku: makita-ht-makita-dga452-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DGA452 Amoladora 18V
@@ -416,7 +667,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id002
+          model_tokens: *id003
         - sku: makita-ht-makita-dga452-accesorios-acc-disco
           title: Disco de corte compatible para DGA452 Amoladora 18V
           intent: compra
@@ -431,7 +682,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id002
+          model_tokens: *id003
         - sku: makita-ht-makita-dga452-accesorios-acc-hoja
           title: Hoja de sierra compatible para DGA452 Amoladora 18V
           intent: compra
@@ -446,7 +697,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id002
+          model_tokens: *id003
         - sku: makita-ht-makita-dga452-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DGA452 Amoladora 18V
           intent: compra
@@ -462,7 +713,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id002
+          model_tokens: *id003
         - sku: makita-ht-makita-dga452-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DGA452 Amoladora 18V
           intent: compra
@@ -477,7 +728,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id002
+          model_tokens: *id003
         soporte:
         - sku: makita-ht-makita-dga452-soporte-soporte-herramienta
           title: Soporte / funda compatible para DGA452 Amoladora 18V
@@ -493,7 +744,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id002
+          model_tokens: *id003
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -600,7 +851,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id003
+          model_tokens: &id004
           - dhr202
           - dhr20
           - 18v hammer
@@ -619,7 +870,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id003
+          model_tokens: *id004
         cargador:
         - sku: makita-ht-makita-dhr202-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DHR202 Martillo 18V
@@ -636,7 +887,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: makita-ht-makita-dhr202-cargador-charger-tool-std
           title: Cargador estándar compatible para DHR202 Martillo 18V
           intent: compra
@@ -651,7 +902,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id003
+          model_tokens: *id004
         accesorios:
         - sku: makita-ht-makita-dhr202-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DHR202 Martillo 18V
@@ -667,7 +918,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: makita-ht-makita-dhr202-accesorios-acc-disco
           title: Disco de corte compatible para DHR202 Martillo 18V
           intent: compra
@@ -682,7 +933,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: makita-ht-makita-dhr202-accesorios-acc-hoja
           title: Hoja de sierra compatible para DHR202 Martillo 18V
           intent: compra
@@ -697,7 +948,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: makita-ht-makita-dhr202-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DHR202 Martillo 18V
           intent: compra
@@ -713,7 +964,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id003
+          model_tokens: *id004
         - sku: makita-ht-makita-dhr202-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DHR202 Martillo 18V
           intent: compra
@@ -728,7 +979,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id003
+          model_tokens: *id004
         soporte:
         - sku: makita-ht-makita-dhr202-soporte-soporte-herramienta
           title: Soporte / funda compatible para DHR202 Martillo 18V
@@ -744,7 +995,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id003
+          model_tokens: *id004
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -851,7 +1102,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id004
+          model_tokens: &id005
           - djr187
           - djr18
           - 18v reciprocating
@@ -870,7 +1121,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id004
+          model_tokens: *id005
         cargador:
         - sku: makita-ht-makita-djr187-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DJR187 Sierra sable 18V
@@ -887,7 +1138,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: makita-ht-makita-djr187-cargador-charger-tool-std
           title: Cargador estándar compatible para DJR187 Sierra sable 18V
           intent: compra
@@ -902,7 +1153,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id004
+          model_tokens: *id005
         accesorios:
         - sku: makita-ht-makita-djr187-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DJR187 Sierra sable 18V
@@ -918,7 +1169,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: makita-ht-makita-djr187-accesorios-acc-disco
           title: Disco de corte compatible para DJR187 Sierra sable 18V
           intent: compra
@@ -933,7 +1184,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: makita-ht-makita-djr187-accesorios-acc-hoja
           title: Hoja de sierra compatible para DJR187 Sierra sable 18V
           intent: compra
@@ -948,7 +1199,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: makita-ht-makita-djr187-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DJR187 Sierra sable 18V
           intent: compra
@@ -964,7 +1215,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id004
+          model_tokens: *id005
         - sku: makita-ht-makita-djr187-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DJR187 Sierra sable 18V
           intent: compra
@@ -979,7 +1230,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id004
+          model_tokens: *id005
         soporte:
         - sku: makita-ht-makita-djr187-soporte-soporte-herramienta
           title: Soporte / funda compatible para DJR187 Sierra sable 18V
@@ -995,7 +1246,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id004
+          model_tokens: *id005
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -1077,6 +1328,759 @@ brands:
         a: Los cargadores modernos tienen corte automático al llegar al 100%, por
           lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
           prolonga la vida de la batería.
+    - model: DSS610 Sierra circular 18V
+      slug: makita-dss610
+      sku_pack: power-tool10
+      model_tokens:
+      - dss610
+      - dss61
+      - 18v circular saw
+      year_range: 2019-2024
+      series: LXT 18V
+      recambios:
+        bateria:
+        - sku: makita-ht-makita-dss610-bateria-bat-tool-std
+          title: Batería compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 battery Batería compatible
+            para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id006
+          - dss610
+          - dss61
+          - 18v circular saw
+        - sku: makita-ht-makita-dss610-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 battery pack Pack 2 baterías
+            compatibles para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id006
+        cargador:
+        - sku: makita-ht-makita-dss610-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 charger fast Cargador rápido
+            compatible para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id006
+        - sku: makita-ht-makita-dss610-cargador-charger-tool-std
+          title: Cargador estándar compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 charger Cargador estándar
+            compatible para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id006
+        accesorios:
+        - sku: makita-ht-makita-dss610-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 bit set Set de puntas/brocas
+            compatibles para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id006
+        - sku: makita-ht-makita-dss610-accesorios-acc-disco
+          title: Disco de corte compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 disc cutting Disco de corte
+            compatible para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id006
+        - sku: makita-ht-makita-dss610-accesorios-acc-hoja
+          title: Hoja de sierra compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 blade saw Hoja de sierra
+            compatible para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id006
+        - sku: makita-ht-makita-dss610-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 chuck drill Portabrocas
+            / chuck compatible para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id006
+        - sku: makita-ht-makita-dss610-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 kit accessory Kit accesorios
+            compatible para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id006
+        soporte:
+        - sku: makita-ht-makita-dss610-soporte-soporte-herramienta
+          title: Soporte / funda compatible para DSS610 Sierra circular 18V
+          intent: compra
+          query: Makita DSS610 Sierra circular 18V dss610 case bag Soporte / funda
+            compatible para DSS610 Sierra circular 18V
+          must_include:
+          - dss610
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id006
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'DSS610 Sierra circular 18V: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: DSS610 Sierra circular 18V no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: DSS610 Sierra circular 18V vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: BL1850B Batería 18V 5Ah
+      slug: makita-bl1850b
+      sku_pack: power-tool10
+      model_tokens:
+      - bl1850b
+      - bl1850
+      - 18v 5ah battery
+      year_range: 2018-2024
+      series: LXT 18V Battery
+      recambios:
+        bateria:
+        - sku: makita-ht-makita-bl1850b-bateria-bat-tool-std
+          title: Batería compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b battery Batería compatible
+            para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id007
+          - bl1850b
+          - bl1850
+          - 18v 5ah battery
+        - sku: makita-ht-makita-bl1850b-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b battery pack Pack 2 baterías
+            compatibles para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id007
+        cargador:
+        - sku: makita-ht-makita-bl1850b-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b charger fast Cargador rápido
+            compatible para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id007
+        - sku: makita-ht-makita-bl1850b-cargador-charger-tool-std
+          title: Cargador estándar compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b charger Cargador estándar
+            compatible para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id007
+        accesorios:
+        - sku: makita-ht-makita-bl1850b-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b bit set Set de puntas/brocas
+            compatibles para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id007
+        - sku: makita-ht-makita-bl1850b-accesorios-acc-disco
+          title: Disco de corte compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b disc cutting Disco de corte
+            compatible para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id007
+        - sku: makita-ht-makita-bl1850b-accesorios-acc-hoja
+          title: Hoja de sierra compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b blade saw Hoja de sierra compatible
+            para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id007
+        - sku: makita-ht-makita-bl1850b-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b chuck drill Portabrocas /
+            chuck compatible para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id007
+        - sku: makita-ht-makita-bl1850b-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b kit accessory Kit accesorios
+            compatible para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id007
+        soporte:
+        - sku: makita-ht-makita-bl1850b-soporte-soporte-herramienta
+          title: Soporte / funda compatible para BL1850B Batería 18V 5Ah
+          intent: compra
+          query: Makita BL1850B Batería 18V 5Ah bl1850b case bag Soporte / funda compatible
+            para BL1850B Batería 18V 5Ah
+          must_include:
+          - bl1850b
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id007
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'BL1850B Batería 18V 5Ah: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: BL1850B Batería 18V 5Ah no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: BL1850B Batería 18V 5Ah vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: DC18RC Cargador rápido 18V
+      slug: makita-dc18rc
+      sku_pack: power-tool10
+      model_tokens:
+      - dc18rc
+      - dc18
+      - 18v fast charger
+      year_range: 2018-2024
+      series: LXT 18V Charger
+      recambios:
+        bateria:
+        - sku: makita-ht-makita-dc18rc-bateria-bat-tool-std
+          title: Batería compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc battery Batería compatible
+            para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id008
+          - dc18rc
+          - dc18
+          - 18v fast charger
+        - sku: makita-ht-makita-dc18rc-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc battery pack Pack 2 baterías
+            compatibles para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id008
+        cargador:
+        - sku: makita-ht-makita-dc18rc-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc charger fast Cargador rápido
+            compatible para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id008
+        - sku: makita-ht-makita-dc18rc-cargador-charger-tool-std
+          title: Cargador estándar compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc charger Cargador estándar
+            compatible para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id008
+        accesorios:
+        - sku: makita-ht-makita-dc18rc-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc bit set Set de puntas/brocas
+            compatibles para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id008
+        - sku: makita-ht-makita-dc18rc-accesorios-acc-disco
+          title: Disco de corte compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc disc cutting Disco de corte
+            compatible para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id008
+        - sku: makita-ht-makita-dc18rc-accesorios-acc-hoja
+          title: Hoja de sierra compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc blade saw Hoja de sierra
+            compatible para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id008
+        - sku: makita-ht-makita-dc18rc-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc chuck drill Portabrocas
+            / chuck compatible para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id008
+        - sku: makita-ht-makita-dc18rc-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc kit accessory Kit accesorios
+            compatible para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id008
+        soporte:
+        - sku: makita-ht-makita-dc18rc-soporte-soporte-herramienta
+          title: Soporte / funda compatible para DC18RC Cargador rápido 18V
+          intent: compra
+          query: Makita DC18RC Cargador rápido 18V dc18rc case bag Soporte / funda
+            compatible para DC18RC Cargador rápido 18V
+          must_include:
+          - dc18rc
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id008
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'DC18RC Cargador rápido 18V: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: DC18RC Cargador rápido 18V no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: DC18RC Cargador rápido 18V vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
   bosch-ht:
     name: Bosch Professional
     models:
@@ -1105,7 +2109,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id005
+          model_tokens: &id009
           - gsr 18v-55
           - gsr18v
           - 18v professional
@@ -1124,7 +2128,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id005
+          model_tokens: *id009
         cargador:
         - sku: bosch-ht-bosch-gsr18v55-cargador-charger-tool-rapid
           title: Cargador rápido compatible para GSR 18V-55 Taladro
@@ -1141,7 +2145,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-ht-bosch-gsr18v55-cargador-charger-tool-std
           title: Cargador estándar compatible para GSR 18V-55 Taladro
           intent: compra
@@ -1156,7 +2160,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id005
+          model_tokens: *id009
         accesorios:
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para GSR 18V-55 Taladro
@@ -1172,7 +2176,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-disco
           title: Disco de corte compatible para GSR 18V-55 Taladro
           intent: compra
@@ -1187,7 +2191,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-hoja
           title: Hoja de sierra compatible para GSR 18V-55 Taladro
           intent: compra
@@ -1202,7 +2206,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para GSR 18V-55 Taladro
           intent: compra
@@ -1218,7 +2222,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-kit-tool
           title: Kit accesorios compatible para GSR 18V-55 Taladro
           intent: compra
@@ -1233,7 +2237,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id005
+          model_tokens: *id009
         soporte:
         - sku: bosch-ht-bosch-gsr18v55-soporte-soporte-herramienta
           title: Soporte / funda compatible para GSR 18V-55 Taladro
@@ -1249,7 +2253,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id005
+          model_tokens: *id009
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -1356,7 +2360,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id006
+          model_tokens: &id010
           - gbh 18v-26
           - gbh18v
           - 18v sds
@@ -1375,7 +2379,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id006
+          model_tokens: *id010
         cargador:
         - sku: bosch-ht-bosch-gbh18v26-cargador-charger-tool-rapid
           title: Cargador rápido compatible para GBH 18V-26 Martillo
@@ -1392,7 +2396,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id006
+          model_tokens: *id010
         - sku: bosch-ht-bosch-gbh18v26-cargador-charger-tool-std
           title: Cargador estándar compatible para GBH 18V-26 Martillo
           intent: compra
@@ -1407,7 +2411,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id006
+          model_tokens: *id010
         accesorios:
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para GBH 18V-26 Martillo
@@ -1423,7 +2427,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id006
+          model_tokens: *id010
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-disco
           title: Disco de corte compatible para GBH 18V-26 Martillo
           intent: compra
@@ -1438,7 +2442,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id006
+          model_tokens: *id010
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-hoja
           title: Hoja de sierra compatible para GBH 18V-26 Martillo
           intent: compra
@@ -1453,7 +2457,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id006
+          model_tokens: *id010
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para GBH 18V-26 Martillo
           intent: compra
@@ -1469,7 +2473,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id006
+          model_tokens: *id010
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-kit-tool
           title: Kit accesorios compatible para GBH 18V-26 Martillo
           intent: compra
@@ -1484,7 +2488,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id006
+          model_tokens: *id010
         soporte:
         - sku: bosch-ht-bosch-gbh18v26-soporte-soporte-herramienta
           title: Soporte / funda compatible para GBH 18V-26 Martillo
@@ -1500,7 +2504,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id006
+          model_tokens: *id010
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -1607,7 +2611,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id007
+          model_tokens: &id011
           - gks 18v-57
           - gks18v
           - 18v saw
@@ -1626,7 +2630,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id007
+          model_tokens: *id011
         cargador:
         - sku: bosch-ht-bosch-gks18v57-cargador-charger-tool-rapid
           title: Cargador rápido compatible para GKS 18V-57 Sierra circular
@@ -1643,7 +2647,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id007
+          model_tokens: *id011
         - sku: bosch-ht-bosch-gks18v57-cargador-charger-tool-std
           title: Cargador estándar compatible para GKS 18V-57 Sierra circular
           intent: compra
@@ -1658,7 +2662,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id007
+          model_tokens: *id011
         accesorios:
         - sku: bosch-ht-bosch-gks18v57-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para GKS 18V-57 Sierra circular
@@ -1674,7 +2678,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id007
+          model_tokens: *id011
         - sku: bosch-ht-bosch-gks18v57-accesorios-acc-disco
           title: Disco de corte compatible para GKS 18V-57 Sierra circular
           intent: compra
@@ -1689,7 +2693,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id007
+          model_tokens: *id011
         - sku: bosch-ht-bosch-gks18v57-accesorios-acc-hoja
           title: Hoja de sierra compatible para GKS 18V-57 Sierra circular
           intent: compra
@@ -1704,7 +2708,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id007
+          model_tokens: *id011
         - sku: bosch-ht-bosch-gks18v57-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para GKS 18V-57 Sierra circular
           intent: compra
@@ -1720,7 +2724,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id007
+          model_tokens: *id011
         - sku: bosch-ht-bosch-gks18v57-accesorios-acc-kit-tool
           title: Kit accesorios compatible para GKS 18V-57 Sierra circular
           intent: compra
@@ -1735,7 +2739,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id007
+          model_tokens: *id011
         soporte:
         - sku: bosch-ht-bosch-gks18v57-soporte-soporte-herramienta
           title: Soporte / funda compatible para GKS 18V-57 Sierra circular
@@ -1751,7 +2755,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id007
+          model_tokens: *id011
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -1833,6 +2837,509 @@ brands:
         a: Los cargadores modernos tienen corte automático al llegar al 100%, por
           lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
           prolonga la vida de la batería.
+    - model: GDR 18V-160 Atornillador de impacto
+      slug: bosch-gdr18v160
+      sku_pack: power-tool10
+      model_tokens:
+      - gdr 18v-160
+      - gdr18v
+      - 18v impact
+      year_range: 2021-2024
+      series: 18V Professional
+      recambios:
+        bateria:
+        - sku: bosch-ht-bosch-gdr18v160-bateria-bat-tool-std
+          title: Batería compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v battery
+            Batería compatible para GDR 18V-160 Atornillador d
+          must_include:
+          - gdr18v
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id012
+          - gdr 18v-160
+          - gdr18v
+          - 18v impact
+        - sku: bosch-ht-bosch-gdr18v160-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: 'Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v battery
+            pack Pack 2 baterías compatibles para GDR 18V-160 '
+          must_include:
+          - gdr18v
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id012
+        cargador:
+        - sku: bosch-ht-bosch-gdr18v160-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v charger
+            fast Cargador rápido compatible para GDR 18V-160 A
+          must_include:
+          - gdr18v
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id012
+        - sku: bosch-ht-bosch-gdr18v160-cargador-charger-tool-std
+          title: Cargador estándar compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v charger
+            Cargador estándar compatible para GDR 18V-160 Ator
+          must_include:
+          - gdr18v
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id012
+        accesorios:
+        - sku: bosch-ht-bosch-gdr18v160-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para GDR 18V-160 Atornillador de
+            impacto
+          intent: compra
+          query: 'Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v bit
+            set Set de puntas/brocas compatibles para GDR 18V-160 '
+          must_include:
+          - gdr18v
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id012
+        - sku: bosch-ht-bosch-gdr18v160-accesorios-acc-disco
+          title: Disco de corte compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v disc
+            cutting Disco de corte compatible para GDR 18V-160 At
+          must_include:
+          - gdr18v
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id012
+        - sku: bosch-ht-bosch-gdr18v160-accesorios-acc-hoja
+          title: Hoja de sierra compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v blade
+            saw Hoja de sierra compatible para GDR 18V-160 Atorn
+          must_include:
+          - gdr18v
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id012
+        - sku: bosch-ht-bosch-gdr18v160-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v chuck
+            drill Portabrocas / chuck compatible para GDR 18V-16
+          must_include:
+          - gdr18v
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id012
+        - sku: bosch-ht-bosch-gdr18v160-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v kit
+            accessory Kit accesorios compatible para GDR 18V-160 A
+          must_include:
+          - gdr18v
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id012
+        soporte:
+        - sku: bosch-ht-bosch-gdr18v160-soporte-soporte-herramienta
+          title: Soporte / funda compatible para GDR 18V-160 Atornillador de impacto
+          intent: compra
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v case
+            bag Soporte / funda compatible para GDR 18V-160 Atorn
+          must_include:
+          - gdr18v
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id012
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'GDR 18V-160 Atornillador de impacto: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: GDR 18V-160 Atornillador de impacto no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: GDR 18V-160 Atornillador de impacto vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: GWS 18V-10 Amoladora
+      slug: bosch-gws18v10
+      sku_pack: power-tool10
+      model_tokens:
+      - gws 18v-10
+      - gws18v
+      - 18v grinder
+      year_range: 2022-2024
+      series: 18V Professional
+      recambios:
+        bateria:
+        - sku: bosch-ht-bosch-gws18v10-bateria-bat-tool-std
+          title: Batería compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v battery Batería compatible
+            para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id013
+          - gws 18v-10
+          - gws18v
+          - 18v grinder
+        - sku: bosch-ht-bosch-gws18v10-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v battery pack Pack
+            2 baterías compatibles para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id013
+        cargador:
+        - sku: bosch-ht-bosch-gws18v10-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v charger fast Cargador
+            rápido compatible para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id013
+        - sku: bosch-ht-bosch-gws18v10-cargador-charger-tool-std
+          title: Cargador estándar compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v charger Cargador estándar
+            compatible para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id013
+        accesorios:
+        - sku: bosch-ht-bosch-gws18v10-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v bit set Set de puntas/brocas
+            compatibles para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id013
+        - sku: bosch-ht-bosch-gws18v10-accesorios-acc-disco
+          title: Disco de corte compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v disc cutting Disco
+            de corte compatible para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id013
+        - sku: bosch-ht-bosch-gws18v10-accesorios-acc-hoja
+          title: Hoja de sierra compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v blade saw Hoja de
+            sierra compatible para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id013
+        - sku: bosch-ht-bosch-gws18v10-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v chuck drill Portabrocas
+            / chuck compatible para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id013
+        - sku: bosch-ht-bosch-gws18v10-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v kit accessory Kit
+            accesorios compatible para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id013
+        soporte:
+        - sku: bosch-ht-bosch-gws18v10-soporte-soporte-herramienta
+          title: Soporte / funda compatible para GWS 18V-10 Amoladora
+          intent: compra
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v case bag Soporte /
+            funda compatible para GWS 18V-10 Amoladora
+          must_include:
+          - gws18v
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id013
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'GWS 18V-10 Amoladora: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: GWS 18V-10 Amoladora no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: GWS 18V-10 Amoladora vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
   dewalt-ht:
     name: DeWalt
     models:
@@ -1861,7 +3368,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id008
+          model_tokens: &id014
           - dcd791
           - dcd79
           - 20v max
@@ -1880,7 +3387,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id008
+          model_tokens: *id014
         cargador:
         - sku: dewalt-ht-dewalt-dcd791-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DCD791 Taladro 18V
@@ -1897,7 +3404,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id008
+          model_tokens: *id014
         - sku: dewalt-ht-dewalt-dcd791-cargador-charger-tool-std
           title: Cargador estándar compatible para DCD791 Taladro 18V
           intent: compra
@@ -1912,7 +3419,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id008
+          model_tokens: *id014
         accesorios:
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DCD791 Taladro 18V
@@ -1928,7 +3435,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id008
+          model_tokens: *id014
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-disco
           title: Disco de corte compatible para DCD791 Taladro 18V
           intent: compra
@@ -1943,7 +3450,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id008
+          model_tokens: *id014
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-hoja
           title: Hoja de sierra compatible para DCD791 Taladro 18V
           intent: compra
@@ -1958,7 +3465,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id008
+          model_tokens: *id014
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DCD791 Taladro 18V
           intent: compra
@@ -1974,7 +3481,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id008
+          model_tokens: *id014
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DCD791 Taladro 18V
           intent: compra
@@ -1989,7 +3496,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id008
+          model_tokens: *id014
         soporte:
         - sku: dewalt-ht-dewalt-dcd791-soporte-soporte-herramienta
           title: Soporte / funda compatible para DCD791 Taladro 18V
@@ -2005,7 +3512,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id008
+          model_tokens: *id014
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -2112,7 +3619,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id009
+          model_tokens: &id015
           - dcf887
           - dcf88
           - impact driver
@@ -2131,7 +3638,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id009
+          model_tokens: *id015
         cargador:
         - sku: dewalt-ht-dewalt-dcf887-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DCF887 Atornillador de impacto
@@ -2148,7 +3655,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id009
+          model_tokens: *id015
         - sku: dewalt-ht-dewalt-dcf887-cargador-charger-tool-std
           title: Cargador estándar compatible para DCF887 Atornillador de impacto
           intent: compra
@@ -2163,7 +3670,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id009
+          model_tokens: *id015
         accesorios:
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DCF887 Atornillador de impacto
@@ -2179,7 +3686,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id009
+          model_tokens: *id015
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-disco
           title: Disco de corte compatible para DCF887 Atornillador de impacto
           intent: compra
@@ -2194,7 +3701,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id009
+          model_tokens: *id015
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-hoja
           title: Hoja de sierra compatible para DCF887 Atornillador de impacto
           intent: compra
@@ -2209,7 +3716,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id009
+          model_tokens: *id015
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DCF887 Atornillador de impacto
           intent: compra
@@ -2225,7 +3732,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id009
+          model_tokens: *id015
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DCF887 Atornillador de impacto
           intent: compra
@@ -2240,7 +3747,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id009
+          model_tokens: *id015
         soporte:
         - sku: dewalt-ht-dewalt-dcf887-soporte-soporte-herramienta
           title: Soporte / funda compatible para DCF887 Atornillador de impacto
@@ -2256,7 +3763,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id009
+          model_tokens: *id015
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -2338,6 +3845,759 @@ brands:
         a: Los cargadores modernos tienen corte automático al llegar al 100%, por
           lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
           prolonga la vida de la batería.
+    - model: DCS565 Sierra circular 18V
+      slug: dewalt-dcs565
+      sku_pack: power-tool10
+      model_tokens:
+      - dcs565
+      - dcs56
+      - dewalt circular
+      year_range: 2020-2024
+      series: 20V MAX
+      recambios:
+        bateria:
+        - sku: dewalt-ht-dewalt-dcs565-bateria-bat-tool-std
+          title: Batería compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 battery Batería compatible
+            para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id016
+          - dcs565
+          - dcs56
+          - dewalt circular
+        - sku: dewalt-ht-dewalt-dcs565-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 battery pack Pack 2 baterías
+            compatibles para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id016
+        cargador:
+        - sku: dewalt-ht-dewalt-dcs565-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 charger fast Cargador rápido
+            compatible para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id016
+        - sku: dewalt-ht-dewalt-dcs565-cargador-charger-tool-std
+          title: Cargador estándar compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 charger Cargador estándar
+            compatible para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id016
+        accesorios:
+        - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 bit set Set de puntas/brocas
+            compatibles para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id016
+        - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-disco
+          title: Disco de corte compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 disc cutting Disco de corte
+            compatible para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id016
+        - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-hoja
+          title: Hoja de sierra compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 blade saw Hoja de sierra
+            compatible para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id016
+        - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 chuck drill Portabrocas
+            / chuck compatible para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id016
+        - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 kit accessory Kit accesorios
+            compatible para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id016
+        soporte:
+        - sku: dewalt-ht-dewalt-dcs565-soporte-soporte-herramienta
+          title: Soporte / funda compatible para DCS565 Sierra circular 18V
+          intent: compra
+          query: DeWalt DCS565 Sierra circular 18V dcs565 case bag Soporte / funda
+            compatible para DCS565 Sierra circular 18V
+          must_include:
+          - dcs565
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id016
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'DCS565 Sierra circular 18V: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: DCS565 Sierra circular 18V no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: DCS565 Sierra circular 18V vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: DCG405 Amoladora 18V
+      slug: dewalt-dcg405
+      sku_pack: power-tool10
+      model_tokens:
+      - dcg405
+      - dcg40
+      - dewalt grinder
+      year_range: 2020-2024
+      series: 20V MAX
+      recambios:
+        bateria:
+        - sku: dewalt-ht-dewalt-dcg405-bateria-bat-tool-std
+          title: Batería compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 battery Batería compatible para
+            DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id017
+          - dcg405
+          - dcg40
+          - dewalt grinder
+        - sku: dewalt-ht-dewalt-dcg405-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 battery pack Pack 2 baterías compatibles
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id017
+        cargador:
+        - sku: dewalt-ht-dewalt-dcg405-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 charger fast Cargador rápido compatible
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id017
+        - sku: dewalt-ht-dewalt-dcg405-cargador-charger-tool-std
+          title: Cargador estándar compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 charger Cargador estándar compatible
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id017
+        accesorios:
+        - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 bit set Set de puntas/brocas compatibles
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id017
+        - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-disco
+          title: Disco de corte compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 disc cutting Disco de corte compatible
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id017
+        - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-hoja
+          title: Hoja de sierra compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 blade saw Hoja de sierra compatible
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id017
+        - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 chuck drill Portabrocas / chuck
+            compatible para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id017
+        - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 kit accessory Kit accesorios compatible
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id017
+        soporte:
+        - sku: dewalt-ht-dewalt-dcg405-soporte-soporte-herramienta
+          title: Soporte / funda compatible para DCG405 Amoladora 18V
+          intent: compra
+          query: DeWalt DCG405 Amoladora 18V dcg405 case bag Soporte / funda compatible
+            para DCG405 Amoladora 18V
+          must_include:
+          - dcg405
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id017
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'DCG405 Amoladora 18V: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: DCG405 Amoladora 18V no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: DCG405 Amoladora 18V vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: DCB205 Batería 18V 5Ah
+      slug: dewalt-dcb205
+      sku_pack: power-tool10
+      model_tokens:
+      - dcb205
+      - dcb20
+      - 20v 5ah battery
+      year_range: 2019-2024
+      series: 20V MAX Battery
+      recambios:
+        bateria:
+        - sku: dewalt-ht-dewalt-dcb205-bateria-bat-tool-std
+          title: Batería compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 battery Batería compatible para
+            DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id018
+          - dcb205
+          - dcb20
+          - 20v 5ah battery
+        - sku: dewalt-ht-dewalt-dcb205-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 battery pack Pack 2 baterías
+            compatibles para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id018
+        cargador:
+        - sku: dewalt-ht-dewalt-dcb205-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 charger fast Cargador rápido
+            compatible para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id018
+        - sku: dewalt-ht-dewalt-dcb205-cargador-charger-tool-std
+          title: Cargador estándar compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 charger Cargador estándar compatible
+            para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id018
+        accesorios:
+        - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 bit set Set de puntas/brocas
+            compatibles para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id018
+        - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-disco
+          title: Disco de corte compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 disc cutting Disco de corte
+            compatible para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id018
+        - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-hoja
+          title: Hoja de sierra compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 blade saw Hoja de sierra compatible
+            para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id018
+        - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 chuck drill Portabrocas / chuck
+            compatible para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id018
+        - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 kit accessory Kit accesorios
+            compatible para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id018
+        soporte:
+        - sku: dewalt-ht-dewalt-dcb205-soporte-soporte-herramienta
+          title: Soporte / funda compatible para DCB205 Batería 18V 5Ah
+          intent: compra
+          query: DeWalt DCB205 Batería 18V 5Ah dcb205 case bag Soporte / funda compatible
+            para DCB205 Batería 18V 5Ah
+          must_include:
+          - dcb205
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id018
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'DCB205 Batería 18V 5Ah: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: DCB205 Batería 18V 5Ah no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: DCB205 Batería 18V 5Ah vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
   ryobi-ht:
     name: Ryobi
     models:
@@ -2366,7 +4626,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id010
+          model_tokens: &id019
           - r18pd
           - one+ 18v
           - ryobi one
@@ -2385,7 +4645,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id010
+          model_tokens: *id019
         cargador:
         - sku: ryobi-ht-ryobi-r18pd-cargador-charger-tool-rapid
           title: Cargador rápido compatible para ONE+ R18PD Taladro 18V
@@ -2402,7 +4662,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id010
+          model_tokens: *id019
         - sku: ryobi-ht-ryobi-r18pd-cargador-charger-tool-std
           title: Cargador estándar compatible para ONE+ R18PD Taladro 18V
           intent: compra
@@ -2417,7 +4677,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id010
+          model_tokens: *id019
         accesorios:
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para ONE+ R18PD Taladro 18V
@@ -2433,7 +4693,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id010
+          model_tokens: *id019
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-disco
           title: Disco de corte compatible para ONE+ R18PD Taladro 18V
           intent: compra
@@ -2448,7 +4708,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id010
+          model_tokens: *id019
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-hoja
           title: Hoja de sierra compatible para ONE+ R18PD Taladro 18V
           intent: compra
@@ -2463,7 +4723,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id010
+          model_tokens: *id019
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para ONE+ R18PD Taladro 18V
           intent: compra
@@ -2479,7 +4739,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id010
+          model_tokens: *id019
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-kit-tool
           title: Kit accesorios compatible para ONE+ R18PD Taladro 18V
           intent: compra
@@ -2494,7 +4754,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id010
+          model_tokens: *id019
         soporte:
         - sku: ryobi-ht-ryobi-r18pd-soporte-soporte-herramienta
           title: Soporte / funda compatible para ONE+ R18PD Taladro 18V
@@ -2510,7 +4770,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id010
+          model_tokens: *id019
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -2617,7 +4877,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: &id011
+          model_tokens: &id020
           - r18ag
           - one+ grinder
           - ryobi grinder
@@ -2636,7 +4896,7 @@ brands:
           - drill
           - blade
           - case
-          model_tokens: *id011
+          model_tokens: *id020
         cargador:
         - sku: ryobi-ht-ryobi-r18ag-cargador-charger-tool-rapid
           title: Cargador rápido compatible para ONE+ R18AG Amoladora 18V
@@ -2653,7 +4913,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id011
+          model_tokens: *id020
         - sku: ryobi-ht-ryobi-r18ag-cargador-charger-tool-std
           title: Cargador estándar compatible para ONE+ R18AG Amoladora 18V
           intent: compra
@@ -2668,7 +4928,7 @@ brands:
           - blade
           - drill chuck
           - case
-          model_tokens: *id011
+          model_tokens: *id020
         accesorios:
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para ONE+ R18AG Amoladora 18V
@@ -2684,7 +4944,7 @@ brands:
           - charger
           - blade
           - case
-          model_tokens: *id011
+          model_tokens: *id020
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-disco
           title: Disco de corte compatible para ONE+ R18AG Amoladora 18V
           intent: compra
@@ -2699,7 +4959,7 @@ brands:
           - charger
           - bit
           - case
-          model_tokens: *id011
+          model_tokens: *id020
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-hoja
           title: Hoja de sierra compatible para ONE+ R18AG Amoladora 18V
           intent: compra
@@ -2714,7 +4974,7 @@ brands:
           - charger
           - disc
           - case
-          model_tokens: *id011
+          model_tokens: *id020
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para ONE+ R18AG Amoladora 18V
           intent: compra
@@ -2730,7 +4990,7 @@ brands:
           - disc
           - blade
           - case
-          model_tokens: *id011
+          model_tokens: *id020
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-kit-tool
           title: Kit accesorios compatible para ONE+ R18AG Amoladora 18V
           intent: compra
@@ -2745,7 +5005,7 @@ brands:
           - charger
           - disc
           - blade
-          model_tokens: *id011
+          model_tokens: *id020
         soporte:
         - sku: ryobi-ht-ryobi-r18ag-soporte-soporte-herramienta
           title: Soporte / funda compatible para ONE+ R18AG Amoladora 18V
@@ -2761,7 +5021,7 @@ brands:
           - charger
           - bit
           - blade
-          model_tokens: *id011
+          model_tokens: *id020
       compatibilidad:
       - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
         aunque parezca que encajan.'
@@ -2816,6 +5076,1516 @@ brands:
         fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
           Cambiarlos es barato y rápido.
         title: ONE+ R18AG Amoladora 18V vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: ONE+ R18CS Sierra circular 18V
+      slug: ryobi-r18cs
+      sku_pack: power-tool10
+      model_tokens:
+      - r18cs
+      - one+ circular
+      - ryobi circular
+      year_range: 2020-2024
+      series: ONE+ 18V
+      recambios:
+        bateria:
+        - sku: ryobi-ht-ryobi-r18cs-bateria-bat-tool-std
+          title: Batería compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs battery Batería compatible
+            para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id021
+          - r18cs
+          - one+ circular
+          - ryobi circular
+        - sku: ryobi-ht-ryobi-r18cs-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs battery pack Pack 2 baterías
+            compatibles para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id021
+        cargador:
+        - sku: ryobi-ht-ryobi-r18cs-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs charger fast Cargador
+            rápido compatible para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id021
+        - sku: ryobi-ht-ryobi-r18cs-cargador-charger-tool-std
+          title: Cargador estándar compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs charger Cargador estándar
+            compatible para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id021
+        accesorios:
+        - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para ONE+ R18CS Sierra circular
+            18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs bit set Set de puntas/brocas
+            compatibles para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id021
+        - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-disco
+          title: Disco de corte compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs disc cutting Disco de
+            corte compatible para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id021
+        - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-hoja
+          title: Hoja de sierra compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs blade saw Hoja de sierra
+            compatible para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id021
+        - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs chuck drill Portabrocas
+            / chuck compatible para ONE+ R18CS Sierra circular 18
+          must_include:
+          - r18cs
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id021
+        - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs kit accessory Kit accesorios
+            compatible para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id021
+        soporte:
+        - sku: ryobi-ht-ryobi-r18cs-soporte-soporte-herramienta
+          title: Soporte / funda compatible para ONE+ R18CS Sierra circular 18V
+          intent: compra
+          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs case bag Soporte / funda
+            compatible para ONE+ R18CS Sierra circular 18V
+          must_include:
+          - r18cs
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id021
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'ONE+ R18CS Sierra circular 18V: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: ONE+ R18CS Sierra circular 18V no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: ONE+ R18CS Sierra circular 18V vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: ONE+ RB18L40 Batería 18V 4Ah
+      slug: ryobi-rb18l40
+      sku_pack: power-tool10
+      model_tokens:
+      - rb18l40
+      - rb18l
+      - ryobi 18v 4ah
+      year_range: 2019-2024
+      series: ONE+ 18V Battery
+      recambios:
+        bateria:
+        - sku: ryobi-ht-ryobi-rb18l40-bateria-bat-tool-std
+          title: Batería compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 battery Batería compatible
+            para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id022
+          - rb18l40
+          - rb18l
+          - ryobi 18v 4ah
+        - sku: ryobi-ht-ryobi-rb18l40-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 battery pack Pack 2 baterías
+            compatibles para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id022
+        cargador:
+        - sku: ryobi-ht-ryobi-rb18l40-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 charger fast Cargador
+            rápido compatible para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id022
+        - sku: ryobi-ht-ryobi-rb18l40-cargador-charger-tool-std
+          title: Cargador estándar compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 charger Cargador estándar
+            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id022
+        accesorios:
+        - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 bit set Set de puntas/brocas
+            compatibles para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id022
+        - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-disco
+          title: Disco de corte compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 disc cutting Disco de
+            corte compatible para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id022
+        - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-hoja
+          title: Hoja de sierra compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 blade saw Hoja de sierra
+            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id022
+        - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 chuck drill Portabrocas
+            / chuck compatible para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id022
+        - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 kit accessory Kit accesorios
+            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id022
+        soporte:
+        - sku: ryobi-ht-ryobi-rb18l40-soporte-soporte-herramienta
+          title: Soporte / funda compatible para ONE+ RB18L40 Batería 18V 4Ah
+          intent: compra
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 case bag Soporte / funda
+            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          must_include:
+          - rb18l40
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id022
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'ONE+ RB18L40 Batería 18V 4Ah: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: ONE+ RB18L40 Batería 18V 4Ah no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: ONE+ RB18L40 Batería 18V 4Ah vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+  milwaukee-ht:
+    name: Milwaukee
+    models:
+    - model: M18 Fuel 2803 Taladro
+      slug: milwaukee-m18-2803
+      sku_pack: power-tool10
+      model_tokens:
+      - '2803'
+      - m18 fuel drill
+      - milwaukee m18
+      year_range: 2019-2024
+      series: M18 Fuel
+      recambios:
+        bateria:
+        - sku: milwaukee-ht-milwaukee-m18-2803-bateria-bat-tool-std
+          title: Batería compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 battery Batería compatible para
+            M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id023
+          - '2803'
+          - m18 fuel drill
+          - milwaukee m18
+        - sku: milwaukee-ht-milwaukee-m18-2803-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 battery pack Pack 2 baterías
+            compatibles para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id023
+        cargador:
+        - sku: milwaukee-ht-milwaukee-m18-2803-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 charger fast Cargador rápido
+            compatible para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id023
+        - sku: milwaukee-ht-milwaukee-m18-2803-cargador-charger-tool-std
+          title: Cargador estándar compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 charger Cargador estándar compatible
+            para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id023
+        accesorios:
+        - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 bit set Set de puntas/brocas
+            compatibles para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id023
+        - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-disco
+          title: Disco de corte compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 disc cutting Disco de corte
+            compatible para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id023
+        - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-hoja
+          title: Hoja de sierra compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 blade saw Hoja de sierra compatible
+            para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id023
+        - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 chuck drill Portabrocas / chuck
+            compatible para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id023
+        - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 kit accessory Kit accesorios
+            compatible para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id023
+        soporte:
+        - sku: milwaukee-ht-milwaukee-m18-2803-soporte-soporte-herramienta
+          title: Soporte / funda compatible para M18 Fuel 2803 Taladro
+          intent: compra
+          query: Milwaukee M18 Fuel 2803 Taladro 2803 case bag Soporte / funda compatible
+            para M18 Fuel 2803 Taladro
+          must_include:
+          - '2803'
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id023
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'M18 Fuel 2803 Taladro: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: M18 Fuel 2803 Taladro no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: M18 Fuel 2803 Taladro vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: M18 Fuel 2780 Amoladora
+      slug: milwaukee-m18-2780
+      sku_pack: power-tool10
+      model_tokens:
+      - '2780'
+      - m18 fuel grinder
+      - milwaukee grinder
+      year_range: 2020-2024
+      series: M18 Fuel
+      recambios:
+        bateria:
+        - sku: milwaukee-ht-milwaukee-m18-2780-bateria-bat-tool-std
+          title: Batería compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 battery Batería compatible
+            para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id024
+          - '2780'
+          - m18 fuel grinder
+          - milwaukee grinder
+        - sku: milwaukee-ht-milwaukee-m18-2780-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 battery pack Pack 2 baterías
+            compatibles para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id024
+        cargador:
+        - sku: milwaukee-ht-milwaukee-m18-2780-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 charger fast Cargador rápido
+            compatible para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id024
+        - sku: milwaukee-ht-milwaukee-m18-2780-cargador-charger-tool-std
+          title: Cargador estándar compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 charger Cargador estándar
+            compatible para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id024
+        accesorios:
+        - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 bit set Set de puntas/brocas
+            compatibles para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id024
+        - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-disco
+          title: Disco de corte compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 disc cutting Disco de corte
+            compatible para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id024
+        - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-hoja
+          title: Hoja de sierra compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 blade saw Hoja de sierra compatible
+            para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id024
+        - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 chuck drill Portabrocas /
+            chuck compatible para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id024
+        - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 kit accessory Kit accesorios
+            compatible para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id024
+        soporte:
+        - sku: milwaukee-ht-milwaukee-m18-2780-soporte-soporte-herramienta
+          title: Soporte / funda compatible para M18 Fuel 2780 Amoladora
+          intent: compra
+          query: Milwaukee M18 Fuel 2780 Amoladora 2780 case bag Soporte / funda compatible
+            para M18 Fuel 2780 Amoladora
+          must_include:
+          - '2780'
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id024
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'M18 Fuel 2780 Amoladora: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: M18 Fuel 2780 Amoladora no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: M18 Fuel 2780 Amoladora vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: M12 2407 Taladro compacto
+      slug: milwaukee-m12-2407
+      sku_pack: power-tool10
+      model_tokens:
+      - '2407'
+      - m12 drill
+      - milwaukee m12
+      year_range: 2020-2024
+      series: M12
+      recambios:
+        bateria:
+        - sku: milwaukee-ht-milwaukee-m12-2407-bateria-bat-tool-std
+          title: Batería compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 battery Batería compatible
+            para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id025
+          - '2407'
+          - m12 drill
+          - milwaukee m12
+        - sku: milwaukee-ht-milwaukee-m12-2407-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 battery pack Pack 2 baterías
+            compatibles para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id025
+        cargador:
+        - sku: milwaukee-ht-milwaukee-m12-2407-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 charger fast Cargador rápido
+            compatible para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id025
+        - sku: milwaukee-ht-milwaukee-m12-2407-cargador-charger-tool-std
+          title: Cargador estándar compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 charger Cargador estándar
+            compatible para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id025
+        accesorios:
+        - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 bit set Set de puntas/brocas
+            compatibles para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id025
+        - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-disco
+          title: Disco de corte compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 disc cutting Disco de corte
+            compatible para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id025
+        - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-hoja
+          title: Hoja de sierra compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 blade saw Hoja de sierra
+            compatible para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id025
+        - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 chuck drill Portabrocas
+            / chuck compatible para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id025
+        - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 kit accessory Kit accesorios
+            compatible para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id025
+        soporte:
+        - sku: milwaukee-ht-milwaukee-m12-2407-soporte-soporte-herramienta
+          title: Soporte / funda compatible para M12 2407 Taladro compacto
+          intent: compra
+          query: Milwaukee M12 2407 Taladro compacto 2407 case bag Soporte / funda
+            compatible para M12 2407 Taladro compacto
+          must_include:
+          - '2407'
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id025
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'M12 2407 Taladro compacto: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: M12 2407 Taladro compacto no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: M12 2407 Taladro compacto vibra o hace ruido excesivo
+        symptoms:
+        - Vibración inusual al trabajar
+        - Ruido metálico o traqueteo
+        - Calentamiento excesivo del cuerpo
+        causes:
+        - Accesorio (disco, broca) desequilibrado o desgastado
+        - Rodamientos internos desgastados
+        - Portabrocas flojo o con holgura
+        checks:
+        - Cambiar la broca o disco por uno nuevo y verificar si desaparece la vibración
+        - Apretar correctamente el portabrocas con llave
+        - Comprobar que el accesorio está bien centrado y en buen estado
+      faqs:
+      - q: ¿Puedo usar una batería de mayor Ah en mi herramienta?
+        a: Sí, siempre que el voltaje sea el mismo. Una batería de mayor capacidad
+          (Ah) dará más autonomía sin afectar al motor.
+      - q: ¿Las baterías compatibles dañan la herramienta?
+        a: Las baterías compatibles de calidad con BMS (sistema de gestión de batería)
+          son seguras. Evita las de marcas desconocidas sin protecciones electrónicas.
+      - q: ¿Con qué frecuencia debo cambiar las brocas o discos?
+        a: Cuando notes que el corte requiere más presión, el resultado es rugoso
+          o la broca se calienta rápido. Una broca gastada daña tanto el material
+          como la herramienta.
+      - q: ¿Puedo dejar la batería cargando toda la noche?
+        a: Los cargadores modernos tienen corte automático al llegar al 100%, por
+          lo que no debería haber problema. Aun así, evitar la carga prolongada permanente
+          prolonga la vida de la batería.
+    - model: M18 48-11-1850 Batería 5Ah
+      slug: milwaukee-m18-48111850
+      sku_pack: power-tool10
+      model_tokens:
+      - 48-11-1850
+      - m18 5ah
+      - milwaukee battery
+      year_range: 2019-2024
+      series: M18 Battery
+      recambios:
+        bateria:
+        - sku: milwaukee-ht-milwaukee-m18-48111850-bateria-bat-tool-std
+          title: Batería compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 battery Batería compatible
+            para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - battery
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: &id026
+          - 48-11-1850
+          - m18 5ah
+          - milwaukee battery
+        - sku: milwaukee-ht-milwaukee-m18-48111850-bateria-bat-tool-pack2
+          title: Pack 2 baterías compatibles para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 battery pack Pack
+            2 baterías compatibles para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - battery
+          - pack
+          must_not_include:
+          - charger
+          - bit
+          - drill
+          - blade
+          - case
+          model_tokens: *id026
+        cargador:
+        - sku: milwaukee-ht-milwaukee-m18-48111850-cargador-charger-tool-rapid
+          title: Cargador rápido compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 charger fast Cargador
+            rápido compatible para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - charger
+          - fast
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id026
+        - sku: milwaukee-ht-milwaukee-m18-48111850-cargador-charger-tool-std
+          title: Cargador estándar compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 charger Cargador
+            estándar compatible para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - charger
+          must_not_include:
+          - battery
+          - bit
+          - blade
+          - drill chuck
+          - case
+          model_tokens: *id026
+        accesorios:
+        - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-puntas
+          title: Set de puntas/brocas compatibles para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 bit set Set de puntas/brocas
+            compatibles para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - bit
+          - set
+          must_not_include:
+          - battery
+          - charger
+          - blade
+          - case
+          model_tokens: *id026
+        - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-disco
+          title: Disco de corte compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 disc cutting Disco
+            de corte compatible para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - disc
+          - cutting
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - case
+          model_tokens: *id026
+        - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-hoja
+          title: Hoja de sierra compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 blade saw Hoja de
+            sierra compatible para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - blade
+          - saw
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - case
+          model_tokens: *id026
+        - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-portabrocas
+          title: Portabrocas / chuck compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 chuck drill Portabrocas
+            / chuck compatible para M18 48-11-1850 Batería 5
+          must_include:
+          - 48-11-1850
+          - chuck
+          - drill
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          - case
+          model_tokens: *id026
+        - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-kit-tool
+          title: Kit accesorios compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 kit accessory Kit
+            accesorios compatible para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - disc
+          - blade
+          model_tokens: *id026
+        soporte:
+        - sku: milwaukee-ht-milwaukee-m18-48111850-soporte-soporte-herramienta
+          title: Soporte / funda compatible para M18 48-11-1850 Batería 5Ah
+          intent: compra
+          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 case bag Soporte
+            / funda compatible para M18 48-11-1850 Batería 5Ah
+          must_include:
+          - 48-11-1850
+          - case
+          - bag
+          must_not_include:
+          - battery
+          - charger
+          - bit
+          - blade
+          model_tokens: *id026
+      compatibilidad:
+      - 'Verifica el voltaje de la batería (10,8V / 12V / 18V / 20V): no son intercambiables
+        aunque parezca que encajan.'
+      - Makita usa sistemas de batería LXT (18V) y CXT (12V) incompatibles entre sí
+        aunque la forma sea parecida.
+      - Bosch Professional y Bosch DIY (verde) tienen baterías distintas aunque sean
+        del mismo voltaje.
+      - En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del
+        agujero central.
+      - 'Los portabrocas tienen rosca específica: comprueba el paso de rosca antes
+        de comprar uno compatible.'
+      problemas:
+      - key: bateria-no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Las baterías de herramientas duran 3-5 años con uso intensivo. Una
+          batería compatible de buena calidad puede costar la mitad que la original.
+        title: 'M18 48-11-1850 Batería 5Ah: batería no carga o poca duración'
+        symptoms:
+        - La herramienta se apaga a los pocos minutos
+        - El cargador no emite señal de carga
+        - La batería no aguanta ni una tarea sencilla
+        causes:
+        - Celdas de la batería degradadas por ciclos de carga
+        - Cargador defectuoso o sobrecalentado
+        - Contactos de la batería sucios u oxidados
+        checks:
+        - Limpiar los contactos de la batería con contacto eléctrico limpiador
+        - Probar con otro cargador si está disponible
+        - Verificar que la batería no está excesivamente caliente al cargar
+      - key: no-arranca-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el problema persiste con batería cargada, el gatillo o el motor
+          pueden necesitar revisión en servicio técnico.
+        title: M18 48-11-1850 Batería 5Ah no arranca o pierde par
+        symptoms:
+        - La herramienta no responde al gatillo
+        - Arranca pero sin fuerza suficiente
+        - Se para sola bajo carga
+        causes:
+        - Batería con carga insuficiente
+        - Interruptor de gatillo desgastado
+        - Carbones del motor gastados (en modelos con escobillas)
+        checks:
+        - Cargar la batería completamente antes de volver a probar
+        - Verificar que la batería hace contacto correcto en el alojamiento
+        - Comprobar si hay protección térmica activada (esperar 15 min)
+      - key: vibra-herramienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Un disco o broca desgastados son la causa más frecuente de vibración.
+          Cambiarlos es barato y rápido.
+        title: M18 48-11-1850 Batería 5Ah vibra o hace ruido excesivo
         symptoms:
         - Vibración inusual al trabajar
         - Ruido metálico o traqueteo

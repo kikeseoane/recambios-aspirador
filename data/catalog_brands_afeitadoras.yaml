@@ -3,6 +3,18 @@ brands:
     name: Philips
     vertical: afeitadoras
     models:
+      - model: Series 1000 S1231
+        slug: philips-s1231
+        sku_pack: shaver10
+        model_tokens: ["s1231", "series 1000", "s1000"]
+        year_range: "2019-2024"
+        series: "Series 1000"
+      - model: Series 2000 S2910
+        slug: philips-s2910
+        sku_pack: shaver10
+        model_tokens: ["s2910", "series 2000", "s2000"]
+        year_range: "2019-2024"
+        series: "Series 2000"
       - model: Series 3000 S3710
         slug: philips-s3710
         sku_pack: shaver10
@@ -15,6 +27,12 @@ brands:
         model_tokens: ["s5585", "series 5000", "s5000"]
         year_range: "2020-2024"
         series: "Series 5000"
+      - model: Series 6000 S6640
+        slug: philips-s6640
+        sku_pack: shaver10
+        model_tokens: ["s6640", "series 6000", "s6000"]
+        year_range: "2021-2024"
+        series: "Series 6000"
       - model: Series 7000 S7788
         slug: philips-s7788
         sku_pack: shaver10
@@ -33,11 +51,29 @@ brands:
         model_tokens: ["qp2730", "oneblade", "qp27"]
         year_range: "2021-2024"
         series: "OneBlade"
+      - model: OneBlade Pro QP6550
+        slug: philips-qp6550
+        sku_pack: shaver10
+        model_tokens: ["qp6550", "oneblade pro", "qp65"]
+        year_range: "2022-2024"
+        series: "OneBlade Pro"
+      - model: Bodygroom Series 7000 BG7025
+        slug: philips-bg7025
+        sku_pack: shaver10
+        model_tokens: ["bg7025", "bodygroom", "bg70"]
+        year_range: "2020-2024"
+        series: "Bodygroom"
 
   braun-af:
     name: Braun
     vertical: afeitadoras
     models:
+      - model: Series 1 10B1200s
+        slug: braun-10b1200s
+        sku_pack: shaver10
+        model_tokens: ["10b1200", "series 1", "braun series1"]
+        year_range: "2022-2024"
+        series: "Series 1"
       - model: Series 3 3010
         slug: braun-3010
         sku_pack: shaver10
@@ -50,15 +86,91 @@ brands:
         model_tokens: ["5018s", "5018", "series 5"]
         year_range: "2021-2024"
         series: "Series 5"
+      - model: Series 6 61-N7000cc
+        slug: braun-61n7000cc
+        sku_pack: shaver10
+        model_tokens: ["61-n7000", "series 6", "braun series6"]
+        year_range: "2022-2024"
+        series: "Series 6"
       - model: Series 7 7071cc
         slug: braun-7071cc
         sku_pack: shaver10
         model_tokens: ["7071cc", "7071", "series 7"]
         year_range: "2022-2024"
         series: "Series 7"
+      - model: Series 8 8457cc
+        slug: braun-8457cc
+        sku_pack: shaver10
+        model_tokens: ["8457cc", "8457", "series 8"]
+        year_range: "2021-2024"
+        series: "Series 8"
+      - model: Series 9 9385cc
+        slug: braun-9385cc
+        sku_pack: shaver10
+        model_tokens: ["9385cc", "9385", "series 9"]
+        year_range: "2020-2024"
+        series: "Series 9"
       - model: Series 9 Pro 9467cc
         slug: braun-9467cc
         sku_pack: shaver10
         model_tokens: ["9467cc", "9467", "series 9 pro"]
         year_range: "2022-2024"
         series: "Series 9 Pro"
+      - model: King C Gillette Style Master
+        slug: braun-king-c-style-master
+        sku_pack: shaver10
+        model_tokens: ["king c", "style master", "gillette trimmer"]
+        year_range: "2021-2024"
+        series: "King C Gillette"
+
+  panasonic-af:
+    name: Panasonic
+    vertical: afeitadoras
+    models:
+      - model: ES-LT4N Arc3
+        slug: panasonic-es-lt4n
+        sku_pack: shaver10
+        model_tokens: ["es-lt4n", "arc3", "es lt4n"]
+        year_range: "2019-2024"
+        series: "Arc3"
+      - model: ES-LT67 Arc3
+        slug: panasonic-es-lt67
+        sku_pack: shaver10
+        model_tokens: ["es-lt67", "arc3", "es lt67"]
+        year_range: "2020-2024"
+        series: "Arc3"
+      - model: ES-LA93 Arc4
+        slug: panasonic-es-la93
+        sku_pack: shaver10
+        model_tokens: ["es-la93", "arc4", "es la93"]
+        year_range: "2020-2024"
+        series: "Arc4"
+      - model: ES-LV67 Arc5
+        slug: panasonic-es-lv67
+        sku_pack: shaver10
+        model_tokens: ["es-lv67", "arc5", "es lv67"]
+        year_range: "2021-2024"
+        series: "Arc5"
+
+  remington-af:
+    name: Remington
+    vertical: afeitadoras
+    models:
+      - model: F5-5800 Foil
+        slug: remington-f5-5800
+        sku_pack: shaver10
+        model_tokens: ["f5-5800", "f5 5800", "remington foil"]
+        year_range: "2019-2024"
+        series: "Foil"
+      - model: PG6171 Grooming Kit
+        slug: remington-pg6171
+        sku_pack: shaver10
+        model_tokens: ["pg6171", "pg 6171", "remington grooming"]
+        year_range: "2020-2024"
+        series: "Grooming Kit"
+      - model: XR1500 HyperFlex
+        slug: remington-xr1500
+        sku_pack: shaver10
+        model_tokens: ["xr1500", "hyperflex", "remington flex"]
+        year_range: "2021-2024"
+        series: "HyperFlex"
