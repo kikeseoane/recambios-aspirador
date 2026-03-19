@@ -53,6 +53,10 @@ CACHE_DIR = ROOT / "data" / ".cache_aliexpress"
 CACHE_TTL_SECONDS = int((os.getenv("ALI_CACHE_TTL") or str(7 * 24 * 3600)).strip() or str(7 * 24 * 3600))
 RATE_SLEEP_SECONDS = float((os.getenv("ALI_RATE_SLEEP") or "0.35").strip() or "0.35")
 
+# Contadores globales de llamadas reales a la API (excluye cache hits)
+_api_calls_real: int = 0
+_api_time_real: float = 0.0
+
 if not APP_KEY or not APP_SECRET:
     raise SystemExit("Faltan variables de entorno: ALI_APP_KEY y/o ALI_APP_SECRET")
 
@@ -296,7 +300,9 @@ def ali_call_flat(method: str, biz_params: Dict[str, Any], use_cache: bool = Tru
         if cached is not None:
             return cached
 
+    global _api_calls_real, _api_time_real
     r: Optional[requests.Response] = None
+    _t_call = time.time()
     for _attempt in range(4):
         try:
             r = requests.post(API_URL, data=params, timeout=45)
@@ -312,6 +318,8 @@ def ali_call_flat(method: str, biz_params: Dict[str, Any], use_cache: bool = Tru
             time.sleep(wait)
     if r is None:
         raise RuntimeError(f"No se pudo obtener respuesta de AliExpress para method={method}")
+    _api_calls_real += 1
+    _api_time_real += time.time() - _t_call
     data = r.json()
 
     if "error_response" in data:
@@ -1069,6 +1077,8 @@ def main() -> None:
 
     dump_yaml(OFFERS, {"offers": offers})
 
+    _total_elapsed = time.time() - _t0
+    _avg_api = (_api_time_real / _api_calls_real) if _api_calls_real else 0.0
     print("OK: sync_ofertas (AliExpress autolinks + catalog overrides + cache flags)")
     print(f"  Verticales:            {', '.join(selected_verticals)}")
     print(f"  Cache:                 {'ON' if use_cache else 'OFF'} (TTL={CACHE_TTL_SECONDS}s)")
@@ -1082,6 +1092,12 @@ def main() -> None:
     print(f"  Rehabilitados:          {un_orphaned}")
     print(f"  Marcados huérfano:      {orphaned}")
     print(f"  Cache dir:              {CACHE_DIR}")
+    print(f"  --- Rendimiento API ---")
+    print(f"  Llamadas reales API:    {_api_calls_real}")
+    print(f"  Tiempo total API:       {_api_time_real:.1f}s")
+    print(f"  Media por llamada:      {_avg_api:.2f}s")
+    print(f"  Tiempo total script:    {_total_elapsed:.1f}s")
+    print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)}")
 
 
 if __name__ == "__main__":
