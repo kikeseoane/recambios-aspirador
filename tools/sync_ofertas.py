@@ -402,10 +402,16 @@ QUERY_NOISE_RE = re.compile(
     r"\b(compatible|compatibles|para|repuesto|recambio|replacement|spare|kit|pack)\b",
     re.IGNORECASE,
 )
+QUERY_TOKEN_RE = re.compile(r"[a-z0-9]+(?:[.+/-][a-z0-9]+)*", re.IGNORECASE)
 MODEL_STOPWORDS = {
     "series", "serie", "robot", "aspirador", "aspiradora", "vacuum", "cordless",
     "airfryer", "freidora", "cafetera", "coffee", "maker", "shaver", "toothbrush",
     "taladro", "drill", "martillo", "sierra", "amoladora", "impacto", "one", "plus",
+}
+QUERY_NOISE_TERMS = {
+    "compatible", "compatibles", "para", "con", "sin", "repuesto", "repuestos",
+    "recambio", "recambios", "replacement", "replacements", "spare", "spares",
+    "part", "parts", "pieza", "piezas", "kit", "pack",
 }
 
 
@@ -592,6 +598,39 @@ def clean_query_fragment(text: str) -> str:
     return compact_spaces(cleaned)
 
 
+def query_tokens(text: str) -> List[str]:
+    return [tok.lower() for tok in QUERY_TOKEN_RE.findall(compact_spaces(text))]
+
+
+def query_phrase(text: str, seen: set[str]) -> str:
+    out: List[str] = []
+    for tok in query_tokens(text):
+        if tok in QUERY_NOISE_TERMS or tok in seen:
+            continue
+        seen.add(tok)
+        out.append(tok)
+    return " ".join(out)
+
+
+def compose_search_query(base_parts: List[str], extra_parts: List[str]) -> str:
+    parts: List[str] = []
+    seen: set[str] = set()
+
+    for part in base_parts:
+        clean = compact_spaces(part)
+        if not clean:
+            continue
+        parts.append(clean)
+        seen.update(query_tokens(clean))
+
+    for part in extra_parts:
+        clean = query_phrase(part, seen)
+        if clean:
+            parts.append(clean)
+
+    return compact_spaces(" ".join(parts))[:120]
+
+
 def unique_keywords(candidates: List[str]) -> List[str]:
     seen = set()
     out: List[str] = []
@@ -625,17 +664,17 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
     model = compact_spaces(str(ctx.get("model") or ""))
     item_title = clean_query_fragment(str(ctx.get("item_title") or ""))
     category_terms = " ".join(cat_query_terms(str(ctx.get("category") or ""))[:2])
-    include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
+    include_terms = " ".join([compact_spaces(x) for x in must_include[:4] if compact_spaces(x)])
     model_tokens = " ".join(model_tokens_from_ctx(model)[:3])
 
     candidates = [
-        query_override,
-        " ".join([brand, model, include_terms]),
-        " ".join([brand, model, category_terms]),
-        " ".join([brand, model_tokens, category_terms]),
-        " ".join([brand, model, item_title]),
-        build_keyword(ctx),
-        " ".join([brand, model]),
+        compose_search_query([], [query_override]),
+        compose_search_query([brand, model], [include_terms, category_terms]),
+        compose_search_query([brand, model], [category_terms]),
+        compose_search_query([brand, model], [model_tokens, category_terms]),
+        compose_search_query([brand, model], [item_title]),
+        compose_search_query([brand, model], [str(ctx.get("category") or ""), str(ctx.get("item_title") or "")]),
+        compose_search_query([brand, model], []),
     ]
     return unique_keywords(candidates)
 
@@ -649,17 +688,19 @@ def choose_fallback_search_query(ctx: Dict[str, Any], query_override: str) -> st
       4) brand + model
     """
     candidates = [
-        query_override,
-        build_keyword(ctx),
-        " ".join([
-            str(ctx.get("brand") or ""),
-            str(ctx.get("model") or ""),
-            str(ctx.get("category") or ""),
-        ]),
-        " ".join([
-            str(ctx.get("brand") or ""),
-            str(ctx.get("model") or ""),
-        ]),
+        compose_search_query([], [query_override]),
+        compose_search_query(
+            [str(ctx.get("brand") or ""), str(ctx.get("model") or "")],
+            [str(ctx.get("category") or ""), str(ctx.get("item_title") or "")],
+        ),
+        compose_search_query(
+            [str(ctx.get("brand") or ""), str(ctx.get("model") or "")],
+            [str(ctx.get("category") or "")],
+        ),
+        compose_search_query(
+            [str(ctx.get("brand") or ""), str(ctx.get("model") or "")],
+            [],
+        ),
     ]
 
     for c in candidates:

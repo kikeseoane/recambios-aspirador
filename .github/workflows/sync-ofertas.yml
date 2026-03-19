@@ -41,6 +41,27 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Rebuild catálogos
+        run: |
+          python - <<'PY'
+          import pathlib
+          import subprocess
+          import sys
+          import yaml
+
+          root = pathlib.Path(".")
+          verticals_doc = yaml.safe_load((root / "data" / "verticals.yaml").read_text(encoding="utf-8")) or {}
+          verticals = list((verticals_doc.get("verticals") or {}).keys())
+          if not verticals:
+              verticals = ["aspiradores"]
+
+          for vertical in verticals:
+              subprocess.run(
+                  [sys.executable, "tools/build_catalog.py", "--vertical", str(vertical)],
+                  check=True,
+              )
+          PY
+
       - name: Run sync_ofertas (batch horario)
         id: sync
         env:
@@ -56,24 +77,36 @@ jobs:
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt || echo "STATS: n/a")
           echo "stats=$STATS_LINE" >> $GITHUB_OUTPUT
 
-      - name: Commit y push si hay cambios en ofertas.yaml
+      - name: Commit y push si hay cambios generados
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          cp data/ofertas.yaml /tmp/ofertas_new.yaml
+          CHANGED_FILES=$(git status --porcelain -- data/*.yaml | awk '{print $2}')
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          rm -rf /tmp/generated_state
+          mkdir -p /tmp/generated_state
+          for f in $CHANGED_FILES; do
+            mkdir -p "/tmp/generated_state/$(dirname "$f")"
+            cp "$f" "/tmp/generated_state/$f"
+          done
           DONE=false
           for i in 1 2 3 4 5; do
             git fetch origin main
             git reset --hard origin/main
-            if diff -q /tmp/ofertas_new.yaml data/ofertas.yaml > /dev/null 2>&1; then
+            for f in $CHANGED_FILES; do
+              cp "/tmp/generated_state/$f" "$f"
+            done
+            if git diff --quiet -- $CHANGED_FILES; then
               echo "changed=false" >> $GITHUB_OUTPUT
               DONE=true
               break
             fi
-            cp /tmp/ofertas_new.yaml data/ofertas.yaml
-            git add data/ofertas.yaml
-            git commit -m "chore: sync horario ofertas AliExpress [skip ci]"
+            git add $CHANGED_FILES
+            git commit -m "chore: sync horario catalogos y ofertas AliExpress [skip ci]"
             if git push; then
               echo "changed=true" >> $GITHUB_OUTPUT
               DONE=true

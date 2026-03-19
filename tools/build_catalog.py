@@ -90,6 +90,13 @@ CATEGORY_QUERY_TERMS: Dict[str, List[str]] = {
     "cesta": ["basket", "tray"],
 }
 
+QUERY_TOKEN_RE = re.compile(r"[a-z0-9]+(?:[.+/-][a-z0-9]+)*", re.IGNORECASE)
+QUERY_NOISE_TERMS = {
+    "compatible", "compatibles", "para", "con", "sin", "recambio", "recambios",
+    "repuesto", "repuestos", "replacement", "replacements", "spare", "spares",
+    "part", "parts", "pieza", "piezas", "pack",
+}
+
 
 def load_yaml(path: Path) -> dict:
     if not path.exists():
@@ -104,6 +111,43 @@ def dump_yaml(path: Path, data: dict) -> None:
 
 def nrm(s: str) -> str:
     return " ".join((s or "").strip().split())
+
+
+def compact_spaces(s: str) -> str:
+    return re.sub(r"\s+", " ", str(s or "")).strip()
+
+
+def query_tokens(text: str) -> List[str]:
+    return [tok.lower() for tok in QUERY_TOKEN_RE.findall(compact_spaces(text))]
+
+
+def query_phrase(text: str, seen: set[str]) -> str:
+    out: List[str] = []
+    for tok in query_tokens(text):
+        if tok in QUERY_NOISE_TERMS or tok in seen:
+            continue
+        seen.add(tok)
+        out.append(tok)
+    return " ".join(out)
+
+
+def compose_search_query(base_parts: List[str], extra_parts: List[str]) -> str:
+    parts: List[str] = []
+    seen: set[str] = set()
+
+    for part in base_parts:
+        clean = compact_spaces(part)
+        if not clean:
+            continue
+        parts.append(clean)
+        seen.update(query_tokens(clean))
+
+    for part in extra_parts:
+        clean = query_phrase(part, seen)
+        if clean:
+            parts.append(clean)
+
+    return compact_spaces(" ".join(parts))[:120]
 
 
 def assert_slug(slug: str, where: str) -> None:
@@ -147,14 +191,16 @@ def build_search_query(
     query_hint: str,
 ) -> str:
     if query_hint:
-        return query_hint[:120]
+        return compact_spaces(query_hint)[:120]
 
-    seed_terms = [x.strip() for x in must_include[:3] if x.strip()]
+    seed_terms = [x.strip() for x in must_include[:4] if x.strip()]
     if not seed_terms:
         seed_terms = category_query_terms(cat_key)
 
-    query = " ".join([brand_name, model_name, *seed_terms, title]).strip()
-    return query[:120]
+    return compose_search_query(
+        base_parts=[brand_name, model_name],
+        extra_parts=[*seed_terms, *category_query_terms(cat_key), title],
+    )
 
 
 def build_sku_id(brand_key: str, model_slug: str, cat_key: str, suffix: str) -> str:
