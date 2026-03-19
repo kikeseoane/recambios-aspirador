@@ -62,6 +62,7 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "chore: sync horario ofertas AliExpress [skip ci]"
+            git pull --rebase origin main
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
