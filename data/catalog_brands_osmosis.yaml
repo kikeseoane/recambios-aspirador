@@ -1,0 +1,190 @@
+brands:
+  coral-os:
+    name: "Coral"
+    vertical: "osmosis"
+    notes_brand: "Marca española líder en ósmosis doméstica. Alta demanda de membranas, filtros de etapa y juntas. Muy popular en foros de acuariofilia y agua potable."
+    models:
+      - model: "Coral CO-1000"
+        slug: "coral-co-1000"
+        year_range: "2018-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["co-1000", "co1000", "coral osmosis"]
+        intro: "El Coral CO-1000 es uno de los sistemas de ósmosis inversa domésticos más vendidos en España. De 5 etapas con membrana de 50 GPD, sus filtros de sedimento y carbono son los consumibles más demandados."
+        comprar_nuevo:
+          query: "coral co-1000 osmosis inversa 5 etapas"
+          label: "Ver Coral CO-1000 nuevo"
+          note: "Compara el precio de recambio completo frente a un sistema nuevo — a veces la diferencia es pequeña."
+        problemas:
+          - key: "bajo-caudal"
+            title: "Coral CO-1000 produce poca agua"
+            intent: "info"
+            symptoms:
+              - "El depósito tarda mucho en llenarse o nunca llega a llenarse del todo"
+              - "El caudal del grifo de ósmosis es muy bajo comparado con antes"
+              - "El sistema lleva encendido mucho tiempo pero el depósito sigue casi vacío"
+            checks:
+              - "Comprueba que la llave de paso de entrada está completamente abierta"
+              - "Verifica la presión de entrada: debe ser al menos 3 bar para funcionar correctamente"
+              - "Retira y revisa los filtros de sedimento y carbono — si están saturados (oscuros) hay que cambiarlos"
+              - "Comprueba el estado de la membrana: si lleva más de 2-3 años sin cambio, puede estar agotada"
+            causes:
+              - "Filtros de sedimento o carbono saturados que restringen el caudal (causa más frecuente)"
+              - "Membrana agotada que no permite el paso de agua"
+              - "Presión de red insuficiente (menos de 3 bar)"
+            cta: { catKey: "filtro", label: "Ver filtros y membranas compatibles" }
+          - key: "fuga-agua"
+            title: "Coral CO-1000 tiene fuga de agua"
+            intent: "info"
+            symptoms:
+              - "Hay agua acumulada bajo el fregadero donde está instalado el equipo"
+              - "Una o varias carcasas de filtro gotean por la junta"
+              - "Las conexiones de tubo entre etapas presentan humedad o goteo"
+            checks:
+              - "Localiza el origen de la fuga: identifica si viene de una carcasa, una conexión de tubo o la membrana"
+              - "Revisa las juntas O-ring de cada carcasa — si están deformadas o agrietadas hay que sustituirlas"
+              - "Aprieta suavemente las conexiones de tubo (push-fit) y verifica que el tubo entra hasta el tope"
+              - "Comprueba que las carcasas están bien cerradas — mano firme + 1/4 de vuelta de llave"
+            causes:
+              - "Junta O-ring deteriorada o mal colocada en la carcasa del filtro"
+              - "Conexión de tubo push-fit mal insertada o con el tubo cortado en ángulo"
+              - "Carcasa agrietada por apretado excesivo o golpe"
+            cta: { catKey: "junta", label: "Ver juntas O-ring compatibles" }
+
+      - model: "Coral CO-1500"
+        slug: "coral-co-1500"
+        year_range: "2019-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["co-1500", "co1500"]
+        intro: "El Coral CO-1500 es la versión de mayor caudal de la gama Coral, con membrana de 75 GPD. Ideal para familias con alto consumo de agua filtrada."
+        comprar_nuevo:
+          query: "coral co-1500 osmosis inversa 75 gpd"
+          label: "Ver Coral CO-1500 nuevo"
+
+  watts-os:
+    name: "Watts"
+    vertical: "osmosis"
+    notes_brand: "Marca americana con fuerte presencia en España. Sistemas bajo encimera de alta calidad. Los filtros de 10 pulgadas son estándar y fáciles de encontrar."
+    models:
+      - model: "Watts KWRO100-E"
+        slug: "watts-kwro100-e"
+        year_range: "2017-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["kwro100", "kwro100-e", "watts ro"]
+        intro: "El Watts KWRO100-E es un sistema de ósmosis de 5 etapas muy popular en España. Su membrana de 50 GPD y los filtros de 10 pulgadas son de fácil sustitución."
+        comprar_nuevo:
+          query: "watts kwro100 osmosis inversa 5 etapas"
+          label: "Ver Watts KWRO100-E nuevo"
+        problemas:
+          - key: "bajo-caudal"
+            title: "Watts KWRO100-E produce poca agua"
+            intent: "info"
+            symptoms:
+              - "El grifo de ósmosis tiene muy poco caudal"
+              - "El depósito tarda más de 4-5 horas en llenarse"
+              - "El sistema lleva meses sin cambio de filtros"
+            checks:
+              - "Verifica la presión de entrada — el KWRO100-E necesita al menos 2.8 bar para operar"
+              - "Cambia los filtros de sedimento y carbono si llevan más de 12 meses instalados"
+              - "Comprueba el estado del depósito: si está sin presión, puede no almacenar agua correctamente"
+              - "Revisa la membrana si el caudal sigue bajo tras cambiar los filtros de etapa"
+            causes:
+              - "Filtros de etapa saturados (sedimento, GAC, CTO)"
+              - "Depósito acumulador sin presión o con vejiga rota"
+              - "Membrana al final de su vida útil"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles Watts" }
+
+      - model: "Watts Premier WP4V"
+        slug: "watts-premier-wp4v"
+        year_range: "2016-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["wp4v", "watts premier", "premier ro"]
+        intro: "El Watts Premier WP4V es un sistema de 4 etapas compacto muy usado en España. Sus filtros son los estándar de 10 pulgadas, compatibles con muchas marcas."
+        comprar_nuevo:
+          query: "watts premier wp4v osmosis inversa"
+          label: "Ver Watts Premier WP4V nuevo"
+
+  aquaphor-os:
+    name: "Aquaphor"
+    vertical: "osmosis"
+    notes_brand: "Marca rusa muy popular en España y Europa del Este. Sistemas compactos con buena relación calidad-precio. La línea Osmo Crystal es la más vendida."
+    models:
+      - model: "Aquaphor Osmo Crystal"
+        slug: "aquaphor-osmo-crystal"
+        year_range: "2018-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["osmo crystal", "aquaphor crystal", "osmo-crystal"]
+        intro: "El Aquaphor Osmo Crystal es el sistema de ósmosis más vendido de la marca en España. Diseño compacto de 5 etapas con membrana de 50 GPD y fácil instalación."
+        comprar_nuevo:
+          query: "aquaphor osmo crystal osmosis inversa"
+          label: "Ver Aquaphor Osmo Crystal nuevo"
+        problemas:
+          - key: "sabor-agua"
+            title: "Aquaphor Osmo Crystal: el agua tiene mal sabor"
+            intent: "info"
+            symptoms:
+              - "El agua filtrada tiene sabor plástico o metálico"
+              - "El agua recién filtrada tiene olor extraño"
+              - "El sistema lleva instalado más de un año sin cambio de filtros"
+            checks:
+              - "Si el sistema es nuevo, purga el sistema durante 24-48h — el sabor plástico inicial es normal"
+              - "Comprueba el estado del filtro de carbono post-membrana — si está saturado, puede dar mal sabor"
+              - "Verifica que el filtro remineralizador está instalado si el modelo lo incluye"
+              - "Desinfecta el depósito acumulador si lleva tiempo sin usarse"
+            causes:
+              - "Sistema nuevo sin purgar suficientemente (causa más frecuente en instalaciones recientes)"
+              - "Filtro post-carbono saturado"
+              - "Depósito acumulador con bacterias por estancamiento"
+            cta: { catKey: "filtro", label: "Ver filtros de carbono y remineralizador" }
+
+      - model: "Aquaphor Morion"
+        slug: "aquaphor-morion"
+        year_range: "2019-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["morion", "aquaphor morion"]
+        intro: "El Aquaphor Morion es un sistema de ósmosis de 5 etapas con remineralización incluida. Muy valorado por el sabor equilibrado del agua de salida."
+        comprar_nuevo:
+          query: "aquaphor morion osmosis inversa remineralización"
+          label: "Ver Aquaphor Morion nuevo"
+
+  ecosoft-os:
+    name: "Ecosoft"
+    vertical: "osmosis"
+    notes_brand: "Marca ucraniana con buena presencia en España. Sistemas robustos de 5-6 etapas. La línea P'URE es la más popular. Filtros estándar de 10 pulgadas."
+    models:
+      - model: "Ecosoft P'URE"
+        slug: "ecosoft-pure"
+        year_range: "2018-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["pure ecosoft", "p'ure", "ecosoft pure"]
+        intro: "El Ecosoft P'URE es el sistema de ósmosis más vendido de la marca, con 5 etapas y membrana de 50 GPD. Sus filtros de 10 pulgadas son compatibles con los estándar del mercado."
+        comprar_nuevo:
+          query: "ecosoft pure osmosis inversa 5 etapas"
+          label: "Ver Ecosoft P'URE nuevo"
+        problemas:
+          - key: "bajo-caudal"
+            title: "Ecosoft P'URE produce poca agua"
+            intent: "info"
+            symptoms:
+              - "El caudal del grifo de ósmosis ha caído notablemente"
+              - "El depósito ya no se llena completamente"
+              - "Los filtros llevan más de 12 meses instalados"
+            checks:
+              - "Verifica si los filtros de sedimento y carbono están saturados — cámbialos si llevan más de un año"
+              - "Comprueba la presión de entrada: el P'URE necesita mínimo 2.5 bar"
+              - "Revisa el depósito acumulador: pesa el depósito vacío — si pesa mucho puede tener agua estancada por vejiga rota"
+              - "Mide el TDS de salida: si está cerca del TDS de entrada, la membrana está agotada"
+            causes:
+              - "Filtros de etapa saturados"
+              - "Membrana al final de su vida útil (más de 2-3 años)"
+              - "Presión de red insuficiente"
+            cta: { catKey: "filtro", label: "Ver filtros Ecosoft P'URE compatibles" }
+
+      - model: "Ecosoft Standard"
+        slug: "ecosoft-standard"
+        year_range: "2016-2024"
+        sku_pack: "osmosis10"
+        model_tokens: ["ecosoft standard", "standard ecosoft"]
+        intro: "El Ecosoft Standard es el modelo de entrada de la gama, con 5 etapas y diseño compacto. Muy popular en instalaciones domésticas básicas."
+        comprar_nuevo:
+          query: "ecosoft standard osmosis inversa"
+          label: "Ver Ecosoft Standard nuevo"

@@ -779,6 +779,72 @@ sku_packs:
       must_include_tpl: ["{model_token}", "cleaning", "kit", "accessory"]
       must_not_include: ["battery", "charger", "eartip", "case", "cushion"]
 
+  # Ósmosis inversa: 5 filtro + 1 junta + 1 deposito + 3 accesorios = 10
+  osmosis10:
+    - catKey: filtro
+      sku_suffix: filt-pp-sediment
+      intent: "compra"
+      title_tpl: "Filtro sedimento PP 5µm compatible para {model}"
+      must_include_tpl: ["{model_token}", "sediment", "filter", "pp"]
+      must_not_include: ["carbon", "membrane", "faucet", "tank", "housing", "tube"]
+    - catKey: filtro
+      sku_suffix: filt-carbon-gac
+      intent: "compra"
+      title_tpl: "Filtro carbono activado GAC compatible para {model}"
+      must_include_tpl: ["{model_token}", "carbon", "filter", "gac"]
+      must_not_include: ["sediment", "membrane", "faucet", "tank", "housing", "tube"]
+    - catKey: filtro
+      sku_suffix: filt-membrana-ro
+      intent: "compra"
+      title_tpl: "Membrana de ósmosis inversa compatible para {model}"
+      must_include_tpl: ["{model_token}", "membrane", "reverse", "osmosis"]
+      must_not_include: ["sediment", "carbon", "faucet", "tank", "housing", "tube"]
+    - catKey: filtro
+      sku_suffix: filt-carbon-post
+      intent: "compra"
+      title_tpl: "Filtro carbono post-membrana compatible para {model}"
+      must_include_tpl: ["{model_token}", "carbon", "post", "filter"]
+      must_not_include: ["sediment", "membrane", "faucet", "tank", "housing", "tube"]
+    - catKey: filtro
+      sku_suffix: filt-remineralizador
+      intent: "compra"
+      title_tpl: "Filtro remineralizador / alcalino compatible para {model}"
+      must_include_tpl: ["{model_token}", "remineralization", "alkaline", "filter"]
+      must_not_include: ["sediment", "carbon", "membrane", "faucet", "tank", "housing"]
+
+    - catKey: junta
+      sku_suffix: junta-oring-pack
+      intent: "compra"
+      title_tpl: "Pack juntas O-ring carcasas compatible para {model}"
+      must_include_tpl: ["{model_token}", "o-ring", "seal", "housing"]
+      must_not_include: ["filter", "membrane", "faucet", "tank", "tube"]
+
+    - catKey: deposito
+      sku_suffix: deposito-acumulador
+      intent: "compra"
+      title_tpl: "Depósito acumulador de presión compatible para {model}"
+      must_include_tpl: ["{model_token}", "pressure", "tank", "storage"]
+      must_not_include: ["filter", "membrane", "faucet", "o-ring", "tube"]
+
+    - catKey: accesorios
+      sku_suffix: acc-grifo-faucet
+      intent: "compra"
+      title_tpl: "Grifo de ósmosis compatible para {model}"
+      must_include_tpl: ["{model_token}", "faucet", "ro", "tap"]
+      must_not_include: ["filter", "membrane", "tank", "o-ring", "tube"]
+    - catKey: accesorios
+      sku_suffix: acc-tubo-kit
+      intent: "compra"
+      title_tpl: "Kit tubería / tubo conector compatible para {model}"
+      must_include_tpl: ["{model_token}", "tube", "tubing", "ro"]
+      must_not_include: ["filter", "membrane", "tank", "o-ring", "faucet"]
+    - catKey: accesorios
+      sku_suffix: acc-carcasa-housing
+      intent: "compra"
+      title_tpl: "Carcasa / alojamiento filtro compatible para {model}"
+      must_include_tpl: ["{model_token}", "housing", "filter", "replacement"]
+      must_not_include: ["membrane", "tank", "o-ring", "faucet", "tube"]
+
 # =========================================================
 # PROBLEM PACKS
 # REGLA: {model} y {model_token} se sustituyen en compilación
