@@ -116,6 +116,20 @@
     {{ return }}
   {{ end }}
 
+  {{/* Separar items con URL real de los que aún no tienen enlace */}}
+  {{ $offersData := (site.Data.ofertas).offers | default dict }}
+  {{ $itemsConUrl := slice }}
+  {{ $itemsSinUrl := slice }}
+  {{ range $items }}
+    {{ $o := index $offersData (index . "sku") | default dict }}
+    {{ if and (index $o "url") (not (index $o "needs_url")) }}
+      {{ $itemsConUrl = $itemsConUrl | append . }}
+    {{ else }}
+      {{ $itemsSinUrl = $itemsSinUrl | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $itemsOrdenados := $itemsConUrl | append $itemsSinUrl }}
+
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
     <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
@@ -288,7 +302,7 @@
     <h2 class="title-reset">Opciones populares</h2>
     <div class="products mt-10">
       {{ $shown := 0 }}
-      {{ range $idx, $it := $items }}
+      {{ range $idx, $it := $itemsConUrl }}
         {{ if lt $shown 3 }}
           <div class="product{{ if eq $shown 0 }} product--featured{{ end }}">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
@@ -341,12 +355,16 @@
       <div id="recambios-disponibles"></div>
       <h2>Recambios disponibles</h2>
       <div class="products">
-        {{ range $idx, $it := $items }}
-          <div class="product{{ if eq $idx 0 }} product--featured{{ end }}">
+        {{ range $idx, $it := $itemsOrdenados }}
+          {{ $o := index $offersData (index $it "sku") | default dict }}
+          {{ $sinUrl := or (not (index $o "url")) (index $o "needs_url") }}
+          <div class="product{{ if eq $idx 0 }} product--featured{{ end }}{{ if $sinUrl }} product--pending{{ end }}">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
-                {{ if eq $idx 0 }}
+                {{ if $sinUrl }}
+                  <span class="badge">En breve</span>
+                {{ else if eq $idx 0 }}
                   <span class="badge badge--best">Mas compatible</span>
                 {{ else }}
                   <span class="badge">Compatible</span>

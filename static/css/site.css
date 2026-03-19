@@ -1568,6 +1568,13 @@ p  { line-height: 1.65; }
   border-color: rgba(var(--primary-rgb), .2);
 }
 
+.product--pending {
+  opacity: .55;
+  filter: grayscale(.4);
+  pointer-events: none;
+}
+.product--pending .cta { display: none; }
+
 .product--featured {
   grid-column: span 2;
   padding: 18px;
