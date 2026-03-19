@@ -393,16 +393,19 @@ p  { line-height: 1.65; }
   z-index: 1;
 }
 
-/* Foto columna derecha (marcas) */
+/* Foto columna derecha */
 .hero--photo-right {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 300px);
-  align-items: stretch;
-  overflow: hidden;
+  position: relative;
+}
+.hero--photo-right .hero__inner {
+  padding-right: 320px;
 }
 .hero--photo-right .hero__photo-wrap {
-  display: flex;
-  align-items: stretch;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
   overflow: hidden;
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 }
@@ -415,7 +418,7 @@ p  { line-height: 1.65; }
   opacity: .88;
 }
 @media (max-width: 720px) {
-  .hero--photo-right { grid-template-columns: 1fr; }
+  .hero--photo-right .hero__inner { padding-right: 24px; }
   .hero--photo-right .hero__photo-wrap { display: none; }
 }
 
