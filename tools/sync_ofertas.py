@@ -749,7 +749,15 @@ def pick_relaxed_link(
             best = candidates[0]
             url = best.get("promotion_link") or best.get("product_detail_url")
             if url:
-                return str(url).strip()
+                return {
+                    "url": str(url).strip(),
+                    "image_url": str(best.get("product_main_image_url") or "").strip(),
+                    "sale_price": str(best.get("sale_price") or "").strip(),
+                    "sale_price_currency": str(best.get("sale_price_currency") or "").strip(),
+                    "original_price": str(best.get("original_price") or "").strip(),
+                    "discount": str(best.get("discount") or "").strip(),
+                    "product_title": str(best.get("product_title") or "").strip(),
+                }
 
     return None
 
@@ -818,7 +826,15 @@ def pick_best_promotion_link(
             best = candidates[0]
             url = best.get("promotion_link") or best.get("product_detail_url")
             if url:
-                return str(url).strip()
+                return {
+                    "url": str(url).strip(),
+                    "image_url": str(best.get("product_main_image_url") or "").strip(),
+                    "sale_price": str(best.get("sale_price") or "").strip(),
+                    "sale_price_currency": str(best.get("sale_price_currency") or "").strip(),
+                    "original_price": str(best.get("original_price") or "").strip(),
+                    "discount": str(best.get("discount") or "").strip(),
+                    "product_title": str(best.get("product_title") or "").strip(),
+                }
 
     return None
 
@@ -942,11 +958,22 @@ def main() -> None:
                     break
 
             if found:
-                obj["url"] = found
+                obj["url"] = found["url"]
                 obj["match_type"] = "exact_or_best_match"
                 obj["matched_query"] = matched_kw or fallback_search_query
                 obj["fallback_search_query"] = fallback_search_query
                 obj["fallback_search_label"] = fallback_search_label
+                if found.get("image_url"):
+                    obj["image_url"] = found["image_url"]
+                if found.get("sale_price"):
+                    obj["sale_price"] = found["sale_price"]
+                    obj["sale_price_currency"] = found.get("sale_price_currency", "EUR")
+                if found.get("original_price"):
+                    obj["original_price"] = found["original_price"]
+                if found.get("discount"):
+                    obj["discount"] = found["discount"]
+                if found.get("product_title"):
+                    obj["product_title"] = found["product_title"]
                 obj.pop("needs_url", None)
                 obj["updated_at"] = today
                 filled_from_aliexpress += 1
@@ -959,10 +986,21 @@ def main() -> None:
                     use_cache=use_cache,
                 )
                 if relaxed:
-                    obj["url"] = relaxed
+                    obj["url"] = relaxed["url"]
                     obj["match_type"] = "relaxed_fallback"
                     obj["fallback_search_query"] = fallback_search_query
                     obj["fallback_search_label"] = fallback_search_label
+                    if relaxed.get("image_url"):
+                        obj["image_url"] = relaxed["image_url"]
+                    if relaxed.get("sale_price"):
+                        obj["sale_price"] = relaxed["sale_price"]
+                        obj["sale_price_currency"] = relaxed.get("sale_price_currency", "EUR")
+                    if relaxed.get("original_price"):
+                        obj["original_price"] = relaxed["original_price"]
+                    if relaxed.get("discount"):
+                        obj["discount"] = relaxed["discount"]
+                    if relaxed.get("product_title"):
+                        obj["product_title"] = relaxed["product_title"]
                     obj.pop("needs_url", None)
                     obj.pop("matched_query", None)
                     obj["updated_at"] = today

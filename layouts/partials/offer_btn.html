@@ -36,6 +36,11 @@
 {{ $matchType := (index $offer "match_type") | default "" }}
 {{ $searchLabel := (index $offer "fallback_search_label") | default "" }}
 {{ $searchQuery := (index $offer "fallback_search_query") | default "" }}
+{{ $imageURL := (index $offer "image_url") | default "" }}
+{{ $salePrice := (index $offer "sale_price") | default "" }}
+{{ $originalPrice := (index $offer "original_price") | default "" }}
+{{ $discount := (index $offer "discount") | default "" }}
+{{ $currency := (index $offer "sale_price_currency") | default "EUR" }}
 {{ $searchURL := "" }}
 
 {{ if $searchQuery }}
@@ -51,6 +56,20 @@
   {{ end }}
 
   <div class="offer-action">
+    {{ if $imageURL }}
+      <div class="offer-image">
+        <img src="{{ $imageURL }}" alt="{{ $label }}" loading="lazy" width="120" height="120">
+      </div>
+    {{ end }}
+    {{ if $salePrice }}
+      <div class="offer-price">
+        <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
+        {{ if and $originalPrice (ne $originalPrice $salePrice) }}
+          <span class="offer-price__original">{{ $originalPrice }} {{ $currency }}</span>
+        {{ end }}
+        {{ if $discount }}<span class="offer-price__discount">-{{ $discount }}%</span>{{ end }}
+      </div>
+    {{ end }}
     {{ if not $hideTrust }}
       <div class="offer-trust">
         <span class="offer-trust__icon" aria-hidden="true">✓</span>

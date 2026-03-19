@@ -1668,6 +1668,46 @@ p  { line-height: 1.65; }
   min-height: 18px;
 }
 
+.offer-image {
+  text-align: center;
+  margin-bottom: 4px;
+}
+.offer-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 4px;
+}
+
+.offer-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.offer-price__sale {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+.offer-price__original {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+.offer-price__discount {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: #dc2626;
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
 @media (max-width: 720px) {
   .product--featured {
     grid-column: span 1;
