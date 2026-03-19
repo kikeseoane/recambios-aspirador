@@ -64,8 +64,8 @@ jobs:
             -d text="$MSG"
 
       - name: Notificar Telegram (error)
-        if: failure()
+        if: failure() || cancelled()
         run: |
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-            -d text="❌ Sync AliExpress FALLIDO — revisa el log en GitHub Actions."
+            -d text="❌ Sync AliExpress FALLIDO (estado: ${{ job.status }}) — revisa el log en GitHub Actions."
