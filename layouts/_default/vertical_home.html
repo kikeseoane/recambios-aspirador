@@ -29,7 +29,7 @@
   {{- $heroCopy := $vconf.hero_copy | default $vconf.description }}
   {{- $slug := $vconf.slug }}
 
-  <section class="hero hero--bg hero--editorial">
+  <section class="hero hero--bg hero--editorial hero--with-photo">
     <div class="hero__inner">
       <div class="hero__kicker">{{ $vconf.label }}</div>
       <h1>Recambios {{ $vconf.label | strings.TrimPrefix "Recambios de " }} compatibles por modelo</h1>
@@ -54,6 +54,13 @@
           <span class="hero-stat__label">recambios mapeados</span>
         </div>
       </div>
+    </div>
+    <div class="hero__photo-wrap">
+      <img class="hero__photo"
+           src="{{ (printf "/img/verticals/%s.webp" $vertKey) | relURL }}"
+           alt="{{ $vconf.label }}"
+           loading="eager"
+           onerror="this.closest('.hero__photo-wrap').style.display='none'">
     </div>
   </section>
 
