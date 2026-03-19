@@ -549,6 +549,12 @@ p  { line-height: 1.65; }
   border: 1px solid var(--border);
   background: #fff;
 }
+.hero-visual-art--photo {
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  opacity: .92;
+}
 
 .hero-stack-grid {
   display: grid;
