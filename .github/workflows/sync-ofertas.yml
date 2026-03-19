@@ -61,25 +61,19 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ofertas.yaml
-          if git diff --cached --quiet; then
+          # Copiar el archivo actualizado fuera del repo
+          cp data/ofertas.yaml /tmp/ofertas_new.yaml
+          # Resetear al estado más reciente del remoto
+          git fetch origin main
+          git reset --hard origin/main
+          # Comprobar si hay cambios respecto al remoto
+          if diff -q /tmp/ofertas_new.yaml data/ofertas.yaml > /dev/null 2>&1; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
+            cp /tmp/ofertas_new.yaml data/ofertas.yaml
+            git add data/ofertas.yaml
             git commit -m "chore: sync horario ofertas AliExpress [skip ci]"
-            PUSHED=false
-            for i in 1 2 3 4 5; do
-              git pull --rebase --autostash origin main || true
-              if git push; then
-                PUSHED=true
-                break
-              fi
-              echo "Push intento $i/5 fallido, reintentando en 3s..."
-              sleep 3
-            done
-            if [ "$PUSHED" != "true" ]; then
-              echo "ERROR: no se pudo pushear tras 5 intentos"
-              exit 1
-            fi
+            git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
