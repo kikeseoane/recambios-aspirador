@@ -83,7 +83,7 @@
           {{ partial "card_icon.html" (dict "kind" "brand") }}
           <div class="card-body">
             <h3>{{ $b.name }}</h3>
-            <p class="muted">Recambios compatibles para {{ $b.name }}: laminas, cabezales, cargadores y accesorios.</p>
+            <p class="muted">{{ with $b.notes_brand }}{{ . }}{{ else }}Recambios compatibles para {{ $b.name }}.{{ end }}</p>
             <div class="badges">
               <span class="badge hot">{{ len $b.models }} modelos</span>
               {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
@@ -122,7 +122,7 @@
   {{- if $filteredCats }}
     <div class="section-head" style="margin-top:18px;">
       <h2>Que recambio necesitas?</h2>
-      <span class="chip">Categorias</span>
+      <span class="chip">Piezas disponibles</span>
     </div>
     <div class="grid cards">
       {{- range $filteredCats }}
@@ -152,7 +152,7 @@
   {{- end }}
 
   <div class="section-head" style="margin-top:28px;">
-    <h2>Buscas otros recambios?</h2>
+    <h2>¿También necesitas recambios de…?</h2>
   </div>
   {{ partial "cross_promo.html" (dict "currentVertical" $vertKey) }}
 {{ end }}
