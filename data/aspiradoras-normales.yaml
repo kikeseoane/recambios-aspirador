@@ -1,0 +1,3327 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  rowenta-asp:
+    name: Rowenta
+    notes_brand: Marca francesa de referencia en aspiradoras de trineo con bolsa.
+      Alta demanda en bolsas tipo Rohs, filtros HEPA y cepillos de suelo. Los modelos
+      Silence Force son los más buscados por su bajo nivel de ruido.
+    models:
+    - model: Rowenta Silence Force RO7690
+      slug: rowenta-silence-force-ro7690
+      year_range: 2018-2024
+      sku_pack: vacuumbag10
+      model_tokens:
+      - ro7690
+      - silence force ro7690
+      intro: El Rowenta Silence Force RO7690 es uno de los aspiradores de trineo más
+        silenciosos del mercado, con motor de 3000 W y bolsas tipo Rohs / ZR200520
+        de alta filtración. Su tecnología ProSilence garantiza menos de 68 dB en uso,
+        ideal para hogares con bebés o mascotas. El filtro HEPA lavable retiene el
+        99,97 % de las partículas finas, lo que lo convierte en una opción excelente
+        para personas con alergias.
+      comprar_nuevo:
+        query: rowenta silence force RO7690 vacuum cleaner
+        label: Ver Rowenta Silence Force RO7690 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Rowenta Silence Force RO7690 pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora no recoge el polvo con la misma eficacia que antes
+        - Hay que pasar el cepillo varias veces por el mismo sitio para recoger la
+          suciedad
+        - El sonido del motor se vuelve más agudo o inusualmente silencioso
+        - El indicador de potencia baja solo aunque la aspiradora esté en modo máximo
+        checks:
+        - 'Comprueba el indicador de bolsa en el cuerpo: si está en rojo, cambia la
+          bolsa aunque no parezca llena'
+        - Retira y sacude suavemente el filtro pre-motor; si está gris oscuro, cámbialo
+        - Lava el filtro HEPA bajo agua fría y déjalo secar al menos 24 horas antes
+          de reinstalarlo
+        - Inspecciona el tubo telescópico y el manguito flexible buscando grietas
+          o fugas de aire
+        - Comprueba que el cepillo de suelo gire con libertad y no tenga pelos ni
+          hilos enredados
+        causes:
+        - Bolsa Rohs llena o compactada que corta el flujo de aire aunque no esté
+          visiblemente inflada
+        - Filtro pre-motor saturado de polvo fino que actúa como tapón
+        - Filtro HEPA colmatado que restringe la salida de aire y reduce la depresión
+        - Obstrucción parcial en el codo del tubo o en la entrada del cepillo de suelo
+        cta:
+          catKey: bolsa
+          label: Ver bolsas compatibles Rohs
+      - key: huele-mal
+        title: Rowenta Silence Force RO7690 desprende mal olor al aspirar
+        intent: info
+        symptoms:
+        - Sale un olor a polvo quemado o rancio cada vez que se enciende la aspiradora
+        - El olor aumenta cuando se pasa por alfombras o zonas con pelo de mascota
+        - El olor persiste aunque se haya vaciado la bolsa recientemente
+        checks:
+        - Retira la bolsa y examina si hay humedad, moho o restos orgánicos en su
+          interior
+        - Limpia el compartimento de la bolsa con un paño húmedo con unas gotas de
+          vinagre blanco
+        - 'Revisa el filtro HEPA: un filtro muy antiguo acumula bacterias y emite
+          mal olor'
+        - Comprueba que el cepillo de suelo no tenga pelo quemado enredado en el rodillo
+        causes:
+        - Bolsa usada con restos húmedos que han generado hongos o bacterias en su
+          interior
+        - Filtros saturados que retienen partículas orgánicas y desprenden olor al
+          calentar el motor
+        - Residuos acumulados en el interior del cuerpo de la aspiradora, especialmente
+          en zonas de codo
+        - Pelo de mascota quemado por fricción en el cepillo de suelo motorizado
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: se-apaga-sola
+        title: Rowenta Silence Force RO7690 se apaga sola durante el uso
+        intent: info
+        symptoms:
+        - La aspiradora se detiene de forma repentina a los pocos minutos de encenderla
+        - Se apaga y no vuelve a arrancar hasta que ha pasado un tiempo
+        - El motor arranca pero se corta antes de alcanzar la potencia máxima
+        checks:
+        - 'Deja la aspiradora apagada y sin usar al menos 30 minutos: el termostato
+          necesita enfriarse'
+        - Verifica que todos los filtros estén instalados correctamente y que la bolsa
+          no esté llena
+        - Comprueba que el cepillo de suelo y el tubo no tengan ninguna obstrucción
+        - Asegúrate de que las rejillas de ventilación del cuerpo no estén tapadas
+          por polvo o suciedad
+        causes:
+        - Termostato de seguridad activado por sobrecalentamiento del motor
+        - Filtros obstruidos que impiden la refrigeración del motor por falta de flujo
+          de aire
+        - Bolsa llena que provoca un aumento de temperatura por sobreesfuerzo del
+          motor
+        - Rejillas de ventilación tapadas que impiden la disipación del calor
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bolsa:
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Rowenta Silence Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 dust bag Bolsas compatibles
+            (pack) para Rowenta Silence Force RO7690
+          must_include:
+          - ro7690
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id001
+          - ro7690
+          - silence force ro7690
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Rowenta Silence
+            Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 bag hepa Bolsas HEPA
+            alta filtración compatibles (pack) para Rowenta Silence
+          must_include:
+          - ro7690
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id001
+        filtro:
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 filter pre Filtro pre-motor
+            compatible para Rowenta Silence Force RO7690
+          must_include:
+          - ro7690
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id001
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 filter hepa Filtro HEPA
+            post-motor compatible para Rowenta Silence Force RO7
+          must_include:
+          - ro7690
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id001
+        cepillo:
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 floor brush Cepillo de
+            suelo compatible para Rowenta Silence Force RO7690
+          must_include:
+          - ro7690
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id001
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: 'Rowenta Rowenta Silence Force RO7690 ro7690 turbo brush Cepillo
+            turbo / eléctrico compatible para Rowenta Silence Force '
+          must_include:
+          - ro7690
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id001
+        correa:
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-correa-correa-std
+          title: Correa de transmisión compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 belt drive Correa de
+            transmisión compatible para Rowenta Silence Force RO769
+          must_include:
+          - ro7690
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id001
+        accesorios:
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: 'Rowenta Rowenta Silence Force RO7690 ro7690 crevice nozzle Boquilla
+            para rincones compatible para Rowenta Silence Force '
+          must_include:
+          - ro7690
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id001
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 upholstery brush Boquilla
+            tapicería compatible para Rowenta Silence Force RO
+          must_include:
+          - ro7690
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id001
+        - sku: rowenta-asp-rowenta-silence-force-ro7690-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Rowenta Silence Force RO7690
+          intent: compra
+          query: Rowenta Rowenta Silence Force RO7690 ro7690 hose flexible Tubo flexible
+            / manguera compatible para Rowenta Silence Force
+          must_include:
+          - ro7690
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id001
+    - model: Rowenta Compact Power RO3731
+      slug: rowenta-compact-power-ro3731
+      year_range: 2016-2022
+      sku_pack: vacuumbag10
+      model_tokens:
+      - ro3731
+      - compact power ro3731
+      intro: 'El Rowenta Compact Power RO3731 es la propuesta de gama media de Rowenta:
+        compacto, ligero y con bolsa tipo Rohs de gran capacidad. Con un motor de
+        750 W y hasta 78 dB, ofrece un buen equilibrio entre potencia y precio para
+        pisos de tamaño mediano. Su diseño ergonómico con asa de transporte lo hace
+        especialmente cómodo de guardar y llevar de una habitación a otra.'
+      comprar_nuevo:
+        query: rowenta compact power RO3731 vacuum cleaner
+        label: Ver Rowenta Compact Power RO3731 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Rowenta Compact Power RO3731 pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora no recoge la suciedad superficial del suelo
+        - El tubo flexible vibra de forma inusual, señal de pérdida de presión
+        - La bolsa no parece llena pero el rendimiento es muy bajo
+        checks:
+        - 'Cambia la bolsa: incluso al 50 % de capacidad puede reducir la succión
+          notablemente'
+        - Retira el filtro pre-motor y límpialo dando golpecitos suaves; si está muy
+          oscuro, cámbialo
+        - Inspecciona el tubo rígido y el manguito buscando roturas o conexiones flojas
+        - Revisa que el cepillo de suelo no tenga el conducto de entrada bloqueado
+        causes:
+        - Bolsa saturada que no permite la circulación de aire aunque no esté visiblemente
+          llena
+        - Filtro pre-motor colmatado por uso prolongado sin reemplazarlo
+        - Grieta en el tubo o en el codo del manguito que provoca fuga de vacío
+        cta:
+          catKey: bolsa
+          label: Ver bolsas compatibles Rohs
+      - key: no-recoge-bien-alfombra
+        title: Rowenta Compact Power RO3731 no recoge bien en alfombra
+        intent: info
+        symptoms:
+        - El cepillo de suelo se arrastra con dificultad por la moqueta
+        - Quedan restos visibles de pelo y pelusa después de pasar la aspiradora
+        - El cepillo avanza pero no levanta el polvo incrustado en las fibras
+        checks:
+        - Comprueba que el regulador de altura del cepillo esté en la posición correcta
+          para alfombra
+        - Retira el cepillo y elimina los pelos y fibras enredados en las cerdas con
+          unas tijeras
+        - Verifica que las cerdas del cepillo no estén aplastadas o desgastadas
+        - Aumenta la potencia de aspiración al máximo antes de pasar por alfombra
+        causes:
+        - Cepillo de suelo con cerdas desgastadas que ya no crean el efecto de agitación
+          necesario
+        - Pelo y fibras enredadas en el eje del cepillo que frenan su movimiento
+        - Potencia de succión insuficiente por filtros o bolsa parcialmente saturados
+        cta:
+          catKey: cepillo
+          label: Ver cepillos de suelo compatibles
+      - key: huele-mal
+        title: Rowenta Compact Power RO3731 huele mal al usarla
+        intent: info
+        symptoms:
+        - Olor a polvo o a quemado al encender la aspiradora
+        - El olor es más intenso cuando se aspiran alfombras o zonas con pelo de animal
+        - El olor persiste aunque la bolsa sea nueva
+        checks:
+        - Limpia el interior del compartimento de la bolsa con un paño seco
+        - Reemplaza el filtro pre-motor si lleva más de 6 meses en uso
+        - Revisa el cepillo de suelo y elimina cualquier resto de pelo quemado por
+          fricción
+        causes:
+        - Filtro pre-motor saturado que acumula bacterias y desprende olor al calentarse
+        - Restos orgánicos dentro del cuerpo de la aspiradora que se calientan con
+          el motor
+        - Pelo de mascota quemado por fricción en el cepillo de suelo
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bolsa:
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Rowenta Compact Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 dust bag Bolsas compatibles
+            (pack) para Rowenta Compact Power RO3731
+          must_include:
+          - ro3731
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id002
+          - ro3731
+          - compact power ro3731
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Rowenta Compact
+            Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 bag hepa Bolsas HEPA
+            alta filtración compatibles (pack) para Rowenta Compact
+          must_include:
+          - ro3731
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id002
+        filtro:
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 filter pre Filtro pre-motor
+            compatible para Rowenta Compact Power RO3731
+          must_include:
+          - ro3731
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id002
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 filter hepa Filtro HEPA
+            post-motor compatible para Rowenta Compact Power RO3
+          must_include:
+          - ro3731
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id002
+        cepillo:
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 floor brush Cepillo de
+            suelo compatible para Rowenta Compact Power RO3731
+          must_include:
+          - ro3731
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id002
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: 'Rowenta Rowenta Compact Power RO3731 ro3731 turbo brush Cepillo
+            turbo / eléctrico compatible para Rowenta Compact Power '
+          must_include:
+          - ro3731
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id002
+        correa:
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-correa-correa-std
+          title: Correa de transmisión compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 belt drive Correa de
+            transmisión compatible para Rowenta Compact Power RO373
+          must_include:
+          - ro3731
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id002
+        accesorios:
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: 'Rowenta Rowenta Compact Power RO3731 ro3731 crevice nozzle Boquilla
+            para rincones compatible para Rowenta Compact Power '
+          must_include:
+          - ro3731
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id002
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 upholstery brush Boquilla
+            tapicería compatible para Rowenta Compact Power RO
+          must_include:
+          - ro3731
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id002
+        - sku: rowenta-asp-rowenta-compact-power-ro3731-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Rowenta Compact Power RO3731
+          intent: compra
+          query: Rowenta Rowenta Compact Power RO3731 ro3731 hose flexible Tubo flexible
+            / manguera compatible para Rowenta Compact Power
+          must_include:
+          - ro3731
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id002
+    - model: Rowenta RO6834
+      slug: rowenta-ro6834
+      year_range: 2017-2023
+      sku_pack: vacuumcyclone10
+      model_tokens:
+      - ro6834
+      - rowenta ro6834
+      intro: El Rowenta RO6834 es un aspirador de trineo ciclónico sin bolsa de la
+        serie Silence Force, con tecnología multicíclón que separa el polvo en seco
+        sin necesidad de bolsa. Su depósito de 1,5 litros es fácil de vaciar y su
+        filtro lavable reduce el coste de mantenimiento. Resulta especialmente práctico
+        para hogares con mascotas gracias al cepillo turbo incluido.
+      comprar_nuevo:
+        query: rowenta RO6834 cyclone bagless vacuum cleaner
+        label: Ver Rowenta RO6834 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Rowenta RO6834 pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora recoge menos suciedad de lo habitual aunque el depósito esté
+          vacío
+        - Noto que el aire de salida tiene menos fuerza
+        - El motor suena más forzado que de costumbre
+        checks:
+        - Vacía y lava el depósito con agua tibia; comprueba que esté completamente
+          seco antes de reinstalar
+        - Retira el filtro lavable y lávalo bajo el grifo con agua fría; déjalo secar
+          24 horas
+        - Comprueba que la junta del ciclón esté bien colocada y no esté deteriorada
+        - Inspecciona el tubo y el cepillo buscando obstrucciones o cuerpos extraños
+        causes:
+        - Filtro lavable saturado que no se ha limpiado con la frecuencia recomendada
+        - Depósito con polvo fino compactado en las paredes del ciclón que reduce
+          el giro
+        - Junta del ciclón desgastada que provoca micro-fugas de vacío
+        - Obstrucción parcial en el tubo o en el cepillo de suelo
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: filtros-atascados
+        title: 'Rowenta RO6834: filtros atascados o difíciles de limpiar'
+        intent: info
+        symptoms:
+        - El filtro lavable tiene polvo compactado que no sale con agua
+        - Después de lavar el filtro la succión no mejora
+        - El filtro HEPA presenta coloración oscura permanente
+        checks:
+        - Lava el filtro lavable con agua tibia y una gota de jabón neutro; aclara
+          bien hasta que el agua salga clara
+        - 'No uses secadora ni fuente de calor para secar el filtro: puede deformarse'
+        - Si el filtro lleva más de un año en uso, reemplázalo aunque parezca limpio
+        - Comprueba que estés usando el filtro correcto para el modelo RO6834
+        causes:
+        - 'Filtro no lavado durante demasiado tiempo: el polvo fino se cementifica'
+        - Filtro que se reinstala húmedo, favoreciendo el crecimiento de moho y obstruyendo
+          los poros
+        - Filtro incorrecto o genérico que no encaja bien y deja pasar polvo al motor
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: deposito-no-cierra
+        title: 'Rowenta RO6834: el depósito no cierra o pierde polvo'
+        intent: info
+        symptoms:
+        - El depósito no encaja con un clic firme como antes
+        - Sale polvo por la ranura del depósito durante el uso
+        - El pestillo de apertura está flojo o se abre solo al mover la aspiradora
+        checks:
+        - 'Limpia el borde del depósito y la junta de cierre con un paño húmedo: los
+          residuos impiden el sellado'
+        - 'Inspecciona la junta de goma del cierre: busca grietas, deformaciones o
+          partes que falten'
+        - Comprueba que el pestillo de cierre no tenga la pestaña plástica rota
+        causes:
+        - Junta de goma del cierre deteriorada por el uso o por haber lavado el depósito
+          con detergentes agresivos
+        - Pestillo de cierre de plástico roto por una caída o por abrirlo con demasiada
+          fuerza
+        - Residuos de polvo compactado en el rebaje de cierre que impiden el sellado
+          completo
+        cta:
+          catKey: deposito
+          label: Ver depósitos y juntas compatibles
+      recambios:
+        filtro:
+        - sku: rowenta-asp-rowenta-ro6834-filtro-filt-pre-sponge
+          title: Filtro esponja pre-motor compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 filter pre Filtro esponja pre-motor
+            compatible para Rowenta RO6834
+          must_include:
+          - ro6834
+          - filter
+          - pre
+          - foam
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          - cup
+          model_tokens: &id003
+          - ro6834
+          - rowenta ro6834
+        - sku: rowenta-asp-rowenta-ro6834-filtro-filt-hepa-post
+          title: Filtro HEPA post-motor compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 hepa filter Filtro HEPA post-motor
+            compatible para Rowenta RO6834
+          must_include:
+          - ro6834
+          - hepa
+          - filter
+          - exhaust
+          must_not_include:
+          - pre
+          - foam
+          - sponge
+          - brush
+          - hose
+          - bin
+          model_tokens: *id003
+        - sku: rowenta-asp-rowenta-ro6834-filtro-filt-washable
+          title: Filtro lavable ciclón compatible (pack) para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 filter washable Filtro lavable ciclón
+            compatible (pack) para Rowenta RO6834
+          must_include:
+          - ro6834
+          - filter
+          - washable
+          - cyclone
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          model_tokens: *id003
+        deposito:
+        - sku: rowenta-asp-rowenta-ro6834-deposito-deposito-dust-bin
+          title: Depósito / cubo de polvo compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 dust bin Depósito / cubo de polvo compatible
+            para Rowenta RO6834
+          must_include:
+          - ro6834
+          - dust
+          - bin
+          - cup
+          - container
+          must_not_include:
+          - filter
+          - brush
+          - hose
+          - nozzle
+          - belt
+          model_tokens: *id003
+        cepillo:
+        - sku: rowenta-asp-rowenta-ro6834-cepillo-brush-floor-cyclone
+          title: Cepillo de suelo compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 floor brush Cepillo de suelo compatible
+            para Rowenta RO6834
+          must_include:
+          - ro6834
+          - floor
+          - brush
+          - head
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id003
+        - sku: rowenta-asp-rowenta-ro6834-cepillo-brush-turbo-cyclone
+          title: Cepillo turbo / eléctrico compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 turbo motorized Cepillo turbo / eléctrico
+            compatible para Rowenta RO6834
+          must_include:
+          - ro6834
+          - turbo
+          - motorized
+          - brush
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor nozzle
+          model_tokens: *id003
+        accesorios:
+        - sku: rowenta-asp-rowenta-ro6834-accesorios-acc-crevice-cyclone
+          title: Boquilla rincones compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 crevice tool Boquilla rincones compatible
+            para Rowenta RO6834
+          must_include:
+          - ro6834
+          - crevice
+          - tool
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          - upholstery
+          model_tokens: *id003
+        - sku: rowenta-asp-rowenta-ro6834-accesorios-acc-upholstery-cyclone
+          title: Boquilla tapicería compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 upholstery brush Boquilla tapicería
+            compatible para Rowenta RO6834
+          must_include:
+          - ro6834
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id003
+        - sku: rowenta-asp-rowenta-ro6834-accesorios-acc-hose-cyclone
+          title: Manguera / tubo flexible compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 hose flexible Manguera / tubo flexible
+            compatible para Rowenta RO6834
+          must_include:
+          - ro6834
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - nozzle
+          model_tokens: *id003
+        - sku: rowenta-asp-rowenta-ro6834-accesorios-acc-kit-nozzle-cyclone
+          title: Kit boquillas y accesorios compatible para Rowenta RO6834
+          intent: compra
+          query: Rowenta Rowenta RO6834 ro6834 accessory kit Kit boquillas y accesorios
+            compatible para Rowenta RO6834
+          must_include:
+          - ro6834
+          - accessory
+          - kit
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          model_tokens: *id003
+  bosch-asp:
+    name: Bosch
+    notes_brand: Marca alemana con gran cuota de mercado en aspiradoras de trineo
+      con bolsa. Muy demandadas las bolsas Tipo G y los filtros HEPA. Los modelos
+      ProSilence y Serie 4 son los más vendidos en España.
+    models:
+    - model: Bosch ProSilence BGS5ZOOO
+      slug: bosch-prosilence-bgs5zooo
+      year_range: 2018-2024
+      sku_pack: vacuumbag10
+      model_tokens:
+      - bgs5zooo
+      - prosilence bgs5zooo
+      intro: El Bosch ProSilence BGS5ZOOO destaca por ser uno de los aspiradores de
+        trineo más silenciosos de la gama Bosch, con tan solo 68 dB en funcionamiento
+        y un motor de 700 W de potencia de entrada. Utiliza bolsas Tipo G de alta
+        filtración y filtro HEPA lavable, lo que lo convierte en una elección popular
+        para alérgicos. Su diseño compacto y su radio de acción de 9 metros facilitan
+        la limpieza de pisos medianos y grandes.
+      comprar_nuevo:
+        query: bosch prosilence BGS5ZOOO vacuum cleaner
+        label: Ver Bosch ProSilence BGS5ZOOO nuevo
+      problemas:
+      - key: pierde-succion
+        title: Bosch ProSilence BGS5ZOOO pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora no recoge el polvo con la eficacia habitual
+        - El indicador de obstrucción del tubo se ilumina aunque no haya nada bloqueado
+        - El motor suena más forzado y la succión se recupera al abrir el compartimento
+          de la bolsa
+        checks:
+        - 'Verifica el estado de la bolsa Tipo G: cámbiala si el indicador marca rojo
+          o si lleva más de 3 meses'
+        - Saca el filtro pre-motor y sacúdelo suavemente sobre el cubo; si está muy
+          oscuro, cámbialo
+        - Lava el filtro HEPA bajo agua fría y déjalo secar completamente antes de
+          reinstalarlo
+        - Inspecciona el tubo rígido y el manguito flexible buscando fisuras o conexiones
+          sueltas
+        causes:
+        - Bolsa Tipo G saturada que impide el flujo de aire incluso antes de estar
+          completamente llena
+        - Filtro pre-motor colmatado que actúa como barrera al paso del aire
+        - Filtro HEPA húmedo o saturado que restringe la salida del aire exhausto
+        - Grieta en la tubería o conexión suelta que provoca pérdida de vacío
+        cta:
+          catKey: bolsa
+          label: Ver bolsas Tipo G compatibles
+      - key: se-apaga-sola
+        title: Bosch ProSilence BGS5ZOOO se apaga sola
+        intent: info
+        symptoms:
+        - La aspiradora se para de repente durante el uso y no arranca hasta pasados
+          unos minutos
+        - El piloto de funcionamiento parpadea antes de apagarse
+        - Ocurre con más frecuencia cuanto más tiempo lleva en marcha
+        checks:
+        - Deja la aspiradora desenchufada y fría 30 minutos antes de volver a intentarlo
+        - Comprueba que la bolsa no esté llena y que todos los filtros estén limpios
+          y bien colocados
+        - Asegúrate de que las rejillas de ventilación del cuerpo no estén obstruidas
+        - Verifica que el tubo y el cepillo no tengan ningún objeto bloqueando el
+          paso del aire
+        causes:
+        - Termostato térmico de seguridad que corta el motor para prevenir el sobrecalentamiento
+        - Filtros sucios que reducen el flujo de aire de refrigeración del motor
+        - Bolsa llena que obliga al motor a trabajar en exceso elevando su temperatura
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: huele-mal
+        title: Bosch ProSilence BGS5ZOOO huele mal al aspirar
+        intent: info
+        symptoms:
+        - Olor a polvo o a quemado que sale por la rejilla de escape
+        - El olor aparece nada más encender la aspiradora
+        - El olor empeora con el tiempo de uso aunque la bolsa parezca nueva
+        checks:
+        - 'Cambia la bolsa aunque no esté completamente llena: las bolsas viejas acumulan
+          bacterias'
+        - Revisa el filtro HEPA; si lleva más de un año, cámbialo aunque se vea limpio
+        - Limpia el interior del compartimento de la bolsa con un paño ligeramente
+          húmedo
+        causes:
+        - Bolsa con restos orgánicos (pelo, comida, humedad) que generan bacterias
+          y mal olor
+        - Filtro HEPA muy antiguo que retiene partículas orgánicas y las libera al
+          calentarse
+        - Residuos acumulados en el cuerpo de la aspiradora por no limpiar el compartimento
+          periódicamente
+        cta:
+          catKey: filtro
+          label: Ver filtros HEPA compatibles
+      recambios:
+        bolsa:
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo dust bag Bolsas compatibles
+            (pack) para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id004
+          - bgs5zooo
+          - prosilence bgs5zooo
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Bosch ProSilence
+            BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo bag hepa Bolsas HEPA alta
+            filtración compatibles (pack) para Bosch ProSilence B
+          must_include:
+          - bgs5zooo
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id004
+        filtro:
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo filter pre Filtro pre-motor
+            compatible para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id004
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo filter hepa Filtro HEPA
+            post-motor compatible para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id004
+        cepillo:
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo floor brush Cepillo de suelo
+            compatible para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id004
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo turbo brush Cepillo turbo
+            / eléctrico compatible para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id004
+        correa:
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-correa-correa-std
+          title: Correa de transmisión compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo belt drive Correa de transmisión
+            compatible para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id004
+        accesorios:
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo crevice nozzle Boquilla
+            para rincones compatible para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id004
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo upholstery brush Boquilla
+            tapicería compatible para Bosch ProSilence BGS5ZOOO
+          must_include:
+          - bgs5zooo
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id004
+        - sku: bosch-asp-bosch-prosilence-bgs5zooo-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Bosch ProSilence BGS5ZOOO
+          intent: compra
+          query: Bosch Bosch ProSilence BGS5ZOOO bgs5zooo hose flexible Tubo flexible
+            / manguera compatible para Bosch ProSilence BGS5ZOO
+          must_include:
+          - bgs5zooo
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id004
+    - model: Bosch Serie 4 BGL35MOV35
+      slug: bosch-serie-4-bgl35mov35
+      year_range: 2017-2023
+      sku_pack: vacuumbag10
+      model_tokens:
+      - bgl35mov35
+      - serie 4 bgl35mov35
+      intro: El Bosch Serie 4 BGL35MOV35 es el aspirador de trineo de gama de entrada
+        de Bosch más vendido en España, con motor de 600 W, bolsas Tipo G y filtro
+        de microfibra lavable. Su peso reducido de 3,7 kg y su radio de acción de
+        8 metros lo hacen ideal para pisos pequeños y medianos. El cepillo de suelo
+        con regulación automática adapta la altura a parquet, baldosa y alfombra sin
+        cambiar de accesorio.
+      comprar_nuevo:
+        query: bosch serie 4 BGL35MOV35 vacuum cleaner
+        label: Ver Bosch Serie 4 BGL35MOV35 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Bosch Serie 4 BGL35MOV35 pierde succión
+        intent: info
+        symptoms:
+        - Deja restos visibles de polvo y suciedad en el suelo después de pasar
+        - El indicador de flujo de aire del tubo se pone en rojo
+        - La aspiradora requiere varias pasadas para recoger la misma suciedad de
+          antes
+        checks:
+        - 'Cambia la bolsa Tipo G: el modelo BGL35MOV35 pierde succión de forma notable
+          al superar el 60 % de llenado'
+        - Retira el filtro de microfibra y lávalo bajo el grifo; déjalo secar 24 horas
+          antes de recolocar
+        - Comprueba que el cepillo de suelo no tenga pelos enredados en las cerdas
+        - Busca posibles obstrucciones en el codo del tubo o en la entrada del cepillo
+        causes:
+        - Bolsa Tipo G llena que restringe el flujo de aire aunque el indicador no
+          haya llegado al rojo
+        - Filtro de microfibra obstruido por polvo fino que no se ha lavado
+        - Cepillo de suelo con acceso bloqueado por un cuerpo extraño
+        cta:
+          catKey: bolsa
+          label: Ver bolsas Tipo G compatibles
+      - key: no-recoge-bien-alfombra
+        title: Bosch Serie 4 BGL35MOV35 no recoge bien en alfombra
+        intent: info
+        symptoms:
+        - La aspiradora se engancha o avanza con dificultad sobre la moqueta
+        - Quedan pelos y pelusas visibles después de pasar por la alfombra
+        - El cepillo se levanta del suelo debido a la succión excesiva en modo máximo
+        checks:
+        - 'Reduce la potencia al nivel medio para alfombras: demasiada succión adhiere
+          el cepillo a la moqueta'
+        - Comprueba que el regulador del cepillo esté en la posición de alfombra (no
+          de parquet)
+        - 'Retira y limpia las cerdas del cepillo: el pelo enredado impide la agitación
+          de las fibras'
+        causes:
+        - Potencia de succión demasiado alta que pega el cepillo a la moqueta e impide
+          el avance
+        - Cerdas del cepillo desgastadas que no agitan las fibras de la alfombra para
+          liberar el polvo
+        - Regulador de altura del cepillo mal ajustado para el tipo de alfombra
+        cta:
+          catKey: cepillo
+          label: Ver cepillos de suelo compatibles
+      - key: correa-rota
+        title: 'Bosch Serie 4 BGL35MOV35: la correa del cepillo se rompe'
+        intent: info
+        symptoms:
+        - El rodillo del cepillo de suelo ha dejado de girar de repente
+        - Se escucha un golpe seco seguido de pérdida de agitación
+        - El cepillo motorizado no transmite movimiento al rodillo
+        checks:
+        - Desmonta el cepillo de suelo y comprueba visualmente el estado de la correa
+          de transmisión
+        - Si la correa está partida, estirada o resbaladiza, necesita cambio inmediato
+        - Comprueba que el eje del rodillo gire libremente antes de instalar una correa
+          nueva
+        causes:
+        - Correa de transmisión envejecida por el calor generado durante el uso prolongado
+        - Exceso de pelo o fibras enredado en el eje del rodillo que ha sobrecargado
+          la correa
+        - Correa de repuesto genérica de baja calidad que no aguanta la tensión del
+          motor
+        cta:
+          catKey: correa
+          label: Ver correas de transmisión compatibles
+      recambios:
+        bolsa:
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 dust bag Bolsas compatibles
+            (pack) para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id005
+          - bgl35mov35
+          - serie 4 bgl35mov35
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Bosch Serie 4
+            BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 bag hepa Bolsas HEPA alta
+            filtración compatibles (pack) para Bosch Serie 4 BGL
+          must_include:
+          - bgl35mov35
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id005
+        filtro:
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 filter pre Filtro pre-motor
+            compatible para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id005
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 filter hepa Filtro HEPA
+            post-motor compatible para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id005
+        cepillo:
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 floor brush Cepillo de
+            suelo compatible para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id005
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 turbo brush Cepillo turbo
+            / eléctrico compatible para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id005
+        correa:
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-correa-correa-std
+          title: Correa de transmisión compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 belt drive Correa de transmisión
+            compatible para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id005
+        accesorios:
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 crevice nozzle Boquilla
+            para rincones compatible para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id005
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 upholstery brush Boquilla
+            tapicería compatible para Bosch Serie 4 BGL35MOV35
+          must_include:
+          - bgl35mov35
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id005
+        - sku: bosch-asp-bosch-serie-4-bgl35mov35-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Bosch Serie 4 BGL35MOV35
+          intent: compra
+          query: Bosch Bosch Serie 4 BGL35MOV35 bgl35mov35 hose flexible Tubo flexible
+            / manguera compatible para Bosch Serie 4 BGL35MOV3
+          must_include:
+          - bgl35mov35
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id005
+  miele-asp:
+    name: Miele
+    notes_brand: Marca alemana premium con la mayor fidelización del mercado. Alta
+      demanda en bolsas originales AirClean Tipo G/N, filtros HEPA AirClean y cepillos
+      de suelo electrobrush. Los modelos Complete C1 y C2 son los más buscados en
+      España.
+    models:
+    - model: Miele Complete C1 Classic
+      slug: miele-complete-c1-classic
+      year_range: 2015-2024
+      sku_pack: vacuumbag10
+      model_tokens:
+      - complete c1
+      - miele c1 classic
+      intro: El Miele Complete C1 Classic es el modelo de entrada de la gama Complete,
+        reconocido por su excepcional durabilidad y su sistema de filtración AirClean
+        con bolsas Tipo G/N. Su motor de 1200 W y la turboboquilla STB 35-2 lo hacen
+        muy eficaz en alfombras y suelos duros. Es una de las aspiradoras más vendidas
+        en España en su segmento de precio por la relación calidad-precio y la disponibilidad
+        de recambios oficiales.
+      comprar_nuevo:
+        query: miele complete C1 classic vacuum cleaner
+        label: Ver Miele Complete C1 Classic nuevo
+      problemas:
+      - key: pierde-succion
+        title: Miele Complete C1 Classic pierde succión
+        intent: info
+        symptoms:
+        - El indicador de cambio de bolsa se ilumina aunque la bolsa parezca semivacía
+        - La aspiradora no levanta la suciedad de alfombras de pelo largo
+        - El ruido del motor ha cambiado a un tono más alto y esforzado
+        checks:
+        - 'Cambia la bolsa AirClean Tipo G/N: el sistema Miele activa el indicador
+          al 75 % de llenado para preservar la succión'
+        - Saca el filtro pre-motor y lávalo bajo el grifo si es lavable; si no lo
+          es, reemplázalo
+        - Retira el filtro HEPA AirClean de la rejilla de salida y comprueba su estado;
+          cámbialo si lleva más de 12 meses
+        - 'Verifica que la bolsa esté correctamente encajada en su soporte: una bolsa
+          mal colocada provoca fugas de aire'
+        causes:
+        - Bolsa AirClean llena o casi llena que limita el caudal de aire al motor
+        - Filtro pre-motor colmatado por uso prolongado o por haber aspirado polvo
+          muy fino
+        - Filtro HEPA de escape saturado que impide la expulsión del aire limpio
+        - Bolsa mal encajada en el soporte que deja una ranura de fuga de vacío
+        cta:
+          catKey: bolsa
+          label: Ver bolsas AirClean compatibles
+      - key: huele-mal
+        title: 'Miele Complete C1 Classic: mal olor al aspirar'
+        intent: info
+        symptoms:
+        - Olor a polvo o a cerrado que sale por la rejilla de escape
+        - El olor es especialmente intenso al inicio de cada uso
+        - El olor se nota incluso con bolsa nueva recién instalada
+        checks:
+        - Limpia el compartimento interior de la bolsa con un paño húmedo con vinagre
+          diluido
+        - 'Cambia el filtro HEPA si lleva más de un año: acumula bacterias invisibles
+          que producen olor'
+        - Si el olor persiste con bolsa y filtros nuevos, revisa el cepillo de suelo
+          y elimina restos de pelo quemado
+        causes:
+        - Filtro HEPA muy usado que acumula partículas orgánicas y las libera con
+          el calor del motor
+        - Residuos húmedos aspirados que han generado moho dentro de la bolsa
+        - Interior del cuerpo con polvo acumulado durante años que se calienta con
+          el motor
+        cta:
+          catKey: filtro
+          label: Ver filtros HEPA AirClean compatibles
+      - key: se-apaga-sola
+        title: Miele Complete C1 Classic se apaga sola
+        intent: info
+        symptoms:
+        - La aspiradora se detiene a los pocos minutos de empezar a usar
+        - Se apaga con un clic audible y no vuelve a arrancar hasta enfriarse
+        - El problema ocurre con más frecuencia cuando se aspira a potencia máxima
+        checks:
+        - Espera 30 minutos con la aspiradora desenchufada antes de volver a encenderla
+        - Cambia la bolsa y limpia todos los filtros antes de volver a probar
+        - Comprueba que el cepillo y el tubo no tengan obstrucciones que fuercen el
+          motor
+        - Asegúrate de que las rejillas de ventilación del cuerpo no estén tapadas
+        causes:
+        - Protector térmico del motor que corta el circuito ante el riesgo de sobrecalentamiento
+        - Filtros o bolsa obstruidos que reducen el caudal de refrigeración del motor
+        - Uso prolongado a potencia máxima en ambientes con poca ventilación
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bolsa:
+        - sku: miele-asp-miele-complete-c1-classic-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele dust bag Bolsas compatibles
+            (pack) para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id006
+          - complete c1
+          - miele c1 classic
+        - sku: miele-asp-miele-complete-c1-classic-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Miele Complete
+            C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele bag hepa Bolsas HEPA alta filtración
+            compatibles (pack) para Miele Complete C1 Cla
+          must_include:
+          - miele
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id006
+        filtro:
+        - sku: miele-asp-miele-complete-c1-classic-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele filter pre Filtro pre-motor
+            compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id006
+        - sku: miele-asp-miele-complete-c1-classic-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele filter hepa Filtro HEPA post-motor
+            compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id006
+        cepillo:
+        - sku: miele-asp-miele-complete-c1-classic-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele floor brush Cepillo de suelo
+            compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id006
+        - sku: miele-asp-miele-complete-c1-classic-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele turbo brush Cepillo turbo /
+            eléctrico compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id006
+        correa:
+        - sku: miele-asp-miele-complete-c1-classic-correa-correa-std
+          title: Correa de transmisión compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele belt drive Correa de transmisión
+            compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id006
+        accesorios:
+        - sku: miele-asp-miele-complete-c1-classic-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele crevice nozzle Boquilla para
+            rincones compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id006
+        - sku: miele-asp-miele-complete-c1-classic-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele upholstery brush Boquilla tapicería
+            compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id006
+        - sku: miele-asp-miele-complete-c1-classic-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Miele Complete C1 Classic
+          intent: compra
+          query: Miele Miele Complete C1 Classic miele hose flexible Tubo flexible
+            / manguera compatible para Miele Complete C1 Classic
+          must_include:
+          - miele
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id006
+    - model: Miele Complete C2 Electro+
+      slug: miele-complete-c2-electro-plus
+      year_range: 2016-2024
+      sku_pack: vacuumbag10
+      model_tokens:
+      - complete c2
+      - miele c2 electro
+      intro: El Miele Complete C2 Electro+ da un paso más sobre el C1 al incorporar
+        la electrobrush SEB 228 con motor propio para una limpieza más profunda en
+        alfombras de pelo corto y medio. Su filtración AirClean con bolsas Tipo G/N
+        y filtro HEPA lo sitúa entre las aspiradoras más completas del mercado español
+        para uso doméstico intensivo. La regulación electrónica de potencia en el
+        mango permite ajustar la succión a cada tipo de superficie sin soltar el tubo.
+      comprar_nuevo:
+        query: miele complete C2 electro plus vacuum cleaner
+        label: Ver Miele Complete C2 Electro+ nuevo
+      problemas:
+      - key: electrobrush-no-gira
+        title: 'Miele Complete C2 Electro+: la electrobrush no gira'
+        intent: info
+        symptoms:
+        - El cabezal eléctrico SEB 228 está encendido pero el rodillo no gira
+        - Se escucha el motor de la electrobrush pero las cerdas no se mueven
+        - La luz de la electrobrush parpadea en rojo indicando un bloqueo
+        checks:
+        - Desconecta la electrobrush y retira manualmente todos los pelos y fibras
+          enredados en el rodillo
+        - Comprueba que los contactos eléctricos entre el tubo y la electrobrush estén
+          limpios y sin óxido
+        - Reinicia la conexión desenchufando la electrobrush del tubo y volviéndola
+          a conectar
+        - Revisa si el rodillo tiene daños visibles en los extremos del eje que impidan
+          la rotación
+        causes:
+        - Acumulación de pelo y fibras en el eje del rodillo que bloquea físicamente
+          la rotación
+        - Rodillo desgastado con cerdas aplastadas que aumentan la fricción hasta
+          detenerlo
+        - Contacto eléctrico entre el tubo y la electrobrush defectuoso que interrumpe
+          la señal de arranque
+        cta:
+          catKey: cepillo
+          label: Ver cepillos electrobrush compatibles
+      - key: pierde-succion
+        title: Miele Complete C2 Electro+ pierde succión
+        intent: info
+        symptoms:
+        - El indicador de bolsa parpadea aunque la bolsa esté recién cambiada
+        - La electrobrush no recoge el polvo incrustado en las alfombras
+        - El motor suena a un régimen más alto de lo normal
+        checks:
+        - Verifica que la bolsa AirClean esté correctamente encajada y que el deflector
+          de la tapa esté cerrado
+        - Limpia el filtro pre-motor y reemplaza el filtro HEPA de la salida si lleva
+          más de un año
+        - Comprueba que la electrobrush no tenga el acceso de aire bloqueado por una
+          obstrucción
+        causes:
+        - Bolsa mal encajada que deja una fuga entre el soporte y la bolsa
+        - Filtro HEPA de salida saturado que impide la expulsión del aire tratado
+        - Obstrucción en el codo de la electrobrush que corta el flujo de aire
+        cta:
+          catKey: bolsa
+          label: Ver bolsas AirClean compatibles
+      - key: huele-mal
+        title: 'Miele Complete C2 Electro+: mal olor durante el uso'
+        intent: info
+        symptoms:
+        - Olor a quemado que aumenta cuanto más se usa la electrobrush
+        - El olor desaparece al usar el cepillo manual pero vuelve con la electrobrush
+        - Las cerdas de la electrobrush tienen restos de pelo carbonizado
+        checks:
+        - Retira el rodillo de la electrobrush y elimina todo el pelo enredado con
+          unas tijeras
+        - Limpia el interior del cabezal con un paño ligeramente húmedo
+        - Comprueba que el rodillo gire libremente sin fricción excesiva
+        causes:
+        - Pelo enredado en el eje del rodillo que se quema por la fricción con el
+          motor
+        - Rodillo con cerdas desgastadas que generan más calor por rozamiento
+        cta:
+          catKey: cepillo
+          label: Ver rodillos de electrobrush compatibles
+      recambios:
+        bolsa:
+        - sku: miele-asp-miele-complete-c2-electro-plus-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele dust bag Bolsas compatibles
+            (pack) para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id007
+          - complete c2
+          - miele c2 electro
+        - sku: miele-asp-miele-complete-c2-electro-plus-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Miele Complete
+            C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele bag hepa Bolsas HEPA alta
+            filtración compatibles (pack) para Miele Complete C2 El
+          must_include:
+          - miele
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id007
+        filtro:
+        - sku: miele-asp-miele-complete-c2-electro-plus-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele filter pre Filtro pre-motor
+            compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id007
+        - sku: miele-asp-miele-complete-c2-electro-plus-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele filter hepa Filtro HEPA post-motor
+            compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id007
+        cepillo:
+        - sku: miele-asp-miele-complete-c2-electro-plus-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele floor brush Cepillo de suelo
+            compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id007
+        - sku: miele-asp-miele-complete-c2-electro-plus-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele turbo brush Cepillo turbo
+            / eléctrico compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id007
+        correa:
+        - sku: miele-asp-miele-complete-c2-electro-plus-correa-correa-std
+          title: Correa de transmisión compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele belt drive Correa de transmisión
+            compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id007
+        accesorios:
+        - sku: miele-asp-miele-complete-c2-electro-plus-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele crevice nozzle Boquilla para
+            rincones compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id007
+        - sku: miele-asp-miele-complete-c2-electro-plus-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele upholstery brush Boquilla
+            tapicería compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id007
+        - sku: miele-asp-miele-complete-c2-electro-plus-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Miele Complete C2 Electro+
+          intent: compra
+          query: Miele Miele Complete C2 Electro+ miele hose flexible Tubo flexible
+            / manguera compatible para Miele Complete C2 Electro+
+          must_include:
+          - miele
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id007
+  philips-asp:
+    name: Philips
+    notes_brand: Marca holandesa con amplia presencia en el mercado español de aspiradoras
+      de trineo. Usa bolsas s-bag en prácticamente todos sus modelos de gama media
+      y alta. Alta demanda en bolsas s-bag, filtros de escape y cepillos triactivos.
+    models:
+    - model: Philips PowerPro FC8761
+      slug: philips-powerpro-fc8761
+      year_range: 2016-2022
+      sku_pack: vacuumbag10
+      model_tokens:
+      - fc8761
+      - powerpro fc8761
+      intro: El Philips PowerPro FC8761 es el aspirador de gama alta de la serie PowerPro
+        Compact, con motor de 650 W de potencia absorbida, bolsas s-bag de alta filtración
+        y filtro EPA de salida. Su cepillo TriActive+ con tres tipos de acción de
+        limpieza lo hace especialmente eficaz en suelos duros con grietas y juntas.
+        Pesa apenas 5 kg y su diseño compacto facilita el almacenamiento en espacios
+        reducidos.
+      comprar_nuevo:
+        query: philips powerpro FC8761 vacuum cleaner
+        label: Ver Philips PowerPro FC8761 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Philips PowerPro FC8761 pierde succión
+        intent: info
+        symptoms:
+        - El aspirador no recoge la suciedad visible en el suelo
+        - El indicador de bolsa llena se ilumina aunque la bolsa sea reciente
+        - La potencia de succión fluctúa durante el uso
+        checks:
+        - 'Cambia la bolsa s-bag: estas bolsas reducen notablemente la succión al
+          superar el 70 % de capacidad'
+        - Retira el filtro de motor y límpialo o cámbialo si lleva más de 6 meses
+        - Saca el filtro de salida EPA y comprueba su estado; si está grisáceo, cámbialo
+        - Revisa que el cepillo TriActive no tenga la entrada de aire bloqueada por
+          acumulación de suciedad
+        causes:
+        - Bolsa s-bag llena o con polvo muy fino compactado que impide el flujo de
+          aire
+        - Filtro de motor sucio que actúa como barrera al paso del aire de refrigeración
+        - Filtro EPA de salida obstruido que no permite expulsar el aire limpio
+        cta:
+          catKey: bolsa
+          label: Ver bolsas s-bag compatibles
+      - key: cepillo-triactive-no-funciona
+        title: 'Philips PowerPro FC8761: el cepillo TriActive+ no limpia bien'
+        intent: info
+        symptoms:
+        - El cepillo se arrastra por las juntas del suelo sin limpiarlas
+        - Las tiras de limpieza laterales del cepillo están deformadas o rotas
+        - Quedan restos de polvo en las esquinas aunque se pase el cepillo varias
+          veces
+        checks:
+        - 'Inspecciona las láminas de limpieza laterales del cepillo TriActive: deben
+          ser flexibles y estar íntegras'
+        - Limpia la placa inferior del cepillo con un paño húmedo para retirar el
+          polvo compactado
+        - Comprueba que las ruedas del cepillo giren libremente sin fricción
+        causes:
+        - Láminas de limpieza del cepillo TriActive desgastadas que ya no hacen contacto
+          con las juntas
+        - Acumulación de polvo y grasa debajo del cepillo que impide el contacto correcto
+          con el suelo
+        - Cepillo con más de 3 años de uso que ha perdido su perfil original
+        cta:
+          catKey: cepillo
+          label: Ver cepillos TriActive compatibles
+      - key: huele-mal
+        title: 'Philips PowerPro FC8761: mal olor al aspirar'
+        intent: info
+        symptoms:
+        - Olor a polvo que sale por la rejilla de salida aunque la bolsa sea nueva
+        - El olor es más intenso en las primeras pasadas de cada sesión
+        - Olor a quemado ocasional al aspirar alfombras de pelo
+        checks:
+        - Cambia el filtro EPA de salida si lleva más de un año instalado
+        - Limpia el interior del compartimento de la bolsa con un paño levemente humedecido
+          con agua
+        - 'Revisa el cepillo: el pelo enredado puede quemarse por fricción y generar
+          olor'
+        causes:
+        - Filtro EPA de salida muy usado que libera las partículas retenidas al calentarse
+        - Residuos orgánicos en la bolsa o en el interior del cuerpo
+        - Pelo de mascota quemado en el cepillo de suelo
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bolsa:
+        - sku: philips-asp-philips-powerpro-fc8761-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 dust bag Bolsas compatibles
+            (pack) para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id008
+          - fc8761
+          - powerpro fc8761
+        - sku: philips-asp-philips-powerpro-fc8761-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Philips PowerPro
+            FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 bag hepa Bolsas HEPA alta
+            filtración compatibles (pack) para Philips PowerPro FC8
+          must_include:
+          - fc8761
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id008
+        filtro:
+        - sku: philips-asp-philips-powerpro-fc8761-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 filter pre Filtro pre-motor
+            compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id008
+        - sku: philips-asp-philips-powerpro-fc8761-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 filter hepa Filtro HEPA post-motor
+            compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id008
+        cepillo:
+        - sku: philips-asp-philips-powerpro-fc8761-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 floor brush Cepillo de suelo
+            compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id008
+        - sku: philips-asp-philips-powerpro-fc8761-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 turbo brush Cepillo turbo
+            / eléctrico compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id008
+        correa:
+        - sku: philips-asp-philips-powerpro-fc8761-correa-correa-std
+          title: Correa de transmisión compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 belt drive Correa de transmisión
+            compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id008
+        accesorios:
+        - sku: philips-asp-philips-powerpro-fc8761-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 crevice nozzle Boquilla para
+            rincones compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id008
+        - sku: philips-asp-philips-powerpro-fc8761-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 upholstery brush Boquilla
+            tapicería compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id008
+        - sku: philips-asp-philips-powerpro-fc8761-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Philips PowerPro FC8761
+          intent: compra
+          query: Philips Philips PowerPro FC8761 fc8761 hose flexible Tubo flexible
+            / manguera compatible para Philips PowerPro FC8761
+          must_include:
+          - fc8761
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id008
+    - model: Philips Series 3000 FC8243
+      slug: philips-series-3000-fc8243
+      year_range: 2019-2024
+      sku_pack: vacuumbag10
+      model_tokens:
+      - fc8243
+      - series 3000 fc8243
+      intro: El Philips Series 3000 FC8243 es la propuesta de gama de entrada de Philips
+        para aspiradores de trineo con bolsa s-bag, con motor de 900 W y filtro de
+        salida de alta calidad. Su diseño compacto y su precio competitivo lo convierten
+        en uno de los modelos más vendidos en España para hogares sin mascotas ni
+        alergias graves. La bolsa s-bag Extra Clean garantiza una retención de polvo
+        superior a la bolsa estándar.
+      comprar_nuevo:
+        query: philips series 3000 FC8243 vacuum cleaner
+        label: Ver Philips Series 3000 FC8243 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Philips Series 3000 FC8243 pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora ya no recoge la suciedad con la misma eficacia
+        - Hay que pasar el cepillo dos o tres veces para limpiar el mismo trozo de
+          suelo
+        - El indicador de bolsa llena se activa con frecuencia inusual
+        checks:
+        - 'Cambia la bolsa s-bag: incluso al 60 % de llenado puede reducir la succión'
+        - Retira y limpia el filtro de motor bajo el grifo si es lavable; si no lo
+          es, reemplázalo
+        - Comprueba el filtro de salida y cámbialo si lleva más de 6 meses
+        - Busca posibles obstrucciones en el tubo y en el cepillo de suelo
+        causes:
+        - Bolsa s-bag llena que no permite circular el aire correctamente
+        - Filtro de motor saturado que impide el flujo de refrigeración
+        - Filtro de salida obstruido que reduce la velocidad de extracción del aire
+        cta:
+          catKey: bolsa
+          label: Ver bolsas s-bag compatibles
+      - key: no-recoge-bien-alfombra
+        title: Philips Series 3000 FC8243 no recoge bien en alfombra
+        intent: info
+        symptoms:
+        - El cepillo no avanza con fluidez sobre la moqueta
+        - Quedan pelos visibles tras pasar la aspiradora por alfombra
+        - El cepillo se adhiere al suelo y es difícil de empujar
+        checks:
+        - 'Reduce la potencia al nivel medio: en alfombras, la potencia máxima pega
+          el cepillo al suelo'
+        - Limpia las cerdas del cepillo de pelos y fibras enredadas
+        - 'Verifica que la bolsa no esté llena: la falta de succión también impide
+          recoger el polvo de alfombra'
+        causes:
+        - Potencia de succión demasiado elevada para el tipo de alfombra
+        - Cerdas del cepillo desgastadas que no agitan las fibras de la moqueta
+        - Bolsa o filtros saturados que reducen la succión necesaria para extraer
+          el polvo incrustado
+        cta:
+          catKey: cepillo
+          label: Ver cepillos de suelo compatibles
+      - key: se-apaga-sola
+        title: Philips Series 3000 FC8243 se apaga sola
+        intent: info
+        symptoms:
+        - La aspiradora se detiene a los pocos minutos de uso
+        - No vuelve a encenderse hasta que ha pasado un buen rato
+        - Ocurre más en verano o en habitaciones con poca ventilación
+        checks:
+        - Deja la aspiradora enfriar durante 30 minutos desenchufada
+        - Cambia la bolsa y revisa todos los filtros antes de volver a usarla
+        - Comprueba que ningún accesorio esté obstruyendo el flujo de aire
+        causes:
+        - Termostato de seguridad térmico que protege el motor ante el sobrecalentamiento
+        - Filtros o bolsa saturados que reducen la ventilación del motor
+        - Uso continuado durante más de 30 minutos a máxima potencia
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      recambios:
+        bolsa:
+        - sku: philips-asp-philips-series-3000-fc8243-bolsa-bolsa-std
+          title: Bolsas compatibles (pack) para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 dust bag Bolsas compatibles
+            (pack) para Philips Series 3000 FC8243
+          must_include:
+          - fc8243
+          - dust
+          - bag
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: &id009
+          - fc8243
+          - series 3000 fc8243
+        - sku: philips-asp-philips-series-3000-fc8243-bolsa-bolsa-hepa
+          title: Bolsas HEPA alta filtración compatibles (pack) para Philips Series
+            3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 bag hepa Bolsas HEPA alta
+            filtración compatibles (pack) para Philips Series 30
+          must_include:
+          - fc8243
+          - bag
+          - hepa
+          must_not_include:
+          - filter
+          - brush
+          - belt
+          - hose
+          - nozzle
+          - charger
+          model_tokens: *id009
+        filtro:
+        - sku: philips-asp-philips-series-3000-fc8243-filtro-filt-pre-motor
+          title: Filtro pre-motor compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 filter pre Filtro pre-motor
+            compatible para Philips Series 3000 FC8243
+          must_include:
+          - fc8243
+          - filter
+          - pre
+          - motor
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id009
+        - sku: philips-asp-philips-series-3000-fc8243-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 filter hepa Filtro HEPA
+            post-motor compatible para Philips Series 3000 FC8243
+          must_include:
+          - fc8243
+          - filter
+          - hepa
+          - exhaust
+          must_not_include:
+          - bag
+          - brush
+          - belt
+          - hose
+          - nozzle
+          model_tokens: *id009
+        cepillo:
+        - sku: philips-asp-philips-series-3000-fc8243-cepillo-cepillo-suelo
+          title: Cepillo de suelo compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 floor brush Cepillo de
+            suelo compatible para Philips Series 3000 FC8243
+          must_include:
+          - fc8243
+          - floor
+          - brush
+          - nozzle
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id009
+        - sku: philips-asp-philips-series-3000-fc8243-cepillo-cepillo-turbo
+          title: Cepillo turbo / eléctrico compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 turbo brush Cepillo turbo
+            / eléctrico compatible para Philips Series 3000 FC82
+          must_include:
+          - fc8243
+          - turbo
+          - brush
+          - electric
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          model_tokens: *id009
+        correa:
+        - sku: philips-asp-philips-series-3000-fc8243-correa-correa-std
+          title: Correa de transmisión compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 belt drive Correa de transmisión
+            compatible para Philips Series 3000 FC8243
+          must_include:
+          - fc8243
+          - belt
+          - drive
+          - replacement
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - hose
+          - nozzle
+          model_tokens: *id009
+        accesorios:
+        - sku: philips-asp-philips-series-3000-fc8243-accesorios-acc-boquilla-rincones
+          title: Boquilla para rincones compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 crevice nozzle Boquilla
+            para rincones compatible para Philips Series 3000 FC82
+          must_include:
+          - fc8243
+          - crevice
+          - nozzle
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - hose
+          - upholstery
+          model_tokens: *id009
+        - sku: philips-asp-philips-series-3000-fc8243-accesorios-acc-boquilla-tapiceria
+          title: Boquilla tapicería compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 upholstery brush Boquilla
+            tapicería compatible para Philips Series 3000 FC8243
+          must_include:
+          - fc8243
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - bag
+          - filter
+          - belt
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id009
+        - sku: philips-asp-philips-series-3000-fc8243-accesorios-acc-tubo-flexible
+          title: Tubo flexible / manguera compatible para Philips Series 3000 FC8243
+          intent: compra
+          query: Philips Philips Series 3000 FC8243 fc8243 hose flexible Tubo flexible
+            / manguera compatible para Philips Series 3000 FC8
+          must_include:
+          - fc8243
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - bag
+          - filter
+          - brush
+          - belt
+          - nozzle
+          model_tokens: *id009
+  dyson-asp:
+    name: Dyson
+    notes_brand: Marca británica de referencia en aspiradores ciclónicos sin bolsa
+      de gama alta. Alta demanda en filtros HEPA lavables, cepillos de suelo y depósitos.
+      Los modelos Ball y DC son los más buscados para el segmento de aspiradoras de
+      trineo sin cable.
+    models:
+    - model: Dyson Ball Animal 2
+      slug: dyson-ball-animal-2
+      year_range: 2016-2024
+      sku_pack: vacuumcyclone10
+      model_tokens:
+      - ball animal 2
+      - dyson ball animal 2
+      intro: El Dyson Ball Animal 2 es el aspirador de trineo con cable más potente
+        de Dyson, diseñado específicamente para hogares con mascotas. Su tecnología
+        de bola articulada facilita el giro alrededor de muebles y su turbine tool
+        elimina el pelo de mascota de alfombras y tapicerías con gran eficacia. El
+        filtro HEPA lavable retiene los alérgenos y el depósito higiénico se vacía
+        con un solo botón.
+      comprar_nuevo:
+        query: dyson ball animal 2 vacuum cleaner
+        label: Ver Dyson Ball Animal 2 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Dyson Ball Animal 2 pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora no recoge pelo de mascota de alfombras con la misma eficacia
+        - El depósito se llena más rápido de lo habitual aunque el suelo no esté muy
+          sucio
+        - Se nota que el cono del ciclón tiene polvo fino pegado en las paredes interiores
+        checks:
+        - Vacía el depósito y límpialo con un paño húmedo, prestando especial atención
+          a la zona del ciclón
+        - Retira y lava el filtro HEPA bajo agua fría; déjalo secar al menos 24 horas
+          antes de reinstalar
+        - Comprueba que la junta de silicona del depósito esté íntegra y bien colocada
+        - Inspecciona el tubo y los accesorios buscando obstrucciones de pelo o cuerpos
+          extraños
+        causes:
+        - Filtro HEPA lavable saturado que no se ha limpiado con la frecuencia recomendada
+        - Polvo fino compactado en el cono del ciclón que reduce la eficiencia de
+          la separación
+        - Junta del depósito deteriorada que provoca micro-fugas de vacío
+        - Acumulación de pelo de mascota en el codo del tubo o en la entrada de los
+          accesorios
+        cta:
+          catKey: filtro
+          label: Ver filtros HEPA compatibles
+      - key: filtros-atascados
+        title: 'Dyson Ball Animal 2: filtros sucios o atascados'
+        intent: info
+        symptoms:
+        - El filtro HEPA está completamente negro aunque se haya lavado recientemente
+        - Después de lavar y secar el filtro, la succión no mejora
+        - Noto que el motor trabaja más fuerte con el filtro instalado que sin él
+        checks:
+        - Lava el filtro bajo agua fría (sin jabón) hasta que el agua salga transparente
+        - Asegúrate de que el filtro haya secado al menos 24 horas en posición vertical;
+          un filtro húmedo atasca más
+        - Si el filtro lleva más de 12 meses o más de 50 lavados, reemplázalo aunque
+          parezca limpio
+        - Comprueba que estés usando el filtro correcto para el modelo Ball Animal
+          2 (no el de otros modelos Dyson)
+        causes:
+        - Filtro lavado con frecuencia insuficiente que acumula polvo muy fino imposible
+          de eliminar con agua
+        - Filtro reinstalado húmedo que ha generado moho obstruyendo los poros del
+          material filtrante
+        - Filtro genérico de baja calidad que no encaja correctamente y deja pasar
+          polvo al motor
+        cta:
+          catKey: filtro
+          label: Ver filtros HEPA compatibles
+      - key: deposito-no-cierra
+        title: 'Dyson Ball Animal 2: el depósito no cierra o pierde polvo'
+        intent: info
+        symptoms:
+        - El depósito no encaja con firmeza en el cuerpo de la aspiradora
+        - Sale polvo por la unión entre el depósito y el cuerpo durante el uso
+        - El botón de vaciado del depósito no hace clic o se queda atascado
+        checks:
+        - 'Limpia el borde del depósito y la ranura de encaje con un paño húmedo:
+          el polvo fino impide el sellado'
+        - Inspecciona la junta de goma del cierre del depósito buscando grietas o
+          deformaciones
+        - Comprueba que el mecanismo del botón de vaciado no tenga ningún cuerpo extraño
+          bloqueándolo
+        causes:
+        - Junta de goma del depósito envejecida o dañada por el uso o por caídas
+        - Residuos de polvo compactado en el rebaje de cierre que impide el sellado
+          completo
+        - Mecanismo del botón de vaciado roto por un golpe o por abrir el depósito
+          de forma brusca
+        cta:
+          catKey: deposito
+          label: Ver depósitos y juntas compatibles
+      recambios:
+        filtro:
+        - sku: dyson-asp-dyson-ball-animal-2-filtro-filt-pre-sponge
+          title: Filtro esponja pre-motor compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson filter pre Filtro esponja pre-motor
+            compatible para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - filter
+          - pre
+          - foam
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          - cup
+          model_tokens: &id010
+          - ball animal 2
+          - dyson ball animal 2
+        - sku: dyson-asp-dyson-ball-animal-2-filtro-filt-hepa-post
+          title: Filtro HEPA post-motor compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson hepa filter Filtro HEPA post-motor
+            compatible para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - hepa
+          - filter
+          - exhaust
+          must_not_include:
+          - pre
+          - foam
+          - sponge
+          - brush
+          - hose
+          - bin
+          model_tokens: *id010
+        - sku: dyson-asp-dyson-ball-animal-2-filtro-filt-washable
+          title: Filtro lavable ciclón compatible (pack) para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson filter washable Filtro lavable ciclón
+            compatible (pack) para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - filter
+          - washable
+          - cyclone
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          model_tokens: *id010
+        deposito:
+        - sku: dyson-asp-dyson-ball-animal-2-deposito-deposito-dust-bin
+          title: Depósito / cubo de polvo compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson dust bin Depósito / cubo de polvo
+            compatible para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - dust
+          - bin
+          - cup
+          - container
+          must_not_include:
+          - filter
+          - brush
+          - hose
+          - nozzle
+          - belt
+          model_tokens: *id010
+        cepillo:
+        - sku: dyson-asp-dyson-ball-animal-2-cepillo-brush-floor-cyclone
+          title: Cepillo de suelo compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson floor brush Cepillo de suelo compatible
+            para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - floor
+          - brush
+          - head
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id010
+        - sku: dyson-asp-dyson-ball-animal-2-cepillo-brush-turbo-cyclone
+          title: Cepillo turbo / eléctrico compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson turbo motorized Cepillo turbo / eléctrico
+            compatible para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - turbo
+          - motorized
+          - brush
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor nozzle
+          model_tokens: *id010
+        accesorios:
+        - sku: dyson-asp-dyson-ball-animal-2-accesorios-acc-crevice-cyclone
+          title: Boquilla rincones compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson crevice tool Boquilla rincones compatible
+            para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - crevice
+          - tool
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          - upholstery
+          model_tokens: *id010
+        - sku: dyson-asp-dyson-ball-animal-2-accesorios-acc-upholstery-cyclone
+          title: Boquilla tapicería compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson upholstery brush Boquilla tapicería
+            compatible para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id010
+        - sku: dyson-asp-dyson-ball-animal-2-accesorios-acc-hose-cyclone
+          title: Manguera / tubo flexible compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson hose flexible Manguera / tubo flexible
+            compatible para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - nozzle
+          model_tokens: *id010
+        - sku: dyson-asp-dyson-ball-animal-2-accesorios-acc-kit-nozzle-cyclone
+          title: Kit boquillas y accesorios compatible para Dyson Ball Animal 2
+          intent: compra
+          query: Dyson Dyson Ball Animal 2 dyson accessory kit Kit boquillas y accesorios
+            compatible para Dyson Ball Animal 2
+          must_include:
+          - dyson
+          - accessory
+          - kit
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          model_tokens: *id010
+    - model: Dyson DC37
+      slug: dyson-dc37
+      year_range: 2012-2018
+      sku_pack: vacuumcyclone10
+      model_tokens:
+      - dc37
+      - dyson dc37
+      intro: El Dyson DC37 es un aspirador de trineo ciclónico de gama media con tecnología
+        Radial Root Cyclone de 10 ciclones que ofrece una separación del polvo muy
+        eficiente. Con cable de 9 metros y filtro lavable, fue durante años el aspirador
+        más vendido de Dyson en España antes de la llegada de los inalámbricos. Aunque
+        ya no se fabrica, hay una alta demanda de recambios originales y compatibles
+        para mantenerlo en funcionamiento.
+      comprar_nuevo:
+        query: dyson DC37 vacuum cleaner
+        label: Ver Dyson DC37 nuevo o reacondicionado
+        note: El Dyson DC37 tiene entre 6 y 12 años. Si la reparación supera los 40
+          €, compara con el precio de un modelo actual o reacondicionado.
+      problemas:
+      - key: pierde-succion
+        title: Dyson DC37 pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora no recoge el polvo superficial del suelo
+        - El depósito se llena de polvo muy fino aunque el suelo estuviese limpio
+        - Se nota vibración inusual en el tubo o en el cuerpo de la aspiradora
+        checks:
+        - Vacía el depósito y lava el interior con agua tibia para eliminar el polvo
+          compactado en el ciclón
+        - Lava el filtro lavable pre-motor bajo el grifo y déjalo secar 24 horas
+        - Comprueba que no haya una obstrucción en la entrada del ciclón o en el codo
+          del tubo
+        - Revisa que la junta del depósito esté íntegra y correctamente colocada
+        causes:
+        - Filtro lavable saturado que no permite circular el aire de refrigeración
+          del motor
+        - Ciclón con polvo fino compactado que reduce la velocidad de giro y la separación
+          de partículas
+        - Junta del depósito deteriorada por el paso del tiempo que provoca pérdida
+          de vacío
+        - Motor desgastado por el uso en un modelo de más de 6 años
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: filtros-atascados
+        title: 'Dyson DC37: filtros muy sucios o difíciles de limpiar'
+        intent: info
+        symptoms:
+        - El filtro está completamente oscuro aunque se haya lavado el mes anterior
+        - El filtro se ha encogido o deformado después de lavarlo
+        - Tras lavar el filtro, sigue saliendo polvo por la salida de aire
+        checks:
+        - 'Asegúrate de que el filtro haya secado completamente antes de reinstalarlo:
+          mínimo 24 horas'
+        - Usa solo agua fría para lavarlo; el agua caliente puede deformar la espuma
+        - Si el filtro lleva más de 12 meses en uso, reemplázalo sin importar su apariencia
+        causes:
+        - Polvo muy fino (como el de obras o el de mascotas) que penetra y obstruye
+          los poros del filtro de forma irreversible
+        - Filtro reinstalado húmedo que ha favorecido la formación de moho
+        - Filtro genérico con material de menor calidad que el original Dyson
+        cta:
+          catKey: filtro
+          label: Ver filtros compatibles
+      - key: deposito-no-cierra
+        title: 'Dyson DC37: el depósito no cierra bien'
+        intent: info
+        symptoms:
+        - El depósito se suelta durante el uso o al mover la aspiradora
+        - Sale una nube de polvo por la unión del depósito cuando se aspira
+        - El pestillo de cierre no hace el clic habitual al encajar el depósito
+        checks:
+        - Limpia el borde del depósito y la junta de cierre con un paño húmedo
+        - 'Inspecciona la junta de goma del cierre: busca deformaciones, grietas o
+          zonas que falten'
+        - Comprueba que el pestillo no tenga la pestaña de plástico rota o desgastada
+        causes:
+        - Junta de cierre del depósito envejecida y endurecida que ya no sella correctamente
+        - Pestillo de cierre de plástico roto por el uso o por una caída
+        - Depósito ligeramente deformado por un golpe que impide el encaje correcto
+        cta:
+          catKey: deposito
+          label: Ver depósitos y juntas compatibles
+      recambios:
+        filtro:
+        - sku: dyson-asp-dyson-dc37-filtro-filt-pre-sponge
+          title: Filtro esponja pre-motor compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 filter pre Filtro esponja pre-motor compatible
+            para Dyson DC37
+          must_include:
+          - dc37
+          - filter
+          - pre
+          - foam
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          - cup
+          model_tokens: &id011
+          - dc37
+          - dyson dc37
+        - sku: dyson-asp-dyson-dc37-filtro-filt-hepa-post
+          title: Filtro HEPA post-motor compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 hepa filter Filtro HEPA post-motor compatible
+            para Dyson DC37
+          must_include:
+          - dc37
+          - hepa
+          - filter
+          - exhaust
+          must_not_include:
+          - pre
+          - foam
+          - sponge
+          - brush
+          - hose
+          - bin
+          model_tokens: *id011
+        - sku: dyson-asp-dyson-dc37-filtro-filt-washable
+          title: Filtro lavable ciclón compatible (pack) para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 filter washable Filtro lavable ciclón compatible
+            (pack) para Dyson DC37
+          must_include:
+          - dc37
+          - filter
+          - washable
+          - cyclone
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          model_tokens: *id011
+        deposito:
+        - sku: dyson-asp-dyson-dc37-deposito-deposito-dust-bin
+          title: Depósito / cubo de polvo compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 dust bin Depósito / cubo de polvo compatible
+            para Dyson DC37
+          must_include:
+          - dc37
+          - dust
+          - bin
+          - cup
+          - container
+          must_not_include:
+          - filter
+          - brush
+          - hose
+          - nozzle
+          - belt
+          model_tokens: *id011
+        cepillo:
+        - sku: dyson-asp-dyson-dc37-cepillo-brush-floor-cyclone
+          title: Cepillo de suelo compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 floor brush Cepillo de suelo compatible para
+            Dyson DC37
+          must_include:
+          - dc37
+          - floor
+          - brush
+          - head
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id011
+        - sku: dyson-asp-dyson-dc37-cepillo-brush-turbo-cyclone
+          title: Cepillo turbo / eléctrico compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 turbo motorized Cepillo turbo / eléctrico compatible
+            para Dyson DC37
+          must_include:
+          - dc37
+          - turbo
+          - motorized
+          - brush
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor nozzle
+          model_tokens: *id011
+        accesorios:
+        - sku: dyson-asp-dyson-dc37-accesorios-acc-crevice-cyclone
+          title: Boquilla rincones compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 crevice tool Boquilla rincones compatible para
+            Dyson DC37
+          must_include:
+          - dc37
+          - crevice
+          - tool
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          - upholstery
+          model_tokens: *id011
+        - sku: dyson-asp-dyson-dc37-accesorios-acc-upholstery-cyclone
+          title: Boquilla tapicería compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 upholstery brush Boquilla tapicería compatible
+            para Dyson DC37
+          must_include:
+          - dc37
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id011
+        - sku: dyson-asp-dyson-dc37-accesorios-acc-hose-cyclone
+          title: Manguera / tubo flexible compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 hose flexible Manguera / tubo flexible compatible
+            para Dyson DC37
+          must_include:
+          - dc37
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - nozzle
+          model_tokens: *id011
+        - sku: dyson-asp-dyson-dc37-accesorios-acc-kit-nozzle-cyclone
+          title: Kit boquillas y accesorios compatible para Dyson DC37
+          intent: compra
+          query: Dyson Dyson DC37 dc37 accessory kit Kit boquillas y accesorios compatible
+            para Dyson DC37
+          must_include:
+          - dc37
+          - accessory
+          - kit
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          model_tokens: *id011
+  hoover-asp:
+    name: Hoover
+    notes_brand: Marca histórica en aspiradoras de trineo, con modelos ciclónicos
+      sin bolsa muy populares en España por su precio asequible. Los modelos Sensory
+      y Freespace son los más demandados. Alta demanda en filtros lavables, depósitos
+      y cepillos de suelo.
+    models:
+    - model: Hoover Sensory SO20
+      slug: hoover-sensory-so20
+      year_range: 2017-2023
+      sku_pack: vacuumcyclone10
+      model_tokens:
+      - sensory so20
+      - hoover so20
+      intro: El Hoover Sensory SO20 es un aspirador ciclónico sin bolsa de gama media-baja
+        con motor de 700 W y depósito de 1,5 litros de fácil vaciado. Su filtro lavable
+        reduce el coste de mantenimiento al mínimo, y su diseño compacto es ideal
+        para pisos pequeños. Es uno de los aspiradores sin bolsa más vendidos en España
+        por debajo de 100 €, con una relación calidad-precio difícil de superar en
+        su segmento.
+      comprar_nuevo:
+        query: hoover sensory SO20 bagless vacuum cleaner
+        label: Ver Hoover Sensory SO20 nuevo
+      problemas:
+      - key: pierde-succion
+        title: Hoover Sensory SO20 pierde succión
+        intent: info
+        symptoms:
+        - La aspiradora ya no recoge la suciedad con eficacia aunque el depósito esté
+          vacío
+        - Sale aire con escasa presión por el tubo al poner la mano delante
+        - El motor suena a un régimen más alto de lo habitual
+        checks:
+        - Vacía el depósito y lávalo con agua tibia; comprueba que esté completamente
+          seco antes de volver a instalar
+        - Retira el filtro lavable y lávalo bajo el grifo con agua fría; déjalo secar
+          24 horas
+        - Inspecciona el cepillo de suelo y el tubo buscando objetos o acumulaciones
+          de pelo que bloqueen el paso del aire
+        - Comprueba que el depósito esté bien encajado en el cuerpo y que la junta
+          de cierre esté en buen estado
+        causes:
+        - Filtro lavable saturado que no se ha limpiado en demasiado tiempo
+        - Depósito con polvo compactado que reduce la eficiencia del ciclón
+        - Obstrucción en el tubo o en el cepillo de suelo
+        - Junta del depósito deteriorada que provoca pérdida de vacío
+        cta:
+          catKey: filtro
+          label: Ver filtros lavables compatibles
+      - key: filtros-atascados
+        title: 'Hoover Sensory SO20: filtros muy sucios o que no mejoran la succión
+          tras limpiarlos'
+        intent: info
+        symptoms:
+        - El filtro lavable tiene polvo compactado que no sale con el agua
+        - Después de lavar y secar el filtro, la succión no mejora
+        - El filtro huele a humedad aunque parezca seco
+        checks:
+        - Lava el filtro con agua tibia y una gota de jabón neutro; aclara hasta que
+          el agua salga completamente limpia
+        - Asegúrate de que el filtro haya secado al menos 24 horas en un lugar aireado
+        - 'Si el filtro lleva más de 12 meses en uso, reemplázalo: los poros se obstruyen
+          de forma permanente con el tiempo'
+        - Comprueba que estés usando el filtro específico del SO20 y no un filtro
+          genérico incompatible
+        causes:
+        - Filtro que se ha cargado de polvo muy fino (como talco o polvo de cemento)
+          que tapona los poros irreversiblemente
+        - Filtro reinstalado húmedo que ha generado moho
+        - Uso del aspirador en condiciones de mucha humedad que favorece la saturación
+          prematura del filtro
+        cta:
+          catKey: filtro
+          label: Ver filtros lavables compatibles
+      - key: deposito-no-cierra
+        title: 'Hoover Sensory SO20: el depósito no cierra o pierde polvo'
+        intent: info
+        symptoms:
+        - El depósito se suelta al mover la aspiradora
+        - Sale polvo por la unión del depósito con el cuerpo durante el uso
+        - El cierre de clip del depósito está suelto o roto
+        checks:
+        - Limpia el borde del depósito y la ranura de encaje en el cuerpo con un paño
+          húmedo
+        - Inspecciona la junta de goma del cierre buscando grietas, aplastamiento
+          o partes que falten
+        - 'Comprueba el estado del clip de cierre: si el plástico está roto o deformado,
+          no puede solucionarse sin recambio'
+        causes:
+        - Junta de goma del cierre endurecida o deteriorada por el paso del tiempo
+        - Clip de cierre de plástico roto por una caída o por forzar el vaciado del
+          depósito
+        - Residuos de polvo compactado en el rebaje de cierre que impiden el sellado
+          correcto
+        cta:
+          catKey: deposito
+          label: Ver depósitos y juntas compatibles
+      recambios:
+        filtro:
+        - sku: hoover-asp-hoover-sensory-so20-filtro-filt-pre-sponge
+          title: Filtro esponja pre-motor compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover filter pre Filtro esponja pre-motor
+            compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - filter
+          - pre
+          - foam
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          - cup
+          model_tokens: &id012
+          - sensory so20
+          - hoover so20
+        - sku: hoover-asp-hoover-sensory-so20-filtro-filt-hepa-post
+          title: Filtro HEPA post-motor compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover hepa filter Filtro HEPA post-motor
+            compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - hepa
+          - filter
+          - exhaust
+          must_not_include:
+          - pre
+          - foam
+          - sponge
+          - brush
+          - hose
+          - bin
+          model_tokens: *id012
+        - sku: hoover-asp-hoover-sensory-so20-filtro-filt-washable
+          title: Filtro lavable ciclón compatible (pack) para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover filter washable Filtro lavable
+            ciclón compatible (pack) para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - filter
+          - washable
+          - cyclone
+          must_not_include:
+          - hepa
+          - brush
+          - hose
+          - nozzle
+          - bin
+          model_tokens: *id012
+        deposito:
+        - sku: hoover-asp-hoover-sensory-so20-deposito-deposito-dust-bin
+          title: Depósito / cubo de polvo compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover dust bin Depósito / cubo de polvo
+            compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - dust
+          - bin
+          - cup
+          - container
+          must_not_include:
+          - filter
+          - brush
+          - hose
+          - nozzle
+          - belt
+          model_tokens: *id012
+        cepillo:
+        - sku: hoover-asp-hoover-sensory-so20-cepillo-brush-floor-cyclone
+          title: Cepillo de suelo compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover floor brush Cepillo de suelo compatible
+            para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - floor
+          - brush
+          - head
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - upholstery
+          - crevice
+          model_tokens: *id012
+        - sku: hoover-asp-hoover-sensory-so20-cepillo-brush-turbo-cyclone
+          title: Cepillo turbo / eléctrico compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover turbo motorized Cepillo turbo /
+            eléctrico compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - turbo
+          - motorized
+          - brush
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor nozzle
+          model_tokens: *id012
+        accesorios:
+        - sku: hoover-asp-hoover-sensory-so20-accesorios-acc-crevice-cyclone
+          title: Boquilla rincones compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover crevice tool Boquilla rincones
+            compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - crevice
+          - tool
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          - upholstery
+          model_tokens: *id012
+        - sku: hoover-asp-hoover-sensory-so20-accesorios-acc-upholstery-cyclone
+          title: Boquilla tapicería compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover upholstery brush Boquilla tapicería
+            compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - upholstery
+          - brush
+          - tool
+          must_not_include:
+          - filter
+          - bin
+          - hose
+          - crevice
+          - floor
+          model_tokens: *id012
+        - sku: hoover-asp-hoover-sensory-so20-accesorios-acc-hose-cyclone
+          title: Manguera / tubo flexible compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover hose flexible Manguera / tubo flexible
+            compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - hose
+          - flexible
+          - tube
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - nozzle
+          model_tokens: *id012
+        - sku: hoover-asp-hoover-sensory-so20-accesorios-acc-kit-nozzle-cyclone
+          title: Kit boquillas y accesorios compatible para Hoover Sensory SO20
+          intent: compra
+          query: Hoover Hoover Sensory SO20 hoover accessory kit Kit boquillas y accesorios
+            compatible para Hoover Sensory SO20
+          must_include:
+          - hoover
+          - accessory
+          - kit
+          - nozzle
+          must_not_include:
+          - filter
+          - bin
+          - brush
+          - hose
+          model_tokens: *id012

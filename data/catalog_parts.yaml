@@ -44,6 +44,30 @@ globals:
       label: "Cestas y bandejas"
       icon: "basket"
       buy_intent: "compra"
+    - key: bolsa
+      label: "Bolsas de aspiradora"
+      icon: "bag"
+      buy_intent: "compra"
+    - key: correa
+      label: "Correas y transmisión"
+      icon: "belt"
+      buy_intent: "compra"
+    - key: bomba
+      label: "Bombas y desagüe"
+      icon: "pump"
+      buy_intent: "compra"
+    - key: resistencia
+      label: "Resistencias y calefacción"
+      icon: "heat"
+      buy_intent: "compra"
+    - key: rodamiento
+      label: "Rodamientos y cojinetes"
+      icon: "bearing"
+      buy_intent: "compra"
+    - key: escobillas
+      label: "Escobillas de carbón"
+      icon: "brush"
+      buy_intent: "compra"
 
   guias_genericas:
     seguridad:
@@ -844,6 +868,209 @@ sku_packs:
       title_tpl: "Carcasa / alojamiento filtro compatible para {model}"
       must_include_tpl: ["{model_token}", "housing", "filter", "replacement"]
       must_not_include: ["membrane", "tank", "o-ring", "faucet", "tube"]
+
+  # Aspiradora con bolsa: 2 bolsa + 2 filtro + 2 cepillo + 1 correa + 3 accesorios = 10
+  vacuumbag10:
+    - catKey: bolsa
+      sku_suffix: bolsa-std
+      intent: "compra"
+      title_tpl: "Bolsas compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "dust", "bag"]
+      must_not_include: ["filter", "brush", "belt", "hose", "nozzle", "charger"]
+    - catKey: bolsa
+      sku_suffix: bolsa-hepa
+      intent: "compra"
+      title_tpl: "Bolsas HEPA alta filtración compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "bag", "hepa"]
+      must_not_include: ["filter", "brush", "belt", "hose", "nozzle", "charger"]
+
+    - catKey: filtro
+      sku_suffix: filt-pre-motor
+      intent: "compra"
+      title_tpl: "Filtro pre-motor compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "pre", "motor"]
+      must_not_include: ["bag", "brush", "belt", "hose", "nozzle"]
+    - catKey: filtro
+      sku_suffix: filt-post-hepa
+      intent: "compra"
+      title_tpl: "Filtro HEPA post-motor compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "hepa", "exhaust"]
+      must_not_include: ["bag", "brush", "belt", "hose", "nozzle"]
+
+    - catKey: cepillo
+      sku_suffix: cepillo-suelo
+      intent: "compra"
+      title_tpl: "Cepillo de suelo compatible para {model}"
+      must_include_tpl: ["{model_token}", "floor", "brush", "nozzle"]
+      must_not_include: ["bag", "filter", "belt", "hose", "upholstery", "crevice"]
+    - catKey: cepillo
+      sku_suffix: cepillo-turbo
+      intent: "compra"
+      title_tpl: "Cepillo turbo / eléctrico compatible para {model}"
+      must_include_tpl: ["{model_token}", "turbo", "brush", "electric"]
+      must_not_include: ["bag", "filter", "belt", "hose", "crevice"]
+
+    - catKey: correa
+      sku_suffix: correa-std
+      intent: "compra"
+      title_tpl: "Correa de transmisión compatible para {model}"
+      must_include_tpl: ["{model_token}", "belt", "drive", "replacement"]
+      must_not_include: ["bag", "filter", "brush", "hose", "nozzle"]
+
+    - catKey: accesorios
+      sku_suffix: acc-boquilla-rincones
+      intent: "compra"
+      title_tpl: "Boquilla para rincones compatible para {model}"
+      must_include_tpl: ["{model_token}", "crevice", "nozzle", "tool"]
+      must_not_include: ["bag", "filter", "brush", "belt", "hose", "upholstery"]
+    - catKey: accesorios
+      sku_suffix: acc-boquilla-tapiceria
+      intent: "compra"
+      title_tpl: "Boquilla tapicería compatible para {model}"
+      must_include_tpl: ["{model_token}", "upholstery", "brush", "tool"]
+      must_not_include: ["bag", "filter", "belt", "hose", "crevice", "floor"]
+    - catKey: accesorios
+      sku_suffix: acc-tubo-flexible
+      intent: "compra"
+      title_tpl: "Tubo flexible / manguera compatible para {model}"
+      must_include_tpl: ["{model_token}", "hose", "flexible", "tube"]
+      must_not_include: ["bag", "filter", "brush", "belt", "nozzle"]
+
+  # Aspiradora ciclónica sin bolsa: 3 filtro + 1 deposito + 2 cepillo + 4 accesorios = 10
+  vacuumcyclone10:
+    - catKey: filtro
+      sku_suffix: filt-pre-sponge
+      intent: "compra"
+      title_tpl: "Filtro esponja pre-motor compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "pre", "foam"]
+      must_not_include: ["hepa", "brush", "hose", "nozzle", "bin", "cup"]
+    - catKey: filtro
+      sku_suffix: filt-hepa-post
+      intent: "compra"
+      title_tpl: "Filtro HEPA post-motor compatible para {model}"
+      must_include_tpl: ["{model_token}", "hepa", "filter", "exhaust"]
+      must_not_include: ["pre", "foam", "sponge", "brush", "hose", "bin"]
+    - catKey: filtro
+      sku_suffix: filt-washable
+      intent: "compra"
+      title_tpl: "Filtro lavable ciclón compatible (pack) para {model}"
+      must_include_tpl: ["{model_token}", "filter", "washable", "cyclone"]
+      must_not_include: ["hepa", "brush", "hose", "nozzle", "bin"]
+
+    - catKey: deposito
+      sku_suffix: deposito-dust-bin
+      intent: "compra"
+      title_tpl: "Depósito / cubo de polvo compatible para {model}"
+      must_include_tpl: ["{model_token}", "dust", "bin", "cup", "container"]
+      must_not_include: ["filter", "brush", "hose", "nozzle", "belt"]
+
+    - catKey: cepillo
+      sku_suffix: brush-floor-cyclone
+      intent: "compra"
+      title_tpl: "Cepillo de suelo compatible para {model}"
+      must_include_tpl: ["{model_token}", "floor", "brush", "head"]
+      must_not_include: ["filter", "bin", "hose", "upholstery", "crevice"]
+    - catKey: cepillo
+      sku_suffix: brush-turbo-cyclone
+      intent: "compra"
+      title_tpl: "Cepillo turbo / eléctrico compatible para {model}"
+      must_include_tpl: ["{model_token}", "turbo", "motorized", "brush"]
+      must_not_include: ["filter", "bin", "hose", "crevice", "floor nozzle"]
+
+    - catKey: accesorios
+      sku_suffix: acc-crevice-cyclone
+      intent: "compra"
+      title_tpl: "Boquilla rincones compatible para {model}"
+      must_include_tpl: ["{model_token}", "crevice", "tool", "nozzle"]
+      must_not_include: ["filter", "bin", "brush", "hose", "upholstery"]
+    - catKey: accesorios
+      sku_suffix: acc-upholstery-cyclone
+      intent: "compra"
+      title_tpl: "Boquilla tapicería compatible para {model}"
+      must_include_tpl: ["{model_token}", "upholstery", "brush", "tool"]
+      must_not_include: ["filter", "bin", "hose", "crevice", "floor"]
+    - catKey: accesorios
+      sku_suffix: acc-hose-cyclone
+      intent: "compra"
+      title_tpl: "Manguera / tubo flexible compatible para {model}"
+      must_include_tpl: ["{model_token}", "hose", "flexible", "tube"]
+      must_not_include: ["filter", "bin", "brush", "nozzle"]
+    - catKey: accesorios
+      sku_suffix: acc-kit-nozzle-cyclone
+      intent: "compra"
+      title_tpl: "Kit boquillas y accesorios compatible para {model}"
+      must_include_tpl: ["{model_token}", "accessory", "kit", "nozzle"]
+      must_not_include: ["filter", "bin", "brush", "hose"]
+
+  # Lavadora: 1 junta + 1 filtro + 1 correa + 1 bomba + 1 resistencia + 1 rodamiento + 1 escobillas + 3 accesorios = 10
+  washing10:
+    - catKey: junta
+      sku_suffix: junta-puerta
+      intent: "compra"
+      title_tpl: "Junta / goma puerta compatible para {model}"
+      must_include_tpl: ["{model_token}", "door", "seal", "gasket", "rubber"]
+      must_not_include: ["pump", "belt", "bearing", "heater", "brush", "valve", "drum"]
+
+    - catKey: filtro
+      sku_suffix: filt-bomba
+      intent: "compra"
+      title_tpl: "Filtro bomba / pelusa compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "pump", "lint"]
+      must_not_include: ["seal", "belt", "bearing", "heater", "brush", "valve"]
+
+    - catKey: correa
+      sku_suffix: correa-poli-v
+      intent: "compra"
+      title_tpl: "Correa poli-V compatible para {model}"
+      must_include_tpl: ["{model_token}", "belt", "poly", "drive", "washing"]
+      must_not_include: ["seal", "pump", "bearing", "heater", "brush", "valve"]
+
+    - catKey: bomba
+      sku_suffix: bomba-desague
+      intent: "compra"
+      title_tpl: "Bomba de desagüe compatible para {model}"
+      must_include_tpl: ["{model_token}", "drain", "pump", "washing"]
+      must_not_include: ["seal", "belt", "bearing", "heater", "brush", "filter"]
+
+    - catKey: resistencia
+      sku_suffix: resistencia-calefactor
+      intent: "compra"
+      title_tpl: "Resistencia calefactora compatible para {model}"
+      must_include_tpl: ["{model_token}", "heating", "element", "heater"]
+      must_not_include: ["seal", "pump", "belt", "bearing", "brush", "valve"]
+
+    - catKey: rodamiento
+      sku_suffix: rodamiento-kit
+      intent: "compra"
+      title_tpl: "Kit rodamientos tambor compatible para {model}"
+      must_include_tpl: ["{model_token}", "bearing", "drum", "kit"]
+      must_not_include: ["seal", "pump", "belt", "heater", "brush", "valve"]
+
+    - catKey: escobillas
+      sku_suffix: escobillas-carbon
+      intent: "compra"
+      title_tpl: "Escobillas de carbón motor compatible para {model}"
+      must_include_tpl: ["{model_token}", "carbon", "brush", "motor"]
+      must_not_include: ["seal", "pump", "belt", "bearing", "heater", "valve"]
+
+    - catKey: accesorios
+      sku_suffix: acc-valvula-entrada
+      intent: "compra"
+      title_tpl: "Válvula de entrada agua compatible para {model}"
+      must_include_tpl: ["{model_token}", "inlet", "valve", "water"]
+      must_not_include: ["seal", "pump", "belt", "bearing", "heater", "brush"]
+    - catKey: accesorios
+      sku_suffix: acc-pala-tambor
+      intent: "compra"
+      title_tpl: "Paleta / pala de tambor compatible para {model}"
+      must_include_tpl: ["{model_token}", "drum", "paddle", "lifter", "baffle"]
+      must_not_include: ["seal", "pump", "belt", "bearing", "heater", "valve"]
+    - catKey: accesorios
+      sku_suffix: acc-tirador-puerta
+      intent: "compra"
+      title_tpl: "Tirador / asa de puerta compatible para {model}"
+      must_include_tpl: ["{model_token}", "door", "handle", "latch"]
+      must_not_include: ["seal", "pump", "belt", "bearing", "heater", "brush"]
 
 # =========================================================
 # PROBLEM PACKS

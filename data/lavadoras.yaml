@@ -1,0 +1,3621 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  samsung-lav:
+    name: Samsung
+    notes_brand: Líder en gama alta en España. Destacan los modelos AddWash con escotilla
+      frontal y la tecnología EcoBubble. Alta demanda de juntas de puerta, bombas
+      de desagüe y correas.
+    models:
+    - model: Samsung WW90T684DLH
+      slug: samsung-ww90t684dlh
+      year_range: 2020-2024
+      sku_pack: washing10
+      model_tokens:
+      - ww90t684
+      - ww90t684dlh
+      intro: La Samsung WW90T684DLH es una lavadora de 9 kg con escotilla AddWash
+        y tecnología EcoBubble que convierte el detergente en espuma fría antes de
+        lavar, protegiendo la ropa. Su motor Digital Inverter tiene garantía de 10
+        años y consume muy poco, lo que la convierte en una de las lavadoras más fiables
+        de la gama media-alta de Samsung en España.
+      comprar_nuevo:
+        query: samsung ww90t684 washing machine
+        label: Ver Samsung WW90T684DLH nueva
+      problemas:
+      - key: pierde-agua-puerta
+        title: Samsung WW90T684DLH pierde agua por la puerta
+        intent: info
+        symptoms:
+        - Aparece un charco de agua bajo la puerta al final del programa
+        - Se nota humedad o restos de detergente en el cerco de goma de la escotilla
+        - La junta de puerta presenta grietas visibles, manchas negras de moho o deformaciones
+        - El agua gotea también durante el lavado, no solo al vaciar
+        checks:
+        - Abre la puerta y dobla el fuelle hacia afuera para inspeccionar toda la
+          superficie en busca de cortes o agujeros
+        - Comprueba si hay objetos pequeños (monedas, grapas) atrapados en los pliegues
+          del fuelle que puedan haberlo perforado
+        - Limpia el fuelle con un trapo húmedo y vinagre blanco para eliminar cal
+          acumulada que endurece y agrieta la goma
+        - 'Verifica que la puerta cierre con firmeza: si hay holgura, el problema
+          puede estar en el cierre y no en la junta'
+        causes:
+        - 'Junta de puerta deteriorada por el uso continuado: la goma pierde elasticidad
+          y aparecen grietas'
+        - Acumulación de cal que endurece el fuelle hasta quebrarlo, especialmente
+          en zonas de agua dura
+        - Objeto extraño (moneda, piedra) atrapado en el fuelle que ha provocado un
+          corte
+        - Mala postura de la ropa muy voluminosa que fuerza la junta al cerrar la
+          puerta
+        cta:
+          catKey: junta
+          label: Ver juntas de puerta compatibles
+      - key: no-desagua
+        title: Samsung WW90T684DLH no desagua o se queda con agua
+        intent: info
+        symptoms:
+        - El programa se detiene a mitad y el tambor queda lleno o medio lleno de
+          agua
+        - Aparece el código de error 5E, SE o nE en el display
+        - El ciclo dura mucho más de lo normal y no avanza al centrifugado
+        - Se escucha el motor de la bomba intentando trabajar pero sin expulsar agua
+        checks:
+        - Localiza el tapón del filtro en la parte inferior frontal de la lavadora
+          y protege el suelo con una toalla antes de abrirlo
+        - 'Retira y limpia el filtro de la bomba: es muy frecuente que monedas, botones
+          o pelusas lo obstruyan completamente'
+        - Comprueba que la manguera de desagüe no esté doblada, aplastada ni tenga
+          el extremo sumergido más de 15 cm en el sifón
+        - Con el filtro quitado, gira el impulsor de la bomba con el dedo; si está
+          atascado o no gira, la bomba puede estar averiada
+        causes:
+        - 'Filtro de bomba obstruido por objetos sólidos: es la causa más frecuente
+          y la más fácil de reparar'
+        - Bomba de desagüe averiada cuyo motor se ha quemado o el impulsor está bloqueado
+        - Manguera de desagüe mal colocada o con un pliegue que impide el flujo de
+          agua
+        - Fallo en la tarjeta electrónica que no activa la bomba en el momento correcto
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      - key: vibra-mucho
+        title: Samsung WW90T684DLH vibra mucho y hace ruido al centrifugar
+        intent: info
+        symptoms:
+        - La lavadora golpea o se desplaza durante el centrifugado
+        - 'Se escucha un ruido de rodamiento: grave y continuo que aumenta con las
+          rpm'
+        - El tambor tiene un ligero movimiento de vaivén al moverlo manualmente con
+          la puerta abierta
+        - Las vibraciones han aumentado progresivamente con los meses
+        checks:
+        - Comprueba que las cuatro patas estén bien apoyadas en el suelo y ajusta
+          las regulables hasta eliminar cualquier bamboleo
+        - Verifica que los tornillos de transporte (los que bloquean el tambor para
+          el envío) hayan sido retirados
+        - 'Abre la puerta y mueve el tambor hacia arriba, abajo y los lados: un juego
+          excesivo indica rodamientos gastados'
+        - Revisa que los amortiguadores delanteros no estén rotos ni desenganchados
+          inspeccionando por el panel inferior
+        causes:
+        - 'Rodamientos del tambor desgastados: es la causa más habitual de ruido grave
+          y creciente al centrifugar'
+        - Amortiguadores deteriorados que ya no absorben las vibraciones del tambor
+          en alta velocidad
+        - 'Carga desequilibrada puntual: una sola prenda voluminosa puede provocar
+          golpes fuertes en un ciclo concreto'
+        - Tornillos de transporte no retirados en instalaciones recientes, que bloquean
+          el movimiento del tambor
+        cta:
+          catKey: rodamiento
+          label: Ver rodamientos compatibles
+      recambios:
+        junta:
+        - sku: samsung-lav-samsung-ww90t684dlh-junta-junta-puerta
+          title: Junta / goma puerta compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 door seal Junta / goma puerta
+            compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id001
+          - ww90t684
+          - ww90t684dlh
+        filtro:
+        - sku: samsung-lav-samsung-ww90t684dlh-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 filter pump Filtro bomba / pelusa
+            compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id001
+        correa:
+        - sku: samsung-lav-samsung-ww90t684dlh-correa-correa-poli-v
+          title: Correa poli-V compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 belt poly Correa poli-V compatible
+            para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id001
+        bomba:
+        - sku: samsung-lav-samsung-ww90t684dlh-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 drain pump Bomba de desagüe
+            compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id001
+        resistencia:
+        - sku: samsung-lav-samsung-ww90t684dlh-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 heating element Resistencia
+            calefactora compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id001
+        rodamiento:
+        - sku: samsung-lav-samsung-ww90t684dlh-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 bearing drum Kit rodamientos
+            tambor compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id001
+        escobillas:
+        - sku: samsung-lav-samsung-ww90t684dlh-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 carbon brush Escobillas de carbón
+            motor compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id001
+        accesorios:
+        - sku: samsung-lav-samsung-ww90t684dlh-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 inlet valve Válvula de entrada
+            agua compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id001
+        - sku: samsung-lav-samsung-ww90t684dlh-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 drum paddle Paleta / pala de
+            tambor compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id001
+        - sku: samsung-lav-samsung-ww90t684dlh-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Samsung WW90T684DLH
+          intent: compra
+          query: Samsung Samsung WW90T684DLH ww90t684 door handle Tirador / asa de
+            puerta compatible para Samsung WW90T684DLH
+          must_include:
+          - ww90t684
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id001
+    - model: Samsung WW70T4040EE
+      slug: samsung-ww70t4040ee
+      year_range: 2020-2023
+      sku_pack: washing10
+      model_tokens:
+      - ww70t4040
+      - ww70t4040ee
+      intro: La Samsung WW70T4040EE es una lavadora de 7 kg de la gama esencial de
+        Samsung, con motor Digital Inverter y clasificación energética D. Es una de
+        las lavadoras Samsung más vendidas en España por su relación calidad-precio,
+        con un precio de entrada y la fiabilidad que caracteriza a la marca en motores
+        y electrónica.
+      comprar_nuevo:
+        query: samsung ww70t4040 lavadora 7kg
+        label: Ver Samsung WW70T4040EE nueva
+      problemas:
+      - key: no-centrifuga
+        title: Samsung WW70T4040EE no centrifuga
+        intent: info
+        symptoms:
+        - El programa termina pero la ropa sale empapada, como si solo hubiera escurrido
+        - El tambor gira lentamente en el lavado pero no alcanza las rpm altas del
+          centrifugado
+        - Aparece el código de error dC o UE en la pantalla antes de que empiece el
+          centrifugado
+        - Se escucha el motor intentar arrancar a alta velocidad pero reduciendo enseguida
+        checks:
+        - 'Redistribuye la ropa dentro del tambor: una carga muy desequilibrada activa
+          el sensor de seguridad y cancela el centrifugado'
+        - Comprueba si el tambor gira libremente a mano con la puerta abierta; si
+          ofrece resistencia, revisa si hay ropa atrapada entre el tambor y la cuba
+        - Accede al panel trasero y verifica visualmente que la correa de transmisión
+          esté en su sitio y no presente grietas ni desgaste excesivo
+        - 'Revisa las escobillas de carbón del motor si el modelo las lleva: las escobillas
+          cortas dejan de hacer contacto y el motor no arranca a plena potencia'
+        causes:
+        - Correa de transmisión rota o deslizante que impide que el motor mueva el
+          tambor a alta velocidad
+        - Escobillas de carbón del motor desgastadas que reducen la potencia hasta
+          impedir el centrifugado
+        - Carga desequilibrada que activa el sistema de protección del tambor
+        - Fallo en el módulo de control que no envía la señal correcta para aumentar
+          las rpm
+        cta:
+          catKey: correa
+          label: Ver correas compatibles
+      - key: no-calienta
+        title: Samsung WW70T4040EE no calienta el agua
+        intent: info
+        symptoms:
+        - La ropa sale sin el nivel de limpieza esperado en programas de 60 °C o 90
+          °C
+        - El agua en el tambor se nota fría al tacto al abrir la puerta a mitad de
+          programa
+        - El programa de 60 °C dura exactamente lo mismo que el de 30 °C, sin tiempo
+          adicional de calentamiento
+        - Aparece el código de error HE1 o E7 en el display
+        checks:
+        - 'Realiza un programa de 60 °C y comprueba con la mano la temperatura de
+          la puerta tras 15 minutos: debería estar caliente al tacto'
+        - 'Comprueba la resistencia calefactora con un multímetro en modo ohmios:
+          un valor de infinito (circuito abierto) confirma que está fundida'
+        - 'Mide la resistencia del termostato: debe estar en rango; si marca cero
+          o infinito está defectuoso'
+        - Verifica el sensor NTC de temperatura con el multímetro; su resistencia
+          varía con la temperatura y un valor fijo indica fallo
+        causes:
+        - 'Resistencia calefactora fundida: es el fallo más habitual y directo cuando
+          la lavadora no calienta'
+        - Termostato de seguridad disparado o defectuoso que corta el circuito de
+          calefacción
+        - Sensor NTC de temperatura averiado que informa de una temperatura incorrecta
+          y detiene el calentamiento
+        - Fallo en la tarjeta de control que no activa el relé de la resistencia
+        cta:
+          catKey: resistencia
+          label: Ver resistencias calefactoras compatibles
+      - key: pierde-agua-puerta
+        title: Samsung WW70T4040EE pierde agua por la puerta
+        intent: info
+        symptoms:
+        - Charcos de agua bajo la puerta al acabar el programa o durante el lavado
+        - La junta de goma huele a moho o tiene manchas negras persistentes
+        - Se notan grietas o endurecimiento en algún punto del fuelle de la puerta
+        - El agua sale específicamente por la parte inferior de la junta cuando el
+          tambor está lleno
+        checks:
+        - Inspecciona todo el perímetro del fuelle doblándolo hacia afuera para ver
+          la cara trasera
+        - Busca objetos extraños (monedas, botones, grapas) que puedan haber perforado
+          el fuelle desde dentro
+        - Comprueba que el aro de sujeción del fuelle (muelle o brida) esté bien asentado
+          y no haya cedido
+        - Limpia el fuelle con una solución de vinagre blanco al 50% para disolver
+          la cal que puede haber endurecido y agrietado la goma
+        causes:
+        - Junta de puerta dañada físicamente por un objeto atrapado entre el tambor
+          y el fuelle
+        - Deterioro por cal y detergente que endurece la goma hasta provocar grietas
+          por donde escapa el agua
+        - Aro de retención del fuelle desencajado que deja una zona del fuelle sin
+          sujeción y pierde el sellado
+        - Uso frecuente de demasiado detergente que deja residuos y debilita la goma
+          con el tiempo
+        cta:
+          catKey: junta
+          label: Ver juntas de puerta compatibles
+      recambios:
+        junta:
+        - sku: samsung-lav-samsung-ww70t4040ee-junta-junta-puerta
+          title: Junta / goma puerta compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 door seal Junta / goma puerta
+            compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id002
+          - ww70t4040
+          - ww70t4040ee
+        filtro:
+        - sku: samsung-lav-samsung-ww70t4040ee-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 filter pump Filtro bomba /
+            pelusa compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id002
+        correa:
+        - sku: samsung-lav-samsung-ww70t4040ee-correa-correa-poli-v
+          title: Correa poli-V compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 belt poly Correa poli-V compatible
+            para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id002
+        bomba:
+        - sku: samsung-lav-samsung-ww70t4040ee-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 drain pump Bomba de desagüe
+            compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id002
+        resistencia:
+        - sku: samsung-lav-samsung-ww70t4040ee-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 heating element Resistencia
+            calefactora compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id002
+        rodamiento:
+        - sku: samsung-lav-samsung-ww70t4040ee-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 bearing drum Kit rodamientos
+            tambor compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id002
+        escobillas:
+        - sku: samsung-lav-samsung-ww70t4040ee-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 carbon brush Escobillas de
+            carbón motor compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id002
+        accesorios:
+        - sku: samsung-lav-samsung-ww70t4040ee-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 inlet valve Válvula de entrada
+            agua compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id002
+        - sku: samsung-lav-samsung-ww70t4040ee-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 drum paddle Paleta / pala de
+            tambor compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id002
+        - sku: samsung-lav-samsung-ww70t4040ee-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Samsung WW70T4040EE
+          intent: compra
+          query: Samsung Samsung WW70T4040EE ww70t4040 door handle Tirador / asa de
+            puerta compatible para Samsung WW70T4040EE
+          must_include:
+          - ww70t4040
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id002
+  lg-lav:
+    name: LG
+    notes_brand: Referente en motores Direct Drive sin correa ni escobillas, con garantía
+      de 10 años en el motor. Alta fiabilidad mecánica pero la electrónica y las juntas
+      son los puntos débiles más habituales en el taller.
+    models:
+    - model: LG F4WR509SBW
+      slug: lg-f4wr509sbw
+      year_range: 2021-2024
+      sku_pack: washing10
+      model_tokens:
+      - f4wr509
+      - f4wr509sbw
+      intro: La LG F4WR509SBW es una lavadora de 9 kg con motor AI DD (Direct Drive
+        con inteligencia artificial) que detecta el tipo de tejido y ajusta el movimiento
+        del tambor automáticamente. Al eliminar la correa de transmisión, prácticamente
+        anula el ruido mecánico durante el centrifugado y reduce el consumo eléctrico.
+      comprar_nuevo:
+        query: lg f4wr509 lavadora 9kg direct drive
+        label: Ver LG F4WR509SBW nueva
+      problemas:
+      - key: no-desagua
+        title: LG F4WR509SBW no desagua
+        intent: info
+        symptoms:
+        - El programa se para y el tambor queda lleno de agua sin desaguar
+        - El display muestra el código OE (error de desagüe)
+        - La bomba de desagüe se escucha funcionando pero el agua no sale
+        - El programa tarda el doble de lo normal porque intenta drenar varias veces
+        checks:
+        - Abre el tapón del filtro de la bomba (panel inferior derecho) con una toalla
+          en el suelo y limpia el filtro de cualquier objeto
+        - Comprueba que la manguera de desagüe no supere los 100 cm de altura ni esté
+          sumergida más de 15 cm en el sifón
+        - 'Con el filtro quitado, gira el impulsor de la bomba: debe girar libremente;
+          si está duro o bloqueado, la bomba necesita reemplazo'
+        - Revisa que no haya un lazo o pliegue en la manguera de desagüe que impida
+          el flujo
+        causes:
+        - 'Filtro de la bomba obstruido por objetos sólidos: causa más del 60% de
+          los fallos de desagüe'
+        - Bomba de desagüe averiada con el impulsor bloqueado o el motor quemado
+        - Manguera de desagüe mal instalada o doblada que forma una bolsa de agua
+          que impide el vaciado
+        - Fallo en la tarjeta electrónica que no activa la bomba en el ciclo correcto
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      - key: vibra-mucho
+        title: LG F4WR509SBW vibra y hace ruido al centrifugar
+        intent: info
+        symptoms:
+        - La lavadora produce un ruido de zumbido grave que aumenta con la velocidad
+        - Se desplaza o golpea contra los muebles adyacentes durante el centrifugado
+        - El ruido ha ido aumentando con el tiempo y ya es claramente audible desde
+          otra habitación
+        - Al empujar el tambor manualmente hay más juego del normal
+        checks:
+        - Nivela la lavadora con sus patas regulables usando un nivel de burbuja;
+          una sola pata mal apoyada genera vibraciones desproporcionadas
+        - 'Mueve el tambor hacia arriba y los lados con las dos manos: el juego debe
+          ser mínimo; más de 1-2 cm indica rodamientos desgastados'
+        - 'Revisa los amortiguadores inferiores: si están rotos o muy blandos el tambor
+          oscila demasiado al centrifugar'
+        - Comprueba que no haya objetos duros (monedas, tornillos) dentro del tambor
+          golpeando la cuba
+        causes:
+        - 'Rodamientos del eje del tambor desgastados: fallo clásico entre 5 y 8 años
+          de uso con ruido grave y creciente'
+        - Amortiguadores deteriorados que han perdido su capacidad de absorción de
+          vibraciones
+        - Objeto duro atrapado entre el tambor y la cuba que golpea en cada vuelta
+        - Patas desniveladas que amplifican cualquier desequilibrio de la carga
+        cta:
+          catKey: rodamiento
+          label: Ver rodamientos compatibles
+      - key: no-calienta
+        title: LG F4WR509SBW no calienta el agua
+        intent: info
+        symptoms:
+        - Los programas de 40 °C, 60 °C o 90 °C no eliminan manchas difíciles como
+          antes
+        - El agua en el tambor no se nota caliente aunque el programa lleve 20 minutos
+        - El código de error tE o tCL aparece en la pantalla durante el calentamiento
+        - El programa dura lo mismo independientemente de la temperatura seleccionada
+        checks:
+        - 'Mide la continuidad de la resistencia calefactora con un multímetro: debe
+          marcar entre 20 y 30 ohmios; infinito indica que está fundida'
+        - 'Comprueba el sensor NTC de temperatura: su valor en ohmios cambia con la
+          temperatura; un valor fijo o infinito indica fallo'
+        - 'Verifica que la presión del agua de entrada sea suficiente: si el llenado
+          es lento la lavadora puede no alcanzar el nivel mínimo para activar el calentamiento'
+        - Revisa visualmente la resistencia buscando quemaduras o depósitos de cal
+          que puedan haber cortado el elemento
+        causes:
+        - Resistencia calefactora fundida o calcificada que no genera calor
+        - Sensor NTC de temperatura defectuoso que envía lecturas erróneas a la tarjeta
+          de control
+        - Termostato de seguridad disparado que corta el circuito de calefacción para
+          prevenir sobrecalentamiento
+        - Nivel de agua insuficiente en la cuba por un fallo en la válvula de entrada
+          que impide activar la resistencia
+        cta:
+          catKey: resistencia
+          label: Ver resistencias calefactoras compatibles
+      recambios:
+        junta:
+        - sku: lg-lav-lg-f4wr509sbw-junta-junta-puerta
+          title: Junta / goma puerta compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 door seal Junta / goma puerta compatible
+            para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id003
+          - f4wr509
+          - f4wr509sbw
+        filtro:
+        - sku: lg-lav-lg-f4wr509sbw-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 filter pump Filtro bomba / pelusa compatible
+            para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id003
+        correa:
+        - sku: lg-lav-lg-f4wr509sbw-correa-correa-poli-v
+          title: Correa poli-V compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 belt poly Correa poli-V compatible para
+            LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id003
+        bomba:
+        - sku: lg-lav-lg-f4wr509sbw-bomba-bomba-desague
+          title: Bomba de desagüe compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 drain pump Bomba de desagüe compatible para
+            LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id003
+        resistencia:
+        - sku: lg-lav-lg-f4wr509sbw-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 heating element Resistencia calefactora
+            compatible para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id003
+        rodamiento:
+        - sku: lg-lav-lg-f4wr509sbw-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 bearing drum Kit rodamientos tambor compatible
+            para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id003
+        escobillas:
+        - sku: lg-lav-lg-f4wr509sbw-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 carbon brush Escobillas de carbón motor
+            compatible para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id003
+        accesorios:
+        - sku: lg-lav-lg-f4wr509sbw-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 inlet valve Válvula de entrada agua compatible
+            para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id003
+        - sku: lg-lav-lg-f4wr509sbw-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 drum paddle Paleta / pala de tambor compatible
+            para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id003
+        - sku: lg-lav-lg-f4wr509sbw-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para LG F4WR509SBW
+          intent: compra
+          query: LG LG F4WR509SBW f4wr509 door handle Tirador / asa de puerta compatible
+            para LG F4WR509SBW
+          must_include:
+          - f4wr509
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id003
+    - model: LG F2WN5S6S0
+      slug: lg-f2wn5s6s0
+      year_range: 2019-2023
+      sku_pack: washing10
+      model_tokens:
+      - f2wn5s6
+      - f2wn5s6s0
+      intro: La LG F2WN5S6S0 es una lavadora de entrada de gama de 6 kg con motor
+        Direct Drive y clasificación energética A+++. Su compacto tambor la hace ideal
+        para hogares pequeños o parejas, y su motor sin correa ni escobillas reduce
+        significativamente el mantenimiento mecánico a largo plazo.
+      comprar_nuevo:
+        query: lg f2wn5s6 lavadora 6kg direct drive
+        label: Ver LG F2WN5S6S0 nueva
+      problemas:
+      - key: pierde-agua-puerta
+        title: LG F2WN5S6S0 pierde agua por la puerta
+        intent: info
+        symptoms:
+        - Goteo constante por la parte inferior de la puerta durante el programa
+        - La junta de goma presenta manchas negras de moho, rigidez o pequeños cortes
+          visibles
+        - El suelo bajo la lavadora aparece mojado después de cada lavado
+        - Al abrir la puerta se nota que el fuelle no está completamente asentado
+          en el aro de sujeción
+        checks:
+        - Dobla el fuelle completamente hacia afuera y revisa la cara interna buscando
+          cortes, agujeros o zonas endurecidas
+        - Verifica que el aro de sujeción del fuelle (clip metálico o plástico) esté
+          bien cerrado en todo su perímetro
+        - Comprueba si hay objetos pequeños atrapados en los pliegues del fuelle que
+          puedan haberlo perforado
+        - Limpia el fuelle con vinagre blanco y agua caliente para ablandar los depósitos
+          de cal y comprobar si hay grietas ocultas bajo la cal
+        causes:
+        - Junta de puerta con corte provocado por un objeto extraño que cayó entre
+          el tambor y el fuelle
+        - Deterioro por cal acumulada que endurece y agrieta la goma del fuelle
+        - Aro de retención del fuelle mal colocado que deja una zona sin sujeción
+        - Moho profundo que degrada la estructura de la goma hasta hacerla porosa
+        cta:
+          catKey: junta
+          label: Ver juntas de puerta compatibles
+      - key: no-entra-agua
+        title: LG F2WN5S6S0 no entra agua o llena muy lento
+        intent: info
+        symptoms:
+        - El programa arranca pero el tambor no se llena y la lavadora se queda parada
+        - El llenado tarda más de 10 minutos para los primeros litros
+        - Aparece el código de error IE en la pantalla
+        - Se escucha la electroválvula intentando abrirse pero no pasa agua
+        checks:
+        - Cierra el grifo de entrada y desconecta la manguera de la lavadora para
+          comprobar que el filtro de malla de la entrada no esté obstruido por cal
+          o suciedad
+        - Verifica que el grifo de alimentación esté completamente abierto y la presión
+          de la red sea suficiente (mínimo 0,5 bar)
+        - Comprueba que la manguera de entrada no esté aplastada, doblada o con el
+          interior obstruido
+        - 'Mide con el multímetro la continuidad de la electroválvula de entrada:
+          una bobina abierta (infinito) indica que la válvula está averiada'
+        causes:
+        - Filtro de malla de la electroválvula obstruido por sedimentos de cal o partículas
+          de la red
+        - Electroválvula de entrada averiada cuya bobina no abre el paso de agua
+        - Presión de red insuficiente, especialmente en pisos superiores o zonas con
+          baja presión
+        - Manguera de entrada aplastada o con un doblez que impide el flujo
+        cta:
+          catKey: accesorios
+          label: Ver válvulas y accesorios de entrada
+      - key: no-desagua
+        title: LG F2WN5S6S0 no desagua
+        intent: info
+        symptoms:
+        - Al final del programa el tambor queda con agua sin evacuar
+        - El código OE aparece en el display
+        - La ropa sale completamente empapada porque no hubo centrifugado
+        - La bomba hace ruido pero no expulsa agua por la manguera
+        checks:
+        - Abre el tapón del filtro de bomba (panel inferior) con cuidado de recoger
+          el agua con una toalla
+        - Limpia completamente el filtro y revisa el interior del alojamiento buscando
+          objetos que bloqueen el impulsor
+        - Gira el impulsor de la bomba con el dedo; debe girar con cierta suavidad;
+          si está bloqueado la bomba está averiada
+        - Inspecciona la manguera de desagüe buscando pliegues, aplastamientos o altura
+          de descarga incorrecta
+        causes:
+        - 'Filtro de bomba obstruido: la causa más frecuente y la más sencilla de
+          resolver'
+        - Bomba de desagüe con impulsor atascado o motor quemado
+        - Manguera de desagüe con pliegue o instalación incorrecta
+        - Fallo en la placa electrónica que no da la orden de desagüe
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      recambios:
+        junta:
+        - sku: lg-lav-lg-f2wn5s6s0-junta-junta-puerta
+          title: Junta / goma puerta compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 door seal Junta / goma puerta compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id004
+          - f2wn5s6
+          - f2wn5s6s0
+        filtro:
+        - sku: lg-lav-lg-f2wn5s6s0-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 filter pump Filtro bomba / pelusa compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id004
+        correa:
+        - sku: lg-lav-lg-f2wn5s6s0-correa-correa-poli-v
+          title: Correa poli-V compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 belt poly Correa poli-V compatible para LG
+            F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id004
+        bomba:
+        - sku: lg-lav-lg-f2wn5s6s0-bomba-bomba-desague
+          title: Bomba de desagüe compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 drain pump Bomba de desagüe compatible para
+            LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id004
+        resistencia:
+        - sku: lg-lav-lg-f2wn5s6s0-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 heating element Resistencia calefactora compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id004
+        rodamiento:
+        - sku: lg-lav-lg-f2wn5s6s0-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 bearing drum Kit rodamientos tambor compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id004
+        escobillas:
+        - sku: lg-lav-lg-f2wn5s6s0-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 carbon brush Escobillas de carbón motor compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id004
+        accesorios:
+        - sku: lg-lav-lg-f2wn5s6s0-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 inlet valve Válvula de entrada agua compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id004
+        - sku: lg-lav-lg-f2wn5s6s0-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 drum paddle Paleta / pala de tambor compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id004
+        - sku: lg-lav-lg-f2wn5s6s0-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para LG F2WN5S6S0
+          intent: compra
+          query: LG LG F2WN5S6S0 f2wn5s6 door handle Tirador / asa de puerta compatible
+            para LG F2WN5S6S0
+          must_include:
+          - f2wn5s6
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id004
+  bosch-lav:
+    name: Bosch
+    notes_brand: Referencia de calidad alemana en el segmento medio-alto español.
+      Las series 6, 8 y la tecnología i-DOS son muy populares. Alta durabilidad general,
+      pero rodamientos y resistencias son los recambios más demandados.
+    models:
+    - model: Bosch WAU28PHSPE
+      slug: bosch-wau28phspe
+      year_range: 2020-2024
+      sku_pack: washing10
+      model_tokens:
+      - wau28phspe
+      - wau28ph
+      intro: La Bosch WAU28PHSPE pertenece a la Serie 8 de Bosch y destaca por el
+        sistema i-DOS, que dosifica automáticamente la cantidad exacta de detergente
+        líquido, evitando el exceso de espuma y alargando la vida de las piezas de
+        goma. Su motor EcoSilence Drive es extremadamente silencioso y tiene garantía
+        de 10 años, lo que la convierte en una de las lavadoras más silenciosas y
+        duraderas del mercado español.
+      comprar_nuevo:
+        query: bosch wau28phspe serie 8 lavadora
+        label: Ver Bosch WAU28PHSPE nueva
+      problemas:
+      - key: no-desagua
+        title: Bosch WAU28PHSPE no desagua
+        intent: info
+        symptoms:
+        - El programa se para mostrando el código F21 o E18 y el tambor queda con
+          agua
+        - La ropa sale sin centrifugar y completamente empapada
+        - Se escucha la bomba trabajar durante varios minutos sin que el agua salga
+        - El ciclo intenta drenar repetidamente antes de mostrar el error
+        checks:
+        - Abre el panel inferior y localiza el tapón del filtro de la bomba; protege
+          el suelo con toallas antes de abrir
+        - Retira y limpia el filtro eliminando cualquier objeto sólido; en este modelo
+          suelen acumularse residuos del dosificador i-DOS
+        - Con el filtro retirado, comprueba que el impulsor de la bomba gire libremente
+          sin resistencia
+        - Verifica que la manguera de desagüe no tenga altura de descarga superior
+          a 100 cm ni esté sumergida en el sifón
+        causes:
+        - 'Filtro de bomba obstruido: causa más habitual, solucionable sin herramientas'
+        - Bomba de desagüe averiada con impulsor bloqueado o bobina quemada
+        - Manguera de desagüe mal instalada que crea una trampa de agua
+        - Residuos del sistema i-DOS acumulados en el filtro si no se limpia periódicamente
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      - key: vibra-mucho
+        title: Bosch WAU28PHSPE vibra y hace ruido al centrifugar
+        intent: info
+        symptoms:
+        - Un ruido de rodamiento grave y continuo durante el centrifugado que se escucha
+          en toda la casa
+        - La lavadora se desplaza sobre el suelo pese a estar bien nivelada
+        - El ruido ha ido empeorando progresivamente en los últimos meses
+        - Al mover el tambor manualmente se nota un juego lateral excesivo
+        checks:
+        - Comprueba la nivelación con las patas regulables; la Serie 8 de Bosch es
+          especialmente sensible al desnivel
+        - 'Abre la puerta y empuja el tambor hacia los lados y hacia arriba: más de
+          1 cm de juego indica rodamientos en mal estado'
+        - 'Escucha si el ruido aparece desde los primeros minutos del centrifugado
+          o solo a alta velocidad: los rodamientos generan ruido ya desde bajas rpm'
+        - Revisa si hay objetos (monedas, botones) entre el tambor y la cuba golpeando
+          en cada vuelta
+        causes:
+        - 'Rodamientos del tambor desgastados: es el fallo más común en lavadoras
+          Bosch con más de 5 años de uso intensivo'
+        - Amortiguadores que han perdido su capacidad de amortiguación
+        - Objeto sólido atrapado entre el tambor y la cuba que produce un golpe rítmico
+        - Desnivel del suelo o de las patas que amplifica las vibraciones naturales
+          del centrifugado
+        cta:
+          catKey: rodamiento
+          label: Ver rodamientos compatibles
+      - key: no-calienta
+        title: Bosch WAU28PHSPE no calienta el agua
+        intent: info
+        symptoms:
+        - Los programas con temperatura (40 °C, 60 °C, 90 °C) no eliminan manchas
+          de grasa ni bacterias
+        - Tocando la puerta tras 15-20 minutos de programa caliente, el cristal permanece
+          frío
+        - El display muestra código de error E09 o similar relacionado con el calentamiento
+        - El tiempo total del programa es idéntico independientemente de la temperatura
+          seleccionada
+        checks:
+        - 'Mide la resistencia calefactora con el multímetro en modo ohmios: valor
+          esperado entre 20-30 Ω; infinito confirma que está fundida'
+        - 'Verifica el sensor NTC: su resistencia varía con la temperatura del agua;
+          un valor fijo o fuera de rango indica fallo'
+        - Comprueba que no haya exceso de cal en la resistencia (depósito blanquecino)
+          que reduzca su eficiencia hasta fundirla
+        - Revisa el termostato de seguridad (klixon) que puede haberse disparado por
+          sobrecalentamiento
+        causes:
+        - Resistencia calefactora fundida por cal acumulada o por un pico de tensión
+          eléctrica
+        - Sensor NTC defectuoso que reporta temperatura incorrecta y detiene el calentamiento
+          prematuramente
+        - Termostato de seguridad disparado en modo permanente que corta el circuito
+          de calefacción
+        - Fallo en la placa electrónica que no activa el relé de la resistencia
+        cta:
+          catKey: resistencia
+          label: Ver resistencias calefactoras compatibles
+      recambios:
+        junta:
+        - sku: bosch-lav-bosch-wau28phspe-junta-junta-puerta
+          title: Junta / goma puerta compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe door seal Junta / goma puerta compatible
+            para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id005
+          - wau28phspe
+          - wau28ph
+        filtro:
+        - sku: bosch-lav-bosch-wau28phspe-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe filter pump Filtro bomba / pelusa
+            compatible para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id005
+        correa:
+        - sku: bosch-lav-bosch-wau28phspe-correa-correa-poli-v
+          title: Correa poli-V compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe belt poly Correa poli-V compatible
+            para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id005
+        bomba:
+        - sku: bosch-lav-bosch-wau28phspe-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe drain pump Bomba de desagüe compatible
+            para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id005
+        resistencia:
+        - sku: bosch-lav-bosch-wau28phspe-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe heating element Resistencia calefactora
+            compatible para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id005
+        rodamiento:
+        - sku: bosch-lav-bosch-wau28phspe-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe bearing drum Kit rodamientos tambor
+            compatible para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id005
+        escobillas:
+        - sku: bosch-lav-bosch-wau28phspe-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe carbon brush Escobillas de carbón
+            motor compatible para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id005
+        accesorios:
+        - sku: bosch-lav-bosch-wau28phspe-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe inlet valve Válvula de entrada
+            agua compatible para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id005
+        - sku: bosch-lav-bosch-wau28phspe-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe drum paddle Paleta / pala de tambor
+            compatible para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id005
+        - sku: bosch-lav-bosch-wau28phspe-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Bosch WAU28PHSPE
+          intent: compra
+          query: Bosch Bosch WAU28PHSPE wau28phspe door handle Tirador / asa de puerta
+            compatible para Bosch WAU28PHSPE
+          must_include:
+          - wau28phspe
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id005
+    - model: Bosch WAN28281ES
+      slug: bosch-wan28281es
+      year_range: 2019-2023
+      sku_pack: washing10
+      model_tokens:
+      - wan28281
+      - wan28281es
+      intro: La Bosch WAN28281ES es una lavadora de 8 kg de la Serie 4, diseñada para
+        el segmento medio del mercado español. Su motor EcoSilence Drive ofrece un
+        funcionamiento silencioso y la hace especialmente popular en pisos y apartamentos.
+        Combina la fiabilidad característica de Bosch con un precio accesible dentro
+        de la gama.
+      comprar_nuevo:
+        query: bosch wan28281 serie 4 lavadora 8kg
+        label: Ver Bosch WAN28281ES nueva
+      problemas:
+      - key: pierde-agua-puerta
+        title: Bosch WAN28281ES pierde agua por la puerta
+        intent: info
+        symptoms:
+        - Agua en el suelo bajo la puerta al finalizar o durante el programa
+        - La junta de goma de la puerta presenta decoloración, dureza o fisuras visibles
+        - Al cerrar la puerta se nota que el fuelle no hace un sellado uniforme
+        - Las manchas de agua aparecen especialmente en la parte inferior del marco
+          de la puerta
+        checks:
+        - Inspecciona el fuelle completamente, doblando cada sección hacia afuera
+          para ver las zonas ocultas en los pliegues
+        - Busca objetos metálicos pequeños en los pliegues del fuelle, ya que monedas
+          y grapas son la causa más frecuente de perforaciones
+        - Comprueba que el aro metálico de sujeción del fuelle esté correctamente
+          asentado en su ranura en todo el perímetro
+        - Realiza un programa corto y observa desde qué punto exacto del fuelle sale
+          el agua para localizar la zona dañada
+        causes:
+        - Fuelle de puerta con corte o perforación por un objeto extraño
+        - Deterioro del caucho por uso prolongado y acumulación de cal
+        - Aro de sujeción parcialmente desencajado que deja una sección del fuelle
+          sin soporte
+        - Exceso de detergente habitual que genera espuma en exceso y fuerza las juntas
+        cta:
+          catKey: junta
+          label: Ver juntas de puerta compatibles
+      - key: no-centrifuga
+        title: Bosch WAN28281ES no centrifuga
+        intent: info
+        symptoms:
+        - La ropa sale muy húmeda aunque el programa haya concluido sin error visible
+        - El tambor gira durante el lavado pero se detiene antes de llegar a la velocidad
+          de centrifugado
+        - Se muestra el código F43 o el programa salta directamente al final sin centrifugar
+        - Se escucha un intento de aceleración seguido de una reducción brusca de
+          velocidad
+        checks:
+        - 'Comprueba el equilibrado de la carga: añade prendas similares o redistribuye
+          la ropa y repite el centrifugado manualmente'
+        - 'Revisa visualmente la correa de transmisión accediendo por el panel trasero:
+          busca grietas, desgaste o que se haya salido de la polea'
+        - 'Verifica que las escobillas de carbón del motor no estén desgastadas: si
+          miden menos de 5 mm ya no hacen buen contacto'
+        - Comprueba que la puerta cierre perfectamente y el seguro esté activado;
+          la lavadora no centrífuga si detecta que la puerta no está bloqueada
+        causes:
+        - Correa de transmisión rota o deslizante que impide transmitir el giro del
+          motor al tambor
+        - Escobillas de carbón desgastadas que reducen la potencia del motor
+        - Carga desequilibrada que activa el sistema de protección y cancela el centrifugado
+        - Fallo en el cierre de puerta que el sensor detecta como puerta abierta
+        cta:
+          catKey: correa
+          label: Ver correas compatibles
+      - key: no-entra-agua
+        title: Bosch WAN28281ES no entra agua
+        intent: info
+        symptoms:
+        - La lavadora arranca pero no se escucha el agua entrar y el programa queda
+          bloqueado en el llenado
+        - Aparece el código de error F17 o E17 en el display
+        - El cajón del detergente no se vacía porque no pasa agua a través de él
+        - Se escucha un clic de la electroválvula pero sin flujo de agua
+        checks:
+        - Comprueba que el grifo de alimentación esté totalmente abierto
+        - Desconecta la manguera de entrada y limpia el filtro de malla en el conector
+          de la lavadora con agua corriente y un cepillo suave
+        - 'Verifica la presión de la red: en zonas de baja presión o pisos altos puede
+          no alcanzar el mínimo requerido'
+        - 'Mide con el multímetro la electroválvula de entrada: las bobinas deben
+          marcar entre 3 y 5 kΩ; un valor infinito indica bobina quemada'
+        causes:
+        - Filtro de malla de la entrada de agua obstruido por sedimentos y cal
+        - Electroválvula de entrada averiada con bobina quemada o membrana atascada
+        - Presión de red insuficiente para abrir la electroválvula de entrada
+        - Manguera de entrada aplastada o con la rosca de conexión obstruida
+        cta:
+          catKey: accesorios
+          label: Ver válvulas y accesorios de entrada
+      recambios:
+        junta:
+        - sku: bosch-lav-bosch-wan28281es-junta-junta-puerta
+          title: Junta / goma puerta compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 door seal Junta / goma puerta compatible
+            para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id006
+          - wan28281
+          - wan28281es
+        filtro:
+        - sku: bosch-lav-bosch-wan28281es-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 filter pump Filtro bomba / pelusa
+            compatible para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id006
+        correa:
+        - sku: bosch-lav-bosch-wan28281es-correa-correa-poli-v
+          title: Correa poli-V compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 belt poly Correa poli-V compatible
+            para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id006
+        bomba:
+        - sku: bosch-lav-bosch-wan28281es-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 drain pump Bomba de desagüe compatible
+            para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id006
+        resistencia:
+        - sku: bosch-lav-bosch-wan28281es-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 heating element Resistencia calefactora
+            compatible para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id006
+        rodamiento:
+        - sku: bosch-lav-bosch-wan28281es-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 bearing drum Kit rodamientos tambor
+            compatible para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id006
+        escobillas:
+        - sku: bosch-lav-bosch-wan28281es-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 carbon brush Escobillas de carbón
+            motor compatible para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id006
+        accesorios:
+        - sku: bosch-lav-bosch-wan28281es-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 inlet valve Válvula de entrada agua
+            compatible para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id006
+        - sku: bosch-lav-bosch-wan28281es-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 drum paddle Paleta / pala de tambor
+            compatible para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id006
+        - sku: bosch-lav-bosch-wan28281es-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Bosch WAN28281ES
+          intent: compra
+          query: Bosch Bosch WAN28281ES wan28281 door handle Tirador / asa de puerta
+            compatible para Bosch WAN28281ES
+          must_include:
+          - wan28281
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id006
+  balay-lav:
+    name: Balay
+    notes_brand: Marca española del grupo BSH (Bosch-Siemens-Hausgeräte), fabricada
+      en Zaragoza. Sus modelos comparten plataforma y piezas con Bosch y Siemens,
+      lo que facilita encontrar recambios. Muy apreciada por su robustez y el servicio
+      técnico en España.
+    models:
+    - model: Balay 3TS994XD
+      slug: balay-3ts994xd
+      year_range: 2019-2024
+      sku_pack: washing10
+      model_tokens:
+      - 3ts994
+      - 3ts994xd
+      intro: La Balay 3TS994XD es una lavadora de 9 kg fabricada en la planta de BSH
+        en Zaragoza, con motor EcoSilence Drive y clasificación energética A++. Es
+        uno de los modelos más vendidos de Balay en España por su amplia capacidad,
+        bajo nivel de ruido y la garantía del servicio técnico de la marca en todo
+        el territorio nacional.
+      comprar_nuevo:
+        query: balay 3ts994xd lavadora 9kg
+        label: Ver Balay 3TS994XD nueva
+      problemas:
+      - key: vibra-mucho
+        title: Balay 3TS994XD vibra mucho y hace ruido
+        intent: info
+        symptoms:
+        - Ruido grave y continuo que comienza durante el centrifugado y aumenta con
+          las rpm
+        - La lavadora se desplaza o golpea contra los muebles de la cocina
+        - Al mover el tambor a mano se nota un juego excesivo o un ruido de traqueteo
+        - El ruido ha ido empeorando progresivamente a lo largo de varios meses
+        checks:
+        - Nivela las cuatro patas con un nivel de burbuja; ajusta las patas regulables
+          hasta eliminar cualquier bamboleo
+        - 'Mueve el tambor hacia arriba y los lados con las dos manos: más de 1-2
+          cm de juego indica rodamientos desgastados'
+        - Introduce la mano en el tambor y empuja hacia el fondo de la cuba; si se
+          nota golpe o dureza inusual puede haber un objeto entre tambor y cuba
+        - Busca en el panel inferior si los amortiguadores están rotos o si el tambor
+          toca la estructura
+        causes:
+        - 'Rodamientos del eje desgastados: fallo más frecuente en lavadoras BSH/Balay
+          con más de 5-6 años de uso'
+        - Amortiguadores traseros o delanteros deteriorados que ya no controlan el
+          movimiento del tambor
+        - Objeto metálico atrapado entre tambor y cuba
+        - Patas desniveladas que convierten pequeños desequilibrios en grandes vibraciones
+        cta:
+          catKey: rodamiento
+          label: Ver rodamientos compatibles
+      - key: no-calienta
+        title: Balay 3TS994XD no calienta el agua
+        intent: info
+        symptoms:
+        - Los programas de 60 °C y 90 °C no eliminan manchas difíciles con la eficacia
+          habitual
+        - Tocando la puerta a mitad de un programa caliente, el cristal está frío
+        - 'El programa de 40 °C dura lo mismo que el de 90 °C: sin tiempo de calentamiento'
+        - La pantalla puede mostrar un código de error relacionado con la temperatura
+        checks:
+        - 'Comprueba la resistencia calefactora con el multímetro: valor esperado
+          20-30 Ω; infinito = resistencia fundida'
+        - 'Verifica el sensor NTC: si no varía su resistencia al cambiar la temperatura
+          del agua está averiado'
+        - 'Revisa si la resistencia tiene una gruesa capa de cal que pudo haberla
+          fundido: es habitual en zonas de agua dura'
+        - 'Comprueba el termostato de seguridad o klixon: puede haberse disparado
+          definitivamente'
+        causes:
+        - Resistencia calefactora fundida, a menudo por acumulación de cal en zonas
+          de agua dura de España
+        - Sensor NTC defectuoso que reporta temperatura incorrecta
+        - Termostato de seguridad disparado permanentemente
+        - Fallo en la tarjeta de control que no activa la resistencia
+        cta:
+          catKey: resistencia
+          label: Ver resistencias calefactoras compatibles
+      - key: pierde-agua-puerta
+        title: Balay 3TS994XD pierde agua por la puerta
+        intent: info
+        symptoms:
+        - Agua en el suelo cada vez que se usa la lavadora
+        - La junta de goma de la puerta presenta manchas negras de moho difícil de
+          eliminar o pequeñas grietas
+        - El goteo aparece principalmente durante el lavado, cuando el nivel de agua
+          es máximo
+        - Al inspeccionar el fuelle se notan zonas endurecidas o deformadas
+        checks:
+        - Inspecciona todo el perímetro del fuelle doblando cada sección hacia afuera
+        - Revisa los pliegues internos del fuelle buscando objetos como monedas o
+          grapas que lo hayan perforado
+        - Verifica que el aro de sujeción plástico o metálico esté completamente encajado
+          en su ranura
+        - Limpia el fuelle con vinagre blanco diluido y comprueba si las grietas son
+          superficiales o atraviesan la goma
+        causes:
+        - Fuelle de puerta con corte o perforación por objeto extraño
+        - Goma endurecida por cal que se ha agrietado con el tiempo
+        - Aro de retención desencajado que deja el fuelle sin sujeción
+        - Uso de pastillas de lavavajillas u otros productos no recomendados que degradan
+          las gomas
+        cta:
+          catKey: junta
+          label: Ver juntas de puerta compatibles
+      recambios:
+        junta:
+        - sku: balay-lav-balay-3ts994xd-junta-junta-puerta
+          title: Junta / goma puerta compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 door seal Junta / goma puerta compatible
+            para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id007
+          - 3ts994
+          - 3ts994xd
+        filtro:
+        - sku: balay-lav-balay-3ts994xd-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 filter pump Filtro bomba / pelusa compatible
+            para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id007
+        correa:
+        - sku: balay-lav-balay-3ts994xd-correa-correa-poli-v
+          title: Correa poli-V compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 belt poly Correa poli-V compatible para
+            Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id007
+        bomba:
+        - sku: balay-lav-balay-3ts994xd-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 drain pump Bomba de desagüe compatible
+            para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id007
+        resistencia:
+        - sku: balay-lav-balay-3ts994xd-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 heating element Resistencia calefactora
+            compatible para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id007
+        rodamiento:
+        - sku: balay-lav-balay-3ts994xd-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 bearing drum Kit rodamientos tambor compatible
+            para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id007
+        escobillas:
+        - sku: balay-lav-balay-3ts994xd-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 carbon brush Escobillas de carbón motor
+            compatible para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id007
+        accesorios:
+        - sku: balay-lav-balay-3ts994xd-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 inlet valve Válvula de entrada agua compatible
+            para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id007
+        - sku: balay-lav-balay-3ts994xd-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 drum paddle Paleta / pala de tambor compatible
+            para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id007
+        - sku: balay-lav-balay-3ts994xd-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Balay 3TS994XD
+          intent: compra
+          query: Balay Balay 3TS994XD 3ts994 door handle Tirador / asa de puerta compatible
+            para Balay 3TS994XD
+          must_include:
+          - 3ts994
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id007
+    - model: Balay 3TS876BDE
+      slug: balay-3ts876bde
+      year_range: 2020-2024
+      sku_pack: washing10
+      model_tokens:
+      - 3ts876
+      - 3ts876bde
+      intro: La Balay 3TS876BDE es una lavadora de 7 kg de la gama media de Balay,
+        también fabricada en Zaragoza bajo la plataforma BSH. Comparte piezas clave
+        con los modelos equivalentes de Bosch y Siemens de la misma serie, lo que
+        facilita enormemente la disponibilidad de recambios a buen precio en el mercado
+        español.
+      comprar_nuevo:
+        query: balay 3ts876bde lavadora 7kg
+        label: Ver Balay 3TS876BDE nueva
+      problemas:
+      - key: no-centrifuga
+        title: Balay 3TS876BDE no centrifuga
+        intent: info
+        symptoms:
+        - El programa acaba pero la ropa sale empapada, sin señales de centrifugado
+        - El tambor gira despacio en el lavado pero no llega a las rpm de centrifugado
+        - Se muestra un código de error o el centrifugado se cancela automáticamente
+        - Se escucha un intento de arranque del motor a alta velocidad seguido de
+          parada brusca
+        checks:
+        - 'Redistribuye la ropa manualmente y selecciona solo el programa de centrifugado:
+          si funciona el problema era de desequilibrio'
+        - 'Accede al panel trasero y revisa la correa de transmisión: busca si está
+          rota, deslizante o fuera de las poleas'
+        - Verifica las escobillas de carbón del motor si son accesibles; si han llegado
+          al límite de desgaste el motor no arranca con potencia suficiente
+        - Comprueba que el cierre de puerta funcione correctamente; si el sensor no
+          detecta la puerta cerrada, bloquea el centrifugado por seguridad
+        causes:
+        - Correa de transmisión rota o desgastada
+        - Escobillas de carbón del motor agotadas
+        - Carga desequilibrada que activa la protección automática
+        - Fallo en el sensor de cierre de puerta
+        cta:
+          catKey: correa
+          label: Ver correas compatibles
+      - key: no-desagua
+        title: Balay 3TS876BDE no desagua
+        intent: info
+        symptoms:
+        - El programa se detiene con el tambor lleno de agua
+        - Aparece código de error E18 o F21 en la pantalla
+        - La ropa sale sin centrifugar, completamente empapada
+        - La bomba se escucha pero el agua no sale por la manguera
+        checks:
+        - 'Abre el panel inferior y limpia el filtro de la bomba de desagüe: es la
+          causa más habitual'
+        - Con el filtro fuera, gira el impulsor de la bomba con el dedo para verificar
+          que gira libremente
+        - Revisa la manguera de desagüe en busca de pliegues, aplastamientos o altura
+          de descarga incorrecta
+        - Si el filtro está limpio y la bomba gira libre, comprueba la toma de la
+          manguera en el sifón
+        causes:
+        - Filtro de bomba obstruido por objetos sólidos
+        - Bomba de desagüe averiada
+        - Manguera de desagüe mal instalada
+        - Fallo en la tarjeta electrónica
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      - key: vibra-mucho
+        title: Balay 3TS876BDE vibra mucho al centrifugar
+        intent: info
+        symptoms:
+        - Ruido grave y creciente al centrifugar que aumenta con los meses
+        - La lavadora da pequeños saltos o se desplaza durante el centrifugado
+        - El tambor tiene un juego excesivo al empujarlo manualmente
+        - El ruido empieza ya a baja velocidad y se vuelve insoportable a alta velocidad
+        checks:
+        - Nivela las patas con un nivel de burbuja
+        - 'Mueve el tambor a mano en todas las direcciones: más de 1-2 cm indica rodamientos
+          desgastados'
+        - Inspecciona los amortiguadores desde el panel inferior
+        - Busca objetos duros que puedan haberse caído entre el tambor y la cuba
+        causes:
+        - Rodamientos del eje desgastados
+        - Amortiguadores deteriorados
+        - Objeto sólido atrapado entre tambor y cuba
+        - Patas desniveladas
+        cta:
+          catKey: rodamiento
+          label: Ver rodamientos compatibles
+      recambios:
+        junta:
+        - sku: balay-lav-balay-3ts876bde-junta-junta-puerta
+          title: Junta / goma puerta compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 door seal Junta / goma puerta compatible
+            para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id008
+          - 3ts876
+          - 3ts876bde
+        filtro:
+        - sku: balay-lav-balay-3ts876bde-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 filter pump Filtro bomba / pelusa compatible
+            para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id008
+        correa:
+        - sku: balay-lav-balay-3ts876bde-correa-correa-poli-v
+          title: Correa poli-V compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 belt poly Correa poli-V compatible para
+            Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id008
+        bomba:
+        - sku: balay-lav-balay-3ts876bde-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 drain pump Bomba de desagüe compatible
+            para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id008
+        resistencia:
+        - sku: balay-lav-balay-3ts876bde-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 heating element Resistencia calefactora
+            compatible para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id008
+        rodamiento:
+        - sku: balay-lav-balay-3ts876bde-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 bearing drum Kit rodamientos tambor
+            compatible para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id008
+        escobillas:
+        - sku: balay-lav-balay-3ts876bde-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 carbon brush Escobillas de carbón motor
+            compatible para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id008
+        accesorios:
+        - sku: balay-lav-balay-3ts876bde-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 inlet valve Válvula de entrada agua
+            compatible para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id008
+        - sku: balay-lav-balay-3ts876bde-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 drum paddle Paleta / pala de tambor
+            compatible para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id008
+        - sku: balay-lav-balay-3ts876bde-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Balay 3TS876BDE
+          intent: compra
+          query: Balay Balay 3TS876BDE 3ts876 door handle Tirador / asa de puerta
+            compatible para Balay 3TS876BDE
+          must_include:
+          - 3ts876
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id008
+  beko-lav:
+    name: Beko
+    notes_brand: Marca turca de gran volumen en el segmento económico y medio español.
+      Muy presentes en grandes superficies, con modelos fiables y recambios accesibles.
+      Las bombas de desagüe y juntas de puerta son los recambios más solicitados.
+    models:
+    - model: Beko WTE7512BXSST
+      slug: beko-wte7512bxsst
+      year_range: 2019-2023
+      sku_pack: washing10
+      model_tokens:
+      - wte7512
+      - wte7512bxsst
+      intro: La Beko WTE7512BXSST es una lavadora de 7,5 kg de la gama media-baja
+        de Beko, una de las más vendidas en grandes superficies españolas por su precio
+        competitivo y sus dimensiones estándar. Cuenta con motor de inducción sin
+        escobillas que alarga la vida útil del electrodoméstico y reduce el mantenimiento
+        en comparación con modelos de motor de carbones.
+      comprar_nuevo:
+        query: beko wte7512 lavadora 7.5kg
+        label: Ver Beko WTE7512BXSST nueva
+      problemas:
+      - key: no-desagua
+        title: Beko WTE7512BXSST no desagua
+        intent: info
+        symptoms:
+        - El programa queda bloqueado con agua en el tambor
+        - Aparece el código de error E3 o la lavadora parpadea sin avanzar
+        - La ropa sale completamente empapada al final del programa
+        - La bomba de desagüe suena pero no expulsa agua
+        checks:
+        - Abre el tapón del filtro de la bomba (panel inferior izquierdo) con una
+          toalla en el suelo
+        - 'Limpia el filtro: en los modelos Beko es habitual encontrar monedas, botones
+          y fibras compactadas'
+        - 'Gira el impulsor de la bomba a mano: debe girar con suavidad; si está duro
+          o bloqueado la bomba está averiada'
+        - Revisa la manguera de desagüe buscando pliegues o alturas de descarga incorrectas
+        causes:
+        - 'Filtro de bomba obstruido: la causa más frecuente en los modelos Beko de
+          esta gama'
+        - Bomba de desagüe averiada con impulsor atascado
+        - Manguera de desagüe con pliegue o mala instalación
+        - Fallo electrónico en la tarjeta de control
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      - key: pierde-agua-puerta
+        title: Beko WTE7512BXSST pierde agua por la puerta
+        intent: info
+        symptoms:
+        - Goteo o charco de agua bajo la puerta durante o tras el programa
+        - La junta de goma de la puerta presenta manchas negras de moho muy marcadas
+          o pequeños cortes
+        - El agua sale por un punto concreto del fuelle, no de forma uniforme
+        - La fuga aparece especialmente cuando el nivel de agua en el tambor es máximo
+        checks:
+        - Inspecciona el fuelle doblando cada sección hacia afuera para ver la parte
+          trasera y los pliegues interiores
+        - Comprueba si hay objetos metálicos en los pliegues del fuelle que lo hayan
+          perforado
+        - Verifica que el aro de retención del fuelle esté completamente encajado
+          en su ranura
+        - Realiza un programa corto y observa desde qué punto exacto del fuelle sale
+          el agua
+        causes:
+        - 'Junta de puerta con corte por objeto extraño: causa más habitual'
+        - Deterioro del caucho por envejecimiento, cal y moho
+        - Aro de sujeción desencajado
+        - Exceso de detergente habitual que deteriora la goma a largo plazo
+        cta:
+          catKey: junta
+          label: Ver juntas de puerta compatibles
+      - key: no-calienta
+        title: Beko WTE7512BXSST no calienta el agua
+        intent: info
+        symptoms:
+        - La ropa no sale con el nivel de higiene esperado en programas de 60 °C
+        - El agua en el tambor está fría al tacto a mitad de un programa caliente
+        - El código de error E5 o similar aparece en el display
+        - Los programas calientes tardan lo mismo que los fríos
+        checks:
+        - 'Mide la resistencia calefactora con el multímetro: valor normal 20-30 Ω;
+          infinito = fundida'
+        - 'Verifica el sensor NTC de temperatura: su resistencia debe variar con el
+          calor; fija = averiado'
+        - Comprueba visualmente la resistencia buscando depósitos blancos de cal o
+          marcas de quemado
+        - Revisa el termostato de seguridad que puede haberse disparado por sobrecalentamiento
+        causes:
+        - Resistencia calefactora fundida
+        - Sensor NTC defectuoso
+        - Termostato de seguridad disparado
+        - Fallo en la tarjeta de control
+        cta:
+          catKey: resistencia
+          label: Ver resistencias calefactoras compatibles
+      recambios:
+        junta:
+        - sku: beko-lav-beko-wte7512bxsst-junta-junta-puerta
+          title: Junta / goma puerta compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 door seal Junta / goma puerta compatible
+            para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id009
+          - wte7512
+          - wte7512bxsst
+        filtro:
+        - sku: beko-lav-beko-wte7512bxsst-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 filter pump Filtro bomba / pelusa
+            compatible para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id009
+        correa:
+        - sku: beko-lav-beko-wte7512bxsst-correa-correa-poli-v
+          title: Correa poli-V compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 belt poly Correa poli-V compatible
+            para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id009
+        bomba:
+        - sku: beko-lav-beko-wte7512bxsst-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 drain pump Bomba de desagüe compatible
+            para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id009
+        resistencia:
+        - sku: beko-lav-beko-wte7512bxsst-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 heating element Resistencia calefactora
+            compatible para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id009
+        rodamiento:
+        - sku: beko-lav-beko-wte7512bxsst-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 bearing drum Kit rodamientos tambor
+            compatible para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id009
+        escobillas:
+        - sku: beko-lav-beko-wte7512bxsst-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 carbon brush Escobillas de carbón
+            motor compatible para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id009
+        accesorios:
+        - sku: beko-lav-beko-wte7512bxsst-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 inlet valve Válvula de entrada agua
+            compatible para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id009
+        - sku: beko-lav-beko-wte7512bxsst-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 drum paddle Paleta / pala de tambor
+            compatible para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id009
+        - sku: beko-lav-beko-wte7512bxsst-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Beko WTE7512BXSST
+          intent: compra
+          query: Beko Beko WTE7512BXSST wte7512 door handle Tirador / asa de puerta
+            compatible para Beko WTE7512BXSST
+          must_include:
+          - wte7512
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id009
+    - model: Beko B3WFU59415W
+      slug: beko-b3wfu59415w
+      year_range: 2021-2024
+      sku_pack: washing10
+      model_tokens:
+      - b3wfu594
+      - b3wfu59415w
+      intro: La Beko B3WFU59415W es una lavadora de 9 kg con motor ProSmart Inverter
+        y clasificación energética A. Su motor brushless de última generación promete
+        una vida útil de hasta 20 años con menos vibraciones y menor consumo que los
+        modelos con escobillas de carbón, posicionándola como la apuesta de Beko para
+        el segmento medio del mercado español.
+      comprar_nuevo:
+        query: beko b3wfu59415 lavadora 9kg prosmart
+        label: Ver Beko B3WFU59415W nueva
+      problemas:
+      - key: vibra-mucho
+        title: Beko B3WFU59415W vibra mucho al centrifugar
+        intent: info
+        symptoms:
+        - Vibraciones y ruido intenso durante el centrifugado aunque la carga esté
+          equilibrada
+        - La lavadora se desplaza varios centímetros durante un ciclo completo
+        - El ruido de centrifugado ha ido aumentando progresivamente
+        - Al abrir la puerta y mover el tambor se aprecia un juego lateral
+        checks:
+        - Nivela las cuatro patas; los modelos Beko de esta gama tienen patas regulables
+          con contratuerca que puede aflojarse con el uso
+        - 'Mueve el tambor en todas las direcciones con las dos manos: el juego no
+          debería superar 1 cm'
+        - Comprueba los amortiguadores por el panel inferior; si están blandos o rotos
+          el tambor oscila demasiado
+        - Verifica que no haya objetos duros atrapados entre el tambor y la cuba
+        causes:
+        - Rodamientos del eje desgastados en modelos con varios años de uso intensivo
+        - Amortiguadores deteriorados que no controlan el movimiento del tambor
+        - Patas regulables con contratuercas sueltas
+        - Objeto sólido atrapado entre tambor y cuba
+        cta:
+          catKey: rodamiento
+          label: Ver rodamientos compatibles
+      - key: no-entra-agua
+        title: Beko B3WFU59415W no entra agua
+        intent: info
+        symptoms:
+        - La lavadora arranca pero no se llena y el programa queda bloqueado
+        - Aparece el código de error E2 o E1 en el display
+        - El cajón del detergente permanece lleno al final del programa
+        - Se escucha el clic de la electroválvula pero no pasa agua
+        checks:
+        - Verifica que el grifo de alimentación esté completamente abierto
+        - Desconecta la manguera de entrada y limpia el filtro de malla con agua y
+          un cepillo suave
+        - Comprueba la presión de la red; los modelos Beko requieren al menos 0,5
+          bar para abrir la electroválvula
+        - 'Mide la electroválvula con el multímetro: el valor esperado de la bobina
+          es 3-5 kΩ; infinito indica bobina quemada'
+        causes:
+        - Filtro de malla de la entrada obstruido por sedimentos de cal
+        - Electroválvula de entrada averiada
+        - Presión de red insuficiente
+        - Manguera de entrada aplastada o con la rosca obstruida
+        cta:
+          catKey: accesorios
+          label: Ver válvulas y accesorios de entrada
+      - key: no-desagua
+        title: Beko B3WFU59415W no desagua
+        intent: info
+        symptoms:
+        - El tambor queda con agua al final del programa
+        - Código de error E3 en el display
+        - Ropa empapada sin centrifugar
+        - La bomba suena pero no expulsa agua
+        checks:
+        - Limpia el filtro de la bomba de desagüe en el panel inferior frontal
+        - 'Gira el impulsor de la bomba a mano: debe girar libremente'
+        - Revisa la manguera de desagüe buscando pliegues o aplastamientos
+        - Comprueba que la altura de descarga de la manguera no supere los 100 cm
+        causes:
+        - Filtro de bomba obstruido
+        - Bomba de desagüe averiada
+        - Manguera de desagüe mal instalada
+        - Fallo en la tarjeta de control
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      recambios:
+        junta:
+        - sku: beko-lav-beko-b3wfu59415w-junta-junta-puerta
+          title: Junta / goma puerta compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 door seal Junta / goma puerta compatible
+            para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id010
+          - b3wfu594
+          - b3wfu59415w
+        filtro:
+        - sku: beko-lav-beko-b3wfu59415w-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 filter pump Filtro bomba / pelusa
+            compatible para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id010
+        correa:
+        - sku: beko-lav-beko-b3wfu59415w-correa-correa-poli-v
+          title: Correa poli-V compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 belt poly Correa poli-V compatible
+            para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id010
+        bomba:
+        - sku: beko-lav-beko-b3wfu59415w-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 drain pump Bomba de desagüe compatible
+            para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id010
+        resistencia:
+        - sku: beko-lav-beko-b3wfu59415w-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 heating element Resistencia calefactora
+            compatible para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id010
+        rodamiento:
+        - sku: beko-lav-beko-b3wfu59415w-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 bearing drum Kit rodamientos tambor
+            compatible para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id010
+        escobillas:
+        - sku: beko-lav-beko-b3wfu59415w-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 carbon brush Escobillas de carbón
+            motor compatible para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id010
+        accesorios:
+        - sku: beko-lav-beko-b3wfu59415w-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 inlet valve Válvula de entrada agua
+            compatible para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id010
+        - sku: beko-lav-beko-b3wfu59415w-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 drum paddle Paleta / pala de tambor
+            compatible para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id010
+        - sku: beko-lav-beko-b3wfu59415w-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Beko B3WFU59415W
+          intent: compra
+          query: Beko Beko B3WFU59415W b3wfu594 door handle Tirador / asa de puerta
+            compatible para Beko B3WFU59415W
+          must_include:
+          - b3wfu594
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id010
+  indesit-lav:
+    name: Indesit
+    notes_brand: Marca del grupo Whirlpool muy popular en el segmento económico español.
+      Alta rotación de recambios por el elevado parque instalado. Correas de transmisión,
+      escobillas de carbón y bombas de desagüe son los recambios más demandados.
+    models:
+    - model: Indesit MTWF61252WSPE
+      slug: indesit-mtwf61252wspe
+      year_range: 2018-2023
+      sku_pack: washing10
+      model_tokens:
+      - mtwf61252
+      - mtwf61252wspe
+      intro: La Indesit MTWF61252WSPE es una lavadora de 6 kg de la gama económica
+        de Indesit, una de las lavadoras más vendidas en España en su segmento de
+        precio. Con motor de carbones clásico y una construcción sencilla, es fácil
+        de reparar y cuenta con un amplio mercado de recambios compatibles y económicos.
+      comprar_nuevo:
+        query: indesit mtwf61252 lavadora 6kg
+        label: Ver Indesit MTWF61252WSPE nueva
+      problemas:
+      - key: no-centrifuga
+        title: Indesit MTWF61252WSPE no centrifuga
+        intent: info
+        symptoms:
+        - La ropa sale muy húmeda al acabar el programa
+        - El tambor gira despacio durante el lavado pero no acelera en el centrifugado
+        - Se escucha el motor intentar arrancar a alta velocidad pero deteniéndose
+          enseguida
+        - El programa salta directamente al vaciado sin centrifugar
+        checks:
+        - 'Accede al panel trasero y revisa la correa de transmisión: en los modelos
+          Indesit de esta gama la correa es la causa número uno de falta de centrifugado'
+        - Verifica las escobillas de carbón del motor; este modelo usa un motor de
+          carbones clásico y las escobillas se desgastan en 5-8 años con uso normal
+        - Redistribuye la ropa y lanza solo el programa de centrifugado para descartar
+          desequilibrio
+        - Comprueba que el cierre de puerta esté activado correctamente; una cerradura
+          dañada impide el centrifugado por seguridad
+        causes:
+        - 'Correa de transmisión rota o desgastada: es el fallo más frecuente en este
+          modelo'
+        - Escobillas de carbón del motor agotadas que no transmiten corriente al motor
+          de forma fiable
+        - Carga muy desequilibrada que activa la protección automática
+        - Cerradura de puerta defectuosa cuyo sensor no confirma que la puerta está
+          cerrada
+        cta:
+          catKey: correa
+          label: Ver correas compatibles
+      - key: no-calienta
+        title: Indesit MTWF61252WSPE no calienta el agua
+        intent: info
+        symptoms:
+        - La ropa no queda limpia en programas de 60 °C o 90 °C
+        - El agua está fría al tacto aunque el programa lleve 20 minutos
+        - El programa de alta temperatura dura lo mismo que el de 30 °C
+        - Aparece un código de error F07 o similar en el display
+        checks:
+        - Mide la resistencia calefactora con el multímetro; valor esperado 20-30
+          Ω; infinito = fundida
+        - 'Comprueba el sensor NTC de temperatura: debe variar su resistencia con
+          el calor'
+        - Revisa el termostato de seguridad (bimétalico) que puede haberse disparado
+        - Inspecciona visualmente la resistencia buscando cal acumulada o marcas de
+          quemado
+        causes:
+        - 'Resistencia calefactora fundida: fallo habitual en modelos con varios años
+          de uso y agua dura'
+        - Sensor NTC de temperatura averiado
+        - Termostato de seguridad disparado de forma permanente
+        - Fallo en la tarjeta de control
+        cta:
+          catKey: resistencia
+          label: Ver resistencias calefactoras compatibles
+      - key: pierde-agua-puerta
+        title: Indesit MTWF61252WSPE pierde agua por la puerta
+        intent: info
+        symptoms:
+        - Charco de agua bajo la puerta después de cada lavado
+        - La junta de goma tiene manchas negras persistentes, dureza o pequeños cortes
+        - El goteo es peor cuanto más lleno está el tambor
+        - Al inspeccionar el fuelle se notan zonas agrietadas o endurecidas
+        checks:
+        - Dobla el fuelle completamente hacia afuera para inspeccionar la cara posterior
+          y los pliegues ocultos
+        - Busca objetos (monedas, grapas, botones metálicos) en los pliegues del fuelle
+        - Verifica que el aro de sujeción del fuelle esté completamente encajado en
+          todo su perímetro
+        - Limpia el fuelle con vinagre blanco y comprueba si los cortes o grietas
+          atraviesan todo el grosor de la goma
+        causes:
+        - Junta de puerta perforada por objeto extraño
+        - Deterioro por cal y envejecimiento del caucho
+        - Aro de retención desencajado
+        - Moho profundo que degrada la estructura de la goma
+        cta:
+          catKey: junta
+          label: Ver juntas de puerta compatibles
+      recambios:
+        junta:
+        - sku: indesit-lav-indesit-mtwf61252wspe-junta-junta-puerta
+          title: Junta / goma puerta compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 door seal Junta / goma puerta
+            compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id011
+          - mtwf61252
+          - mtwf61252wspe
+        filtro:
+        - sku: indesit-lav-indesit-mtwf61252wspe-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 filter pump Filtro bomba
+            / pelusa compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id011
+        correa:
+        - sku: indesit-lav-indesit-mtwf61252wspe-correa-correa-poli-v
+          title: Correa poli-V compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 belt poly Correa poli-V compatible
+            para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id011
+        bomba:
+        - sku: indesit-lav-indesit-mtwf61252wspe-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 drain pump Bomba de desagüe
+            compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id011
+        resistencia:
+        - sku: indesit-lav-indesit-mtwf61252wspe-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 heating element Resistencia
+            calefactora compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id011
+        rodamiento:
+        - sku: indesit-lav-indesit-mtwf61252wspe-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 bearing drum Kit rodamientos
+            tambor compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id011
+        escobillas:
+        - sku: indesit-lav-indesit-mtwf61252wspe-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 carbon brush Escobillas de
+            carbón motor compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id011
+        accesorios:
+        - sku: indesit-lav-indesit-mtwf61252wspe-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 inlet valve Válvula de entrada
+            agua compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id011
+        - sku: indesit-lav-indesit-mtwf61252wspe-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 drum paddle Paleta / pala
+            de tambor compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id011
+        - sku: indesit-lav-indesit-mtwf61252wspe-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Indesit MTWF61252WSPE
+          intent: compra
+          query: Indesit Indesit MTWF61252WSPE mtwf61252 door handle Tirador / asa
+            de puerta compatible para Indesit MTWF61252WSPE
+          must_include:
+          - mtwf61252
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id011
+    - model: Indesit BWE91496XWSSP
+      slug: indesit-bwe91496xwssp
+      year_range: 2020-2024
+      sku_pack: washing10
+      model_tokens:
+      - bwe91496
+      - bwe91496xwssp
+      intro: La Indesit BWE91496XWSSP es una lavadora de 9 kg de la gama media de
+        Indesit, con motor Push&Wash de arranque rápido y clasificación energética
+        B. Es una de las lavadoras más populares de Indesit en España en el segmento
+        de 9 kg por su facilidad de uso y precio competitivo dentro del grupo Whirlpool.
+      comprar_nuevo:
+        query: indesit bwe91496 lavadora 9kg
+        label: Ver Indesit BWE91496XWSSP nueva
+      problemas:
+      - key: no-centrifuga
+        title: Indesit BWE91496XWSSP no centrifuga
+        intent: info
+        symptoms:
+        - El programa termina pero la ropa sale empapada
+        - El tambor no alcanza la velocidad de centrifugado aunque el motor se escuche
+        - La pantalla muestra un código de error o el ciclo se cancela en el paso
+          del centrifugado
+        - Se escucha un ruido de deslizamiento o chirrido cuando el tambor intenta
+          acelerar
+        checks:
+        - 'Revisa la correa de transmisión accediendo por el panel trasero: busca
+          si está rota, muy desgastada o fuera de la polea'
+        - 'Comprueba las escobillas de carbón del motor: si son muy cortas o si el
+          colector tiene marcas de quemado, el motor no genera suficiente par'
+        - Equilibra la carga manualmente y relanza solo el centrifugado
+        - 'Verifica el cierre de puerta: si el pestillo no activa el microswitch correctamente,
+          la lavadora no centrifugará'
+        causes:
+        - Correa de transmisión rota o desgastada
+        - Escobillas de carbón del motor desgastadas
+        - Desequilibrio de carga que activa la protección automática
+        - Fallo en el cierre de puerta o su microswitch
+        cta:
+          catKey: correa
+          label: Ver correas compatibles
+      - key: vibra-mucho
+        title: Indesit BWE91496XWSSP vibra mucho al centrifugar
+        intent: info
+        symptoms:
+        - Ruido grave y progresivo durante el centrifugado
+        - La lavadora se mueve o golpea los muebles durante el ciclo
+        - El ruido empieza ya a bajas rpm y empeora a alta velocidad
+        - El tambor tiene juego excesivo al moverlo manualmente
+        checks:
+        - Nivela las cuatro patas con un nivel de burbuja
+        - 'Mueve el tambor en todas las direcciones: más de 1-2 cm de juego indica
+          rodamientos gastados'
+        - Revisa los amortiguadores desde el panel inferior
+        - Comprueba que no haya objetos duros entre el tambor y la cuba
+        causes:
+        - Rodamientos del eje desgastados
+        - Amortiguadores deteriorados
+        - Patas desniveladas
+        - Objeto sólido atrapado entre tambor y cuba
+        cta:
+          catKey: rodamiento
+          label: Ver rodamientos compatibles
+      - key: no-desagua
+        title: Indesit BWE91496XWSSP no desagua
+        intent: info
+        symptoms:
+        - Tambor lleno de agua al final del programa
+        - Ropa completamente empapada sin centrifugar
+        - Código de error F05 en el display
+        - La bomba suena pero el agua no sale
+        checks:
+        - 'Limpia el filtro de la bomba de desagüe: en los modelos Indesit de esta
+          gama es el punto más propenso a obstruirse'
+        - Gira el impulsor de la bomba a mano para verificar que gira sin resistencia
+        - Revisa la manguera de desagüe en busca de pliegues o aplastamientos
+        - 'Comprueba la altura de descarga de la manguera: no debe superar los 100
+          cm'
+        causes:
+        - 'Filtro de bomba obstruido: causa principal en los modelos Indesit'
+        - Bomba de desagüe averiada
+        - Manguera de desagüe con pliegue o mala instalación
+        - Fallo en la tarjeta de control
+        cta:
+          catKey: bomba
+          label: Ver bombas de desagüe compatibles
+      recambios:
+        junta:
+        - sku: indesit-lav-indesit-bwe91496xwssp-junta-junta-puerta
+          title: Junta / goma puerta compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 door seal Junta / goma puerta
+            compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - door
+          - seal
+          - gasket
+          - rubber
+          must_not_include:
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          - drum
+          model_tokens: &id012
+          - bwe91496
+          - bwe91496xwssp
+        filtro:
+        - sku: indesit-lav-indesit-bwe91496xwssp-filtro-filt-bomba
+          title: Filtro bomba / pelusa compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 filter pump Filtro bomba /
+            pelusa compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - filter
+          - pump
+          - lint
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id012
+        correa:
+        - sku: indesit-lav-indesit-bwe91496xwssp-correa-correa-poli-v
+          title: Correa poli-V compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 belt poly Correa poli-V compatible
+            para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - belt
+          - poly
+          - drive
+          - washing
+          must_not_include:
+          - seal
+          - pump
+          - bearing
+          - heater
+          - brush
+          - valve
+          model_tokens: *id012
+        bomba:
+        - sku: indesit-lav-indesit-bwe91496xwssp-bomba-bomba-desague
+          title: Bomba de desagüe compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 drain pump Bomba de desagüe
+            compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - drain
+          - pump
+          - washing
+          must_not_include:
+          - seal
+          - belt
+          - bearing
+          - heater
+          - brush
+          - filter
+          model_tokens: *id012
+        resistencia:
+        - sku: indesit-lav-indesit-bwe91496xwssp-resistencia-resistencia-calefactor
+          title: Resistencia calefactora compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 heating element Resistencia
+            calefactora compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - heating
+          - element
+          - heater
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - brush
+          - valve
+          model_tokens: *id012
+        rodamiento:
+        - sku: indesit-lav-indesit-bwe91496xwssp-rodamiento-rodamiento-kit
+          title: Kit rodamientos tambor compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 bearing drum Kit rodamientos
+            tambor compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - bearing
+          - drum
+          - kit
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - heater
+          - brush
+          - valve
+          model_tokens: *id012
+        escobillas:
+        - sku: indesit-lav-indesit-bwe91496xwssp-escobillas-escobillas-carbon
+          title: Escobillas de carbón motor compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 carbon brush Escobillas de
+            carbón motor compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - carbon
+          - brush
+          - motor
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id012
+        accesorios:
+        - sku: indesit-lav-indesit-bwe91496xwssp-accesorios-acc-valvula-entrada
+          title: Válvula de entrada agua compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 inlet valve Válvula de entrada
+            agua compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - inlet
+          - valve
+          - water
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id012
+        - sku: indesit-lav-indesit-bwe91496xwssp-accesorios-acc-pala-tambor
+          title: Paleta / pala de tambor compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 drum paddle Paleta / pala
+            de tambor compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - drum
+          - paddle
+          - lifter
+          - baffle
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - valve
+          model_tokens: *id012
+        - sku: indesit-lav-indesit-bwe91496xwssp-accesorios-acc-tirador-puerta
+          title: Tirador / asa de puerta compatible para Indesit BWE91496XWSSP
+          intent: compra
+          query: Indesit Indesit BWE91496XWSSP bwe91496 door handle Tirador / asa
+            de puerta compatible para Indesit BWE91496XWSSP
+          must_include:
+          - bwe91496
+          - door
+          - handle
+          - latch
+          must_not_include:
+          - seal
+          - pump
+          - belt
+          - bearing
+          - heater
+          - brush
+          model_tokens: *id012
