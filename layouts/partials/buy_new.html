@@ -1,31 +1,32 @@
 {{/* partials/buy_new.html
-     Bloque "¿Mejor comprar nuevo?" con enlace de busqueda en AliExpress.
+     Bloque "¿Mejor comprar nuevo?" con enlace de afiliado generado por sync_ofertas.
      Parametros:
        .model      — dict del modelo (de aspiradores.yaml / vertical.yaml compilado)
        .modelName  — nombre legible del modelo (string)
        .brandName  — nombre de la marca (string, opcional)
+       .brandKey   — key de la marca (para construir el SKU nuevo)
+       .modelSlug  — slug del modelo (para construir el SKU nuevo)
 */}}
 
 {{ $model := .model }}
 {{ $modelName := .modelName | default "este modelo" }}
-{{ $brandName := .brandName | default "" }}
+{{ $brandKey := .brandKey | default "" }}
+{{ $modelSlug := .modelSlug | default "" }}
 
 {{ $comprarNuevo := index $model "comprar_nuevo" }}
-
-{{/* Valores por defecto */}}
-{{ $query := printf "%s nuevo" $modelName }}
-{{ $label := printf "Ver %s nuevo en AliExpress" $modelName }}
 {{ $note := "Si la reparacion no compensa economicamente, compara el precio del modelo nuevo." }}
-
 {{ if $comprarNuevo }}
-  {{ with (index $comprarNuevo "query") }}{{ $query = . }}{{ end }}
-  {{ with (index $comprarNuevo "label") }}{{ $label = . }}{{ end }}
   {{ with (index $comprarNuevo "note") }}{{ $note = . }}{{ end }}
 {{ end }}
 
-{{ $trackingId := site.Params.aliTrackingId | default "recambiosaspiradora" }}
-{{ $searchURL := printf "https://www.aliexpress.com/wholesale?SearchText=%s&aff_platform=portals-tool&sk=%s" ($query | urlquery) $trackingId }}
+{{/* Buscar URL en ofertas.yaml igual que offer_btn.html */}}
+{{ $nuevoSku := printf "%s-%s-nuevo" $brandKey $modelSlug }}
+{{ $offersDoc := site.Data.ofertas }}
+{{ $offers := cond (and $offersDoc $offersDoc.offers) $offersDoc.offers (dict) }}
+{{ $offer := cond (and $nuevoSku (isset $offers $nuevoSku)) (index $offers $nuevoSku) (dict) }}
+{{ $url := (index $offer "url") | default "" }}
 
+{{ if $url }}
 <div class="buy-new-block">
   <div class="kicker">¿Merece la pena reparar?</div>
   <h3 class="title-compact">Comprar {{ $modelName }} nuevo</h3>
@@ -33,13 +34,14 @@
   <div class="offer-action">
     <div class="offer-trust">
       <span class="offer-trust__icon" aria-hidden="true">↗</span>
-      <span class="offer-trust__text">Busqueda de aparato nuevo en AliExpress</span>
+      <span class="offer-trust__text">Enlace de afiliado — abre AliExpress</span>
     </div>
-    <a class="btn-buy btn-buy--new" href="{{ $searchURL }}" rel="nofollow sponsored noopener" target="_blank">
-      {{ $label }}
+    <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
+      Ver {{ $modelName }} nuevo en AliExpress
     </a>
     <div class="offer-action__note">
       <small class="muted">Precio y disponibilidad segun vendedor externo</small>
     </div>
   </div>
 </div>
+{{ end }}

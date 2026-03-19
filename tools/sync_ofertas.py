@@ -170,6 +170,7 @@ def sku_records_from_catalog(catalog: dict) -> Dict[str, Dict[str, Any]]:
         for m in models:
             m = m or {}
             model_name = guess_model_name(m)
+            model_slug = str(m.get("slug") or "").strip()
 
             rec = m.get("recambios") or {}
             if not isinstance(rec, dict):
@@ -199,6 +200,22 @@ def sku_records_from_catalog(catalog: dict) -> Dict[str, Dict[str, Any]]:
                         "must_not_include": ensure_list_str(it.get("must_not_include")),
                         "model_tokens": [nrm(x) for x in ensure_list_str(it.get("model_tokens"))],
                     }
+
+            # Pseudo-SKU "nuevo": uno por modelo para el botón "comprar nuevo"
+            if model_slug:
+                nuevo_sku = f"{brand_key}-{model_slug}-nuevo"
+                comprar_nuevo = m.get("comprar_nuevo") or {}
+                nuevo_query = normalize(str(comprar_nuevo.get("query") or f"{brand_name} {model_name}"))
+                out[nuevo_sku] = {
+                    "brand": brand_name,
+                    "model": model_name,
+                    "category": "nuevo",
+                    "item_title": f"{model_name} nuevo",
+                    "query": nuevo_query,
+                    "must_include": [],
+                    "must_not_include": [],
+                    "model_tokens": [nrm(x) for x in ensure_list_str(m.get("model_tokens"))],
+                }
 
     return out
 
