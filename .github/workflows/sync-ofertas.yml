@@ -2,15 +2,15 @@ name: Sync ofertas AliExpress
 
 on:
   schedule:
-    # Cada día a las 03:00 UTC (04:00 / 05:00 hora España)
-    - cron: "0 3 * * *"
+    # Cada hora
+    - cron: "0 * * * *"
   workflow_dispatch:
     # Permite lanzarlo manualmente desde GitHub > Actions
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 55
 
     steps:
       - name: Checkout
@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run sync_ofertas (batch diario)
+      - name: Run sync_ofertas (batch horario)
         env:
           ALI_APP_KEY: ${{ secrets.ALI_APP_KEY }}
           ALI_APP_SECRET: ${{ secrets.ALI_APP_SECRET }}
@@ -32,7 +32,7 @@ jobs:
         run: |
           python tools/sync_ofertas.py \
             --only-stale 30 \
-            --batch-size 200 \
+            --batch-size 80 \
             --force \
             --no-cache
 
@@ -45,7 +45,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
-            git commit -m "chore: sync diario ofertas AliExpress [skip ci]"
+            git commit -m "chore: sync horario ofertas AliExpress [skip ci]"
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
