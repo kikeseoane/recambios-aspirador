@@ -861,6 +861,8 @@ def parse_args() -> argparse.Namespace:
                     help="Solo procesa SKUs cuyo updated_at tiene más de DAYS días (0 = ignorar). Útil para refrescar enlaces sin relanzar todo.")
     ap.add_argument("--batch-size", type=int, default=0, metavar="N",
                     help="Procesa como máximo N SKUs por ejecución, los más antiguos primero (0 = todos). Combina con --only-stale para repartir en días.")
+    ap.add_argument("--max-minutes", type=float, default=0, metavar="MIN",
+                    help="Detiene el procesado cuando se acerca a MIN minutos de ejecución, guarda y sale limpiamente (0 = sin límite).")
     return ap.parse_args()
 
 
@@ -916,10 +918,14 @@ def main() -> None:
     today = datetime.now().date().isoformat()
     _t0 = time.time()
     _total_want = len(want)
+    _time_budget_s = args.max_minutes * 60 if args.max_minutes > 0 else 0
 
     print(f"  Iniciando procesado de {_total_want} SKUs...")
 
     for sku in sorted(want):
+        if _time_budget_s and (time.time() - _t0) >= _time_budget_s:
+            print(f"  [time-budget] {args.max_minutes:.0f}min alcanzados, saliendo limpiamente tras {_processed} SKUs.")
+            break
         ctx = sku_ctx.get(sku) or {}
         prev = offers.get(sku)
         obj = ensure_offer_obj(prev)
