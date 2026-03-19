@@ -725,7 +725,7 @@ def pick_relaxed_link(
         return None
 
     for lang in ("EN", "ES"):
-        for page_no in (1, 2):
+        for page_no in (1,):
             try:
                 resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
             except Exception as exc:
@@ -783,7 +783,7 @@ def pick_best_promotion_link(
     req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
 
     for lang in ("EN", "ES"):
-        for page_no in (1, 2):
+        for page_no in (1,):
             try:
                 resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
             except Exception as exc:
