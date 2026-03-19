@@ -1,0 +1,49 @@
+name: Sync ofertas AliExpress
+
+on:
+  schedule:
+    # Cada día a las 03:00 UTC (04:00 / 05:00 hora España)
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    # Permite lanzarlo manualmente desde GitHub > Actions
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run sync_ofertas (batch diario)
+        env:
+          ALI_APP_KEY: ${{ secrets.ALI_APP_KEY }}
+          ALI_APP_SECRET: ${{ secrets.ALI_APP_SECRET }}
+          ALI_TRACKING_ID: recambiosaspiradora
+        run: |
+          python tools/sync_ofertas.py \
+            --only-stale 30 \
+            --batch-size 200 \
+            --force \
+            --no-cache
+
+      - name: Commit y push si hay cambios en ofertas.yaml
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ofertas.yaml
+          if git diff --cached --quiet; then
+            echo "Sin cambios en ofertas.yaml, nada que commitear."
+          else
+            git commit -m "chore: sync diario ofertas AliExpress [skip ci]"
+            git push
+          fi
