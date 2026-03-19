@@ -31,7 +31,22 @@
       "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && hugo --quiet 2>&1; ls public/ | wc -l)",
       "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && for v in afeitadoras cafeteras cepillos freidoras herramientas; do python tools/build_catalog.py --vertical $v 2>&1; done)",
       "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && python tools/generar.py --force 2>&1 && hugo --quiet 2>&1 && find public -name \"*.html\" | wc -l)",
-      "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && for v in afeitadoras cafeteras cepillos freidoras herramientas; do python tools/generar.py --force --vertical $v 2>&1; done && hugo --quiet 2>&1 && find public -name \"*.html\" | wc -l)"
+      "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && for v in afeitadoras cafeteras cepillos freidoras herramientas; do python tools/generar.py --force --vertical $v 2>&1; done && hugo --quiet 2>&1 && find public -name \"*.html\" | wc -l)",
+      "Bash(cat \"C:\\\\Users\\\\kikes\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-kikes-Documents-recambios-aspirador\\\\tasks\\\\b4lncuph4.output\" 2>&1; echo \"EXIT: $?\")",
+      "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && hugo 2>&1 | tail -10)",
+      "Bash(ls C:/Users/kikes/Documents/recambios-aspirador/data/catalog_brands_*.yaml)",
+      "Bash(grep -n \"^  [a-z_]*:$\" C:/Users/kikes/Documents/recambios-aspirador/data/catalog_parts.yaml)",
+      "Bash(cd C:/Users/kikes/Documents/recambios-aspirador && hugo 2>&1 | tail -5)",
+      "Bash(cd C:/Users/kikes/Documents/recambios-aspirador && hugo 2>&1 | grep -E \"pages|ERROR|WARN\" | head -10)",
+      "Bash(cd C:/Users/kikes/Documents/recambios-aspirador && hugo 2>&1 | grep -iE \"pages|error|built\")",
+      "Bash(wc -l C:/Users/kikes/Documents/recambios-aspirador/data/catalog_brands.yaml && grep -n \"^  [a-z_]*:$\" C:/Users/kikes/Documents/recambios-aspirador/data/catalog_brands.yaml)",
+      "Bash(cd C:/Users/kikes/Documents/recambios-aspirador && hugo 2>&1 | grep -E \"Pages|ERROR|WARN|Built\")",
+      "Bash(ls C:/Users/kikes/Documents/recambios-aspirador/layouts/ && ls C:/Users/kikes/Documents/recambios-aspirador/layouts/index* 2>/dev/null || echo \"no index layout\")",
+      "Bash(cd C:/Users/kikes/Documents/recambios-aspirador && hugo 2>&1 | grep -E \"Pages|ERROR\")",
+      "Bash(cd C:/Users/kikes/Documents/recambios-aspirador && hugo 2>&1 | grep -E \"Pages|ERROR|WARN\")",
+      "Bash(find C:/Users/kikes/Documents/recambios-aspirador -maxdepth 2 -name \"hugo.*\" -o -name \"config.*\" 2>/dev/null | grep -v \".claude\\\\|node_modules\")",
+      "Bash(python3 -c \"\nimport json\nwith open\\('C:/Users/kikes/Documents/recambios-aspirador/data/.cache_aliexpress/1dd441cb734f96cb8388c076467196b8e016f221.json'\\) as f:\n    d = json.load\\(f\\)\ntry:\n    prods = d['aliexpress_affiliate_product_query_response']['resp_result']['result']['products']['product']\n    print\\(json.dumps\\(list\\(prods[0].keys\\(\\)\\), indent=2\\)\\)\n    print\\('---ejemplo---'\\)\n    print\\('product_main_image_url:', prods[0].get\\('product_main_image_url'\\)\\)\n    print\\('product_small_image_urls:', prods[0].get\\('product_small_image_urls'\\)\\)\nexcept Exception as e:\n    print\\(e\\)\n\" 2>&1)",
+      "Bash(grep -c \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/dyson-v10/index.html 2>/dev/null\ngrep -c \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/lefant-m210/index.html 2>/dev/null\ngrep -rL \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/*/index.html 2>/dev/null | wc -l\ngrep -rl \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/*/index.html 2>/dev/null | wc -l)"
     ]
   }
 }
