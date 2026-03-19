@@ -50,7 +50,7 @@ jobs:
         run: |
           python tools/sync_ofertas.py \
             --only-stale 30 \
-            --batch-size 40 \
+            --batch-size 30 \
             --force \
             --no-cache | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt || echo "STATS: n/a")
