@@ -7,6 +7,10 @@ on:
   workflow_dispatch:
     # Permite lanzarlo manualmente desde GitHub > Actions
 
+concurrency:
+  group: sync-ofertas
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
