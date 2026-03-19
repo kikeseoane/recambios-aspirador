@@ -77,7 +77,7 @@
   }}
 {{ end }}
 
-<section class="hero hero--bg hero--compact hero--editorial">
+<section class="hero hero--bg hero--compact hero--editorial{{ if $vk }} hero--photo-right{{ end }}">
   <div class="hero__inner">
     <div class="hero__kicker">{{ $kicker }}</div>
     <h1 class="hero__title">{{ $title }}</h1>
@@ -102,4 +102,9 @@
       </div>
     {{ end }}
   </div>
+  {{ if $vk }}
+    <div class="hero__photo-wrap">
+      <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $vk) | relURL }}" alt="{{ $title }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
+    </div>
+  {{ end }}
 </section>

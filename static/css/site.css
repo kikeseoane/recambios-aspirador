@@ -372,17 +372,14 @@ p  { line-height: 1.65; }
 .hero--compact .hero__inner { padding: 26px 24px; }
 .hero--editorial .hero__title { max-width: 14ch; }
 
-.hero--with-photo {
-  position: relative;
-  overflow: hidden;
-}
-.hero__photo-wrap {
+/* Foto de fondo (modelo, recambio) */
+.hero--with-photo .hero__photo-wrap {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
 }
-.hero__photo {
+.hero--with-photo .hero__photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -394,6 +391,32 @@ p  { line-height: 1.65; }
 .hero--with-photo .hero__inner {
   position: relative;
   z-index: 1;
+}
+
+/* Foto columna derecha (marcas) */
+.hero--photo-right {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 300px);
+  align-items: stretch;
+  overflow: hidden;
+}
+.hero--photo-right .hero__photo-wrap {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+.hero--photo-right .hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: .88;
+}
+@media (max-width: 720px) {
+  .hero--photo-right { grid-template-columns: 1fr; }
+  .hero--photo-right .hero__photo-wrap { display: none; }
 }
 
 .hero__kicker {
