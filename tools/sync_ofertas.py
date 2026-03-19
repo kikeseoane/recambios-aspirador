@@ -1085,6 +1085,12 @@ def main() -> None:
 
     _total_elapsed = time.time() - _t0
     _avg_api = (_api_time_real / _api_calls_real) if _api_calls_real else 0.0
+
+    # Calcular pendientes restantes tras el proceso
+    _cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat() if args.only_stale > 0 else None
+    _needs_url = sum(1 for s, o in offers.items() if ensure_offer_obj(o).get("needs_url") and not ensure_offer_obj(o).get("orphaned"))
+    _still_stale = sum(1 for s in sku_ctx if _cutoff and str(ensure_offer_obj(offers.get(s)).get("updated_at") or "").strip() < _cutoff) if _cutoff else 0
+
     print("OK: sync_ofertas (AliExpress autolinks + catalog overrides + cache flags)")
     print(f"  Verticales:            {', '.join(selected_verticals)}")
     print(f"  Cache:                 {'ON' if use_cache else 'OFF'} (TTL={CACHE_TTL_SECONDS}s)")
@@ -1103,7 +1109,10 @@ def main() -> None:
     print(f"  Tiempo total API:       {_api_time_real:.1f}s")
     print(f"  Media por llamada:      {_avg_api:.2f}s")
     print(f"  Tiempo total script:    {_total_elapsed:.1f}s")
-    print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)}")
+    print(f"  --- Pendientes restantes ---")
+    print(f"  Sin URL (needs_url):    {_needs_url}")
+    print(f"  Stale >{args.only_stale}d:            {_still_stale}")
+    print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)} needs_url={_needs_url} stale={_still_stale}")
 
 
 if __name__ == "__main__":
