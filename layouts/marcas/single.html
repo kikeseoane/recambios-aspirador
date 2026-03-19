@@ -54,7 +54,7 @@
       <span>{{ $brandName }}</span>
     </div>
 
-    <div class="hero hero--bg hero--compact" style="margin-top:10px;">
+    <div class="hero hero--bg hero--compact hero--with-photo" style="margin-top:10px;">
       <div class="hero__inner">
         <div class="hero__kicker">Marca</div>
         <h1>Recambios {{ $brandName }}</h1>
@@ -99,6 +99,9 @@
             <span>verificada por modelo exacto</span>
           </div>
         </div>
+      </div>
+      <div class="hero__photo-wrap">
+        <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $brandName }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
       </div>
     </div>
 

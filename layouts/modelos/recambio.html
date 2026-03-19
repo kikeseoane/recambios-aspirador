@@ -138,7 +138,7 @@
     <span>{{ $catLabel }}</span>
   </div>
 
-  <div class="hero hero--bg hero--compact hero--editorial mt-10">
+  <div class="hero hero--bg hero--compact hero--editorial hero--with-photo mt-10">
     <div class="hero__inner">
       <div class="hero__kicker">Recambios</div>
       <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
@@ -160,6 +160,9 @@
           <span>serie, encaje y dato tecnico antes de abrir una oferta</span>
         </div>
       </div>
+    </div>
+    <div class="hero__photo-wrap">
+      <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $catLabel }} {{ $mtitle }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
     </div>
   </div>
 

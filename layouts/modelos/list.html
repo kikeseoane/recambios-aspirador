@@ -60,6 +60,7 @@
           {{ $models := $b.models }}
 
           <div class="card">
+            <img class="card__hero-img" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $b.name }}" loading="lazy" onerror="this.style.display='none'">
             <h2 class="title-compact">{{ $b.name }}</h2>
 
             {{ $hasRobot := false }}
@@ -230,7 +231,7 @@
           <span>{{ $mtitle }}</span>
         </div>
 
-        <section class="hero hero--compact hero--editorial">
+        <section class="hero hero--compact hero--editorial hero--with-photo">
           <div class="hero__inner">
             <div class="hero__kicker">Modelo</div>
             <h1>Recambios {{ $mtitle }}</h1>
@@ -270,6 +271,9 @@
                 <span class="hero-stat__label">bloques extra</span>
               </div>
             </div>
+          </div>
+          <div class="hero__photo-wrap">
+            <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $mtitle }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
           </div>
         </section>
 
