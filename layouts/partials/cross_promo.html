@@ -13,20 +13,18 @@
 {{ end }}
 
 {{ if $others }}
-<div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
-  <div class="kicker" style="margin-bottom:14px;">¿También necesitas recambios de…</div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap;">
-    {{ range $others }}
-      {{ $url := cond (.conf.root | default true) (printf "/" | relURL) (printf "/%s/" .conf.slug | relURL) }}
-      <a href="{{ $url }}"
-        style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba({{ .conf.color_rgb | default "100,100,100" }},.25);background:rgba({{ .conf.color_rgb | default "100,100,100" }},.06);text-decoration:none;color:inherit;font-size:14px;font-weight:600;transition:background .15s;"
-        onmouseover="this.style.background='rgba({{ .conf.color_rgb | default "100,100,100" }},.14)'"
-        onmouseout="this.style.background='rgba({{ .conf.color_rgb | default "100,100,100" }},.06)'"
-      >
-        <span style="font-size:18px;">{{ .conf.emoji }}</span>
-        <span>{{ .conf.label }}</span>
-      </a>
-    {{ end }}
-  </div>
+<div class="grid cards cards--brands" style="margin-top:18px;">
+  {{ range $others }}
+    {{ $url := cond (.conf.root | default true) (printf "/" | relURL) (printf "/%s/" .conf.slug | relURL) }}
+    <a class="card card--with-icon" href="{{ $url }}">
+      <div class="card-icon-wrap" style="font-size:28px;line-height:1;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:var(--radius-sm);background:rgba({{ .conf.color_rgb | default "100,100,100" }},.10);">{{ .conf.emoji }}</div>
+      <div class="card-body">
+        <div class="card-eyebrow">{{ .conf.label | strings.TrimPrefix "Recambios de " | strings.TrimPrefix "Recambios para " }}</div>
+        <h3>{{ .conf.label }}</h3>
+        <p class="muted">{{ .conf.description | truncate 90 }}</p>
+      </div>
+      <span class="card-arrow">-></span>
+    </a>
+  {{ end }}
 </div>
 {{ end }}
