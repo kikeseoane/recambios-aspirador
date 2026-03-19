@@ -13,6 +13,13 @@ jobs:
     timeout-minutes: 55
 
     steps:
+      - name: Notificar Telegram (inicio)
+        run: |
+          echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+            -d text="🚀 Sync AliExpress iniciado a las $(date -u '+%H:%M UTC')"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -53,11 +60,13 @@ jobs:
       - name: Notificar Telegram (éxito)
         if: success()
         run: |
+          ELAPSED=$(( $(date +%s) - START_TIME ))
+          MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))
           CHANGED="${{ steps.commit.outputs.changed }}"
           if [ "$CHANGED" = "true" ]; then
-            MSG="✅ Sync AliExpress completado — ofertas.yaml actualizado y pusheado."
+            MSG="✅ Sync AliExpress completado en ${MINS}m${SECS}s — ofertas.yaml actualizado y pusheado."
           else
-            MSG="✅ Sync AliExpress completado — sin cambios en ofertas.yaml."
+            MSG="✅ Sync AliExpress completado en ${MINS}m${SECS}s — sin cambios en ofertas.yaml."
           fi
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
@@ -66,6 +75,8 @@ jobs:
       - name: Notificar Telegram (error)
         if: failure() || cancelled()
         run: |
+          ELAPSED=$(( $(date +%s) - START_TIME ))
+          MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-            -d text="❌ Sync AliExpress FALLIDO (estado: ${{ job.status }}) — revisa el log en GitHub Actions."
+            -d text="❌ Sync AliExpress FALLIDO (estado: ${{ job.status }}) tras ${MINS}m${SECS}s — revisa el log en GitHub Actions."
