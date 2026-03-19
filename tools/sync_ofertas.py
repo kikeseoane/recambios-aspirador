@@ -42,7 +42,7 @@ PLACEHOLDER_BADGE = "RELLENAR_BADGES"
 # =========================
 APP_KEY = (os.getenv("ALI_APP_KEY") or "").strip()
 APP_SECRET = (os.getenv("ALI_APP_SECRET") or "").strip()
-TRACKING_ID = (os.getenv("ALI_TRACKING_ID") or "").strip()
+TRACKING_ID = (os.getenv("ALI_TRACKING_ID") or "recambiosaspiradora").strip()
 API_URL = (os.getenv("ALI_API_URL") or "https://api-sg.aliexpress.com/sync").strip()
 
 SHIP_TO = (os.getenv("ALI_SHIP_TO") or "ES").strip()

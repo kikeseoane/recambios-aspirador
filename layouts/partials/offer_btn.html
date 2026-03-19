@@ -39,7 +39,8 @@
 {{ $searchURL := "" }}
 
 {{ if $searchQuery }}
-  {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
+  {{ $trackingId := site.Params.aliTrackingId | default "recambiosaspiradora" }}
+  {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s&aff_platform=portals-tool&sk=%s" ($searchQuery | urlquery) $trackingId }}
 {{ end }}
 
 {{ if $url }}

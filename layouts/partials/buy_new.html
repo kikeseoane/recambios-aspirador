@@ -23,7 +23,8 @@
   {{ with (index $comprarNuevo "note") }}{{ $note = . }}{{ end }}
 {{ end }}
 
-{{ $searchURL := printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($query | urlquery) }}
+{{ $trackingId := site.Params.aliTrackingId | default "recambiosaspiradora" }}
+{{ $searchURL := printf "https://www.aliexpress.com/wholesale?SearchText=%s&aff_platform=portals-tool&sk=%s" ($query | urlquery) $trackingId }}
 
 <div class="buy-new-block">
   <div class="kicker">¿Merece la pena reparar?</div>
