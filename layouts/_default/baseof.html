@@ -121,7 +121,8 @@
     <meta name="twitter:image" content="{{ $ogimg | absURL }}">
   {{- end -}}
 
-  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  {{ $css := resources.Get "css/site.css" | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
   {{- with .OutputFormats.Get "RSS" -}}
     <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
