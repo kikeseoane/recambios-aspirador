@@ -14,11 +14,13 @@ jobs:
 
     steps:
       - name: Notificar Telegram (inicio)
+        continue-on-error: true
         run: |
           echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
-          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
-            -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-            -d text="🚀 Sync AliExpress iniciado a las $(date -u '+%H:%M UTC')"
+          RESP=$(curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "text=Sync AliExpress iniciado a las $(date -u '+%H:%M UTC')")
+          echo "Telegram inicio: $RESP"
 
       - name: Checkout
         uses: actions/checkout@v4
