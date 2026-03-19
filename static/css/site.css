@@ -647,6 +647,23 @@ p  { line-height: 1.65; }
 .btn-buy:hover { filter: brightness(1.06); transform: translateY(-1px); }
 @media (max-width: 720px) { .btn-buy { width: 100%; } }
 
+/* Variante "comprar nuevo" — color neutro oscuro para diferenciar de los recambios */
+.btn-buy--new {
+  background: linear-gradient(135deg, #374151, #1f2937);
+  box-shadow: 0 4px 12px rgba(31,41,55,.22);
+}
+.btn-buy--new:hover { filter: brightness(1.12); }
+
+/* Bloque ¿Mejor comprar nuevo? en sidebar */
+.buy-new-block {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+.buy-new-block .title-compact { margin: 4px 0 8px; font-size: 15px; }
+.buy-new-block .offer-action { margin-top: 10px; }
+
 /* ----------------------------------------------------------------
    Chips
    ---------------------------------------------------------------- */

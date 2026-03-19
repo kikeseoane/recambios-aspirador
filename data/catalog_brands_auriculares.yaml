@@ -1,0 +1,794 @@
+brands:
+  samsung-aud:
+    name: "Samsung"
+    vertical: "auriculares"
+    notes_brand: "Galaxy Buds top ventas mundiales. Alta demanda en almohadillas, estuches y cables. Buds2 Pro y Buds3 Pro muy buscados."
+    models:
+      - model: "Samsung Galaxy Buds2"
+        slug: "samsung-galaxy-buds2"
+        series: "Galaxy Buds"
+        year_range: "2021-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["galaxy buds2", "buds2", "sm-r177"]
+        intro: "Los Samsung Galaxy Buds2 son los auriculares TWS más vendidos de Samsung con ANC activo. Las almohadillas de silicona y los estuches de carga son los recambios más demandados."
+        problemas:
+          - key: "almohadilla-suelta"
+            title: "Galaxy Buds2: almohadilla suelta o perdida"
+            intent: "info"
+            symptoms:
+              - "La almohadilla se desprende del auricular al sacarlo del oído o del estuche"
+              - "Un auricular queda suelto en el oído y no se sella correctamente"
+              - "La almohadilla ha desaparecido y el auricular no ajusta bien"
+            checks:
+              - "Comprueba qué talla de almohadilla te corresponde — los Buds2 incluyen S, M y L"
+              - "Verifica que la almohadilla está bien encajada en el aro del auricular y hace clic"
+              - "Revisa si el aro de sujeción de la almohadilla tiene el enganche intacto o está roto"
+              - "Prueba con la talla M si no sabes cuál tienes — es la más habitual para la mayoría de usuarios"
+            causes:
+              - "Almohadilla de talla incorrecta que no hace suficiente presión para quedarse fija"
+              - "Enganche del aro de la almohadilla desgastado por entrada y salida frecuente del estuche"
+              - "Almohadilla perdida por desprenderse durante el uso en actividad física o sudoración"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "Galaxy Buds2: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los auriculares no se cargan al guardarlos en el estuche aunque esté la batería del estuche cargada"
+              - "El LED del estuche no se enciende al conectar el cable de carga"
+              - "Los auriculares siguen con el mismo nivel de batería después de varias horas en el estuche"
+            checks:
+              - "Limpia los contactos de carga dorados del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares están bien asentados en el estuche y los contactos hacen toque"
+              - "Comprueba el cable USB-C usado — prueba con otro cable para descartar el cable"
+              - "Revisa si la carga inalámbrica funciona como alternativa para saber si el problema es el puerto USB-C"
+            causes:
+              - "Contactos de carga sucios u oxidados que impiden la transferencia de corriente al auricular"
+              - "Puerto USB-C del estuche con pelusa o suciedad que impide la conexión del cable"
+              - "Batería del estuche agotada por ciclos acumulados que ya no retiene carga"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+      - model: "Samsung Galaxy Buds2 Pro"
+        slug: "samsung-galaxy-buds2-pro"
+        series: "Galaxy Buds"
+        year_range: "2022-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["galaxy buds2 pro", "buds2 pro", "sm-r510"]
+        intro: "Los Samsung Galaxy Buds2 Pro son los auriculares TWS premium de Samsung con ANC avanzado y audio Hi-Fi. Las almohadillas de silicona son el recambio más solicitado para este modelo."
+        problemas:
+          - key: "almohadilla-suelta"
+            title: "Galaxy Buds2 Pro: almohadilla suelta"
+            intent: "info"
+            symptoms:
+              - "La almohadilla se desprende del auricular al guardarlo en el estuche"
+              - "El ajuste en el oído ha empeorado y el auricular se cae con más facilidad"
+              - "La almohadilla se quedó pegada en el oído al sacar el auricular"
+            checks:
+              - "Comprueba que usas la talla de almohadilla correcta para tu oído"
+              - "Verifica que la almohadilla está bien encajada en el aro de sujeción del auricular"
+              - "Revisa si el aro de sujeción tiene el clip intacto o está desgastado"
+              - "Prueba a limpiar el aro con un paño seco antes de montar la almohadilla nueva"
+            causes:
+              - "Almohadilla de talla incorrecta que no hace suficiente presión para mantenerse fija"
+              - "Aro de sujeción desgastado por el ciclo repetido de entrada y salida del estuche"
+              - "Almohadilla deteriorada por sudoración, productos para el cabello o solventes"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "Galaxy Buds2 Pro: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Buds2 Pro no recuperan batería al meterlos en el estuche"
+              - "El estuche no se carga ni por cable USB-C ni por carga inalámbrica"
+              - "El LED del estuche no indica el nivel de batería correctamente"
+            checks:
+              - "Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo seco"
+              - "Prueba con otro cable USB-C certificado para descartar el cable como causa"
+              - "Verifica si la carga inalámbrica Qi funciona — coloca el estuche sobre un cargador inalámbrico"
+              - "Comprueba si los auriculares asientan bien en el estuche con los contactos alineados"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente a los auriculares"
+              - "Puerto USB-C del estuche dañado por inserción forzada de cables no alineados"
+              - "Batería del estuche agotada tras ciclos de carga acumulados"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+      - model: "Samsung Galaxy Buds3"
+        slug: "samsung-galaxy-buds3"
+        series: "Galaxy Buds"
+        year_range: "2024-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["galaxy buds3", "buds3", "sm-r530"]
+        intro: "Los Samsung Galaxy Buds3 estrenan el diseño open-fit con pata de sujeción al oído. Las almohadillas específicas de este nuevo diseño son el recambio más buscado."
+        problemas:
+          - key: "almohadilla-incompatible"
+            title: "Galaxy Buds3: buscar almohadillas compatibles"
+            intent: "info"
+            symptoms:
+              - "La almohadilla original se ha perdido o dañado y no sé qué talla o modelo comprar"
+              - "Las almohadillas genéricas que tenía no encajan en el nuevo diseño de los Buds3"
+              - "El auricular no ajusta bien en el oído desde que cambié la almohadilla"
+            checks:
+              - "Verifica el número de modelo del auricular: SM-R530 para los Buds3 estándar"
+              - "Comprueba la talla grabada en la almohadilla original si la conservas (S, M o L)"
+              - "Asegúrate de que la almohadilla comprada es específica para Buds3 y no para Buds2 — el sistema de anclaje es diferente"
+              - "Prueba la talla M si no conoces tu talla — es el tamaño incluido de fábrica en la mayoría de unidades"
+            causes:
+              - "Almohadilla de modelo anterior incompatible con el nuevo sistema de anclaje de los Buds3"
+              - "Almohadilla de talla incorrecta que no proporciona el ajuste ni el aislamiento adecuados"
+              - "Almohadilla desgastada o deteriorada por el sudor o productos externos"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "Galaxy Buds3: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Buds3 no se cargan al meterlos en el estuche aunque el estuche tenga batería"
+              - "El LED del estuche parpadea pero los auriculares no recuperan carga"
+              - "El estuche no se carga correctamente ni por USB-C ni por carga inalámbrica"
+            checks:
+              - "Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los Buds3 asientan correctamente en el estuche con la nueva forma de anclaje"
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Comprueba si la carga inalámbrica funciona para aislar el problema al puerto USB-C"
+            causes:
+              - "Contactos de carga sucios que bloquean la transferencia de corriente"
+              - "Puerto USB-C del estuche con residuos o daño por uso intensivo"
+              - "Auriculares mal asentados en el nuevo diseño de anclaje que no hace contacto eléctrico"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+      - model: "Samsung Galaxy Buds3 Pro"
+        slug: "samsung-galaxy-buds3-pro"
+        series: "Galaxy Buds"
+        year_range: "2024-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["galaxy buds3 pro", "buds3 pro", "sm-r630"]
+        intro: "Los Samsung Galaxy Buds3 Pro son el modelo premium de 2024 con ANC de última generación y altavoz dual. Las almohadillas son el consumible más solicitado para mantener el ajuste y la calidad de sonido."
+        problemas:
+          - key: "almohadilla-suelta"
+            title: "Galaxy Buds3 Pro: almohadilla suelta"
+            intent: "info"
+            symptoms:
+              - "La almohadilla se desprende al sacar el auricular del oído o al guardarlo"
+              - "El ajuste ha empeorado y hay pérdida de aislamiento acústico"
+              - "La almohadilla se quedó pegada en el oído al retirar el auricular"
+            checks:
+              - "Comprueba la talla de almohadilla que usas — los Buds3 Pro incluyen S, M y L"
+              - "Verifica que la almohadilla está bien encajada en el aro de sujeción del auricular"
+              - "Revisa el estado del aro de sujeción — si está desgastado la almohadilla no hace clic"
+              - "Limpia el aro con un paño seco antes de montar la almohadilla de repuesto"
+            causes:
+              - "Almohadilla de talla incorrecta que no encaja con suficiente presión en el aro"
+              - "Aro de sujeción desgastado por uso intensivo que ya no retiene la almohadilla"
+              - "Almohadilla deteriorada por sudoración o exposición a productos cosméticos"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "Galaxy Buds3 Pro: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Buds3 Pro no recuperan batería al guardarlos en el estuche"
+              - "El estuche no se carga a través del cable USB-C"
+              - "Los auriculares siempre muestran la misma carga aunque hayan estado en el estuche toda la noche"
+            checks:
+              - "Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo de algodón seco"
+              - "Prueba con otro cable USB-C para descartar el cable"
+              - "Comprueba si la carga inalámbrica Qi funciona como alternativa"
+              - "Verifica que los Buds3 Pro asientan correctamente en el estuche con los contactos alineados"
+            causes:
+              - "Contactos de carga sucios u oxidados que impiden la transferencia de corriente"
+              - "Puerto USB-C con pelusa o daño físico que impide la carga por cable"
+              - "Batería del estuche degradada por ciclos acumulados que ya no retiene suficiente carga"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+      - model: "Samsung Galaxy Buds FE"
+        slug: "samsung-galaxy-buds-fe"
+        series: "Galaxy Buds"
+        year_range: "2023-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["galaxy buds fe", "buds fe", "sm-r400"]
+        intro: "Los Samsung Galaxy Buds FE son la opción más asequible de la gama Galaxy Buds con ANC. Las almohadillas y las aletas de sujeción son los recambios más buscados para este modelo."
+        problemas:
+          - key: "almohadilla-suelta"
+            title: "Galaxy Buds FE: almohadilla suelta"
+            intent: "info"
+            symptoms:
+              - "La almohadilla se cae del auricular al sacarlo del estuche"
+              - "El auricular no queda bien fijo en el oído y hay pérdida de aislamiento"
+              - "La aleta de sujeción también está suelta o perdida"
+            checks:
+              - "Verifica la talla de almohadilla correcta para tu oído — los Buds FE incluyen S, M y L"
+              - "Comprueba que la almohadilla está bien encajada en el aro hasta escuchar el clic"
+              - "Revisa la aleta de sujeción — si está rota o perdida el auricular tampoco se sujeta bien"
+              - "Prueba con la talla M si no sabes cuál usas — es la que incluye Samsung de fábrica"
+            causes:
+              - "Almohadilla de talla incorrecta que no hace presión suficiente en el aro de sujeción"
+              - "Aro de sujeción desgastado por uso intensivo que no retiene la almohadilla"
+              - "Aleta de sujeción rota o ausente que provoca que el auricular quede inestable"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "Galaxy Buds FE: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Buds FE no se cargan al meterlos en el estuche"
+              - "El LED del estuche no se enciende al conectar el cable USB-C"
+              - "Los auriculares siguen con la misma carga aunque lleven toda la noche en el estuche"
+            checks:
+              - "Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan bien en el estuche con los contactos alineados"
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Comprueba si el LED del estuche parpadea indicando batería baja del propio estuche"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente a los auriculares"
+              - "Puerto USB-C del estuche con pelusa incrustada que impide la inserción correcta del cable"
+              - "Batería del estuche agotada por ciclos acumulados que ya no carga los auriculares"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+  sony-aud:
+    name: "Sony"
+    vertical: "auriculares"
+    notes_brand: "Sony WF y WH top ANC. Alta demanda en almohadillas, ear tips y cables. WF-1000XM5 muy buscado."
+    models:
+      - model: "Sony WF-1000XM5"
+        slug: "sony-wf-1000xm5"
+        series: "WF-1000X"
+        year_range: "2023-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["wf-1000xm5", "wf 1000xm5", "1000xm5"]
+        intro: "Los Sony WF-1000XM5 son los auriculares TWS con mejor ANC del mercado según los principales medios especializados. Los ear tips de silicona son el recambio más solicitado para mantener el ajuste y la eficacia del ANC."
+        problemas:
+          - key: "ear-tip-suelta"
+            title: "Sony WF-1000XM5: ear tip suelta o perdida"
+            intent: "info"
+            symptoms:
+              - "El ear tip se queda pegado en el oído al retirar el auricular"
+              - "El ear tip se ha perdido y el auricular no ajusta correctamente en el oído"
+              - "El ANC funciona peor porque el ear tip no sella correctamente el canal"
+            checks:
+              - "Comprueba la talla del ear tip que usas — los XM5 incluyen SS, S, M y L"
+              - "Verifica que el ear tip está bien encajado en el aro del auricular y hace clic"
+              - "Revisa si el aro de sujeción del ear tip está intacto o tiene el clip desgastado"
+              - "Haz la prueba de ajuste de Sony en la app Headphones para verificar el sellado"
+            causes:
+              - "Ear tip de talla incorrecta que no encaja con la presión suficiente en el aro"
+              - "Aro de sujeción desgastado que no retiene el ear tip con firmeza"
+              - "Ear tip deteriorado por sudoración o productos del cabello que ablandan el silicona"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+          - key: "estuche-no-carga"
+            title: "Sony WF-1000XM5: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los XM5 no recuperan batería al guardarlos en el estuche aunque el estuche tenga carga"
+              - "El estuche no se carga con el cable USB-C incluido"
+              - "Los auriculares siempre muestran el mismo nivel de batería tras horas en el estuche"
+            checks:
+              - "Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo de algodón seco"
+              - "Verifica que los auriculares asientan correctamente con los contactos alineados"
+              - "Prueba con un cable USB-C diferente certificado para descartar el cable"
+              - "Comprueba si la carga inalámbrica Qi funciona como alternativa al cable"
+            causes:
+              - "Contactos de carga sucios u oxidados que bloquean la transferencia de corriente"
+              - "Puerto USB-C del estuche con pelusa o daño físico que impide la carga"
+              - "Batería del estuche degradada por ciclos acumulados que ya no almacena suficiente energía"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+      - model: "Sony WF-1000XM4"
+        slug: "sony-wf-1000xm4"
+        series: "WF-1000X"
+        year_range: "2021-2023"
+        sku_pack: "earphone10"
+        model_tokens: ["wf-1000xm4", "wf 1000xm4", "1000xm4"]
+        intro: "Los Sony WF-1000XM4 fueron durante dos años el referente en ANC para auriculares TWS. Los ear tips de espuma y silicona son el recambio más solicitado para este modelo."
+        problemas:
+          - key: "ear-tip-suelta"
+            title: "Sony WF-1000XM4: ear tip suelta"
+            intent: "info"
+            symptoms:
+              - "El ear tip de espuma o silicona se desprende del auricular con facilidad"
+              - "El auricular se cae del oído porque el ear tip ya no hace el sellado correcto"
+              - "El ANC funciona peor desde que el ear tip cambió de forma o se deterioró"
+            checks:
+              - "Comprueba qué tipo de ear tip usas: silicona o espuma — los XM4 incluyen ambos tipos"
+              - "Verifica que el ear tip está bien encajado en el aro del auricular"
+              - "Revisa si el ear tip de espuma ha perdido la capacidad de recuperar su forma"
+              - "Haz la prueba de ajuste en la app Sony Headphones para confirmar el sellado"
+            causes:
+              - "Ear tip de espuma comprimido permanentemente que ya no sella el canal auditivo"
+              - "Ear tip de silicona desgastado por sudoración o uso de productos del cabello"
+              - "Talla de ear tip incorrecta que nunca hizo el ajuste correcto"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+          - key: "estuche-no-carga"
+            title: "Sony WF-1000XM4: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los XM4 no se cargan al guardarlos en el estuche durante la noche"
+              - "El estuche no se carga por cable USB-C ni por carga inalámbrica"
+              - "Los auriculares siempre muestran el mismo nivel de batería tras estar en el estuche"
+            checks:
+              - "Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan bien en el estuche con los contactos alineados"
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Comprueba si la batería del estuche tiene carga suficiente — los XM4 tienen batería del estuche separada"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente al auricular"
+              - "Puerto USB-C del estuche con pelusa incrustada que impide la conexión"
+              - "Batería del estuche degradada por ciclos acumulados"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+      - model: "Sony WF-C700N"
+        slug: "sony-wf-c700n"
+        series: "WF-C"
+        year_range: "2023-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["wf-c700n", "wf c700n", "c700n"]
+        intro: "Los Sony WF-C700N son los auriculares TWS con ANC más asequibles de Sony, con diseño compacto. Las almohadillas de silicona son el consumible más solicitado para este modelo."
+        problemas:
+          - key: "almohadilla-suelta"
+            title: "Sony WF-C700N: almohadilla suelta"
+            intent: "info"
+            symptoms:
+              - "La almohadilla se desprende al retirar el auricular del oído"
+              - "El ajuste en el oído ha empeorado y hay pérdida de aislamiento sonoro"
+              - "La almohadilla se quedó pegada en el oído al sacar el auricular"
+            checks:
+              - "Comprueba la talla de almohadilla que usas — los WF-C700N incluyen SS, S, M y L"
+              - "Verifica que la almohadilla está bien encajada en el aro del auricular"
+              - "Revisa si el aro de sujeción tiene el clip intacto"
+              - "Haz la prueba de ajuste en la app Sony Headphones"
+            causes:
+              - "Talla de almohadilla incorrecta que no encaja con presión suficiente"
+              - "Aro de sujeción desgastado que no retiene la almohadilla firmemente"
+              - "Almohadilla deteriorada por sudoración que ha perdido elasticidad"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "Sony WF-C700N: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los C700N no recuperan carga al meterlos en el estuche"
+              - "El estuche no se carga por cable USB-C"
+              - "Los auriculares muestran siempre el mismo nivel de batería tras horas en el estuche"
+            checks:
+              - "Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan bien en el estuche"
+              - "Prueba con otro cable USB-C para descartar el cable"
+              - "Comprueba si el estuche tiene batería suficiente"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente"
+              - "Puerto USB-C con pelusa incrustada que impide la carga"
+              - "Batería del estuche degradada por ciclos acumulados"
+            cta: { catKey: "accesorios", label: "Ver estuches de carga compatibles" }
+
+      - model: "Sony WH-1000XM5"
+        slug: "sony-wh-1000xm5"
+        series: "WH-1000X"
+        year_range: "2022-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["wh-1000xm5", "wh 1000xm5"]
+        intro: "Los Sony WH-1000XM5 son los auriculares over-ear con mejor ANC del mercado con diseño sin bisagras. Las almohadillas de cuero sintético son el recambio más solicitado para este modelo."
+        problemas:
+          - key: "almohadilla-desgastada"
+            title: "Sony WH-1000XM5: almohadilla desgastada"
+            intent: "info"
+            symptoms:
+              - "Las almohadillas se han pelado y el cuero sintético se desprende en escamas"
+              - "El relleno de espuma ha perdido grosor y los auriculares ya no resultan cómodos"
+              - "El aislamiento acústico ha empeorado porque las almohadillas no sellan bien la oreja"
+            checks:
+              - "Examina las almohadillas: si el cuero sintético se agrieta o desprende hay que sustituirlas"
+              - "Comprueba si el relleno de espuma mantiene su forma o está comprimido permanentemente"
+              - "Verifica cuántos años tienen los auriculares — el cuero sintético suele pelarse a los 2-3 años con uso diario"
+              - "Comprueba si has usado productos agresivos (alcohol, acetona) en la limpieza que aceleran el deterioro"
+            causes:
+              - "Deterioro natural del cuero sintético PU por el sudor y los aceites de la piel"
+              - "Exposición a calor o luz solar directa que fragiliza el cuero sintético"
+              - "Uso de productos de limpieza con disolventes que degradan el recubrimiento"
+            cta: { catKey: "accesorios", label: "Ver almohadillas over-ear compatibles" }
+          - key: "cable-roto"
+            title: "Sony WH-1000XM5: cable roto"
+            intent: "info"
+            symptoms:
+              - "El sonido se interrumpe o solo sale por un canal al mover el cable"
+              - "El cable tiene una doblez pronunciada o un bulto visible que indica rotura interna"
+              - "El audio en modo cableado falla aunque el modo inalámbrico funcione perfectamente"
+            checks:
+              - "Dobla suavemente el cable a lo largo de toda su longitud para localizar la zona de fallo"
+              - "Prueba con un cable de 3.5mm diferente para confirmar que el problema es el cable y no el puerto"
+              - "Revisa especialmente las zonas de mayor tensión: junto al conector del auricular y junto a la clavija de 3.5mm"
+              - "Verifica que el puerto de 3.5mm del WH-1000XM5 no tiene suciedad que interrumpa el contacto"
+            causes:
+              - "Rotura interna del cable por dobleces repetidos en los puntos de mayor tensión"
+              - "Daño en el conector de 3.5mm por inserción y extracción frecuente sin sujetar el conector"
+              - "Cable aplastado o cortado por haber sido pillado bajo objetos pesados"
+            cta: { catKey: "cargador", label: "Ver cables compatibles" }
+
+      - model: "Sony WH-CH720N"
+        slug: "sony-wh-ch720n"
+        series: "WH-CH"
+        year_range: "2023-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["wh-ch720n", "wh ch720n", "ch720n"]
+        intro: "Los Sony WH-CH720N son los auriculares over-ear más ligeros de Sony con ANC. Las almohadillas son el recambio más demandado para mantener la comodidad y el sellado acústico."
+        problemas:
+          - key: "almohadilla-desgastada"
+            title: "Sony WH-CH720N: almohadilla desgastada"
+            intent: "info"
+            symptoms:
+              - "El cuero sintético de las almohadillas se ha pelado y desprende escamas"
+              - "La espuma interior ha perdido grosor y los auriculares ya no son tan cómodos"
+              - "El aislamiento pasivo ha bajado porque las almohadillas no sellan bien la oreja"
+            checks:
+              - "Examina las almohadillas en busca de grietas, peladuras o compresión permanente del relleno"
+              - "Comprueba si el cuero sintético PU ha comenzado a laminarse — es el signo más claro de que hay que sustituirlas"
+              - "Verifica cuántos años tienen los auriculares con uso diario"
+              - "Revisa si has usado alcohol u otros productos de limpieza que degradan el recubrimiento"
+            causes:
+              - "Deterioro del cuero sintético PU por el sudor, los aceites de la piel y el uso continuado"
+              - "Calor excesivo por almacenamiento cerca de fuentes de calor que fragiliza el material"
+              - "Limpieza con productos inadecuados que disuelven el recubrimiento superficial"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "cable-roto"
+            title: "Sony WH-CH720N: cable roto"
+            intent: "info"
+            symptoms:
+              - "El audio en modo cableado falla o solo sale por un canal al usar el cable"
+              - "El cable tiene un bulto o doblez permanente que indica rotura interna"
+              - "El sonido se interrumpe al mover el cable cerca de los conectores"
+            checks:
+              - "Dobla el cable a lo largo de toda su longitud para localizar la zona de fallo por el sonido"
+              - "Prueba con un cable de 3.5mm diferente para confirmar que el problema no es el puerto"
+              - "Revisa especialmente los extremos del cable — los conectores son los puntos de rotura más habituales"
+              - "Comprueba que el puerto de 3.5mm del auricular no tiene pelusa o residuos incrustados"
+            causes:
+              - "Rotura interna del cable por dobleces repetidos cerca de los conectores"
+              - "Daño en el conector de 3.5mm por tensión excesiva al guardar el cable enrollado muy apretado"
+              - "Cable cortado accidentalmente por una silla, puerta o peso externo"
+            cta: { catKey: "cargador", label: "Ver cables compatibles" }
+
+  jbl-aud:
+    name: "JBL"
+    vertical: "auriculares"
+    notes_brand: "JBL Tour Pro y Live Pro top ventas. Alta demanda en almohadillas y estuches. Tour Pro 2 muy buscado."
+    models:
+      - model: "JBL Tour Pro 2"
+        slug: "jbl-tour-pro-2"
+        series: "Tour Pro"
+        year_range: "2023-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["jbl tour pro 2", "tour pro 2"]
+        intro: "Los JBL Tour Pro 2 son únicos por llevar una pantalla táctil en el estuche de carga. Los ear tips y el estuche son los recambios más buscados para este modelo innovador."
+        problemas:
+          - key: "ear-tip-suelta"
+            title: "JBL Tour Pro 2: ear tip suelta"
+            intent: "info"
+            symptoms:
+              - "El ear tip se desprende del auricular al sacarlo del estuche o del oído"
+              - "El ajuste en el oído ha empeorado y el ANC funciona peor"
+              - "El ear tip se quedó pegado en el oído al retirar el auricular"
+            checks:
+              - "Comprueba la talla del ear tip que usas — los Tour Pro 2 incluyen S, M y L"
+              - "Verifica que el ear tip está bien encajado en el aro del auricular y hace clic"
+              - "Revisa el estado del aro de sujeción — si está desgastado no retiene el ear tip"
+              - "Prueba con la talla M si no conoces tu talla — es la que incluye JBL de fábrica"
+            causes:
+              - "Ear tip de talla incorrecta que no encaja con la presión suficiente"
+              - "Aro de sujeción desgastado por el ciclo diario de entrada y salida del estuche"
+              - "Ear tip deteriorado por sudoración o exposición a productos del cabello"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+          - key: "estuche-no-carga"
+            title: "JBL Tour Pro 2: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Tour Pro 2 no recuperan batería al meterlos en el estuche"
+              - "La pantalla del estuche no responde ni se enciende al conectar el cable"
+              - "El estuche no muestra el nivel de batería correcto en su pantalla táctil"
+            checks:
+              - "Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan correctamente con los contactos alineados"
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Reinicia el estuche manteniendo pulsado el botón lateral durante 10 segundos"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente a los auriculares"
+              - "Puerto USB-C con pelusa o daño que impide la carga del estuche"
+              - "Firmware del estuche con error que puede resolverse con un reinicio o actualización"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }
+
+      - model: "JBL Live Pro 2 TWS"
+        slug: "jbl-live-pro-2-tws"
+        series: "Live Pro"
+        year_range: "2022-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["jbl live pro 2", "live pro 2"]
+        intro: "Los JBL Live Pro 2 TWS ofrecen ANC y hasta 40 horas de autonomía total con el estuche. Los estuches y los ear tips son los recambios más solicitados para este modelo."
+        problemas:
+          - key: "estuche-no-carga"
+            title: "JBL Live Pro 2: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Live Pro 2 no recuperan batería al guardarlos en el estuche"
+              - "El estuche no se carga con el cable USB-C"
+              - "El LED del estuche no parpadea al conectar el cable de carga"
+            checks:
+              - "Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo de algodón seco"
+              - "Verifica que los auriculares asientan bien en el estuche con los contactos alineados"
+              - "Prueba con otro cable USB-C para descartar el cable"
+              - "Comprueba si la carga inalámbrica Qi funciona como alternativa"
+            causes:
+              - "Contactos de carga sucios que bloquean la transferencia de corriente a los auriculares"
+              - "Puerto USB-C del estuche con pelusa incrustada que impide la conexión"
+              - "Batería del estuche degradada por ciclos acumulados que ya no almacena energía suficiente"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }
+          - key: "ear-tip-suelta"
+            title: "JBL Live Pro 2: ear tip suelta"
+            intent: "info"
+            symptoms:
+              - "El ear tip se desprende del auricular al sacarlo del estuche"
+              - "El auricular no ajusta bien en el oído y se cae durante el ejercicio"
+              - "El ANC funciona con menos eficacia porque el ear tip no sella el canal"
+            checks:
+              - "Comprueba la talla del ear tip — los Live Pro 2 incluyen S, M y L"
+              - "Verifica que el ear tip está bien encajado en el aro y hace clic al montarlo"
+              - "Revisa si el aro de sujeción está desgastado o tiene el clip roto"
+              - "Prueba con la talla M como referencia de talla media"
+            causes:
+              - "Ear tip de talla incorrecta que no encaja con la presión suficiente en el aro"
+              - "Aro de sujeción desgastado que no retiene el ear tip durante el uso"
+              - "Ear tip deteriorado por sudoración intensa o uso de auriculares durante el ejercicio"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+
+      - model: "JBL Tune 230NC TWS"
+        slug: "jbl-tune-230nc"
+        series: "Tune"
+        year_range: "2022-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["jbl tune 230nc", "tune 230nc", "tune 230"]
+        intro: "Los JBL Tune 230NC son los auriculares TWS con ANC más económicos de JBL. Las almohadillas son el consumible más demandado para este modelo de entrada."
+        problemas:
+          - key: "almohadilla-suelta"
+            title: "JBL Tune 230NC: almohadilla suelta"
+            intent: "info"
+            symptoms:
+              - "La almohadilla se desprende fácilmente del auricular con el uso normal"
+              - "El auricular no queda bien fijo en el oído y tiene pérdida de aislamiento"
+              - "La almohadilla se cayó durante una sesión de deporte"
+            checks:
+              - "Comprueba la talla de almohadilla que usas — los Tune 230NC incluyen S, M y L"
+              - "Verifica que la almohadilla está bien encajada en el aro del auricular"
+              - "Revisa el aro de sujeción para confirmar que el clip está intacto"
+              - "Prueba con la talla M si no conoces tu talla"
+            causes:
+              - "Almohadilla de talla incorrecta que no hace la presión suficiente para mantenerse"
+              - "Aro de sujeción desgastado por el uso diario que ya no retiene la almohadilla"
+              - "Almohadilla deteriorada por sudoración que ha perdido elasticidad"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "JBL Tune 230NC: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Tune 230NC no recuperan batería al guardarlos en el estuche"
+              - "El estuche no se carga por cable USB-C"
+              - "Los auriculares siempre muestran el mismo nivel de batería tras estar en el estuche"
+            checks:
+              - "Limpia los contactos del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan bien en el estuche"
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Comprueba si el estuche tiene batería propia suficiente"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente"
+              - "Puerto USB-C del estuche con residuos que impiden la carga"
+              - "Batería del estuche degradada por ciclos acumulados"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }
+
+      - model: "JBL Tune Flex"
+        slug: "jbl-tune-flex"
+        series: "Tune"
+        year_range: "2022-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["jbl tune flex", "tune flex"]
+        intro: "Los JBL Tune Flex son auriculares TWS open-fit con ANC que permiten escuchar el entorno. Los ear tips y los estuches son los recambios más solicitados para este modelo."
+        problemas:
+          - key: "ear-tip-suelta"
+            title: "JBL Tune Flex: ear tip suelta"
+            intent: "info"
+            symptoms:
+              - "El ear tip se desprende del auricular al sacarlo del estuche o del oído"
+              - "El auricular no ajusta bien en el oído y no sella correctamente"
+              - "El ear tip se perdió durante una sesión de ejercicio"
+            checks:
+              - "Comprueba la talla del ear tip — los Tune Flex incluyen S, M y L"
+              - "Verifica que el ear tip está bien encajado en el aro del auricular y hace clic"
+              - "Revisa el estado del aro de sujeción del ear tip"
+              - "Prueba con la talla M como referencia de talla estándar"
+            causes:
+              - "Ear tip de talla incorrecta que no encaja con la presión suficiente"
+              - "Aro de sujeción desgastado que no retiene el ear tip durante la actividad física"
+              - "Ear tip deteriorado por sudoración o exposición a productos externos"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+          - key: "estuche-no-carga"
+            title: "JBL Tune Flex: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los Tune Flex no recuperan batería al guardarlos en el estuche"
+              - "El estuche no se carga por cable USB-C"
+              - "El LED del estuche no se enciende al conectar el cargador"
+            checks:
+              - "Limpia los contactos del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan correctamente en el estuche"
+              - "Prueba con otro cable USB-C para descartar el cable"
+              - "Comprueba si el estuche tiene batería suficiente o necesita cargarse primero"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente"
+              - "Puerto USB-C del estuche con pelusa o residuos que bloquean la conexión"
+              - "Batería del estuche degradada que ya no carga los auriculares"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }
+
+  qcy:
+    name: "QCY"
+    vertical: "auriculares"
+    notes_brand: "QCY auriculares TWS gama económica top ventas AliExpress. Alta demanda en ear tips y cables."
+    models:
+      - model: "QCY T13"
+        slug: "qcy-t13"
+        series: "T-Series"
+        year_range: "2021-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["qcy t13", "t13"]
+        intro: "El QCY T13 es uno de los auriculares TWS más vendidos de AliExpress por su excelente relación calidad-precio. Los ear tips son el recambio más solicitado para este modelo."
+        problemas:
+          - key: "ear-tip-suelta"
+            title: "QCY T13: ear tip suelta o perdida"
+            intent: "info"
+            symptoms:
+              - "El ear tip se desprende del auricular al sacarlo del estuche o del oído"
+              - "Un auricular no sella bien en el oído y el sonido queda muy apagado"
+              - "El ear tip ha desaparecido y el auricular molesta en el oído sin él"
+            checks:
+              - "Comprueba la talla del ear tip que usas — el T13 incluye S, M y L"
+              - "Verifica que el ear tip está bien encajado en el aro del auricular y hace clic"
+              - "Revisa si el aro de sujeción del ear tip está intacto o tiene el clip desgastado"
+              - "Prueba con la talla M como referencia — es la que QCY incluye de fábrica"
+            causes:
+              - "Ear tip de talla incorrecta que no encaja con presión suficiente en el aro"
+              - "Aro de sujeción desgastado por el ciclo diario de entrada y salida del estuche"
+              - "Ear tip deteriorado por sudoración que ha perdido la elasticidad del silicona"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+          - key: "estuche-no-carga"
+            title: "QCY T13: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los T13 no recuperan batería al guardarlos en el estuche durante la noche"
+              - "El estuche no se carga por cable USB-C"
+              - "El LED del estuche no se enciende al conectar el cable"
+            checks:
+              - "Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan bien en el estuche con los contactos alineados"
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Comprueba si el estuche tiene batería suficiente — cárgalo primero antes de probar los auriculares"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente a los auriculares"
+              - "Puerto USB-C del estuche con pelusa incrustada que impide la conexión correcta"
+              - "Batería del estuche degradada por ciclos acumulados en un dispositivo de gama económica"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }
+
+      - model: "QCY HT07 ANC"
+        slug: "qcy-ht07-anc"
+        series: "HT-Series"
+        year_range: "2022-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["qcy ht07", "ht07 anc", "ht07"]
+        intro: "El QCY HT07 ANC son los auriculares over-ear con ANC más económicos de QCY. Las almohadillas son el recambio más habitual para mantener la comodidad en este modelo."
+        problemas:
+          - key: "almohadilla-suelta"
+            title: "QCY HT07 ANC: almohadilla suelta"
+            intent: "info"
+            symptoms:
+              - "La almohadilla se ha despegado de la carcasa del auricular"
+              - "La espuma de la almohadilla está comprimida y ya no es cómoda"
+              - "El cuero sintético de la almohadilla se ha pelado"
+            checks:
+              - "Examina cómo está fijada la almohadilla al auricular — algunos modelos usan velcro y otros presión"
+              - "Comprueba si el cuero sintético PU tiene grietas o se desprende en escamas"
+              - "Verifica si el relleno de espuma ha perdido su grosor original"
+              - "Revisa cuántos años tienen los auriculares con uso diario"
+            causes:
+              - "Cuero sintético PU deteriorado por el sudor y los aceites de la piel"
+              - "Espuma interna comprimida permanentemente que ya no proporciona comodidad ni sellado"
+              - "Adhesivo o velcro de sujeción de la almohadilla desgastado por el uso"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "estuche-no-carga"
+            title: "QCY HT07 ANC: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "El HT07 no carga al conectar el cable USB-C"
+              - "El LED de carga no se enciende al conectar el cargador"
+              - "El auricular se descarga aunque haya estado cargando toda la noche"
+            checks:
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Limpia el puerto USB-C con un palillo seco para eliminar pelusa o suciedad"
+              - "Comprueba si el LED parpadea indicando fallo de carga o si no se enciende en absoluto"
+              - "Verifica que el cargador entrega la tensión y corriente correctas para el HT07"
+            causes:
+              - "Puerto USB-C del auricular con pelusa o daño físico que impide la carga"
+              - "Cable USB-C defectuoso o incompatible que no entrega la corriente correcta"
+              - "Batería interna degradada por ciclos acumulados que ya no acepta carga"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }
+
+      - model: "QCY T21"
+        slug: "qcy-t21"
+        series: "T-Series"
+        year_range: "2022-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["qcy t21", "t21"]
+        intro: "El QCY T21 es el sucesor del popular T13 con mayor autonomía y diseño mejorado. Los estuches y los ear tips son los recambios más solicitados para este modelo."
+        problemas:
+          - key: "estuche-no-carga"
+            title: "QCY T21: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los T21 no recuperan batería al meterlos en el estuche"
+              - "El estuche no se carga por cable USB-C"
+              - "El LED del estuche no indica el nivel de batería correctamente"
+            checks:
+              - "Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan bien en el estuche con los contactos alineados"
+              - "Prueba con otro cable USB-C para descartar el cable"
+              - "Comprueba si el LED del estuche indica batería muy baja del propio estuche"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente a los auriculares"
+              - "Puerto USB-C del estuche con pelusa incrustada que impide la conexión"
+              - "Batería del estuche degradada por ciclos acumulados en un dispositivo de uso intensivo"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }
+          - key: "ear-tip-suelta"
+            title: "QCY T21: ear tip suelta"
+            intent: "info"
+            symptoms:
+              - "El ear tip se desprende del auricular al sacarlo del estuche"
+              - "El auricular no ajusta bien en el oído y el sonido resulta apagado"
+              - "El ear tip se ha perdido durante una sesión de deporte"
+            checks:
+              - "Verifica la talla del ear tip que usas — el T21 incluye S, M y L"
+              - "Comprueba que el ear tip está bien encajado en el aro del auricular"
+              - "Revisa el estado del aro de sujeción del ear tip"
+              - "Prueba con la talla M como referencia estándar"
+            causes:
+              - "Ear tip de talla incorrecta que no encaja con suficiente presión"
+              - "Aro de sujeción desgastado que no retiene el ear tip durante el uso"
+              - "Ear tip deteriorado por sudoración o uso intensivo durante el ejercicio"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+
+      - model: "QCY ArcBuds Lite"
+        slug: "qcy-arcbuds-lite"
+        series: "ArcBuds"
+        year_range: "2023-actual"
+        sku_pack: "earphone10"
+        model_tokens: ["qcy arcbuds lite", "arcbuds lite"]
+        intro: "Los QCY ArcBuds Lite son auriculares TWS open-fit con ANC a precio muy asequible. Los ear tips y los estuches son los recambios más demandados para este modelo."
+        problemas:
+          - key: "ear-tip-suelta"
+            title: "QCY ArcBuds Lite: ear tip suelta"
+            intent: "info"
+            symptoms:
+              - "El ear tip se desprende del auricular al retirarlo del oído"
+              - "El auricular no queda bien fijo y se mueve durante la actividad física"
+              - "El ear tip se ha perdido y el auricular molesta sin él"
+            checks:
+              - "Comprueba la talla del ear tip — los ArcBuds Lite incluyen S, M y L"
+              - "Verifica que el ear tip está bien encajado en el aro del auricular y hace clic"
+              - "Revisa el estado del aro de sujeción para confirmar que el clip está intacto"
+              - "Prueba con la talla M como referencia de talla media"
+            causes:
+              - "Ear tip de talla incorrecta que no encaja con la presión suficiente en el aro"
+              - "Aro de sujeción desgastado por el ciclo de uso diario que ya no retiene el ear tip"
+              - "Ear tip deteriorado por sudoración intensa durante el ejercicio"
+            cta: { catKey: "accesorios", label: "Ver almohadillas ear tips compatibles" }
+          - key: "estuche-no-carga"
+            title: "QCY ArcBuds Lite: estuche no carga"
+            intent: "info"
+            symptoms:
+              - "Los ArcBuds Lite no recuperan batería al guardarlos en el estuche"
+              - "El estuche no se carga por cable USB-C"
+              - "El LED del estuche no parpadea al conectar el cable"
+            checks:
+              - "Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo seco"
+              - "Verifica que los auriculares asientan correctamente en el estuche"
+              - "Prueba con otro cable USB-C para descartar el cable como causa"
+              - "Comprueba si el estuche tiene batería suficiente para cargar los auriculares"
+            causes:
+              - "Contactos de carga sucios que impiden la transferencia de corriente"
+              - "Puerto USB-C del estuche con pelusa que bloquea la conexión"
+              - "Batería del estuche degradada por ciclos de carga acumulados"
+            cta: { catKey: "accesorios", label: "Ver estuches compatibles" }

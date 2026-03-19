@@ -1,0 +1,2354 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  hobot:
+    name: HOBOT
+    notes_brand: Líder en robots limpiacristales. Alta demanda en almohadillas, depósitos
+      y baterías.
+    models:
+    - model: HOBOT 2S
+      slug: hobot-2s
+      series: HOBOT
+      year_range: 2020-actual
+      sku_pack: glasscleaner10
+      model_tokens:
+      - hobot 2s
+      - hobot2s
+      intro: El HOBOT 2S es el robot limpiacristales más vendido de la gama HOBOT
+        con sistema de rociado de agua integrado. Las almohadillas de microfibra y
+        las baterías son los consumibles más demandados.
+      problemas:
+      - key: pierde-adherencia
+        title: HOBOT 2S pierde adherencia al cristal
+        intent: info
+        symptoms:
+        - El robot se despega del cristal durante la limpieza y cae
+        - El robot resbala hacia abajo aunque los motores sigan funcionando
+        - El robot no consigue subir más allá de la mitad del cristal
+        checks:
+        - 'Examina las almohadillas: si están sucias o desgastadas no hacen el sello
+          necesario para la succión'
+        - Comprueba que la ventosa de seguridad está bien enganchada antes de iniciar
+        - Verifica que el cristal no tiene residuos de cera o productos repelentes
+          que impidan la adherencia
+        - Revisa si hay fugas de aire en el sello perimetral del robot — pasa la mano
+          alrededor mientras funciona
+        causes:
+        - Almohadillas desgastadas o sucias que rompen el sello de vacío necesario
+          para la adherencia
+        - Cristal con residuos de cera o productos hidrofóbicos que impiden la succión
+        - Sello perimetral del robot deteriorado que genera pérdida de vacío
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas y ventosas compatibles
+      - key: bateria-agotada
+        title: HOBOT 2S batería se agota rápido
+        intent: info
+        symptoms:
+        - El robot termina la batería a mitad de la ventana y cae sin completar la
+          limpieza
+        - La autonomía ha bajado notablemente respecto a cuando era nuevo
+        - El robot no retiene la carga ni siquiera después de varias horas en el cargador
+        checks:
+        - Comprueba cuántos ciclos de carga lleva la batería — tras 300-400 ciclos
+          la capacidad cae
+        - Verifica que el cargador suministra la tensión correcta con un multímetro
+        - Revisa si la batería está ligeramente abultada — una batería hinchada hay
+          que sustituirla de inmediato
+        - Comprueba que el robot no está expuesto a temperaturas extremas durante
+          la carga
+        causes:
+        - Batería de litio degradada por ciclos de carga acumulados (causa más habitual
+          tras 2 años de uso)
+        - Cargador defectuoso que no entrega la corriente correcta y no recarga completamente
+        - Almacenamiento con la batería descargada completamente que acelera la degradación
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      recambios:
+        accesorios:
+        - sku: hobot-hobot-2s-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s pad washing Almohadillas de lavado compatibles
+            (pack) para HOBOT 2S
+          must_include:
+          - hobot2s
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id001
+          - hobot 2s
+          - hobot2s
+        - sku: hobot-hobot-2s-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s pad cleaning Almohadillas de limpieza compatibles
+            (pack) para HOBOT 2S
+          must_include:
+          - hobot2s
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id001
+        - sku: hobot-hobot-2s-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s microfiber pad Almohadillas microfibra compatibles
+            (pack) para HOBOT 2S
+          must_include:
+          - hobot2s
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id001
+        - sku: hobot-hobot-2s-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s suction accessory Ventosa / pieza de succión
+            accesorio compatible para HOBOT 2S
+          must_include:
+          - hobot2s
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id001
+        - sku: hobot-hobot-2s-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s cloth microfiber Paño de microfibra accesorio
+            para HOBOT 2S
+          must_include:
+          - hobot2s
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id001
+        - sku: hobot-hobot-2s-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s safety cable Cable de seguridad accesorio
+            para HOBOT 2S
+          must_include:
+          - hobot2s
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id001
+        - sku: hobot-hobot-2s-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s kit accessory Kit accesorios compatible para
+            HOBOT 2S
+          must_include:
+          - hobot2s
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id001
+        deposito:
+        - sku: hobot-hobot-2s-deposito-glass-tank
+          title: Depósito de líquido compatible para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s tank water Depósito de líquido compatible
+            para HOBOT 2S
+          must_include:
+          - hobot2s
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id001
+        bateria:
+        - sku: hobot-hobot-2s-bateria-glass-bat-std
+          title: Batería compatible para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s battery Batería compatible para HOBOT 2S
+          must_include:
+          - hobot2s
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id001
+        cargador:
+        - sku: hobot-hobot-2s-cargador-glass-charger
+          title: Cargador / adaptador compatible para HOBOT 2S
+          intent: compra
+          query: HOBOT HOBOT 2S hobot2s charger adapter Cargador / adaptador compatible
+            para HOBOT 2S
+          must_include:
+          - hobot2s
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id001
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: HOBOT LEGEE-688
+      slug: hobot-legee-688
+      series: LEGEE
+      year_range: 2021-actual
+      sku_pack: glasscleaner10
+      model_tokens:
+      - legee 688
+      - legee688
+      - legee
+      intro: El HOBOT LEGEE-688 combina fregado del suelo y limpieza de cristales
+        en un solo robot. Las almohadillas de microfibra son el consumible más solicitado
+        para este modelo híbrido.
+      problemas:
+      - key: almohadilla-desgastada
+        title: 'HOBOT LEGEE-688: almohadilla desgastada'
+        intent: info
+        symptoms:
+        - El robot limpia los cristales pero deja rayas o manchas en lugar de un acabado
+          limpio
+        - Las almohadillas tienen zonas peladas o más finas que el resto
+        - El robot necesita más pasadas para eliminar la misma suciedad que antes
+        checks:
+        - Examina las almohadillas a contraluz para detectar zonas desgastadas o agujeros
+        - Comprueba si las almohadillas conservan la textura suave original o están
+          endurecidas
+        - Verifica cuántas horas de uso llevan — se recomienda sustituirlas cada 3
+          meses con uso semanal
+        - Revisa si las almohadillas están sucias con residuos de cal que las endurecen
+        causes:
+        - Desgaste natural de las fibras de microfibra por fricción sobre el cristal
+        - Cal del agua dura que endurece las fibras y reduce su capacidad de absorción
+        - Suciedad incrustada que actúa como abrasivo y acelera el desgaste
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: no-carga
+        title: HOBOT LEGEE-688 no carga
+        intent: info
+        symptoms:
+        - El indicador de carga no se enciende al colocar el robot en la base
+        - La batería no sube de nivel aunque el robot lleve horas en la estación
+        - El robot se apaga a los pocos minutos de empezar a limpiar
+        checks:
+        - Limpia los contactos metálicos del robot y de la base de carga con un paño
+          seco
+        - Verifica que la base está enchufada y tiene alimentación eléctrica
+        - Comprueba si el cable del adaptador tiene daños o dobleces pronunciados
+        - Prueba a reiniciar el robot y volver a colocarlo sobre la base
+        causes:
+        - Contactos de carga oxidados o sucios que impiden la transferencia de corriente
+        - Cargador defectuoso que no entrega la tensión correcta
+        - Batería agotada por ciclos acumulados que ya no acepta carga
+        cta:
+          catKey: cargador
+          label: Ver cargadores compatibles
+      recambios:
+        accesorios:
+        - sku: hobot-hobot-legee-688-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 pad washing Almohadillas de lavado
+            compatibles (pack) para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id002
+          - legee 688
+          - legee688
+          - legee
+        - sku: hobot-hobot-legee-688-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 pad cleaning Almohadillas de limpieza
+            compatibles (pack) para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id002
+        - sku: hobot-hobot-legee-688-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 microfiber pad Almohadillas microfibra
+            compatibles (pack) para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id002
+        - sku: hobot-hobot-legee-688-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 suction accessory Ventosa / pieza
+            de succión accesorio compatible para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id002
+        - sku: hobot-hobot-legee-688-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 cloth microfiber Paño de microfibra
+            accesorio para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id002
+        - sku: hobot-hobot-legee-688-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 safety cable Cable de seguridad accesorio
+            para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id002
+        - sku: hobot-hobot-legee-688-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 kit accessory Kit accesorios compatible
+            para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id002
+        deposito:
+        - sku: hobot-hobot-legee-688-deposito-glass-tank
+          title: Depósito de líquido compatible para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 tank water Depósito de líquido compatible
+            para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id002
+        bateria:
+        - sku: hobot-hobot-legee-688-bateria-glass-bat-std
+          title: Batería compatible para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 battery Batería compatible para HOBOT
+            LEGEE-688
+          must_include:
+          - legee688
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id002
+        cargador:
+        - sku: hobot-hobot-legee-688-cargador-glass-charger
+          title: Cargador / adaptador compatible para HOBOT LEGEE-688
+          intent: compra
+          query: HOBOT HOBOT LEGEE-688 legee688 charger adapter Cargador / adaptador
+            compatible para HOBOT LEGEE-688
+          must_include:
+          - legee688
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id002
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: HOBOT-298
+      slug: hobot-298
+      series: HOBOT
+      year_range: 2018-2022
+      sku_pack: glasscleaner10
+      model_tokens:
+      - hobot 298
+      - hobot298
+      - '298'
+      intro: El HOBOT-298 fue uno de los primeros robots limpiacristales con ultrasonidos.
+        Es un modelo descatalogado pero con alta demanda de cargadores y almohadillas
+        de recambio.
+      comprar_nuevo:
+        query: HOBOT window cleaning robot
+        label: Ver HOBOT nuevo en AliExpress
+        note: El HOBOT-298 tiene varios años. Si la reparación es costosa, compara
+          con los modelos actuales.
+      problemas:
+      - key: no-carga
+        title: HOBOT-298 no carga
+        intent: info
+        symptoms:
+        - El robot no enciende el indicador de carga al conectar el cargador
+        - El robot se apaga durante la limpieza aunque parecía tener batería suficiente
+        - La batería no sube de nivel después de varias horas de carga
+        checks:
+        - Comprueba que el cargador del HOBOT-298 es el original o uno con la misma
+          tensión y polaridad
+        - Limpia el conector de carga del robot con un palillo seco para eliminar
+          suciedad o corrosión
+        - Verifica que el cable del cargador no tiene cortes ni dobleces bruscos
+        - Revisa si la batería está abultada — en modelos antiguos la batería de polímero
+          de litio se hincha
+        causes:
+        - Batería de litio degradada por el tiempo y los ciclos de carga (causa principal
+          en modelos de 5+ años)
+        - Cargador original deteriorado que ya no entrega la tensión correcta
+        - Conector de carga del robot con corrosión por humedad que impide el contacto
+        cta:
+          catKey: cargador
+          label: Ver cargadores compatibles
+      - key: bateria-agotada
+        title: 'HOBOT-298: batería se agota muy rápido'
+        intent: info
+        symptoms:
+        - El robot termina la batería en menos de 10 minutos cuando antes duraba 25
+        - El robot no termina de limpiar una ventana mediana antes de quedarse sin
+          batería
+        - El indicador de batería baja de lleno a vacío en muy poco tiempo
+        checks:
+        - Verifica cuántos años tiene el robot — tras 4-5 años la batería suele estar
+          agotada
+        - Comprueba si la batería está hinchada — palpa la parte trasera del robot
+          para detectar protuberancias
+        - 'Revisa si el robot se carga correctamente: una carga incompleta simula
+          batería agotada'
+        - Prueba a cargar durante 3 horas completas y mide la autonomía resultante
+        causes:
+        - Batería de litio al final de su vida útil tras años de uso y ciclos de carga
+        - Degradación acelerada por almacenamiento con batería muy descargada en temporadas
+          de invierno
+        - Cargador defectuoso que realiza cargas parciales que aceleran el envejecimiento
+          de la batería
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      recambios:
+        accesorios:
+        - sku: hobot-hobot-298-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 pad washing Almohadillas de lavado compatibles
+            (pack) para HOBOT-298
+          must_include:
+          - hobot298
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id003
+          - hobot 298
+          - hobot298
+          - '298'
+        - sku: hobot-hobot-298-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 pad cleaning Almohadillas de limpieza compatibles
+            (pack) para HOBOT-298
+          must_include:
+          - hobot298
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id003
+        - sku: hobot-hobot-298-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 microfiber pad Almohadillas microfibra compatibles
+            (pack) para HOBOT-298
+          must_include:
+          - hobot298
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id003
+        - sku: hobot-hobot-298-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 suction accessory Ventosa / pieza de succión
+            accesorio compatible para HOBOT-298
+          must_include:
+          - hobot298
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id003
+        - sku: hobot-hobot-298-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 cloth microfiber Paño de microfibra accesorio
+            para HOBOT-298
+          must_include:
+          - hobot298
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id003
+        - sku: hobot-hobot-298-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 safety cable Cable de seguridad accesorio
+            para HOBOT-298
+          must_include:
+          - hobot298
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id003
+        - sku: hobot-hobot-298-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 kit accessory Kit accesorios compatible
+            para HOBOT-298
+          must_include:
+          - hobot298
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id003
+        deposito:
+        - sku: hobot-hobot-298-deposito-glass-tank
+          title: Depósito de líquido compatible para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 tank water Depósito de líquido compatible
+            para HOBOT-298
+          must_include:
+          - hobot298
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id003
+        bateria:
+        - sku: hobot-hobot-298-bateria-glass-bat-std
+          title: Batería compatible para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 battery Batería compatible para HOBOT-298
+          must_include:
+          - hobot298
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id003
+        cargador:
+        - sku: hobot-hobot-298-cargador-glass-charger
+          title: Cargador / adaptador compatible para HOBOT-298
+          intent: compra
+          query: HOBOT HOBOT-298 hobot298 charger adapter Cargador / adaptador compatible
+            para HOBOT-298
+          must_include:
+          - hobot298
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id003
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: HOBOT 388
+      slug: hobot-388
+      series: HOBOT
+      year_range: 2019-2023
+      sku_pack: glasscleaner10
+      model_tokens:
+      - hobot 388
+      - hobot388
+      - '388'
+      intro: El HOBOT 388 fue el primer robot limpiacristales con depósito de agua
+        integrado para rociar el cristal durante la limpieza. Los depósitos y las
+        almohadillas son los recambios más demandados.
+      problemas:
+      - key: deposito-vacio-rapido
+        title: 'HOBOT 388: depósito se vacía rápido'
+        intent: info
+        symptoms:
+        - El depósito de agua se vacía a mitad de la primera ventana
+        - Quedan rayas de suciedad seca en el cristal porque el robot se queda sin
+          agua
+        - El depósito necesita rellenarse mucho más frecuentemente que al principio
+        checks:
+        - Revisa el depósito por fuera con el robot encendido para detectar fugas
+          visibles
+        - Comprueba la junta de goma del depósito — si está agrietada o deformada
+          hay que sustituirla
+        - Verifica que el dispensador no está atascado en posición abierta por cal
+          o residuos
+        - Comprueba si el robot está configurado en modo de alta humedad que vacía
+          antes el depósito
+        causes:
+        - Junta del depósito deteriorada que provoca una fuga continua de agua
+        - Dispensador bloqueado en posición abierta por cal que libera agua constantemente
+        - Grieta en el cuerpo del depósito por caída o impacto que no siempre es visible
+          a simple vista
+        cta:
+          catKey: deposito
+          label: Ver depósitos compatibles
+      - key: almohadilla-sucia
+        title: 'HOBOT 388: almohadilla sucia o desgastada'
+        intent: info
+        symptoms:
+        - El robot deja rayas o manchas en el cristal en lugar de dejarlo limpio
+        - La almohadilla tiene manchas oscuras que no salen con el lavado
+        - El robot extiende la suciedad en lugar de eliminarla del cristal
+        checks:
+        - Retira las almohadillas y lávalas a mano con agua fría sin suavizante
+        - Examina si las fibras de microfibra conservan la textura original o están
+          apelmazadas
+        - Comprueba si las almohadillas tienen incrustaciones de cal que las endurecen
+        - Verifica cuántas semanas llevan en uso — con uso semanal conviene lavarlas
+          cada 2 semanas
+        causes:
+        - Almohadillas saturadas de suciedad y cal que actúan como abrasivo sobre
+          el cristal
+        - Fibras de microfibra desgastadas por uso prolongado que ya no absorben bien
+        - Residuos de productos de limpieza del cristal que impregnan las fibras
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      recambios:
+        accesorios:
+        - sku: hobot-hobot-388-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 pad washing Almohadillas de lavado compatibles
+            (pack) para HOBOT 388
+          must_include:
+          - hobot388
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id004
+          - hobot 388
+          - hobot388
+          - '388'
+        - sku: hobot-hobot-388-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 pad cleaning Almohadillas de limpieza compatibles
+            (pack) para HOBOT 388
+          must_include:
+          - hobot388
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id004
+        - sku: hobot-hobot-388-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 microfiber pad Almohadillas microfibra compatibles
+            (pack) para HOBOT 388
+          must_include:
+          - hobot388
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id004
+        - sku: hobot-hobot-388-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 suction accessory Ventosa / pieza de succión
+            accesorio compatible para HOBOT 388
+          must_include:
+          - hobot388
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id004
+        - sku: hobot-hobot-388-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 cloth microfiber Paño de microfibra accesorio
+            para HOBOT 388
+          must_include:
+          - hobot388
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id004
+        - sku: hobot-hobot-388-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 safety cable Cable de seguridad accesorio
+            para HOBOT 388
+          must_include:
+          - hobot388
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id004
+        - sku: hobot-hobot-388-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 kit accessory Kit accesorios compatible
+            para HOBOT 388
+          must_include:
+          - hobot388
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id004
+        deposito:
+        - sku: hobot-hobot-388-deposito-glass-tank
+          title: Depósito de líquido compatible para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 tank water Depósito de líquido compatible
+            para HOBOT 388
+          must_include:
+          - hobot388
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id004
+        bateria:
+        - sku: hobot-hobot-388-bateria-glass-bat-std
+          title: Batería compatible para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 battery Batería compatible para HOBOT 388
+          must_include:
+          - hobot388
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id004
+        cargador:
+        - sku: hobot-hobot-388-cargador-glass-charger
+          title: Cargador / adaptador compatible para HOBOT 388
+          intent: compra
+          query: HOBOT HOBOT 388 hobot388 charger adapter Cargador / adaptador compatible
+            para HOBOT 388
+          must_include:
+          - hobot388
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id004
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  ecovacs-win:
+    name: Ecovacs WINBOT
+    notes_brand: Ecovacs WINBOT robots limpiacristales gama alta. Alta demanda en
+      almohadillas y baterías.
+    models:
+    - model: Ecovacs WINBOT W1 Pro
+      slug: ecovacs-winbot-w1-pro
+      series: WINBOT W
+      year_range: 2022-actual
+      sku_pack: glasscleaner10
+      model_tokens:
+      - winbot w1 pro
+      - w1 pro
+      intro: El Ecovacs WINBOT W1 Pro es el robot limpiacristales más avanzado de
+        Ecovacs con sistema de rociado inteligente. Las almohadillas son el consumible
+        más solicitado.
+      problemas:
+      - key: almohadilla-desgastada
+        title: 'WINBOT W1 Pro: almohadilla desgastada'
+        intent: info
+        symptoms:
+        - El cristal queda con rayas o suciedad extendida en lugar de limpio
+        - Las almohadillas tienen zonas claramente más finas o peladas
+        - El robot necesita más pasadas para conseguir el mismo resultado que antes
+        checks:
+        - Examina las almohadillas por ambas caras para detectar zonas de desgaste
+          irregular
+        - Comprueba si las fibras de microfibra son suaves al tacto o están endurecidas
+        - Verifica cuántas horas llevan en uso — el fabricante recomienda sustituirlas
+          cada 3 meses
+        - Revisa si tienen residuos de cal incrustados que se notan al palpar la superficie
+        causes:
+        - Desgaste natural de la microfibra por fricción sobre el cristal
+        - Cal del agua que endurece las fibras y reduce su capacidad de limpieza
+        - Suciedad incrustada que actúa como elemento abrasivo durante el frotado
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: no-detecta-bordes
+        title: WINBOT W1 Pro no detecta bordes
+        intent: info
+        symptoms:
+        - El robot sale del marco de la ventana y hay que sujetarlo manualmente
+        - El robot no frena al acercarse al borde del cristal y lo sobrepasa
+        - El robot repite la misma franja sin cubrir toda la superficie de la ventana
+        checks:
+        - Limpia los sensores de borde con un paño seco — los sensores sucios dan
+          lecturas erróneas
+        - Verifica que el cristal no tiene película de suciedad muy gruesa que confunda
+          los sensores
+        - Comprueba que el robot está actualizado con el último firmware disponible
+          en la app Ecovacs
+        - Revisa si el problema ocurre en todos los cristales o solo en uno — un cristal
+          muy limpio puede confundir el sensor
+        causes:
+        - Sensores de detección de borde sucios o con residuos que bloquean la lectura
+        - Cristal con propiedades ópticas inusuales (tintado, espejado) que engañan
+          al sensor óptico
+        - Firmware desactualizado con un bug en la detección de bordes corregido en
+          versiones posteriores
+        cta:
+          catKey: accesorios
+          label: Ver accesorios y sensores compatibles
+      recambios:
+        accesorios:
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para Ecovacs WINBOT W1
+            Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs pad washing Almohadillas
+            de lavado compatibles (pack) para Ecovacs WINBOT W
+          must_include:
+          - ecovacs
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id005
+          - winbot w1 pro
+          - w1 pro
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para Ecovacs WINBOT W1
+            Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs pad cleaning Almohadillas
+            de limpieza compatibles (pack) para Ecovacs WINBO
+          must_include:
+          - ecovacs
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id005
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para Ecovacs WINBOT W1
+            Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs microfiber pad Almohadillas
+            microfibra compatibles (pack) para Ecovacs WINB
+          must_include:
+          - ecovacs
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id005
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para Ecovacs WINBOT
+            W1 Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs suction accessory Ventosa
+            / pieza de succión accesorio compatible para Ecov
+          must_include:
+          - ecovacs
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id005
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para Ecovacs WINBOT W1 Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs cloth microfiber Paño
+            de microfibra accesorio para Ecovacs WINBOT W1 Pro
+          must_include:
+          - ecovacs
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id005
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para Ecovacs WINBOT W1 Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs safety cable Cable de
+            seguridad accesorio para Ecovacs WINBOT W1 Pro
+          must_include:
+          - ecovacs
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id005
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para Ecovacs WINBOT W1 Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs kit accessory Kit accesorios
+            compatible para Ecovacs WINBOT W1 Pro
+          must_include:
+          - ecovacs
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id005
+        deposito:
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-deposito-glass-tank
+          title: Depósito de líquido compatible para Ecovacs WINBOT W1 Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs tank water Depósito
+            de líquido compatible para Ecovacs WINBOT W1 Pro
+          must_include:
+          - ecovacs
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id005
+        bateria:
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-bateria-glass-bat-std
+          title: Batería compatible para Ecovacs WINBOT W1 Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs battery Batería compatible
+            para Ecovacs WINBOT W1 Pro
+          must_include:
+          - ecovacs
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id005
+        cargador:
+        - sku: ecovacs-win-ecovacs-winbot-w1-pro-cargador-glass-charger
+          title: Cargador / adaptador compatible para Ecovacs WINBOT W1 Pro
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs charger adapter Cargador
+            / adaptador compatible para Ecovacs WINBOT W1 Pro
+          must_include:
+          - ecovacs
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id005
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Ecovacs WINBOT 950
+      slug: ecovacs-winbot-950
+      series: WINBOT
+      year_range: 2019-2022
+      sku_pack: glasscleaner10
+      model_tokens:
+      - winbot 950
+      - winbot950
+      - '950'
+      intro: El Ecovacs WINBOT 950 fue el robot limpiacristales de referencia de Ecovacs
+        antes del W1 Pro. Las almohadillas y la batería son los recambios más solicitados
+        en este modelo ya descatalogado.
+      comprar_nuevo:
+        query: ecovacs WINBOT window cleaning robot
+        label: Ver Ecovacs WINBOT nuevo
+        note: El WINBOT 950 tiene varios años. Compara con el W1 Pro si la reparación
+          no compensa.
+      problemas:
+      - key: pierde-succion
+        title: WINBOT 950 pierde succión
+        intent: info
+        symptoms:
+        - El robot resbala por el cristal aunque los motores sigan funcionando
+        - El robot no consigue mantenerse adherido en cristales inclinados o techos
+        - Se oye el motor de succión esforzarse más de lo normal sin conseguir adherencia
+        checks:
+        - 'Examina las almohadillas: si están sucias o desgastadas interrumpen el
+          sello de vacío'
+        - Comprueba el sello perimetral del robot pasando la mano alrededor mientras
+          funciona en el suelo
+        - Verifica que los filtros internos no están obstruidos con pelusa que reduce
+          la succión
+        - Limpia los bordes de goma del robot con un paño húmedo para eliminar residuos
+          que rompan el sello
+        causes:
+        - Almohadillas desgastadas que rompen el sello de vacío entre el robot y el
+          cristal
+        - Sello perimetral de goma deteriorado por el tiempo y los ciclos de uso
+        - Filtro interno obstruido que reduce la capacidad de succión del motor
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas y ventosas compatibles
+      - key: bateria-agotada
+        title: 'WINBOT 950: batería se agota rápido'
+        intent: info
+        symptoms:
+        - El robot no llega a terminar una ventana completa antes de agotar la batería
+        - La autonomía es de menos de 15 minutos cuando antes era de 25-30
+        - El robot se detiene en mitad del cristal y hay que sujetarlo con la ventosa
+          de seguridad
+        checks:
+        - Comprueba cuántos años tiene el robot — tras 3-4 años la batería suele estar
+          al final de su vida
+        - Verifica si la batería está hinchada revisando si hay protuberancias en
+          la carcasa
+        - Realiza una carga completa de 3 horas y mide la autonomía real resultante
+        - Comprueba que el cargador entrega la tensión correcta
+        causes:
+        - Batería de litio al final de su vida útil por ciclos de carga acumulados
+        - Degradación acelerada por almacenamiento con batería descargada en invierno
+        - Cargador deteriorado que realiza cargas incompletas y acelera el envejecimiento
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      recambios:
+        accesorios:
+        - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 pad washing Almohadillas
+            de lavado compatibles (pack) para Ecovacs WINBOT 95
+          must_include:
+          - winbot950
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id006
+          - winbot 950
+          - winbot950
+          - '950'
+        - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 pad cleaning Almohadillas
+            de limpieza compatibles (pack) para Ecovacs WINBOT
+          must_include:
+          - winbot950
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id006
+        - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 microfiber pad Almohadillas
+            microfibra compatibles (pack) para Ecovacs WINBO
+          must_include:
+          - winbot950
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id006
+        - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para Ecovacs WINBOT
+            950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 suction accessory Ventosa
+            / pieza de succión accesorio compatible para Ecova
+          must_include:
+          - winbot950
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id006
+        - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 cloth microfiber Paño
+            de microfibra accesorio para Ecovacs WINBOT 950
+          must_include:
+          - winbot950
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id006
+        - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 safety cable Cable de
+            seguridad accesorio para Ecovacs WINBOT 950
+          must_include:
+          - winbot950
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id006
+        - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 kit accessory Kit accesorios
+            compatible para Ecovacs WINBOT 950
+          must_include:
+          - winbot950
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id006
+        deposito:
+        - sku: ecovacs-win-ecovacs-winbot-950-deposito-glass-tank
+          title: Depósito de líquido compatible para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 tank water Depósito de
+            líquido compatible para Ecovacs WINBOT 950
+          must_include:
+          - winbot950
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id006
+        bateria:
+        - sku: ecovacs-win-ecovacs-winbot-950-bateria-glass-bat-std
+          title: Batería compatible para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 battery Batería compatible
+            para Ecovacs WINBOT 950
+          must_include:
+          - winbot950
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id006
+        cargador:
+        - sku: ecovacs-win-ecovacs-winbot-950-cargador-glass-charger
+          title: Cargador / adaptador compatible para Ecovacs WINBOT 950
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 charger adapter Cargador
+            / adaptador compatible para Ecovacs WINBOT 950
+          must_include:
+          - winbot950
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id006
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Ecovacs WINBOT X
+      slug: ecovacs-winbot-x
+      series: WINBOT X
+      year_range: 2019-2023
+      sku_pack: glasscleaner10
+      model_tokens:
+      - winbot x
+      intro: El Ecovacs WINBOT X fue el primer robot limpiacristales sin cable de
+        seguridad de Ecovacs. Las baterías son el recambio más demandado para este
+        modelo, dado que la autonomía es crítica sin cable.
+      problemas:
+      - key: bateria-agotada
+        title: WINBOT X batería se agota rápido
+        intent: info
+        symptoms:
+        - El robot cae del cristal antes de terminar porque la batería se agota en
+          mitad de la limpieza
+        - La autonomía real es mucho menor que la especificada — dura menos de 20
+          minutos
+        - El indicador de batería baja de lleno a crítico en pocos minutos
+        checks:
+        - Comprueba el número de ciclos de carga acumulados — tras 300 ciclos la capacidad
+          cae notablemente
+        - Verifica que la batería no está hinchada — una batería abultada hay que
+          sustituirla de inmediato por seguridad
+        - Realiza una carga completa con el cargador original y mide la autonomía
+          resultante
+        - Revisa si el robot almacena en temperaturas extremas que degradan la batería
+          más rápido
+        causes:
+        - Batería de litio degradada por el uso acumulado (causa principal en el WINBOT
+          X sin cable)
+        - Almacenamiento con batería descargada completamente que provoca sulfatación
+        - Ciclos de carga frecuentes desde niveles muy bajos que aceleran la degradación
+        cta:
+          catKey: bateria
+          label: Ver baterías compatibles
+      - key: almohadilla-sucia
+        title: 'WINBOT X: almohadilla sucia o desgastada'
+        intent: info
+        symptoms:
+        - El cristal queda con rayas o películas de suciedad extendida tras el paso
+          del robot
+        - Las almohadillas tienen manchas oscuras que no salen con el lavado a mano
+        - El robot resbala más de lo habitual al estar las almohadillas saturadas
+        checks:
+        - Retira las almohadillas y lávalas con agua templada sin suavizante ni lejía
+        - Examina si las fibras están endurecidas o apelmazadas por residuos de cal
+        - Comprueba si hay roturas o zonas peladas visibles a contraluz
+        - Verifica cuántos usos llevan — con ventanas de obra o muy sucias se desgastan
+          antes
+        causes:
+        - Almohadillas saturadas de suciedad y cal que actúan como abrasivo
+        - Fibras de microfibra desgastadas que ya no pueden absorber ni limpiar correctamente
+        - Residuos de productos de cristal externos que impregnan las fibras y las
+          dañan
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      recambios:
+        accesorios:
+        - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs pad washing Almohadillas
+            de lavado compatibles (pack) para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id007
+          - winbot x
+        - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs pad cleaning Almohadillas
+            de limpieza compatibles (pack) para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id007
+        - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs microfiber pad Almohadillas
+            microfibra compatibles (pack) para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id007
+        - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para Ecovacs WINBOT
+            X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs suction accessory Ventosa
+            / pieza de succión accesorio compatible para Ecovacs W
+          must_include:
+          - ecovacs
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id007
+        - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs cloth microfiber Paño de
+            microfibra accesorio para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id007
+        - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs safety cable Cable de seguridad
+            accesorio para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id007
+        - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs kit accessory Kit accesorios
+            compatible para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id007
+        deposito:
+        - sku: ecovacs-win-ecovacs-winbot-x-deposito-glass-tank
+          title: Depósito de líquido compatible para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs tank water Depósito de líquido
+            compatible para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id007
+        bateria:
+        - sku: ecovacs-win-ecovacs-winbot-x-bateria-glass-bat-std
+          title: Batería compatible para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs battery Batería compatible
+            para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id007
+        cargador:
+        - sku: ecovacs-win-ecovacs-winbot-x-cargador-glass-charger
+          title: Cargador / adaptador compatible para Ecovacs WINBOT X
+          intent: compra
+          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs charger adapter Cargador
+            / adaptador compatible para Ecovacs WINBOT X
+          must_include:
+          - ecovacs
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id007
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  alfawise-win:
+    name: Alfawise / Xiaomi
+    notes_brand: Robots limpiacristales gama económica Alfawise/Xiaomi. Alta demanda
+      en almohadillas.
+    models:
+    - model: Alfawise WS-660
+      slug: alfawise-ws-660
+      series: WS
+      year_range: 2019-2022
+      sku_pack: glasscleaner10
+      model_tokens:
+      - ws-660
+      - ws660
+      - alfawise
+      intro: El Alfawise WS-660 es uno de los robots limpiacristales más económicos
+        del mercado. Las almohadillas son el consumible con mayor demanda de recambio
+        para este modelo.
+      problemas:
+      - key: almohadilla-sucia
+        title: 'Alfawise WS-660: almohadilla sucia'
+        intent: info
+        symptoms:
+        - El robot extiende la suciedad en lugar de eliminarla del cristal
+        - Quedan rayas horizontales visibles tras el paso del robot
+        - Las almohadillas tienen manchas oscuras de suciedad incrustada
+        checks:
+        - Retira las almohadillas y lávalas a mano con agua fría para evaluar si quedan
+          limpias
+        - Comprueba si las fibras están endurecidas por cal o suciedad incrustada
+        - Verifica que las almohadillas están bien fijadas al robot sin arrugas
+        - Comprueba cuánto tiempo llevan en uso — con uso semanal hay que lavarlas
+          cada 2 semanas
+        causes:
+        - Almohadillas saturadas de suciedad que actúan como abrasivo sobre el cristal
+        - Fibras de microfibra desgastadas por uso que ya no limpian eficazmente
+        - Cal del agua dura que endurece las fibras y reduce su capacidad de absorción
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: no-carga
+        title: Alfawise WS-660 no carga
+        intent: info
+        symptoms:
+        - El indicador de carga no se enciende al conectar el cargador
+        - El robot se apaga antes de terminar la primera ventana
+        - La batería no sube de nivel aunque lleve horas conectada
+        checks:
+        - Comprueba que el cargador es el correcto para el WS-660 y entrega la tensión
+          especificada
+        - Limpia el conector de carga del robot con un palillo para eliminar suciedad
+        - Verifica que el cable del cargador no tiene daños ni dobleces bruscos
+        - Revisa si la batería está hinchada — una batería abultada hay que sustituirla
+        causes:
+        - Cargador defectuoso o incompatible que no entrega la tensión correcta
+        - Batería de litio al final de su vida útil por ciclos acumulados
+        - Conector de carga con corrosión por humedad que impide el contacto eléctrico
+        cta:
+          catKey: cargador
+          label: Ver cargadores compatibles
+      recambios:
+        accesorios:
+        - sku: alfawise-win-alfawise-ws-660-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 pad washing Almohadillas
+            de lavado compatibles (pack) para Alfawise WS-660
+          must_include:
+          - ws660
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id008
+          - ws-660
+          - ws660
+          - alfawise
+        - sku: alfawise-win-alfawise-ws-660-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 pad cleaning Almohadillas
+            de limpieza compatibles (pack) para Alfawise WS-660
+          must_include:
+          - ws660
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id008
+        - sku: alfawise-win-alfawise-ws-660-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 microfiber pad Almohadillas
+            microfibra compatibles (pack) para Alfawise WS-660
+          must_include:
+          - ws660
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id008
+        - sku: alfawise-win-alfawise-ws-660-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para Alfawise WS-660
+          intent: compra
+          query: 'Alfawise / Xiaomi Alfawise WS-660 ws660 suction accessory Ventosa
+            / pieza de succión accesorio compatible para Alfawise '
+          must_include:
+          - ws660
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id008
+        - sku: alfawise-win-alfawise-ws-660-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 cloth microfiber Paño de
+            microfibra accesorio para Alfawise WS-660
+          must_include:
+          - ws660
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id008
+        - sku: alfawise-win-alfawise-ws-660-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 safety cable Cable de seguridad
+            accesorio para Alfawise WS-660
+          must_include:
+          - ws660
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id008
+        - sku: alfawise-win-alfawise-ws-660-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 kit accessory Kit accesorios
+            compatible para Alfawise WS-660
+          must_include:
+          - ws660
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id008
+        deposito:
+        - sku: alfawise-win-alfawise-ws-660-deposito-glass-tank
+          title: Depósito de líquido compatible para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 tank water Depósito de líquido
+            compatible para Alfawise WS-660
+          must_include:
+          - ws660
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id008
+        bateria:
+        - sku: alfawise-win-alfawise-ws-660-bateria-glass-bat-std
+          title: Batería compatible para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 battery Batería compatible
+            para Alfawise WS-660
+          must_include:
+          - ws660
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id008
+        cargador:
+        - sku: alfawise-win-alfawise-ws-660-cargador-glass-charger
+          title: Cargador / adaptador compatible para Alfawise WS-660
+          intent: compra
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 charger adapter Cargador
+            / adaptador compatible para Alfawise WS-660
+          must_include:
+          - ws660
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id008
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Cop Rose X6Pro
+      slug: cop-rose-x6pro
+      series: X-Series
+      year_range: 2020-actual
+      sku_pack: glasscleaner10
+      model_tokens:
+      - x6pro
+      - cop rose x6
+      - cop rose
+      intro: El Cop Rose X6Pro es un robot limpiacristales de gama media con control
+        remoto incluido. Los cargadores y las almohadillas son los recambios más solicitados.
+      problemas:
+      - key: no-carga
+        title: Cop Rose X6Pro no carga
+        intent: info
+        symptoms:
+        - El robot no enciende o muestra indicador de batería vacía aunque haya cargado
+        - El LED de carga no se enciende al conectar el cargador
+        - La autonomía ha bajado a menos de 10 minutos por ciclo
+        checks:
+        - Verifica que el cargador es el original o uno de sustitución con la misma
+          tensión de salida
+        - Limpia el puerto de carga del robot con un palillo seco para eliminar suciedad
+          o corrosión
+        - Comprueba que el cable del cargador no tiene cortes ni dobleces permanentes
+        - Revisa si la batería está hinchada palpando la carcasa trasera del robot
+        causes:
+        - Cargador original deteriorado que ya no entrega la corriente correcta
+        - Batería de litio agotada por ciclos de carga acumulados
+        - Puerto de carga del robot con oxidación que impide el contacto eléctrico
+        cta:
+          catKey: cargador
+          label: Ver cargadores compatibles
+      - key: almohadilla-sucia
+        title: 'Cop Rose X6Pro: almohadilla sucia o desgastada'
+        intent: info
+        symptoms:
+        - El cristal queda con rayas o manchas de suciedad extendida tras el ciclo
+        - Las almohadillas tienen manchas que no salen aunque las laves
+        - El robot resbala más de lo habitual por el cristal
+        checks:
+        - Retira las almohadillas y lávalas con agua fría a mano para ver si quedan
+          limpias
+        - Examina las fibras de microfibra para detectar zonas desgastadas o endurecidas
+        - Verifica que las almohadillas están bien sujetas al robot sin arrugas ni
+          dobleces
+        - Comprueba si llevan más de 3 meses de uso semanal — es el momento habitual
+          de sustitución
+        causes:
+        - Almohadillas saturadas de suciedad acumulada que empeoran la limpieza
+        - Microfibra desgastada que ya no tiene la textura necesaria para limpiar
+          el cristal
+        - Cal incrustada que endurece las fibras y deja rayas en lugar de limpiar
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      recambios:
+        accesorios:
+        - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-pad-wash
+          title: Almohadillas de lavado compatibles (pack) para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro pad washing Almohadillas de
+            lavado compatibles (pack) para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - pad
+          - washing
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: &id009
+          - x6pro
+          - cop rose x6
+          - cop rose
+        - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-pad-clean
+          title: Almohadillas de limpieza compatibles (pack) para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro pad cleaning Almohadillas
+            de limpieza compatibles (pack) para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - pad
+          - cleaning
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id009
+        - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-pad-micro
+          title: Almohadillas microfibra compatibles (pack) para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro microfiber pad Almohadillas
+            microfibra compatibles (pack) para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - microfiber
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - cable
+          model_tokens: *id009
+        - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-suction-acc
+          title: Ventosa / pieza de succión accesorio compatible para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro suction accessory Ventosa
+            / pieza de succión accesorio compatible para Cop Rose X
+          must_include:
+          - x6pro
+          - suction
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - pad
+          - cable
+          model_tokens: *id009
+        - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-cloth-acc
+          title: Paño de microfibra accesorio para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro cloth microfiber Paño de microfibra
+            accesorio para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - cloth
+          - microfiber
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id009
+        - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-cable-acc
+          title: Cable de seguridad accesorio para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro safety cable Cable de seguridad
+            accesorio para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - safety
+          - cable
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          - pad
+          model_tokens: *id009
+        - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-kit-acc
+          title: Kit accesorios compatible para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro kit accessory Kit accesorios
+            compatible para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - tank
+          - suction
+          model_tokens: *id009
+        deposito:
+        - sku: alfawise-win-cop-rose-x6pro-deposito-glass-tank
+          title: Depósito de líquido compatible para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro tank water Depósito de líquido
+            compatible para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - tank
+          - water
+          must_not_include:
+          - battery
+          - charger
+          - pad
+          - suction
+          - cable
+          model_tokens: *id009
+        bateria:
+        - sku: alfawise-win-cop-rose-x6pro-bateria-glass-bat-std
+          title: Batería compatible para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro battery Batería compatible
+            para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - battery
+          must_not_include:
+          - charger
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id009
+        cargador:
+        - sku: alfawise-win-cop-rose-x6pro-cargador-glass-charger
+          title: Cargador / adaptador compatible para Cop Rose X6Pro
+          intent: compra
+          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro charger adapter Cargador /
+            adaptador compatible para Cop Rose X6Pro
+          must_include:
+          - x6pro
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - pad
+          - tank
+          - suction
+          - cable
+          model_tokens: *id009
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.

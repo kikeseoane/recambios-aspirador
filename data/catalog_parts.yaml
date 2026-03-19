@@ -513,6 +513,272 @@ sku_packs:
       must_include_tpl: ["{model_token}", "rack", "stand", "shelf"]
       must_not_include: ["basket", "filter", "paper", "skewer", "silicone"]
 
+  # Robot piscina: 2 filtro + 2 cepillo + 5 accesorios + 1 soporte = 10
+  poolrobot10:
+    - catKey: filtro
+      sku_suffix: pool-filter-cartridge
+      intent: "compra"
+      title_tpl: "Cartucho de filtro compatible (pack) para {model}"
+      must_include_tpl: ["{model_token}", "filter", "cartridge"]
+      must_not_include: ["brush", "cable", "swivel", "bag", "caddy", "wheel"]
+    - catKey: filtro
+      sku_suffix: pool-filter-bag
+      intent: "compra"
+      title_tpl: "Bolsa de filtrado compatible (pack) para {model}"
+      must_include_tpl: ["{model_token}", "filter", "bag"]
+      must_not_include: ["brush", "cable", "swivel", "cartridge", "caddy", "wheel"]
+
+    - catKey: cepillo
+      sku_suffix: pool-brush-standard
+      intent: "compra"
+      title_tpl: "Cepillo de fondo compatible para {model}"
+      must_include_tpl: ["{model_token}", "brush", "floor"]
+      must_not_include: ["filter", "cable", "swivel", "bag", "caddy"]
+    - catKey: cepillo
+      sku_suffix: pool-brush-wall
+      intent: "compra"
+      title_tpl: "Cepillo de paredes compatible para {model}"
+      must_include_tpl: ["{model_token}", "brush", "wall"]
+      must_not_include: ["filter", "cable", "swivel", "bag", "caddy"]
+
+    - catKey: accesorios
+      sku_suffix: pool-cable-float
+      intent: "compra"
+      title_tpl: "Cable flotante compatible para {model}"
+      must_include_tpl: ["{model_token}", "cable", "floating"]
+      must_not_include: ["filter", "brush", "swivel", "bag", "caddy"]
+    - catKey: accesorios
+      sku_suffix: pool-swivel-acc
+      intent: "compra"
+      title_tpl: "Swivel / giratorio compatible para {model}"
+      must_include_tpl: ["{model_token}", "swivel", "accessory"]
+      must_not_include: ["filter", "brush", "cable", "bag", "caddy"]
+    - catKey: accesorios
+      sku_suffix: pool-debris-bag-acc
+      intent: "compra"
+      title_tpl: "Bolsa recogida residuos compatible para {model}"
+      must_include_tpl: ["{model_token}", "debris", "bag", "accessory"]
+      must_not_include: ["filter", "brush", "cable", "swivel", "caddy"]
+    - catKey: accesorios
+      sku_suffix: pool-impeller-acc
+      intent: "compra"
+      title_tpl: "Impulsor / impeller compatible para {model}"
+      must_include_tpl: ["{model_token}", "impeller", "accessory"]
+      must_not_include: ["filter", "brush", "cable", "bag", "caddy"]
+    - catKey: accesorios
+      sku_suffix: pool-kit-acc
+      intent: "compra"
+      title_tpl: "Kit accesorios mantenimiento compatible para {model}"
+      must_include_tpl: ["{model_token}", "maintenance", "kit", "accessory"]
+      must_not_include: ["filter", "brush", "cable", "swivel", "caddy"]
+
+    - catKey: soporte
+      sku_suffix: pool-caddy-soporte
+      intent: "compra"
+      title_tpl: "Carro de transporte compatible para {model}"
+      must_include_tpl: ["{model_token}", "caddy", "transport"]
+      must_not_include: ["filter", "brush", "cable", "swivel", "bag"]
+
+  # Robot limpiacristales: 6 accesorios (pads) + 1 deposito + 1 bateria + 1 cargador + 1 accesorios = 10
+  glasscleaner10:
+    - catKey: accesorios
+      sku_suffix: glass-pad-wash
+      intent: "compra"
+      title_tpl: "Almohadillas de lavado compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "pad", "washing"]
+      must_not_include: ["battery", "charger", "tank", "suction", "cable"]
+    - catKey: accesorios
+      sku_suffix: glass-pad-clean
+      intent: "compra"
+      title_tpl: "Almohadillas de limpieza compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "pad", "cleaning"]
+      must_not_include: ["battery", "charger", "tank", "suction", "cable"]
+    - catKey: accesorios
+      sku_suffix: glass-pad-micro
+      intent: "compra"
+      title_tpl: "Almohadillas microfibra compatibles (pack) para {model}"
+      must_include_tpl: ["{model_token}", "microfiber", "pad"]
+      must_not_include: ["battery", "charger", "tank", "suction", "cable"]
+    - catKey: accesorios
+      sku_suffix: glass-suction-acc
+      intent: "compra"
+      title_tpl: "Ventosa / pieza de succión accesorio compatible para {model}"
+      must_include_tpl: ["{model_token}", "suction", "accessory"]
+      must_not_include: ["battery", "charger", "tank", "pad", "cable"]
+    - catKey: accesorios
+      sku_suffix: glass-cloth-acc
+      intent: "compra"
+      title_tpl: "Paño de microfibra accesorio para {model}"
+      must_include_tpl: ["{model_token}", "cloth", "microfiber", "accessory"]
+      must_not_include: ["battery", "charger", "tank", "suction"]
+    - catKey: accesorios
+      sku_suffix: glass-cable-acc
+      intent: "compra"
+      title_tpl: "Cable de seguridad accesorio para {model}"
+      must_include_tpl: ["{model_token}", "safety", "cable", "accessory"]
+      must_not_include: ["battery", "charger", "tank", "suction", "pad"]
+
+    - catKey: deposito
+      sku_suffix: glass-tank
+      intent: "compra"
+      title_tpl: "Depósito de líquido compatible para {model}"
+      must_include_tpl: ["{model_token}", "tank", "water"]
+      must_not_include: ["battery", "charger", "pad", "suction", "cable"]
+
+    - catKey: bateria
+      sku_suffix: glass-bat-std
+      intent: "compra"
+      title_tpl: "Batería compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery"]
+      must_not_include: ["charger", "pad", "tank", "suction", "cable"]
+
+    - catKey: cargador
+      sku_suffix: glass-charger
+      intent: "compra"
+      title_tpl: "Cargador / adaptador compatible para {model}"
+      must_include_tpl: ["{model_token}", "charger", "adapter"]
+      must_not_include: ["battery", "pad", "tank", "suction", "cable"]
+
+    - catKey: accesorios
+      sku_suffix: glass-kit-acc
+      intent: "compra"
+      title_tpl: "Kit accesorios compatible para {model}"
+      must_include_tpl: ["{model_token}", "kit", "accessory"]
+      must_not_include: ["battery", "charger", "tank", "suction"]
+
+  # Cortapelos mascotas: 2 laminas + 2 accesorios (peines) + 1 bateria + 1 cargador + 4 accesorios = 10
+  petgroomer10:
+    - catKey: laminas
+      sku_suffix: blade-std
+      intent: "compra"
+      title_tpl: "Cuchilla estándar compatible para {model}"
+      must_include_tpl: ["{model_token}", "blade", "replacement"]
+      must_not_include: ["charger", "comb", "case", "oil", "kit", "bag"]
+    - catKey: laminas
+      sku_suffix: blade-fine
+      intent: "compra"
+      title_tpl: "Cuchilla fina compatible para {model}"
+      must_include_tpl: ["{model_token}", "blade", "fine"]
+      must_not_include: ["charger", "comb", "case", "oil", "kit", "bag"]
+
+    - catKey: accesorios
+      sku_suffix: comb-guide-pack
+      intent: "compra"
+      title_tpl: "Peines guía (pack) compatibles para {model}"
+      must_include_tpl: ["{model_token}", "comb", "guide"]
+      must_not_include: ["blade", "charger", "battery", "oil", "case", "bag"]
+    - catKey: accesorios
+      sku_suffix: comb-fine-acc
+      intent: "compra"
+      title_tpl: "Peine fino accesorio compatible para {model}"
+      must_include_tpl: ["{model_token}", "comb", "fine", "accessory"]
+      must_not_include: ["blade", "charger", "battery", "oil", "case", "bag"]
+
+    - catKey: bateria
+      sku_suffix: bat-groomer
+      intent: "compra"
+      title_tpl: "Batería compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery"]
+      must_not_include: ["charger", "blade", "comb", "oil", "case", "bag"]
+
+    - catKey: cargador
+      sku_suffix: charger-groomer
+      intent: "compra"
+      title_tpl: "Cargador / cable compatible para {model}"
+      must_include_tpl: ["{model_token}", "charger", "cable"]
+      must_not_include: ["battery", "blade", "comb", "oil", "case"]
+
+    - catKey: accesorios
+      sku_suffix: oil-groomer-acc
+      intent: "compra"
+      title_tpl: "Aceite lubricante para cuchillas compatible con {model}"
+      must_include_tpl: ["{model_token}", "oil", "lubricant", "blade"]
+      must_not_include: ["charger", "battery", "comb", "case", "bag"]
+    - catKey: accesorios
+      sku_suffix: bag-groomer-acc
+      intent: "compra"
+      title_tpl: "Bolsa / maletín de transporte compatible para {model}"
+      must_include_tpl: ["{model_token}", "bag", "case", "grooming"]
+      must_not_include: ["charger", "battery", "blade", "comb", "oil"]
+    - catKey: accesorios
+      sku_suffix: kit-groomer-acc
+      intent: "compra"
+      title_tpl: "Kit accesorios peluquería mascota compatible para {model}"
+      must_include_tpl: ["{model_token}", "kit", "grooming", "accessory"]
+      must_not_include: ["charger", "battery", "blade", "oil", "bag"]
+    - catKey: filtro
+      sku_suffix: filtro-groomer
+      intent: "compra"
+      title_tpl: "Filtro / pantalla de protección compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "screen"]
+      must_not_include: ["charger", "battery", "blade", "comb", "oil", "bag"]
+
+  # Auriculares TWS / cascos: 6 accesorios (almohadillas/estuche) + 1 cargador + 2 bateria + 1 accesorios = 10
+  earphone10:
+    - catKey: accesorios
+      sku_suffix: eartip-silicone-sml
+      intent: "compra"
+      title_tpl: "Almohadillas silicona S/M/L (pack) compatibles para {model}"
+      must_include_tpl: ["{model_token}", "eartip", "silicone"]
+      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband"]
+    - catKey: accesorios
+      sku_suffix: eartip-foam-pack
+      intent: "compra"
+      title_tpl: "Almohadillas espuma memory foam (pack) compatibles para {model}"
+      must_include_tpl: ["{model_token}", "eartip", "foam", "memory"]
+      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband"]
+    - catKey: accesorios
+      sku_suffix: eartip-wings-pack
+      intent: "compra"
+      title_tpl: "Aletas estabilizadoras (pack) compatibles para {model}"
+      must_include_tpl: ["{model_token}", "wing", "tip", "stabilizer"]
+      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband"]
+    - catKey: accesorios
+      sku_suffix: case-replacement-acc
+      intent: "compra"
+      title_tpl: "Estuche de carga de repuesto accesorio para {model}"
+      must_include_tpl: ["{model_token}", "case", "charging", "replacement"]
+      must_not_include: ["battery", "charger", "cable", "eartip", "cushion", "headband"]
+    - catKey: accesorios
+      sku_suffix: cushion-pad-acc
+      intent: "compra"
+      title_tpl: "Almohadillas de auricular (par) accesorios para {model}"
+      must_include_tpl: ["{model_token}", "ear", "cushion", "pad"]
+      must_not_include: ["battery", "charger", "cable", "eartip", "case", "headband"]
+    - catKey: accesorios
+      sku_suffix: headband-acc
+      intent: "compra"
+      title_tpl: "Diadema de repuesto accesorio para {model}"
+      must_include_tpl: ["{model_token}", "headband", "replacement"]
+      must_not_include: ["battery", "charger", "cable", "eartip", "case", "cushion"]
+
+    - catKey: cargador
+      sku_suffix: cable-usbc-earphone
+      intent: "compra"
+      title_tpl: "Cable USB-C de carga compatible para {model}"
+      must_include_tpl: ["{model_token}", "usb-c", "cable", "charging"]
+      must_not_include: ["battery", "eartip", "case", "cushion", "headband"]
+
+    - catKey: bateria
+      sku_suffix: bat-bud-left
+      intent: "compra"
+      title_tpl: "Batería auricular izquierdo compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery", "left", "earbud"]
+      must_not_include: ["charger", "cable", "eartip", "case", "cushion"]
+    - catKey: bateria
+      sku_suffix: bat-bud-right
+      intent: "compra"
+      title_tpl: "Batería auricular derecho compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery", "right", "earbud"]
+      must_not_include: ["charger", "cable", "eartip", "case", "cushion"]
+
+    - catKey: accesorios
+      sku_suffix: kit-clean-earphone
+      intent: "compra"
+      title_tpl: "Kit de limpieza accesorio para {model}"
+      must_include_tpl: ["{model_token}", "cleaning", "kit", "accessory"]
+      must_not_include: ["battery", "charger", "eartip", "case", "cushion"]
+
 # =========================================================
 # PROBLEM PACKS
 # REGLA: {model} y {model_token} se sustituyen en compilación

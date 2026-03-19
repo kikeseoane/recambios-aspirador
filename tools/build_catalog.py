@@ -54,6 +54,26 @@ SKU_PACK_DEFAULTS: Dict[str, Dict[str, str]] = {
         "problem_pack": "airfryer_base",
         "faq_pack": "airfryer_base",
     },
+    "poolrobot10": {
+        "compatibility_pack": "robot_base",
+        "problem_pack": "robot_base",
+        "faq_pack": "robot_base",
+    },
+    "glasscleaner10": {
+        "compatibility_pack": "cordless_base",
+        "problem_pack": "cordless_base",
+        "faq_pack": "recambio_base",
+    },
+    "petgroomer10": {
+        "compatibility_pack": "shaver_base",
+        "problem_pack": "shaver_base",
+        "faq_pack": "shaver_base",
+    },
+    "earphone10": {
+        "compatibility_pack": "cordless_base",
+        "problem_pack": "cordless_base",
+        "faq_pack": "recambio_base",
+    },
 }
 
 CATEGORY_QUERY_TERMS: Dict[str, List[str]] = {

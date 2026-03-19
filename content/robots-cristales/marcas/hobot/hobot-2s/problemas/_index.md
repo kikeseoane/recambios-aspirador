@@ -1,0 +1,10 @@
+---
+title: Problemas frecuentes de HOBOT 2S
+draft: false
+generated: true
+type: modelos
+brandKey: hobot
+modelSlug: hobot-2s
+layout: problemas
+vertical: robots-cristales
+---

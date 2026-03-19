@@ -1,0 +1,630 @@
+brands:
+  roborock-fre:
+    name: "Roborock"
+    vertical: "robots-fregar"
+    notes_brand: "Top gama alta. S-series combina aspirado + fregado. Alta demanda en almohadillas, filtros y cepillos."
+    models:
+      - model: "Roborock S5 Max"
+        slug: "roborock-s5-max"
+        series: "S-Series"
+        year_range: "2019-2022"
+        sku_pack: "robot10"
+        model_tokens: ["s5 max", "s5max"]
+        intro: "El Roborock S5 Max combina aspirado y fregado con un depósito de 290ml. Es uno de los robots más reparados de la gama media: filtros y almohadillas son los consumibles más demandados."
+        comprar_nuevo:
+          query: "roborock s5 max robot mop vacuum"
+          label: "Ver Roborock S5 Max nuevo"
+          note: "El S5 Max tiene varios años. Compara si la reparación compensa o es mejor el S8 actual."
+        problemas:
+          - key: "no-friega"
+            title: "Roborock S5 Max no friega"
+            intent: "info"
+            symptoms:
+              - "El robot pasa por el suelo pero este queda sucio y sin rastro de humedad"
+              - "La almohadilla de fregado no está húmeda al terminar el ciclo"
+              - "El depósito de agua baja muy poco aunque el robot haya limpiado toda la casa"
+            checks:
+              - "Verifica que el depósito de agua tiene agua y está bien encajado en su slot"
+              - "Comprueba que la válvula de la almohadilla no está obstruida por cal o suciedad"
+              - "Revisa si la almohadilla está desgastada o sucia — una almohadilla saturada no absorbe agua"
+              - "Asegúrate de que la función de fregado está activada en la app y no solo aspirado"
+            causes:
+              - "Almohadilla desgastada o saturada de suciedad (causa más frecuente)"
+              - "Válvula de agua obstruida por cal o residuos"
+              - "Depósito mal encajado o con grieta que impide el flujo de agua"
+            cta: { catKey: "accesorios", label: "Ver almohadillas y mopas compatibles" }
+          - key: "poca-succion"
+            title: "Roborock S5 Max tiene poca succión"
+            intent: "info"
+            symptoms:
+              - "El robot no recoge pelo ni suciedad fina del suelo"
+              - "Queda pelusa visible tras el paso del robot"
+              - "El robot hace más ruido de lo normal pero aspira menos"
+            checks:
+              - "Retira y sacude el filtro HEPA — si está gris o aplastado hay que reemplazarlo"
+              - "Comprueba el cepillo principal: elimina pelos o hilos enredados alrededor del eje"
+              - "Revisa que el compartimento del polvo esté limpio y bien cerrado"
+              - "Verifica que la tapa del depósito de polvo cierra correctamente sin fugas de aire"
+            causes:
+              - "Filtro HEPA saturado que impide el paso de aire (causa más habitual)"
+              - "Cepillo principal enredado con pelo que reduce la recogida"
+              - "Sello del compartimento de polvo deteriorado que provoca pérdida de succión"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Roborock S7"
+        slug: "roborock-s7"
+        series: "S-Series"
+        year_range: "2021-2023"
+        sku_pack: "robot10"
+        model_tokens: ["s7"]
+        intro: "El Roborock S7 introdujo la tecnología de fregado sónico por vibración. Las almohadillas de microfibra y los filtros son las piezas que se sustituyen con más frecuencia."
+        problemas:
+          - key: "almohadilla-no-vibra"
+            title: "Roborock S7: la almohadilla no vibra"
+            intent: "info"
+            symptoms:
+              - "El robot friega pero el suelo queda igual de sucio que antes"
+              - "No se escucha el zumbido característico del sistema sónico durante el fregado"
+              - "La almohadilla sale seca al terminar el ciclo aunque el depósito tenía agua"
+            checks:
+              - "Comprueba que la almohadilla está correctamente enganchada al módulo de fregado"
+              - "Verifica que el módulo de fregado encaja bien en la base del robot sin juego"
+              - "Revisa el depósito de agua: asegúrate de que tiene agua y la válvula no está calcificada"
+              - "Limpia los contactos eléctricos del módulo de fregado con un paño seco"
+            causes:
+              - "Almohadilla desgastada o despegada del soporte que impide la vibración correcta"
+              - "Módulo de fregado con contactos sucios que interrumpen la señal eléctrica"
+              - "Válvula de agua obstruida por cal que bloquea el flujo hacia la almohadilla"
+            cta: { catKey: "accesorios", label: "Ver almohadillas y mopas compatibles" }
+          - key: "filtro-obstruido"
+            title: "Roborock S7: pérdida de succión por filtro"
+            intent: "info"
+            symptoms:
+              - "El S7 aspira peor de lo habitual y deja suciedad visible en el suelo"
+              - "El robot tarda más en completar la limpieza de la misma área"
+              - "El ventilador suena más fuerte pero la potencia de aspiración ha bajado"
+            checks:
+              - "Saca el filtro HEPA y golpéalo suavemente sobre un cubo para eliminar el polvo acumulado"
+              - "Mira a contraluz si el filtro tiene agujeros o pliegues dañados que necesiten sustitución"
+              - "Limpia el compartimento del filtro con un paño seco antes de reinstalar"
+              - "Revisa también el pre-filtro de espuma si el modelo lo incluye"
+            causes:
+              - "Filtro HEPA colmatado por uso prolongado sin limpieza ni sustitución"
+              - "Pre-filtro de espuma saturado que reduce el caudal de aire"
+              - "Acumulación de pelo fino en la entrada del filtro que actúa como barrera"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Roborock S7 MaxV Ultra"
+        slug: "roborock-s7-maxv-ultra"
+        series: "S-Series"
+        year_range: "2022-2024"
+        sku_pack: "robot10"
+        model_tokens: ["s7 maxv", "s7maxv"]
+        intro: "El Roborock S7 MaxV Ultra incluye estación de vaciado y rellenado automático. La base de carga y las almohadillas son las piezas más solicitadas en este modelo."
+        problemas:
+          - key: "base-no-carga"
+            title: "Roborock S7 MaxV Ultra: la base no carga"
+            intent: "info"
+            symptoms:
+              - "El robot llega a la base pero el indicador de carga no se enciende"
+              - "La batería del robot baja aunque haya pasado la noche en la base"
+              - "La app muestra el robot como no cargando cuando está sobre la estación"
+            checks:
+              - "Limpia los contactos metálicos de carga del robot y de la base con un paño seco"
+              - "Verifica que la base está enchufada y el LED de alimentación está encendido"
+              - "Comprueba que el robot está bien alineado sobre la base — un milímetro de desalineación puede impedir la carga"
+              - "Prueba a reiniciar el robot y volver a colocarlo manualmente sobre la base"
+            causes:
+              - "Contactos de carga oxidados o sucios que impiden la transferencia de corriente"
+              - "Base mal posicionada o con obstrucción que impide el asentamiento correcto del robot"
+              - "Fallo en el adaptador de corriente de la base — comprueba si hay calor excesivo"
+            cta: { catKey: "soporte", label: "Ver dock/base compatibles" }
+          - key: "no-regresa-base"
+            title: "Roborock S7 MaxV Ultra no regresa a la base"
+            intent: "info"
+            symptoms:
+              - "El robot termina la limpieza pero se queda parado en medio de la habitación"
+              - "La app muestra error de navegación al intentar regresar a la base"
+              - "El robot da vueltas en círculo sin encontrar la estación de carga"
+            checks:
+              - "Asegúrate de que la base está en un lugar despejado con al menos 50cm libres a cada lado"
+              - "Revisa que los sensores frontales y de cliff no están sucios o tapados"
+              - "Comprueba que el mapa en la app tiene la base correctamente ubicada"
+              - "Verifica que no hay objetos nuevos bloqueando el camino habitual hacia la base"
+            causes:
+              - "Sensores de navegación sucios que distorsionan la localización de la base"
+              - "Mapa corrupto o desactualizado que lleva al robot a una posición incorrecta"
+              - "Obstrucción física en la ruta habitual que el robot no puede gestionar"
+            cta: { catKey: "soporte", label: "Ver dock/base compatibles" }
+
+      - model: "Roborock S8"
+        slug: "roborock-s8"
+        series: "S-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["s8"]
+        intro: "El Roborock S8 es el flagship actual de la gama S con doble cepillo en forma de V. Los cepillos y las almohadillas son las piezas de recambio más solicitadas."
+        problemas:
+          - key: "cepillo-ruidoso"
+            title: "Roborock S8: cepillo hace ruido"
+            intent: "info"
+            symptoms:
+              - "El robot emite un ruido rítmico o golpeteo durante la limpieza"
+              - "Se escucha un chirrido continuo que no estaba antes"
+              - "El ruido aumenta cuando el robot pasa sobre alfombras o bordes"
+            checks:
+              - "Retira el cepillo principal y elimina todos los pelos y fibras enredados en el eje"
+              - "Inspecciona las cerdas del cepillo — si están aplastadas o deformadas en un lado hay que sustituirlo"
+              - "Verifica que el rodamiento del cepillo no está suelto ni roto"
+              - "Comprueba que la cubierta del cepillo cierra correctamente y no vibra"
+            causes:
+              - "Pelo y fibras enredados en el eje del cepillo que crean fricción (causa más habitual)"
+              - "Cerdas del cepillo desgastadas asimétricamente que generan vibración al girar"
+              - "Rodamiento del módulo del cepillo deteriorado por uso intensivo"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "filtro-obstruido"
+            title: "Roborock S8: filtro obstruido, menos succión"
+            intent: "info"
+            symptoms:
+              - "El robot pasa por zonas con pelusa y no la recoge"
+              - "El compartimento de polvo se llena más rápido de lo normal"
+              - "La app avisa de bajo rendimiento de limpieza aunque la casa no esté muy sucia"
+            checks:
+              - "Extrae el filtro HEPA y límpialo golpeándolo suavemente — un filtro negro necesita sustitución inmediata"
+              - "Revisa el filtro de esponja: si está apelmazado no es suficiente con lavarlo"
+              - "Comprueba que el compartimento del filtro no tiene restos de polvo acumulado"
+              - "Verifica el intervalo de sustitución recomendado en la app"
+            causes:
+              - "Filtro HEPA saturado que bloquea el flujo de aire y reduce la aspiración"
+              - "Filtro de esponja comprimido que ya no puede filtrarse con agua"
+              - "Polvo fino de construcción o arena que colmata el filtro más rápido de lo esperado"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Roborock S8 Pro Ultra"
+        slug: "roborock-s8-pro-ultra"
+        series: "S-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["s8 pro ultra", "s8pro"]
+        intro: "El Roborock S8 Pro Ultra es el modelo tope de gama con estación All-in-One. Las almohadillas de fregado son el consumible que se sustituye con más frecuencia en este modelo."
+        problemas:
+          - key: "almohadilla-desgastada"
+            title: "Roborock S8 Pro Ultra: almohadilla desgastada"
+            intent: "info"
+            symptoms:
+              - "El suelo queda con manchas o rayas después del fregado"
+              - "La almohadilla tiene zonas peladas o deformes visibles a simple vista"
+              - "El fregado deja más residuos que antes aunque el depósito tenga agua"
+            checks:
+              - "Examina la almohadilla a contraluz para ver si tiene zonas desgastadas o agujeros"
+              - "Comprueba si la almohadilla mantiene la forma plana o está deformada"
+              - "Revisa cuántas horas de uso lleva — el fabricante recomienda sustituirla cada 3 meses con uso regular"
+              - "Verifica que la estación de lavado limpia correctamente la almohadilla tras cada ciclo"
+            causes:
+              - "Desgaste natural de las fibras de microfibra por fricción con el suelo"
+              - "Residuos de cal del agua dura que degradan las fibras de la almohadilla"
+              - "Limpieza insuficiente en la estación que deja suciedad incrustada que acelera el desgaste"
+            cta: { catKey: "accesorios", label: "Ver almohadillas y mopas compatibles" }
+          - key: "cepillo-desgastado"
+            title: "Roborock S8 Pro Ultra: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no recoge bien el polvo ni los pelos del suelo"
+              - "Las cerdas del cepillo están visiblemente dobladas hacia un lado"
+              - "El robot deja franjas sin limpiar que no estaban antes"
+            checks:
+              - "Saca el cepillo y comprueba si las cerdas están aplastadas o enredadas con pelo"
+              - "Mide visualmente si las cerdas tienen menos de la mitad de su longitud original"
+              - "Revisa el eje del cepillo para confirmar que gira libremente sin resistencia"
+              - "Comprueba el número de horas de uso en la app — más de 300h suele indicar sustitución necesaria"
+            causes:
+              - "Cerdas aplastadas por uso continuo que ya no barren correctamente"
+              - "Pelo y fibra incrustados en la base del cepillo que deforman las cerdas"
+              - "Desgaste asimétrico por superficies abrasivas como gres rugoso"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Roborock Q7 Max+"
+        slug: "roborock-q7-max"
+        series: "Q-Series"
+        year_range: "2022-2024"
+        sku_pack: "robot10"
+        model_tokens: ["q7 max", "q7max"]
+        intro: "El Roborock Q7 Max+ es el modelo más popular de la gama Q con estación de vaciado automático. Los filtros HEPA son la pieza de recambio más solicitada."
+        problemas:
+          - key: "filtro-sucio"
+            title: "Roborock Q7 Max+: filtro sucio"
+            intent: "info"
+            symptoms:
+              - "El robot aspira peor que al principio y deja polvo visible"
+              - "Sale un ligero olor a polvo cuando el robot está funcionando"
+              - "La app muestra alerta de mantenimiento del filtro"
+            checks:
+              - "Retira el filtro HEPA y sacúdelo sobre un cubo — si sale mucho polvo necesita limpieza o sustitución"
+              - "Observa el color del filtro: amarillento o gris oscuro indica que está agotado"
+              - "Comprueba que el filtro no tiene roturas ni pliegues dañados"
+              - "Revisa también el pre-filtro de espuma que va delante del HEPA"
+            causes:
+              - "Filtro HEPA colmatado por acumulación de polvo fino sin limpieza periódica"
+              - "Pre-filtro de espuma saturado que reduce el flujo de aire antes del HEPA"
+              - "Uso en entornos con mucho polvo fino o arena que agota el filtro más rápido"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-enredado"
+            title: "Roborock Q7 Max+: cepillo enredado con pelo"
+            intent: "info"
+            symptoms:
+              - "El robot hace ruido al pasar por zonas con pelo o fibra larga"
+              - "El cepillo se detiene intermitentemente durante la limpieza"
+              - "La app lanza un aviso de obstrucción en el cepillo principal"
+            checks:
+              - "Extrae el cepillo principal y elimina todo el pelo enroscado en el eje central"
+              - "Comprueba que el eje gira libremente con el dedo una vez limpio"
+              - "Revisa los extremos del cepillo: el pelo tiende a acumularse en los tapones laterales"
+              - "Limpia la cámara del cepillo de cualquier resto de fibra o suciedad"
+            causes:
+              - "Pelo largo humano o animal enredado en el eje que bloquea la rotación"
+              - "Fibras de alfombra o hilos enroscados en los extremos del cepillo"
+              - "Cepillo desgastado cuyas cerdas doblan y atrapan más pelo que un cepillo nuevo"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+  irobot-fre:
+    name: "iRobot"
+    vertical: "robots-fregar"
+    notes_brand: "iRobot Braava líder en robots fregasuelos puros. Alta demanda en almohadillas y depósitos."
+    models:
+      - model: "iRobot Braava Jet m6"
+        slug: "irobot-braava-jet-m6"
+        series: "Braava Jet"
+        year_range: "2019-actual"
+        sku_pack: "robot10"
+        model_tokens: ["braava m6", "braava jet m6", "m6"]
+        intro: "El iRobot Braava Jet m6 es el robot fregasuelos más avanzado de iRobot con navegación vSLAM. Las almohadillas desechables y reutilizables son los consumibles más demandados."
+        problemas:
+          - key: "no-friega"
+            title: "Braava Jet m6 no friega"
+            intent: "info"
+            symptoms:
+              - "El robot se mueve por el suelo pero no deja ningún rastro de humedad"
+              - "La almohadilla termina el ciclo completamente seca"
+              - "El depósito de agua apenas baja de nivel aunque el robot haya limpiado toda la planta"
+            checks:
+              - "Verifica que el depósito de agua tiene agua y está correctamente insertado hasta el tope"
+              - "Comprueba que la almohadilla está bien fijada al robot — tiene que hacer clic"
+              - "Limpia el dispensador de agua con agua caliente para eliminar cal u obstrucciones"
+              - "Asegúrate de haber seleccionado el modo de fregado y no solo el modo de barrido en la app"
+            causes:
+              - "Dispensador de agua obstruido por cal o residuos (causa más frecuente)"
+              - "Almohadilla mal instalada que no activa el dispensador"
+              - "Depósito con grieta o junta deteriorada que impide presurizar correctamente"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "fuga-deposito"
+            title: "Braava Jet m6: fuga en el depósito"
+            intent: "info"
+            symptoms:
+              - "Queda agua en el suelo donde el robot ha aparcado o está cargando"
+              - "El depósito se vacía mucho más rápido de lo normal"
+              - "Se ven gotas o regueros de agua en el recorrido del robot"
+            checks:
+              - "Retira el depósito y examina las juntas de goma — busca grietas o deformaciones"
+              - "Llena el depósito fuera del robot y comprueba si gotea antes de instalarlo"
+              - "Revisa que el depósito está bien asentado sin forzarlo ni estar torcido"
+              - "Comprueba que la tapa del depósito cierra herméticamente y el cierre no está dañado"
+            causes:
+              - "Junta de goma del depósito deteriorada por el uso continuado con agua"
+              - "Grieta en el cuerpo del depósito por caída o impacto"
+              - "Válvula de salida defectuosa que no cierra correctamente cuando el depósito está en reposo"
+            cta: { catKey: "accesorios", label: "Ver accesorios compatibles" }
+
+      - model: "iRobot Braava Jet 240"
+        slug: "irobot-braava-jet-240"
+        series: "Braava Jet"
+        year_range: "2016-2021"
+        sku_pack: "robot10"
+        model_tokens: ["braava 240", "braava jet 240", "240"]
+        intro: "El iRobot Braava Jet 240 es un robot fregasuelos compacto de gama media. La batería y las almohadillas son las piezas de recambio más solicitadas en este modelo ya descatalogado."
+        comprar_nuevo:
+          query: "irobot braava jet robot mop"
+          label: "Ver iRobot Braava nuevo"
+          note: "El Braava Jet 240 es un modelo antiguo. Compara con el m6 si la reparación no merece la pena."
+        problemas:
+          - key: "no-carga"
+            title: "Braava Jet 240 no carga"
+            intent: "info"
+            symptoms:
+              - "El indicador de carga no se enciende al conectar el cargador"
+              - "El robot se apaga al poco tiempo de empezar a limpiar"
+              - "La batería no sube de nivel aunque lleve horas conectada al cargador"
+            checks:
+              - "Prueba el cargador en otro enchufe para descartar problemas de corriente"
+              - "Limpia los contactos metálicos del robot y del cargador con un paño seco"
+              - "Verifica que el cable del cargador no tiene dobladuras ni daños visibles"
+              - "Comprueba si la batería está hinchada — una batería abultada hay que sustituirla de inmediato"
+            causes:
+              - "Batería agotada por ciclos de carga — las baterías NiMH del 240 duran unos 3-4 años"
+              - "Contactos del cargador oxidados que impiden la transferencia de corriente"
+              - "Cargador defectuoso que no suministra la tensión correcta"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "almohadilla-no-humedece"
+            title: "Braava Jet 240: la almohadilla no humedece el suelo"
+            intent: "info"
+            symptoms:
+              - "El robot friega pero el suelo queda seco tras su paso"
+              - "La almohadilla termina el ciclo sin apenas humedad"
+              - "Se escucha el dispensador pero no sale agua sobre la almohadilla"
+            checks:
+              - "Comprueba que el depósito de agua está lleno y correctamente encajado"
+              - "Limpia el cabezal dispensador con agua caliente para disolver la cal"
+              - "Verifica que la almohadilla es del tipo húmedo y no del tipo seco"
+              - "Revisa si el dispensador está activo según el tipo de almohadilla instalada"
+            causes:
+              - "Dispensador obstruido por cal en zonas de agua dura"
+              - "Almohadilla de barrido en seco instalada en modo fregado"
+              - "Depósito con junta deteriorada que no permite la presión necesaria para dispensar"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+
+  ecovacs-fre:
+    name: "Ecovacs"
+    vertical: "robots-fregar"
+    notes_brand: "Ecovacs Deebot gama alta con fregado. Alta demanda en almohadillas y filtros HEPA."
+    models:
+      - model: "Ecovacs Deebot T20e Omni"
+        slug: "ecovacs-deebot-t20e-omni"
+        series: "Deebot T-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["t20e", "deebot t20", "t20 omni"]
+        intro: "El Ecovacs Deebot T20e Omni incluye estación de vaciado, lavado y secado de almohadillas. Los filtros HEPA y las almohadillas son los consumibles que se sustituyen con más frecuencia."
+        problemas:
+          - key: "almohadilla-no-gira"
+            title: "Deebot T20e Omni: almohadilla no gira"
+            intent: "info"
+            symptoms:
+              - "El robot friega pero las almohadillas giratorias se ven quietas durante el ciclo"
+              - "El suelo queda con suciedad en zonas donde las almohadillas deberían haber frotado"
+              - "La app reporta un error en el módulo de fregado"
+            checks:
+              - "Retira las almohadillas giratorias y comprueba que los ejes no tienen pelo ni fibra enredada"
+              - "Verifica que las almohadillas están correctamente encajadas en su soporte giratorio"
+              - "Limpia los contactos del módulo de fregado con un paño seco"
+              - "Reinicia el robot y comprueba si las almohadillas giran en el primer ciclo"
+            causes:
+              - "Pelo o fibra enredada en el eje giratorio que bloquea la rotación"
+              - "Almohadillas mal fijadas al soporte que se sueltan durante el movimiento"
+              - "Fallo en el motor del módulo de fregado por sobrecalentamiento o desgaste"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "filtro-obstruido"
+            title: "Deebot T20e Omni: pérdida de succión por filtro"
+            intent: "info"
+            symptoms:
+              - "El robot aspira peor y deja pelusa en el suelo tras el paso"
+              - "El vaciado automático de la estación tarda más de lo normal"
+              - "Sale un olor a polvo cuando el robot está en marcha"
+            checks:
+              - "Saca el filtro HEPA y sacúdelo suavemente — si está muy negro necesita sustitución"
+              - "Comprueba el filtro de esponja: si está apelmazado y oscuro hay que cambiarlo"
+              - "Revisa la rejilla de entrada del filtro para eliminar restos de pelo o fibra"
+              - "Verifica el historial de mantenimiento en la app Ecovacs"
+            causes:
+              - "Filtro HEPA saturado sin reemplazar en el período recomendado"
+              - "Filtro de esponja comprimido que limita el caudal de aire"
+              - "Acumulación de pelo fino en la cámara del filtro que actúa como obstrucción"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Ecovacs Deebot X2 Omni"
+        slug: "ecovacs-deebot-x2-omni"
+        series: "Deebot X-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["x2 omni", "deebot x2"]
+        intro: "El Ecovacs Deebot X2 Omni destaca por su diseño cuadrado y alta succión de 8000Pa. Los filtros y las almohadillas de fregado son las piezas de recambio más demandadas."
+        problemas:
+          - key: "filtro-sucio"
+            title: "Deebot X2 Omni: pérdida de succión"
+            intent: "info"
+            symptoms:
+              - "El robot no recoge bien la suciedad fina ni el polvo en esquinas"
+              - "La aspiración suena diferente, más ahogada que de costumbre"
+              - "La app envía aviso de revisar el filtro antes del período habitual"
+            checks:
+              - "Retira y sacude el filtro HEPA — reemplázalo si tiene más de 6 meses de uso intensivo"
+              - "Comprueba el filtro de esponja y cámbialo si está aplastado y oscuro"
+              - "Limpia la cámara del polvo eliminando cualquier resto adherido a las paredes"
+              - "Verifica que la tapa del compartimento de polvo cierra sin fugas de aire"
+            causes:
+              - "Filtro HEPA colmatado que impide el flujo de aire necesario para la succión"
+              - "Cámara del polvo sucia con residuos adheridos que reducen la capacidad"
+              - "Pre-filtro de esponja saturado que actúa como barrera antes del HEPA"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "almohadilla-desgastada"
+            title: "Deebot X2 Omni: almohadillas de fregado desgastadas"
+            intent: "info"
+            symptoms:
+              - "El fregado deja el suelo con rayas o manchas en lugar de limpio"
+              - "Las almohadillas tienen zonas peladas o más finas que el resto"
+              - "El robot necesita más pasadas para limpiar la misma zona que antes"
+            checks:
+              - "Examina las almohadillas a contraluz para detectar zonas desgastadas o agujeros"
+              - "Comprueba si las almohadillas conservan el grosor uniforme original"
+              - "Verifica cuántas horas de uso llevan — tras 100h de fregado intensivo suelen necesitar sustitución"
+              - "Revisa si la estación de lavado está limpiando correctamente o está obstruida"
+            causes:
+              - "Desgaste natural de las fibras por fricción con el suelo duro"
+              - "Agua dura con cal que deteriora las fibras de microfibra más rápido"
+              - "Limpieza insuficiente en la estación que deja suciedad incrustada"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+
+      - model: "Ecovacs Deebot N8 Pro+"
+        slug: "ecovacs-deebot-n8-pro"
+        series: "Deebot N-Series"
+        year_range: "2021-2023"
+        sku_pack: "robot10"
+        model_tokens: ["n8 pro", "deebot n8"]
+        intro: "El Ecovacs Deebot N8 Pro+ fue el primer modelo de la gama N con vaciado automático. Los cepillos y filtros son las piezas que se sustituyen con más frecuencia."
+        problemas:
+          - key: "cepillo-enredado"
+            title: "Deebot N8 Pro+: cepillo enredado"
+            intent: "info"
+            symptoms:
+              - "El robot emite un sonido de fricción o chirrido continuo durante la limpieza"
+              - "El cepillo se para y la app lanza un aviso de obstrucción"
+              - "El robot cubre menos área de lo normal y hace pausas frecuentes"
+            checks:
+              - "Retira el cepillo principal y elimina todo el pelo enroscado en el eje"
+              - "Comprueba que el eje del cepillo gira libremente con la mano una vez limpio"
+              - "Revisa los extremos del cepillo donde el pelo suele acumularse en los tapones"
+              - "Inspecciona las cerdas para ver si están deformadas o rotas por el enredo"
+            causes:
+              - "Pelo largo humano o animal enredado en el eje que frena la rotación"
+              - "Fibras de alfombra o hilo enroscados en los extremos del cepillo"
+              - "Cepillo desgastado cuyas cerdas dobladas atrapan más pelo que uno nuevo"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "filtro-obstruido"
+            title: "Deebot N8 Pro+: filtro obstruido"
+            intent: "info"
+            symptoms:
+              - "La aspiración ha bajado notablemente y deja suciedad visible"
+              - "El robot huele a polvo cuando está funcionando"
+              - "La app de Ecovacs envía alertas de mantenimiento del filtro repetidamente"
+            checks:
+              - "Retira el filtro HEPA y límpialo sacudiéndolo sobre un cubo"
+              - "Comprueba si el filtro tiene pliegues dañados — si es así hay que sustituirlo"
+              - "Limpia el pre-filtro de esponja con agua fría y deja secar completamente antes de reinstalar"
+              - "Revisa que no hay obstrucciones en la entrada de aire del compartimento del filtro"
+            causes:
+              - "Filtro HEPA saturado por uso prolongado sin sustitución"
+              - "Pre-filtro de espuma colmatado con polvo fino que impide el paso de aire"
+              - "Pelusa de alfombra acumulada en la rejilla de entrada del filtro"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  dreame-fre:
+    name: "Dreame"
+    vertical: "robots-fregar"
+    notes_brand: "Dreame robot aspirador+fregasuelos. Gama en ascenso. Alta demanda en almohadillas y filtros."
+    models:
+      - model: "Dreame L10s Ultra"
+        slug: "dreame-l10s-ultra"
+        series: "L-Series"
+        year_range: "2022-actual"
+        sku_pack: "robot10"
+        model_tokens: ["l10s ultra", "l10s"]
+        intro: "El Dreame L10s Ultra fue el primer robot de Dreame con estación de vaciado y lavado integrados. Las mopas giratorias y los filtros son los consumibles más demandados."
+        problemas:
+          - key: "mopa-desgastada"
+            title: "Dreame L10s Ultra: mopa desgastada"
+            intent: "info"
+            symptoms:
+              - "El suelo queda con rayas o sin brillo después del fregado"
+              - "La mopa tiene zonas más finas o peladas visibles a simple vista"
+              - "El robot necesita más pasadas para eliminar las mismas manchas que antes"
+            checks:
+              - "Retira las mopas y examínalas a contraluz para ver zonas desgastadas"
+              - "Comprueba si las fibras de microfibra conservan la suavidad original"
+              - "Revisa cuántas horas de uso llevan — las mopas del L10s Ultra se recomiendan sustituir cada 3 meses"
+              - "Verifica que la estación de lavado limpia correctamente las mopas tras cada ciclo"
+            causes:
+              - "Desgaste natural de las fibras de microfibra por fricción con el suelo"
+              - "Cal del agua dura que endurece y deteriora las fibras de la mopa"
+              - "Limpieza insuficiente en la estación que deja suciedad incrustada que abrasiona el suelo"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+          - key: "filtro-obstruido"
+            title: "Dreame L10s Ultra: filtro obstruido"
+            intent: "info"
+            symptoms:
+              - "El robot aspira con menos potencia que cuando era nuevo"
+              - "Queda polvo fino visible en el suelo tras el paso del robot"
+              - "La app Dreame avisa de revisar el filtro antes de tiempo"
+            checks:
+              - "Saca el filtro HEPA y golpéalo suavemente sobre un cubo para eliminar polvo"
+              - "Comprueba el color del filtro: si está gris oscuro o negro es necesario sustituirlo"
+              - "Revisa también el filtro de esponja y sustitúyelo si está muy comprimido"
+              - "Limpia la cámara del filtro con un paño seco antes de reinstalar"
+            causes:
+              - "Filtro HEPA colmatado por uso sin limpieza ni sustitución periódica"
+              - "Filtro de esponja aplastado que bloquea el flujo de aire"
+              - "Uso en entornos con polvo de obra o arena que agota el filtro prematuramente"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Dreame X40 Ultra"
+        slug: "dreame-x40-ultra"
+        series: "X-Series"
+        year_range: "2024-actual"
+        sku_pack: "robot10"
+        model_tokens: ["x40 ultra", "x40"]
+        intro: "El Dreame X40 Ultra es el modelo tope de gama de Dreame con brazo extensible para llegar a los bordes. Los filtros y las mopas son los consumibles que se reemplazan con más frecuencia."
+        problemas:
+          - key: "filtro-obstruido"
+            title: "Dreame X40 Ultra: filtro obstruido"
+            intent: "info"
+            symptoms:
+              - "La potencia de aspiración ha bajado notablemente respecto a los primeros usos"
+              - "El robot deja suciedad fina y pelo corto en el suelo después de pasar"
+              - "La app reporta eficiencia de limpieza reducida en el resumen de sesión"
+            checks:
+              - "Extrae el filtro HEPA y límpialo sacudiéndolo suavemente — un filtro oscuro necesita sustitución"
+              - "Revisa el filtro de esponja y sustitúyelo si está muy comprimido o amarillento"
+              - "Comprueba la cámara del polvo: vacíala y límpiala aunque la estación haga el vaciado automático"
+              - "Verifica en la app el contador de horas del filtro y compáralo con el intervalo recomendado"
+            causes:
+              - "Filtro HEPA saturado que bloquea el caudal de aire necesario para la aspiración"
+              - "Polvo muy fino de suelos de obra o tierra que colmata el filtro en pocas sesiones"
+              - "Pre-filtro de esponja aplastado que actúa como barrera adicional"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "mopa-desgastada"
+            title: "Dreame X40 Ultra: mopa desgastada"
+            intent: "info"
+            symptoms:
+              - "El suelo queda con manchas o líneas de suciedad tras el ciclo de fregado"
+              - "Las mopas tienen zonas claramente más desgastadas que otras"
+              - "El brazo extensible no llega bien a los bordes porque la mopa no tiene el grosor adecuado"
+            checks:
+              - "Examina las mopas por ambas caras para detectar zonas peladas o irregulares"
+              - "Comprueba que las mopas no tienen pelos o hilos enredados que las deformen"
+              - "Revisa el sistema de sujeción de las mopas para que no haya holgura al girar"
+              - "Verifica si la estación limpia bien las mopas — si el agua de limpieza sale muy sucia hay que sustituirlas"
+            causes:
+              - "Desgaste acelerado de la microfibra por uso frecuente en suelos con arena o gres rugoso"
+              - "Residuos de cal incrustados en las fibras que las endurecen y hacen menos efectivas"
+              - "Limpieza insuficiente entre ciclos que acumula suciedad abrasiva en la mopa"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }
+
+      - model: "Dreame Bot L20 Ultra"
+        slug: "dreame-l20-ultra"
+        series: "L-Series"
+        year_range: "2023-actual"
+        sku_pack: "robot10"
+        model_tokens: ["l20 ultra", "l20"]
+        intro: "El Dreame Bot L20 Ultra mejora al L10s con mayor succión y un sistema de elevación de mopa más preciso. Los cepillos y las mopas son las piezas de recambio más habituales."
+        problemas:
+          - key: "cepillo-ruidoso"
+            title: "Dreame L20 Ultra: cepillo ruidoso"
+            intent: "info"
+            symptoms:
+              - "El robot emite un ruido de fricción o golpeteo al pasar por el suelo"
+              - "El ruido es intermitente y aumenta sobre alfombras"
+              - "La app reporta una alerta sobre el estado del cepillo principal"
+            checks:
+              - "Retira el cepillo principal y elimina todo el pelo y fibra enredados en el eje"
+              - "Comprueba que el eje del cepillo no tiene deformaciones y gira libremente"
+              - "Inspecciona las cerdas: si están aplastadas o partidas el cepillo necesita sustitución"
+              - "Verifica que la cubierta del cepillo no tiene restos de suciedad que roce con el cepillo"
+            causes:
+              - "Pelo enredado en el eje que crea fricción y ruido al girar (causa más habitual)"
+              - "Cerdas del cepillo deformadas por uso que rozan con la carcasa"
+              - "Rodamiento del módulo del cepillo deteriorado por acumulación de suciedad"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "mopa-desgastada"
+            title: "Dreame L20 Ultra: mopa de fregado desgastada"
+            intent: "info"
+            symptoms:
+              - "El suelo queda con manchas o zonas sin limpiar tras el ciclo de fregado"
+              - "Las mopas muestran desgaste visible con fibras aplastadas o peladas"
+              - "El consumo de agua ha bajado aunque el depósito esté lleno"
+            checks:
+              - "Retira las mopas giratorias y examínalas para detectar desgaste irregular"
+              - "Comprueba si las fibras de microfibra conservan la capacidad de absorber agua"
+              - "Revisa el número de horas de uso en la app — el fabricante recomienda sustituir cada 3 meses"
+              - "Verifica que la estación de lavado no tiene obstrucciones que impidan limpiar bien las mopas"
+            causes:
+              - "Desgaste natural de las fibras de microfibra por uso continuado sobre suelo duro"
+              - "Cal del agua que endurece las fibras y reduce su capacidad de absorción"
+              - "Pelo o suciedad incrustada en las mopas que la estación no elimina completamente"
+            cta: { catKey: "accesorios", label: "Ver almohadillas compatibles" }

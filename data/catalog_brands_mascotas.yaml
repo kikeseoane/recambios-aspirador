@@ -1,0 +1,536 @@
+brands:
+  oneisall:
+    name: "Oneisall"
+    vertical: "mascotas"
+    notes_brand: "Top ventas cortapelos mascotas AliExpress. P2 y S8 Pro muy buscados. Alta demanda en cuchillas y peines."
+    models:
+      - model: "Oneisall P2"
+        slug: "oneisall-p2"
+        series: "P-Series"
+        year_range: "2020-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["oneisall p2", "p2"]
+        intro: "El Oneisall P2 es el cortapelos para mascotas más vendido de la marca, con sistema de aspiración integrado para recoger el pelo cortado. Las cuchillas y el cargador son los recambios más demandados."
+        problemas:
+          - key: "cuchilla-no-corta"
+            title: "Oneisall P2: cuchilla no corta bien"
+            intent: "info"
+            symptoms:
+              - "La cuchilla tira del pelo de la mascota en lugar de cortarlo limpiamente"
+              - "El cortapelos hace más ruido de lo habitual y se calienta más rápido"
+              - "El pelo queda irregular con mechones sin cortar aunque pases varias veces"
+            checks:
+              - "Comprueba si la cuchilla tiene muescas o dientes rotos mirándola a contraluz"
+              - "Limpia la cuchilla con el cepillo incluido para eliminar pelo y suciedad entre los dientes"
+              - "Aplica una gota de aceite lubricante entre las dos hojas de la cuchilla y deja actuar 30 segundos"
+              - "Verifica que la cuchilla está bien fijada al cabezal sin juego ni inclinación"
+            causes:
+              - "Cuchilla desgastada con dientes embotados que no cortan limpiamente (causa más habitual)"
+              - "Pelo acumulado entre las hojas de la cuchilla que impide el deslizamiento correcto"
+              - "Falta de lubricación entre las hojas que aumenta la fricción y reduce el corte"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "no-carga"
+            title: "Oneisall P2 no carga"
+            intent: "info"
+            symptoms:
+              - "El indicador de carga no se enciende al conectar el cargador"
+              - "El cortapelos se apaga a los pocos minutos de empezar a cortar"
+              - "La batería no sube de nivel aunque esté conectado durante horas"
+            checks:
+              - "Prueba el cargador en otro enchufe para descartar problemas de corriente"
+              - "Limpia el puerto de carga del cortapelos con un palillo seco"
+              - "Verifica que el cable del cargador no tiene cortes ni dobleces bruscos"
+              - "Revisa si la batería está hinchada — una batería abultada hay que sustituirla de inmediato"
+            causes:
+              - "Cargador defectuoso o deteriorado que no entrega la corriente correcta"
+              - "Puerto de carga con corrosión o suciedad que impide el contacto eléctrico"
+              - "Batería de litio agotada por ciclos acumulados tras años de uso"
+            cta: { catKey: "cargador", label: "Ver cargadores compatibles" }
+
+      - model: "Oneisall Dog Vacuum S8 Pro"
+        slug: "oneisall-s8-pro"
+        series: "S-Series"
+        year_range: "2022-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["oneisall s8 pro", "s8 pro", "s8pro"]
+        intro: "El Oneisall S8 Pro combina cortapelos y aspiración del pelo en un kit completo. Las cuchillas son el consumible más solicitado para mantener el corte preciso."
+        problemas:
+          - key: "cuchilla-tira-pelo"
+            title: "Oneisall S8 Pro: cuchilla tira del pelo"
+            intent: "info"
+            symptoms:
+              - "La mascota se mueve incómoda o se queja durante el corte"
+              - "La cuchilla arrastra el pelo en lugar de cortarlo con un golpe limpio"
+              - "El pelo queda irregular y con tirones visibles tras el paso de la cuchilla"
+            checks:
+              - "Examina la cuchilla a contraluz para detectar dientes rotos o muescas"
+              - "Limpia el pelo acumulado entre las hojas con el cepillo de limpieza incluido"
+              - "Aplica aceite lubricante entre las hojas y deja actuar antes de usar"
+              - "Verifica que la velocidad seleccionada es la adecuada para el tipo de pelo de la mascota"
+            causes:
+              - "Dientes de la cuchilla desgastados o con muescas que enganchan el pelo en lugar de cortarlo"
+              - "Pelo acumulado entre las dos hojas que impide el deslizamiento suave"
+              - "Cuchilla desalineada por un golpe o caída que hace que los dientes no se deslicen correctamente"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "bateria-agotada"
+            title: "Oneisall S8 Pro: batería dura poco"
+            intent: "info"
+            symptoms:
+              - "El cortapelos se apaga antes de terminar el pelado completo de la mascota"
+              - "La autonomía ha bajado a menos de 20 minutos cuando antes duraba 60"
+              - "El indicador de batería baja de lleno a vacío muy rápidamente"
+            checks:
+              - "Comprueba cuántos años tiene el dispositivo — tras 2-3 años la batería suele estar degradada"
+              - "Verifica si la batería está hinchada palpando la carcasa del cortapelos"
+              - "Realiza una carga completa de 3-4 horas y mide la autonomía real resultante"
+              - "Asegúrate de que el cargador entrega la tensión correcta especificada en el manual"
+            causes:
+              - "Batería de litio al final de su vida útil por ciclos de carga acumulados"
+              - "Almacenamiento con la batería muy descargada que provoca degradación acelerada"
+              - "Cargador defectuoso que realiza cargas incompletas y envejece la batería prematuramente"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+      - model: "Oneisall Dog Clippers A5"
+        slug: "oneisall-a5"
+        series: "A-Series"
+        year_range: "2021-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["oneisall a5", "a5"]
+        intro: "El Oneisall A5 es el modelo profesional de la gama con mayor potencia de corte. Las baterías y las cuchillas son las piezas de recambio más solicitadas para este cortapelos."
+        problemas:
+          - key: "bateria-agotada"
+            title: "Oneisall A5: batería dura poco"
+            intent: "info"
+            symptoms:
+              - "El cortapelos no termina un pelado completo antes de quedarse sin batería"
+              - "La autonomía real es mucho menor que la especificada por el fabricante"
+              - "El dispositivo se apaga de repente aunque el indicador no mostrara batería baja"
+            checks:
+              - "Comprueba cuántos años lleva el dispositivo en uso — tras 2-3 años la batería se degrada"
+              - "Verifica si la carcasa tiene protuberancias que indiquen batería hinchada"
+              - "Realiza una carga completa de 4 horas y mide la autonomía resultante en uso continuado"
+              - "Comprueba que el cargador es el original o uno con la misma tensión de salida"
+            causes:
+              - "Batería de litio degradada por el número de ciclos de carga acumulados"
+              - "Almacenamiento con batería agotada que provoca sulfatación y pérdida de capacidad"
+              - "Cargador defectuoso que realiza sobrecargas que dañan la batería"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "cuchilla-no-corta"
+            title: "Oneisall A5: cuchilla no corta bien"
+            intent: "info"
+            symptoms:
+              - "La cuchilla tira del pelo o lo dobla en lugar de cortarlo limpiamente"
+              - "El cortapelos vibra más de lo habitual y produce más calor durante el uso"
+              - "El corte queda irregular con mechones que no quedan al mismo nivel"
+            checks:
+              - "Examina los dientes de la cuchilla con una lupa para detectar muescas o desgaste"
+              - "Limpia el pelo acumulado entre las hojas con el cepillo de limpieza del kit"
+              - "Aplica aceite lubricante profesional entre las hojas de la cuchilla"
+              - "Verifica la alineación de las hojas — si están desalineadas hay que recalibrar o sustituir"
+            causes:
+              - "Dientes embotados por uso prolongado que ya no hacen el corte limpio necesario"
+              - "Acumulación de pelo fino entre las hojas que frena el deslizamiento de la cuchilla"
+              - "Cuchilla con desgaste asimétrico que genera vibración y corte irregular"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+
+  wahl-pet:
+    name: "Wahl"
+    vertical: "mascotas"
+    notes_brand: "Referencia profesional en peluquería canina. KM2 y Bravura muy demandados. Alta demanda en cuchillas."
+    models:
+      - model: "Wahl KM2"
+        slug: "wahl-km2"
+        series: "KM-Series"
+        year_range: "2010-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["wahl km2", "km2"]
+        intro: "El Wahl KM2 es el cortapelos profesional de referencia en peluquerías caninas con motor de carbones. Las cuchillas de acero son el recambio más demandado para este modelo de uso intensivo."
+        problemas:
+          - key: "cuchilla-no-corta"
+            title: "Wahl KM2: cuchilla no corta bien"
+            intent: "info"
+            symptoms:
+              - "La cuchilla arrastra el pelo en lugar de cortarlo limpiamente en un solo paso"
+              - "El cortapelos vibra más de lo habitual y se calienta antes de tiempo"
+              - "El pelo queda irregular con mechones sin cortar aunque uses guías de peine"
+            checks:
+              - "Inspecciona los dientes de la cuchilla con una lupa para detectar muescas o desgaste"
+              - "Limpia la cuchilla con el cepillo y aplica aceite Wahl o equivalente entre las hojas"
+              - "Verifica la tensión del muelle de ajuste de la cuchilla — si está demasiado flojo no corta bien"
+              - "Comprueba si la cuchilla lleva más de 6-12 meses de uso profesional diario"
+            causes:
+              - "Dientes de la cuchilla embotados por uso intensivo en peluquería profesional"
+              - "Falta de lubricación entre las hojas que aumenta la fricción y reduce el rendimiento de corte"
+              - "Tensión de muelle incorrecta que no presiona las hojas con la fuerza adecuada"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "se-calienta"
+            title: "Wahl KM2 se calienta mucho"
+            intent: "info"
+            symptoms:
+              - "La cuchilla se calienta tanto que hay que parar para no quemar a la mascota"
+              - "El calor se nota a los 5-10 minutos de uso continuado"
+              - "El cortapelos huele a metal caliente durante el uso"
+            checks:
+              - "Aplica aceite lubricante Wahl entre las hojas antes de cada uso y cada 10 minutos durante sesiones largas"
+              - "Comprueba si la cuchilla tiene pelo acumulado entre los dientes que genera fricción extra"
+              - "Verifica que el tornillo de tensión de la cuchilla no está demasiado apretado"
+              - "Revisa si el motor del KM2 está limpio de pelo por dentro — un motor sucio también genera más calor"
+            causes:
+              - "Falta de lubricación entre las hojas que genera calor por fricción (causa más frecuente)"
+              - "Tensión de muelle excesiva que presiona las hojas con demasiada fuerza"
+              - "Pelo acumulado entre los dientes de la cuchilla que actúa como aislante y genera calor"
+            cta: { catKey: "accesorios", label: "Ver aceite lubricante compatible" }
+
+      - model: "Wahl Bravura"
+        slug: "wahl-bravura"
+        series: "Bravura"
+        year_range: "2012-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["wahl bravura", "bravura"]
+        intro: "El Wahl Bravura es el cortapelos inalámbrico de referencia de Wahl para peluquería canina profesional. Las baterías y las cuchillas son los recambios más demandados."
+        problemas:
+          - key: "bateria-agotada"
+            title: "Wahl Bravura: batería dura poco"
+            intent: "info"
+            symptoms:
+              - "El Bravura no completa un pelado completo antes de que la batería se agote"
+              - "La autonomía ha bajado de 90 minutos a menos de 30 minutos"
+              - "El cortapelos se apaga de repente sin aviso previo de batería baja"
+            checks:
+              - "Comprueba cuántos años tiene el Bravura — tras 3-4 años de uso profesional la batería suele estar agotada"
+              - "Verifica si la batería está hinchada: en el Bravura es una Li-ion reemplazable"
+              - "Realiza una carga completa de 60 minutos y mide la autonomía en uso continuado"
+              - "Comprueba que el cargador entrega la tensión correcta especificada en el manual"
+            causes:
+              - "Batería Li-ion al final de su vida útil por ciclos de carga profesionales acumulados"
+              - "Almacenamiento con batería descargada entre sesiones que acelera la degradación"
+              - "Cargador deteriorado que realiza cargas parciales y envejece prematuramente la batería"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "cuchilla-no-corta"
+            title: "Wahl Bravura: cuchilla no corta bien"
+            intent: "info"
+            symptoms:
+              - "La cuchilla tira del pelo o lo aplasta en lugar de cortarlo limpiamente"
+              - "El Bravura vibra más de lo habitual y produce más calor"
+              - "El corte queda irregular aunque uses la guía de peine correcta"
+            checks:
+              - "Examina la cuchilla #30 del Bravura con una lupa para detectar muescas en los dientes"
+              - "Limpia el pelo entre los dientes y aplica aceite Wahl antes de cada uso"
+              - "Verifica la alineación de las hojas superior e inferior de la cuchilla"
+              - "Comprueba si la cuchilla lleva más de 6 meses de uso profesional diario"
+            causes:
+              - "Dientes embotados por uso intensivo profesional que ya no hacen el corte limpio"
+              - "Falta de lubricación que genera calor y reduce la velocidad de corte"
+              - "Desalineación de las hojas por golpe o caída que impide el corte correcto"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+
+      - model: "Wahl Arco"
+        slug: "wahl-arco"
+        series: "Arco"
+        year_range: "2015-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["wahl arco", "arco"]
+        intro: "El Wahl Arco es el cortapelos inalámbrico ergonómico de Wahl diseñado para trabajo de detalle. Las cuchillas son el recambio más solicitado para mantener el corte de precisión."
+        problemas:
+          - key: "cuchilla-no-corta"
+            title: "Wahl Arco: cuchilla no corta bien"
+            intent: "info"
+            symptoms:
+              - "La cuchilla arrastra y dobla el pelo en lugar de cortarlo limpiamente"
+              - "El Arco se calienta más rápido de lo habitual durante el trabajo de detalle"
+              - "El corte de líneas y perfiles queda impreciso y con irregularidades"
+            checks:
+              - "Inspecciona los dientes de la cuchilla del Arco con lupa — busca muescas o dientes rotos"
+              - "Limpia el pelo acumulado entre las hojas y aplica aceite lubricante Wahl"
+              - "Verifica la alineación de la hoja superior respecto a la inferior"
+              - "Comprueba cuántos meses de uso lleva la cuchilla en uso profesional diario"
+            causes:
+              - "Dientes de la cuchilla embotados por uso en detalle sobre pelo duro o grueso"
+              - "Pelo muy fino acumulado entre las hojas que impide el deslizamiento correcto"
+              - "Cuchilla desalineada por impacto que no hace el corte al ras correcto"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "se-calienta"
+            title: "Wahl Arco se calienta mucho"
+            intent: "info"
+            symptoms:
+              - "La cuchilla del Arco se calienta a los pocos minutos de trabajo de detalle"
+              - "La mascota se mueve o se queja por el calor de la cuchilla"
+              - "El plástico de la carcasa también se siente caliente durante el uso prolongado"
+            checks:
+              - "Aplica aceite lubricante Wahl entre las hojas antes de cada sesión"
+              - "Comprueba si hay pelo acumulado entre los dientes que genera fricción adicional"
+              - "Verifica que el tornillo de tensión no está demasiado apretado"
+              - "Deja enfriar la cuchilla cada 10-15 minutos durante sesiones largas"
+            causes:
+              - "Falta de lubricación entre las hojas de la cuchilla que genera calor por fricción"
+              - "Tensión de muelle excesiva que aumenta la fricción entre las hojas"
+              - "Pelo muy fino incrustado entre los dientes que actúa como aislante térmico"
+            cta: { catKey: "accesorios", label: "Ver aceite lubricante compatible" }
+
+      - model: "Wahl Show Pro"
+        slug: "wahl-show-pro"
+        series: "Show Pro"
+        year_range: "2018-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["wahl show pro", "show pro"]
+        intro: "El Wahl Show Pro es el cortapelos de preparación para exposición canina de la gama Wahl. Las cuchillas de alta precisión son el recambio más demandado para este modelo."
+        problemas:
+          - key: "cuchilla-desgastada"
+            title: "Wahl Show Pro: cuchilla desgastada"
+            intent: "info"
+            symptoms:
+              - "La cuchilla ya no hace el corte de precisión necesario para preparación de exposición"
+              - "El pelo queda con puntas irregulares que antes quedaban perfectamente al mismo nivel"
+              - "La cuchilla tira del pelo fino en lugar de cortarlo con un resultado show quality"
+            checks:
+              - "Examina los dientes de la cuchilla con una lupa de aumento — los dientes embotados no tienen filo visible"
+              - "Comprueba si la cuchilla tiene muescas causadas por contacto con collares, clips o arena"
+              - "Verifica cuántos meses lleva en uso intensivo — las cuchillas de exposición necesitan reemplazarse más frecuentemente"
+              - "Aplica aceite y comprueba si mejora el corte — si no mejora, la cuchilla está agotada"
+            causes:
+              - "Dientes embotados por uso en pelo fino y denso de razas de exposición"
+              - "Muescas en los dientes por contacto accidental con objetos duros (collares, clips)"
+              - "Desgaste asimétrico por trabajo repetitivo en la misma dirección"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "se-calienta"
+            title: "Wahl Show Pro se calienta durante la preparación"
+            intent: "info"
+            symptoms:
+              - "La cuchilla se calienta durante las sesiones largas de preparación para exposición"
+              - "El Show Pro necesita pausas frecuentes para enfriar antes de continuar"
+              - "El calor excesivo genera estrés en la mascota durante la preparación"
+            checks:
+              - "Aplica aceite lubricante Wahl entre las hojas antes de cada sesión y cada 10-15 minutos"
+              - "Limpia el pelo acumulado entre los dientes antes de lubricar"
+              - "Verifica que el tornillo de tensión está en el ajuste correcto para el Show Pro"
+              - "Comprueba que el motor no tiene pelo interno acumulado que genera calor adicional"
+            causes:
+              - "Falta de lubricación entre las hojas que es crítica en sesiones largas de preparación"
+              - "Cuchilla desgastada que genera más fricción que una cuchilla nueva bien afilada"
+              - "Pelo fino y denso de razas de exposición que satura la cuchilla más rápido"
+            cta: { catKey: "accesorios", label: "Ver aceite lubricante compatible" }
+
+  andis-pet:
+    name: "Andis"
+    vertical: "mascotas"
+    notes_brand: "Andis cortapelos profesionales. UltraEdge muy demandado. Alta demanda en cuchillas y cabezales."
+    models:
+      - model: "Andis UltraEdge Super 2-Speed"
+        slug: "andis-ultraedge-super-2speed"
+        series: "UltraEdge"
+        year_range: "2015-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["andis ultraedge", "ultraedge super", "ultraedge"]
+        intro: "El Andis UltraEdge Super 2-Speed es el cortapelos de referencia para peluquerías caninas profesionales en EE.UU. Las cuchillas de acero carbono son el recambio más demandado."
+        problemas:
+          - key: "cuchilla-no-corta"
+            title: "Andis UltraEdge: cuchilla no corta bien"
+            intent: "info"
+            symptoms:
+              - "La cuchilla arrastra el pelo en lugar de cortarlo de forma limpia y precisa"
+              - "El UltraEdge vibra más de lo habitual y se calienta antes de terminar el pelado"
+              - "El corte queda con mechones irregulares aunque uses las guías de peine correctas"
+            checks:
+              - "Examina los dientes de la cuchilla con lupa para detectar muescas o dientes rotos"
+              - "Limpia el pelo acumulado entre las hojas con el cepillo incluido"
+              - "Aplica aceite lubricante Andis o equivalente entre las hojas de la cuchilla"
+              - "Verifica cuántos meses lleva la cuchilla en uso profesional diario"
+            causes:
+              - "Dientes embotados por uso intensivo en peluquería que ya no hacen el corte limpio"
+              - "Acumulación de pelo entre las hojas que impide el deslizamiento correcto"
+              - "Falta de lubricación que genera calor y reduce la eficacia del filo"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "se-calienta"
+            title: "Andis UltraEdge se calienta mucho"
+            intent: "info"
+            symptoms:
+              - "La cuchilla se calienta hasta quemar a la mascota durante las sesiones largas"
+              - "El calor aparece a los 10 minutos de uso continuado"
+              - "Hay que parar constantemente para enfriar la cuchilla con spray refrigerante"
+            checks:
+              - "Aplica aceite lubricante Andis entre las hojas antes de cada pelado y a los 10 minutos"
+              - "Comprueba que la tensión del muelle de ajuste no está excesivamente apretada"
+              - "Limpia el pelo entre los dientes — el pelo acumulado genera fricción adicional"
+              - "Verifica que el motor del UltraEdge no tiene pelo acumulado por las rejillas de ventilación"
+            causes:
+              - "Falta de lubricación entre las hojas que genera calor por fricción excesiva"
+              - "Tensión de muelle demasiado alta que presiona las hojas con más fuerza de la necesaria"
+              - "Motor con ventilación obstruida por pelo que no disipa bien el calor"
+            cta: { catKey: "accesorios", label: "Ver aceite lubricante compatible" }
+
+      - model: "Andis Excel 5-Speed"
+        slug: "andis-excel-5speed"
+        series: "Excel"
+        year_range: "2018-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["andis excel", "excel 5 speed", "excel"]
+        intro: "El Andis Excel 5-Speed es el cortapelos de alta gama de Andis con cinco velocidades para todo tipo de pelaje. Los consumibles más demandados son el aceite lubricante y las cuchillas."
+        problemas:
+          - key: "se-calienta"
+            title: "Andis Excel 5-Speed se calienta"
+            intent: "info"
+            symptoms:
+              - "La cuchilla se calienta rápidamente aunque uses una velocidad baja"
+              - "El calor es perceptible a los 5-7 minutos de uso en cualquiera de las 5 velocidades"
+              - "La mascota se inquieta por el calor de la cuchilla durante el pelado"
+            checks:
+              - "Aplica aceite lubricante entre las hojas de la cuchilla antes y durante el uso"
+              - "Comprueba si la cuchilla tiene pelo acumulado entre los dientes que genera fricción"
+              - "Verifica si la cuchilla está desgastada — una cuchilla embotada genera más calor que una nueva"
+              - "Revisa que las rejillas de ventilación del motor no están obstruidas con pelo"
+            causes:
+              - "Falta de lubricación entre las hojas de la cuchilla (causa más frecuente)"
+              - "Cuchilla embotada que requiere más fuerza de corte y genera más calor"
+              - "Motor con rejillas de ventilación obstruidas que acumula calor interno"
+            cta: { catKey: "accesorios", label: "Ver aceite lubricante compatible" }
+          - key: "cuchilla-tira-pelo"
+            title: "Andis Excel 5-Speed: cuchilla tira del pelo"
+            intent: "info"
+            symptoms:
+              - "La mascota se queja o se mueve durante el corte porque la cuchilla tira"
+              - "El pelo se dobla y engancha en lugar de cortarse en el primer paso"
+              - "Se ven tirones en el pelaje de la mascota tras el corte"
+            checks:
+              - "Examina los dientes de la cuchilla con lupa para detectar muescas o desalineación"
+              - "Limpia el pelo acumulado entre las hojas y aplica aceite lubricante"
+              - "Verifica la alineación de la hoja superior respecto a la inferior — deben estar perfectamente paralelas"
+              - "Comprueba si el tipo de cuchilla es el adecuado para el pelaje de la mascota"
+            causes:
+              - "Cuchilla con muescas en los dientes que enganchan el pelo en lugar de cortarlo"
+              - "Desalineación de las hojas por golpe o caída que impide el corte limpio"
+              - "Cuchilla demasiado fina para un pelaje muy grueso que necesita una cuchilla de mayor paso"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+
+      - model: "Andis EasyClip Ultra"
+        slug: "andis-easyclip-ultra"
+        series: "EasyClip"
+        year_range: "2019-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["andis easyclip", "easyclip ultra", "easyclip"]
+        intro: "El Andis EasyClip Ultra es el cortapelos doméstico de referencia de Andis para propietarios de mascotas. Las cuchillas son el consumible más solicitado para mantener el buen corte en casa."
+        problemas:
+          - key: "cuchilla-tira-pelo"
+            title: "Andis EasyClip Ultra: cuchilla tira del pelo"
+            intent: "info"
+            symptoms:
+              - "La mascota se estresa durante el corte porque la cuchilla tira y engancha el pelo"
+              - "El pelo queda con tirones visibles y la superficie no queda uniforme"
+              - "La cuchilla arrastra mechones en lugar de cortarlos limpiamente"
+            checks:
+              - "Inspecciona los dientes de la cuchilla con lupa para detectar muescas o dientes rotos"
+              - "Limpia el pelo entre las hojas con el cepillo incluido en el kit"
+              - "Aplica una gota de aceite lubricante entre las hojas antes de cada uso"
+              - "Verifica que las guías de peine usadas son las adecuadas para el pelaje de la mascota"
+            causes:
+              - "Dientes con muescas que enganchan el pelo en lugar de cortarlo limpiamente"
+              - "Pelo acumulado entre las hojas que impide el deslizamiento correcto de la cuchilla"
+              - "Cuchilla desgastada con dientes embotados que requieren más presión de corte"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "bateria-agotada"
+            title: "Andis EasyClip Ultra: batería dura poco"
+            intent: "info"
+            symptoms:
+              - "El cortapelos no completa un pelado completo de la mascota antes de quedarse sin batería"
+              - "La autonomía ha bajado notablemente respecto a cuando era nuevo"
+              - "El dispositivo se apaga a mitad del pelado sin aviso previo"
+            checks:
+              - "Verifica cuántos años lleva en uso — tras 2-3 años la batería suele degradarse"
+              - "Comprueba si la batería está hinchada palpando la carcasa del cortapelos"
+              - "Realiza una carga completa y mide la autonomía real en uso continuado"
+              - "Asegúrate de que el cargador entrega la tensión correcta"
+            causes:
+              - "Batería de litio al final de su vida útil por ciclos de carga acumulados"
+              - "Almacenamiento con batería muy descargada que provoca degradación prematura"
+              - "Ciclos de carga frecuentes desde nivel muy bajo que dañan la batería"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+  remington-pet:
+    name: "Remington"
+    vertical: "mascotas"
+    notes_brand: "Remington cortapelos mascotas gama media. MPT3700 muy vendido. Alta demanda en cuchillas y accesorios."
+    models:
+      - model: "Remington MPT3700"
+        slug: "remington-mpt3700"
+        series: "MPT"
+        year_range: "2018-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["remington mpt3700", "mpt3700"]
+        intro: "El Remington MPT3700 es el cortapelos para mascotas más popular de Remington en el mercado doméstico. Las cuchillas son el recambio más solicitado para este modelo."
+        problemas:
+          - key: "cuchilla-no-corta"
+            title: "Remington MPT3700: cuchilla no corta bien"
+            intent: "info"
+            symptoms:
+              - "La cuchilla tira y arrastra el pelo de la mascota en lugar de cortarlo"
+              - "El cortapelos vibra más de lo normal y se calienta durante el uso"
+              - "El corte queda irregular con zonas de diferentes longitudes"
+            checks:
+              - "Examina los dientes de la cuchilla para detectar muescas o dientes deformados"
+              - "Limpia el pelo acumulado entre las hojas con el cepillo incluido"
+              - "Aplica aceite lubricante entre las hojas de la cuchilla antes del uso"
+              - "Verifica cuántos meses lleva la cuchilla en uso — el MPT3700 necesita cuchilla nueva cada 6-12 meses"
+            causes:
+              - "Cuchilla embotada por uso continuado que ya no hace el corte limpio necesario"
+              - "Pelo acumulado entre las hojas que impide el deslizamiento correcto"
+              - "Falta de lubricación que aumenta la fricción y reduce la eficacia del corte"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }
+          - key: "bateria-agotada"
+            title: "Remington MPT3700: batería dura poco"
+            intent: "info"
+            symptoms:
+              - "El cortapelos no completa un pelado antes de agotar la batería"
+              - "La autonomía real es mucho menor que la indicada en el manual"
+              - "El MPT3700 se apaga inesperadamente aunque el indicador no muestre batería baja"
+            checks:
+              - "Verifica cuántos años tiene el dispositivo — tras 2 años de uso regular la batería suele degradarse"
+              - "Comprueba si la batería está hinchada palpando la parte trasera del cortapelos"
+              - "Realiza una carga completa y mide la autonomía resultante en uso continuado"
+              - "Comprueba que el cargador entrega la tensión correcta"
+            causes:
+              - "Batería de litio al final de su vida útil por ciclos de carga acumulados"
+              - "Almacenamiento con batería completamente descargada que provoca sulfatación"
+              - "Cargador deteriorado que no completa bien la carga y envejece la batería"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+
+      - model: "Remington HC8017"
+        slug: "remington-hc8017"
+        series: "HC"
+        year_range: "2020-actual"
+        sku_pack: "petgroomer10"
+        model_tokens: ["remington hc8017", "hc8017"]
+        intro: "El Remington HC8017 es el cortapelos multiuso de Remington válido tanto para mascotas como para uso humano. Las baterías y las cuchillas son los recambios más habituales."
+        problemas:
+          - key: "bateria-agotada"
+            title: "Remington HC8017: batería dura poco"
+            intent: "info"
+            symptoms:
+              - "El cortapelos no termina el pelado antes de que la batería se agote"
+              - "La autonomía real es inferior a 20 minutos cuando debería ser de 40"
+              - "El dispositivo se apaga a mitad del trabajo sin aviso previo"
+            checks:
+              - "Comprueba cuántos años tiene el dispositivo y la frecuencia de uso"
+              - "Verifica si la carcasa tiene protuberancias que indiquen batería hinchada"
+              - "Realiza una carga completa de 4 horas y mide la autonomía en uso continuado"
+              - "Asegúrate de que el cargador Remington entrega la tensión correcta"
+            causes:
+              - "Batería de litio degradada por ciclos de carga acumulados tras años de uso"
+              - "Almacenamiento con la batería muy descargada entre temporadas que acelera el envejecimiento"
+              - "Cargador con salida de corriente reducida que no completa la carga correctamente"
+            cta: { catKey: "bateria", label: "Ver baterías compatibles" }
+          - key: "cuchilla-tira-pelo"
+            title: "Remington HC8017: cuchilla tira del pelo"
+            intent: "info"
+            symptoms:
+              - "La mascota se mueve y se estresa porque la cuchilla engancha el pelo"
+              - "El pelo queda con tirones visibles y la longitud es irregular"
+              - "La cuchilla hace más ruido de lo habitual durante el corte"
+            checks:
+              - "Examina los dientes de la cuchilla para detectar muescas o dientes rotos"
+              - "Limpia el pelo entre las hojas con el cepillo del kit"
+              - "Aplica aceite lubricante entre las hojas antes de cada uso"
+              - "Verifica que la cuchilla no lleva más de 12 meses de uso frecuente"
+            causes:
+              - "Dientes de la cuchilla con muescas que enganchan el pelo en lugar de cortarlo"
+              - "Pelo acumulado entre las hojas que impide el deslizamiento suave"
+              - "Cuchilla embotada que requiere más presión y genera tirones"
+            cta: { catKey: "laminas", label: "Ver cuchillas compatibles" }

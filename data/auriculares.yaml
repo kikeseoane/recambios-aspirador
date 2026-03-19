@@ -1,0 +1,4877 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  samsung-aud:
+    name: Samsung
+    notes_brand: Galaxy Buds top ventas mundiales. Alta demanda en almohadillas, estuches
+      y cables. Buds2 Pro y Buds3 Pro muy buscados.
+    models:
+    - model: Samsung Galaxy Buds2
+      slug: samsung-galaxy-buds2
+      series: Galaxy Buds
+      year_range: 2021-actual
+      sku_pack: earphone10
+      model_tokens:
+      - galaxy buds2
+      - buds2
+      - sm-r177
+      intro: Los Samsung Galaxy Buds2 son los auriculares TWS más vendidos de Samsung
+        con ANC activo. Las almohadillas de silicona y los estuches de carga son los
+        recambios más demandados.
+      problemas:
+      - key: almohadilla-suelta
+        title: 'Galaxy Buds2: almohadilla suelta o perdida'
+        intent: info
+        symptoms:
+        - La almohadilla se desprende del auricular al sacarlo del oído o del estuche
+        - Un auricular queda suelto en el oído y no se sella correctamente
+        - La almohadilla ha desaparecido y el auricular no ajusta bien
+        checks:
+        - Comprueba qué talla de almohadilla te corresponde — los Buds2 incluyen S,
+          M y L
+        - Verifica que la almohadilla está bien encajada en el aro del auricular y
+          hace clic
+        - Revisa si el aro de sujeción de la almohadilla tiene el enganche intacto
+          o está roto
+        - Prueba con la talla M si no sabes cuál tienes — es la más habitual para
+          la mayoría de usuarios
+        causes:
+        - Almohadilla de talla incorrecta que no hace suficiente presión para quedarse
+          fija
+        - Enganche del aro de la almohadilla desgastado por entrada y salida frecuente
+          del estuche
+        - Almohadilla perdida por desprenderse durante el uso en actividad física
+          o sudoración
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'Galaxy Buds2: estuche no carga'
+        intent: info
+        symptoms:
+        - Los auriculares no se cargan al guardarlos en el estuche aunque esté la
+          batería del estuche cargada
+        - El LED del estuche no se enciende al conectar el cable de carga
+        - Los auriculares siguen con el mismo nivel de batería después de varias horas
+          en el estuche
+        checks:
+        - Limpia los contactos de carga dorados del estuche y de los auriculares con
+          un bastoncillo seco
+        - Verifica que los auriculares están bien asentados en el estuche y los contactos
+          hacen toque
+        - Comprueba el cable USB-C usado — prueba con otro cable para descartar el
+          cable
+        - Revisa si la carga inalámbrica funciona como alternativa para saber si el
+          problema es el puerto USB-C
+        causes:
+        - Contactos de carga sucios u oxidados que impiden la transferencia de corriente
+          al auricular
+        - Puerto USB-C del estuche con pelusa o suciedad que impide la conexión del
+          cable
+        - Batería del estuche agotada por ciclos acumulados que ya no retiene carga
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: samsung-aud-samsung-galaxy-buds2-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
+            Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 eartip silicone Almohadillas silicona
+            S/M/L (pack) compatibles para Samsung Galaxy Bu
+          must_include:
+          - buds2
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id001
+          - galaxy buds2
+          - buds2
+          - sm-r177
+        - sku: samsung-aud-samsung-galaxy-buds2-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
+            Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 eartip foam Almohadillas espuma
+            memory foam (pack) compatibles para Samsung Galaxy Bu
+          must_include:
+          - buds2
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id001
+        - sku: samsung-aud-samsung-galaxy-buds2-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 wing tip Aletas estabilizadoras
+            (pack) compatibles para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id001
+        - sku: samsung-aud-samsung-galaxy-buds2-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 case charging Estuche de carga
+            de repuesto accesorio para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id001
+        - sku: samsung-aud-samsung-galaxy-buds2-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 ear cushion Almohadillas de auricular
+            (par) accesorios para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id001
+        - sku: samsung-aud-samsung-galaxy-buds2-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 headband replacement Diadema de
+            repuesto accesorio para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id001
+        - sku: samsung-aud-samsung-galaxy-buds2-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 cleaning kit Kit de limpieza accesorio
+            para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id001
+        cargador:
+        - sku: samsung-aud-samsung-galaxy-buds2-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 usb-c cable Cable USB-C de carga
+            compatible para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id001
+        bateria:
+        - sku: samsung-aud-samsung-galaxy-buds2-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 battery left Batería auricular
+            izquierdo compatible para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id001
+        - sku: samsung-aud-samsung-galaxy-buds2-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Samsung Galaxy Buds2
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 buds2 battery right Batería auricular
+            derecho compatible para Samsung Galaxy Buds2
+          must_include:
+          - buds2
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id001
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Samsung Galaxy Buds2 Pro
+      slug: samsung-galaxy-buds2-pro
+      series: Galaxy Buds
+      year_range: 2022-actual
+      sku_pack: earphone10
+      model_tokens:
+      - galaxy buds2 pro
+      - buds2 pro
+      - sm-r510
+      intro: Los Samsung Galaxy Buds2 Pro son los auriculares TWS premium de Samsung
+        con ANC avanzado y audio Hi-Fi. Las almohadillas de silicona son el recambio
+        más solicitado para este modelo.
+      problemas:
+      - key: almohadilla-suelta
+        title: 'Galaxy Buds2 Pro: almohadilla suelta'
+        intent: info
+        symptoms:
+        - La almohadilla se desprende del auricular al guardarlo en el estuche
+        - El ajuste en el oído ha empeorado y el auricular se cae con más facilidad
+        - La almohadilla se quedó pegada en el oído al sacar el auricular
+        checks:
+        - Comprueba que usas la talla de almohadilla correcta para tu oído
+        - Verifica que la almohadilla está bien encajada en el aro de sujeción del
+          auricular
+        - Revisa si el aro de sujeción tiene el clip intacto o está desgastado
+        - Prueba a limpiar el aro con un paño seco antes de montar la almohadilla
+          nueva
+        causes:
+        - Almohadilla de talla incorrecta que no hace suficiente presión para mantenerse
+          fija
+        - Aro de sujeción desgastado por el ciclo repetido de entrada y salida del
+          estuche
+        - Almohadilla deteriorada por sudoración, productos para el cabello o solventes
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'Galaxy Buds2 Pro: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Buds2 Pro no recuperan batería al meterlos en el estuche
+        - El estuche no se carga ni por cable USB-C ni por carga inalámbrica
+        - El LED del estuche no indica el nivel de batería correctamente
+        checks:
+        - Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo
+          seco
+        - Prueba con otro cable USB-C certificado para descartar el cable como causa
+        - Verifica si la carga inalámbrica Qi funciona — coloca el estuche sobre un
+          cargador inalámbrico
+        - Comprueba si los auriculares asientan bien en el estuche con los contactos
+          alineados
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente a los
+          auriculares
+        - Puerto USB-C del estuche dañado por inserción forzada de cables no alineados
+        - Batería del estuche agotada tras ciclos de carga acumulados
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
+            Buds2 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung eartip silicone Almohadillas
+            silicona S/M/L (pack) compatibles para Samsung Gal
+          must_include:
+          - samsung
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id002
+          - galaxy buds2 pro
+          - buds2 pro
+          - sm-r510
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
+            Buds2 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung eartip foam Almohadillas
+            espuma memory foam (pack) compatibles para Samsung Gal
+          must_include:
+          - samsung
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id002
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds2
+            Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung wing tip Aletas estabilizadoras
+            (pack) compatibles para Samsung Galaxy Buds2 Pr
+          must_include:
+          - samsung
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id002
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds2
+            Pro
+          intent: compra
+          query: 'Samsung Samsung Galaxy Buds2 Pro samsung case charging Estuche de
+            carga de repuesto accesorio para Samsung Galaxy Buds2 '
+          must_include:
+          - samsung
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id002
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds2
+            Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung ear cushion Almohadillas
+            de auricular (par) accesorios para Samsung Galaxy Buds
+          must_include:
+          - samsung
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id002
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Samsung Galaxy Buds2 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung headband replacement Diadema
+            de repuesto accesorio para Samsung Galaxy Buds2 Pr
+          must_include:
+          - samsung
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id002
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Samsung Galaxy Buds2 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung cleaning kit Kit de limpieza
+            accesorio para Samsung Galaxy Buds2 Pro
+          must_include:
+          - samsung
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id002
+        cargador:
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Samsung Galaxy Buds2 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung usb-c cable Cable USB-C
+            de carga compatible para Samsung Galaxy Buds2 Pro
+          must_include:
+          - samsung
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id002
+        bateria:
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Samsung Galaxy Buds2
+            Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung battery left Batería auricular
+            izquierdo compatible para Samsung Galaxy Buds2 P
+          must_include:
+          - samsung
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id002
+        - sku: samsung-aud-samsung-galaxy-buds2-pro-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Samsung Galaxy Buds2 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds2 Pro samsung battery right Batería auricular
+            derecho compatible para Samsung Galaxy Buds2 Pr
+          must_include:
+          - samsung
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id002
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Samsung Galaxy Buds3
+      slug: samsung-galaxy-buds3
+      series: Galaxy Buds
+      year_range: 2024-actual
+      sku_pack: earphone10
+      model_tokens:
+      - galaxy buds3
+      - buds3
+      - sm-r530
+      intro: Los Samsung Galaxy Buds3 estrenan el diseño open-fit con pata de sujeción
+        al oído. Las almohadillas específicas de este nuevo diseño son el recambio
+        más buscado.
+      problemas:
+      - key: almohadilla-incompatible
+        title: 'Galaxy Buds3: buscar almohadillas compatibles'
+        intent: info
+        symptoms:
+        - La almohadilla original se ha perdido o dañado y no sé qué talla o modelo
+          comprar
+        - Las almohadillas genéricas que tenía no encajan en el nuevo diseño de los
+          Buds3
+        - El auricular no ajusta bien en el oído desde que cambié la almohadilla
+        checks:
+        - 'Verifica el número de modelo del auricular: SM-R530 para los Buds3 estándar'
+        - Comprueba la talla grabada en la almohadilla original si la conservas (S,
+          M o L)
+        - Asegúrate de que la almohadilla comprada es específica para Buds3 y no para
+          Buds2 — el sistema de anclaje es diferente
+        - Prueba la talla M si no conoces tu talla — es el tamaño incluido de fábrica
+          en la mayoría de unidades
+        causes:
+        - Almohadilla de modelo anterior incompatible con el nuevo sistema de anclaje
+          de los Buds3
+        - Almohadilla de talla incorrecta que no proporciona el ajuste ni el aislamiento
+          adecuados
+        - Almohadilla desgastada o deteriorada por el sudor o productos externos
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'Galaxy Buds3: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Buds3 no se cargan al meterlos en el estuche aunque el estuche tenga
+          batería
+        - El LED del estuche parpadea pero los auriculares no recuperan carga
+        - El estuche no se carga correctamente ni por USB-C ni por carga inalámbrica
+        checks:
+        - Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los Buds3 asientan correctamente en el estuche con la nueva
+          forma de anclaje
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Comprueba si la carga inalámbrica funciona para aislar el problema al puerto
+          USB-C
+        causes:
+        - Contactos de carga sucios que bloquean la transferencia de corriente
+        - Puerto USB-C del estuche con residuos o daño por uso intensivo
+        - Auriculares mal asentados en el nuevo diseño de anclaje que no hace contacto
+          eléctrico
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: samsung-aud-samsung-galaxy-buds3-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
+            Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 eartip silicone Almohadillas silicona
+            S/M/L (pack) compatibles para Samsung Galaxy Bu
+          must_include:
+          - buds3
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id003
+          - galaxy buds3
+          - buds3
+          - sm-r530
+        - sku: samsung-aud-samsung-galaxy-buds3-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
+            Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 eartip foam Almohadillas espuma
+            memory foam (pack) compatibles para Samsung Galaxy Bu
+          must_include:
+          - buds3
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id003
+        - sku: samsung-aud-samsung-galaxy-buds3-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 wing tip Aletas estabilizadoras
+            (pack) compatibles para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id003
+        - sku: samsung-aud-samsung-galaxy-buds3-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 case charging Estuche de carga
+            de repuesto accesorio para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id003
+        - sku: samsung-aud-samsung-galaxy-buds3-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 ear cushion Almohadillas de auricular
+            (par) accesorios para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id003
+        - sku: samsung-aud-samsung-galaxy-buds3-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 headband replacement Diadema de
+            repuesto accesorio para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id003
+        - sku: samsung-aud-samsung-galaxy-buds3-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 cleaning kit Kit de limpieza accesorio
+            para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id003
+        cargador:
+        - sku: samsung-aud-samsung-galaxy-buds3-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 usb-c cable Cable USB-C de carga
+            compatible para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id003
+        bateria:
+        - sku: samsung-aud-samsung-galaxy-buds3-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 battery left Batería auricular
+            izquierdo compatible para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id003
+        - sku: samsung-aud-samsung-galaxy-buds3-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Samsung Galaxy Buds3
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 buds3 battery right Batería auricular
+            derecho compatible para Samsung Galaxy Buds3
+          must_include:
+          - buds3
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id003
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Samsung Galaxy Buds3 Pro
+      slug: samsung-galaxy-buds3-pro
+      series: Galaxy Buds
+      year_range: 2024-actual
+      sku_pack: earphone10
+      model_tokens:
+      - galaxy buds3 pro
+      - buds3 pro
+      - sm-r630
+      intro: Los Samsung Galaxy Buds3 Pro son el modelo premium de 2024 con ANC de
+        última generación y altavoz dual. Las almohadillas son el consumible más solicitado
+        para mantener el ajuste y la calidad de sonido.
+      problemas:
+      - key: almohadilla-suelta
+        title: 'Galaxy Buds3 Pro: almohadilla suelta'
+        intent: info
+        symptoms:
+        - La almohadilla se desprende al sacar el auricular del oído o al guardarlo
+        - El ajuste ha empeorado y hay pérdida de aislamiento acústico
+        - La almohadilla se quedó pegada en el oído al retirar el auricular
+        checks:
+        - Comprueba la talla de almohadilla que usas — los Buds3 Pro incluyen S, M
+          y L
+        - Verifica que la almohadilla está bien encajada en el aro de sujeción del
+          auricular
+        - Revisa el estado del aro de sujeción — si está desgastado la almohadilla
+          no hace clic
+        - Limpia el aro con un paño seco antes de montar la almohadilla de repuesto
+        causes:
+        - Almohadilla de talla incorrecta que no encaja con suficiente presión en
+          el aro
+        - Aro de sujeción desgastado por uso intensivo que ya no retiene la almohadilla
+        - Almohadilla deteriorada por sudoración o exposición a productos cosméticos
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'Galaxy Buds3 Pro: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Buds3 Pro no recuperan batería al guardarlos en el estuche
+        - El estuche no se carga a través del cable USB-C
+        - Los auriculares siempre muestran la misma carga aunque hayan estado en el
+          estuche toda la noche
+        checks:
+        - Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo
+          de algodón seco
+        - Prueba con otro cable USB-C para descartar el cable
+        - Comprueba si la carga inalámbrica Qi funciona como alternativa
+        - Verifica que los Buds3 Pro asientan correctamente en el estuche con los
+          contactos alineados
+        causes:
+        - Contactos de carga sucios u oxidados que impiden la transferencia de corriente
+        - Puerto USB-C con pelusa o daño físico que impide la carga por cable
+        - Batería del estuche degradada por ciclos acumulados que ya no retiene suficiente
+          carga
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
+            Buds3 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung eartip silicone Almohadillas
+            silicona S/M/L (pack) compatibles para Samsung Gal
+          must_include:
+          - samsung
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id004
+          - galaxy buds3 pro
+          - buds3 pro
+          - sm-r630
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
+            Buds3 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung eartip foam Almohadillas
+            espuma memory foam (pack) compatibles para Samsung Gal
+          must_include:
+          - samsung
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id004
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds3
+            Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung wing tip Aletas estabilizadoras
+            (pack) compatibles para Samsung Galaxy Buds3 Pr
+          must_include:
+          - samsung
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id004
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds3
+            Pro
+          intent: compra
+          query: 'Samsung Samsung Galaxy Buds3 Pro samsung case charging Estuche de
+            carga de repuesto accesorio para Samsung Galaxy Buds3 '
+          must_include:
+          - samsung
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id004
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds3
+            Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung ear cushion Almohadillas
+            de auricular (par) accesorios para Samsung Galaxy Buds
+          must_include:
+          - samsung
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id004
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Samsung Galaxy Buds3 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung headband replacement Diadema
+            de repuesto accesorio para Samsung Galaxy Buds3 Pr
+          must_include:
+          - samsung
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id004
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Samsung Galaxy Buds3 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung cleaning kit Kit de limpieza
+            accesorio para Samsung Galaxy Buds3 Pro
+          must_include:
+          - samsung
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id004
+        cargador:
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Samsung Galaxy Buds3 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung usb-c cable Cable USB-C
+            de carga compatible para Samsung Galaxy Buds3 Pro
+          must_include:
+          - samsung
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id004
+        bateria:
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Samsung Galaxy Buds3
+            Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung battery left Batería auricular
+            izquierdo compatible para Samsung Galaxy Buds3 P
+          must_include:
+          - samsung
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id004
+        - sku: samsung-aud-samsung-galaxy-buds3-pro-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Samsung Galaxy Buds3 Pro
+          intent: compra
+          query: Samsung Samsung Galaxy Buds3 Pro samsung battery right Batería auricular
+            derecho compatible para Samsung Galaxy Buds3 Pr
+          must_include:
+          - samsung
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id004
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Samsung Galaxy Buds FE
+      slug: samsung-galaxy-buds-fe
+      series: Galaxy Buds
+      year_range: 2023-actual
+      sku_pack: earphone10
+      model_tokens:
+      - galaxy buds fe
+      - buds fe
+      - sm-r400
+      intro: Los Samsung Galaxy Buds FE son la opción más asequible de la gama Galaxy
+        Buds con ANC. Las almohadillas y las aletas de sujeción son los recambios
+        más buscados para este modelo.
+      problemas:
+      - key: almohadilla-suelta
+        title: 'Galaxy Buds FE: almohadilla suelta'
+        intent: info
+        symptoms:
+        - La almohadilla se cae del auricular al sacarlo del estuche
+        - El auricular no queda bien fijo en el oído y hay pérdida de aislamiento
+        - La aleta de sujeción también está suelta o perdida
+        checks:
+        - Verifica la talla de almohadilla correcta para tu oído — los Buds FE incluyen
+          S, M y L
+        - Comprueba que la almohadilla está bien encajada en el aro hasta escuchar
+          el clic
+        - Revisa la aleta de sujeción — si está rota o perdida el auricular tampoco
+          se sujeta bien
+        - Prueba con la talla M si no sabes cuál usas — es la que incluye Samsung
+          de fábrica
+        causes:
+        - Almohadilla de talla incorrecta que no hace presión suficiente en el aro
+          de sujeción
+        - Aro de sujeción desgastado por uso intensivo que no retiene la almohadilla
+        - Aleta de sujeción rota o ausente que provoca que el auricular quede inestable
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'Galaxy Buds FE: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Buds FE no se cargan al meterlos en el estuche
+        - El LED del estuche no se enciende al conectar el cable USB-C
+        - Los auriculares siguen con la misma carga aunque lleven toda la noche en
+          el estuche
+        checks:
+        - Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan bien en el estuche con los contactos
+          alineados
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Comprueba si el LED del estuche parpadea indicando batería baja del propio
+          estuche
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente a los
+          auriculares
+        - Puerto USB-C del estuche con pelusa incrustada que impide la inserción correcta
+          del cable
+        - Batería del estuche agotada por ciclos acumulados que ya no carga los auriculares
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
+            Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung eartip silicone Almohadillas
+            silicona S/M/L (pack) compatibles para Samsung Galax
+          must_include:
+          - samsung
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id005
+          - galaxy buds fe
+          - buds fe
+          - sm-r400
+        - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
+            Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung eartip foam Almohadillas espuma
+            memory foam (pack) compatibles para Samsung Galax
+          must_include:
+          - samsung
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id005
+        - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds
+            FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung wing tip Aletas estabilizadoras
+            (pack) compatibles para Samsung Galaxy Buds FE
+          must_include:
+          - samsung
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id005
+        - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung case charging Estuche de carga
+            de repuesto accesorio para Samsung Galaxy Buds FE
+          must_include:
+          - samsung
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id005
+        - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds
+            FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung ear cushion Almohadillas de
+            auricular (par) accesorios para Samsung Galaxy Buds F
+          must_include:
+          - samsung
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id005
+        - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Samsung Galaxy Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung headband replacement Diadema
+            de repuesto accesorio para Samsung Galaxy Buds FE
+          must_include:
+          - samsung
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id005
+        - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Samsung Galaxy Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung cleaning kit Kit de limpieza
+            accesorio para Samsung Galaxy Buds FE
+          must_include:
+          - samsung
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id005
+        cargador:
+        - sku: samsung-aud-samsung-galaxy-buds-fe-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Samsung Galaxy Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung usb-c cable Cable USB-C de
+            carga compatible para Samsung Galaxy Buds FE
+          must_include:
+          - samsung
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id005
+        bateria:
+        - sku: samsung-aud-samsung-galaxy-buds-fe-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Samsung Galaxy Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung battery left Batería auricular
+            izquierdo compatible para Samsung Galaxy Buds FE
+          must_include:
+          - samsung
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id005
+        - sku: samsung-aud-samsung-galaxy-buds-fe-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Samsung Galaxy Buds FE
+          intent: compra
+          query: Samsung Samsung Galaxy Buds FE samsung battery right Batería auricular
+            derecho compatible para Samsung Galaxy Buds FE
+          must_include:
+          - samsung
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id005
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  sony-aud:
+    name: Sony
+    notes_brand: Sony WF y WH top ANC. Alta demanda en almohadillas, ear tips y cables.
+      WF-1000XM5 muy buscado.
+    models:
+    - model: Sony WF-1000XM5
+      slug: sony-wf-1000xm5
+      series: WF-1000X
+      year_range: 2023-actual
+      sku_pack: earphone10
+      model_tokens:
+      - wf-1000xm5
+      - wf 1000xm5
+      - 1000xm5
+      intro: Los Sony WF-1000XM5 son los auriculares TWS con mejor ANC del mercado
+        según los principales medios especializados. Los ear tips de silicona son
+        el recambio más solicitado para mantener el ajuste y la eficacia del ANC.
+      problemas:
+      - key: ear-tip-suelta
+        title: 'Sony WF-1000XM5: ear tip suelta o perdida'
+        intent: info
+        symptoms:
+        - El ear tip se queda pegado en el oído al retirar el auricular
+        - El ear tip se ha perdido y el auricular no ajusta correctamente en el oído
+        - El ANC funciona peor porque el ear tip no sella correctamente el canal
+        checks:
+        - Comprueba la talla del ear tip que usas — los XM5 incluyen SS, S, M y L
+        - Verifica que el ear tip está bien encajado en el aro del auricular y hace
+          clic
+        - Revisa si el aro de sujeción del ear tip está intacto o tiene el clip desgastado
+        - Haz la prueba de ajuste de Sony en la app Headphones para verificar el sellado
+        causes:
+        - Ear tip de talla incorrecta que no encaja con la presión suficiente en el
+          aro
+        - Aro de sujeción desgastado que no retiene el ear tip con firmeza
+        - Ear tip deteriorado por sudoración o productos del cabello que ablandan
+          el silicona
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      - key: estuche-no-carga
+        title: 'Sony WF-1000XM5: estuche no carga'
+        intent: info
+        symptoms:
+        - Los XM5 no recuperan batería al guardarlos en el estuche aunque el estuche
+          tenga carga
+        - El estuche no se carga con el cable USB-C incluido
+        - Los auriculares siempre muestran el mismo nivel de batería tras horas en
+          el estuche
+        checks:
+        - Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo
+          de algodón seco
+        - Verifica que los auriculares asientan correctamente con los contactos alineados
+        - Prueba con un cable USB-C diferente certificado para descartar el cable
+        - Comprueba si la carga inalámbrica Qi funciona como alternativa al cable
+        causes:
+        - Contactos de carga sucios u oxidados que bloquean la transferencia de corriente
+        - Puerto USB-C del estuche con pelusa o daño físico que impide la carga
+        - Batería del estuche degradada por ciclos acumulados que ya no almacena suficiente
+          energía
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 eartip silicone Almohadillas silicona
+            S/M/L (pack) compatibles para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id006
+          - wf-1000xm5
+          - wf 1000xm5
+          - 1000xm5
+        - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 eartip foam Almohadillas espuma memory
+            foam (pack) compatibles para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id006
+        - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 wing tip Aletas estabilizadoras (pack)
+            compatibles para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id006
+        - sku: sony-aud-sony-wf-1000xm5-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 case charging Estuche de carga de repuesto
+            accesorio para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id006
+        - sku: sony-aud-sony-wf-1000xm5-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 ear cushion Almohadillas de auricular
+            (par) accesorios para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id006
+        - sku: sony-aud-sony-wf-1000xm5-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 headband replacement Diadema de repuesto
+            accesorio para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id006
+        - sku: sony-aud-sony-wf-1000xm5-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 cleaning kit Kit de limpieza accesorio
+            para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id006
+        cargador:
+        - sku: sony-aud-sony-wf-1000xm5-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 usb-c cable Cable USB-C de carga compatible
+            para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id006
+        bateria:
+        - sku: sony-aud-sony-wf-1000xm5-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 battery left Batería auricular izquierdo
+            compatible para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id006
+        - sku: sony-aud-sony-wf-1000xm5-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Sony WF-1000XM5
+          intent: compra
+          query: Sony Sony WF-1000XM5 1000xm5 battery right Batería auricular derecho
+            compatible para Sony WF-1000XM5
+          must_include:
+          - 1000xm5
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id006
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Sony WF-1000XM4
+      slug: sony-wf-1000xm4
+      series: WF-1000X
+      year_range: 2021-2023
+      sku_pack: earphone10
+      model_tokens:
+      - wf-1000xm4
+      - wf 1000xm4
+      - 1000xm4
+      intro: Los Sony WF-1000XM4 fueron durante dos años el referente en ANC para
+        auriculares TWS. Los ear tips de espuma y silicona son el recambio más solicitado
+        para este modelo.
+      problemas:
+      - key: ear-tip-suelta
+        title: 'Sony WF-1000XM4: ear tip suelta'
+        intent: info
+        symptoms:
+        - El ear tip de espuma o silicona se desprende del auricular con facilidad
+        - El auricular se cae del oído porque el ear tip ya no hace el sellado correcto
+        - El ANC funciona peor desde que el ear tip cambió de forma o se deterioró
+        checks:
+        - 'Comprueba qué tipo de ear tip usas: silicona o espuma — los XM4 incluyen
+          ambos tipos'
+        - Verifica que el ear tip está bien encajado en el aro del auricular
+        - Revisa si el ear tip de espuma ha perdido la capacidad de recuperar su forma
+        - Haz la prueba de ajuste en la app Sony Headphones para confirmar el sellado
+        causes:
+        - Ear tip de espuma comprimido permanentemente que ya no sella el canal auditivo
+        - Ear tip de silicona desgastado por sudoración o uso de productos del cabello
+        - Talla de ear tip incorrecta que nunca hizo el ajuste correcto
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      - key: estuche-no-carga
+        title: 'Sony WF-1000XM4: estuche no carga'
+        intent: info
+        symptoms:
+        - Los XM4 no se cargan al guardarlos en el estuche durante la noche
+        - El estuche no se carga por cable USB-C ni por carga inalámbrica
+        - Los auriculares siempre muestran el mismo nivel de batería tras estar en
+          el estuche
+        checks:
+        - Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan bien en el estuche con los contactos
+          alineados
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Comprueba si la batería del estuche tiene carga suficiente — los XM4 tienen
+          batería del estuche separada
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente al auricular
+        - Puerto USB-C del estuche con pelusa incrustada que impide la conexión
+        - Batería del estuche degradada por ciclos acumulados
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 eartip silicone Almohadillas silicona
+            S/M/L (pack) compatibles para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id007
+          - wf-1000xm4
+          - wf 1000xm4
+          - 1000xm4
+        - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 eartip foam Almohadillas espuma memory
+            foam (pack) compatibles para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id007
+        - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 wing tip Aletas estabilizadoras (pack)
+            compatibles para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id007
+        - sku: sony-aud-sony-wf-1000xm4-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 case charging Estuche de carga de repuesto
+            accesorio para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id007
+        - sku: sony-aud-sony-wf-1000xm4-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 ear cushion Almohadillas de auricular
+            (par) accesorios para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id007
+        - sku: sony-aud-sony-wf-1000xm4-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 headband replacement Diadema de repuesto
+            accesorio para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id007
+        - sku: sony-aud-sony-wf-1000xm4-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 cleaning kit Kit de limpieza accesorio
+            para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id007
+        cargador:
+        - sku: sony-aud-sony-wf-1000xm4-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 usb-c cable Cable USB-C de carga compatible
+            para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id007
+        bateria:
+        - sku: sony-aud-sony-wf-1000xm4-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 battery left Batería auricular izquierdo
+            compatible para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id007
+        - sku: sony-aud-sony-wf-1000xm4-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Sony WF-1000XM4
+          intent: compra
+          query: Sony Sony WF-1000XM4 1000xm4 battery right Batería auricular derecho
+            compatible para Sony WF-1000XM4
+          must_include:
+          - 1000xm4
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id007
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Sony WF-C700N
+      slug: sony-wf-c700n
+      series: WF-C
+      year_range: 2023-actual
+      sku_pack: earphone10
+      model_tokens:
+      - wf-c700n
+      - wf c700n
+      - c700n
+      intro: Los Sony WF-C700N son los auriculares TWS con ANC más asequibles de Sony,
+        con diseño compacto. Las almohadillas de silicona son el consumible más solicitado
+        para este modelo.
+      problemas:
+      - key: almohadilla-suelta
+        title: 'Sony WF-C700N: almohadilla suelta'
+        intent: info
+        symptoms:
+        - La almohadilla se desprende al retirar el auricular del oído
+        - El ajuste en el oído ha empeorado y hay pérdida de aislamiento sonoro
+        - La almohadilla se quedó pegada en el oído al sacar el auricular
+        checks:
+        - Comprueba la talla de almohadilla que usas — los WF-C700N incluyen SS, S,
+          M y L
+        - Verifica que la almohadilla está bien encajada en el aro del auricular
+        - Revisa si el aro de sujeción tiene el clip intacto
+        - Haz la prueba de ajuste en la app Sony Headphones
+        causes:
+        - Talla de almohadilla incorrecta que no encaja con presión suficiente
+        - Aro de sujeción desgastado que no retiene la almohadilla firmemente
+        - Almohadilla deteriorada por sudoración que ha perdido elasticidad
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'Sony WF-C700N: estuche no carga'
+        intent: info
+        symptoms:
+        - Los C700N no recuperan carga al meterlos en el estuche
+        - El estuche no se carga por cable USB-C
+        - Los auriculares muestran siempre el mismo nivel de batería tras horas en
+          el estuche
+        checks:
+        - Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan bien en el estuche
+        - Prueba con otro cable USB-C para descartar el cable
+        - Comprueba si el estuche tiene batería suficiente
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente
+        - Puerto USB-C con pelusa incrustada que impide la carga
+        - Batería del estuche degradada por ciclos acumulados
+        cta:
+          catKey: accesorios
+          label: Ver estuches de carga compatibles
+      recambios:
+        accesorios:
+        - sku: sony-aud-sony-wf-c700n-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n eartip silicone Almohadillas silicona S/M/L
+            (pack) compatibles para Sony WF-C700N
+          must_include:
+          - c700n
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id008
+          - wf-c700n
+          - wf c700n
+          - c700n
+        - sku: sony-aud-sony-wf-c700n-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n eartip foam Almohadillas espuma memory foam
+            (pack) compatibles para Sony WF-C700N
+          must_include:
+          - c700n
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id008
+        - sku: sony-aud-sony-wf-c700n-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n wing tip Aletas estabilizadoras (pack) compatibles
+            para Sony WF-C700N
+          must_include:
+          - c700n
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id008
+        - sku: sony-aud-sony-wf-c700n-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n case charging Estuche de carga de repuesto
+            accesorio para Sony WF-C700N
+          must_include:
+          - c700n
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id008
+        - sku: sony-aud-sony-wf-c700n-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n ear cushion Almohadillas de auricular (par)
+            accesorios para Sony WF-C700N
+          must_include:
+          - c700n
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id008
+        - sku: sony-aud-sony-wf-c700n-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n headband replacement Diadema de repuesto
+            accesorio para Sony WF-C700N
+          must_include:
+          - c700n
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id008
+        - sku: sony-aud-sony-wf-c700n-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n cleaning kit Kit de limpieza accesorio para
+            Sony WF-C700N
+          must_include:
+          - c700n
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id008
+        cargador:
+        - sku: sony-aud-sony-wf-c700n-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n usb-c cable Cable USB-C de carga compatible
+            para Sony WF-C700N
+          must_include:
+          - c700n
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id008
+        bateria:
+        - sku: sony-aud-sony-wf-c700n-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n battery left Batería auricular izquierdo
+            compatible para Sony WF-C700N
+          must_include:
+          - c700n
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id008
+        - sku: sony-aud-sony-wf-c700n-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Sony WF-C700N
+          intent: compra
+          query: Sony Sony WF-C700N c700n battery right Batería auricular derecho
+            compatible para Sony WF-C700N
+          must_include:
+          - c700n
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id008
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Sony WH-1000XM5
+      slug: sony-wh-1000xm5
+      series: WH-1000X
+      year_range: 2022-actual
+      sku_pack: earphone10
+      model_tokens:
+      - wh-1000xm5
+      - wh 1000xm5
+      intro: Los Sony WH-1000XM5 son los auriculares over-ear con mejor ANC del mercado
+        con diseño sin bisagras. Las almohadillas de cuero sintético son el recambio
+        más solicitado para este modelo.
+      problemas:
+      - key: almohadilla-desgastada
+        title: 'Sony WH-1000XM5: almohadilla desgastada'
+        intent: info
+        symptoms:
+        - Las almohadillas se han pelado y el cuero sintético se desprende en escamas
+        - El relleno de espuma ha perdido grosor y los auriculares ya no resultan
+          cómodos
+        - El aislamiento acústico ha empeorado porque las almohadillas no sellan bien
+          la oreja
+        checks:
+        - 'Examina las almohadillas: si el cuero sintético se agrieta o desprende
+          hay que sustituirlas'
+        - Comprueba si el relleno de espuma mantiene su forma o está comprimido permanentemente
+        - Verifica cuántos años tienen los auriculares — el cuero sintético suele
+          pelarse a los 2-3 años con uso diario
+        - Comprueba si has usado productos agresivos (alcohol, acetona) en la limpieza
+          que aceleran el deterioro
+        causes:
+        - Deterioro natural del cuero sintético PU por el sudor y los aceites de la
+          piel
+        - Exposición a calor o luz solar directa que fragiliza el cuero sintético
+        - Uso de productos de limpieza con disolventes que degradan el recubrimiento
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas over-ear compatibles
+      - key: cable-roto
+        title: 'Sony WH-1000XM5: cable roto'
+        intent: info
+        symptoms:
+        - El sonido se interrumpe o solo sale por un canal al mover el cable
+        - El cable tiene una doblez pronunciada o un bulto visible que indica rotura
+          interna
+        - El audio en modo cableado falla aunque el modo inalámbrico funcione perfectamente
+        checks:
+        - Dobla suavemente el cable a lo largo de toda su longitud para localizar
+          la zona de fallo
+        - Prueba con un cable de 3.5mm diferente para confirmar que el problema es
+          el cable y no el puerto
+        - 'Revisa especialmente las zonas de mayor tensión: junto al conector del
+          auricular y junto a la clavija de 3.5mm'
+        - Verifica que el puerto de 3.5mm del WH-1000XM5 no tiene suciedad que interrumpa
+          el contacto
+        causes:
+        - Rotura interna del cable por dobleces repetidos en los puntos de mayor tensión
+        - Daño en el conector de 3.5mm por inserción y extracción frecuente sin sujetar
+          el conector
+        - Cable aplastado o cortado por haber sido pillado bajo objetos pesados
+        cta:
+          catKey: cargador
+          label: Ver cables compatibles
+      recambios:
+        accesorios:
+        - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony eartip silicone Almohadillas silicona S/M/L
+            (pack) compatibles para Sony WH-1000XM5
+          must_include:
+          - sony
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id009
+          - wh-1000xm5
+          - wh 1000xm5
+        - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony eartip foam Almohadillas espuma memory
+            foam (pack) compatibles para Sony WH-1000XM5
+          must_include:
+          - sony
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id009
+        - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony wing tip Aletas estabilizadoras (pack)
+            compatibles para Sony WH-1000XM5
+          must_include:
+          - sony
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id009
+        - sku: sony-aud-sony-wh-1000xm5-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony case charging Estuche de carga de repuesto
+            accesorio para Sony WH-1000XM5
+          must_include:
+          - sony
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id009
+        - sku: sony-aud-sony-wh-1000xm5-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony ear cushion Almohadillas de auricular (par)
+            accesorios para Sony WH-1000XM5
+          must_include:
+          - sony
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id009
+        - sku: sony-aud-sony-wh-1000xm5-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony headband replacement Diadema de repuesto
+            accesorio para Sony WH-1000XM5
+          must_include:
+          - sony
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id009
+        - sku: sony-aud-sony-wh-1000xm5-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony cleaning kit Kit de limpieza accesorio
+            para Sony WH-1000XM5
+          must_include:
+          - sony
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id009
+        cargador:
+        - sku: sony-aud-sony-wh-1000xm5-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony usb-c cable Cable USB-C de carga compatible
+            para Sony WH-1000XM5
+          must_include:
+          - sony
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id009
+        bateria:
+        - sku: sony-aud-sony-wh-1000xm5-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony battery left Batería auricular izquierdo
+            compatible para Sony WH-1000XM5
+          must_include:
+          - sony
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id009
+        - sku: sony-aud-sony-wh-1000xm5-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Sony WH-1000XM5
+          intent: compra
+          query: Sony Sony WH-1000XM5 sony battery right Batería auricular derecho
+            compatible para Sony WH-1000XM5
+          must_include:
+          - sony
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id009
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Sony WH-CH720N
+      slug: sony-wh-ch720n
+      series: WH-CH
+      year_range: 2023-actual
+      sku_pack: earphone10
+      model_tokens:
+      - wh-ch720n
+      - wh ch720n
+      - ch720n
+      intro: Los Sony WH-CH720N son los auriculares over-ear más ligeros de Sony con
+        ANC. Las almohadillas son el recambio más demandado para mantener la comodidad
+        y el sellado acústico.
+      problemas:
+      - key: almohadilla-desgastada
+        title: 'Sony WH-CH720N: almohadilla desgastada'
+        intent: info
+        symptoms:
+        - El cuero sintético de las almohadillas se ha pelado y desprende escamas
+        - La espuma interior ha perdido grosor y los auriculares ya no son tan cómodos
+        - El aislamiento pasivo ha bajado porque las almohadillas no sellan bien la
+          oreja
+        checks:
+        - Examina las almohadillas en busca de grietas, peladuras o compresión permanente
+          del relleno
+        - Comprueba si el cuero sintético PU ha comenzado a laminarse — es el signo
+          más claro de que hay que sustituirlas
+        - Verifica cuántos años tienen los auriculares con uso diario
+        - Revisa si has usado alcohol u otros productos de limpieza que degradan el
+          recubrimiento
+        causes:
+        - Deterioro del cuero sintético PU por el sudor, los aceites de la piel y
+          el uso continuado
+        - Calor excesivo por almacenamiento cerca de fuentes de calor que fragiliza
+          el material
+        - Limpieza con productos inadecuados que disuelven el recubrimiento superficial
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: cable-roto
+        title: 'Sony WH-CH720N: cable roto'
+        intent: info
+        symptoms:
+        - El audio en modo cableado falla o solo sale por un canal al usar el cable
+        - El cable tiene un bulto o doblez permanente que indica rotura interna
+        - El sonido se interrumpe al mover el cable cerca de los conectores
+        checks:
+        - Dobla el cable a lo largo de toda su longitud para localizar la zona de
+          fallo por el sonido
+        - Prueba con un cable de 3.5mm diferente para confirmar que el problema no
+          es el puerto
+        - Revisa especialmente los extremos del cable — los conectores son los puntos
+          de rotura más habituales
+        - Comprueba que el puerto de 3.5mm del auricular no tiene pelusa o residuos
+          incrustados
+        causes:
+        - Rotura interna del cable por dobleces repetidos cerca de los conectores
+        - Daño en el conector de 3.5mm por tensión excesiva al guardar el cable enrollado
+          muy apretado
+        - Cable cortado accidentalmente por una silla, puerta o peso externo
+        cta:
+          catKey: cargador
+          label: Ver cables compatibles
+      recambios:
+        accesorios:
+        - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n eartip silicone Almohadillas silicona
+            S/M/L (pack) compatibles para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id010
+          - wh-ch720n
+          - wh ch720n
+          - ch720n
+        - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n eartip foam Almohadillas espuma memory
+            foam (pack) compatibles para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id010
+        - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n wing tip Aletas estabilizadoras (pack)
+            compatibles para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id010
+        - sku: sony-aud-sony-wh-ch720n-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n case charging Estuche de carga de repuesto
+            accesorio para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id010
+        - sku: sony-aud-sony-wh-ch720n-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n ear cushion Almohadillas de auricular
+            (par) accesorios para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id010
+        - sku: sony-aud-sony-wh-ch720n-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n headband replacement Diadema de repuesto
+            accesorio para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id010
+        - sku: sony-aud-sony-wh-ch720n-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n cleaning kit Kit de limpieza accesorio
+            para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id010
+        cargador:
+        - sku: sony-aud-sony-wh-ch720n-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n usb-c cable Cable USB-C de carga compatible
+            para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id010
+        bateria:
+        - sku: sony-aud-sony-wh-ch720n-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n battery left Batería auricular izquierdo
+            compatible para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id010
+        - sku: sony-aud-sony-wh-ch720n-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para Sony WH-CH720N
+          intent: compra
+          query: Sony Sony WH-CH720N ch720n battery right Batería auricular derecho
+            compatible para Sony WH-CH720N
+          must_include:
+          - ch720n
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id010
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  jbl-aud:
+    name: JBL
+    notes_brand: JBL Tour Pro y Live Pro top ventas. Alta demanda en almohadillas
+      y estuches. Tour Pro 2 muy buscado.
+    models:
+    - model: JBL Tour Pro 2
+      slug: jbl-tour-pro-2
+      series: Tour Pro
+      year_range: 2023-actual
+      sku_pack: earphone10
+      model_tokens:
+      - jbl tour pro 2
+      - tour pro 2
+      intro: Los JBL Tour Pro 2 son únicos por llevar una pantalla táctil en el estuche
+        de carga. Los ear tips y el estuche son los recambios más buscados para este
+        modelo innovador.
+      problemas:
+      - key: ear-tip-suelta
+        title: 'JBL Tour Pro 2: ear tip suelta'
+        intent: info
+        symptoms:
+        - El ear tip se desprende del auricular al sacarlo del estuche o del oído
+        - El ajuste en el oído ha empeorado y el ANC funciona peor
+        - El ear tip se quedó pegado en el oído al retirar el auricular
+        checks:
+        - Comprueba la talla del ear tip que usas — los Tour Pro 2 incluyen S, M y
+          L
+        - Verifica que el ear tip está bien encajado en el aro del auricular y hace
+          clic
+        - Revisa el estado del aro de sujeción — si está desgastado no retiene el
+          ear tip
+        - Prueba con la talla M si no conoces tu talla — es la que incluye JBL de
+          fábrica
+        causes:
+        - Ear tip de talla incorrecta que no encaja con la presión suficiente
+        - Aro de sujeción desgastado por el ciclo diario de entrada y salida del estuche
+        - Ear tip deteriorado por sudoración o exposición a productos del cabello
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      - key: estuche-no-carga
+        title: 'JBL Tour Pro 2: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Tour Pro 2 no recuperan batería al meterlos en el estuche
+        - La pantalla del estuche no responde ni se enciende al conectar el cable
+        - El estuche no muestra el nivel de batería correcto en su pantalla táctil
+        checks:
+        - Limpia los contactos dorados del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan correctamente con los contactos alineados
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Reinicia el estuche manteniendo pulsado el botón lateral durante 10 segundos
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente a los
+          auriculares
+        - Puerto USB-C con pelusa o daño que impide la carga del estuche
+        - Firmware del estuche con error que puede resolverse con un reinicio o actualización
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      recambios:
+        accesorios:
+        - sku: jbl-aud-jbl-tour-pro-2-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tour Pro
+            2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl eartip silicone Almohadillas silicona S/M/L
+            (pack) compatibles para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id011
+          - jbl tour pro 2
+          - tour pro 2
+        - sku: jbl-aud-jbl-tour-pro-2-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para JBL Tour
+            Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl eartip foam Almohadillas espuma memory foam
+            (pack) compatibles para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id011
+        - sku: jbl-aud-jbl-tour-pro-2-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl wing tip Aletas estabilizadoras (pack) compatibles
+            para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id011
+        - sku: jbl-aud-jbl-tour-pro-2-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl case charging Estuche de carga de repuesto
+            accesorio para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id011
+        - sku: jbl-aud-jbl-tour-pro-2-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl ear cushion Almohadillas de auricular (par)
+            accesorios para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id011
+        - sku: jbl-aud-jbl-tour-pro-2-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl headband replacement Diadema de repuesto accesorio
+            para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id011
+        - sku: jbl-aud-jbl-tour-pro-2-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl cleaning kit Kit de limpieza accesorio para
+            JBL Tour Pro 2
+          must_include:
+          - jbl
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id011
+        cargador:
+        - sku: jbl-aud-jbl-tour-pro-2-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl usb-c cable Cable USB-C de carga compatible
+            para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id011
+        bateria:
+        - sku: jbl-aud-jbl-tour-pro-2-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl battery left Batería auricular izquierdo compatible
+            para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id011
+        - sku: jbl-aud-jbl-tour-pro-2-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para JBL Tour Pro 2
+          intent: compra
+          query: JBL JBL Tour Pro 2 jbl battery right Batería auricular derecho compatible
+            para JBL Tour Pro 2
+          must_include:
+          - jbl
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id011
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: JBL Live Pro 2 TWS
+      slug: jbl-live-pro-2-tws
+      series: Live Pro
+      year_range: 2022-actual
+      sku_pack: earphone10
+      model_tokens:
+      - jbl live pro 2
+      - live pro 2
+      intro: Los JBL Live Pro 2 TWS ofrecen ANC y hasta 40 horas de autonomía total
+        con el estuche. Los estuches y los ear tips son los recambios más solicitados
+        para este modelo.
+      problemas:
+      - key: estuche-no-carga
+        title: 'JBL Live Pro 2: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Live Pro 2 no recuperan batería al guardarlos en el estuche
+        - El estuche no se carga con el cable USB-C
+        - El LED del estuche no parpadea al conectar el cable de carga
+        checks:
+        - Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo
+          de algodón seco
+        - Verifica que los auriculares asientan bien en el estuche con los contactos
+          alineados
+        - Prueba con otro cable USB-C para descartar el cable
+        - Comprueba si la carga inalámbrica Qi funciona como alternativa
+        causes:
+        - Contactos de carga sucios que bloquean la transferencia de corriente a los
+          auriculares
+        - Puerto USB-C del estuche con pelusa incrustada que impide la conexión
+        - Batería del estuche degradada por ciclos acumulados que ya no almacena energía
+          suficiente
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      - key: ear-tip-suelta
+        title: 'JBL Live Pro 2: ear tip suelta'
+        intent: info
+        symptoms:
+        - El ear tip se desprende del auricular al sacarlo del estuche
+        - El auricular no ajusta bien en el oído y se cae durante el ejercicio
+        - El ANC funciona con menos eficacia porque el ear tip no sella el canal
+        checks:
+        - Comprueba la talla del ear tip — los Live Pro 2 incluyen S, M y L
+        - Verifica que el ear tip está bien encajado en el aro y hace clic al montarlo
+        - Revisa si el aro de sujeción está desgastado o tiene el clip roto
+        - Prueba con la talla M como referencia de talla media
+        causes:
+        - Ear tip de talla incorrecta que no encaja con la presión suficiente en el
+          aro
+        - Aro de sujeción desgastado que no retiene el ear tip durante el uso
+        - Ear tip deteriorado por sudoración intensa o uso de auriculares durante
+          el ejercicio
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      recambios:
+        accesorios:
+        - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para JBL Live Pro
+            2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl eartip silicone Almohadillas silicona
+            S/M/L (pack) compatibles para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id012
+          - jbl live pro 2
+          - live pro 2
+        - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para JBL Live
+            Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl eartip foam Almohadillas espuma memory
+            foam (pack) compatibles para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id012
+        - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl wing tip Aletas estabilizadoras (pack)
+            compatibles para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id012
+        - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl case charging Estuche de carga de repuesto
+            accesorio para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id012
+        - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl ear cushion Almohadillas de auricular
+            (par) accesorios para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id012
+        - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl headband replacement Diadema de repuesto
+            accesorio para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id012
+        - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl cleaning kit Kit de limpieza accesorio
+            para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id012
+        cargador:
+        - sku: jbl-aud-jbl-live-pro-2-tws-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl usb-c cable Cable USB-C de carga compatible
+            para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id012
+        bateria:
+        - sku: jbl-aud-jbl-live-pro-2-tws-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl battery left Batería auricular izquierdo
+            compatible para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id012
+        - sku: jbl-aud-jbl-live-pro-2-tws-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para JBL Live Pro 2 TWS
+          intent: compra
+          query: JBL JBL Live Pro 2 TWS jbl battery right Batería auricular derecho
+            compatible para JBL Live Pro 2 TWS
+          must_include:
+          - jbl
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id012
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: JBL Tune 230NC TWS
+      slug: jbl-tune-230nc
+      series: Tune
+      year_range: 2022-actual
+      sku_pack: earphone10
+      model_tokens:
+      - jbl tune 230nc
+      - tune 230nc
+      - tune 230
+      intro: Los JBL Tune 230NC son los auriculares TWS con ANC más económicos de
+        JBL. Las almohadillas son el consumible más demandado para este modelo de
+        entrada.
+      problemas:
+      - key: almohadilla-suelta
+        title: 'JBL Tune 230NC: almohadilla suelta'
+        intent: info
+        symptoms:
+        - La almohadilla se desprende fácilmente del auricular con el uso normal
+        - El auricular no queda bien fijo en el oído y tiene pérdida de aislamiento
+        - La almohadilla se cayó durante una sesión de deporte
+        checks:
+        - Comprueba la talla de almohadilla que usas — los Tune 230NC incluyen S,
+          M y L
+        - Verifica que la almohadilla está bien encajada en el aro del auricular
+        - Revisa el aro de sujeción para confirmar que el clip está intacto
+        - Prueba con la talla M si no conoces tu talla
+        causes:
+        - Almohadilla de talla incorrecta que no hace la presión suficiente para mantenerse
+        - Aro de sujeción desgastado por el uso diario que ya no retiene la almohadilla
+        - Almohadilla deteriorada por sudoración que ha perdido elasticidad
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'JBL Tune 230NC: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Tune 230NC no recuperan batería al guardarlos en el estuche
+        - El estuche no se carga por cable USB-C
+        - Los auriculares siempre muestran el mismo nivel de batería tras estar en
+          el estuche
+        checks:
+        - Limpia los contactos del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan bien en el estuche
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Comprueba si el estuche tiene batería propia suficiente
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente
+        - Puerto USB-C del estuche con residuos que impiden la carga
+        - Batería del estuche degradada por ciclos acumulados
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      recambios:
+        accesorios:
+        - sku: jbl-aud-jbl-tune-230nc-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tune 230NC
+            TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl eartip silicone Almohadillas silicona
+            S/M/L (pack) compatibles para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id013
+          - jbl tune 230nc
+          - tune 230nc
+          - tune 230
+        - sku: jbl-aud-jbl-tune-230nc-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para JBL Tune
+            230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl eartip foam Almohadillas espuma memory
+            foam (pack) compatibles para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id013
+        - sku: jbl-aud-jbl-tune-230nc-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl wing tip Aletas estabilizadoras (pack)
+            compatibles para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id013
+        - sku: jbl-aud-jbl-tune-230nc-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl case charging Estuche de carga de repuesto
+            accesorio para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id013
+        - sku: jbl-aud-jbl-tune-230nc-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl ear cushion Almohadillas de auricular
+            (par) accesorios para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id013
+        - sku: jbl-aud-jbl-tune-230nc-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl headband replacement Diadema de repuesto
+            accesorio para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id013
+        - sku: jbl-aud-jbl-tune-230nc-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl cleaning kit Kit de limpieza accesorio
+            para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id013
+        cargador:
+        - sku: jbl-aud-jbl-tune-230nc-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl usb-c cable Cable USB-C de carga compatible
+            para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id013
+        bateria:
+        - sku: jbl-aud-jbl-tune-230nc-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl battery left Batería auricular izquierdo
+            compatible para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id013
+        - sku: jbl-aud-jbl-tune-230nc-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para JBL Tune 230NC TWS
+          intent: compra
+          query: JBL JBL Tune 230NC TWS jbl battery right Batería auricular derecho
+            compatible para JBL Tune 230NC TWS
+          must_include:
+          - jbl
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id013
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: JBL Tune Flex
+      slug: jbl-tune-flex
+      series: Tune
+      year_range: 2022-actual
+      sku_pack: earphone10
+      model_tokens:
+      - jbl tune flex
+      - tune flex
+      intro: Los JBL Tune Flex son auriculares TWS open-fit con ANC que permiten escuchar
+        el entorno. Los ear tips y los estuches son los recambios más solicitados
+        para este modelo.
+      problemas:
+      - key: ear-tip-suelta
+        title: 'JBL Tune Flex: ear tip suelta'
+        intent: info
+        symptoms:
+        - El ear tip se desprende del auricular al sacarlo del estuche o del oído
+        - El auricular no ajusta bien en el oído y no sella correctamente
+        - El ear tip se perdió durante una sesión de ejercicio
+        checks:
+        - Comprueba la talla del ear tip — los Tune Flex incluyen S, M y L
+        - Verifica que el ear tip está bien encajado en el aro del auricular y hace
+          clic
+        - Revisa el estado del aro de sujeción del ear tip
+        - Prueba con la talla M como referencia de talla estándar
+        causes:
+        - Ear tip de talla incorrecta que no encaja con la presión suficiente
+        - Aro de sujeción desgastado que no retiene el ear tip durante la actividad
+          física
+        - Ear tip deteriorado por sudoración o exposición a productos externos
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      - key: estuche-no-carga
+        title: 'JBL Tune Flex: estuche no carga'
+        intent: info
+        symptoms:
+        - Los Tune Flex no recuperan batería al guardarlos en el estuche
+        - El estuche no se carga por cable USB-C
+        - El LED del estuche no se enciende al conectar el cargador
+        checks:
+        - Limpia los contactos del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan correctamente en el estuche
+        - Prueba con otro cable USB-C para descartar el cable
+        - Comprueba si el estuche tiene batería suficiente o necesita cargarse primero
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente
+        - Puerto USB-C del estuche con pelusa o residuos que bloquean la conexión
+        - Batería del estuche degradada que ya no carga los auriculares
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      recambios:
+        accesorios:
+        - sku: jbl-aud-jbl-tune-flex-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl eartip silicone Almohadillas silicona S/M/L
+            (pack) compatibles para JBL Tune Flex
+          must_include:
+          - jbl
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id014
+          - jbl tune flex
+          - tune flex
+        - sku: jbl-aud-jbl-tune-flex-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para JBL Tune
+            Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl eartip foam Almohadillas espuma memory foam
+            (pack) compatibles para JBL Tune Flex
+          must_include:
+          - jbl
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id014
+        - sku: jbl-aud-jbl-tune-flex-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl wing tip Aletas estabilizadoras (pack) compatibles
+            para JBL Tune Flex
+          must_include:
+          - jbl
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id014
+        - sku: jbl-aud-jbl-tune-flex-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl case charging Estuche de carga de repuesto
+            accesorio para JBL Tune Flex
+          must_include:
+          - jbl
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id014
+        - sku: jbl-aud-jbl-tune-flex-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl ear cushion Almohadillas de auricular (par)
+            accesorios para JBL Tune Flex
+          must_include:
+          - jbl
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id014
+        - sku: jbl-aud-jbl-tune-flex-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl headband replacement Diadema de repuesto accesorio
+            para JBL Tune Flex
+          must_include:
+          - jbl
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id014
+        - sku: jbl-aud-jbl-tune-flex-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl cleaning kit Kit de limpieza accesorio para
+            JBL Tune Flex
+          must_include:
+          - jbl
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id014
+        cargador:
+        - sku: jbl-aud-jbl-tune-flex-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl usb-c cable Cable USB-C de carga compatible
+            para JBL Tune Flex
+          must_include:
+          - jbl
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id014
+        bateria:
+        - sku: jbl-aud-jbl-tune-flex-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl battery left Batería auricular izquierdo compatible
+            para JBL Tune Flex
+          must_include:
+          - jbl
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id014
+        - sku: jbl-aud-jbl-tune-flex-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para JBL Tune Flex
+          intent: compra
+          query: JBL JBL Tune Flex jbl battery right Batería auricular derecho compatible
+            para JBL Tune Flex
+          must_include:
+          - jbl
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id014
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  qcy:
+    name: QCY
+    notes_brand: QCY auriculares TWS gama económica top ventas AliExpress. Alta demanda
+      en ear tips y cables.
+    models:
+    - model: QCY T13
+      slug: qcy-t13
+      series: T-Series
+      year_range: 2021-actual
+      sku_pack: earphone10
+      model_tokens:
+      - qcy t13
+      - t13
+      intro: El QCY T13 es uno de los auriculares TWS más vendidos de AliExpress por
+        su excelente relación calidad-precio. Los ear tips son el recambio más solicitado
+        para este modelo.
+      problemas:
+      - key: ear-tip-suelta
+        title: 'QCY T13: ear tip suelta o perdida'
+        intent: info
+        symptoms:
+        - El ear tip se desprende del auricular al sacarlo del estuche o del oído
+        - Un auricular no sella bien en el oído y el sonido queda muy apagado
+        - El ear tip ha desaparecido y el auricular molesta en el oído sin él
+        checks:
+        - Comprueba la talla del ear tip que usas — el T13 incluye S, M y L
+        - Verifica que el ear tip está bien encajado en el aro del auricular y hace
+          clic
+        - Revisa si el aro de sujeción del ear tip está intacto o tiene el clip desgastado
+        - Prueba con la talla M como referencia — es la que QCY incluye de fábrica
+        causes:
+        - Ear tip de talla incorrecta que no encaja con presión suficiente en el aro
+        - Aro de sujeción desgastado por el ciclo diario de entrada y salida del estuche
+        - Ear tip deteriorado por sudoración que ha perdido la elasticidad del silicona
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      - key: estuche-no-carga
+        title: 'QCY T13: estuche no carga'
+        intent: info
+        symptoms:
+        - Los T13 no recuperan batería al guardarlos en el estuche durante la noche
+        - El estuche no se carga por cable USB-C
+        - El LED del estuche no se enciende al conectar el cable
+        checks:
+        - Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan bien en el estuche con los contactos
+          alineados
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Comprueba si el estuche tiene batería suficiente — cárgalo primero antes
+          de probar los auriculares
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente a los
+          auriculares
+        - Puerto USB-C del estuche con pelusa incrustada que impide la conexión correcta
+        - Batería del estuche degradada por ciclos acumulados en un dispositivo de
+          gama económica
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      recambios:
+        accesorios:
+        - sku: qcy-qcy-t13-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 eartip silicone Almohadillas silicona S/M/L (pack)
+            compatibles para QCY T13
+          must_include:
+          - t13
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id015
+          - qcy t13
+          - t13
+        - sku: qcy-qcy-t13-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 eartip foam Almohadillas espuma memory foam (pack)
+            compatibles para QCY T13
+          must_include:
+          - t13
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id015
+        - sku: qcy-qcy-t13-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 wing tip Aletas estabilizadoras (pack) compatibles
+            para QCY T13
+          must_include:
+          - t13
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id015
+        - sku: qcy-qcy-t13-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 case charging Estuche de carga de repuesto accesorio
+            para QCY T13
+          must_include:
+          - t13
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id015
+        - sku: qcy-qcy-t13-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 ear cushion Almohadillas de auricular (par) accesorios
+            para QCY T13
+          must_include:
+          - t13
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id015
+        - sku: qcy-qcy-t13-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 headband replacement Diadema de repuesto accesorio
+            para QCY T13
+          must_include:
+          - t13
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id015
+        - sku: qcy-qcy-t13-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 cleaning kit Kit de limpieza accesorio para QCY T13
+          must_include:
+          - t13
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id015
+        cargador:
+        - sku: qcy-qcy-t13-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 usb-c cable Cable USB-C de carga compatible para
+            QCY T13
+          must_include:
+          - t13
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id015
+        bateria:
+        - sku: qcy-qcy-t13-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 battery left Batería auricular izquierdo compatible
+            para QCY T13
+          must_include:
+          - t13
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id015
+        - sku: qcy-qcy-t13-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para QCY T13
+          intent: compra
+          query: QCY QCY T13 t13 battery right Batería auricular derecho compatible
+            para QCY T13
+          must_include:
+          - t13
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id015
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: QCY HT07 ANC
+      slug: qcy-ht07-anc
+      series: HT-Series
+      year_range: 2022-actual
+      sku_pack: earphone10
+      model_tokens:
+      - qcy ht07
+      - ht07 anc
+      - ht07
+      intro: El QCY HT07 ANC son los auriculares over-ear con ANC más económicos de
+        QCY. Las almohadillas son el recambio más habitual para mantener la comodidad
+        en este modelo.
+      problemas:
+      - key: almohadilla-suelta
+        title: 'QCY HT07 ANC: almohadilla suelta'
+        intent: info
+        symptoms:
+        - La almohadilla se ha despegado de la carcasa del auricular
+        - La espuma de la almohadilla está comprimida y ya no es cómoda
+        - El cuero sintético de la almohadilla se ha pelado
+        checks:
+        - Examina cómo está fijada la almohadilla al auricular — algunos modelos usan
+          velcro y otros presión
+        - Comprueba si el cuero sintético PU tiene grietas o se desprende en escamas
+        - Verifica si el relleno de espuma ha perdido su grosor original
+        - Revisa cuántos años tienen los auriculares con uso diario
+        causes:
+        - Cuero sintético PU deteriorado por el sudor y los aceites de la piel
+        - Espuma interna comprimida permanentemente que ya no proporciona comodidad
+          ni sellado
+        - Adhesivo o velcro de sujeción de la almohadilla desgastado por el uso
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas compatibles
+      - key: estuche-no-carga
+        title: 'QCY HT07 ANC: estuche no carga'
+        intent: info
+        symptoms:
+        - El HT07 no carga al conectar el cable USB-C
+        - El LED de carga no se enciende al conectar el cargador
+        - El auricular se descarga aunque haya estado cargando toda la noche
+        checks:
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Limpia el puerto USB-C con un palillo seco para eliminar pelusa o suciedad
+        - Comprueba si el LED parpadea indicando fallo de carga o si no se enciende
+          en absoluto
+        - Verifica que el cargador entrega la tensión y corriente correctas para el
+          HT07
+        causes:
+        - Puerto USB-C del auricular con pelusa o daño físico que impide la carga
+        - Cable USB-C defectuoso o incompatible que no entrega la corriente correcta
+        - Batería interna degradada por ciclos acumulados que ya no acepta carga
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      recambios:
+        accesorios:
+        - sku: qcy-qcy-ht07-anc-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 eartip silicone Almohadillas silicona S/M/L
+            (pack) compatibles para QCY HT07 ANC
+          must_include:
+          - ht07
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id016
+          - qcy ht07
+          - ht07 anc
+          - ht07
+        - sku: qcy-qcy-ht07-anc-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para QCY HT07
+            ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 eartip foam Almohadillas espuma memory foam
+            (pack) compatibles para QCY HT07 ANC
+          must_include:
+          - ht07
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id016
+        - sku: qcy-qcy-ht07-anc-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 wing tip Aletas estabilizadoras (pack) compatibles
+            para QCY HT07 ANC
+          must_include:
+          - ht07
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id016
+        - sku: qcy-qcy-ht07-anc-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 case charging Estuche de carga de repuesto
+            accesorio para QCY HT07 ANC
+          must_include:
+          - ht07
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id016
+        - sku: qcy-qcy-ht07-anc-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 ear cushion Almohadillas de auricular (par)
+            accesorios para QCY HT07 ANC
+          must_include:
+          - ht07
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id016
+        - sku: qcy-qcy-ht07-anc-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 headband replacement Diadema de repuesto accesorio
+            para QCY HT07 ANC
+          must_include:
+          - ht07
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id016
+        - sku: qcy-qcy-ht07-anc-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 cleaning kit Kit de limpieza accesorio para
+            QCY HT07 ANC
+          must_include:
+          - ht07
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id016
+        cargador:
+        - sku: qcy-qcy-ht07-anc-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 usb-c cable Cable USB-C de carga compatible
+            para QCY HT07 ANC
+          must_include:
+          - ht07
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id016
+        bateria:
+        - sku: qcy-qcy-ht07-anc-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 battery left Batería auricular izquierdo compatible
+            para QCY HT07 ANC
+          must_include:
+          - ht07
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id016
+        - sku: qcy-qcy-ht07-anc-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para QCY HT07 ANC
+          intent: compra
+          query: QCY QCY HT07 ANC ht07 battery right Batería auricular derecho compatible
+            para QCY HT07 ANC
+          must_include:
+          - ht07
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id016
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: QCY T21
+      slug: qcy-t21
+      series: T-Series
+      year_range: 2022-actual
+      sku_pack: earphone10
+      model_tokens:
+      - qcy t21
+      - t21
+      intro: El QCY T21 es el sucesor del popular T13 con mayor autonomía y diseño
+        mejorado. Los estuches y los ear tips son los recambios más solicitados para
+        este modelo.
+      problemas:
+      - key: estuche-no-carga
+        title: 'QCY T21: estuche no carga'
+        intent: info
+        symptoms:
+        - Los T21 no recuperan batería al meterlos en el estuche
+        - El estuche no se carga por cable USB-C
+        - El LED del estuche no indica el nivel de batería correctamente
+        checks:
+        - Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan bien en el estuche con los contactos
+          alineados
+        - Prueba con otro cable USB-C para descartar el cable
+        - Comprueba si el LED del estuche indica batería muy baja del propio estuche
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente a los
+          auriculares
+        - Puerto USB-C del estuche con pelusa incrustada que impide la conexión
+        - Batería del estuche degradada por ciclos acumulados en un dispositivo de
+          uso intensivo
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      - key: ear-tip-suelta
+        title: 'QCY T21: ear tip suelta'
+        intent: info
+        symptoms:
+        - El ear tip se desprende del auricular al sacarlo del estuche
+        - El auricular no ajusta bien en el oído y el sonido resulta apagado
+        - El ear tip se ha perdido durante una sesión de deporte
+        checks:
+        - Verifica la talla del ear tip que usas — el T21 incluye S, M y L
+        - Comprueba que el ear tip está bien encajado en el aro del auricular
+        - Revisa el estado del aro de sujeción del ear tip
+        - Prueba con la talla M como referencia estándar
+        causes:
+        - Ear tip de talla incorrecta que no encaja con suficiente presión
+        - Aro de sujeción desgastado que no retiene el ear tip durante el uso
+        - Ear tip deteriorado por sudoración o uso intensivo durante el ejercicio
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      recambios:
+        accesorios:
+        - sku: qcy-qcy-t21-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 eartip silicone Almohadillas silicona S/M/L (pack)
+            compatibles para QCY T21
+          must_include:
+          - t21
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id017
+          - qcy t21
+          - t21
+        - sku: qcy-qcy-t21-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 eartip foam Almohadillas espuma memory foam (pack)
+            compatibles para QCY T21
+          must_include:
+          - t21
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id017
+        - sku: qcy-qcy-t21-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 wing tip Aletas estabilizadoras (pack) compatibles
+            para QCY T21
+          must_include:
+          - t21
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id017
+        - sku: qcy-qcy-t21-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 case charging Estuche de carga de repuesto accesorio
+            para QCY T21
+          must_include:
+          - t21
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id017
+        - sku: qcy-qcy-t21-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 ear cushion Almohadillas de auricular (par) accesorios
+            para QCY T21
+          must_include:
+          - t21
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id017
+        - sku: qcy-qcy-t21-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 headband replacement Diadema de repuesto accesorio
+            para QCY T21
+          must_include:
+          - t21
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id017
+        - sku: qcy-qcy-t21-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 cleaning kit Kit de limpieza accesorio para QCY T21
+          must_include:
+          - t21
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id017
+        cargador:
+        - sku: qcy-qcy-t21-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 usb-c cable Cable USB-C de carga compatible para
+            QCY T21
+          must_include:
+          - t21
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id017
+        bateria:
+        - sku: qcy-qcy-t21-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 battery left Batería auricular izquierdo compatible
+            para QCY T21
+          must_include:
+          - t21
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id017
+        - sku: qcy-qcy-t21-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para QCY T21
+          intent: compra
+          query: QCY QCY T21 t21 battery right Batería auricular derecho compatible
+            para QCY T21
+          must_include:
+          - t21
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id017
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: QCY ArcBuds Lite
+      slug: qcy-arcbuds-lite
+      series: ArcBuds
+      year_range: 2023-actual
+      sku_pack: earphone10
+      model_tokens:
+      - qcy arcbuds lite
+      - arcbuds lite
+      intro: Los QCY ArcBuds Lite son auriculares TWS open-fit con ANC a precio muy
+        asequible. Los ear tips y los estuches son los recambios más demandados para
+        este modelo.
+      problemas:
+      - key: ear-tip-suelta
+        title: 'QCY ArcBuds Lite: ear tip suelta'
+        intent: info
+        symptoms:
+        - El ear tip se desprende del auricular al retirarlo del oído
+        - El auricular no queda bien fijo y se mueve durante la actividad física
+        - El ear tip se ha perdido y el auricular molesta sin él
+        checks:
+        - Comprueba la talla del ear tip — los ArcBuds Lite incluyen S, M y L
+        - Verifica que el ear tip está bien encajado en el aro del auricular y hace
+          clic
+        - Revisa el estado del aro de sujeción para confirmar que el clip está intacto
+        - Prueba con la talla M como referencia de talla media
+        causes:
+        - Ear tip de talla incorrecta que no encaja con la presión suficiente en el
+          aro
+        - Aro de sujeción desgastado por el ciclo de uso diario que ya no retiene
+          el ear tip
+        - Ear tip deteriorado por sudoración intensa durante el ejercicio
+        cta:
+          catKey: accesorios
+          label: Ver almohadillas ear tips compatibles
+      - key: estuche-no-carga
+        title: 'QCY ArcBuds Lite: estuche no carga'
+        intent: info
+        symptoms:
+        - Los ArcBuds Lite no recuperan batería al guardarlos en el estuche
+        - El estuche no se carga por cable USB-C
+        - El LED del estuche no parpadea al conectar el cable
+        checks:
+        - Limpia los contactos de carga del estuche y de los auriculares con un bastoncillo
+          seco
+        - Verifica que los auriculares asientan correctamente en el estuche
+        - Prueba con otro cable USB-C para descartar el cable como causa
+        - Comprueba si el estuche tiene batería suficiente para cargar los auriculares
+        causes:
+        - Contactos de carga sucios que impiden la transferencia de corriente
+        - Puerto USB-C del estuche con pelusa que bloquea la conexión
+        - Batería del estuche degradada por ciclos de carga acumulados
+        cta:
+          catKey: accesorios
+          label: Ver estuches compatibles
+      recambios:
+        accesorios:
+        - sku: qcy-qcy-arcbuds-lite-accesorios-eartip-silicone-sml
+          title: Almohadillas silicona S/M/L (pack) compatibles para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy eartip silicone Almohadillas silicona S/M/L
+            (pack) compatibles para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - eartip
+          - silicone
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: &id018
+          - qcy arcbuds lite
+          - arcbuds lite
+        - sku: qcy-qcy-arcbuds-lite-accesorios-eartip-foam-pack
+          title: Almohadillas espuma memory foam (pack) compatibles para QCY ArcBuds
+            Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy eartip foam Almohadillas espuma memory foam
+            (pack) compatibles para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - eartip
+          - foam
+          - memory
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id018
+        - sku: qcy-qcy-arcbuds-lite-accesorios-eartip-wings-pack
+          title: Aletas estabilizadoras (pack) compatibles para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy wing tip Aletas estabilizadoras (pack) compatibles
+            para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - wing
+          - tip
+          - stabilizer
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - case
+          - cushion
+          - headband
+          model_tokens: *id018
+        - sku: qcy-qcy-arcbuds-lite-accesorios-case-replacement-acc
+          title: Estuche de carga de repuesto accesorio para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy case charging Estuche de carga de repuesto
+            accesorio para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - case
+          - charging
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - cushion
+          - headband
+          model_tokens: *id018
+        - sku: qcy-qcy-arcbuds-lite-accesorios-cushion-pad-acc
+          title: Almohadillas de auricular (par) accesorios para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy ear cushion Almohadillas de auricular (par)
+            accesorios para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - ear
+          - cushion
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - headband
+          model_tokens: *id018
+        - sku: qcy-qcy-arcbuds-lite-accesorios-headband-acc
+          title: Diadema de repuesto accesorio para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy headband replacement Diadema de repuesto
+            accesorio para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - headband
+          - replacement
+          must_not_include:
+          - battery
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id018
+        - sku: qcy-qcy-arcbuds-lite-accesorios-kit-clean-earphone
+          title: Kit de limpieza accesorio para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy cleaning kit Kit de limpieza accesorio para
+            QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - cleaning
+          - kit
+          - accessory
+          must_not_include:
+          - battery
+          - charger
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id018
+        cargador:
+        - sku: qcy-qcy-arcbuds-lite-cargador-cable-usbc-earphone
+          title: Cable USB-C de carga compatible para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy usb-c cable Cable USB-C de carga compatible
+            para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - usb-c
+          - cable
+          - charging
+          must_not_include:
+          - battery
+          - eartip
+          - case
+          - cushion
+          - headband
+          model_tokens: *id018
+        bateria:
+        - sku: qcy-qcy-arcbuds-lite-bateria-bat-bud-left
+          title: Batería auricular izquierdo compatible para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy battery left Batería auricular izquierdo
+            compatible para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - battery
+          - left
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id018
+        - sku: qcy-qcy-arcbuds-lite-bateria-bat-bud-right
+          title: Batería auricular derecho compatible para QCY ArcBuds Lite
+          intent: compra
+          query: QCY QCY ArcBuds Lite qcy battery right Batería auricular derecho
+            compatible para QCY ArcBuds Lite
+          must_include:
+          - qcy
+          - battery
+          - right
+          - earbud
+          must_not_include:
+          - charger
+          - cable
+          - eartip
+          - case
+          - cushion
+          model_tokens: *id018
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.

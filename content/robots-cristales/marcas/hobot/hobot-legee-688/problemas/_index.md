@@ -1,0 +1,10 @@
+---
+title: Problemas frecuentes de HOBOT LEGEE-688
+draft: false
+generated: true
+type: modelos
+brandKey: hobot
+modelSlug: hobot-legee-688
+layout: problemas
+vertical: robots-cristales
+---

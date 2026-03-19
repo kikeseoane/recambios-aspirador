@@ -1,0 +1,580 @@
+brands:
+  maytronics:
+    name: "Maytronics / Dolphin"
+    vertical: "robots-piscina"
+    notes_brand: "Líder mundial en robots limpiafondos. Dolphin es la marca más buscada. Alta demanda en filtros, cepillos y cables."
+    models:
+      - model: "Dolphin E20"
+        slug: "dolphin-e20"
+        series: "E-Series"
+        year_range: "2019-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["dolphin e20", "e20"]
+        intro: "El Dolphin E20 es el robot limpiafondos de entrada de Maytronics, ideal para piscinas de hasta 8m. Los filtros de cartucho y los cepillos son los consumibles más demandados."
+        problemas:
+          - key: "filtro-sucio"
+            title: "Dolphin E20: filtro sucio o colmatado"
+            intent: "info"
+            symptoms:
+              - "El robot recorre la piscina pero el agua sigue turbia al terminar el ciclo"
+              - "El robot se mueve más despacio de lo normal o se detiene con frecuencia"
+              - "El fondo de la piscina queda con restos de suciedad fina tras el ciclo completo"
+            checks:
+              - "Saca el cartucho de filtro y límpialo con una manguera hasta que el agua salga clara"
+              - "Comprueba si el cartucho tiene grietas o deformaciones que reduzcan el filtrado"
+              - "Revisa la cesta de filtro: si tiene residuos pegados en las mallas necesita sustitución"
+              - "Verifica que el cartucho está correctamente insertado y la tapa cierra bien"
+              - "Comprueba el tiempo desde el último recambio — tras 2 temporadas el cartucho suele estar agotado"
+            causes:
+              - "Cartucho de filtro colmatado por acumulación de algas, cal o suciedad fina"
+              - "Malla del cartucho deteriorada que ya no retiene las partículas pequeñas"
+              - "Uso en piscinas con mucha carga orgánica que agota el filtro más rápido"
+            cta: { catKey: "filtro", label: "Ver filtros y cartuchos compatibles" }
+          - key: "cepillo-desgastado"
+            title: "Dolphin E20: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no desprende bien la suciedad adherida al fondo ni las paredes"
+              - "Quedan manchas verdes o pardas en el fondo después de que el robot haya pasado"
+              - "El robot resbala sobre las superficies y pierde tracción en los laterales"
+            checks:
+              - "Retira los cepillos y comprueba si las cerdas están aplastadas o han perdido rigidez"
+              - "Observa si las cerdas tienen menos de la mitad de su longitud original"
+              - "Revisa si el cepillo tiene grietas en el núcleo plástico que indiquen rotura estructural"
+              - "Comprueba si el robot avanza en línea recta — un cepillo desgastado solo en un lado provoca desvío"
+            causes:
+              - "Desgaste natural de las cerdas por fricción con el revestimiento de la piscina"
+              - "Exposición prolongada al cloro que fragiliza y degrada las cerdas de PVC"
+              - "Uso en piscinas con superficie abrasiva que acelera el desgaste del cepillo"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Dolphin E30"
+        slug: "dolphin-e30"
+        series: "E-Series"
+        year_range: "2019-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["dolphin e30", "e30"]
+        intro: "El Dolphin E30 añade limpieza de paredes respecto al E20 y es uno de los modelos más vendidos de Maytronics en España. Los filtros y el cable son los recambios más solicitados."
+        problemas:
+          - key: "filtro-sucio"
+            title: "Dolphin E30: filtro sucio o colmatado"
+            intent: "info"
+            symptoms:
+              - "El agua de la piscina sigue con partículas en suspensión tras el ciclo de limpieza"
+              - "El robot completa el ciclo pero el fondo queda con suciedad fina"
+              - "El robot se ralentiza o detiene antes de finalizar el programa"
+            checks:
+              - "Extrae el cartucho de filtro y límpialo con una manguera a presión moderada"
+              - "Comprueba si las mallas del cartucho tienen roturas o deformaciones visibles"
+              - "Verifica que el cartucho encaja correctamente y la tapa del compartimento cierra bien"
+              - "Revisa el historial de limpieza del filtro — en temporadas intensas hay que limpiarlo cada 2-3 usos"
+            causes:
+              - "Cartucho colmatado por uso prolongado sin limpieza periódica"
+              - "Malla del cartucho deteriorada por el cloro que ya no filtra correctamente"
+              - "Carga orgánica elevada en la piscina que satura el filtro más rápido de lo habitual"
+            cta: { catKey: "filtro", label: "Ver filtros y cartuchos compatibles" }
+          - key: "cable-enredado"
+            title: "Dolphin E30: cable enredado o rígido"
+            intent: "info"
+            symptoms:
+              - "El cable forma bucles o nudos durante el ciclo y el robot queda atrapado"
+              - "El robot da vueltas en el mismo sitio sin avanzar porque el cable lo bloquea"
+              - "El cable está tan rígido y enroscado que no se extiende correctamente"
+            checks:
+              - "Extiende el cable completamente fuera del agua y comprueba si tiene espirales permanentes"
+              - "Verifica que el swivel giratorio del cable funciona libremente — gíralo con los dedos"
+              - "Comprueba que la longitud del cable no excede el doble del largo de la piscina"
+              - "Revisa si el cable tiene marcas de aplastamiento o daños en la vaina exterior"
+            causes:
+              - "Swivel giratorio desgastado o bloqueado que ya no destuerce el cable durante el movimiento"
+              - "Cable envejecido que ha perdido flexibilidad por exposición al cloro y la luz UV"
+              - "Cable demasiado largo para el tamaño de la piscina que siempre forma bucles"
+            cta: { catKey: "accesorios", label: "Ver cables y swivel compatibles" }
+
+      - model: "Dolphin Active 30i"
+        slug: "dolphin-active-30i"
+        series: "Active"
+        year_range: "2020-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["active 30i", "active30i"]
+        intro: "El Dolphin Active 30i es el primer modelo con control por app de la gama E. La escalada de paredes y los cepillos de PVC son su punto diferencial y los recambios más demandados."
+        problemas:
+          - key: "no-sube-paredes"
+            title: "Dolphin Active 30i no sube por las paredes"
+            intent: "info"
+            symptoms:
+              - "El robot limpia bien el fondo pero resbala antes de llegar a la línea de agua"
+              - "El robot intenta subir pero cae de vuelta al fondo repetidamente"
+              - "Las paredes de la piscina quedan con algas o manchas verdes tras el ciclo"
+            checks:
+              - "Comprueba el estado de las cerdas del cepillo — si están aplastadas no hacen tracción en la pared"
+              - "Revisa si el filtro está limpio: un filtro saturado reduce la succión necesaria para adherirse"
+              - "Verifica que los rodillos laterales no tienen pelo o algas enredadas que bloqueen su giro"
+              - "Comprueba que la piscina tiene la presión de agua correcta y el robot está bien sumergido"
+            causes:
+              - "Cepillos desgastados que no generan la tracción suficiente para escalar paredes"
+              - "Filtro saturado que reduce la succión y la capacidad de adherencia del robot"
+              - "Rodillos de tracción desgastados o bloqueados que impiden el avance vertical"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "cable-enredado"
+            title: "Dolphin Active 30i: cable enredado"
+            intent: "info"
+            symptoms:
+              - "El cable se enreda durante el ciclo y el robot queda inmovilizado"
+              - "Al sacar el robot del agua el cable sale hecho un nudo difícil de deshacer"
+              - "El robot describe trayectorias cortas y erráticas por culpa del cable"
+            checks:
+              - "Comprueba si el swivel anti-enredo gira libremente antes de sumergir el robot"
+              - "Extiende el cable sobre el suelo para ver si tiene espirales permanentes que no se deshacen"
+              - "Verifica que la longitud del cable es adecuada para el tamaño de tu piscina"
+              - "Revisa si hay daños en la vaina del cable que puedan indicar desgaste interno"
+            causes:
+              - "Swivel desgastado que no gira con suficiente libertad para destorcer el cable"
+              - "Cable con memoria de enrollado permanente por almacenamiento incorrecto"
+              - "Cable demasiado largo que siempre genera exceso de longitud dentro de la piscina"
+            cta: { catKey: "accesorios", label: "Ver cables y swivel compatibles" }
+
+      - model: "Dolphin Sigma"
+        slug: "dolphin-sigma"
+        series: "Sigma"
+        year_range: "2021-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["dolphin sigma", "sigma"]
+        intro: "El Dolphin Sigma es un robot gama alta con filtración dual de cartucho y bolsa. Los filtros de doble capa son el consumible más buscado por los propietarios de este modelo."
+        problemas:
+          - key: "filtro-saturado"
+            title: "Dolphin Sigma: filtro saturado"
+            intent: "info"
+            symptoms:
+              - "El agua no queda limpia tras el ciclo aunque el robot haya completado el programa"
+              - "El robot reduce su velocidad de limpieza considerablemente"
+              - "El sistema de filtración dual no retiene bien las partículas finas como polvo de polén"
+            checks:
+              - "Retira el cartucho de filtro y la bolsa interior y límpialos por separado con agua a presión"
+              - "Comprueba si la bolsa de microfibra interior tiene roturas o costuras abiertas"
+              - "Verifica que el cartucho exterior no tiene grietas ni mallas rotas"
+              - "Revisa que ambas piezas están correctamente ensambladas antes de reinstalar"
+            causes:
+              - "Cartucho de filtro colmatado que impide el flujo de agua a través del sistema"
+              - "Bolsa de microfibra interior saturada de partículas finas que no se lavan con agua"
+              - "Sistema dual sobrecargado en piscinas con mucha carga orgánica o uso frecuente"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-desgastado"
+            title: "Dolphin Sigma: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no elimina las algas adheridas al fondo ni a las paredes laterales"
+              - "El robot sigue el programa correctamente pero la superficie queda sucia tras su paso"
+              - "Se nota que el robot resbala más de lo habitual en los laterales de la piscina"
+            checks:
+              - "Saca los cepillos y mide visualmente el desgaste de las cerdas"
+              - "Comprueba si las cerdas están aplastadas o deformadas hacia un lado"
+              - "Revisa el número de temporadas de uso — tras 2-3 temporadas los cepillos suelen estar agotados"
+              - "Verifica que el eje del cepillo no tiene algas ni suciedad enredada que reducen la fricción"
+            causes:
+              - "Cerdas aplastadas por uso continuado sobre superficies abrasivas"
+              - "Degradación acelerada por exposición al cloro y la luz UV"
+              - "Desgaste asimétrico causado por una piscina con mayor pendiente en un lado"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Dolphin Supreme M400"
+        slug: "dolphin-supreme-m400"
+        series: "Supreme"
+        year_range: "2020-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["m400", "supreme m400"]
+        intro: "El Dolphin Supreme M400 es la opción profesional de Maytronics para piscinas grandes con triple cepillo. Los cepillos de PVC y los filtros de cesta son los recambios más solicitados."
+        problemas:
+          - key: "cepillo-desgastado"
+            title: "Dolphin M400: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no limpia eficazmente las paredes y línea de agua aunque lo intente"
+              - "La superficie de la piscina queda con película verdosa o suciedad fina tras el ciclo"
+              - "El robot reduce la eficiencia de limpieza notablemente respecto a temporadas anteriores"
+            checks:
+              - "Retira los tres cepillos y comprueba el estado de las cerdas en cada uno"
+              - "Verifica si las cerdas de los cepillos laterales están más desgastadas que las del central"
+              - "Comprueba que los ejes de los cepillos giran libremente sin resistencia"
+              - "Revisa si los cepillos tienen algas incrustadas que haya que eliminar antes de evaluar el desgaste"
+            causes:
+              - "Cerdas desgastadas por fricción con la superficie de la piscina tras varias temporadas"
+              - "Degradación de la goma o PVC por la combinación de cloro y radiación UV"
+              - "Desgaste irregular en las tres posiciones por diferente carga de trabajo"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "filtro-saturado"
+            title: "Dolphin M400: filtro de cesta saturado"
+            intent: "info"
+            symptoms:
+              - "El agua no queda limpia después de un ciclo completo de limpieza"
+              - "El robot reduce velocidad y parece esforzarse más de lo normal"
+              - "La cesta de filtro tiene residuos muy pegados que no salen solo con el agua"
+            checks:
+              - "Saca la cesta de filtro y límpiala con agua a presión y un cepillo suave"
+              - "Comprueba si la malla metálica tiene deformaciones o agujeros que comprometan el filtrado"
+              - "Verifica que la tapa del compartimento de filtro cierra correctamente sin juego"
+              - "Revisa si hay partículas muy finas que pasen por la malla — en ese caso necesitas un filtro de malla más fina"
+            causes:
+              - "Cesta de filtro colmatada por hojas, insectos o algas que bloquean el caudal"
+              - "Malla de la cesta deteriorada que ya no retiene las partículas"
+              - "Filtración insuficiente para el nivel de suciedad de la piscina — se requiere limpieza más frecuente"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  zodiac-pool:
+    name: "Zodiac / Fluidra"
+    vertical: "robots-piscina"
+    notes_brand: "Zodiac (Fluidra) robots de piscina gama media-alta. Alta demanda en filtros y cepillos."
+    models:
+      - model: "Zodiac CX20"
+        slug: "zodiac-cx20"
+        series: "CX-Series"
+        year_range: "2019-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["zodiac cx20", "cx20"]
+        intro: "El Zodiac CX20 es el robot de piscina de entrada de Fluidra, compacto y fácil de usar. Los filtros de cartucho son el recambio más solicitado para este modelo."
+        problemas:
+          - key: "filtro-sucio"
+            title: "Zodiac CX20: filtro sucio"
+            intent: "info"
+            symptoms:
+              - "El agua de la piscina sigue sucia o turbia tras el ciclo de limpieza"
+              - "El robot va más lento de lo habitual o se detiene antes de completar el programa"
+              - "El fondo queda con partículas finas aunque el robot haya pasado por toda la superficie"
+            checks:
+              - "Retira el cartucho de filtro y límpialo con una manguera hasta que salga agua limpia"
+              - "Comprueba si el cartucho tiene grietas o mallas rotas que comprometan el filtrado"
+              - "Verifica que el cartucho está bien encajado y la tapa del compartimento cierra herméticamente"
+              - "Revisa el historial de limpieza — en temporada alta hay que limpiar el filtro cada 2 usos"
+            causes:
+              - "Cartucho de filtro colmatado por acumulación de suciedad fina y algas"
+              - "Malla del cartucho deteriorada por el cloro que ya no filtra eficazmente"
+              - "Exceso de carga orgánica en la piscina que satura el filtro en poco tiempo"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-desgastado"
+            title: "Zodiac CX20: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no elimina bien las algas del fondo aunque el filtro esté limpio"
+              - "El robot resbala y pierde tracción especialmente en las pendientes laterales"
+              - "La superficie de la piscina queda con una película verdosa tras el ciclo"
+            checks:
+              - "Saca el cepillo y examina las cerdas — si están aplastadas o tienen menos de la mitad de longitud hay que sustituirlo"
+              - "Comprueba que el eje del cepillo gira libremente sin fricción ni resistencia"
+              - "Revisa si las cerdas tienen desgaste asimétrico que indique un problema de alineación"
+              - "Verifica cuántas temporadas lleva el cepillo — tras 2-3 temporadas suele estar agotado"
+            causes:
+              - "Cerdas aplastadas por uso continuado sobre superficies abrasivas de la piscina"
+              - "Degradación por cloro y UV que fragiliza el plástico de las cerdas"
+              - "Desgaste irregular por superficies de distintas durezas en la misma piscina"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Zodiac CX25"
+        slug: "zodiac-cx25"
+        series: "CX-Series"
+        year_range: "2020-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["zodiac cx25", "cx25"]
+        intro: "El Zodiac CX25 añade limpieza de paredes y línea de agua al CX20. Los cepillos PVC y los filtros son los recambios más habituales en este modelo."
+        problemas:
+          - key: "cepillo-desgastado"
+            title: "Zodiac CX25: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no sube bien por las paredes y resbala antes de llegar a la línea de agua"
+              - "La línea de agua queda con manchas o algas tras el ciclo de limpieza"
+              - "El robot empuja la suciedad en lugar de recogerla porque las cerdas no barren"
+            checks:
+              - "Retira los cepillos y comprueba el estado de las cerdas en todos los sectores"
+              - "Mide si las cerdas tienen menos de la mitad de su longitud original"
+              - "Verifica que los cepillos giran libremente sin algas ni debris enredados"
+              - "Comprueba si el desgaste es mayor en los cepillos laterales que en el central"
+            causes:
+              - "Desgaste de cerdas por fricción sobre revestimiento abrasivo de la piscina"
+              - "Degradación acelerada por cloro y exposición al sol durante el almacenamiento"
+              - "Cerdas aplastadas asimétricamente por escalada frecuente de las paredes"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "filtro-saturado"
+            title: "Zodiac CX25: filtro saturado"
+            intent: "info"
+            symptoms:
+              - "El agua queda turbia después del ciclo aunque el robot haya completado el programa"
+              - "El robot tarda mucho más de lo normal en completar el ciclo de limpieza"
+              - "La suciedad fina no queda retenida en el filtro y vuelve al agua de la piscina"
+            checks:
+              - "Saca el cartucho de filtro y límpialo con manguera hasta que el agua salga limpia"
+              - "Inspecciona la malla del cartucho con luz directa para detectar roturas"
+              - "Verifica que el cartucho está correctamente insertado antes de sumergir el robot"
+              - "Comprueba si el filtro lleva más de dos temporadas — en ese caso sustitúyelo"
+            causes:
+              - "Cartucho colmatado por acumulación de algas y partículas finas"
+              - "Malla rota que deja pasar la suciedad de vuelta al agua de la piscina"
+              - "Uso en piscinas con alto contenido de cal que colmata el filtro más rápido"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Zodiac Fresia 2"
+        slug: "zodiac-fresia-2"
+        series: "Fresia"
+        year_range: "2021-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["fresia 2", "fresia2"]
+        intro: "El Zodiac Fresia 2 es el robot de piscina más popular de la gama Fresia con tracción en las 4 ruedas. Los cepillos y los filtros son los consumibles que se sustituyen con más frecuencia."
+        problemas:
+          - key: "no-avanza"
+            title: "Zodiac Fresia 2 no avanza correctamente"
+            intent: "info"
+            symptoms:
+              - "El robot gira en círculo en lugar de seguir una trayectoria en línea recta"
+              - "El robot avanza unos metros y luego retrocede sin motivo aparente"
+              - "El robot queda encallado en la misma zona y no consigue salir"
+            checks:
+              - "Comprueba el estado de los cepillos en ambos lados — si uno está más desgastado causa desvío"
+              - "Revisa que los rodillos de tracción no tienen hojas ni debris enredados"
+              - "Verifica que el cable no está demasiado enredado y limita el movimiento del robot"
+              - "Comprueba si el filtro está saturado — un filtro lleno reduce la potencia de tracción"
+            causes:
+              - "Desgaste asimétrico de los cepillos que genera más resistencia en un lado"
+              - "Rodillos de tracción bloqueados por hojas o pelo que impiden el avance"
+              - "Cable excesivamente enredado que actúa como ancla e impide la trayectoria libre"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "filtro-obstruido"
+            title: "Zodiac Fresia 2: filtro obstruido"
+            intent: "info"
+            symptoms:
+              - "El agua de la piscina sigue turbia aunque el robot complete el ciclo"
+              - "El robot tarda más de lo habitual en completar el programa de limpieza"
+              - "Se ven partículas finas flotando en el agua después de que el robot haya terminado"
+            checks:
+              - "Retira el cartucho de filtro y límpialo con agua a presión moderada"
+              - "Inspecciona la malla del cartucho para detectar roturas o deformaciones"
+              - "Verifica que el cartucho está bien encajado y no tiene juego dentro del compartimento"
+              - "Comprueba si el filtro lleva más de dos temporadas en uso"
+            causes:
+              - "Cartucho colmatado por algas y partículas finas sin limpieza entre ciclos"
+              - "Malla del cartucho deteriorada por el cloro que ya no retiene suciedad fina"
+              - "Piscina con exceso de carga orgánica que requiere limpiezas más frecuentes"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+      - model: "Zodiac Vortex 4"
+        slug: "zodiac-vortex-4"
+        series: "Vortex"
+        year_range: "2020-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["vortex 4", "vortex4"]
+        intro: "El Zodiac Vortex 4 es el robot de piscina más completo de la gama Zodiac con cuatro motores de tracción. Las bolsas de filtrado son el consumible más demandado para este modelo."
+        problemas:
+          - key: "bolsa-filtro-rota"
+            title: "Zodiac Vortex 4: bolsa de filtrado rota"
+            intent: "info"
+            symptoms:
+              - "La suciedad recogida aparece en el agua de la piscina después de vaciar el robot"
+              - "El agua de la piscina se enturbia cada vez que el robot termina el ciclo"
+              - "Se ven partículas finas salir por los orificios de escape del robot durante la limpieza"
+            checks:
+              - "Saca la bolsa de filtrado y examínala con luz directa para detectar agujeros o costuras abiertas"
+              - "Comprueba las costuras laterales de la bolsa — son el punto de rotura más habitual"
+              - "Verifica que la bolsa está bien fijada al marco de sujeción sin arrugas ni pliegues"
+              - "Revisa si la bolsa tiene decoloración o rigidez por exposición prolongada al cloro"
+            causes:
+              - "Rotura de la bolsa por desgaste del tejido de microfibra tras varias temporadas"
+              - "Costuras deterioradas por la combinación de cloro y presión del agua"
+              - "Daño por almacenamiento incorrecto con la bolsa húmeda y doblada"
+            cta: { catKey: "filtro", label: "Ver bolsas de filtrado compatibles" }
+          - key: "cepillo-desgastado"
+            title: "Zodiac Vortex 4: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no limpia eficazmente el fondo aunque el filtro esté en buen estado"
+              - "Las algas adheridas al fondo no se desprenden con el paso del robot"
+              - "El robot pierde tracción en las subidas laterales y resbala frecuentemente"
+            checks:
+              - "Retira los cepillos de los cuatro motores y comprueba el estado de las cerdas"
+              - "Verifica si las cerdas están aplastadas o tienen menos de la mitad de su longitud"
+              - "Comprueba si el desgaste es uniforme en los cuatro cepillos o solo en alguno"
+              - "Revisa cuántas temporadas lleva el robot — después de 3 temporadas los cepillos suelen estar agotados"
+            causes:
+              - "Desgaste de cerdas por fricción acumulada sobre el revestimiento de la piscina"
+              - "Degradación por cloro y UV que endurece y fragiliza las cerdas de PVC"
+              - "Desgaste más pronunciado en los cepillos delanteros que soportan mayor carga"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+  bestway-pool:
+    name: "Bestway / Flowclear"
+    vertical: "robots-piscina"
+    notes_brand: "Bestway Flowclear robots de piscina gama entrada. Alta demanda en filtros y bolsas."
+    models:
+      - model: "Bestway AquaDrift"
+        slug: "bestway-aquadrift"
+        series: "Flowclear"
+        year_range: "2021-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["aquadrift", "flowclear aquadrift"]
+        intro: "El Bestway AquaDrift es el robot de piscina más asequible de la gama Flowclear. Los filtros son el consumible más solicitado, especialmente al inicio de la temporada."
+        problemas:
+          - key: "filtro-obstruido"
+            title: "Bestway AquaDrift: filtro obstruido"
+            intent: "info"
+            symptoms:
+              - "El robot termina el ciclo pero la piscina no queda limpia"
+              - "El robot va más despacio de lo habitual durante toda la sesión"
+              - "Se ve suciedad fina volviendo al agua cuando el robot succiona"
+            checks:
+              - "Retira el cartucho de filtro y límpialo con agua a presión hasta que salga limpia"
+              - "Comprueba si el cartucho tiene roturas o mallas dañadas"
+              - "Verifica que el cartucho está bien insertado y no tiene juego"
+              - "Revisa si el cartucho lleva más de una temporada — en AquaDrift conviene cambiarlo cada temporada"
+            causes:
+              - "Cartucho de filtro colmatado por suciedad fina y algas sin limpieza entre usos"
+              - "Malla del cartucho deteriorada que no retiene las partículas más pequeñas"
+              - "Uso en piscinas hinchables con mucha carga orgánica que agota el filtro rápido"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "cepillo-desgastado"
+            title: "Bestway AquaDrift: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot no recoge bien la suciedad del fondo y deja rastros tras su paso"
+              - "El robot resbala en el fondo de la piscina y no avanza en línea recta"
+              - "Las cerdas del cepillo se ven claramente aplastadas o deformadas"
+            checks:
+              - "Saca el cepillo y comprueba si las cerdas están aplastadas o enredadas con suciedad"
+              - "Verifica que el cepillo gira libremente sin resistencia"
+              - "Comprueba cuántas temporadas lleva — las cerdas del AquaDrift suelen durar 1-2 temporadas"
+              - "Revisa si el fondo de la piscina tiene textura abrasiva que acelera el desgaste"
+            causes:
+              - "Cerdas aplastadas por uso sobre suelos abrasivos de piscinas de obra"
+              - "Desgaste acelerado por agua con alto contenido de cloro o sal"
+              - "Deformación de las cerdas por almacenamiento incorrecto con el robot apoyado sobre el cepillo"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+
+      - model: "Bestway AquaGlide"
+        slug: "bestway-aquaglide"
+        series: "Flowclear"
+        year_range: "2022-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["aquaglide", "flowclear aquaglide"]
+        intro: "El Bestway AquaGlide mejora al AquaDrift con mayor potencia de succión y cobertura de paredes. Los cepillos y filtros son los consumibles más solicitados para este modelo."
+        problemas:
+          - key: "cepillo-desgastado"
+            title: "Bestway AquaGlide: cepillo desgastado"
+            intent: "info"
+            symptoms:
+              - "El robot limpia el fondo pero no consigue subir a limpiar las paredes"
+              - "Las cerdas del cepillo se ven aplastadas y sin volumen"
+              - "El robot deja franjas de suciedad que antes limpiaba correctamente"
+            checks:
+              - "Retira el cepillo y examina las cerdas: si están aplastadas o deformadas hay que sustituirlo"
+              - "Comprueba que el cepillo no tiene restos de algas o suciedad incrustada entre las cerdas"
+              - "Verifica que el eje del cepillo gira libremente sin resistencia"
+              - "Revisa cuántas temporadas lleva el cepillo en uso"
+            causes:
+              - "Cerdas aplastadas por fricción acumulada sobre el revestimiento de la piscina"
+              - "Degradación de las cerdas de PVC por la exposición prolongada al cloro"
+              - "Desgaste asimétrico por mayor contacto con superficies verticales rugosas"
+            cta: { catKey: "cepillo", label: "Ver cepillos compatibles" }
+          - key: "filtro-obstruido"
+            title: "Bestway AquaGlide: filtro obstruido"
+            intent: "info"
+            symptoms:
+              - "La piscina no queda limpia aunque el robot complete el ciclo completo"
+              - "El robot parece esforzarse más de lo normal y tarda más en avanzar"
+              - "Queda suciedad fina en el fondo de la piscina tras el ciclo de limpieza"
+            checks:
+              - "Saca el cartucho de filtro y límpialo con agua a presión moderada"
+              - "Inspecciona la malla del cartucho para detectar roturas o bloqueos de algas"
+              - "Verifica que el cartucho está bien insertado en su alojamiento"
+              - "Comprueba si el filtro lleva más de una temporada de uso intensivo"
+            causes:
+              - "Cartucho colmatado por algas y partículas finas sin limpieza entre sesiones"
+              - "Malla deteriorada por cloro que ya no retiene la suciedad más fina"
+              - "Uso en piscinas con mucha carga de hojas o insectos que saturan el filtro rápidamente"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+
+  intex-pool:
+    name: "Intex"
+    vertical: "robots-piscina"
+    notes_brand: "Intex robots aspiradores de piscina gama económica. Alta demanda en filtros y bolsas."
+    models:
+      - model: "Intex ZX300"
+        slug: "intex-zx300"
+        series: "Auto Pool Cleaner"
+        year_range: "2020-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["zx300", "intex zx300"]
+        intro: "El Intex ZX300 es el robot de piscina más popular de Intex, hidráulico y sin cable eléctrico. Los filtros y las bolsas son los consumibles más demandados para este modelo."
+        problemas:
+          - key: "no-succiona"
+            title: "Intex ZX300 no succiona bien"
+            intent: "info"
+            symptoms:
+              - "El robot se mueve por la piscina pero no recoge la suciedad del fondo"
+              - "El robot no completa el ciclo correctamente y se queda parado"
+              - "La bolsa de filtrado termina casi vacía aunque haya suciedad en el fondo"
+            checks:
+              - "Comprueba que la presión de la bomba de la piscina está dentro del rango indicado en el manual"
+              - "Verifica que la conexión al skimmer o a la salida de presión es correcta y no tiene fugas"
+              - "Limpia el filtro de bolsa — si está lleno bloquea el flujo hidráulico"
+              - "Comprueba que el manguera no tiene dobleces ni aplastamientos que reduzcan el caudal"
+            causes:
+              - "Presión de la bomba fuera del rango óptimo para el funcionamiento hidráulico"
+              - "Filtro de bolsa lleno que impide la circulación de agua dentro del robot"
+              - "Manguera doblada o aplastada que reduce el caudal hidráulico necesario"
+            cta: { catKey: "filtro", label: "Ver filtros compatibles" }
+          - key: "bolsa-filtro-rota"
+            title: "Intex ZX300: bolsa de filtrado rota"
+            intent: "info"
+            symptoms:
+              - "La suciedad recogida vuelve al agua al sacar el robot o vaciar la bolsa"
+              - "El agua de la piscina sigue sucia aunque el robot haya recorrido toda la superficie"
+              - "Se ven partículas finas salir por las juntas del compartimento de filtrado"
+            checks:
+              - "Saca la bolsa y examínala a contraluz para detectar agujeros o costuras abiertas"
+              - "Comprueba las costuras de la bolsa en los puntos de mayor tensión"
+              - "Verifica que la bolsa está bien fijada al marco interior del compartimento"
+              - "Revisa si la bolsa tiene decoloración o endurecimiento que indica deterioro por cloro"
+            causes:
+              - "Rotura del tejido de la bolsa por uso acumulado y desgaste"
+              - "Costuras deterioradas por la combinación de cloro y presión hidráulica"
+              - "Daño por almacenamiento con la bolsa húmeda y doblada durante el invierno"
+            cta: { catKey: "filtro", label: "Ver bolsas de filtrado compatibles" }
+
+      - model: "Intex ZX100"
+        slug: "intex-zx100"
+        series: "Auto Pool Cleaner"
+        year_range: "2018-actual"
+        sku_pack: "poolrobot10"
+        model_tokens: ["zx100", "intex zx100"]
+        intro: "El Intex ZX100 es el limpiafondos más básico de Intex, hidráulico y sin electricidad. La bolsa de filtrado es el consumible más solicitado para este modelo económico."
+        problemas:
+          - key: "bolsa-filtro-sucia"
+            title: "Intex ZX100: bolsa de filtrado sucia"
+            intent: "info"
+            symptoms:
+              - "La piscina queda con el fondo sucio aunque el robot complete el recorrido"
+              - "La bolsa de filtrado se llena muy rápido y el robot pierde eficacia"
+              - "El agua sigue turbia incluso después de varios ciclos de limpieza"
+            checks:
+              - "Retira la bolsa de filtrado y límpiala con agua fría a presión"
+              - "Comprueba si la bolsa tiene agujeros o costuras abiertas que dejen pasar la suciedad"
+              - "Verifica que la bolsa está bien encajada en su soporte antes de sumergir el robot"
+              - "Revisa si la bolsa lleva más de una temporada — hay que sustituirla si está decolorada o rígida"
+            causes:
+              - "Bolsa colmatada por suciedad fina que ya no puede vaciarse completamente con agua"
+              - "Malla de la bolsa deteriorada por el cloro que permite el paso de partículas"
+              - "Uso en piscinas hinchables con alta carga de polvo o arena del entorno"
+            cta: { catKey: "filtro", label: "Ver bolsas de filtrado compatibles" }
+          - key: "no-avanza"
+            title: "Intex ZX100 no avanza por la piscina"
+            intent: "info"
+            symptoms:
+              - "El robot se queda parado o da vueltas en el mismo sitio sin desplazarse"
+              - "El robot no cubre toda la superficie del fondo y deja zonas sin limpiar"
+              - "La manguera está enredada y limita el movimiento del robot"
+            checks:
+              - "Comprueba que la presión de la bomba de la piscina está en el rango correcto para el ZX100"
+              - "Verifica que la manguera no está retorcida ni tiene dobleces que limiten el caudal"
+              - "Revisa si la bolsa de filtrado está llena — una bolsa llena reduce drásticamente la movilidad"
+              - "Comprueba que las piezas de conexión de la manguera no tienen fugas"
+            causes:
+              - "Presión de bomba insuficiente o excesiva que impide el movimiento correcto"
+              - "Manguera retorcida que reduce el caudal hidráulico necesario para el desplazamiento"
+              - "Bolsa de filtrado llena que bloquea el flujo interno y detiene el avance"
+            cta: { catKey: "filtro", label: "Ver bolsas de filtrado compatibles" }
