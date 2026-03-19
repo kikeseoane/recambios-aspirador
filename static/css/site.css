@@ -393,20 +393,16 @@ p  { line-height: 1.65; }
   z-index: 1;
 }
 
-/* Foto columna derecha */
+/* Foto columna derecha — mismo patrón que hero--home */
 .hero--photo-right {
-  display: flex !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 280px);
   align-items: stretch;
+  overflow: hidden;
 }
-.hero--photo-right > .hero__inner {
-  flex: 1 1 0;
-  min-width: 0;
-}
-.hero--photo-right > .hero__photo-wrap {
-  flex: 0 0 280px;
+.hero--photo-right .hero__photo-wrap {
   overflow: hidden;
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-  margin: -1px -1px -1px 0;
 }
 .hero--photo-right .hero__photo {
   width: 100%;
@@ -417,8 +413,10 @@ p  { line-height: 1.65; }
   opacity: .88;
 }
 @media (max-width: 720px) {
-  .hero--photo-right { display: block !important; }
-  .hero--photo-right > .hero__photo-wrap { display: none; }
+  .hero--photo-right {
+    grid-template-columns: 1fr;
+  }
+  .hero--photo-right .hero__photo-wrap { display: none; }
 }
 
 .hero__kicker {
