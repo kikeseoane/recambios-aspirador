@@ -66,11 +66,20 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "chore: sync horario ofertas AliExpress [skip ci]"
+            PUSHED=false
             for i in 1 2 3 4 5; do
-              git pull --rebase --autostash origin main && git push && break
-              echo "Push intento $i fallido, reintentando..."
+              git pull --rebase --autostash origin main || true
+              if git push; then
+                PUSHED=true
+                break
+              fi
+              echo "Push intento $i/5 fallido, reintentando en 3s..."
               sleep 3
             done
+            if [ "$PUSHED" != "true" ]; then
+              echo "ERROR: no se pudo pushear tras 5 intentos"
+              exit 1
+            fi
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
