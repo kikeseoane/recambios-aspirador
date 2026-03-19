@@ -9,7 +9,7 @@ import json
 import os
 import re
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -849,6 +849,10 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--only-sku", action="append", default=[], help="Solo procesa este SKU (puedes repetir)")
     ap.add_argument("--force", action="store_true", help="Fuerza lookup incluso si ya hay URL no-default")
     ap.add_argument("--vertical", default="all", help="Vertical a sincronizar: una, varias separadas por comas, o 'all' (default)")
+    ap.add_argument("--only-stale", type=int, default=0, metavar="DAYS",
+                    help="Solo procesa SKUs cuyo updated_at tiene más de DAYS días (0 = ignorar). Útil para refrescar enlaces sin relanzar todo.")
+    ap.add_argument("--batch-size", type=int, default=0, metavar="N",
+                    help="Procesa como máximo N SKUs por ejecución, los más antiguos primero (0 = todos). Combina con --only-stale para repartir en días.")
     return ap.parse_args()
 
 
@@ -877,6 +881,19 @@ def main() -> None:
     only = [str(x).strip() for x in args.only_sku if str(x).strip()]
     if only:
         want = set([s for s in only if s in sku_ctx])
+
+    # --only-stale: filtra SKUs cuyo updated_at supera N días
+    if not only and args.only_stale > 0:
+        cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat()
+        stale = {sku for sku in want if str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "").strip() < cutoff}
+        print(f"  --only-stale {args.only_stale}d: {len(stale)}/{len(want)} SKUs sin actualizar desde {cutoff}")
+        want = stale
+
+    # --batch-size: toma los N más antiguos para no saturar la API en una sola pasada
+    if not only and args.batch_size > 0 and len(want) > args.batch_size:
+        sorted_want = sorted(want, key=lambda sku: str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "0000-00-00"))
+        want = set(sorted_want[:args.batch_size])
+        print(f"  --batch-size {args.batch_size}: procesando {args.batch_size} SKUs más antiguos")
 
     added = 0
     updated = 0
