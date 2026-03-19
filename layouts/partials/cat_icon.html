@@ -5,11 +5,18 @@ Output: <img ...> o fallback texto
 
 {{ $catKey := (.catKey | default "" | urlize) }}
 {{ $map := dict
-  "bateria"   "bateria"
-  "filtro"    "filtro"
-  "cepillo"   "cepillo"
-  "cargador"  "cargador"
-  "accesorios" "recambio"
+  "bateria"    "bateria"
+  "filtro"     "filtro"
+  "cepillo"    "cepillo"
+  "cargador"   "cargador"
+  "soporte"    "soporte"
+  "accesorios" "accesorios"
+  "laminas"    "laminas"
+  "cabezal"    "cabezal"
+  "junta"      "junta"
+  "deposito"   "deposito"
+  "cesta"      "cesta"
+  "nuevo"      "nuevo"
 }}
 
 {{ $icon := (index $map $catKey) | default "recambio" }}
