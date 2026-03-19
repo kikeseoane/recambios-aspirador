@@ -137,6 +137,9 @@
   <style>:root{--primary:{{ .primary }};--primary-2:{{ .primary_2 }};}</style>
     {{- end }}
   {{- end }}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8DB4EDP0C7"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8DB4EDP0C7');</script>
 </head>
 
 <body data-vertical="{{ .Params.vertical | default "aspiradores" }}">

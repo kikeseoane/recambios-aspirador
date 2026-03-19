@@ -77,6 +77,21 @@
   {{ else if eq $catKey "accesorios" }}
     {{ $catIntro1 = printf "Encuentra accesorios compatibles para %s, incluyendo boquillas, herramientas auxiliares y piezas de uso frecuente." $mtitle }}
     {{ $catIntro2 = "Revisa el tipo de acople y si el accesorio esta pensado para tu serie o para varias variantes del mismo modelo." }}
+  {{ else if eq $catKey "laminas" }}
+    {{ $catIntro1 = printf "Encuentra laminas de corte compatibles para %s y mantén el rendimiento de afeitado o corte en optimas condiciones." $mtitle }}
+    {{ $catIntro2 = "Comprueba la forma, el sistema de fijacion y si la lamina es especifica para tu serie o es universal entre varios modelos." }}
+  {{ else if eq $catKey "cabezal" }}
+    {{ $catIntro1 = printf "Encuentra cabezales compatibles para %s y recupera la capacidad de limpieza original del equipo." $mtitle }}
+    {{ $catIntro2 = "Verifica el sistema de acople al tubo o al cuerpo, las medidas del cabezal y si admite los mismos cepillos que el original." }}
+  {{ else if eq $catKey "junta" }}
+    {{ $catIntro1 = printf "Encuentra juntas y sellos compatibles para %s para evitar perdidas de aspiracion o filtraciones de polvo." $mtitle }}
+    {{ $catIntro2 = "Comprueba las medidas exactas, el material y la posicion de la junta dentro del circuito de aire del equipo." }}
+  {{ else if eq $catKey "deposito" }}
+    {{ $catIntro1 = printf "Encuentra depositos y cubetas compatibles para %s y sustituye la pieza danada sin perder la capacidad original." $mtitle }}
+    {{ $catIntro2 = "Verifica el volumen, la forma del acople y el sistema de vaciado o extraccion especifico de tu modelo." }}
+  {{ else if eq $catKey "cesta" }}
+    {{ $catIntro1 = printf "Encuentra cestas y filtros de ciclón compatibles para %s y mantén la capacidad de recogida del equipo." $mtitle }}
+    {{ $catIntro2 = "Comprueba el diametro, la altura y el sistema de encaje de la cesta con el cuerpo del aspirador." }}
   {{ end }}
 
   {{ $rec := index $model "recambios" }}
@@ -191,6 +206,41 @@
     {{ $check2Body  = "El diametro de conexion al tubo o directamente al cuerpo del aspirador debe coincidir. Compara fotos del punto de union antes de comprar." }}
     {{ $check3Title = "Variante del modelo: mismo nombre, distintos conectores" }}
     {{ $check3Body  = "Algunos modelos tienen versiones con conectores distintos segun el mercado o el ano. Confirma que el accesorio cita tu variante exacta." }}
+  {{ else if eq $catKey "laminas" }}
+    {{ $check1Title = "Forma y serie de la lamina" }}
+    {{ $check1Body  = "Las laminas tienen formas muy especificas para cada cabezal. Una lamina de aspecto similar puede no encajar o dañar el mecanismo interno. Confirma la referencia exacta." }}
+    {{ $check2Title = "Cambio de lamina junto al cuchillo" }}
+    {{ $check2Body  = "Lo habitual es cambiar lamina y cuchillo juntos. Comprar solo la lamina cuando el cuchillo esta desgastado puede reducir el rendimiento del corte." }}
+    {{ $check3Title = "Original o compatible: diferencias de calidad" }}
+    {{ $check3Body  = "Las laminas compatibles pueden ser mas economicas pero variar en durabilidad y suavidad de corte. Elige marcas con buena valoracion si no optas por el original." }}
+  {{ else if eq $catKey "cabezal" }}
+    {{ $check1Title = "Sistema de acople y angulo de giro" }}
+    {{ $check1Body  = "El cabezal debe encajar con el tubo o cuerpo del aspirador. Algunos modelos usan acoplamientos de giro o articulados que son exclusivos de la marca." }}
+    {{ $check2Title = "Medidas del cabezal y anchura de trabajo" }}
+    {{ $check2Body  = "Un cabezal mas ancho puede parecer mejor pero no encajar en todos los espacios. Comprueba la anchura, la altura libre y el sistema de ruedas." }}
+    {{ $check3Title = "Compatibilidad con los cepillos originales" }}
+    {{ $check3Body  = "Si cambias el cabezal, confirma que admite los mismos cepillos intercambiables que usas habitualmente con tu modelo." }}
+  {{ else if eq $catKey "junta" }}
+    {{ $check1Title = "Medidas exactas: diametro interior y exterior" }}
+    {{ $check1Body  = "Una junta de medidas incorrectas no sellara correctamente aunque parezca similar. Mide el diametro interior y exterior del asiento original antes de comprar." }}
+    {{ $check2Title = "Material: goma, silicona o espuma" }}
+    {{ $check2Body  = "El material afecta la durabilidad y el sellado. Sustituye con el mismo tipo de material que el original o uno equivalente certificado para la temperatura y la presion del equipo." }}
+    {{ $check3Title = "Posicion de la junta en el circuito de aire" }}
+    {{ $check3Body  = "Algunas juntas sellan el deposito, otras el filtro o la union del tubo. Identifica la posicion exacta antes de buscar el recambio para no comprar la pieza equivocada." }}
+  {{ else if eq $catKey "deposito" }}
+    {{ $check1Title = "Volumen y forma del deposito" }}
+    {{ $check1Body  = "El deposito debe tener el mismo volumen y forma que el original para encajar en el cuerpo del equipo. Un deposito mas grande puede no entrar fisicamente." }}
+    {{ $check2Title = "Sistema de vaciado y cierre" }}
+    {{ $check2Body  = "Algunos depositos tienen cierre de bayoneta, otros de presion o de clip. Confirma que el sistema de vaciado coincide con el de tu modelo." }}
+    {{ $check3Title = "Juntas y filtros incluidos o por separado" }}
+    {{ $check3Body  = "Algunos depositos incluyen junta de sellado o prefiltro. Comprueba si el recambio los incluye o si tienes que adquirirlos por separado." }}
+  {{ else if eq $catKey "cesta" }}
+    {{ $check1Title = "Diametro y altura de la cesta" }}
+    {{ $check1Body  = "La cesta debe ajustarse exactamente a la camara de ciclón del aspirador. Comprueba diametro externo, altura y forma del borde de encaje." }}
+    {{ $check2Title = "Sistema de extraccion y vaciado" }}
+    {{ $check2Body  = "Algunas cestas se extraen hacia abajo, otras hacia arriba o lateralmente. Confirma el sistema de extraccion especifico de tu modelo antes de comprar." }}
+    {{ $check3Title = "Material y permeabilidad" }}
+    {{ $check3Body  = "La malla de la cesta debe tener la densidad adecuada para retener particulas sin reducir la succion. Evita cestas con malla demasiado fina o demasiado gruesa para tu equipo." }}
   {{ end }}
 
   <div id="checklist-compra" class="antes-de-comprar mt-14">
