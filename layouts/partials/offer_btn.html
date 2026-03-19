@@ -61,7 +61,7 @@
         <img src="{{ $imageURL }}" alt="{{ $label }}" loading="lazy" width="120" height="120">
       </div>
     {{ end }}
-    {{ if $salePrice }}
+    {{ if and $salePrice (eq $currency "EUR") }}
       <div class="offer-price">
         <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
         {{ if and $originalPrice (ne $originalPrice $salePrice) }}
