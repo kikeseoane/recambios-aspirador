@@ -70,11 +70,9 @@ jobs:
           CHANGED="${{ steps.commit.outputs.changed }}"
           STATS="${{ steps.sync.outputs.stats }}"
           if [ "$CHANGED" = "true" ]; then
-            MSG="✅ Sync AliExpress completado en ${MINS}m${SECS}s — ofertas.yaml actualizado.
-${STATS}"
+            MSG="✅ Sync completado en ${MINS}m${SECS}s — actualizado. ${STATS}"
           else
-            MSG="✅ Sync AliExpress completado en ${MINS}m${SECS}s — sin cambios.
-${STATS}"
+            MSG="✅ Sync completado en ${MINS}m${SECS}s — sin cambios. ${STATS}"
           fi
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
