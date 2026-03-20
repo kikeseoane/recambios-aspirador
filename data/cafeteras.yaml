@@ -44,6 +44,30 @@ globals:
     label: Cestas y bandejas
     icon: basket
     buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
   guias_genericas:
     seguridad:
     - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
@@ -87,8 +111,7 @@ brands:
         - sku: philips-cf-philips-ep2220-filtro-filtro-agua
           title: Filtro de agua compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 filter water Filtro de agua compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 filter water filtro de agua
           must_include:
           - ep2220
           - filter
@@ -106,8 +129,7 @@ brands:
         - sku: philips-cf-philips-ep2220-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 filter coffee Filtro portacápsulas compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 filter coffee filtro portac psulas
           must_include:
           - ep2220
           - filter
@@ -123,8 +145,7 @@ brands:
         - sku: philips-cf-philips-ep2220-junta-junta-cafetera
           title: Junta de goma compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 gasket seal Junta de goma compatible para
-            2200 EP2220
+          query: Philips 2200 EP2220 gasket seal junta de goma
           must_include:
           - ep2220
           - gasket
@@ -138,8 +159,7 @@ brands:
         - sku: philips-cf-philips-ep2220-junta-junta-grupo
           title: Junta de grupo / oring compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 o-ring group Junta de grupo / oring compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 o-ring group gasket seal junta de grupo oring
           must_include:
           - ep2220
           - o-ring
@@ -154,8 +174,7 @@ brands:
         - sku: philips-cf-philips-ep2220-deposito-deposito-agua
           title: Depósito de agua compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 water tank Depósito de agua compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 water tank container dep sito de agua
           must_include:
           - ep2220
           - water
@@ -169,8 +188,7 @@ brands:
         - sku: philips-cf-philips-ep2220-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 milk container Depósito / recipiente leche
-            compatible para 2200 EP2220
+          query: Philips 2200 EP2220 milk container tank dep sito recipiente leche
           must_include:
           - ep2220
           - milk
@@ -185,8 +203,7 @@ brands:
         - sku: philips-cf-philips-ep2220-accesorios-acc-espumador
           title: Espumador de leche compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 frother accessory Espumador de leche compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 frother accessory kit espumador de leche
           must_include:
           - ep2220
           - frother
@@ -200,8 +217,7 @@ brands:
         - sku: philips-cf-philips-ep2220-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 drip tray Bandeja recogetazas compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 drip tray accessory kit bandeja recogetazas
           must_include:
           - ep2220
           - drip
@@ -215,8 +231,7 @@ brands:
         - sku: philips-cf-philips-ep2220-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 maintenance kit Kit mantenimiento compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 maintenance kit accessory mantenimiento
           must_include:
           - ep2220
           - maintenance
@@ -230,8 +245,7 @@ brands:
         - sku: philips-cf-philips-ep2220-accesorios-acc-descalc
           title: Descalcificador compatible para 2200 EP2220
           intent: compra
-          query: Philips 2200 EP2220 ep2220 descaler descaling Descalcificador compatible
-            para 2200 EP2220
+          query: Philips 2200 EP2220 descaler descaling accessory kit descalcificador
           must_include:
           - ep2220
           - descaler
@@ -336,8 +350,7 @@ brands:
         - sku: philips-cf-philips-ep1220-filtro-filtro-agua
           title: Filtro de agua compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 filter water Filtro de agua compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 filter water filtro de agua
           must_include:
           - ep1220
           - filter
@@ -355,8 +368,7 @@ brands:
         - sku: philips-cf-philips-ep1220-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 filter coffee Filtro portacápsulas compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 filter coffee filtro portac psulas
           must_include:
           - ep1220
           - filter
@@ -372,8 +384,7 @@ brands:
         - sku: philips-cf-philips-ep1220-junta-junta-cafetera
           title: Junta de goma compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 gasket seal Junta de goma compatible para
-            3200 EP1220
+          query: Philips 3200 EP1220 gasket seal junta de goma
           must_include:
           - ep1220
           - gasket
@@ -387,8 +398,7 @@ brands:
         - sku: philips-cf-philips-ep1220-junta-junta-grupo
           title: Junta de grupo / oring compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 o-ring group Junta de grupo / oring compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 o-ring group gasket seal junta de grupo oring
           must_include:
           - ep1220
           - o-ring
@@ -403,8 +413,7 @@ brands:
         - sku: philips-cf-philips-ep1220-deposito-deposito-agua
           title: Depósito de agua compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 water tank Depósito de agua compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 water tank container dep sito de agua
           must_include:
           - ep1220
           - water
@@ -418,8 +427,7 @@ brands:
         - sku: philips-cf-philips-ep1220-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 milk container Depósito / recipiente leche
-            compatible para 3200 EP1220
+          query: Philips 3200 EP1220 milk container tank dep sito recipiente leche
           must_include:
           - ep1220
           - milk
@@ -434,8 +442,7 @@ brands:
         - sku: philips-cf-philips-ep1220-accesorios-acc-espumador
           title: Espumador de leche compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 frother accessory Espumador de leche compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 frother accessory kit espumador de leche
           must_include:
           - ep1220
           - frother
@@ -449,8 +456,7 @@ brands:
         - sku: philips-cf-philips-ep1220-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 drip tray Bandeja recogetazas compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 drip tray accessory kit bandeja recogetazas
           must_include:
           - ep1220
           - drip
@@ -464,8 +470,7 @@ brands:
         - sku: philips-cf-philips-ep1220-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 maintenance kit Kit mantenimiento compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 maintenance kit accessory mantenimiento
           must_include:
           - ep1220
           - maintenance
@@ -479,8 +484,7 @@ brands:
         - sku: philips-cf-philips-ep1220-accesorios-acc-descalc
           title: Descalcificador compatible para 3200 EP1220
           intent: compra
-          query: Philips 3200 EP1220 ep1220 descaler descaling Descalcificador compatible
-            para 3200 EP1220
+          query: Philips 3200 EP1220 descaler descaling accessory kit descalcificador
           must_include:
           - ep1220
           - descaler
@@ -585,8 +589,7 @@ brands:
         - sku: philips-cf-philips-ep3221-filtro-filtro-agua
           title: Filtro de agua compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 filter water Filtro de agua compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 filter water filtro de agua
           must_include:
           - ep3221
           - filter
@@ -604,8 +607,7 @@ brands:
         - sku: philips-cf-philips-ep3221-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 filter coffee Filtro portacápsulas compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 filter coffee filtro portac psulas
           must_include:
           - ep3221
           - filter
@@ -621,8 +623,7 @@ brands:
         - sku: philips-cf-philips-ep3221-junta-junta-cafetera
           title: Junta de goma compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 gasket seal Junta de goma compatible para
-            3300 EP3221
+          query: Philips 3300 EP3221 gasket seal junta de goma
           must_include:
           - ep3221
           - gasket
@@ -636,8 +637,7 @@ brands:
         - sku: philips-cf-philips-ep3221-junta-junta-grupo
           title: Junta de grupo / oring compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 o-ring group Junta de grupo / oring compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 o-ring group gasket seal junta de grupo oring
           must_include:
           - ep3221
           - o-ring
@@ -652,8 +652,7 @@ brands:
         - sku: philips-cf-philips-ep3221-deposito-deposito-agua
           title: Depósito de agua compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 water tank Depósito de agua compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 water tank container dep sito de agua
           must_include:
           - ep3221
           - water
@@ -667,8 +666,7 @@ brands:
         - sku: philips-cf-philips-ep3221-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 milk container Depósito / recipiente leche
-            compatible para 3300 EP3221
+          query: Philips 3300 EP3221 milk container tank dep sito recipiente leche
           must_include:
           - ep3221
           - milk
@@ -683,8 +681,7 @@ brands:
         - sku: philips-cf-philips-ep3221-accesorios-acc-espumador
           title: Espumador de leche compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 frother accessory Espumador de leche compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 frother accessory kit espumador de leche
           must_include:
           - ep3221
           - frother
@@ -698,8 +695,7 @@ brands:
         - sku: philips-cf-philips-ep3221-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 drip tray Bandeja recogetazas compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 drip tray accessory kit bandeja recogetazas
           must_include:
           - ep3221
           - drip
@@ -713,8 +709,7 @@ brands:
         - sku: philips-cf-philips-ep3221-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 maintenance kit Kit mantenimiento compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 maintenance kit accessory mantenimiento
           must_include:
           - ep3221
           - maintenance
@@ -728,8 +723,7 @@ brands:
         - sku: philips-cf-philips-ep3221-accesorios-acc-descalc
           title: Descalcificador compatible para 3300 EP3221
           intent: compra
-          query: Philips 3300 EP3221 ep3221 descaler descaling Descalcificador compatible
-            para 3300 EP3221
+          query: Philips 3300 EP3221 descaler descaling accessory kit descalcificador
           must_include:
           - ep3221
           - descaler
@@ -834,8 +828,7 @@ brands:
         - sku: philips-cf-philips-ep4321-filtro-filtro-agua
           title: Filtro de agua compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 filter water Filtro de agua compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 filter water filtro de agua
           must_include:
           - ep4321
           - filter
@@ -853,8 +846,7 @@ brands:
         - sku: philips-cf-philips-ep4321-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 filter coffee Filtro portacápsulas compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 filter coffee filtro portac psulas
           must_include:
           - ep4321
           - filter
@@ -870,8 +862,7 @@ brands:
         - sku: philips-cf-philips-ep4321-junta-junta-cafetera
           title: Junta de goma compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 gasket seal Junta de goma compatible para
-            4300 EP4321
+          query: Philips 4300 EP4321 gasket seal junta de goma
           must_include:
           - ep4321
           - gasket
@@ -885,8 +876,7 @@ brands:
         - sku: philips-cf-philips-ep4321-junta-junta-grupo
           title: Junta de grupo / oring compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 o-ring group Junta de grupo / oring compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 o-ring group gasket seal junta de grupo oring
           must_include:
           - ep4321
           - o-ring
@@ -901,8 +891,7 @@ brands:
         - sku: philips-cf-philips-ep4321-deposito-deposito-agua
           title: Depósito de agua compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 water tank Depósito de agua compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 water tank container dep sito de agua
           must_include:
           - ep4321
           - water
@@ -916,8 +905,7 @@ brands:
         - sku: philips-cf-philips-ep4321-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 milk container Depósito / recipiente leche
-            compatible para 4300 EP4321
+          query: Philips 4300 EP4321 milk container tank dep sito recipiente leche
           must_include:
           - ep4321
           - milk
@@ -932,8 +920,7 @@ brands:
         - sku: philips-cf-philips-ep4321-accesorios-acc-espumador
           title: Espumador de leche compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 frother accessory Espumador de leche compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 frother accessory kit espumador de leche
           must_include:
           - ep4321
           - frother
@@ -947,8 +934,7 @@ brands:
         - sku: philips-cf-philips-ep4321-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 drip tray Bandeja recogetazas compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 drip tray accessory kit bandeja recogetazas
           must_include:
           - ep4321
           - drip
@@ -962,8 +948,7 @@ brands:
         - sku: philips-cf-philips-ep4321-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 maintenance kit Kit mantenimiento compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 maintenance kit accessory mantenimiento
           must_include:
           - ep4321
           - maintenance
@@ -977,8 +962,7 @@ brands:
         - sku: philips-cf-philips-ep4321-accesorios-acc-descalc
           title: Descalcificador compatible para 4300 EP4321
           intent: compra
-          query: Philips 4300 EP4321 ep4321 descaler descaling Descalcificador compatible
-            para 4300 EP4321
+          query: Philips 4300 EP4321 descaler descaling accessory kit descalcificador
           must_include:
           - ep4321
           - descaler
@@ -1083,8 +1067,7 @@ brands:
         - sku: philips-cf-philips-ep4343-filtro-filtro-agua
           title: Filtro de agua compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 filter water Filtro de agua compatible
-            para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 filter water filtro de agua
           must_include:
           - ep4343
           - filter
@@ -1102,8 +1085,7 @@ brands:
         - sku: philips-cf-philips-ep4343-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 filter coffee Filtro portacápsulas
-            compatible para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 filter coffee filtro portac psulas
           must_include:
           - ep4343
           - filter
@@ -1119,8 +1101,7 @@ brands:
         - sku: philips-cf-philips-ep4343-junta-junta-cafetera
           title: Junta de goma compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 gasket seal Junta de goma compatible
-            para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 gasket seal junta de goma
           must_include:
           - ep4343
           - gasket
@@ -1134,8 +1115,8 @@ brands:
         - sku: philips-cf-philips-ep4343-junta-junta-grupo
           title: Junta de grupo / oring compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 o-ring group Junta de grupo /
-            oring compatible para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - ep4343
           - o-ring
@@ -1150,8 +1131,7 @@ brands:
         - sku: philips-cf-philips-ep4343-deposito-deposito-agua
           title: Depósito de agua compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 water tank Depósito de agua compatible
-            para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 water tank container dep sito de agua
           must_include:
           - ep4343
           - water
@@ -1165,8 +1145,8 @@ brands:
         - sku: philips-cf-philips-ep4343-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 milk container Depósito / recipiente
-            leche compatible para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 milk container tank dep sito recipiente
+            leche
           must_include:
           - ep4343
           - milk
@@ -1181,8 +1161,7 @@ brands:
         - sku: philips-cf-philips-ep4343-accesorios-acc-espumador
           title: Espumador de leche compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 frother accessory Espumador de
-            leche compatible para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 frother accessory kit espumador de leche
           must_include:
           - ep4343
           - frother
@@ -1196,8 +1175,7 @@ brands:
         - sku: philips-cf-philips-ep4343-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 drip tray Bandeja recogetazas
-            compatible para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 drip tray accessory kit bandeja recogetazas
           must_include:
           - ep4343
           - drip
@@ -1211,8 +1189,7 @@ brands:
         - sku: philips-cf-philips-ep4343-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 maintenance kit Kit mantenimiento
-            compatible para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 maintenance kit accessory mantenimiento
           must_include:
           - ep4343
           - maintenance
@@ -1226,8 +1203,7 @@ brands:
         - sku: philips-cf-philips-ep4343-accesorios-acc-descalc
           title: Descalcificador compatible para 4300 LatteGo EP4343
           intent: compra
-          query: Philips 4300 LatteGo EP4343 ep4343 descaler descaling Descalcificador
-            compatible para 4300 LatteGo EP4343
+          query: Philips 4300 LatteGo EP4343 descaler descaling accessory kit descalcificador
           must_include:
           - ep4343
           - descaler
@@ -1332,8 +1308,7 @@ brands:
         - sku: philips-cf-philips-ep5441-filtro-filtro-agua
           title: Filtro de agua compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 filter water Filtro de agua compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 filter water filtro de agua
           must_include:
           - ep5441
           - filter
@@ -1351,8 +1326,7 @@ brands:
         - sku: philips-cf-philips-ep5441-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 filter coffee Filtro portacápsulas compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 filter coffee filtro portac psulas
           must_include:
           - ep5441
           - filter
@@ -1368,8 +1342,7 @@ brands:
         - sku: philips-cf-philips-ep5441-junta-junta-cafetera
           title: Junta de goma compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 gasket seal Junta de goma compatible para
-            5400 EP5441
+          query: Philips 5400 EP5441 gasket seal junta de goma
           must_include:
           - ep5441
           - gasket
@@ -1383,8 +1356,7 @@ brands:
         - sku: philips-cf-philips-ep5441-junta-junta-grupo
           title: Junta de grupo / oring compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 o-ring group Junta de grupo / oring compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 o-ring group gasket seal junta de grupo oring
           must_include:
           - ep5441
           - o-ring
@@ -1399,8 +1371,7 @@ brands:
         - sku: philips-cf-philips-ep5441-deposito-deposito-agua
           title: Depósito de agua compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 water tank Depósito de agua compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 water tank container dep sito de agua
           must_include:
           - ep5441
           - water
@@ -1414,8 +1385,7 @@ brands:
         - sku: philips-cf-philips-ep5441-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 milk container Depósito / recipiente leche
-            compatible para 5400 EP5441
+          query: Philips 5400 EP5441 milk container tank dep sito recipiente leche
           must_include:
           - ep5441
           - milk
@@ -1430,8 +1400,7 @@ brands:
         - sku: philips-cf-philips-ep5441-accesorios-acc-espumador
           title: Espumador de leche compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 frother accessory Espumador de leche compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 frother accessory kit espumador de leche
           must_include:
           - ep5441
           - frother
@@ -1445,8 +1414,7 @@ brands:
         - sku: philips-cf-philips-ep5441-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 drip tray Bandeja recogetazas compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 drip tray accessory kit bandeja recogetazas
           must_include:
           - ep5441
           - drip
@@ -1460,8 +1428,7 @@ brands:
         - sku: philips-cf-philips-ep5441-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 maintenance kit Kit mantenimiento compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 maintenance kit accessory mantenimiento
           must_include:
           - ep5441
           - maintenance
@@ -1475,8 +1442,7 @@ brands:
         - sku: philips-cf-philips-ep5441-accesorios-acc-descalc
           title: Descalcificador compatible para 5400 EP5441
           intent: compra
-          query: Philips 5400 EP5441 ep5441 descaler descaling Descalcificador compatible
-            para 5400 EP5441
+          query: Philips 5400 EP5441 descaler descaling accessory kit descalcificador
           must_include:
           - ep5441
           - descaler
@@ -1581,8 +1547,7 @@ brands:
         - sku: philips-cf-philips-hd6553-filtro-filtro-agua
           title: Filtro de agua compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 filter water Filtro de agua compatible
-            para Senseo HD6553
+          query: Philips Senseo HD6553 filter water filtro de agua
           must_include:
           - hd6553
           - filter
@@ -1600,8 +1565,7 @@ brands:
         - sku: philips-cf-philips-hd6553-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 filter coffee Filtro portacápsulas compatible
-            para Senseo HD6553
+          query: Philips Senseo HD6553 filter coffee filtro portac psulas
           must_include:
           - hd6553
           - filter
@@ -1617,8 +1581,7 @@ brands:
         - sku: philips-cf-philips-hd6553-junta-junta-cafetera
           title: Junta de goma compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 gasket seal Junta de goma compatible
-            para Senseo HD6553
+          query: Philips Senseo HD6553 gasket seal junta de goma
           must_include:
           - hd6553
           - gasket
@@ -1632,8 +1595,7 @@ brands:
         - sku: philips-cf-philips-hd6553-junta-junta-grupo
           title: Junta de grupo / oring compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 o-ring group Junta de grupo / oring
-            compatible para Senseo HD6553
+          query: Philips Senseo HD6553 o-ring group gasket seal junta de grupo oring
           must_include:
           - hd6553
           - o-ring
@@ -1648,8 +1610,7 @@ brands:
         - sku: philips-cf-philips-hd6553-deposito-deposito-agua
           title: Depósito de agua compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 water tank Depósito de agua compatible
-            para Senseo HD6553
+          query: Philips Senseo HD6553 water tank container dep sito de agua
           must_include:
           - hd6553
           - water
@@ -1663,8 +1624,7 @@ brands:
         - sku: philips-cf-philips-hd6553-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 milk container Depósito / recipiente
-            leche compatible para Senseo HD6553
+          query: Philips Senseo HD6553 milk container tank dep sito recipiente leche
           must_include:
           - hd6553
           - milk
@@ -1679,8 +1639,7 @@ brands:
         - sku: philips-cf-philips-hd6553-accesorios-acc-espumador
           title: Espumador de leche compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 frother accessory Espumador de leche
-            compatible para Senseo HD6553
+          query: Philips Senseo HD6553 frother accessory kit espumador de leche
           must_include:
           - hd6553
           - frother
@@ -1694,8 +1653,7 @@ brands:
         - sku: philips-cf-philips-hd6553-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 drip tray Bandeja recogetazas compatible
-            para Senseo HD6553
+          query: Philips Senseo HD6553 drip tray accessory kit bandeja recogetazas
           must_include:
           - hd6553
           - drip
@@ -1709,8 +1667,7 @@ brands:
         - sku: philips-cf-philips-hd6553-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 maintenance kit Kit mantenimiento compatible
-            para Senseo HD6553
+          query: Philips Senseo HD6553 maintenance kit accessory mantenimiento
           must_include:
           - hd6553
           - maintenance
@@ -1724,8 +1681,7 @@ brands:
         - sku: philips-cf-philips-hd6553-accesorios-acc-descalc
           title: Descalcificador compatible para Senseo HD6553
           intent: compra
-          query: Philips Senseo HD6553 hd6553 descaler descaling Descalcificador compatible
-            para Senseo HD6553
+          query: Philips Senseo HD6553 descaler descaling accessory kit descalcificador
           must_include:
           - hd6553
           - descaler
@@ -1830,8 +1786,7 @@ brands:
         - sku: philips-cf-philips-hd6563-filtro-filtro-agua
           title: Filtro de agua compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 filter water Filtro de agua
-            compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 filter water filtro de agua
           must_include:
           - hd6563
           - filter
@@ -1848,8 +1803,7 @@ brands:
         - sku: philips-cf-philips-hd6563-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 filter coffee Filtro portacápsulas
-            compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 filter coffee filtro portac psulas
           must_include:
           - hd6563
           - filter
@@ -1865,8 +1819,7 @@ brands:
         - sku: philips-cf-philips-hd6563-junta-junta-cafetera
           title: Junta de goma compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 gasket seal Junta de goma
-            compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 gasket seal junta de goma
           must_include:
           - hd6563
           - gasket
@@ -1880,8 +1833,8 @@ brands:
         - sku: philips-cf-philips-hd6563-junta-junta-grupo
           title: Junta de grupo / oring compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 o-ring group Junta de grupo
-            / oring compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 o-ring group gasket seal junta de
+            grupo oring
           must_include:
           - hd6563
           - o-ring
@@ -1896,8 +1849,8 @@ brands:
         - sku: philips-cf-philips-hd6563-deposito-deposito-agua
           title: Depósito de agua compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 water tank Depósito de agua
-            compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 water tank container dep sito de
+            agua
           must_include:
           - hd6563
           - water
@@ -1911,8 +1864,8 @@ brands:
         - sku: philips-cf-philips-hd6563-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 milk container Depósito /
-            recipiente leche compatible para Senseo Viva Café HD656
+          query: Philips Senseo Viva Café HD6563 milk container tank dep sito recipiente
+            leche
           must_include:
           - hd6563
           - milk
@@ -1927,8 +1880,8 @@ brands:
         - sku: philips-cf-philips-hd6563-accesorios-acc-espumador
           title: Espumador de leche compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 frother accessory Espumador
-            de leche compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 frother accessory kit espumador de
+            leche
           must_include:
           - hd6563
           - frother
@@ -1942,8 +1895,7 @@ brands:
         - sku: philips-cf-philips-hd6563-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 drip tray Bandeja recogetazas
-            compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 drip tray accessory kit bandeja recogetazas
           must_include:
           - hd6563
           - drip
@@ -1957,8 +1909,7 @@ brands:
         - sku: philips-cf-philips-hd6563-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 maintenance kit Kit mantenimiento
-            compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 maintenance kit accessory mantenimiento
           must_include:
           - hd6563
           - maintenance
@@ -1972,8 +1923,8 @@ brands:
         - sku: philips-cf-philips-hd6563-accesorios-acc-descalc
           title: Descalcificador compatible para Senseo Viva Café HD6563
           intent: compra
-          query: Philips Senseo Viva Café HD6563 hd6563 descaler descaling Descalcificador
-            compatible para Senseo Viva Café HD6563
+          query: Philips Senseo Viva Café HD6563 descaler descaling accessory kit
+            descalcificador
           must_include:
           - hd6563
           - descaler
@@ -2081,8 +2032,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-filtro-filtro-agua
           title: Filtro de agua compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 filter water Filtro de agua compatible
-            para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 filter water filtro de agua
           must_include:
           - ecam22
           - filter
@@ -2100,8 +2050,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 filter coffee Filtro portacápsulas
-            compatible para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 filter coffee filtro portac psulas
           must_include:
           - ecam22
           - filter
@@ -2117,8 +2066,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-junta-junta-cafetera
           title: Junta de goma compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 gasket seal Junta de goma compatible
-            para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 gasket seal junta de goma
           must_include:
           - ecam22
           - gasket
@@ -2132,8 +2080,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-junta-junta-grupo
           title: Junta de grupo / oring compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 o-ring group Junta de grupo /
-            oring compatible para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - ecam22
           - o-ring
@@ -2148,8 +2096,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-deposito-deposito-agua
           title: Depósito de agua compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 water tank Depósito de agua compatible
-            para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 water tank container dep sito de agua
           must_include:
           - ecam22
           - water
@@ -2163,8 +2110,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 milk container Depósito / recipiente
-            leche compatible para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 milk container tank dep sito recipiente
+            leche
           must_include:
           - ecam22
           - milk
@@ -2179,8 +2126,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-espumador
           title: Espumador de leche compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 frother accessory Espumador de
-            leche compatible para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 frother accessory kit espumador de leche
           must_include:
           - ecam22
           - frother
@@ -2194,8 +2140,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 drip tray Bandeja recogetazas
-            compatible para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 drip tray accessory kit bandeja recogetazas
           must_include:
           - ecam22
           - drip
@@ -2209,8 +2154,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 maintenance kit Kit mantenimiento
-            compatible para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 maintenance kit accessory mantenimiento
           must_include:
           - ecam22
           - maintenance
@@ -2224,8 +2168,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam22-accesorios-acc-descalc
           title: Descalcificador compatible para Magnifica S ECAM22
           intent: compra
-          query: DeLonghi Magnifica S ECAM22 ecam22 descaler descaling Descalcificador
-            compatible para Magnifica S ECAM22
+          query: DeLonghi Magnifica S ECAM22 descaler descaling accessory kit descalcificador
           must_include:
           - ecam22
           - descaler
@@ -2330,8 +2273,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-filtro-filtro-agua
           title: Filtro de agua compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 filter water Filtro de agua
-            compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 filter water filtro de agua
           must_include:
           - ecam290
           - filter
@@ -2349,8 +2291,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 filter coffee Filtro portacápsulas
-            compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 filter coffee filtro portac psulas
           must_include:
           - ecam290
           - filter
@@ -2366,8 +2307,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-junta-junta-cafetera
           title: Junta de goma compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 gasket seal Junta de goma
-            compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 gasket seal junta de goma
           must_include:
           - ecam290
           - gasket
@@ -2381,8 +2321,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-junta-junta-grupo
           title: Junta de grupo / oring compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 o-ring group Junta de grupo
-            / oring compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 o-ring group gasket seal junta de
+            grupo oring
           must_include:
           - ecam290
           - o-ring
@@ -2397,8 +2337,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-deposito-deposito-agua
           title: Depósito de agua compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 water tank Depósito de agua
-            compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 water tank container dep sito de agua
           must_include:
           - ecam290
           - water
@@ -2412,8 +2351,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 milk container Depósito /
-            recipiente leche compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 milk container tank dep sito recipiente
+            leche
           must_include:
           - ecam290
           - milk
@@ -2428,8 +2367,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-espumador
           title: Espumador de leche compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 frother accessory Espumador
-            de leche compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 frother accessory kit espumador de
+            leche
           must_include:
           - ecam290
           - frother
@@ -2443,8 +2382,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 drip tray Bandeja recogetazas
-            compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 drip tray accessory kit bandeja recogetazas
           must_include:
           - ecam290
           - drip
@@ -2458,8 +2396,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 maintenance kit Kit mantenimiento
-            compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 maintenance kit accessory mantenimiento
           must_include:
           - ecam290
           - maintenance
@@ -2473,8 +2410,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam290-accesorios-acc-descalc
           title: Descalcificador compatible para Magnifica Evo ECAM290
           intent: compra
-          query: DeLonghi Magnifica Evo ECAM290 ecam290 descaler descaling Descalcificador
-            compatible para Magnifica Evo ECAM290
+          query: DeLonghi Magnifica Evo ECAM290 descaler descaling accessory kit descalcificador
           must_include:
           - ecam290
           - descaler
@@ -2579,8 +2515,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-filtro-filtro-agua
           title: Filtro de agua compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 filter water Filtro de agua compatible
-            para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 filter water filtro de agua
           must_include:
           - ecam350
           - filter
@@ -2598,8 +2533,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 filter coffee Filtro portacápsulas
-            compatible para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 filter coffee filtro portac psulas
           must_include:
           - ecam350
           - filter
@@ -2615,8 +2549,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-junta-junta-cafetera
           title: Junta de goma compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 gasket seal Junta de goma compatible
-            para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 gasket seal junta de goma
           must_include:
           - ecam350
           - gasket
@@ -2630,8 +2563,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-junta-junta-grupo
           title: Junta de grupo / oring compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 o-ring group Junta de grupo / oring
-            compatible para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - ecam350
           - o-ring
@@ -2646,8 +2579,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-deposito-deposito-agua
           title: Depósito de agua compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 water tank Depósito de agua compatible
-            para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 water tank container dep sito de agua
           must_include:
           - ecam350
           - water
@@ -2661,8 +2593,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 milk container Depósito / recipiente
-            leche compatible para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 milk container tank dep sito recipiente
+            leche
           must_include:
           - ecam350
           - milk
@@ -2677,8 +2609,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-espumador
           title: Espumador de leche compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 frother accessory Espumador de
-            leche compatible para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 frother accessory kit espumador de leche
           must_include:
           - ecam350
           - frother
@@ -2692,8 +2623,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 drip tray Bandeja recogetazas compatible
-            para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 drip tray accessory kit bandeja recogetazas
           must_include:
           - ecam350
           - drip
@@ -2707,8 +2637,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 maintenance kit Kit mantenimiento
-            compatible para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 maintenance kit accessory mantenimiento
           must_include:
           - ecam350
           - maintenance
@@ -2722,8 +2651,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam350-accesorios-acc-descalc
           title: Descalcificador compatible para Dinamica ECAM350
           intent: compra
-          query: DeLonghi Dinamica ECAM350 ecam350 descaler descaling Descalcificador
-            compatible para Dinamica ECAM350
+          query: DeLonghi Dinamica ECAM350 descaler descaling accessory kit descalcificador
           must_include:
           - ecam350
           - descaler
@@ -2828,8 +2756,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-filtro-filtro-agua
           title: Filtro de agua compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 filter water Filtro de
-            agua compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 filter water filtro de agua
           must_include:
           - ecam650
           - filter
@@ -2847,8 +2774,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 filter coffee Filtro portacápsulas
-            compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 filter coffee filtro portac psulas
           must_include:
           - ecam650
           - filter
@@ -2864,8 +2790,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-junta-junta-cafetera
           title: Junta de goma compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 gasket seal Junta de goma
-            compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 gasket seal junta de goma
           must_include:
           - ecam650
           - gasket
@@ -2879,8 +2804,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-junta-junta-grupo
           title: Junta de grupo / oring compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 o-ring group Junta de
-            grupo / oring compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 o-ring group gasket seal junta
+            de grupo oring
           must_include:
           - ecam650
           - o-ring
@@ -2895,8 +2820,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-deposito-deposito-agua
           title: Depósito de agua compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 water tank Depósito de
-            agua compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 water tank container dep sito
+            de agua
           must_include:
           - ecam650
           - water
@@ -2910,8 +2835,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: 'DeLonghi Prima Donna Elite ECAM650 ecam650 milk container Depósito
-            / recipiente leche compatible para Prima Donna Elite '
+          query: DeLonghi Prima Donna Elite ECAM650 milk container tank dep sito recipiente
+            leche
           must_include:
           - ecam650
           - milk
@@ -2926,8 +2851,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-accesorios-acc-espumador
           title: Espumador de leche compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 frother accessory Espumador
-            de leche compatible para Prima Donna Elite ECAM65
+          query: DeLonghi Prima Donna Elite ECAM650 frother accessory kit espumador
+            de leche
           must_include:
           - ecam650
           - frother
@@ -2941,8 +2866,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 drip tray Bandeja recogetazas
-            compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 drip tray accessory kit bandeja
+            recogetazas
           must_include:
           - ecam650
           - drip
@@ -2956,8 +2881,7 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 maintenance kit Kit mantenimiento
-            compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 maintenance kit accessory mantenimiento
           must_include:
           - ecam650
           - maintenance
@@ -2971,8 +2895,8 @@ brands:
         - sku: delonghi-cf-delonghi-ecam650-accesorios-acc-descalc
           title: Descalcificador compatible para Prima Donna Elite ECAM650
           intent: compra
-          query: DeLonghi Prima Donna Elite ECAM650 ecam650 descaler descaling Descalcificador
-            compatible para Prima Donna Elite ECAM650
+          query: DeLonghi Prima Donna Elite ECAM650 descaler descaling accessory kit
+            descalcificador
           must_include:
           - ecam650
           - descaler
@@ -3077,8 +3001,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-filtro-filtro-agua
           title: Filtro de agua compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 filter water Filtro de
-            agua compatible para La Specialista Arte EC9155
+          query: DeLonghi La Specialista Arte EC9155 filter water filtro de agua
           must_include:
           - ec9155
           - filter
@@ -3096,8 +3019,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 filter coffee Filtro portacápsulas
-            compatible para La Specialista Arte EC9155
+          query: DeLonghi La Specialista Arte EC9155 filter coffee filtro portac psulas
           must_include:
           - ec9155
           - filter
@@ -3113,8 +3035,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-junta-junta-cafetera
           title: Junta de goma compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 gasket seal Junta de goma
-            compatible para La Specialista Arte EC9155
+          query: DeLonghi La Specialista Arte EC9155 gasket seal junta de goma
           must_include:
           - ec9155
           - gasket
@@ -3128,8 +3049,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-junta-junta-grupo
           title: Junta de grupo / oring compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 o-ring group Junta de
-            grupo / oring compatible para La Specialista Arte EC915
+          query: DeLonghi La Specialista Arte EC9155 o-ring group gasket seal junta
+            de grupo oring
           must_include:
           - ec9155
           - o-ring
@@ -3144,8 +3065,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-deposito-deposito-agua
           title: Depósito de agua compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 water tank Depósito de
-            agua compatible para La Specialista Arte EC9155
+          query: DeLonghi La Specialista Arte EC9155 water tank container dep sito
+            de agua
           must_include:
           - ec9155
           - water
@@ -3159,8 +3080,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 milk container Depósito
-            / recipiente leche compatible para La Specialista Art
+          query: DeLonghi La Specialista Arte EC9155 milk container tank dep sito
+            recipiente leche
           must_include:
           - ec9155
           - milk
@@ -3175,8 +3096,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-accesorios-acc-espumador
           title: Espumador de leche compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 frother accessory Espumador
-            de leche compatible para La Specialista Arte EC91
+          query: DeLonghi La Specialista Arte EC9155 frother accessory kit espumador
+            de leche
           must_include:
           - ec9155
           - frother
@@ -3190,8 +3111,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 drip tray Bandeja recogetazas
-            compatible para La Specialista Arte EC9155
+          query: DeLonghi La Specialista Arte EC9155 drip tray accessory kit bandeja
+            recogetazas
           must_include:
           - ec9155
           - drip
@@ -3205,8 +3126,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 maintenance kit Kit mantenimiento
-            compatible para La Specialista Arte EC9155
+          query: DeLonghi La Specialista Arte EC9155 maintenance kit accessory mantenimiento
           must_include:
           - ec9155
           - maintenance
@@ -3220,8 +3140,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec9155-accesorios-acc-descalc
           title: Descalcificador compatible para La Specialista Arte EC9155
           intent: compra
-          query: DeLonghi La Specialista Arte EC9155 ec9155 descaler descaling Descalcificador
-            compatible para La Specialista Arte EC9155
+          query: DeLonghi La Specialista Arte EC9155 descaler descaling accessory
+            kit descalcificador
           must_include:
           - ec9155
           - descaler
@@ -3326,8 +3246,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-filtro-filtro-agua
           title: Filtro de agua compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 filter water Filtro de agua compatible
-            para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 filter water filtro de agua
           must_include:
           - ec685
           - filter
@@ -3345,8 +3264,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 filter coffee Filtro portacápsulas
-            compatible para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 filter coffee filtro portac psulas
           must_include:
           - ec685
           - filter
@@ -3362,8 +3280,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-junta-junta-cafetera
           title: Junta de goma compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 gasket seal Junta de goma compatible
-            para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 gasket seal junta de goma
           must_include:
           - ec685
           - gasket
@@ -3377,8 +3294,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-junta-junta-grupo
           title: Junta de grupo / oring compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 o-ring group Junta de grupo / oring
-            compatible para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - ec685
           - o-ring
@@ -3393,8 +3310,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-deposito-deposito-agua
           title: Depósito de agua compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 water tank Depósito de agua compatible
-            para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 water tank container dep sito de agua
           must_include:
           - ec685
           - water
@@ -3408,8 +3324,8 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 milk container Depósito / recipiente
-            leche compatible para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 milk container tank dep sito recipiente
+            leche
           must_include:
           - ec685
           - milk
@@ -3424,8 +3340,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-accesorios-acc-espumador
           title: Espumador de leche compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 frother accessory Espumador de
-            leche compatible para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 frother accessory kit espumador de leche
           must_include:
           - ec685
           - frother
@@ -3439,8 +3354,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 drip tray Bandeja recogetazas compatible
-            para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 drip tray accessory kit bandeja recogetazas
           must_include:
           - ec685
           - drip
@@ -3454,8 +3368,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 maintenance kit Kit mantenimiento
-            compatible para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 maintenance kit accessory mantenimiento
           must_include:
           - ec685
           - maintenance
@@ -3469,8 +3382,7 @@ brands:
         - sku: delonghi-cf-delonghi-ec685-accesorios-acc-descalc
           title: Descalcificador compatible para Dedica Style EC685
           intent: compra
-          query: DeLonghi Dedica Style EC685 ec685 descaler descaling Descalcificador
-            compatible para Dedica Style EC685
+          query: DeLonghi Dedica Style EC685 descaler descaling accessory kit descalcificador
           must_include:
           - ec685
           - descaler
@@ -3577,8 +3489,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-filtro-filtro-agua
           title: Filtro de agua compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 filter water Filtro de agua compatible
-            para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 filter water filtro de agua
           must_include:
           - en85
           - filter
@@ -3595,8 +3506,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 filter coffee Filtro portacápsulas
-            compatible para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 filter coffee filtro portac psulas
           must_include:
           - en85
           - filter
@@ -3612,8 +3522,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-junta-junta-cafetera
           title: Junta de goma compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 gasket seal Junta de goma compatible
-            para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 gasket seal junta de goma
           must_include:
           - en85
           - gasket
@@ -3627,8 +3536,8 @@ brands:
         - sku: nespresso-cf-nespresso-en85-junta-junta-grupo
           title: Junta de grupo / oring compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 o-ring group Junta de grupo / oring
-            compatible para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - en85
           - o-ring
@@ -3643,8 +3552,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-deposito-deposito-agua
           title: Depósito de agua compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 water tank Depósito de agua compatible
-            para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 water tank container dep sito de agua
           must_include:
           - en85
           - water
@@ -3658,8 +3566,8 @@ brands:
         - sku: nespresso-cf-nespresso-en85-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 milk container Depósito / recipiente
-            leche compatible para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 milk container tank dep sito recipiente
+            leche
           must_include:
           - en85
           - milk
@@ -3674,8 +3582,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-accesorios-acc-espumador
           title: Espumador de leche compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 frother accessory Espumador de leche
-            compatible para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 frother accessory kit espumador de leche
           must_include:
           - en85
           - frother
@@ -3689,8 +3596,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 drip tray Bandeja recogetazas compatible
-            para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 drip tray accessory kit bandeja recogetazas
           must_include:
           - en85
           - drip
@@ -3704,8 +3610,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 maintenance kit Kit mantenimiento
-            compatible para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 maintenance kit accessory mantenimiento
           must_include:
           - en85
           - maintenance
@@ -3719,8 +3624,7 @@ brands:
         - sku: nespresso-cf-nespresso-en85-accesorios-acc-descalc
           title: Descalcificador compatible para Essenza Mini EN85
           intent: compra
-          query: Nespresso Essenza Mini EN85 en85 descaler descaling Descalcificador
-            compatible para Essenza Mini EN85
+          query: Nespresso Essenza Mini EN85 descaler descaling accessory kit descalcificador
           must_include:
           - en85
           - descaler
@@ -3825,8 +3729,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-filtro-filtro-agua
           title: Filtro de agua compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 filter water Filtro de agua compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 filter water filtro de agua
           must_include:
           - c113
           - filter
@@ -3844,8 +3747,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 filter coffee Filtro portacápsulas compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 filter coffee filtro portac psulas
           must_include:
           - c113
           - filter
@@ -3861,8 +3763,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-junta-junta-cafetera
           title: Junta de goma compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 gasket seal Junta de goma compatible para
-            Citiz C113
+          query: Nespresso Citiz C113 gasket seal junta de goma
           must_include:
           - c113
           - gasket
@@ -3876,8 +3777,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-junta-junta-grupo
           title: Junta de grupo / oring compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 o-ring group Junta de grupo / oring compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 o-ring group gasket seal junta de grupo oring
           must_include:
           - c113
           - o-ring
@@ -3892,8 +3792,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-deposito-deposito-agua
           title: Depósito de agua compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 water tank Depósito de agua compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 water tank container dep sito de agua
           must_include:
           - c113
           - water
@@ -3907,8 +3806,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 milk container Depósito / recipiente leche
-            compatible para Citiz C113
+          query: Nespresso Citiz C113 milk container tank dep sito recipiente leche
           must_include:
           - c113
           - milk
@@ -3923,8 +3821,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-accesorios-acc-espumador
           title: Espumador de leche compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 frother accessory Espumador de leche compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 frother accessory kit espumador de leche
           must_include:
           - c113
           - frother
@@ -3938,8 +3835,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 drip tray Bandeja recogetazas compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 drip tray accessory kit bandeja recogetazas
           must_include:
           - c113
           - drip
@@ -3953,8 +3849,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 maintenance kit Kit mantenimiento compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 maintenance kit accessory mantenimiento
           must_include:
           - c113
           - maintenance
@@ -3968,8 +3863,7 @@ brands:
         - sku: nespresso-cf-nespresso-c113-accesorios-acc-descalc
           title: Descalcificador compatible para Citiz C113
           intent: compra
-          query: Nespresso Citiz C113 c113 descaler descaling Descalcificador compatible
-            para Citiz C113
+          query: Nespresso Citiz C113 descaler descaling accessory kit descalcificador
           must_include:
           - c113
           - descaler
@@ -4074,8 +3968,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-filtro-filtro-agua
           title: Filtro de agua compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 filter water Filtro de agua compatible
-            para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 filter water filtro de agua
           must_include:
           - gca1
           - filter
@@ -4093,8 +3986,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 filter coffee Filtro portacápsulas
-            compatible para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 filter coffee filtro portac psulas
           must_include:
           - gca1
           - filter
@@ -4110,8 +4002,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-junta-junta-cafetera
           title: Junta de goma compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 gasket seal Junta de goma compatible
-            para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 gasket seal junta de goma
           must_include:
           - gca1
           - gasket
@@ -4125,8 +4016,8 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-junta-junta-grupo
           title: Junta de grupo / oring compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 o-ring group Junta de grupo / oring
-            compatible para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - gca1
           - o-ring
@@ -4141,8 +4032,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-deposito-deposito-agua
           title: Depósito de agua compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 water tank Depósito de agua compatible
-            para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 water tank container dep sito de agua
           must_include:
           - gca1
           - water
@@ -4156,8 +4046,8 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 milk container Depósito / recipiente
-            leche compatible para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 milk container tank dep sito recipiente
+            leche
           must_include:
           - gca1
           - milk
@@ -4172,8 +4062,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-accesorios-acc-espumador
           title: Espumador de leche compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 frother accessory Espumador de leche
-            compatible para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 frother accessory kit espumador de leche
           must_include:
           - gca1
           - frother
@@ -4187,8 +4076,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 drip tray Bandeja recogetazas compatible
-            para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 drip tray accessory kit bandeja recogetazas
           must_include:
           - gca1
           - drip
@@ -4202,8 +4090,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 maintenance kit Kit mantenimiento
-            compatible para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 maintenance kit accessory mantenimiento
           must_include:
           - gca1
           - maintenance
@@ -4217,8 +4104,7 @@ brands:
         - sku: nespresso-cf-nespresso-gca1-accesorios-acc-descalc
           title: Descalcificador compatible para Vertuo Next GCA1
           intent: compra
-          query: Nespresso Vertuo Next GCA1 gca1 descaler descaling Descalcificador
-            compatible para Vertuo Next GCA1
+          query: Nespresso Vertuo Next GCA1 descaler descaling accessory kit descalcificador
           must_include:
           - gca1
           - descaler
@@ -4323,8 +4209,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-filtro-filtro-agua
           title: Filtro de agua compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 filter water Filtro de agua compatible
-            para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 filter water filtro de agua
           must_include:
           - gcv2
           - filter
@@ -4341,8 +4226,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 filter coffee Filtro portacápsulas
-            compatible para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 filter coffee filtro portac psulas
           must_include:
           - gcv2
           - filter
@@ -4358,8 +4242,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-junta-junta-cafetera
           title: Junta de goma compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 gasket seal Junta de goma compatible
-            para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 gasket seal junta de goma
           must_include:
           - gcv2
           - gasket
@@ -4373,8 +4256,8 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-junta-junta-grupo
           title: Junta de grupo / oring compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 o-ring group Junta de grupo / oring
-            compatible para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - gcv2
           - o-ring
@@ -4389,8 +4272,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-deposito-deposito-agua
           title: Depósito de agua compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 water tank Depósito de agua compatible
-            para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 water tank container dep sito de agua
           must_include:
           - gcv2
           - water
@@ -4404,8 +4286,8 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 milk container Depósito / recipiente
-            leche compatible para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 milk container tank dep sito recipiente
+            leche
           must_include:
           - gcv2
           - milk
@@ -4420,8 +4302,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-accesorios-acc-espumador
           title: Espumador de leche compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 frother accessory Espumador de leche
-            compatible para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 frother accessory kit espumador de leche
           must_include:
           - gcv2
           - frother
@@ -4435,8 +4316,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 drip tray Bandeja recogetazas compatible
-            para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 drip tray accessory kit bandeja recogetazas
           must_include:
           - gcv2
           - drip
@@ -4450,8 +4330,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 maintenance kit Kit mantenimiento
-            compatible para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 maintenance kit accessory mantenimiento
           must_include:
           - gcv2
           - maintenance
@@ -4465,8 +4344,7 @@ brands:
         - sku: nespresso-cf-nespresso-gcv2-accesorios-acc-descalc
           title: Descalcificador compatible para Vertuo Pop GCV2
           intent: compra
-          query: Nespresso Vertuo Pop GCV2 gcv2 descaler descaling Descalcificador
-            compatible para Vertuo Pop GCV2
+          query: Nespresso Vertuo Pop GCV2 descaler descaling accessory kit descalcificador
           must_include:
           - gcv2
           - descaler
@@ -4571,8 +4449,7 @@ brands:
         - sku: nespresso-cf-nespresso-f521-filtro-filtro-agua
           title: Filtro de agua compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 filter water Filtro de agua
-            compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 filter water filtro de agua
           must_include:
           - f521
           - filter
@@ -4590,8 +4467,7 @@ brands:
         - sku: nespresso-cf-nespresso-f521-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 filter coffee Filtro portacápsulas
-            compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 filter coffee filtro portac psulas
           must_include:
           - f521
           - filter
@@ -4607,8 +4483,7 @@ brands:
         - sku: nespresso-cf-nespresso-f521-junta-junta-cafetera
           title: Junta de goma compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 gasket seal Junta de goma compatible
-            para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 gasket seal junta de goma
           must_include:
           - f521
           - gasket
@@ -4622,8 +4497,8 @@ brands:
         - sku: nespresso-cf-nespresso-f521-junta-junta-grupo
           title: Junta de grupo / oring compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 o-ring group Junta de grupo
-            / oring compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 o-ring group gasket seal junta de
+            grupo oring
           must_include:
           - f521
           - o-ring
@@ -4638,8 +4513,8 @@ brands:
         - sku: nespresso-cf-nespresso-f521-deposito-deposito-agua
           title: Depósito de agua compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 water tank Depósito de agua
-            compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 water tank container dep sito de
+            agua
           must_include:
           - f521
           - water
@@ -4653,8 +4528,8 @@ brands:
         - sku: nespresso-cf-nespresso-f521-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 milk container Depósito / recipiente
-            leche compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 milk container tank dep sito recipiente
+            leche
           must_include:
           - f521
           - milk
@@ -4669,8 +4544,8 @@ brands:
         - sku: nespresso-cf-nespresso-f521-accesorios-acc-espumador
           title: Espumador de leche compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 frother accessory Espumador
-            de leche compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 frother accessory kit espumador de
+            leche
           must_include:
           - f521
           - frother
@@ -4684,8 +4559,7 @@ brands:
         - sku: nespresso-cf-nespresso-f521-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 drip tray Bandeja recogetazas
-            compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 drip tray accessory kit bandeja recogetazas
           must_include:
           - f521
           - drip
@@ -4699,8 +4573,7 @@ brands:
         - sku: nespresso-cf-nespresso-f521-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 maintenance kit Kit mantenimiento
-            compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 maintenance kit accessory mantenimiento
           must_include:
           - f521
           - maintenance
@@ -4714,8 +4587,8 @@ brands:
         - sku: nespresso-cf-nespresso-f521-accesorios-acc-descalc
           title: Descalcificador compatible para Lattissima Touch F521
           intent: compra
-          query: Nespresso Lattissima Touch F521 f521 descaler descaling Descalcificador
-            compatible para Lattissima Touch F521
+          query: Nespresso Lattissima Touch F521 descaler descaling accessory kit
+            descalcificador
           must_include:
           - f521
           - descaler
@@ -4823,8 +4696,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-filtro-filtro-agua
           title: Filtro de agua compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 filter water Filtro de agua compatible
-            para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 filter water filtro de agua
           must_include:
           - tas1002
           - filter
@@ -4842,8 +4714,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 filter coffee Filtro portacápsulas
-            compatible para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 filter coffee filtro portac psulas
           must_include:
           - tas1002
           - filter
@@ -4859,8 +4730,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-junta-junta-cafetera
           title: Junta de goma compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 gasket seal Junta de goma compatible
-            para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 gasket seal junta de goma
           must_include:
           - tas1002
           - gasket
@@ -4874,8 +4744,8 @@ brands:
         - sku: bosch-cf-bosch-tas1002-junta-junta-grupo
           title: Junta de grupo / oring compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 o-ring group Junta de grupo /
-            oring compatible para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - tas1002
           - o-ring
@@ -4890,8 +4760,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-deposito-deposito-agua
           title: Depósito de agua compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 water tank Depósito de agua compatible
-            para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 water tank container dep sito de agua
           must_include:
           - tas1002
           - water
@@ -4905,8 +4774,8 @@ brands:
         - sku: bosch-cf-bosch-tas1002-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 milk container Depósito / recipiente
-            leche compatible para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 milk container tank dep sito recipiente
+            leche
           must_include:
           - tas1002
           - milk
@@ -4921,8 +4790,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-accesorios-acc-espumador
           title: Espumador de leche compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 frother accessory Espumador de
-            leche compatible para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 frother accessory kit espumador de leche
           must_include:
           - tas1002
           - frother
@@ -4936,8 +4804,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 drip tray Bandeja recogetazas
-            compatible para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 drip tray accessory kit bandeja recogetazas
           must_include:
           - tas1002
           - drip
@@ -4951,8 +4818,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 maintenance kit Kit mantenimiento
-            compatible para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 maintenance kit accessory mantenimiento
           must_include:
           - tas1002
           - maintenance
@@ -4966,8 +4832,7 @@ brands:
         - sku: bosch-cf-bosch-tas1002-accesorios-acc-descalc
           title: Descalcificador compatible para Tassimo Happy TAS1002
           intent: compra
-          query: Bosch Tassimo Happy TAS1002 tas1002 descaler descaling Descalcificador
-            compatible para Tassimo Happy TAS1002
+          query: Bosch Tassimo Happy TAS1002 descaler descaling accessory kit descalcificador
           must_include:
           - tas1002
           - descaler
@@ -5072,8 +4937,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-filtro-filtro-agua
           title: Filtro de agua compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 filter water Filtro de agua compatible
-            para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 filter water filtro de agua
           must_include:
           - tas3204
           - filter
@@ -5091,8 +4955,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 filter coffee Filtro portacápsulas
-            compatible para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 filter coffee filtro portac psulas
           must_include:
           - tas3204
           - filter
@@ -5108,8 +4971,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-junta-junta-cafetera
           title: Junta de goma compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 gasket seal Junta de goma compatible
-            para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 gasket seal junta de goma
           must_include:
           - tas3204
           - gasket
@@ -5123,8 +4985,8 @@ brands:
         - sku: bosch-cf-bosch-tas3204-junta-junta-grupo
           title: Junta de grupo / oring compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 o-ring group Junta de grupo /
-            oring compatible para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - tas3204
           - o-ring
@@ -5139,8 +5001,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-deposito-deposito-agua
           title: Depósito de agua compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 water tank Depósito de agua compatible
-            para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 water tank container dep sito de agua
           must_include:
           - tas3204
           - water
@@ -5154,8 +5015,8 @@ brands:
         - sku: bosch-cf-bosch-tas3204-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 milk container Depósito / recipiente
-            leche compatible para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 milk container tank dep sito recipiente
+            leche
           must_include:
           - tas3204
           - milk
@@ -5170,8 +5031,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-accesorios-acc-espumador
           title: Espumador de leche compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 frother accessory Espumador de
-            leche compatible para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 frother accessory kit espumador de leche
           must_include:
           - tas3204
           - frother
@@ -5185,8 +5045,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 drip tray Bandeja recogetazas
-            compatible para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 drip tray accessory kit bandeja recogetazas
           must_include:
           - tas3204
           - drip
@@ -5200,8 +5059,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 maintenance kit Kit mantenimiento
-            compatible para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 maintenance kit accessory mantenimiento
           must_include:
           - tas3204
           - maintenance
@@ -5215,8 +5073,7 @@ brands:
         - sku: bosch-cf-bosch-tas3204-accesorios-acc-descalc
           title: Descalcificador compatible para Tassimo Suny TAS3204
           intent: compra
-          query: Bosch Tassimo Suny TAS3204 tas3204 descaler descaling Descalcificador
-            compatible para Tassimo Suny TAS3204
+          query: Bosch Tassimo Suny TAS3204 descaler descaling accessory kit descalcificador
           must_include:
           - tas3204
           - descaler
@@ -5320,8 +5177,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-filtro-filtro-agua
           title: Filtro de agua compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 filter water Filtro de agua
-            compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 filter water filtro de agua
           must_include:
           - tas6002
           - filter
@@ -5338,8 +5194,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 filter coffee Filtro portacápsulas
-            compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 filter coffee filtro portac psulas
           must_include:
           - tas6002
           - filter
@@ -5355,8 +5210,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-junta-junta-cafetera
           title: Junta de goma compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 gasket seal Junta de goma compatible
-            para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 gasket seal junta de goma
           must_include:
           - tas6002
           - gasket
@@ -5370,8 +5224,8 @@ brands:
         - sku: bosch-cf-bosch-tas6002-junta-junta-grupo
           title: Junta de grupo / oring compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 o-ring group Junta de grupo
-            / oring compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - tas6002
           - o-ring
@@ -5386,8 +5240,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-deposito-deposito-agua
           title: Depósito de agua compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 water tank Depósito de agua
-            compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 water tank container dep sito de agua
           must_include:
           - tas6002
           - water
@@ -5401,8 +5254,8 @@ brands:
         - sku: bosch-cf-bosch-tas6002-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 milk container Depósito / recipiente
-            leche compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 milk container tank dep sito recipiente
+            leche
           must_include:
           - tas6002
           - milk
@@ -5417,8 +5270,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-accesorios-acc-espumador
           title: Espumador de leche compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 frother accessory Espumador
-            de leche compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 frother accessory kit espumador de leche
           must_include:
           - tas6002
           - frother
@@ -5432,8 +5284,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 drip tray Bandeja recogetazas
-            compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 drip tray accessory kit bandeja recogetazas
           must_include:
           - tas6002
           - drip
@@ -5447,8 +5298,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 maintenance kit Kit mantenimiento
-            compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 maintenance kit accessory mantenimiento
           must_include:
           - tas6002
           - maintenance
@@ -5462,8 +5312,7 @@ brands:
         - sku: bosch-cf-bosch-tas6002-accesorios-acc-descalc
           title: Descalcificador compatible para Tassimo My Way TAS6002
           intent: compra
-          query: Bosch Tassimo My Way TAS6002 tas6002 descaler descaling Descalcificador
-            compatible para Tassimo My Way TAS6002
+          query: Bosch Tassimo My Way TAS6002 descaler descaling accessory kit descalcificador
           must_include:
           - tas6002
           - descaler
@@ -5568,8 +5417,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-filtro-filtro-agua
           title: Filtro de agua compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 filter water Filtro de agua compatible
-            para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 filter water filtro de agua
           must_include:
           - ctl636
           - filter
@@ -5587,8 +5435,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 filter coffee Filtro portacápsulas compatible
-            para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 filter coffee filtro portac psulas
           must_include:
           - ctl636
           - filter
@@ -5604,8 +5451,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-junta-junta-cafetera
           title: Junta de goma compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 gasket seal Junta de goma compatible
-            para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 gasket seal junta de goma
           must_include:
           - ctl636
           - gasket
@@ -5619,8 +5465,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-junta-junta-grupo
           title: Junta de grupo / oring compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 o-ring group Junta de grupo / oring
-            compatible para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 o-ring group gasket seal junta de grupo oring
           must_include:
           - ctl636
           - o-ring
@@ -5635,8 +5480,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-deposito-deposito-agua
           title: Depósito de agua compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 water tank Depósito de agua compatible
-            para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 water tank container dep sito de agua
           must_include:
           - ctl636
           - water
@@ -5650,8 +5494,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 milk container Depósito / recipiente
-            leche compatible para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 milk container tank dep sito recipiente leche
           must_include:
           - ctl636
           - milk
@@ -5666,8 +5509,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-accesorios-acc-espumador
           title: Espumador de leche compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 frother accessory Espumador de leche
-            compatible para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 frother accessory kit espumador de leche
           must_include:
           - ctl636
           - frother
@@ -5681,8 +5523,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 drip tray Bandeja recogetazas compatible
-            para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 drip tray accessory kit bandeja recogetazas
           must_include:
           - ctl636
           - drip
@@ -5696,8 +5537,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 maintenance kit Kit mantenimiento compatible
-            para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 maintenance kit accessory mantenimiento
           must_include:
           - ctl636
           - maintenance
@@ -5711,8 +5551,7 @@ brands:
         - sku: bosch-cf-bosch-ctl636-accesorios-acc-descalc
           title: Descalcificador compatible para VeroCafe CTL636
           intent: compra
-          query: Bosch VeroCafe CTL636 ctl636 descaler descaling Descalcificador compatible
-            para VeroCafe CTL636
+          query: Bosch VeroCafe CTL636 descaler descaling accessory kit descalcificador
           must_include:
           - ctl636
           - descaler
@@ -5820,8 +5659,7 @@ brands:
         - sku: krups-cf-krups-ea8298-filtro-filtro-agua
           title: Filtro de agua compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 filter water Filtro de agua compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 filter water filtro de agua
           must_include:
           - ea8298
           - filter
@@ -5839,8 +5677,7 @@ brands:
         - sku: krups-cf-krups-ea8298-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 filter coffee Filtro portacápsulas compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 filter coffee filtro portac psulas
           must_include:
           - ea8298
           - filter
@@ -5856,8 +5693,7 @@ brands:
         - sku: krups-cf-krups-ea8298-junta-junta-cafetera
           title: Junta de goma compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 gasket seal Junta de goma compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 gasket seal junta de goma
           must_include:
           - ea8298
           - gasket
@@ -5871,8 +5707,7 @@ brands:
         - sku: krups-cf-krups-ea8298-junta-junta-grupo
           title: Junta de grupo / oring compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 o-ring group Junta de grupo / oring compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 o-ring group gasket seal junta de grupo oring
           must_include:
           - ea8298
           - o-ring
@@ -5887,8 +5722,7 @@ brands:
         - sku: krups-cf-krups-ea8298-deposito-deposito-agua
           title: Depósito de agua compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 water tank Depósito de agua compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 water tank container dep sito de agua
           must_include:
           - ea8298
           - water
@@ -5902,8 +5736,7 @@ brands:
         - sku: krups-cf-krups-ea8298-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 milk container Depósito / recipiente
-            leche compatible para Barista EA8298
+          query: Krups Barista EA8298 milk container tank dep sito recipiente leche
           must_include:
           - ea8298
           - milk
@@ -5918,8 +5751,7 @@ brands:
         - sku: krups-cf-krups-ea8298-accesorios-acc-espumador
           title: Espumador de leche compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 frother accessory Espumador de leche
-            compatible para Barista EA8298
+          query: Krups Barista EA8298 frother accessory kit espumador de leche
           must_include:
           - ea8298
           - frother
@@ -5933,8 +5765,7 @@ brands:
         - sku: krups-cf-krups-ea8298-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 drip tray Bandeja recogetazas compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 drip tray accessory kit bandeja recogetazas
           must_include:
           - ea8298
           - drip
@@ -5948,8 +5779,7 @@ brands:
         - sku: krups-cf-krups-ea8298-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 maintenance kit Kit mantenimiento compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 maintenance kit accessory mantenimiento
           must_include:
           - ea8298
           - maintenance
@@ -5963,8 +5793,7 @@ brands:
         - sku: krups-cf-krups-ea8298-accesorios-acc-descalc
           title: Descalcificador compatible para Barista EA8298
           intent: compra
-          query: Krups Barista EA8298 ea8298 descaler descaling Descalcificador compatible
-            para Barista EA8298
+          query: Krups Barista EA8298 descaler descaling accessory kit descalcificador
           must_include:
           - ea8298
           - descaler
@@ -6069,8 +5898,7 @@ brands:
         - sku: krups-cf-krups-ea8910-filtro-filtro-agua
           title: Filtro de agua compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 filter water Filtro de agua
-            compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática filter water filtro de agua
           must_include:
           - ea8910
           - filter
@@ -6088,8 +5916,7 @@ brands:
         - sku: krups-cf-krups-ea8910-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 filter coffee Filtro portacápsulas
-            compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática filter coffee filtro portac psulas
           must_include:
           - ea8910
           - filter
@@ -6105,8 +5932,7 @@ brands:
         - sku: krups-cf-krups-ea8910-junta-junta-cafetera
           title: Junta de goma compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 gasket seal Junta de goma
-            compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática gasket seal junta de goma
           must_include:
           - ea8910
           - gasket
@@ -6120,8 +5946,8 @@ brands:
         - sku: krups-cf-krups-ea8910-junta-junta-grupo
           title: Junta de grupo / oring compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 o-ring group Junta de grupo
-            / oring compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática o-ring group gasket seal junta de
+            grupo oring
           must_include:
           - ea8910
           - o-ring
@@ -6136,8 +5962,8 @@ brands:
         - sku: krups-cf-krups-ea8910-deposito-deposito-agua
           title: Depósito de agua compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 water tank Depósito de agua
-            compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática water tank container dep sito de
+            agua
           must_include:
           - ea8910
           - water
@@ -6151,8 +5977,8 @@ brands:
         - sku: krups-cf-krups-ea8910-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 milk container Depósito /
-            recipiente leche compatible para EA8910 Espresso Autom
+          query: Krups EA8910 Espresso Automática milk container tank dep sito recipiente
+            leche
           must_include:
           - ea8910
           - milk
@@ -6167,8 +5993,8 @@ brands:
         - sku: krups-cf-krups-ea8910-accesorios-acc-espumador
           title: Espumador de leche compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 frother accessory Espumador
-            de leche compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática frother accessory kit espumador
+            de leche
           must_include:
           - ea8910
           - frother
@@ -6182,8 +6008,8 @@ brands:
         - sku: krups-cf-krups-ea8910-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 drip tray Bandeja recogetazas
-            compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática drip tray accessory kit bandeja
+            recogetazas
           must_include:
           - ea8910
           - drip
@@ -6197,8 +6023,7 @@ brands:
         - sku: krups-cf-krups-ea8910-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 maintenance kit Kit mantenimiento
-            compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática maintenance kit accessory mantenimiento
           must_include:
           - ea8910
           - maintenance
@@ -6212,8 +6037,8 @@ brands:
         - sku: krups-cf-krups-ea8910-accesorios-acc-descalc
           title: Descalcificador compatible para EA8910 Espresso Automática
           intent: compra
-          query: Krups EA8910 Espresso Automática ea8910 descaler descaling Descalcificador
-            compatible para EA8910 Espresso Automática
+          query: Krups EA8910 Espresso Automática descaler descaling accessory kit
+            descalcificador
           must_include:
           - ea8910
           - descaler
@@ -6318,8 +6143,7 @@ brands:
         - sku: krups-cf-krups-kp340-filtro-filtro-agua
           title: Filtro de agua compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 filter water Filtro de agua
-            compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 filter water filtro de agua
           must_include:
           - kp340
           - filter
@@ -6337,8 +6161,7 @@ brands:
         - sku: krups-cf-krups-kp340-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 filter coffee Filtro portacápsulas
-            compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 filter coffee filtro portac psulas
           must_include:
           - kp340
           - filter
@@ -6354,8 +6177,7 @@ brands:
         - sku: krups-cf-krups-kp340-junta-junta-cafetera
           title: Junta de goma compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 gasket seal Junta de goma compatible
-            para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 gasket seal junta de goma
           must_include:
           - kp340
           - gasket
@@ -6369,8 +6191,8 @@ brands:
         - sku: krups-cf-krups-kp340-junta-junta-grupo
           title: Junta de grupo / oring compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 o-ring group Junta de grupo
-            / oring compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 o-ring group gasket seal junta de
+            grupo oring
           must_include:
           - kp340
           - o-ring
@@ -6385,8 +6207,8 @@ brands:
         - sku: krups-cf-krups-kp340-deposito-deposito-agua
           title: Depósito de agua compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 water tank Depósito de agua
-            compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 water tank container dep sito de
+            agua
           must_include:
           - kp340
           - water
@@ -6400,8 +6222,8 @@ brands:
         - sku: krups-cf-krups-kp340-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 milk container Depósito / recipiente
-            leche compatible para Dolce Gusto Genio S KP3
+          query: Krups Dolce Gusto Genio S KP340 milk container tank dep sito recipiente
+            leche
           must_include:
           - kp340
           - milk
@@ -6416,8 +6238,8 @@ brands:
         - sku: krups-cf-krups-kp340-accesorios-acc-espumador
           title: Espumador de leche compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 frother accessory Espumador
-            de leche compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 frother accessory kit espumador de
+            leche
           must_include:
           - kp340
           - frother
@@ -6431,8 +6253,7 @@ brands:
         - sku: krups-cf-krups-kp340-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 drip tray Bandeja recogetazas
-            compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 drip tray accessory kit bandeja recogetazas
           must_include:
           - kp340
           - drip
@@ -6446,8 +6267,7 @@ brands:
         - sku: krups-cf-krups-kp340-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 maintenance kit Kit mantenimiento
-            compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 maintenance kit accessory mantenimiento
           must_include:
           - kp340
           - maintenance
@@ -6461,8 +6281,8 @@ brands:
         - sku: krups-cf-krups-kp340-accesorios-acc-descalc
           title: Descalcificador compatible para Dolce Gusto Genio S KP340
           intent: compra
-          query: Krups Dolce Gusto Genio S KP340 kp340 descaler descaling Descalcificador
-            compatible para Dolce Gusto Genio S KP340
+          query: Krups Dolce Gusto Genio S KP340 descaler descaling accessory kit
+            descalcificador
           must_include:
           - kp340
           - descaler
@@ -6570,8 +6390,7 @@ brands:
         - sku: melitta-cf-melitta-e950-filtro-filtro-agua
           title: Filtro de agua compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 filter water Filtro de agua compatible para
-            Solo E950
+          query: Melitta Solo E950 filter water filtro de agua
           must_include:
           - e950
           - filter
@@ -6589,8 +6408,7 @@ brands:
         - sku: melitta-cf-melitta-e950-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 filter coffee Filtro portacápsulas compatible
-            para Solo E950
+          query: Melitta Solo E950 filter coffee filtro portac psulas
           must_include:
           - e950
           - filter
@@ -6606,8 +6424,7 @@ brands:
         - sku: melitta-cf-melitta-e950-junta-junta-cafetera
           title: Junta de goma compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 gasket seal Junta de goma compatible para
-            Solo E950
+          query: Melitta Solo E950 gasket seal junta de goma
           must_include:
           - e950
           - gasket
@@ -6621,8 +6438,7 @@ brands:
         - sku: melitta-cf-melitta-e950-junta-junta-grupo
           title: Junta de grupo / oring compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 o-ring group Junta de grupo / oring compatible
-            para Solo E950
+          query: Melitta Solo E950 o-ring group gasket seal junta de grupo oring
           must_include:
           - e950
           - o-ring
@@ -6637,8 +6453,7 @@ brands:
         - sku: melitta-cf-melitta-e950-deposito-deposito-agua
           title: Depósito de agua compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 water tank Depósito de agua compatible para
-            Solo E950
+          query: Melitta Solo E950 water tank container dep sito de agua
           must_include:
           - e950
           - water
@@ -6652,8 +6467,7 @@ brands:
         - sku: melitta-cf-melitta-e950-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 milk container Depósito / recipiente leche
-            compatible para Solo E950
+          query: Melitta Solo E950 milk container tank dep sito recipiente leche
           must_include:
           - e950
           - milk
@@ -6668,8 +6482,7 @@ brands:
         - sku: melitta-cf-melitta-e950-accesorios-acc-espumador
           title: Espumador de leche compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 frother accessory Espumador de leche compatible
-            para Solo E950
+          query: Melitta Solo E950 frother accessory kit espumador de leche
           must_include:
           - e950
           - frother
@@ -6683,8 +6496,7 @@ brands:
         - sku: melitta-cf-melitta-e950-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 drip tray Bandeja recogetazas compatible para
-            Solo E950
+          query: Melitta Solo E950 drip tray accessory kit bandeja recogetazas
           must_include:
           - e950
           - drip
@@ -6698,8 +6510,7 @@ brands:
         - sku: melitta-cf-melitta-e950-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 maintenance kit Kit mantenimiento compatible
-            para Solo E950
+          query: Melitta Solo E950 maintenance kit accessory mantenimiento
           must_include:
           - e950
           - maintenance
@@ -6713,8 +6524,7 @@ brands:
         - sku: melitta-cf-melitta-e950-accesorios-acc-descalc
           title: Descalcificador compatible para Solo E950
           intent: compra
-          query: Melitta Solo E950 e950 descaler descaling Descalcificador compatible
-            para Solo E950
+          query: Melitta Solo E950 descaler descaling accessory kit descalcificador
           must_include:
           - e950
           - descaler
@@ -6819,8 +6629,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-filtro-filtro-agua
           title: Filtro de agua compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista filter water Filtro de agua compatible
-            para Barista Smart TS
+          query: Melitta Barista Smart TS filter water filtro de agua
           must_include:
           - barista
           - filter
@@ -6838,8 +6647,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista filter coffee Filtro portacápsulas
-            compatible para Barista Smart TS
+          query: Melitta Barista Smart TS filter coffee filtro portac psulas
           must_include:
           - barista
           - filter
@@ -6855,8 +6663,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-junta-junta-cafetera
           title: Junta de goma compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista gasket seal Junta de goma compatible
-            para Barista Smart TS
+          query: Melitta Barista Smart TS gasket seal junta de goma
           must_include:
           - barista
           - gasket
@@ -6870,8 +6677,8 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-junta-junta-grupo
           title: Junta de grupo / oring compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista o-ring group Junta de grupo / oring
-            compatible para Barista Smart TS
+          query: Melitta Barista Smart TS o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - barista
           - o-ring
@@ -6886,8 +6693,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-deposito-deposito-agua
           title: Depósito de agua compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista water tank Depósito de agua compatible
-            para Barista Smart TS
+          query: Melitta Barista Smart TS water tank container dep sito de agua
           must_include:
           - barista
           - water
@@ -6901,8 +6707,8 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista milk container Depósito / recipiente
-            leche compatible para Barista Smart TS
+          query: Melitta Barista Smart TS milk container tank dep sito recipiente
+            leche
           must_include:
           - barista
           - milk
@@ -6917,8 +6723,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-accesorios-acc-espumador
           title: Espumador de leche compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista frother accessory Espumador de leche
-            compatible para Barista Smart TS
+          query: Melitta Barista Smart TS frother accessory kit espumador de leche
           must_include:
           - barista
           - frother
@@ -6932,8 +6737,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista drip tray Bandeja recogetazas compatible
-            para Barista Smart TS
+          query: Melitta Barista Smart TS drip tray accessory kit bandeja recogetazas
           must_include:
           - barista
           - drip
@@ -6947,8 +6751,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista maintenance kit Kit mantenimiento
-            compatible para Barista Smart TS
+          query: Melitta Barista Smart TS maintenance kit accessory mantenimiento
           must_include:
           - barista
           - maintenance
@@ -6962,8 +6765,7 @@ brands:
         - sku: melitta-cf-melitta-barista-smart-accesorios-acc-descalc
           title: Descalcificador compatible para Barista Smart TS
           intent: compra
-          query: Melitta Barista Smart TS barista descaler descaling Descalcificador
-            compatible para Barista Smart TS
+          query: Melitta Barista Smart TS descaler descaling accessory kit descalcificador
           must_include:
           - barista
           - descaler
@@ -7068,8 +6870,7 @@ brands:
         - sku: melitta-cf-melitta-f531-filtro-filtro-agua
           title: Filtro de agua compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 filter water Filtro de agua compatible
-            para Passione OT F531
+          query: Melitta Passione OT F531 filter water filtro de agua
           must_include:
           - f531
           - filter
@@ -7087,8 +6888,7 @@ brands:
         - sku: melitta-cf-melitta-f531-filtro-filtro-cafe
           title: Filtro portacápsulas compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 filter coffee Filtro portacápsulas
-            compatible para Passione OT F531
+          query: Melitta Passione OT F531 filter coffee filtro portac psulas
           must_include:
           - f531
           - filter
@@ -7104,8 +6904,7 @@ brands:
         - sku: melitta-cf-melitta-f531-junta-junta-cafetera
           title: Junta de goma compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 gasket seal Junta de goma compatible
-            para Passione OT F531
+          query: Melitta Passione OT F531 gasket seal junta de goma
           must_include:
           - f531
           - gasket
@@ -7119,8 +6918,8 @@ brands:
         - sku: melitta-cf-melitta-f531-junta-junta-grupo
           title: Junta de grupo / oring compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 o-ring group Junta de grupo / oring
-            compatible para Passione OT F531
+          query: Melitta Passione OT F531 o-ring group gasket seal junta de grupo
+            oring
           must_include:
           - f531
           - o-ring
@@ -7135,8 +6934,7 @@ brands:
         - sku: melitta-cf-melitta-f531-deposito-deposito-agua
           title: Depósito de agua compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 water tank Depósito de agua compatible
-            para Passione OT F531
+          query: Melitta Passione OT F531 water tank container dep sito de agua
           must_include:
           - f531
           - water
@@ -7150,8 +6948,8 @@ brands:
         - sku: melitta-cf-melitta-f531-deposito-deposito-leche
           title: Depósito / recipiente leche compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 milk container Depósito / recipiente
-            leche compatible para Passione OT F531
+          query: Melitta Passione OT F531 milk container tank dep sito recipiente
+            leche
           must_include:
           - f531
           - milk
@@ -7166,8 +6964,7 @@ brands:
         - sku: melitta-cf-melitta-f531-accesorios-acc-espumador
           title: Espumador de leche compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 frother accessory Espumador de leche
-            compatible para Passione OT F531
+          query: Melitta Passione OT F531 frother accessory kit espumador de leche
           must_include:
           - f531
           - frother
@@ -7181,8 +6978,7 @@ brands:
         - sku: melitta-cf-melitta-f531-accesorios-acc-bandeja
           title: Bandeja recogetazas compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 drip tray Bandeja recogetazas compatible
-            para Passione OT F531
+          query: Melitta Passione OT F531 drip tray accessory kit bandeja recogetazas
           must_include:
           - f531
           - drip
@@ -7196,8 +6992,7 @@ brands:
         - sku: melitta-cf-melitta-f531-accesorios-acc-kit-mant
           title: Kit mantenimiento compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 maintenance kit Kit mantenimiento compatible
-            para Passione OT F531
+          query: Melitta Passione OT F531 maintenance kit accessory mantenimiento
           must_include:
           - f531
           - maintenance
@@ -7211,8 +7006,7 @@ brands:
         - sku: melitta-cf-melitta-f531-accesorios-acc-descalc
           title: Descalcificador compatible para Passione OT F531
           intent: compra
-          query: Melitta Passione OT F531 f531 descaler descaling Descalcificador
-            compatible para Passione OT F531
+          query: Melitta Passione OT F531 descaler descaling accessory kit descalcificador
           must_include:
           - f531
           - descaler

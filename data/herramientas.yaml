@@ -44,6 +44,30 @@ globals:
     label: Cestas y bandejas
     icon: basket
     buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
   guias_genericas:
     seguridad:
     - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
@@ -87,8 +111,7 @@ brands:
         - sku: makita-ht-makita-dhp484-bateria-bat-tool-std
           title: Batería compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 battery Batería compatible
-            para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V battery bater a
           must_include:
           - dhp484
           - battery
@@ -105,8 +128,7 @@ brands:
         - sku: makita-ht-makita-dhp484-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 battery pack Pack 2 baterías
-            compatibles para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V battery 2 bater as
           must_include:
           - dhp484
           - battery
@@ -122,8 +144,8 @@ brands:
         - sku: makita-ht-makita-dhp484-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 charger fast Cargador rápido
-            compatible para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V charger fast adapter cargador
+            r pido
           must_include:
           - dhp484
           - charger
@@ -138,8 +160,7 @@ brands:
         - sku: makita-ht-makita-dhp484-cargador-charger-tool-std
           title: Cargador estándar compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 charger Cargador estándar
-            compatible para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V charger adapter cargador est ndar
           must_include:
           - dhp484
           - charger
@@ -154,8 +175,7 @@ brands:
         - sku: makita-ht-makita-dhp484-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 bit set Set de puntas/brocas
-            compatibles para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V bit set accessory kit de puntas/brocas
           must_include:
           - dhp484
           - bit
@@ -169,8 +189,8 @@ brands:
         - sku: makita-ht-makita-dhp484-accesorios-acc-disco
           title: Disco de corte compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 disc cutting Disco de corte
-            compatible para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V disc cutting accessory kit disco
+            de corte
           must_include:
           - dhp484
           - disc
@@ -184,8 +204,8 @@ brands:
         - sku: makita-ht-makita-dhp484-accesorios-acc-hoja
           title: Hoja de sierra compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 blade saw Hoja de sierra
-            compatible para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V blade saw accessory kit hoja de
+            sierra
           must_include:
           - dhp484
           - blade
@@ -199,8 +219,7 @@ brands:
         - sku: makita-ht-makita-dhp484-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 chuck drill Portabrocas
-            / chuck compatible para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V chuck drill accessory kit portabrocas
           must_include:
           - dhp484
           - chuck
@@ -215,8 +234,7 @@ brands:
         - sku: makita-ht-makita-dhp484-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 kit accessory Kit accesorios
-            compatible para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V kit accessory accesorios
           must_include:
           - dhp484
           - kit
@@ -231,8 +249,8 @@ brands:
         - sku: makita-ht-makita-dhp484-soporte-soporte-herramienta
           title: Soporte / funda compatible para DHP484 Taladro percutor 18V
           intent: compra
-          query: Makita DHP484 Taladro percutor 18V dhp484 case bag Soporte / funda
-            compatible para DHP484 Taladro percutor 18V
+          query: Makita DHP484 Taladro percutor 18V case bag dock wall mount soporte
+            funda
           must_include:
           - dhp484
           - case
@@ -338,8 +356,7 @@ brands:
         - sku: makita-ht-makita-dhp485-bateria-bat-tool-std
           title: Batería compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 battery Batería compatible para
-            DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V battery bater a
           must_include:
           - dhp485
           - battery
@@ -356,8 +373,7 @@ brands:
         - sku: makita-ht-makita-dhp485-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 battery pack Pack 2 baterías compatibles
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V battery 2 bater as
           must_include:
           - dhp485
           - battery
@@ -373,8 +389,7 @@ brands:
         - sku: makita-ht-makita-dhp485-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 charger fast Cargador rápido compatible
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V charger fast adapter cargador r pido
           must_include:
           - dhp485
           - charger
@@ -389,8 +404,7 @@ brands:
         - sku: makita-ht-makita-dhp485-cargador-charger-tool-std
           title: Cargador estándar compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 charger Cargador estándar compatible
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V charger adapter cargador est ndar
           must_include:
           - dhp485
           - charger
@@ -405,8 +419,7 @@ brands:
         - sku: makita-ht-makita-dhp485-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 bit set Set de puntas/brocas compatibles
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V bit set accessory kit de puntas/brocas
           must_include:
           - dhp485
           - bit
@@ -420,8 +433,7 @@ brands:
         - sku: makita-ht-makita-dhp485-accesorios-acc-disco
           title: Disco de corte compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 disc cutting Disco de corte compatible
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V disc cutting accessory kit disco de corte
           must_include:
           - dhp485
           - disc
@@ -435,8 +447,7 @@ brands:
         - sku: makita-ht-makita-dhp485-accesorios-acc-hoja
           title: Hoja de sierra compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 blade saw Hoja de sierra compatible
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V blade saw accessory kit hoja de sierra
           must_include:
           - dhp485
           - blade
@@ -450,8 +461,7 @@ brands:
         - sku: makita-ht-makita-dhp485-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 chuck drill Portabrocas / chuck
-            compatible para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V chuck drill accessory kit portabrocas
           must_include:
           - dhp485
           - chuck
@@ -466,8 +476,7 @@ brands:
         - sku: makita-ht-makita-dhp485-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 kit accessory Kit accesorios compatible
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V kit accessory accesorios
           must_include:
           - dhp485
           - kit
@@ -482,8 +491,7 @@ brands:
         - sku: makita-ht-makita-dhp485-soporte-soporte-herramienta
           title: Soporte / funda compatible para DHP485 Taladro 18V
           intent: compra
-          query: Makita DHP485 Taladro 18V dhp485 case bag Soporte / funda compatible
-            para DHP485 Taladro 18V
+          query: Makita DHP485 Taladro 18V case bag dock wall mount soporte funda
           must_include:
           - dhp485
           - case
@@ -589,8 +597,7 @@ brands:
         - sku: makita-ht-makita-dga452-bateria-bat-tool-std
           title: Batería compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 battery Batería compatible para
-            DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V battery bater a
           must_include:
           - dga452
           - battery
@@ -607,8 +614,7 @@ brands:
         - sku: makita-ht-makita-dga452-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 battery pack Pack 2 baterías compatibles
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V battery 2 bater as
           must_include:
           - dga452
           - battery
@@ -624,8 +630,7 @@ brands:
         - sku: makita-ht-makita-dga452-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 charger fast Cargador rápido compatible
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V charger fast adapter cargador r pido
           must_include:
           - dga452
           - charger
@@ -640,8 +645,7 @@ brands:
         - sku: makita-ht-makita-dga452-cargador-charger-tool-std
           title: Cargador estándar compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 charger Cargador estándar compatible
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V charger adapter cargador est ndar
           must_include:
           - dga452
           - charger
@@ -656,8 +660,7 @@ brands:
         - sku: makita-ht-makita-dga452-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 bit set Set de puntas/brocas compatibles
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V bit set accessory kit de puntas/brocas
           must_include:
           - dga452
           - bit
@@ -671,8 +674,7 @@ brands:
         - sku: makita-ht-makita-dga452-accesorios-acc-disco
           title: Disco de corte compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 disc cutting Disco de corte compatible
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V disc cutting accessory kit disco de corte
           must_include:
           - dga452
           - disc
@@ -686,8 +688,7 @@ brands:
         - sku: makita-ht-makita-dga452-accesorios-acc-hoja
           title: Hoja de sierra compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 blade saw Hoja de sierra compatible
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V blade saw accessory kit hoja de sierra
           must_include:
           - dga452
           - blade
@@ -701,8 +702,7 @@ brands:
         - sku: makita-ht-makita-dga452-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 chuck drill Portabrocas / chuck
-            compatible para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V chuck drill accessory kit portabrocas
           must_include:
           - dga452
           - chuck
@@ -717,8 +717,7 @@ brands:
         - sku: makita-ht-makita-dga452-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 kit accessory Kit accesorios compatible
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V kit accessory accesorios
           must_include:
           - dga452
           - kit
@@ -733,8 +732,7 @@ brands:
         - sku: makita-ht-makita-dga452-soporte-soporte-herramienta
           title: Soporte / funda compatible para DGA452 Amoladora 18V
           intent: compra
-          query: Makita DGA452 Amoladora 18V dga452 case bag Soporte / funda compatible
-            para DGA452 Amoladora 18V
+          query: Makita DGA452 Amoladora 18V case bag dock wall mount soporte funda
           must_include:
           - dga452
           - case
@@ -840,8 +838,7 @@ brands:
         - sku: makita-ht-makita-dhr202-bateria-bat-tool-std
           title: Batería compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 battery Batería compatible para
-            DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V battery bater a
           must_include:
           - dhr202
           - battery
@@ -858,8 +855,7 @@ brands:
         - sku: makita-ht-makita-dhr202-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 battery pack Pack 2 baterías compatibles
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V battery 2 bater as
           must_include:
           - dhr202
           - battery
@@ -875,8 +871,7 @@ brands:
         - sku: makita-ht-makita-dhr202-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 charger fast Cargador rápido compatible
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V charger fast adapter cargador r pido
           must_include:
           - dhr202
           - charger
@@ -891,8 +886,7 @@ brands:
         - sku: makita-ht-makita-dhr202-cargador-charger-tool-std
           title: Cargador estándar compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 charger Cargador estándar compatible
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V charger adapter cargador est ndar
           must_include:
           - dhr202
           - charger
@@ -907,8 +901,7 @@ brands:
         - sku: makita-ht-makita-dhr202-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 bit set Set de puntas/brocas compatibles
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V bit set accessory kit de puntas/brocas
           must_include:
           - dhr202
           - bit
@@ -922,8 +915,7 @@ brands:
         - sku: makita-ht-makita-dhr202-accesorios-acc-disco
           title: Disco de corte compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 disc cutting Disco de corte compatible
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V disc cutting accessory kit disco de corte
           must_include:
           - dhr202
           - disc
@@ -937,8 +929,7 @@ brands:
         - sku: makita-ht-makita-dhr202-accesorios-acc-hoja
           title: Hoja de sierra compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 blade saw Hoja de sierra compatible
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V blade saw accessory kit hoja de sierra
           must_include:
           - dhr202
           - blade
@@ -952,8 +943,7 @@ brands:
         - sku: makita-ht-makita-dhr202-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 chuck drill Portabrocas / chuck
-            compatible para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V chuck drill accessory kit portabrocas
           must_include:
           - dhr202
           - chuck
@@ -968,8 +958,7 @@ brands:
         - sku: makita-ht-makita-dhr202-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 kit accessory Kit accesorios compatible
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V kit accessory accesorios
           must_include:
           - dhr202
           - kit
@@ -984,8 +973,7 @@ brands:
         - sku: makita-ht-makita-dhr202-soporte-soporte-herramienta
           title: Soporte / funda compatible para DHR202 Martillo 18V
           intent: compra
-          query: Makita DHR202 Martillo 18V dhr202 case bag Soporte / funda compatible
-            para DHR202 Martillo 18V
+          query: Makita DHR202 Martillo 18V case bag dock wall mount soporte funda
           must_include:
           - dhr202
           - case
@@ -1091,8 +1079,7 @@ brands:
         - sku: makita-ht-makita-djr187-bateria-bat-tool-std
           title: Batería compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 battery Batería compatible
-            para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V battery bater a
           must_include:
           - djr187
           - battery
@@ -1109,8 +1096,7 @@ brands:
         - sku: makita-ht-makita-djr187-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 battery pack Pack 2 baterías
-            compatibles para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V battery 2 bater as
           must_include:
           - djr187
           - battery
@@ -1126,8 +1112,7 @@ brands:
         - sku: makita-ht-makita-djr187-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 charger fast Cargador rápido
-            compatible para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V charger fast adapter cargador r pido
           must_include:
           - djr187
           - charger
@@ -1142,8 +1127,7 @@ brands:
         - sku: makita-ht-makita-djr187-cargador-charger-tool-std
           title: Cargador estándar compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 charger Cargador estándar compatible
-            para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V charger adapter cargador est ndar
           must_include:
           - djr187
           - charger
@@ -1158,8 +1142,7 @@ brands:
         - sku: makita-ht-makita-djr187-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 bit set Set de puntas/brocas
-            compatibles para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V bit set accessory kit de puntas/brocas
           must_include:
           - djr187
           - bit
@@ -1173,8 +1156,8 @@ brands:
         - sku: makita-ht-makita-djr187-accesorios-acc-disco
           title: Disco de corte compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 disc cutting Disco de corte
-            compatible para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V disc cutting accessory kit disco de
+            corte
           must_include:
           - djr187
           - disc
@@ -1188,8 +1171,7 @@ brands:
         - sku: makita-ht-makita-djr187-accesorios-acc-hoja
           title: Hoja de sierra compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 blade saw Hoja de sierra compatible
-            para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V blade saw accessory kit hoja de
           must_include:
           - djr187
           - blade
@@ -1203,8 +1185,7 @@ brands:
         - sku: makita-ht-makita-djr187-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 chuck drill Portabrocas / chuck
-            compatible para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V chuck drill accessory kit portabrocas
           must_include:
           - djr187
           - chuck
@@ -1219,8 +1200,7 @@ brands:
         - sku: makita-ht-makita-djr187-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 kit accessory Kit accesorios
-            compatible para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V kit accessory accesorios
           must_include:
           - djr187
           - kit
@@ -1235,8 +1215,7 @@ brands:
         - sku: makita-ht-makita-djr187-soporte-soporte-herramienta
           title: Soporte / funda compatible para DJR187 Sierra sable 18V
           intent: compra
-          query: Makita DJR187 Sierra sable 18V djr187 case bag Soporte / funda compatible
-            para DJR187 Sierra sable 18V
+          query: Makita DJR187 Sierra sable 18V case bag dock wall mount soporte funda
           must_include:
           - djr187
           - case
@@ -1342,8 +1321,7 @@ brands:
         - sku: makita-ht-makita-dss610-bateria-bat-tool-std
           title: Batería compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 battery Batería compatible
-            para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V battery bater a
           must_include:
           - dss610
           - battery
@@ -1360,8 +1338,7 @@ brands:
         - sku: makita-ht-makita-dss610-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 battery pack Pack 2 baterías
-            compatibles para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V battery 2 bater as
           must_include:
           - dss610
           - battery
@@ -1377,8 +1354,8 @@ brands:
         - sku: makita-ht-makita-dss610-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 charger fast Cargador rápido
-            compatible para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V charger fast adapter cargador r
+            pido
           must_include:
           - dss610
           - charger
@@ -1393,8 +1370,7 @@ brands:
         - sku: makita-ht-makita-dss610-cargador-charger-tool-std
           title: Cargador estándar compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 charger Cargador estándar
-            compatible para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V charger adapter cargador est ndar
           must_include:
           - dss610
           - charger
@@ -1409,8 +1385,7 @@ brands:
         - sku: makita-ht-makita-dss610-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 bit set Set de puntas/brocas
-            compatibles para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V bit set accessory kit de puntas/brocas
           must_include:
           - dss610
           - bit
@@ -1424,8 +1399,8 @@ brands:
         - sku: makita-ht-makita-dss610-accesorios-acc-disco
           title: Disco de corte compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 disc cutting Disco de corte
-            compatible para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V disc cutting accessory kit disco
+            de corte
           must_include:
           - dss610
           - disc
@@ -1439,8 +1414,7 @@ brands:
         - sku: makita-ht-makita-dss610-accesorios-acc-hoja
           title: Hoja de sierra compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 blade saw Hoja de sierra
-            compatible para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V blade saw accessory kit hoja de
           must_include:
           - dss610
           - blade
@@ -1454,8 +1428,7 @@ brands:
         - sku: makita-ht-makita-dss610-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 chuck drill Portabrocas
-            / chuck compatible para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V chuck drill accessory kit portabrocas
           must_include:
           - dss610
           - chuck
@@ -1470,8 +1443,7 @@ brands:
         - sku: makita-ht-makita-dss610-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 kit accessory Kit accesorios
-            compatible para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V kit accessory accesorios
           must_include:
           - dss610
           - kit
@@ -1486,8 +1458,8 @@ brands:
         - sku: makita-ht-makita-dss610-soporte-soporte-herramienta
           title: Soporte / funda compatible para DSS610 Sierra circular 18V
           intent: compra
-          query: Makita DSS610 Sierra circular 18V dss610 case bag Soporte / funda
-            compatible para DSS610 Sierra circular 18V
+          query: Makita DSS610 Sierra circular 18V case bag dock wall mount soporte
+            funda
           must_include:
           - dss610
           - case
@@ -1593,8 +1565,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-bateria-bat-tool-std
           title: Batería compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b battery Batería compatible
-            para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah battery
           must_include:
           - bl1850b
           - battery
@@ -1611,8 +1582,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b battery pack Pack 2 baterías
-            compatibles para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah battery 2 as
           must_include:
           - bl1850b
           - battery
@@ -1628,8 +1598,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-cargador-charger-tool-rapid
           title: Cargador rápido compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b charger fast Cargador rápido
-            compatible para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah charger fast adapter cargador r pido
           must_include:
           - bl1850b
           - charger
@@ -1644,8 +1613,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-cargador-charger-tool-std
           title: Cargador estándar compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b charger Cargador estándar
-            compatible para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah charger adapter cargador est ndar
           must_include:
           - bl1850b
           - charger
@@ -1660,8 +1628,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b bit set Set de puntas/brocas
-            compatibles para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah bit set accessory kit de puntas/brocas
           must_include:
           - bl1850b
           - bit
@@ -1675,8 +1642,8 @@ brands:
         - sku: makita-ht-makita-bl1850b-accesorios-acc-disco
           title: Disco de corte compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b disc cutting Disco de corte
-            compatible para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah disc cutting accessory kit disco de
+            corte
           must_include:
           - bl1850b
           - disc
@@ -1690,8 +1657,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-accesorios-acc-hoja
           title: Hoja de sierra compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b blade saw Hoja de sierra compatible
-            para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah blade saw accessory kit hoja de sierra
           must_include:
           - bl1850b
           - blade
@@ -1705,8 +1671,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b chuck drill Portabrocas /
-            chuck compatible para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah chuck drill accessory kit portabrocas
           must_include:
           - bl1850b
           - chuck
@@ -1721,8 +1686,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-accesorios-acc-kit-tool
           title: Kit accesorios compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b kit accessory Kit accesorios
-            compatible para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah kit accessory accesorios
           must_include:
           - bl1850b
           - kit
@@ -1737,8 +1701,7 @@ brands:
         - sku: makita-ht-makita-bl1850b-soporte-soporte-herramienta
           title: Soporte / funda compatible para BL1850B Batería 18V 5Ah
           intent: compra
-          query: Makita BL1850B Batería 18V 5Ah bl1850b case bag Soporte / funda compatible
-            para BL1850B Batería 18V 5Ah
+          query: Makita BL1850B Batería 18V 5Ah case bag dock wall mount soporte funda
           must_include:
           - bl1850b
           - case
@@ -1844,8 +1807,7 @@ brands:
         - sku: makita-ht-makita-dc18rc-bateria-bat-tool-std
           title: Batería compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc battery Batería compatible
-            para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V battery bater a
           must_include:
           - dc18rc
           - battery
@@ -1862,8 +1824,7 @@ brands:
         - sku: makita-ht-makita-dc18rc-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc battery pack Pack 2 baterías
-            compatibles para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V battery 2 bater as
           must_include:
           - dc18rc
           - battery
@@ -1879,8 +1840,7 @@ brands:
         - sku: makita-ht-makita-dc18rc-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc charger fast Cargador rápido
-            compatible para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V charger fast adapter
           must_include:
           - dc18rc
           - charger
@@ -1895,8 +1855,7 @@ brands:
         - sku: makita-ht-makita-dc18rc-cargador-charger-tool-std
           title: Cargador estándar compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc charger Cargador estándar
-            compatible para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V charger adapter est ndar
           must_include:
           - dc18rc
           - charger
@@ -1911,8 +1870,7 @@ brands:
         - sku: makita-ht-makita-dc18rc-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc bit set Set de puntas/brocas
-            compatibles para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V bit set accessory kit de puntas/brocas
           must_include:
           - dc18rc
           - bit
@@ -1926,8 +1884,8 @@ brands:
         - sku: makita-ht-makita-dc18rc-accesorios-acc-disco
           title: Disco de corte compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc disc cutting Disco de corte
-            compatible para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V disc cutting accessory kit disco
+            de corte
           must_include:
           - dc18rc
           - disc
@@ -1941,8 +1899,8 @@ brands:
         - sku: makita-ht-makita-dc18rc-accesorios-acc-hoja
           title: Hoja de sierra compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc blade saw Hoja de sierra
-            compatible para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V blade saw accessory kit hoja de
+            sierra
           must_include:
           - dc18rc
           - blade
@@ -1956,8 +1914,7 @@ brands:
         - sku: makita-ht-makita-dc18rc-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc chuck drill Portabrocas
-            / chuck compatible para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V chuck drill accessory kit portabrocas
           must_include:
           - dc18rc
           - chuck
@@ -1972,8 +1929,7 @@ brands:
         - sku: makita-ht-makita-dc18rc-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc kit accessory Kit accesorios
-            compatible para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V kit accessory accesorios
           must_include:
           - dc18rc
           - kit
@@ -1988,8 +1944,8 @@ brands:
         - sku: makita-ht-makita-dc18rc-soporte-soporte-herramienta
           title: Soporte / funda compatible para DC18RC Cargador rápido 18V
           intent: compra
-          query: Makita DC18RC Cargador rápido 18V dc18rc case bag Soporte / funda
-            compatible para DC18RC Cargador rápido 18V
+          query: Makita DC18RC Cargador rápido 18V case bag dock wall mount soporte
+            funda
           must_include:
           - dc18rc
           - case
@@ -2098,8 +2054,7 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-bateria-bat-tool-std
           title: Batería compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v battery Batería compatible
-            para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v battery bater a
           must_include:
           - gsr18v
           - battery
@@ -2116,8 +2071,7 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v battery pack Pack 2
-            baterías compatibles para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v battery 2 bater as
           must_include:
           - gsr18v
           - battery
@@ -2133,8 +2087,8 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-cargador-charger-tool-rapid
           title: Cargador rápido compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v charger fast Cargador
-            rápido compatible para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v charger fast adapter
+            cargador r pido
           must_include:
           - gsr18v
           - charger
@@ -2149,8 +2103,8 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-cargador-charger-tool-std
           title: Cargador estándar compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v charger Cargador estándar
-            compatible para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v charger adapter cargador
+            est ndar
           must_include:
           - gsr18v
           - charger
@@ -2165,8 +2119,8 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v bit set Set de puntas/brocas
-            compatibles para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v bit set accessory kit
+            de puntas/brocas
           must_include:
           - gsr18v
           - bit
@@ -2180,8 +2134,8 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-disco
           title: Disco de corte compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v disc cutting Disco de
-            corte compatible para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v disc cutting accessory
+            kit disco de corte
           must_include:
           - gsr18v
           - disc
@@ -2195,8 +2149,8 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-hoja
           title: Hoja de sierra compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v blade saw Hoja de sierra
-            compatible para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v blade saw accessory
+            kit hoja de sierra
           must_include:
           - gsr18v
           - blade
@@ -2210,8 +2164,8 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v chuck drill Portabrocas
-            / chuck compatible para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v chuck drill accessory
+            kit portabrocas
           must_include:
           - gsr18v
           - chuck
@@ -2226,8 +2180,7 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-accesorios-acc-kit-tool
           title: Kit accesorios compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v kit accessory Kit accesorios
-            compatible para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v kit accessory accesorios
           must_include:
           - gsr18v
           - kit
@@ -2242,8 +2195,8 @@ brands:
         - sku: bosch-ht-bosch-gsr18v55-soporte-soporte-herramienta
           title: Soporte / funda compatible para GSR 18V-55 Taladro
           intent: compra
-          query: Bosch Professional GSR 18V-55 Taladro gsr18v case bag Soporte / funda
-            compatible para GSR 18V-55 Taladro
+          query: Bosch Professional GSR 18V-55 Taladro gsr18v case bag dock wall mount
+            soporte funda
           must_include:
           - gsr18v
           - case
@@ -2349,8 +2302,7 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-bateria-bat-tool-std
           title: Batería compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v battery Batería compatible
-            para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v battery bater a
           must_include:
           - gbh18v
           - battery
@@ -2367,8 +2319,7 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v battery pack Pack 2
-            baterías compatibles para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v battery 2 bater as
           must_include:
           - gbh18v
           - battery
@@ -2384,8 +2335,8 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-cargador-charger-tool-rapid
           title: Cargador rápido compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v charger fast Cargador
-            rápido compatible para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v charger fast adapter
+            cargador r pido
           must_include:
           - gbh18v
           - charger
@@ -2400,8 +2351,8 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-cargador-charger-tool-std
           title: Cargador estándar compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v charger Cargador estándar
-            compatible para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v charger adapter cargador
+            est ndar
           must_include:
           - gbh18v
           - charger
@@ -2416,8 +2367,8 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v bit set Set de puntas/brocas
-            compatibles para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v bit set accessory kit
+            de puntas/brocas
           must_include:
           - gbh18v
           - bit
@@ -2431,8 +2382,8 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-disco
           title: Disco de corte compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v disc cutting Disco
-            de corte compatible para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v disc cutting accessory
+            kit disco de corte
           must_include:
           - gbh18v
           - disc
@@ -2446,8 +2397,8 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-hoja
           title: Hoja de sierra compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v blade saw Hoja de sierra
-            compatible para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v blade saw accessory
+            kit hoja de sierra
           must_include:
           - gbh18v
           - blade
@@ -2461,8 +2412,8 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v chuck drill Portabrocas
-            / chuck compatible para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v chuck drill accessory
+            kit portabrocas
           must_include:
           - gbh18v
           - chuck
@@ -2477,8 +2428,7 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-accesorios-acc-kit-tool
           title: Kit accesorios compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v kit accessory Kit accesorios
-            compatible para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v kit accessory accesorios
           must_include:
           - gbh18v
           - kit
@@ -2493,8 +2443,8 @@ brands:
         - sku: bosch-ht-bosch-gbh18v26-soporte-soporte-herramienta
           title: Soporte / funda compatible para GBH 18V-26 Martillo
           intent: compra
-          query: Bosch Professional GBH 18V-26 Martillo gbh18v case bag Soporte /
-            funda compatible para GBH 18V-26 Martillo
+          query: Bosch Professional GBH 18V-26 Martillo gbh18v case bag dock wall
+            mount soporte funda
           must_include:
           - gbh18v
           - case
@@ -2600,8 +2550,8 @@ brands:
         - sku: bosch-ht-bosch-gks18v57-bateria-bat-tool-std
           title: Batería compatible para GKS 18V-57 Sierra circular
           intent: compra
-          query: Bosch Professional GKS 18V-57 Sierra circular gks18v battery Batería
-            compatible para GKS 18V-57 Sierra circular
+          query: Bosch Professional GKS 18V-57 Sierra circular gks18v battery bater
+            a
           must_include:
           - gks18v
           - battery
@@ -2618,8 +2568,8 @@ brands:
         - sku: bosch-ht-bosch-gks18v57-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para GKS 18V-57 Sierra circular
           intent: compra
-          query: Bosch Professional GKS 18V-57 Sierra circular gks18v battery pack
-            Pack 2 baterías compatibles para GKS 18V-57 Sierra cir
+          query: Bosch Professional GKS 18V-57 Sierra circular gks18v battery 2 bater
+            as
           must_include:
           - gks18v
           - battery
@@ -2636,7 +2586,7 @@ brands:
           title: Cargador rápido compatible para GKS 18V-57 Sierra circular
           intent: compra
           query: Bosch Professional GKS 18V-57 Sierra circular gks18v charger fast
-            Cargador rápido compatible para GKS 18V-57 Sierra circ
+            adapter cargador r pido
           must_include:
           - gks18v
           - charger
@@ -2651,8 +2601,8 @@ brands:
         - sku: bosch-ht-bosch-gks18v57-cargador-charger-tool-std
           title: Cargador estándar compatible para GKS 18V-57 Sierra circular
           intent: compra
-          query: Bosch Professional GKS 18V-57 Sierra circular gks18v charger Cargador
-            estándar compatible para GKS 18V-57 Sierra circula
+          query: Bosch Professional GKS 18V-57 Sierra circular gks18v charger adapter
+            cargador est ndar
           must_include:
           - gks18v
           - charger
@@ -2667,8 +2617,8 @@ brands:
         - sku: bosch-ht-bosch-gks18v57-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para GKS 18V-57 Sierra circular
           intent: compra
-          query: Bosch Professional GKS 18V-57 Sierra circular gks18v bit set Set
-            de puntas/brocas compatibles para GKS 18V-57 Sierra cir
+          query: Bosch Professional GKS 18V-57 Sierra circular gks18v bit set accessory
+            kit de puntas/brocas
           must_include:
           - gks18v
           - bit
@@ -2683,7 +2633,7 @@ brands:
           title: Disco de corte compatible para GKS 18V-57 Sierra circular
           intent: compra
           query: Bosch Professional GKS 18V-57 Sierra circular gks18v disc cutting
-            Disco de corte compatible para GKS 18V-57 Sierra circu
+            accessory kit disco de corte
           must_include:
           - gks18v
           - disc
@@ -2697,8 +2647,8 @@ brands:
         - sku: bosch-ht-bosch-gks18v57-accesorios-acc-hoja
           title: Hoja de sierra compatible para GKS 18V-57 Sierra circular
           intent: compra
-          query: Bosch Professional GKS 18V-57 Sierra circular gks18v blade saw Hoja
-            de sierra compatible para GKS 18V-57 Sierra circular
+          query: Bosch Professional GKS 18V-57 Sierra circular gks18v blade saw accessory
+            kit hoja de
           must_include:
           - gks18v
           - blade
@@ -2713,7 +2663,7 @@ brands:
           title: Portabrocas / chuck compatible para GKS 18V-57 Sierra circular
           intent: compra
           query: Bosch Professional GKS 18V-57 Sierra circular gks18v chuck drill
-            Portabrocas / chuck compatible para GKS 18V-57 Sierra c
+            accessory kit portabrocas
           must_include:
           - gks18v
           - chuck
@@ -2729,7 +2679,7 @@ brands:
           title: Kit accesorios compatible para GKS 18V-57 Sierra circular
           intent: compra
           query: Bosch Professional GKS 18V-57 Sierra circular gks18v kit accessory
-            Kit accesorios compatible para GKS 18V-57 Sierra circ
+            accesorios
           must_include:
           - gks18v
           - kit
@@ -2744,8 +2694,8 @@ brands:
         - sku: bosch-ht-bosch-gks18v57-soporte-soporte-herramienta
           title: Soporte / funda compatible para GKS 18V-57 Sierra circular
           intent: compra
-          query: Bosch Professional GKS 18V-57 Sierra circular gks18v case bag Soporte
-            / funda compatible para GKS 18V-57 Sierra circular
+          query: Bosch Professional GKS 18V-57 Sierra circular gks18v case bag dock
+            wall mount soporte funda
           must_include:
           - gks18v
           - case
@@ -2852,7 +2802,7 @@ brands:
           title: Batería compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v battery
-            Batería compatible para GDR 18V-160 Atornillador d
+            bater a
           must_include:
           - gdr18v
           - battery
@@ -2869,8 +2819,8 @@ brands:
         - sku: bosch-ht-bosch-gdr18v160-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para GDR 18V-160 Atornillador de impacto
           intent: compra
-          query: 'Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v battery
-            pack Pack 2 baterías compatibles para GDR 18V-160 '
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v battery
+            2 bater as
           must_include:
           - gdr18v
           - battery
@@ -2887,7 +2837,7 @@ brands:
           title: Cargador rápido compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v charger
-            fast Cargador rápido compatible para GDR 18V-160 A
+            fast adapter cargador r pido
           must_include:
           - gdr18v
           - charger
@@ -2903,7 +2853,7 @@ brands:
           title: Cargador estándar compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v charger
-            Cargador estándar compatible para GDR 18V-160 Ator
+            adapter cargador est ndar
           must_include:
           - gdr18v
           - charger
@@ -2919,8 +2869,8 @@ brands:
           title: Set de puntas/brocas compatibles para GDR 18V-160 Atornillador de
             impacto
           intent: compra
-          query: 'Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v bit
-            set Set de puntas/brocas compatibles para GDR 18V-160 '
+          query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v bit
+            set accessory kit puntas/brocas
           must_include:
           - gdr18v
           - bit
@@ -2935,7 +2885,7 @@ brands:
           title: Disco de corte compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v disc
-            cutting Disco de corte compatible para GDR 18V-160 At
+            cutting accessory kit disco corte
           must_include:
           - gdr18v
           - disc
@@ -2950,7 +2900,7 @@ brands:
           title: Hoja de sierra compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v blade
-            saw Hoja de sierra compatible para GDR 18V-160 Atorn
+            saw accessory kit hoja sierra
           must_include:
           - gdr18v
           - blade
@@ -2965,7 +2915,7 @@ brands:
           title: Portabrocas / chuck compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v chuck
-            drill Portabrocas / chuck compatible para GDR 18V-16
+            drill accessory kit portabrocas
           must_include:
           - gdr18v
           - chuck
@@ -2981,7 +2931,7 @@ brands:
           title: Kit accesorios compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v kit
-            accessory Kit accesorios compatible para GDR 18V-160 A
+            accessory accesorios
           must_include:
           - gdr18v
           - kit
@@ -2997,7 +2947,7 @@ brands:
           title: Soporte / funda compatible para GDR 18V-160 Atornillador de impacto
           intent: compra
           query: Bosch Professional GDR 18V-160 Atornillador de impacto gdr18v case
-            bag Soporte / funda compatible para GDR 18V-160 Atorn
+            bag dock wall mount soporte funda
           must_include:
           - gdr18v
           - case
@@ -3103,8 +3053,7 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-bateria-bat-tool-std
           title: Batería compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v battery Batería compatible
-            para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v battery bater a
           must_include:
           - gws18v
           - battery
@@ -3121,8 +3070,7 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v battery pack Pack
-            2 baterías compatibles para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v battery 2 bater as
           must_include:
           - gws18v
           - battery
@@ -3138,8 +3086,8 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-cargador-charger-tool-rapid
           title: Cargador rápido compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v charger fast Cargador
-            rápido compatible para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v charger fast adapter
+            cargador r pido
           must_include:
           - gws18v
           - charger
@@ -3154,8 +3102,8 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-cargador-charger-tool-std
           title: Cargador estándar compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v charger Cargador estándar
-            compatible para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v charger adapter cargador
+            est ndar
           must_include:
           - gws18v
           - charger
@@ -3170,8 +3118,8 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v bit set Set de puntas/brocas
-            compatibles para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v bit set accessory
+            kit de puntas/brocas
           must_include:
           - gws18v
           - bit
@@ -3185,8 +3133,8 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-accesorios-acc-disco
           title: Disco de corte compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v disc cutting Disco
-            de corte compatible para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v disc cutting accessory
+            kit disco de corte
           must_include:
           - gws18v
           - disc
@@ -3200,8 +3148,8 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-accesorios-acc-hoja
           title: Hoja de sierra compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v blade saw Hoja de
-            sierra compatible para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v blade saw accessory
+            kit hoja de sierra
           must_include:
           - gws18v
           - blade
@@ -3215,8 +3163,8 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v chuck drill Portabrocas
-            / chuck compatible para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v chuck drill accessory
+            kit portabrocas
           must_include:
           - gws18v
           - chuck
@@ -3231,8 +3179,7 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-accesorios-acc-kit-tool
           title: Kit accesorios compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v kit accessory Kit
-            accesorios compatible para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v kit accessory accesorios
           must_include:
           - gws18v
           - kit
@@ -3247,8 +3194,8 @@ brands:
         - sku: bosch-ht-bosch-gws18v10-soporte-soporte-herramienta
           title: Soporte / funda compatible para GWS 18V-10 Amoladora
           intent: compra
-          query: Bosch Professional GWS 18V-10 Amoladora gws18v case bag Soporte /
-            funda compatible para GWS 18V-10 Amoladora
+          query: Bosch Professional GWS 18V-10 Amoladora gws18v case bag dock wall
+            mount soporte funda
           must_include:
           - gws18v
           - case
@@ -3357,8 +3304,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-bateria-bat-tool-std
           title: Batería compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 battery Batería compatible para
-            DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V battery bater a
           must_include:
           - dcd791
           - battery
@@ -3375,8 +3321,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 battery pack Pack 2 baterías compatibles
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V battery 2 bater as
           must_include:
           - dcd791
           - battery
@@ -3392,8 +3337,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 charger fast Cargador rápido compatible
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V charger fast adapter cargador r pido
           must_include:
           - dcd791
           - charger
@@ -3408,8 +3352,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-cargador-charger-tool-std
           title: Cargador estándar compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 charger Cargador estándar compatible
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V charger adapter cargador est ndar
           must_include:
           - dcd791
           - charger
@@ -3424,8 +3367,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 bit set Set de puntas/brocas compatibles
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V bit set accessory kit de puntas/brocas
           must_include:
           - dcd791
           - bit
@@ -3439,8 +3381,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-disco
           title: Disco de corte compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 disc cutting Disco de corte compatible
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V disc cutting accessory kit disco de corte
           must_include:
           - dcd791
           - disc
@@ -3454,8 +3395,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-hoja
           title: Hoja de sierra compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 blade saw Hoja de sierra compatible
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V blade saw accessory kit hoja de sierra
           must_include:
           - dcd791
           - blade
@@ -3469,8 +3409,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 chuck drill Portabrocas / chuck
-            compatible para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V chuck drill accessory kit portabrocas
           must_include:
           - dcd791
           - chuck
@@ -3485,8 +3424,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 kit accessory Kit accesorios compatible
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V kit accessory accesorios
           must_include:
           - dcd791
           - kit
@@ -3501,8 +3439,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcd791-soporte-soporte-herramienta
           title: Soporte / funda compatible para DCD791 Taladro 18V
           intent: compra
-          query: DeWalt DCD791 Taladro 18V dcd791 case bag Soporte / funda compatible
-            para DCD791 Taladro 18V
+          query: DeWalt DCD791 Taladro 18V case bag dock wall mount soporte funda
           must_include:
           - dcd791
           - case
@@ -3608,8 +3545,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-bateria-bat-tool-std
           title: Batería compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 battery Batería compatible
-            para DCF887 Atornillador de impacto
+          query: DeWalt DCF887 Atornillador de impacto battery bater a
           must_include:
           - dcf887
           - battery
@@ -3626,8 +3562,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 battery pack Pack 2
-            baterías compatibles para DCF887 Atornillador de impact
+          query: DeWalt DCF887 Atornillador de impacto battery 2 bater as
           must_include:
           - dcf887
           - battery
@@ -3643,8 +3578,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 charger fast Cargador
-            rápido compatible para DCF887 Atornillador de impacto
+          query: DeWalt DCF887 Atornillador de impacto charger fast adapter cargador
+            r pido
           must_include:
           - dcf887
           - charger
@@ -3659,8 +3594,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-cargador-charger-tool-std
           title: Cargador estándar compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 charger Cargador estándar
-            compatible para DCF887 Atornillador de impacto
+          query: DeWalt DCF887 Atornillador de impacto charger adapter cargador est
+            ndar
           must_include:
           - dcf887
           - charger
@@ -3675,8 +3610,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 bit set Set de puntas/brocas
-            compatibles para DCF887 Atornillador de impact
+          query: DeWalt DCF887 Atornillador de impacto bit set accessory kit puntas/brocas
           must_include:
           - dcf887
           - bit
@@ -3690,8 +3624,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-disco
           title: Disco de corte compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 disc cutting Disco de
-            corte compatible para DCF887 Atornillador de impacto
+          query: DeWalt DCF887 Atornillador de impacto disc cutting accessory kit
+            disco corte
           must_include:
           - dcf887
           - disc
@@ -3705,8 +3639,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-hoja
           title: Hoja de sierra compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 blade saw Hoja de sierra
-            compatible para DCF887 Atornillador de impacto
+          query: DeWalt DCF887 Atornillador de impacto blade saw accessory kit hoja
+            sierra
           must_include:
           - dcf887
           - blade
@@ -3720,8 +3654,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 chuck drill Portabrocas
-            / chuck compatible para DCF887 Atornillador de impa
+          query: DeWalt DCF887 Atornillador de impacto chuck drill accessory kit portabrocas
           must_include:
           - dcf887
           - chuck
@@ -3736,8 +3669,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 kit accessory Kit accesorios
-            compatible para DCF887 Atornillador de impacto
+          query: DeWalt DCF887 Atornillador de impacto kit accessory accesorios
           must_include:
           - dcf887
           - kit
@@ -3752,8 +3684,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcf887-soporte-soporte-herramienta
           title: Soporte / funda compatible para DCF887 Atornillador de impacto
           intent: compra
-          query: DeWalt DCF887 Atornillador de impacto dcf887 case bag Soporte / funda
-            compatible para DCF887 Atornillador de impacto
+          query: DeWalt DCF887 Atornillador de impacto case bag dock wall mount soporte
+            funda
           must_include:
           - dcf887
           - case
@@ -3859,8 +3791,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-bateria-bat-tool-std
           title: Batería compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 battery Batería compatible
-            para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V battery bater a
           must_include:
           - dcs565
           - battery
@@ -3877,8 +3808,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 battery pack Pack 2 baterías
-            compatibles para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V battery 2 bater as
           must_include:
           - dcs565
           - battery
@@ -3894,8 +3824,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 charger fast Cargador rápido
-            compatible para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V charger fast adapter cargador r
+            pido
           must_include:
           - dcs565
           - charger
@@ -3910,8 +3840,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-cargador-charger-tool-std
           title: Cargador estándar compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 charger Cargador estándar
-            compatible para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V charger adapter cargador est ndar
           must_include:
           - dcs565
           - charger
@@ -3926,8 +3855,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 bit set Set de puntas/brocas
-            compatibles para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V bit set accessory kit de puntas/brocas
           must_include:
           - dcs565
           - bit
@@ -3941,8 +3869,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-disco
           title: Disco de corte compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 disc cutting Disco de corte
-            compatible para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V disc cutting accessory kit disco
+            de corte
           must_include:
           - dcs565
           - disc
@@ -3956,8 +3884,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-hoja
           title: Hoja de sierra compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 blade saw Hoja de sierra
-            compatible para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V blade saw accessory kit hoja de
           must_include:
           - dcs565
           - blade
@@ -3971,8 +3898,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 chuck drill Portabrocas
-            / chuck compatible para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V chuck drill accessory kit portabrocas
           must_include:
           - dcs565
           - chuck
@@ -3987,8 +3913,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 kit accessory Kit accesorios
-            compatible para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V kit accessory accesorios
           must_include:
           - dcs565
           - kit
@@ -4003,8 +3928,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcs565-soporte-soporte-herramienta
           title: Soporte / funda compatible para DCS565 Sierra circular 18V
           intent: compra
-          query: DeWalt DCS565 Sierra circular 18V dcs565 case bag Soporte / funda
-            compatible para DCS565 Sierra circular 18V
+          query: DeWalt DCS565 Sierra circular 18V case bag dock wall mount soporte
+            funda
           must_include:
           - dcs565
           - case
@@ -4110,8 +4035,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-bateria-bat-tool-std
           title: Batería compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 battery Batería compatible para
-            DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V battery bater a
           must_include:
           - dcg405
           - battery
@@ -4128,8 +4052,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 battery pack Pack 2 baterías compatibles
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V battery 2 bater as
           must_include:
           - dcg405
           - battery
@@ -4145,8 +4068,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 charger fast Cargador rápido compatible
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V charger fast adapter cargador r pido
           must_include:
           - dcg405
           - charger
@@ -4161,8 +4083,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-cargador-charger-tool-std
           title: Cargador estándar compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 charger Cargador estándar compatible
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V charger adapter cargador est ndar
           must_include:
           - dcg405
           - charger
@@ -4177,8 +4098,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 bit set Set de puntas/brocas compatibles
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V bit set accessory kit de puntas/brocas
           must_include:
           - dcg405
           - bit
@@ -4192,8 +4112,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-disco
           title: Disco de corte compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 disc cutting Disco de corte compatible
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V disc cutting accessory kit disco de corte
           must_include:
           - dcg405
           - disc
@@ -4207,8 +4126,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-hoja
           title: Hoja de sierra compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 blade saw Hoja de sierra compatible
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V blade saw accessory kit hoja de sierra
           must_include:
           - dcg405
           - blade
@@ -4222,8 +4140,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 chuck drill Portabrocas / chuck
-            compatible para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V chuck drill accessory kit portabrocas
           must_include:
           - dcg405
           - chuck
@@ -4238,8 +4155,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 kit accessory Kit accesorios compatible
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V kit accessory accesorios
           must_include:
           - dcg405
           - kit
@@ -4254,8 +4170,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcg405-soporte-soporte-herramienta
           title: Soporte / funda compatible para DCG405 Amoladora 18V
           intent: compra
-          query: DeWalt DCG405 Amoladora 18V dcg405 case bag Soporte / funda compatible
-            para DCG405 Amoladora 18V
+          query: DeWalt DCG405 Amoladora 18V case bag dock wall mount soporte funda
           must_include:
           - dcg405
           - case
@@ -4361,8 +4276,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-bateria-bat-tool-std
           title: Batería compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 battery Batería compatible para
-            DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah battery
           must_include:
           - dcb205
           - battery
@@ -4379,8 +4293,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 battery pack Pack 2 baterías
-            compatibles para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah battery 2 as
           must_include:
           - dcb205
           - battery
@@ -4396,8 +4309,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-cargador-charger-tool-rapid
           title: Cargador rápido compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 charger fast Cargador rápido
-            compatible para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah charger fast adapter cargador r pido
           must_include:
           - dcb205
           - charger
@@ -4412,8 +4324,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-cargador-charger-tool-std
           title: Cargador estándar compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 charger Cargador estándar compatible
-            para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah charger adapter cargador est ndar
           must_include:
           - dcb205
           - charger
@@ -4428,8 +4339,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 bit set Set de puntas/brocas
-            compatibles para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah bit set accessory kit de puntas/brocas
           must_include:
           - dcb205
           - bit
@@ -4443,8 +4353,8 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-disco
           title: Disco de corte compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 disc cutting Disco de corte
-            compatible para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah disc cutting accessory kit disco de
+            corte
           must_include:
           - dcb205
           - disc
@@ -4458,8 +4368,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-hoja
           title: Hoja de sierra compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 blade saw Hoja de sierra compatible
-            para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah blade saw accessory kit hoja de sierra
           must_include:
           - dcb205
           - blade
@@ -4473,8 +4382,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 chuck drill Portabrocas / chuck
-            compatible para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah chuck drill accessory kit portabrocas
           must_include:
           - dcb205
           - chuck
@@ -4489,8 +4397,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-accesorios-acc-kit-tool
           title: Kit accesorios compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 kit accessory Kit accesorios
-            compatible para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah kit accessory accesorios
           must_include:
           - dcb205
           - kit
@@ -4505,8 +4412,7 @@ brands:
         - sku: dewalt-ht-dewalt-dcb205-soporte-soporte-herramienta
           title: Soporte / funda compatible para DCB205 Batería 18V 5Ah
           intent: compra
-          query: DeWalt DCB205 Batería 18V 5Ah dcb205 case bag Soporte / funda compatible
-            para DCB205 Batería 18V 5Ah
+          query: DeWalt DCB205 Batería 18V 5Ah case bag dock wall mount soporte funda
           must_include:
           - dcb205
           - case
@@ -4615,8 +4521,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-bateria-bat-tool-std
           title: Batería compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd battery Batería compatible para
-            ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V battery bater a
           must_include:
           - r18pd
           - battery
@@ -4633,8 +4538,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd battery pack Pack 2 baterías compatibles
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V battery 2 bater as
           must_include:
           - r18pd
           - battery
@@ -4650,8 +4554,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-cargador-charger-tool-rapid
           title: Cargador rápido compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd charger fast Cargador rápido compatible
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V charger fast adapter cargador r pido
           must_include:
           - r18pd
           - charger
@@ -4666,8 +4569,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-cargador-charger-tool-std
           title: Cargador estándar compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd charger Cargador estándar compatible
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V charger adapter cargador est ndar
           must_include:
           - r18pd
           - charger
@@ -4682,8 +4584,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd bit set Set de puntas/brocas compatibles
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V bit set accessory kit de puntas/brocas
           must_include:
           - r18pd
           - bit
@@ -4697,8 +4598,8 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-disco
           title: Disco de corte compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd disc cutting Disco de corte compatible
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V disc cutting accessory kit disco de
+            corte
           must_include:
           - r18pd
           - disc
@@ -4712,8 +4613,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-hoja
           title: Hoja de sierra compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd blade saw Hoja de sierra compatible
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V blade saw accessory kit hoja de sierra
           must_include:
           - r18pd
           - blade
@@ -4727,8 +4627,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd chuck drill Portabrocas / chuck
-            compatible para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V chuck drill accessory kit portabrocas
           must_include:
           - r18pd
           - chuck
@@ -4743,8 +4642,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-accesorios-acc-kit-tool
           title: Kit accesorios compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd kit accessory Kit accesorios compatible
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V kit accessory accesorios
           must_include:
           - r18pd
           - kit
@@ -4759,8 +4657,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18pd-soporte-soporte-herramienta
           title: Soporte / funda compatible para ONE+ R18PD Taladro 18V
           intent: compra
-          query: Ryobi ONE+ R18PD Taladro 18V r18pd case bag Soporte / funda compatible
-            para ONE+ R18PD Taladro 18V
+          query: Ryobi ONE+ R18PD Taladro 18V case bag dock wall mount soporte funda
           must_include:
           - r18pd
           - case
@@ -4866,8 +4763,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-bateria-bat-tool-std
           title: Batería compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag battery Batería compatible para
-            ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V battery bater a
           must_include:
           - r18ag
           - battery
@@ -4884,8 +4780,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag battery pack Pack 2 baterías
-            compatibles para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V battery 2 bater as
           must_include:
           - r18ag
           - battery
@@ -4901,8 +4796,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-cargador-charger-tool-rapid
           title: Cargador rápido compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag charger fast Cargador rápido
-            compatible para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V charger fast adapter cargador r pido
           must_include:
           - r18ag
           - charger
@@ -4917,8 +4811,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-cargador-charger-tool-std
           title: Cargador estándar compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag charger Cargador estándar compatible
-            para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V charger adapter cargador est ndar
           must_include:
           - r18ag
           - charger
@@ -4933,8 +4826,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag bit set Set de puntas/brocas
-            compatibles para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V bit set accessory kit de puntas/brocas
           must_include:
           - r18ag
           - bit
@@ -4948,8 +4840,8 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-disco
           title: Disco de corte compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag disc cutting Disco de corte
-            compatible para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V disc cutting accessory kit disco de
+            corte
           must_include:
           - r18ag
           - disc
@@ -4963,8 +4855,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-hoja
           title: Hoja de sierra compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag blade saw Hoja de sierra compatible
-            para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V blade saw accessory kit hoja de sierra
           must_include:
           - r18ag
           - blade
@@ -4978,8 +4869,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag chuck drill Portabrocas / chuck
-            compatible para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V chuck drill accessory kit portabrocas
           must_include:
           - r18ag
           - chuck
@@ -4994,8 +4884,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-accesorios-acc-kit-tool
           title: Kit accesorios compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag kit accessory Kit accesorios
-            compatible para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V kit accessory accesorios
           must_include:
           - r18ag
           - kit
@@ -5010,8 +4899,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18ag-soporte-soporte-herramienta
           title: Soporte / funda compatible para ONE+ R18AG Amoladora 18V
           intent: compra
-          query: Ryobi ONE+ R18AG Amoladora 18V r18ag case bag Soporte / funda compatible
-            para ONE+ R18AG Amoladora 18V
+          query: Ryobi ONE+ R18AG Amoladora 18V case bag dock wall mount soporte funda
           must_include:
           - r18ag
           - case
@@ -5117,8 +5005,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-bateria-bat-tool-std
           title: Batería compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs battery Batería compatible
-            para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V battery bater a
           must_include:
           - r18cs
           - battery
@@ -5135,8 +5022,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs battery pack Pack 2 baterías
-            compatibles para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V battery 2 bater as
           must_include:
           - r18cs
           - battery
@@ -5152,8 +5038,8 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-cargador-charger-tool-rapid
           title: Cargador rápido compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs charger fast Cargador
-            rápido compatible para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V charger fast adapter cargador
+            r pido
           must_include:
           - r18cs
           - charger
@@ -5168,8 +5054,8 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-cargador-charger-tool-std
           title: Cargador estándar compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs charger Cargador estándar
-            compatible para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V charger adapter cargador est
+            ndar
           must_include:
           - r18cs
           - charger
@@ -5185,8 +5071,7 @@ brands:
           title: Set de puntas/brocas compatibles para ONE+ R18CS Sierra circular
             18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs bit set Set de puntas/brocas
-            compatibles para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V bit set accessory kit de puntas/brocas
           must_include:
           - r18cs
           - bit
@@ -5200,8 +5085,8 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-disco
           title: Disco de corte compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs disc cutting Disco de
-            corte compatible para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V disc cutting accessory kit disco
+            de corte
           must_include:
           - r18cs
           - disc
@@ -5215,8 +5100,8 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-hoja
           title: Hoja de sierra compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs blade saw Hoja de sierra
-            compatible para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V blade saw accessory kit hoja
+            de
           must_include:
           - r18cs
           - blade
@@ -5230,8 +5115,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs chuck drill Portabrocas
-            / chuck compatible para ONE+ R18CS Sierra circular 18
+          query: Ryobi ONE+ R18CS Sierra circular 18V chuck drill accessory kit portabrocas
           must_include:
           - r18cs
           - chuck
@@ -5246,8 +5130,7 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-accesorios-acc-kit-tool
           title: Kit accesorios compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs kit accessory Kit accesorios
-            compatible para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V kit accessory accesorios
           must_include:
           - r18cs
           - kit
@@ -5262,8 +5145,8 @@ brands:
         - sku: ryobi-ht-ryobi-r18cs-soporte-soporte-herramienta
           title: Soporte / funda compatible para ONE+ R18CS Sierra circular 18V
           intent: compra
-          query: Ryobi ONE+ R18CS Sierra circular 18V r18cs case bag Soporte / funda
-            compatible para ONE+ R18CS Sierra circular 18V
+          query: Ryobi ONE+ R18CS Sierra circular 18V case bag dock wall mount soporte
+            funda
           must_include:
           - r18cs
           - case
@@ -5369,8 +5252,7 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-bateria-bat-tool-std
           title: Batería compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 battery Batería compatible
-            para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah battery
           must_include:
           - rb18l40
           - battery
@@ -5387,8 +5269,7 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 battery pack Pack 2 baterías
-            compatibles para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah battery 2 as
           must_include:
           - rb18l40
           - battery
@@ -5404,8 +5285,8 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-cargador-charger-tool-rapid
           title: Cargador rápido compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 charger fast Cargador
-            rápido compatible para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah charger fast adapter cargador
+            r pido
           must_include:
           - rb18l40
           - charger
@@ -5420,8 +5301,7 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-cargador-charger-tool-std
           title: Cargador estándar compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 charger Cargador estándar
-            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah charger adapter cargador est ndar
           must_include:
           - rb18l40
           - charger
@@ -5436,8 +5316,7 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 bit set Set de puntas/brocas
-            compatibles para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah bit set accessory kit de puntas/brocas
           must_include:
           - rb18l40
           - bit
@@ -5451,8 +5330,8 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-disco
           title: Disco de corte compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 disc cutting Disco de
-            corte compatible para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah disc cutting accessory kit disco
+            de corte
           must_include:
           - rb18l40
           - disc
@@ -5466,8 +5345,8 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-hoja
           title: Hoja de sierra compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 blade saw Hoja de sierra
-            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah blade saw accessory kit hoja de
+            sierra
           must_include:
           - rb18l40
           - blade
@@ -5481,8 +5360,7 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 chuck drill Portabrocas
-            / chuck compatible para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah chuck drill accessory kit portabrocas
           must_include:
           - rb18l40
           - chuck
@@ -5497,8 +5375,7 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-accesorios-acc-kit-tool
           title: Kit accesorios compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 kit accessory Kit accesorios
-            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah kit accessory accesorios
           must_include:
           - rb18l40
           - kit
@@ -5513,8 +5390,8 @@ brands:
         - sku: ryobi-ht-ryobi-rb18l40-soporte-soporte-herramienta
           title: Soporte / funda compatible para ONE+ RB18L40 Batería 18V 4Ah
           intent: compra
-          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah rb18l40 case bag Soporte / funda
-            compatible para ONE+ RB18L40 Batería 18V 4Ah
+          query: Ryobi ONE+ RB18L40 Batería 18V 4Ah case bag dock wall mount soporte
+            funda
           must_include:
           - rb18l40
           - case
@@ -5623,8 +5500,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-bateria-bat-tool-std
           title: Batería compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 battery Batería compatible para
-            M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro battery bater a
           must_include:
           - '2803'
           - battery
@@ -5641,8 +5517,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 battery pack Pack 2 baterías
-            compatibles para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro battery 2 bater as
           must_include:
           - '2803'
           - battery
@@ -5658,8 +5533,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-cargador-charger-tool-rapid
           title: Cargador rápido compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 charger fast Cargador rápido
-            compatible para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro charger fast adapter cargador r pido
           must_include:
           - '2803'
           - charger
@@ -5674,8 +5548,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-cargador-charger-tool-std
           title: Cargador estándar compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 charger Cargador estándar compatible
-            para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro charger adapter cargador est ndar
           must_include:
           - '2803'
           - charger
@@ -5690,8 +5563,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 bit set Set de puntas/brocas
-            compatibles para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro bit set accessory kit de puntas/brocas
           must_include:
           - '2803'
           - bit
@@ -5705,8 +5577,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-disco
           title: Disco de corte compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 disc cutting Disco de corte
-            compatible para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro disc cutting accessory kit disco
+            de corte
           must_include:
           - '2803'
           - disc
@@ -5720,8 +5592,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-hoja
           title: Hoja de sierra compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 blade saw Hoja de sierra compatible
-            para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro blade saw accessory kit hoja de sierra
           must_include:
           - '2803'
           - blade
@@ -5735,8 +5606,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 chuck drill Portabrocas / chuck
-            compatible para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro chuck drill accessory kit portabrocas
           must_include:
           - '2803'
           - chuck
@@ -5751,8 +5621,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-accesorios-acc-kit-tool
           title: Kit accesorios compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 kit accessory Kit accesorios
-            compatible para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro kit accessory accesorios
           must_include:
           - '2803'
           - kit
@@ -5767,8 +5636,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2803-soporte-soporte-herramienta
           title: Soporte / funda compatible para M18 Fuel 2803 Taladro
           intent: compra
-          query: Milwaukee M18 Fuel 2803 Taladro 2803 case bag Soporte / funda compatible
-            para M18 Fuel 2803 Taladro
+          query: Milwaukee M18 Fuel 2803 Taladro case bag dock wall mount soporte
+            funda
           must_include:
           - '2803'
           - case
@@ -5874,8 +5743,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-bateria-bat-tool-std
           title: Batería compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 battery Batería compatible
-            para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora battery bater a
           must_include:
           - '2780'
           - battery
@@ -5892,8 +5760,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 battery pack Pack 2 baterías
-            compatibles para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora battery 2 bater as
           must_include:
           - '2780'
           - battery
@@ -5909,8 +5776,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-cargador-charger-tool-rapid
           title: Cargador rápido compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 charger fast Cargador rápido
-            compatible para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora charger fast adapter cargador r
+            pido
           must_include:
           - '2780'
           - charger
@@ -5925,8 +5792,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-cargador-charger-tool-std
           title: Cargador estándar compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 charger Cargador estándar
-            compatible para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora charger adapter cargador est ndar
           must_include:
           - '2780'
           - charger
@@ -5941,8 +5807,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 bit set Set de puntas/brocas
-            compatibles para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora bit set accessory kit de puntas/brocas
           must_include:
           - '2780'
           - bit
@@ -5956,8 +5821,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-disco
           title: Disco de corte compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 disc cutting Disco de corte
-            compatible para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora disc cutting accessory kit disco
+            de corte
           must_include:
           - '2780'
           - disc
@@ -5971,8 +5836,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-hoja
           title: Hoja de sierra compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 blade saw Hoja de sierra compatible
-            para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora blade saw accessory kit hoja de
+            sierra
           must_include:
           - '2780'
           - blade
@@ -5986,8 +5851,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 chuck drill Portabrocas /
-            chuck compatible para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora chuck drill accessory kit portabrocas
           must_include:
           - '2780'
           - chuck
@@ -6002,8 +5866,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-accesorios-acc-kit-tool
           title: Kit accesorios compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 kit accessory Kit accesorios
-            compatible para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora kit accessory accesorios
           must_include:
           - '2780'
           - kit
@@ -6018,8 +5881,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-2780-soporte-soporte-herramienta
           title: Soporte / funda compatible para M18 Fuel 2780 Amoladora
           intent: compra
-          query: Milwaukee M18 Fuel 2780 Amoladora 2780 case bag Soporte / funda compatible
-            para M18 Fuel 2780 Amoladora
+          query: Milwaukee M18 Fuel 2780 Amoladora case bag dock wall mount soporte
+            funda
           must_include:
           - '2780'
           - case
@@ -6125,8 +5988,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-bateria-bat-tool-std
           title: Batería compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 battery Batería compatible
-            para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto battery bater a
           must_include:
           - '2407'
           - battery
@@ -6143,8 +6005,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 battery pack Pack 2 baterías
-            compatibles para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto battery 2 bater as
           must_include:
           - '2407'
           - battery
@@ -6160,8 +6021,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-cargador-charger-tool-rapid
           title: Cargador rápido compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 charger fast Cargador rápido
-            compatible para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto charger fast adapter cargador
+            r pido
           must_include:
           - '2407'
           - charger
@@ -6176,8 +6037,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-cargador-charger-tool-std
           title: Cargador estándar compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 charger Cargador estándar
-            compatible para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto charger adapter cargador est
+            ndar
           must_include:
           - '2407'
           - charger
@@ -6192,8 +6053,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 bit set Set de puntas/brocas
-            compatibles para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto bit set accessory kit de puntas/brocas
           must_include:
           - '2407'
           - bit
@@ -6207,8 +6067,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-disco
           title: Disco de corte compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 disc cutting Disco de corte
-            compatible para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto disc cutting accessory kit disco
+            de corte
           must_include:
           - '2407'
           - disc
@@ -6222,8 +6082,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-hoja
           title: Hoja de sierra compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 blade saw Hoja de sierra
-            compatible para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto blade saw accessory kit hoja
+            de sierra
           must_include:
           - '2407'
           - blade
@@ -6237,8 +6097,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 chuck drill Portabrocas
-            / chuck compatible para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto chuck drill accessory kit portabrocas
           must_include:
           - '2407'
           - chuck
@@ -6253,8 +6112,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-accesorios-acc-kit-tool
           title: Kit accesorios compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 kit accessory Kit accesorios
-            compatible para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto kit accessory accesorios
           must_include:
           - '2407'
           - kit
@@ -6269,8 +6127,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m12-2407-soporte-soporte-herramienta
           title: Soporte / funda compatible para M12 2407 Taladro compacto
           intent: compra
-          query: Milwaukee M12 2407 Taladro compacto 2407 case bag Soporte / funda
-            compatible para M12 2407 Taladro compacto
+          query: Milwaukee M12 2407 Taladro compacto case bag dock wall mount soporte
+            funda
           must_include:
           - '2407'
           - case
@@ -6376,8 +6234,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-bateria-bat-tool-std
           title: Batería compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 battery Batería compatible
-            para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah battery
           must_include:
           - 48-11-1850
           - battery
@@ -6394,8 +6251,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-bateria-bat-tool-pack2
           title: Pack 2 baterías compatibles para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 battery pack Pack
-            2 baterías compatibles para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah battery 2 as
           must_include:
           - 48-11-1850
           - battery
@@ -6411,8 +6267,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-cargador-charger-tool-rapid
           title: Cargador rápido compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 charger fast Cargador
-            rápido compatible para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah charger fast adapter cargador
+            r pido
           must_include:
           - 48-11-1850
           - charger
@@ -6427,8 +6283,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-cargador-charger-tool-std
           title: Cargador estándar compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 charger Cargador
-            estándar compatible para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah charger adapter cargador est
+            ndar
           must_include:
           - 48-11-1850
           - charger
@@ -6443,8 +6299,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-puntas
           title: Set de puntas/brocas compatibles para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 bit set Set de puntas/brocas
-            compatibles para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah bit set accessory kit de puntas/brocas
           must_include:
           - 48-11-1850
           - bit
@@ -6458,8 +6313,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-disco
           title: Disco de corte compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 disc cutting Disco
-            de corte compatible para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah disc cutting accessory kit disco
+            de corte
           must_include:
           - 48-11-1850
           - disc
@@ -6473,8 +6328,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-hoja
           title: Hoja de sierra compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 blade saw Hoja de
-            sierra compatible para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah blade saw accessory kit hoja
+            de sierra
           must_include:
           - 48-11-1850
           - blade
@@ -6488,8 +6343,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-portabrocas
           title: Portabrocas / chuck compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 chuck drill Portabrocas
-            / chuck compatible para M18 48-11-1850 Batería 5
+          query: Milwaukee M18 48-11-1850 Batería 5Ah chuck drill accessory kit portabrocas
           must_include:
           - 48-11-1850
           - chuck
@@ -6504,8 +6358,7 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-accesorios-acc-kit-tool
           title: Kit accesorios compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 kit accessory Kit
-            accesorios compatible para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah kit accessory accesorios
           must_include:
           - 48-11-1850
           - kit
@@ -6520,8 +6373,8 @@ brands:
         - sku: milwaukee-ht-milwaukee-m18-48111850-soporte-soporte-herramienta
           title: Soporte / funda compatible para M18 48-11-1850 Batería 5Ah
           intent: compra
-          query: Milwaukee M18 48-11-1850 Batería 5Ah 48-11-1850 case bag Soporte
-            / funda compatible para M18 48-11-1850 Batería 5Ah
+          query: Milwaukee M18 48-11-1850 Batería 5Ah case bag dock wall mount soporte
+            funda
           must_include:
           - 48-11-1850
           - case

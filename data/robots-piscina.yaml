@@ -44,6 +44,30 @@ globals:
     label: Cestas y bandejas
     icon: basket
     buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
   guias_genericas:
     seguridad:
     - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
@@ -138,8 +162,7 @@ brands:
         - sku: maytronics-dolphin-e20-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 filter cartridge Cartucho de
-            filtro compatible (pack) para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 filter cartridge cartucho de filtro
           must_include:
           - e20
           - filter
@@ -157,8 +180,7 @@ brands:
         - sku: maytronics-dolphin-e20-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 filter bag Bolsa de filtrado
-            compatible (pack) para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 filter bag bolsa de filtrado
           must_include:
           - e20
           - filter
@@ -175,8 +197,7 @@ brands:
         - sku: maytronics-dolphin-e20-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 brush floor Cepillo de fondo
-            compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 brush floor roller cepillo de fondo
           must_include:
           - e20
           - brush
@@ -191,8 +212,7 @@ brands:
         - sku: maytronics-dolphin-e20-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 brush wall Cepillo de paredes
-            compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 brush wall roller cepillo de paredes
           must_include:
           - e20
           - brush
@@ -208,8 +228,7 @@ brands:
         - sku: maytronics-dolphin-e20-accesorios-pool-cable-float
           title: Cable flotante compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 cable floating Cable flotante
-            compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 cable floating accessory kit flotante
           must_include:
           - e20
           - cable
@@ -224,8 +243,7 @@ brands:
         - sku: maytronics-dolphin-e20-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 swivel accessory Swivel / giratorio
-            compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 swivel accessory kit giratorio
           must_include:
           - e20
           - swivel
@@ -240,8 +258,8 @@ brands:
         - sku: maytronics-dolphin-e20-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 debris bag Bolsa recogida residuos
-            compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 debris bag accessory kit bolsa recogida
+            residuos
           must_include:
           - e20
           - debris
@@ -257,8 +275,7 @@ brands:
         - sku: maytronics-dolphin-e20-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 impeller accessory Impulsor
-            / impeller compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 impeller accessory kit impulsor
           must_include:
           - e20
           - impeller
@@ -273,8 +290,8 @@ brands:
         - sku: maytronics-dolphin-e20-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 maintenance kit Kit accesorios
-            mantenimiento compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 maintenance kit accessory accesorios
+            mantenimiento
           must_include:
           - e20
           - maintenance
@@ -291,8 +308,8 @@ brands:
         - sku: maytronics-dolphin-e20-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Dolphin E20
           intent: compra
-          query: Maytronics / Dolphin Dolphin E20 e20 caddy transport Carro de transporte
-            compatible para Dolphin E20
+          query: Maytronics / Dolphin Dolphin E20 caddy transport dock wall mount
+            carro de transporte
           must_include:
           - e20
           - caddy
@@ -393,8 +410,7 @@ brands:
         - sku: maytronics-dolphin-e30-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 filter cartridge Cartucho de
-            filtro compatible (pack) para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 filter cartridge cartucho de filtro
           must_include:
           - e30
           - filter
@@ -412,8 +428,7 @@ brands:
         - sku: maytronics-dolphin-e30-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 filter bag Bolsa de filtrado
-            compatible (pack) para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 filter bag bolsa de filtrado
           must_include:
           - e30
           - filter
@@ -430,8 +445,7 @@ brands:
         - sku: maytronics-dolphin-e30-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 brush floor Cepillo de fondo
-            compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 brush floor roller cepillo de fondo
           must_include:
           - e30
           - brush
@@ -446,8 +460,7 @@ brands:
         - sku: maytronics-dolphin-e30-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 brush wall Cepillo de paredes
-            compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 brush wall roller cepillo de paredes
           must_include:
           - e30
           - brush
@@ -463,8 +476,7 @@ brands:
         - sku: maytronics-dolphin-e30-accesorios-pool-cable-float
           title: Cable flotante compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 cable floating Cable flotante
-            compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 cable floating accessory kit flotante
           must_include:
           - e30
           - cable
@@ -479,8 +491,7 @@ brands:
         - sku: maytronics-dolphin-e30-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 swivel accessory Swivel / giratorio
-            compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 swivel accessory kit giratorio
           must_include:
           - e30
           - swivel
@@ -495,8 +506,8 @@ brands:
         - sku: maytronics-dolphin-e30-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 debris bag Bolsa recogida residuos
-            compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 debris bag accessory kit bolsa recogida
+            residuos
           must_include:
           - e30
           - debris
@@ -512,8 +523,7 @@ brands:
         - sku: maytronics-dolphin-e30-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 impeller accessory Impulsor
-            / impeller compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 impeller accessory kit impulsor
           must_include:
           - e30
           - impeller
@@ -528,8 +538,8 @@ brands:
         - sku: maytronics-dolphin-e30-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 maintenance kit Kit accesorios
-            mantenimiento compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 maintenance kit accessory accesorios
+            mantenimiento
           must_include:
           - e30
           - maintenance
@@ -546,8 +556,8 @@ brands:
         - sku: maytronics-dolphin-e30-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Dolphin E30
           intent: compra
-          query: Maytronics / Dolphin Dolphin E30 e30 caddy transport Carro de transporte
-            compatible para Dolphin E30
+          query: Maytronics / Dolphin Dolphin E30 caddy transport dock wall mount
+            carro de transporte
           must_include:
           - e30
           - caddy
@@ -651,7 +661,7 @@ brands:
           title: Cartucho de filtro compatible (pack) para Dolphin Active 30i
           intent: compra
           query: Maytronics / Dolphin Dolphin Active 30i active30i filter cartridge
-            Cartucho de filtro compatible (pack) para Dolphin Act
+            cartucho de filtro
           must_include:
           - active30i
           - filter
@@ -669,8 +679,8 @@ brands:
         - sku: maytronics-dolphin-active-30i-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Dolphin Active 30i
           intent: compra
-          query: Maytronics / Dolphin Dolphin Active 30i active30i filter bag Bolsa
-            de filtrado compatible (pack) para Dolphin Active 30i
+          query: Maytronics / Dolphin Dolphin Active 30i active30i filter bag bolsa
+            de filtrado
           must_include:
           - active30i
           - filter
@@ -687,8 +697,8 @@ brands:
         - sku: maytronics-dolphin-active-30i-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Dolphin Active 30i
           intent: compra
-          query: Maytronics / Dolphin Dolphin Active 30i active30i brush floor Cepillo
-            de fondo compatible para Dolphin Active 30i
+          query: Maytronics / Dolphin Dolphin Active 30i active30i brush floor roller
+            cepillo de fondo
           must_include:
           - active30i
           - brush
@@ -703,8 +713,8 @@ brands:
         - sku: maytronics-dolphin-active-30i-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Dolphin Active 30i
           intent: compra
-          query: Maytronics / Dolphin Dolphin Active 30i active30i brush wall Cepillo
-            de paredes compatible para Dolphin Active 30i
+          query: Maytronics / Dolphin Dolphin Active 30i active30i brush wall roller
+            cepillo de paredes
           must_include:
           - active30i
           - brush
@@ -721,7 +731,7 @@ brands:
           title: Cable flotante compatible para Dolphin Active 30i
           intent: compra
           query: Maytronics / Dolphin Dolphin Active 30i active30i cable floating
-            Cable flotante compatible para Dolphin Active 30i
+            accessory kit flotante
           must_include:
           - active30i
           - cable
@@ -737,7 +747,7 @@ brands:
           title: Swivel / giratorio compatible para Dolphin Active 30i
           intent: compra
           query: Maytronics / Dolphin Dolphin Active 30i active30i swivel accessory
-            Swivel / giratorio compatible para Dolphin Active 30i
+            kit giratorio
           must_include:
           - active30i
           - swivel
@@ -752,8 +762,8 @@ brands:
         - sku: maytronics-dolphin-active-30i-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Dolphin Active 30i
           intent: compra
-          query: Maytronics / Dolphin Dolphin Active 30i active30i debris bag Bolsa
-            recogida residuos compatible para Dolphin Active 30i
+          query: Maytronics / Dolphin Dolphin Active 30i active30i debris bag accessory
+            kit bolsa recogida residuos
           must_include:
           - active30i
           - debris
@@ -769,8 +779,8 @@ brands:
         - sku: maytronics-dolphin-active-30i-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Dolphin Active 30i
           intent: compra
-          query: 'Maytronics / Dolphin Dolphin Active 30i active30i impeller accessory
-            Impulsor / impeller compatible para Dolphin Active '
+          query: Maytronics / Dolphin Dolphin Active 30i active30i impeller accessory
+            kit impulsor
           must_include:
           - active30i
           - impeller
@@ -786,7 +796,7 @@ brands:
           title: Kit accesorios mantenimiento compatible para Dolphin Active 30i
           intent: compra
           query: Maytronics / Dolphin Dolphin Active 30i active30i maintenance kit
-            Kit accesorios mantenimiento compatible para Dolphin A
+            accessory accesorios mantenimiento
           must_include:
           - active30i
           - maintenance
@@ -804,7 +814,7 @@ brands:
           title: Carro de transporte compatible para Dolphin Active 30i
           intent: compra
           query: Maytronics / Dolphin Dolphin Active 30i active30i caddy transport
-            Carro de transporte compatible para Dolphin Active 30i
+            dock wall mount carro de transporte
           must_include:
           - active30i
           - caddy
@@ -904,8 +914,7 @@ brands:
         - sku: maytronics-dolphin-sigma-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin filter cartridge Cartucho
-            de filtro compatible (pack) para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma filter cartridge cartucho de filtro
           must_include:
           - dolphin
           - filter
@@ -923,8 +932,7 @@ brands:
         - sku: maytronics-dolphin-sigma-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin filter bag Bolsa de filtrado
-            compatible (pack) para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma filter bag bolsa de filtrado
           must_include:
           - dolphin
           - filter
@@ -941,8 +949,8 @@ brands:
         - sku: maytronics-dolphin-sigma-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin brush floor Cepillo de
-            fondo compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma brush floor roller cepillo de
+            fondo
           must_include:
           - dolphin
           - brush
@@ -957,8 +965,7 @@ brands:
         - sku: maytronics-dolphin-sigma-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin brush wall Cepillo de
-            paredes compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma brush wall roller cepillo de paredes
           must_include:
           - dolphin
           - brush
@@ -974,8 +981,7 @@ brands:
         - sku: maytronics-dolphin-sigma-accesorios-pool-cable-float
           title: Cable flotante compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin cable floating Cable flotante
-            compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma cable floating accessory kit flotante
           must_include:
           - dolphin
           - cable
@@ -990,8 +996,7 @@ brands:
         - sku: maytronics-dolphin-sigma-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin swivel accessory Swivel
-            / giratorio compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma swivel accessory kit giratorio
           must_include:
           - dolphin
           - swivel
@@ -1006,8 +1011,8 @@ brands:
         - sku: maytronics-dolphin-sigma-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin debris bag Bolsa recogida
-            residuos compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma debris bag accessory kit bolsa
+            recogida residuos
           must_include:
           - dolphin
           - debris
@@ -1023,8 +1028,7 @@ brands:
         - sku: maytronics-dolphin-sigma-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin impeller accessory Impulsor
-            / impeller compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma impeller accessory kit impulsor
           must_include:
           - dolphin
           - impeller
@@ -1039,8 +1043,8 @@ brands:
         - sku: maytronics-dolphin-sigma-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin maintenance kit Kit accesorios
-            mantenimiento compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma maintenance kit accessory accesorios
+            mantenimiento
           must_include:
           - dolphin
           - maintenance
@@ -1057,8 +1061,8 @@ brands:
         - sku: maytronics-dolphin-sigma-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Dolphin Sigma
           intent: compra
-          query: Maytronics / Dolphin Dolphin Sigma dolphin caddy transport Carro
-            de transporte compatible para Dolphin Sigma
+          query: Maytronics / Dolphin Dolphin Sigma caddy transport dock wall mount
+            carro de transporte
           must_include:
           - dolphin
           - caddy
@@ -1160,8 +1164,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 filter cartridge Cartucho
-            de filtro compatible (pack) para Dolphin Suprem
+          query: Maytronics / Dolphin Dolphin Supreme M400 filter cartridge cartucho
+            de filtro
           must_include:
           - m400
           - filter
@@ -1179,8 +1183,7 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 filter bag Bolsa de
-            filtrado compatible (pack) para Dolphin Supreme M400
+          query: Maytronics / Dolphin Dolphin Supreme M400 filter bag bolsa de filtrado
           must_include:
           - m400
           - filter
@@ -1197,8 +1200,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 brush floor Cepillo
-            de fondo compatible para Dolphin Supreme M400
+          query: Maytronics / Dolphin Dolphin Supreme M400 brush floor roller cepillo
+            de fondo
           must_include:
           - m400
           - brush
@@ -1213,8 +1216,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 brush wall Cepillo
-            de paredes compatible para Dolphin Supreme M400
+          query: Maytronics / Dolphin Dolphin Supreme M400 brush wall roller cepillo
+            de paredes
           must_include:
           - m400
           - brush
@@ -1230,8 +1233,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-accesorios-pool-cable-float
           title: Cable flotante compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 cable floating Cable
-            flotante compatible para Dolphin Supreme M400
+          query: Maytronics / Dolphin Dolphin Supreme M400 cable floating accessory
+            kit flotante
           must_include:
           - m400
           - cable
@@ -1246,8 +1249,7 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 swivel accessory Swivel
-            / giratorio compatible para Dolphin Supreme M400
+          query: Maytronics / Dolphin Dolphin Supreme M400 swivel accessory kit giratorio
           must_include:
           - m400
           - swivel
@@ -1262,8 +1264,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 debris bag Bolsa recogida
-            residuos compatible para Dolphin Supreme M400
+          query: Maytronics / Dolphin Dolphin Supreme M400 debris bag accessory kit
+            bolsa recogida residuos
           must_include:
           - m400
           - debris
@@ -1279,8 +1281,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 impeller accessory
-            Impulsor / impeller compatible para Dolphin Supreme M4
+          query: Maytronics / Dolphin Dolphin Supreme M400 impeller accessory kit
+            impulsor
           must_include:
           - m400
           - impeller
@@ -1295,8 +1297,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 maintenance kit Kit
-            accesorios mantenimiento compatible para Dolphin Supr
+          query: Maytronics / Dolphin Dolphin Supreme M400 maintenance kit accessory
+            accesorios mantenimiento
           must_include:
           - m400
           - maintenance
@@ -1313,8 +1315,8 @@ brands:
         - sku: maytronics-dolphin-supreme-m400-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Dolphin Supreme M400
           intent: compra
-          query: Maytronics / Dolphin Dolphin Supreme M400 m400 caddy transport Carro
-            de transporte compatible para Dolphin Supreme M400
+          query: Maytronics / Dolphin Dolphin Supreme M400 caddy transport dock wall
+            mount carro de transporte
           must_include:
           - m400
           - caddy
@@ -1421,8 +1423,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 filter cartridge Cartucho de filtro
-            compatible (pack) para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 filter cartridge cartucho de filtro
           must_include:
           - cx20
           - filter
@@ -1440,8 +1441,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 filter bag Bolsa de filtrado compatible
-            (pack) para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 filter bag bolsa de filtrado
           must_include:
           - cx20
           - filter
@@ -1458,8 +1458,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 brush floor Cepillo de fondo compatible
-            para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 brush floor roller cepillo de fondo
           must_include:
           - cx20
           - brush
@@ -1474,8 +1473,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 brush wall Cepillo de paredes compatible
-            para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 brush wall roller cepillo de paredes
           must_include:
           - cx20
           - brush
@@ -1491,8 +1489,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-accesorios-pool-cable-float
           title: Cable flotante compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 cable floating Cable flotante compatible
-            para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 cable floating accessory kit flotante
           must_include:
           - cx20
           - cable
@@ -1507,8 +1504,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 swivel accessory Swivel / giratorio
-            compatible para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 swivel accessory kit giratorio
           must_include:
           - cx20
           - swivel
@@ -1523,8 +1519,8 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 debris bag Bolsa recogida residuos
-            compatible para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 debris bag accessory kit bolsa recogida
+            residuos
           must_include:
           - cx20
           - debris
@@ -1540,8 +1536,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 impeller accessory Impulsor / impeller
-            compatible para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 impeller accessory kit impulsor
           must_include:
           - cx20
           - impeller
@@ -1556,8 +1551,8 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 maintenance kit Kit accesorios
-            mantenimiento compatible para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 maintenance kit accessory accesorios
+            mantenimiento
           must_include:
           - cx20
           - maintenance
@@ -1574,8 +1569,8 @@ brands:
         - sku: zodiac-pool-zodiac-cx20-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Zodiac CX20
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX20 cx20 caddy transport Carro de transporte
-            compatible para Zodiac CX20
+          query: Zodiac / Fluidra Zodiac CX20 caddy transport dock wall mount carro
+            de transporte
           must_include:
           - cx20
           - caddy
@@ -1671,8 +1666,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 filter cartridge Cartucho de filtro
-            compatible (pack) para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 filter cartridge cartucho de filtro
           must_include:
           - cx25
           - filter
@@ -1690,8 +1684,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 filter bag Bolsa de filtrado compatible
-            (pack) para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 filter bag bolsa de filtrado
           must_include:
           - cx25
           - filter
@@ -1708,8 +1701,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 brush floor Cepillo de fondo compatible
-            para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 brush floor roller cepillo de fondo
           must_include:
           - cx25
           - brush
@@ -1724,8 +1716,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 brush wall Cepillo de paredes compatible
-            para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 brush wall roller cepillo de paredes
           must_include:
           - cx25
           - brush
@@ -1741,8 +1732,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-accesorios-pool-cable-float
           title: Cable flotante compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 cable floating Cable flotante compatible
-            para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 cable floating accessory kit flotante
           must_include:
           - cx25
           - cable
@@ -1757,8 +1747,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 swivel accessory Swivel / giratorio
-            compatible para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 swivel accessory kit giratorio
           must_include:
           - cx25
           - swivel
@@ -1773,8 +1762,8 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 debris bag Bolsa recogida residuos
-            compatible para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 debris bag accessory kit bolsa recogida
+            residuos
           must_include:
           - cx25
           - debris
@@ -1790,8 +1779,7 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 impeller accessory Impulsor / impeller
-            compatible para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 impeller accessory kit impulsor
           must_include:
           - cx25
           - impeller
@@ -1806,8 +1794,8 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 maintenance kit Kit accesorios
-            mantenimiento compatible para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 maintenance kit accessory accesorios
+            mantenimiento
           must_include:
           - cx25
           - maintenance
@@ -1824,8 +1812,8 @@ brands:
         - sku: zodiac-pool-zodiac-cx25-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Zodiac CX25
           intent: compra
-          query: Zodiac / Fluidra Zodiac CX25 cx25 caddy transport Carro de transporte
-            compatible para Zodiac CX25
+          query: Zodiac / Fluidra Zodiac CX25 caddy transport dock wall mount carro
+            de transporte
           must_include:
           - cx25
           - caddy
@@ -1924,8 +1912,8 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 filter cartridge Cartucho
-            de filtro compatible (pack) para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 filter cartridge cartucho
+            de filtro
           must_include:
           - fresia2
           - filter
@@ -1943,8 +1931,7 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 filter bag Bolsa de filtrado
-            compatible (pack) para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 filter bag bolsa de filtrado
           must_include:
           - fresia2
           - filter
@@ -1961,8 +1948,8 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 brush floor Cepillo de fondo
-            compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 brush floor roller cepillo
+            de fondo
           must_include:
           - fresia2
           - brush
@@ -1977,8 +1964,8 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 brush wall Cepillo de paredes
-            compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 brush wall roller cepillo
+            de paredes
           must_include:
           - fresia2
           - brush
@@ -1994,8 +1981,8 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-accesorios-pool-cable-float
           title: Cable flotante compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 cable floating Cable flotante
-            compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 cable floating accessory
+            kit flotante
           must_include:
           - fresia2
           - cable
@@ -2010,8 +1997,7 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 swivel accessory Swivel
-            / giratorio compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 swivel accessory kit giratorio
           must_include:
           - fresia2
           - swivel
@@ -2026,8 +2012,8 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 debris bag Bolsa recogida
-            residuos compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 debris bag accessory kit
+            bolsa recogida residuos
           must_include:
           - fresia2
           - debris
@@ -2043,8 +2029,7 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 impeller accessory Impulsor
-            / impeller compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 impeller accessory kit impulsor
           must_include:
           - fresia2
           - impeller
@@ -2059,8 +2044,8 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 maintenance kit Kit accesorios
-            mantenimiento compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 maintenance kit accessory
+            accesorios mantenimiento
           must_include:
           - fresia2
           - maintenance
@@ -2077,8 +2062,8 @@ brands:
         - sku: zodiac-pool-zodiac-fresia-2-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Zodiac Fresia 2
           intent: compra
-          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 caddy transport Carro de
-            transporte compatible para Zodiac Fresia 2
+          query: Zodiac / Fluidra Zodiac Fresia 2 fresia2 caddy transport dock wall
+            mount carro de transporte
           must_include:
           - fresia2
           - caddy
@@ -2179,8 +2164,8 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 filter cartridge Cartucho
-            de filtro compatible (pack) para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 filter cartridge cartucho
+            de filtro
           must_include:
           - vortex4
           - filter
@@ -2198,8 +2183,7 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 filter bag Bolsa de filtrado
-            compatible (pack) para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 filter bag bolsa de filtrado
           must_include:
           - vortex4
           - filter
@@ -2216,8 +2200,8 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 brush floor Cepillo de fondo
-            compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 brush floor roller cepillo
+            de fondo
           must_include:
           - vortex4
           - brush
@@ -2232,8 +2216,8 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 brush wall Cepillo de paredes
-            compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 brush wall roller cepillo
+            de paredes
           must_include:
           - vortex4
           - brush
@@ -2249,8 +2233,8 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-accesorios-pool-cable-float
           title: Cable flotante compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 cable floating Cable flotante
-            compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 cable floating accessory
+            kit flotante
           must_include:
           - vortex4
           - cable
@@ -2265,8 +2249,7 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 swivel accessory Swivel
-            / giratorio compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 swivel accessory kit giratorio
           must_include:
           - vortex4
           - swivel
@@ -2281,8 +2264,8 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 debris bag Bolsa recogida
-            residuos compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 debris bag accessory kit
+            bolsa recogida residuos
           must_include:
           - vortex4
           - debris
@@ -2298,8 +2281,7 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 impeller accessory Impulsor
-            / impeller compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 impeller accessory kit impulsor
           must_include:
           - vortex4
           - impeller
@@ -2314,8 +2296,8 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 maintenance kit Kit accesorios
-            mantenimiento compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 maintenance kit accessory
+            accesorios mantenimiento
           must_include:
           - vortex4
           - maintenance
@@ -2332,8 +2314,8 @@ brands:
         - sku: zodiac-pool-zodiac-vortex-4-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Zodiac Vortex 4
           intent: compra
-          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 caddy transport Carro de
-            transporte compatible para Zodiac Vortex 4
+          query: Zodiac / Fluidra Zodiac Vortex 4 vortex4 caddy transport dock wall
+            mount carro de transporte
           must_include:
           - vortex4
           - caddy
@@ -2438,8 +2420,8 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway filter cartridge Cartucho
-            de filtro compatible (pack) para Bestway AquaDri
+          query: Bestway / Flowclear Bestway AquaDrift filter cartridge cartucho de
+            filtro
           must_include:
           - bestway
           - filter
@@ -2457,8 +2439,7 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway filter bag Bolsa de
-            filtrado compatible (pack) para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift filter bag bolsa de filtrado
           must_include:
           - bestway
           - filter
@@ -2475,8 +2456,8 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway brush floor Cepillo
-            de fondo compatible para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift brush floor roller cepillo
+            de fondo
           must_include:
           - bestway
           - brush
@@ -2491,8 +2472,8 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway brush wall Cepillo
-            de paredes compatible para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift brush wall roller cepillo de
+            paredes
           must_include:
           - bestway
           - brush
@@ -2508,8 +2489,8 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-accesorios-pool-cable-float
           title: Cable flotante compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway cable floating Cable
-            flotante compatible para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift cable floating accessory kit
+            flotante
           must_include:
           - bestway
           - cable
@@ -2524,8 +2505,7 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway swivel accessory Swivel
-            / giratorio compatible para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift swivel accessory kit giratorio
           must_include:
           - bestway
           - swivel
@@ -2540,8 +2520,8 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway debris bag Bolsa recogida
-            residuos compatible para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift debris bag accessory kit bolsa
+            recogida residuos
           must_include:
           - bestway
           - debris
@@ -2557,8 +2537,7 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway impeller accessory
-            Impulsor / impeller compatible para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift impeller accessory kit impulsor
           must_include:
           - bestway
           - impeller
@@ -2573,8 +2552,8 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway maintenance kit Kit
-            accesorios mantenimiento compatible para Bestway AquaD
+          query: Bestway / Flowclear Bestway AquaDrift maintenance kit accessory accesorios
+            mantenimiento
           must_include:
           - bestway
           - maintenance
@@ -2591,8 +2570,8 @@ brands:
         - sku: bestway-pool-bestway-aquadrift-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Bestway AquaDrift
           intent: compra
-          query: Bestway / Flowclear Bestway AquaDrift bestway caddy transport Carro
-            de transporte compatible para Bestway AquaDrift
+          query: Bestway / Flowclear Bestway AquaDrift caddy transport dock wall mount
+            carro de transporte
           must_include:
           - bestway
           - caddy
@@ -2688,8 +2667,8 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway filter cartridge Cartucho
-            de filtro compatible (pack) para Bestway AquaGli
+          query: Bestway / Flowclear Bestway AquaGlide filter cartridge cartucho de
+            filtro
           must_include:
           - bestway
           - filter
@@ -2707,8 +2686,7 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway filter bag Bolsa de
-            filtrado compatible (pack) para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide filter bag bolsa de filtrado
           must_include:
           - bestway
           - filter
@@ -2725,8 +2703,8 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway brush floor Cepillo
-            de fondo compatible para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide brush floor roller cepillo
+            de fondo
           must_include:
           - bestway
           - brush
@@ -2741,8 +2719,8 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway brush wall Cepillo
-            de paredes compatible para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide brush wall roller cepillo de
+            paredes
           must_include:
           - bestway
           - brush
@@ -2758,8 +2736,8 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-accesorios-pool-cable-float
           title: Cable flotante compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway cable floating Cable
-            flotante compatible para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide cable floating accessory kit
+            flotante
           must_include:
           - bestway
           - cable
@@ -2774,8 +2752,7 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway swivel accessory Swivel
-            / giratorio compatible para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide swivel accessory kit giratorio
           must_include:
           - bestway
           - swivel
@@ -2790,8 +2767,8 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway debris bag Bolsa recogida
-            residuos compatible para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide debris bag accessory kit bolsa
+            recogida residuos
           must_include:
           - bestway
           - debris
@@ -2807,8 +2784,7 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway impeller accessory
-            Impulsor / impeller compatible para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide impeller accessory kit impulsor
           must_include:
           - bestway
           - impeller
@@ -2823,8 +2799,8 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway maintenance kit Kit
-            accesorios mantenimiento compatible para Bestway AquaG
+          query: Bestway / Flowclear Bestway AquaGlide maintenance kit accessory accesorios
+            mantenimiento
           must_include:
           - bestway
           - maintenance
@@ -2841,8 +2817,8 @@ brands:
         - sku: bestway-pool-bestway-aquaglide-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Bestway AquaGlide
           intent: compra
-          query: Bestway / Flowclear Bestway AquaGlide bestway caddy transport Carro
-            de transporte compatible para Bestway AquaGlide
+          query: Bestway / Flowclear Bestway AquaGlide caddy transport dock wall mount
+            carro de transporte
           must_include:
           - bestway
           - caddy
@@ -2946,8 +2922,7 @@ brands:
         - sku: intex-pool-intex-zx300-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 filter cartridge Cartucho de filtro compatible
-            (pack) para Intex ZX300
+          query: Intex Intex ZX300 filter cartridge cartucho de filtro
           must_include:
           - zx300
           - filter
@@ -2965,8 +2940,7 @@ brands:
         - sku: intex-pool-intex-zx300-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 filter bag Bolsa de filtrado compatible (pack)
-            para Intex ZX300
+          query: Intex Intex ZX300 filter bag bolsa de filtrado
           must_include:
           - zx300
           - filter
@@ -2983,8 +2957,7 @@ brands:
         - sku: intex-pool-intex-zx300-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 brush floor Cepillo de fondo compatible para
-            Intex ZX300
+          query: Intex Intex ZX300 brush floor roller cepillo de fondo
           must_include:
           - zx300
           - brush
@@ -2999,8 +2972,7 @@ brands:
         - sku: intex-pool-intex-zx300-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 brush wall Cepillo de paredes compatible
-            para Intex ZX300
+          query: Intex Intex ZX300 brush wall roller cepillo de paredes
           must_include:
           - zx300
           - brush
@@ -3016,8 +2988,7 @@ brands:
         - sku: intex-pool-intex-zx300-accesorios-pool-cable-float
           title: Cable flotante compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 cable floating Cable flotante compatible
-            para Intex ZX300
+          query: Intex Intex ZX300 cable floating accessory kit flotante
           must_include:
           - zx300
           - cable
@@ -3032,8 +3003,7 @@ brands:
         - sku: intex-pool-intex-zx300-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 swivel accessory Swivel / giratorio compatible
-            para Intex ZX300
+          query: Intex Intex ZX300 swivel accessory kit giratorio
           must_include:
           - zx300
           - swivel
@@ -3048,8 +3018,7 @@ brands:
         - sku: intex-pool-intex-zx300-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 debris bag Bolsa recogida residuos compatible
-            para Intex ZX300
+          query: Intex Intex ZX300 debris bag accessory kit bolsa recogida residuos
           must_include:
           - zx300
           - debris
@@ -3065,8 +3034,7 @@ brands:
         - sku: intex-pool-intex-zx300-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 impeller accessory Impulsor / impeller compatible
-            para Intex ZX300
+          query: Intex Intex ZX300 impeller accessory kit impulsor
           must_include:
           - zx300
           - impeller
@@ -3081,8 +3049,7 @@ brands:
         - sku: intex-pool-intex-zx300-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 maintenance kit Kit accesorios mantenimiento
-            compatible para Intex ZX300
+          query: Intex Intex ZX300 maintenance kit accessory accesorios mantenimiento
           must_include:
           - zx300
           - maintenance
@@ -3099,8 +3066,7 @@ brands:
         - sku: intex-pool-intex-zx300-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Intex ZX300
           intent: compra
-          query: Intex Intex ZX300 zx300 caddy transport Carro de transporte compatible
-            para Intex ZX300
+          query: Intex Intex ZX300 caddy transport dock wall mount carro de transporte
           must_include:
           - zx300
           - caddy
@@ -3200,8 +3166,7 @@ brands:
         - sku: intex-pool-intex-zx100-filtro-pool-filter-cartridge
           title: Cartucho de filtro compatible (pack) para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 filter cartridge Cartucho de filtro compatible
-            (pack) para Intex ZX100
+          query: Intex Intex ZX100 filter cartridge cartucho de filtro
           must_include:
           - zx100
           - filter
@@ -3219,8 +3184,7 @@ brands:
         - sku: intex-pool-intex-zx100-filtro-pool-filter-bag
           title: Bolsa de filtrado compatible (pack) para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 filter bag Bolsa de filtrado compatible (pack)
-            para Intex ZX100
+          query: Intex Intex ZX100 filter bag bolsa de filtrado
           must_include:
           - zx100
           - filter
@@ -3237,8 +3201,7 @@ brands:
         - sku: intex-pool-intex-zx100-cepillo-pool-brush-standard
           title: Cepillo de fondo compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 brush floor Cepillo de fondo compatible para
-            Intex ZX100
+          query: Intex Intex ZX100 brush floor roller cepillo de fondo
           must_include:
           - zx100
           - brush
@@ -3253,8 +3216,7 @@ brands:
         - sku: intex-pool-intex-zx100-cepillo-pool-brush-wall
           title: Cepillo de paredes compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 brush wall Cepillo de paredes compatible
-            para Intex ZX100
+          query: Intex Intex ZX100 brush wall roller cepillo de paredes
           must_include:
           - zx100
           - brush
@@ -3270,8 +3232,7 @@ brands:
         - sku: intex-pool-intex-zx100-accesorios-pool-cable-float
           title: Cable flotante compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 cable floating Cable flotante compatible
-            para Intex ZX100
+          query: Intex Intex ZX100 cable floating accessory kit flotante
           must_include:
           - zx100
           - cable
@@ -3286,8 +3247,7 @@ brands:
         - sku: intex-pool-intex-zx100-accesorios-pool-swivel-acc
           title: Swivel / giratorio compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 swivel accessory Swivel / giratorio compatible
-            para Intex ZX100
+          query: Intex Intex ZX100 swivel accessory kit giratorio
           must_include:
           - zx100
           - swivel
@@ -3302,8 +3262,7 @@ brands:
         - sku: intex-pool-intex-zx100-accesorios-pool-debris-bag-acc
           title: Bolsa recogida residuos compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 debris bag Bolsa recogida residuos compatible
-            para Intex ZX100
+          query: Intex Intex ZX100 debris bag accessory kit bolsa recogida residuos
           must_include:
           - zx100
           - debris
@@ -3319,8 +3278,7 @@ brands:
         - sku: intex-pool-intex-zx100-accesorios-pool-impeller-acc
           title: Impulsor / impeller compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 impeller accessory Impulsor / impeller compatible
-            para Intex ZX100
+          query: Intex Intex ZX100 impeller accessory kit impulsor
           must_include:
           - zx100
           - impeller
@@ -3335,8 +3293,7 @@ brands:
         - sku: intex-pool-intex-zx100-accesorios-pool-kit-acc
           title: Kit accesorios mantenimiento compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 maintenance kit Kit accesorios mantenimiento
-            compatible para Intex ZX100
+          query: Intex Intex ZX100 maintenance kit accessory accesorios mantenimiento
           must_include:
           - zx100
           - maintenance
@@ -3353,8 +3310,7 @@ brands:
         - sku: intex-pool-intex-zx100-soporte-pool-caddy-soporte
           title: Carro de transporte compatible para Intex ZX100
           intent: compra
-          query: Intex Intex ZX100 zx100 caddy transport Carro de transporte compatible
-            para Intex ZX100
+          query: Intex Intex ZX100 caddy transport dock wall mount carro de transporte
           must_include:
           - zx100
           - caddy

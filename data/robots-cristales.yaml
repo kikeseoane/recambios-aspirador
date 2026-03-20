@@ -44,6 +44,30 @@ globals:
     label: Cestas y bandejas
     icon: basket
     buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
   guias_genericas:
     seguridad:
     - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
@@ -139,8 +163,8 @@ brands:
         - sku: hobot-hobot-2s-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s pad washing Almohadillas de lavado compatibles
-            (pack) para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s pad washing accessory kit almohadillas de
+            lavado
           must_include:
           - hobot2s
           - pad
@@ -157,8 +181,8 @@ brands:
         - sku: hobot-hobot-2s-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s pad cleaning Almohadillas de limpieza compatibles
-            (pack) para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s pad cleaning accessory kit almohadillas de
+            limpieza
           must_include:
           - hobot2s
           - pad
@@ -173,8 +197,8 @@ brands:
         - sku: hobot-hobot-2s-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s microfiber pad Almohadillas microfibra compatibles
-            (pack) para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s microfiber pad accessory kit almohadillas
+            microfibra
           must_include:
           - hobot2s
           - microfiber
@@ -189,8 +213,7 @@ brands:
         - sku: hobot-hobot-2s-accesorios-glass-suction-acc
           title: Ventosa / pieza de succión accesorio compatible para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s suction accessory Ventosa / pieza de succión
-            accesorio compatible para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s suction accessory kit ventosa de succi n accesorio
           must_include:
           - hobot2s
           - suction
@@ -205,8 +228,8 @@ brands:
         - sku: hobot-hobot-2s-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s cloth microfiber Paño de microfibra accesorio
-            para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s cloth microfiber accessory kit pa o de microfibra
+            accesorio
           must_include:
           - hobot2s
           - cloth
@@ -221,8 +244,7 @@ brands:
         - sku: hobot-hobot-2s-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s safety cable Cable de seguridad accesorio
-            para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s safety cable accessory kit de seguridad accesorio
           must_include:
           - hobot2s
           - safety
@@ -238,8 +260,7 @@ brands:
         - sku: hobot-hobot-2s-accesorios-glass-kit-acc
           title: Kit accesorios compatible para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s kit accessory Kit accesorios compatible para
-            HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s kit accessory accesorios
           must_include:
           - hobot2s
           - kit
@@ -254,8 +275,7 @@ brands:
         - sku: hobot-hobot-2s-deposito-glass-tank
           title: Depósito de líquido compatible para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s tank water Depósito de líquido compatible
-            para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s tank water container dep sito de l quido
           must_include:
           - hobot2s
           - tank
@@ -271,7 +291,7 @@ brands:
         - sku: hobot-hobot-2s-bateria-glass-bat-std
           title: Batería compatible para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s battery Batería compatible para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s battery bater a
           must_include:
           - hobot2s
           - battery
@@ -286,8 +306,7 @@ brands:
         - sku: hobot-hobot-2s-cargador-glass-charger
           title: Cargador / adaptador compatible para HOBOT 2S
           intent: compra
-          query: HOBOT HOBOT 2S hobot2s charger adapter Cargador / adaptador compatible
-            para HOBOT 2S
+          query: HOBOT HOBOT 2S hobot2s charger adapter cargador adaptador
           must_include:
           - hobot2s
           - charger
@@ -385,8 +404,8 @@ brands:
         - sku: hobot-hobot-legee-688-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 pad washing Almohadillas de lavado
-            compatibles (pack) para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 pad washing accessory kit almohadillas
+            de lavado
           must_include:
           - legee688
           - pad
@@ -404,8 +423,8 @@ brands:
         - sku: hobot-hobot-legee-688-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 pad cleaning Almohadillas de limpieza
-            compatibles (pack) para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 pad cleaning accessory kit almohadillas
+            de limpieza
           must_include:
           - legee688
           - pad
@@ -420,8 +439,8 @@ brands:
         - sku: hobot-hobot-legee-688-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 microfiber pad Almohadillas microfibra
-            compatibles (pack) para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 microfiber pad accessory kit almohadillas
+            microfibra
           must_include:
           - legee688
           - microfiber
@@ -436,8 +455,8 @@ brands:
         - sku: hobot-hobot-legee-688-accesorios-glass-suction-acc
           title: Ventosa / pieza de succión accesorio compatible para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 suction accessory Ventosa / pieza
-            de succión accesorio compatible para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 suction accessory kit ventosa de succi
+            n accesorio
           must_include:
           - legee688
           - suction
@@ -452,8 +471,8 @@ brands:
         - sku: hobot-hobot-legee-688-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 cloth microfiber Paño de microfibra
-            accesorio para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 cloth microfiber accessory kit pa
+            o de microfibra accesorio
           must_include:
           - legee688
           - cloth
@@ -468,8 +487,8 @@ brands:
         - sku: hobot-hobot-legee-688-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 safety cable Cable de seguridad accesorio
-            para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 safety cable accessory kit de seguridad
+            accesorio
           must_include:
           - legee688
           - safety
@@ -485,8 +504,7 @@ brands:
         - sku: hobot-hobot-legee-688-accesorios-glass-kit-acc
           title: Kit accesorios compatible para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 kit accessory Kit accesorios compatible
-            para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 kit accessory accesorios
           must_include:
           - legee688
           - kit
@@ -501,8 +519,8 @@ brands:
         - sku: hobot-hobot-legee-688-deposito-glass-tank
           title: Depósito de líquido compatible para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 tank water Depósito de líquido compatible
-            para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 tank water container dep sito de l
+            quido
           must_include:
           - legee688
           - tank
@@ -518,8 +536,7 @@ brands:
         - sku: hobot-hobot-legee-688-bateria-glass-bat-std
           title: Batería compatible para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 battery Batería compatible para HOBOT
-            LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 battery bater a
           must_include:
           - legee688
           - battery
@@ -534,8 +551,7 @@ brands:
         - sku: hobot-hobot-legee-688-cargador-glass-charger
           title: Cargador / adaptador compatible para HOBOT LEGEE-688
           intent: compra
-          query: HOBOT HOBOT LEGEE-688 legee688 charger adapter Cargador / adaptador
-            compatible para HOBOT LEGEE-688
+          query: HOBOT HOBOT LEGEE-688 legee688 charger adapter cargador adaptador
           must_include:
           - legee688
           - charger
@@ -644,8 +660,8 @@ brands:
         - sku: hobot-hobot-298-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 pad washing Almohadillas de lavado compatibles
-            (pack) para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 pad washing accessory kit almohadillas de
+            lavado
           must_include:
           - hobot298
           - pad
@@ -663,8 +679,8 @@ brands:
         - sku: hobot-hobot-298-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 pad cleaning Almohadillas de limpieza compatibles
-            (pack) para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 pad cleaning accessory kit almohadillas
+            de limpieza
           must_include:
           - hobot298
           - pad
@@ -679,8 +695,8 @@ brands:
         - sku: hobot-hobot-298-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 microfiber pad Almohadillas microfibra compatibles
-            (pack) para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 microfiber pad accessory kit almohadillas
+            microfibra
           must_include:
           - hobot298
           - microfiber
@@ -695,8 +711,8 @@ brands:
         - sku: hobot-hobot-298-accesorios-glass-suction-acc
           title: Ventosa / pieza de succión accesorio compatible para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 suction accessory Ventosa / pieza de succión
-            accesorio compatible para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 suction accessory kit ventosa de succi n
+            accesorio
           must_include:
           - hobot298
           - suction
@@ -711,8 +727,8 @@ brands:
         - sku: hobot-hobot-298-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 cloth microfiber Paño de microfibra accesorio
-            para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 cloth microfiber accessory kit pa o de microfibra
+            accesorio
           must_include:
           - hobot298
           - cloth
@@ -727,8 +743,8 @@ brands:
         - sku: hobot-hobot-298-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 safety cable Cable de seguridad accesorio
-            para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 safety cable accessory kit de seguridad
+            accesorio
           must_include:
           - hobot298
           - safety
@@ -744,8 +760,7 @@ brands:
         - sku: hobot-hobot-298-accesorios-glass-kit-acc
           title: Kit accesorios compatible para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 kit accessory Kit accesorios compatible
-            para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 kit accessory accesorios
           must_include:
           - hobot298
           - kit
@@ -760,8 +775,7 @@ brands:
         - sku: hobot-hobot-298-deposito-glass-tank
           title: Depósito de líquido compatible para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 tank water Depósito de líquido compatible
-            para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 tank water container dep sito de l quido
           must_include:
           - hobot298
           - tank
@@ -777,7 +791,7 @@ brands:
         - sku: hobot-hobot-298-bateria-glass-bat-std
           title: Batería compatible para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 battery Batería compatible para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 battery bater a
           must_include:
           - hobot298
           - battery
@@ -792,8 +806,7 @@ brands:
         - sku: hobot-hobot-298-cargador-glass-charger
           title: Cargador / adaptador compatible para HOBOT-298
           intent: compra
-          query: HOBOT HOBOT-298 hobot298 charger adapter Cargador / adaptador compatible
-            para HOBOT-298
+          query: HOBOT HOBOT-298 hobot298 charger adapter cargador adaptador
           must_include:
           - hobot298
           - charger
@@ -896,8 +909,8 @@ brands:
         - sku: hobot-hobot-388-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 pad washing Almohadillas de lavado compatibles
-            (pack) para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 pad washing accessory kit almohadillas de
+            lavado
           must_include:
           - hobot388
           - pad
@@ -915,8 +928,8 @@ brands:
         - sku: hobot-hobot-388-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 pad cleaning Almohadillas de limpieza compatibles
-            (pack) para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 pad cleaning accessory kit almohadillas
+            de limpieza
           must_include:
           - hobot388
           - pad
@@ -931,8 +944,8 @@ brands:
         - sku: hobot-hobot-388-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 microfiber pad Almohadillas microfibra compatibles
-            (pack) para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 microfiber pad accessory kit almohadillas
+            microfibra
           must_include:
           - hobot388
           - microfiber
@@ -947,8 +960,8 @@ brands:
         - sku: hobot-hobot-388-accesorios-glass-suction-acc
           title: Ventosa / pieza de succión accesorio compatible para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 suction accessory Ventosa / pieza de succión
-            accesorio compatible para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 suction accessory kit ventosa de succi n
+            accesorio
           must_include:
           - hobot388
           - suction
@@ -963,8 +976,8 @@ brands:
         - sku: hobot-hobot-388-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 cloth microfiber Paño de microfibra accesorio
-            para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 cloth microfiber accessory kit pa o de microfibra
+            accesorio
           must_include:
           - hobot388
           - cloth
@@ -979,8 +992,8 @@ brands:
         - sku: hobot-hobot-388-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 safety cable Cable de seguridad accesorio
-            para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 safety cable accessory kit de seguridad
+            accesorio
           must_include:
           - hobot388
           - safety
@@ -996,8 +1009,7 @@ brands:
         - sku: hobot-hobot-388-accesorios-glass-kit-acc
           title: Kit accesorios compatible para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 kit accessory Kit accesorios compatible
-            para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 kit accessory accesorios
           must_include:
           - hobot388
           - kit
@@ -1012,8 +1024,7 @@ brands:
         - sku: hobot-hobot-388-deposito-glass-tank
           title: Depósito de líquido compatible para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 tank water Depósito de líquido compatible
-            para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 tank water container dep sito de l quido
           must_include:
           - hobot388
           - tank
@@ -1029,7 +1040,7 @@ brands:
         - sku: hobot-hobot-388-bateria-glass-bat-std
           title: Batería compatible para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 battery Batería compatible para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 battery bater a
           must_include:
           - hobot388
           - battery
@@ -1044,8 +1055,7 @@ brands:
         - sku: hobot-hobot-388-cargador-glass-charger
           title: Cargador / adaptador compatible para HOBOT 388
           intent: compra
-          query: HOBOT HOBOT 388 hobot388 charger adapter Cargador / adaptador compatible
-            para HOBOT 388
+          query: HOBOT HOBOT 388 hobot388 charger adapter cargador adaptador
           must_include:
           - hobot388
           - charger
@@ -1152,8 +1162,8 @@ brands:
           title: Almohadillas de lavado compatibles (pack) para Ecovacs WINBOT W1
             Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs pad washing Almohadillas
-            de lavado compatibles (pack) para Ecovacs WINBOT W
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro pad washing accessory kit almohadillas
+            de lavado
           must_include:
           - ecovacs
           - pad
@@ -1171,8 +1181,8 @@ brands:
           title: Almohadillas de limpieza compatibles (pack) para Ecovacs WINBOT W1
             Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs pad cleaning Almohadillas
-            de limpieza compatibles (pack) para Ecovacs WINBO
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro pad cleaning accessory kit almohadillas
+            de limpieza
           must_include:
           - ecovacs
           - pad
@@ -1188,8 +1198,8 @@ brands:
           title: Almohadillas microfibra compatibles (pack) para Ecovacs WINBOT W1
             Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs microfiber pad Almohadillas
-            microfibra compatibles (pack) para Ecovacs WINB
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro microfiber pad accessory kit
+            almohadillas microfibra
           must_include:
           - ecovacs
           - microfiber
@@ -1205,8 +1215,8 @@ brands:
           title: Ventosa / pieza de succión accesorio compatible para Ecovacs WINBOT
             W1 Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs suction accessory Ventosa
-            / pieza de succión accesorio compatible para Ecov
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro suction accessory kit ventosa
+            de succi n accesorio
           must_include:
           - ecovacs
           - suction
@@ -1221,8 +1231,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para Ecovacs WINBOT W1 Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs cloth microfiber Paño
-            de microfibra accesorio para Ecovacs WINBOT W1 Pro
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro cloth microfiber accessory kit
+            pa o de microfibra accesorio
           must_include:
           - ecovacs
           - cloth
@@ -1237,8 +1247,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para Ecovacs WINBOT W1 Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs safety cable Cable de
-            seguridad accesorio para Ecovacs WINBOT W1 Pro
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro safety cable accessory kit de
+            seguridad accesorio
           must_include:
           - ecovacs
           - safety
@@ -1254,8 +1264,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-w1-pro-accesorios-glass-kit-acc
           title: Kit accesorios compatible para Ecovacs WINBOT W1 Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs kit accessory Kit accesorios
-            compatible para Ecovacs WINBOT W1 Pro
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro kit accessory accesorios
           must_include:
           - ecovacs
           - kit
@@ -1270,8 +1279,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-w1-pro-deposito-glass-tank
           title: Depósito de líquido compatible para Ecovacs WINBOT W1 Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs tank water Depósito
-            de líquido compatible para Ecovacs WINBOT W1 Pro
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro tank water container dep sito
+            de l quido
           must_include:
           - ecovacs
           - tank
@@ -1287,8 +1296,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-w1-pro-bateria-glass-bat-std
           title: Batería compatible para Ecovacs WINBOT W1 Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs battery Batería compatible
-            para Ecovacs WINBOT W1 Pro
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro battery bater a
           must_include:
           - ecovacs
           - battery
@@ -1303,8 +1311,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-w1-pro-cargador-glass-charger
           title: Cargador / adaptador compatible para Ecovacs WINBOT W1 Pro
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro ecovacs charger adapter Cargador
-            / adaptador compatible para Ecovacs WINBOT W1 Pro
+          query: Ecovacs WINBOT Ecovacs WINBOT W1 Pro charger adapter cargador adaptador
           must_include:
           - ecovacs
           - charger
@@ -1411,8 +1418,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 pad washing Almohadillas
-            de lavado compatibles (pack) para Ecovacs WINBOT 95
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 pad washing accessory
+            kit almohadillas de lavado
           must_include:
           - winbot950
           - pad
@@ -1430,8 +1437,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 pad cleaning Almohadillas
-            de limpieza compatibles (pack) para Ecovacs WINBOT
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 pad cleaning accessory
+            kit almohadillas de limpieza
           must_include:
           - winbot950
           - pad
@@ -1446,8 +1453,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 microfiber pad Almohadillas
-            microfibra compatibles (pack) para Ecovacs WINBO
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 microfiber pad accessory
+            kit almohadillas microfibra
           must_include:
           - winbot950
           - microfiber
@@ -1463,8 +1470,8 @@ brands:
           title: Ventosa / pieza de succión accesorio compatible para Ecovacs WINBOT
             950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 suction accessory Ventosa
-            / pieza de succión accesorio compatible para Ecova
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 suction accessory kit
+            ventosa de succi n accesorio
           must_include:
           - winbot950
           - suction
@@ -1479,8 +1486,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 cloth microfiber Paño
-            de microfibra accesorio para Ecovacs WINBOT 950
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 cloth microfiber accessory
+            kit pa o de microfibra accesorio
           must_include:
           - winbot950
           - cloth
@@ -1495,8 +1502,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 safety cable Cable de
-            seguridad accesorio para Ecovacs WINBOT 950
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 safety cable accessory
+            kit de seguridad accesorio
           must_include:
           - winbot950
           - safety
@@ -1512,8 +1519,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-accesorios-glass-kit-acc
           title: Kit accesorios compatible para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 kit accessory Kit accesorios
-            compatible para Ecovacs WINBOT 950
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 kit accessory accesorios
           must_include:
           - winbot950
           - kit
@@ -1528,8 +1534,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-deposito-glass-tank
           title: Depósito de líquido compatible para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 tank water Depósito de
-            líquido compatible para Ecovacs WINBOT 950
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 tank water container
+            dep sito de l quido
           must_include:
           - winbot950
           - tank
@@ -1545,8 +1551,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-bateria-glass-bat-std
           title: Batería compatible para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 battery Batería compatible
-            para Ecovacs WINBOT 950
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 battery bater a
           must_include:
           - winbot950
           - battery
@@ -1561,8 +1566,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-950-cargador-glass-charger
           title: Cargador / adaptador compatible para Ecovacs WINBOT 950
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 charger adapter Cargador
-            / adaptador compatible para Ecovacs WINBOT 950
+          query: Ecovacs WINBOT Ecovacs WINBOT 950 winbot950 charger adapter cargador
+            adaptador
           must_include:
           - winbot950
           - charger
@@ -1664,8 +1669,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs pad washing Almohadillas
-            de lavado compatibles (pack) para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X pad washing accessory kit almohadillas
+            de lavado
           must_include:
           - ecovacs
           - pad
@@ -1681,8 +1686,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs pad cleaning Almohadillas
-            de limpieza compatibles (pack) para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X pad cleaning accessory kit almohadillas
+            de limpieza
           must_include:
           - ecovacs
           - pad
@@ -1697,8 +1702,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs microfiber pad Almohadillas
-            microfibra compatibles (pack) para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X microfiber pad accessory kit almohadillas
+            microfibra
           must_include:
           - ecovacs
           - microfiber
@@ -1714,8 +1719,8 @@ brands:
           title: Ventosa / pieza de succión accesorio compatible para Ecovacs WINBOT
             X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs suction accessory Ventosa
-            / pieza de succión accesorio compatible para Ecovacs W
+          query: Ecovacs WINBOT Ecovacs WINBOT X suction accessory kit ventosa de
+            succi n accesorio
           must_include:
           - ecovacs
           - suction
@@ -1730,8 +1735,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs cloth microfiber Paño de
-            microfibra accesorio para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X cloth microfiber accessory kit pa
+            o de microfibra accesorio
           must_include:
           - ecovacs
           - cloth
@@ -1746,8 +1751,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs safety cable Cable de seguridad
-            accesorio para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X safety cable accessory kit de seguridad
+            accesorio
           must_include:
           - ecovacs
           - safety
@@ -1763,8 +1768,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-accesorios-glass-kit-acc
           title: Kit accesorios compatible para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs kit accessory Kit accesorios
-            compatible para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X kit accessory accesorios
           must_include:
           - ecovacs
           - kit
@@ -1779,8 +1783,8 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-deposito-glass-tank
           title: Depósito de líquido compatible para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs tank water Depósito de líquido
-            compatible para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X tank water container dep sito de
+            l quido
           must_include:
           - ecovacs
           - tank
@@ -1796,8 +1800,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-bateria-glass-bat-std
           title: Batería compatible para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs battery Batería compatible
-            para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X battery bater a
           must_include:
           - ecovacs
           - battery
@@ -1812,8 +1815,7 @@ brands:
         - sku: ecovacs-win-ecovacs-winbot-x-cargador-glass-charger
           title: Cargador / adaptador compatible para Ecovacs WINBOT X
           intent: compra
-          query: Ecovacs WINBOT Ecovacs WINBOT X ecovacs charger adapter Cargador
-            / adaptador compatible para Ecovacs WINBOT X
+          query: Ecovacs WINBOT Ecovacs WINBOT X charger adapter cargador adaptador
           must_include:
           - ecovacs
           - charger
@@ -1915,8 +1917,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 pad washing Almohadillas
-            de lavado compatibles (pack) para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 pad washing accessory kit
+            almohadillas de lavado
           must_include:
           - ws660
           - pad
@@ -1934,8 +1936,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 pad cleaning Almohadillas
-            de limpieza compatibles (pack) para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 pad cleaning accessory kit
+            almohadillas de limpieza
           must_include:
           - ws660
           - pad
@@ -1950,8 +1952,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 microfiber pad Almohadillas
-            microfibra compatibles (pack) para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 microfiber pad accessory
+            kit almohadillas microfibra
           must_include:
           - ws660
           - microfiber
@@ -1966,8 +1968,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-accesorios-glass-suction-acc
           title: Ventosa / pieza de succión accesorio compatible para Alfawise WS-660
           intent: compra
-          query: 'Alfawise / Xiaomi Alfawise WS-660 ws660 suction accessory Ventosa
-            / pieza de succión accesorio compatible para Alfawise '
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 suction accessory kit ventosa
+            de succi n accesorio
           must_include:
           - ws660
           - suction
@@ -1982,8 +1984,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 cloth microfiber Paño de
-            microfibra accesorio para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 cloth microfiber accessory
+            kit pa o de microfibra accesorio
           must_include:
           - ws660
           - cloth
@@ -1998,8 +2000,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 safety cable Cable de seguridad
-            accesorio para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 safety cable accessory kit
+            de seguridad accesorio
           must_include:
           - ws660
           - safety
@@ -2015,8 +2017,7 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-accesorios-glass-kit-acc
           title: Kit accesorios compatible para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 kit accessory Kit accesorios
-            compatible para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 kit accessory accesorios
           must_include:
           - ws660
           - kit
@@ -2031,8 +2032,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-deposito-glass-tank
           title: Depósito de líquido compatible para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 tank water Depósito de líquido
-            compatible para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 tank water container dep
+            sito de l quido
           must_include:
           - ws660
           - tank
@@ -2048,8 +2049,7 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-bateria-glass-bat-std
           title: Batería compatible para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 battery Batería compatible
-            para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 battery bater a
           must_include:
           - ws660
           - battery
@@ -2064,8 +2064,8 @@ brands:
         - sku: alfawise-win-alfawise-ws-660-cargador-glass-charger
           title: Cargador / adaptador compatible para Alfawise WS-660
           intent: compra
-          query: Alfawise / Xiaomi Alfawise WS-660 ws660 charger adapter Cargador
-            / adaptador compatible para Alfawise WS-660
+          query: Alfawise / Xiaomi Alfawise WS-660 ws660 charger adapter cargador
+            adaptador
           must_include:
           - ws660
           - charger
@@ -2164,8 +2164,8 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-pad-wash
           title: Almohadillas de lavado compatibles (pack) para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro pad washing Almohadillas de
-            lavado compatibles (pack) para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro pad washing accessory kit almohadillas
+            de lavado
           must_include:
           - x6pro
           - pad
@@ -2183,8 +2183,8 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-pad-clean
           title: Almohadillas de limpieza compatibles (pack) para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro pad cleaning Almohadillas
-            de limpieza compatibles (pack) para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro pad cleaning accessory kit almohadillas
+            de limpieza
           must_include:
           - x6pro
           - pad
@@ -2199,8 +2199,8 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-pad-micro
           title: Almohadillas microfibra compatibles (pack) para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro microfiber pad Almohadillas
-            microfibra compatibles (pack) para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro microfiber pad accessory kit almohadillas
+            microfibra
           must_include:
           - x6pro
           - microfiber
@@ -2215,8 +2215,8 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-suction-acc
           title: Ventosa / pieza de succión accesorio compatible para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro suction accessory Ventosa
-            / pieza de succión accesorio compatible para Cop Rose X
+          query: Alfawise / Xiaomi Cop Rose X6Pro suction accessory kit ventosa de
+            succi n accesorio
           must_include:
           - x6pro
           - suction
@@ -2231,8 +2231,8 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-cloth-acc
           title: Paño de microfibra accesorio para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro cloth microfiber Paño de microfibra
-            accesorio para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro cloth microfiber accessory kit pa
+            o de microfibra accesorio
           must_include:
           - x6pro
           - cloth
@@ -2247,8 +2247,8 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-cable-acc
           title: Cable de seguridad accesorio para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro safety cable Cable de seguridad
-            accesorio para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro safety cable accessory kit de seguridad
+            accesorio
           must_include:
           - x6pro
           - safety
@@ -2264,8 +2264,7 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-accesorios-glass-kit-acc
           title: Kit accesorios compatible para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro kit accessory Kit accesorios
-            compatible para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro kit accessory accesorios
           must_include:
           - x6pro
           - kit
@@ -2280,8 +2279,8 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-deposito-glass-tank
           title: Depósito de líquido compatible para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro tank water Depósito de líquido
-            compatible para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro tank water container dep sito de
+            l quido
           must_include:
           - x6pro
           - tank
@@ -2297,8 +2296,7 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-bateria-glass-bat-std
           title: Batería compatible para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro battery Batería compatible
-            para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro battery bater a
           must_include:
           - x6pro
           - battery
@@ -2313,8 +2311,7 @@ brands:
         - sku: alfawise-win-cop-rose-x6pro-cargador-glass-charger
           title: Cargador / adaptador compatible para Cop Rose X6Pro
           intent: compra
-          query: Alfawise / Xiaomi Cop Rose X6Pro x6pro charger adapter Cargador /
-            adaptador compatible para Cop Rose X6Pro
+          query: Alfawise / Xiaomi Cop Rose X6Pro charger adapter cargador adaptador
           must_include:
           - x6pro
           - charger

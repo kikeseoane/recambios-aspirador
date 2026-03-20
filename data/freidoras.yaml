@@ -44,6 +44,30 @@ globals:
     label: Cestas y bandejas
     icon: basket
     buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
   guias_genericas:
     seguridad:
     - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
@@ -86,8 +110,7 @@ brands:
         - sku: ninja-af-ninja-af100-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 basket replacement Cesta de repuesto compatible
-            para AF100 3.8L
+          query: Ninja AF100 3.8L basket tray cesta de
           must_include:
           - af100
           - basket
@@ -104,8 +127,7 @@ brands:
         - sku: ninja-af-ninja-af100-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 rack grill Bandeja / rejilla grill compatible
-            para AF100 3.8L
+          query: Ninja AF100 3.8L rack grill basket tray bandeja rejilla
           must_include:
           - af100
           - rack
@@ -121,8 +143,7 @@ brands:
         - sku: ninja-af-ninja-af100-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 filter carbon Filtro de carbono compatible
-            para AF100 3.8L
+          query: Ninja AF100 3.8L filter carbon filtro de carbono
           must_include:
           - af100
           - filter
@@ -138,8 +159,7 @@ brands:
         - sku: ninja-af-ninja-af100-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 silicone mold Moldes de silicona compatibles
-            para AF100 3.8L
+          query: Ninja AF100 3.8L silicone mold accessory kit moldes de silicona
           must_include:
           - af100
           - silicone
@@ -154,8 +174,7 @@ brands:
         - sku: ninja-af-ninja-af100-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 paper liner Papel perforado / liner compatible
-            para AF100 3.8L
+          query: Ninja AF100 3.8L paper liner parchment accessory kit papel perforado
           must_include:
           - af100
           - paper
@@ -171,8 +190,7 @@ brands:
         - sku: ninja-af-ninja-af100-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 rotisserie spit Asador / spit rotisserie compatible
-            para AF100 3.8L
+          query: Ninja AF100 3.8L rotisserie spit accessory kit asador
           must_include:
           - af100
           - rotisserie
@@ -187,8 +205,7 @@ brands:
         - sku: ninja-af-ninja-af100-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 skewer kebab Brochetas / skewers compatibles
-            para AF100 3.8L
+          query: Ninja AF100 3.8L skewer kebab accessory kit brochetas skewers
           must_include:
           - af100
           - skewer
@@ -203,8 +220,7 @@ brands:
         - sku: ninja-af-ninja-af100-accesorios-acc-kit-af
           title: Kit accesorios compatible para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 accessory kit Kit accesorios compatible para
-            AF100 3.8L
+          query: Ninja AF100 3.8L accessory kit accesorios
           must_include:
           - af100
           - accessory
@@ -218,8 +234,7 @@ brands:
         - sku: ninja-af-ninja-af100-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 tong silicone Pinzas de silicona compatibles
-            para AF100 3.8L
+          query: Ninja AF100 3.8L tong silicone accessory kit pinzas de silicona
           must_include:
           - af100
           - tong
@@ -235,8 +250,8 @@ brands:
         - sku: ninja-af-ninja-af100-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para AF100 3.8L
           intent: compra
-          query: Ninja AF100 3.8L af100 rack stand Soporte elevador / estante compatible
-            para AF100 3.8L
+          query: Ninja AF100 3.8L rack stand shelf dock wall mount soporte elevador
+            estante
           must_include:
           - af100
           - rack
@@ -343,8 +358,7 @@ brands:
         - sku: ninja-af-ninja-af160-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 basket replacement Cesta de repuesto compatible
-            para AF160 5.2L
+          query: Ninja AF160 5.2L basket tray cesta de
           must_include:
           - af160
           - basket
@@ -361,8 +375,7 @@ brands:
         - sku: ninja-af-ninja-af160-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 rack grill Bandeja / rejilla grill compatible
-            para AF160 5.2L
+          query: Ninja AF160 5.2L rack grill basket tray bandeja rejilla
           must_include:
           - af160
           - rack
@@ -378,8 +391,7 @@ brands:
         - sku: ninja-af-ninja-af160-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 filter carbon Filtro de carbono compatible
-            para AF160 5.2L
+          query: Ninja AF160 5.2L filter carbon filtro de carbono
           must_include:
           - af160
           - filter
@@ -395,8 +407,7 @@ brands:
         - sku: ninja-af-ninja-af160-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 silicone mold Moldes de silicona compatibles
-            para AF160 5.2L
+          query: Ninja AF160 5.2L silicone mold accessory kit moldes de silicona
           must_include:
           - af160
           - silicone
@@ -411,8 +422,7 @@ brands:
         - sku: ninja-af-ninja-af160-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 paper liner Papel perforado / liner compatible
-            para AF160 5.2L
+          query: Ninja AF160 5.2L paper liner parchment accessory kit papel perforado
           must_include:
           - af160
           - paper
@@ -428,8 +438,7 @@ brands:
         - sku: ninja-af-ninja-af160-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 rotisserie spit Asador / spit rotisserie compatible
-            para AF160 5.2L
+          query: Ninja AF160 5.2L rotisserie spit accessory kit asador
           must_include:
           - af160
           - rotisserie
@@ -444,8 +453,7 @@ brands:
         - sku: ninja-af-ninja-af160-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 skewer kebab Brochetas / skewers compatibles
-            para AF160 5.2L
+          query: Ninja AF160 5.2L skewer kebab accessory kit brochetas skewers
           must_include:
           - af160
           - skewer
@@ -460,8 +468,7 @@ brands:
         - sku: ninja-af-ninja-af160-accesorios-acc-kit-af
           title: Kit accesorios compatible para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 accessory kit Kit accesorios compatible para
-            AF160 5.2L
+          query: Ninja AF160 5.2L accessory kit accesorios
           must_include:
           - af160
           - accessory
@@ -475,8 +482,7 @@ brands:
         - sku: ninja-af-ninja-af160-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 tong silicone Pinzas de silicona compatibles
-            para AF160 5.2L
+          query: Ninja AF160 5.2L tong silicone accessory kit pinzas de silicona
           must_include:
           - af160
           - tong
@@ -492,8 +498,8 @@ brands:
         - sku: ninja-af-ninja-af160-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para AF160 5.2L
           intent: compra
-          query: Ninja AF160 5.2L af160 rack stand Soporte elevador / estante compatible
-            para AF160 5.2L
+          query: Ninja AF160 5.2L rack stand shelf dock wall mount soporte elevador
+            estante
           must_include:
           - af160
           - rack
@@ -601,8 +607,7 @@ brands:
         - sku: ninja-af-ninja-af300-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 basket replacement Cesta de repuesto
-            compatible para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L basket tray cesta de
           must_include:
           - af300
           - basket
@@ -620,8 +625,7 @@ brands:
         - sku: ninja-af-ninja-af300-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 rack grill Bandeja / rejilla grill
-            compatible para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L rack grill basket tray bandeja rejilla
           must_include:
           - af300
           - rack
@@ -637,8 +641,7 @@ brands:
         - sku: ninja-af-ninja-af300-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 filter carbon Filtro de carbono compatible
-            para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L filter carbon filtro de carbono
           must_include:
           - af300
           - filter
@@ -654,8 +657,7 @@ brands:
         - sku: ninja-af-ninja-af300-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 silicone mold Moldes de silicona
-            compatibles para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L silicone mold accessory kit moldes de silicona
           must_include:
           - af300
           - silicone
@@ -670,8 +672,8 @@ brands:
         - sku: ninja-af-ninja-af300-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 paper liner Papel perforado / liner
-            compatible para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L paper liner parchment accessory kit papel
+            perforado
           must_include:
           - af300
           - paper
@@ -687,8 +689,7 @@ brands:
         - sku: ninja-af-ninja-af300-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 rotisserie spit Asador / spit rotisserie
-            compatible para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L rotisserie spit accessory kit asador
           must_include:
           - af300
           - rotisserie
@@ -703,8 +704,7 @@ brands:
         - sku: ninja-af-ninja-af300-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 skewer kebab Brochetas / skewers
-            compatibles para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L skewer kebab accessory kit brochetas skewers
           must_include:
           - af300
           - skewer
@@ -719,8 +719,7 @@ brands:
         - sku: ninja-af-ninja-af300-accesorios-acc-kit-af
           title: Kit accesorios compatible para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 accessory kit Kit accesorios compatible
-            para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L accessory kit accesorios
           must_include:
           - af300
           - accessory
@@ -734,8 +733,7 @@ brands:
         - sku: ninja-af-ninja-af300-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 tong silicone Pinzas de silicona
-            compatibles para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L tong silicone accessory kit pinzas de silicona
           must_include:
           - af300
           - tong
@@ -751,8 +749,8 @@ brands:
         - sku: ninja-af-ninja-af300-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para AF300 DualZone 7.6L
           intent: compra
-          query: Ninja AF300 DualZone 7.6L af300 rack stand Soporte elevador / estante
-            compatible para AF300 DualZone 7.6L
+          query: Ninja AF300 DualZone 7.6L rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - af300
           - rack
@@ -860,8 +858,7 @@ brands:
         - sku: ninja-af-ninja-af400-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 basket replacement Cesta de repuesto
-            compatible para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 basket tray cesta de
           must_include:
           - af400
           - basket
@@ -879,8 +876,7 @@ brands:
         - sku: ninja-af-ninja-af400-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 rack grill Bandeja / rejilla grill
-            compatible para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 rack grill basket tray bandeja rejilla
           must_include:
           - af400
           - rack
@@ -896,8 +892,7 @@ brands:
         - sku: ninja-af-ninja-af400-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 filter carbon Filtro de carbono
-            compatible para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 filter carbon filtro de carbono
           must_include:
           - af400
           - filter
@@ -913,8 +908,8 @@ brands:
         - sku: ninja-af-ninja-af400-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 silicone mold Moldes de silicona
-            compatibles para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 silicone mold accessory kit moldes de
+            silicona
           must_include:
           - af400
           - silicone
@@ -929,8 +924,8 @@ brands:
         - sku: ninja-af-ninja-af400-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 paper liner Papel perforado / liner
-            compatible para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 paper liner parchment accessory kit papel
+            perforado
           must_include:
           - af400
           - paper
@@ -946,8 +941,7 @@ brands:
         - sku: ninja-af-ninja-af400-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 rotisserie spit Asador / spit rotisserie
-            compatible para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 rotisserie spit accessory kit asador
           must_include:
           - af400
           - rotisserie
@@ -962,8 +956,8 @@ brands:
         - sku: ninja-af-ninja-af400-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 skewer kebab Brochetas / skewers
-            compatibles para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - af400
           - skewer
@@ -978,8 +972,7 @@ brands:
         - sku: ninja-af-ninja-af400-accesorios-acc-kit-af
           title: Kit accesorios compatible para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 accessory kit Kit accesorios compatible
-            para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 accessory kit accesorios
           must_include:
           - af400
           - accessory
@@ -993,8 +986,8 @@ brands:
         - sku: ninja-af-ninja-af400-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 tong silicone Pinzas de silicona
-            compatibles para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 tong silicone accessory kit pinzas de
+            silicona
           must_include:
           - af400
           - tong
@@ -1010,8 +1003,8 @@ brands:
         - sku: ninja-af-ninja-af400-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Foodi Dual Zone AF400
           intent: compra
-          query: Ninja Foodi Dual Zone AF400 af400 rack stand Soporte elevador / estante
-            compatible para Foodi Dual Zone AF400
+          query: Ninja Foodi Dual Zone AF400 rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - af400
           - rack
@@ -1118,8 +1111,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk basket replacement Cesta de repuesto
-            compatible para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK basket tray cesta de
           must_include:
           - af160uk
           - basket
@@ -1136,8 +1128,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk rack grill Bandeja / rejilla grill
-            compatible para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK rack grill basket tray bandeja rejilla
           must_include:
           - af160uk
           - rack
@@ -1153,8 +1144,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk filter carbon Filtro de carbono compatible
-            para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK filter carbon filtro de carbono
           must_include:
           - af160uk
           - filter
@@ -1170,8 +1160,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk silicone mold Moldes de silicona
-            compatibles para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK silicone mold accessory kit moldes de silicona
           must_include:
           - af160uk
           - silicone
@@ -1186,8 +1175,8 @@ brands:
         - sku: ninja-af-ninja-af160uk-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk paper liner Papel perforado / liner
-            compatible para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK paper liner parchment accessory kit papel
+            perforado
           must_include:
           - af160uk
           - paper
@@ -1203,8 +1192,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk rotisserie spit Asador / spit rotisserie
-            compatible para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK rotisserie spit accessory kit asador
           must_include:
           - af160uk
           - rotisserie
@@ -1219,8 +1207,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk skewer kebab Brochetas / skewers
-            compatibles para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK skewer kebab accessory kit brochetas skewers
           must_include:
           - af160uk
           - skewer
@@ -1235,8 +1222,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-accesorios-acc-kit-af
           title: Kit accesorios compatible para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk accessory kit Kit accesorios compatible
-            para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK accessory kit accesorios
           must_include:
           - af160uk
           - accessory
@@ -1250,8 +1236,7 @@ brands:
         - sku: ninja-af-ninja-af160uk-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk tong silicone Pinzas de silicona
-            compatibles para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK tong silicone accessory kit pinzas de silicona
           must_include:
           - af160uk
           - tong
@@ -1267,8 +1252,8 @@ brands:
         - sku: ninja-af-ninja-af160uk-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Foodi MAX AF160UK
           intent: compra
-          query: Ninja Foodi MAX AF160UK af160uk rack stand Soporte elevador / estante
-            compatible para Foodi MAX AF160UK
+          query: Ninja Foodi MAX AF160UK rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - af160uk
           - rack
@@ -1376,8 +1361,7 @@ brands:
         - sku: ninja-af-ninja-sf301-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 basket replacement Cesta de repuesto compatible
-            para Speedi SF301
+          query: Ninja Speedi SF301 basket tray cesta de
           must_include:
           - sf301
           - basket
@@ -1395,8 +1379,7 @@ brands:
         - sku: ninja-af-ninja-sf301-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 rack grill Bandeja / rejilla grill compatible
-            para Speedi SF301
+          query: Ninja Speedi SF301 rack grill basket tray bandeja rejilla
           must_include:
           - sf301
           - rack
@@ -1412,8 +1395,7 @@ brands:
         - sku: ninja-af-ninja-sf301-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 filter carbon Filtro de carbono compatible
-            para Speedi SF301
+          query: Ninja Speedi SF301 filter carbon filtro de carbono
           must_include:
           - sf301
           - filter
@@ -1429,8 +1411,7 @@ brands:
         - sku: ninja-af-ninja-sf301-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 silicone mold Moldes de silicona compatibles
-            para Speedi SF301
+          query: Ninja Speedi SF301 silicone mold accessory kit moldes de silicona
           must_include:
           - sf301
           - silicone
@@ -1445,8 +1426,7 @@ brands:
         - sku: ninja-af-ninja-sf301-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 paper liner Papel perforado / liner compatible
-            para Speedi SF301
+          query: Ninja Speedi SF301 paper liner parchment accessory kit papel perforado
           must_include:
           - sf301
           - paper
@@ -1462,8 +1442,7 @@ brands:
         - sku: ninja-af-ninja-sf301-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 rotisserie spit Asador / spit rotisserie
-            compatible para Speedi SF301
+          query: Ninja Speedi SF301 rotisserie spit accessory kit asador
           must_include:
           - sf301
           - rotisserie
@@ -1478,8 +1457,7 @@ brands:
         - sku: ninja-af-ninja-sf301-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 skewer kebab Brochetas / skewers compatibles
-            para Speedi SF301
+          query: Ninja Speedi SF301 skewer kebab accessory kit brochetas skewers
           must_include:
           - sf301
           - skewer
@@ -1494,8 +1472,7 @@ brands:
         - sku: ninja-af-ninja-sf301-accesorios-acc-kit-af
           title: Kit accesorios compatible para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 accessory kit Kit accesorios compatible
-            para Speedi SF301
+          query: Ninja Speedi SF301 accessory kit accesorios
           must_include:
           - sf301
           - accessory
@@ -1509,8 +1486,7 @@ brands:
         - sku: ninja-af-ninja-sf301-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 tong silicone Pinzas de silicona compatibles
-            para Speedi SF301
+          query: Ninja Speedi SF301 tong silicone accessory kit pinzas de silicona
           must_include:
           - sf301
           - tong
@@ -1526,8 +1502,8 @@ brands:
         - sku: ninja-af-ninja-sf301-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Speedi SF301
           intent: compra
-          query: Ninja Speedi SF301 sf301 rack stand Soporte elevador / estante compatible
-            para Speedi SF301
+          query: Ninja Speedi SF301 rack stand shelf dock wall mount soporte elevador
+            estante
           must_include:
           - sf301
           - rack
@@ -1638,8 +1614,7 @@ brands:
         - sku: philips-af-fr-philips-hd9200-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 basket replacement
-            Cesta de repuesto compatible para Airfryer Compact HD
+          query: Philips Airfryer Airfryer Compact HD9200 basket tray cesta de
           must_include:
           - hd9200
           - basket
@@ -1657,8 +1632,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 rack grill Bandeja
-            / rejilla grill compatible para Airfryer Compact HD92
+          query: Philips Airfryer Airfryer Compact HD9200 rack grill basket tray bandeja
+            rejilla
           must_include:
           - hd9200
           - rack
@@ -1674,8 +1649,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 filter carbon Filtro
-            de carbono compatible para Airfryer Compact HD9200
+          query: Philips Airfryer Airfryer Compact HD9200 filter carbon filtro de
+            carbono
           must_include:
           - hd9200
           - filter
@@ -1691,8 +1666,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 silicone mold Moldes
-            de silicona compatibles para Airfryer Compact HD920
+          query: Philips Airfryer Airfryer Compact HD9200 silicone mold accessory
+            kit moldes de silicona
           must_include:
           - hd9200
           - silicone
@@ -1707,8 +1682,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 paper liner Papel
-            perforado / liner compatible para Airfryer Compact HD9
+          query: Philips Airfryer Airfryer Compact HD9200 paper liner parchment accessory
+            kit papel perforado
           must_include:
           - hd9200
           - paper
@@ -1724,8 +1699,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 rotisserie spit Asador
-            / spit rotisserie compatible para Airfryer Compac
+          query: Philips Airfryer Airfryer Compact HD9200 rotisserie spit accessory
+            kit asador
           must_include:
           - hd9200
           - rotisserie
@@ -1740,8 +1715,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 skewer kebab Brochetas
-            / skewers compatibles para Airfryer Compact HD920
+          query: Philips Airfryer Airfryer Compact HD9200 skewer kebab accessory kit
+            brochetas skewers
           must_include:
           - hd9200
           - skewer
@@ -1756,8 +1731,7 @@ brands:
         - sku: philips-af-fr-philips-hd9200-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 accessory kit Kit
-            accesorios compatible para Airfryer Compact HD9200
+          query: Philips Airfryer Airfryer Compact HD9200 accessory kit accesorios
           must_include:
           - hd9200
           - accessory
@@ -1771,8 +1745,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 tong silicone Pinzas
-            de silicona compatibles para Airfryer Compact HD920
+          query: Philips Airfryer Airfryer Compact HD9200 tong silicone accessory
+            kit pinzas de silicona
           must_include:
           - hd9200
           - tong
@@ -1788,8 +1762,8 @@ brands:
         - sku: philips-af-fr-philips-hd9200-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer Compact HD9200
           intent: compra
-          query: Philips Airfryer Airfryer Compact HD9200 hd9200 rack stand Soporte
-            elevador / estante compatible para Airfryer Compact H
+          query: Philips Airfryer Airfryer Compact HD9200 rack stand shelf dock wall
+            mount soporte elevador estante
           must_include:
           - hd9200
           - rack
@@ -1897,8 +1871,7 @@ brands:
         - sku: philips-af-fr-philips-hd9252-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 basket replacement Cesta
-            de repuesto compatible para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L basket tray cesta de
           must_include:
           - hd9252
           - basket
@@ -1916,8 +1889,8 @@ brands:
         - sku: philips-af-fr-philips-hd9252-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 rack grill Bandeja /
-            rejilla grill compatible para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L rack grill basket tray bandeja
+            rejilla
           must_include:
           - hd9252
           - rack
@@ -1933,8 +1906,7 @@ brands:
         - sku: philips-af-fr-philips-hd9252-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 filter carbon Filtro
-            de carbono compatible para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L filter carbon filtro de carbono
           must_include:
           - hd9252
           - filter
@@ -1950,8 +1922,8 @@ brands:
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 silicone mold Moldes
-            de silicona compatibles para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L silicone mold accessory kit
+            moldes de silicona
           must_include:
           - hd9252
           - silicone
@@ -1966,8 +1938,8 @@ brands:
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 paper liner Papel perforado
-            / liner compatible para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L paper liner parchment accessory
+            kit papel perforado
           must_include:
           - hd9252
           - paper
@@ -1983,8 +1955,8 @@ brands:
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 rotisserie spit Asador
-            / spit rotisserie compatible para Airfryer HD9252 3.
+          query: Philips Airfryer Airfryer HD9252 3.5L rotisserie spit accessory kit
+            asador
           must_include:
           - hd9252
           - rotisserie
@@ -1999,8 +1971,8 @@ brands:
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 skewer kebab Brochetas
-            / skewers compatibles para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L skewer kebab accessory kit
+            brochetas skewers
           must_include:
           - hd9252
           - skewer
@@ -2015,8 +1987,7 @@ brands:
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 accessory kit Kit accesorios
-            compatible para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L accessory kit accesorios
           must_include:
           - hd9252
           - accessory
@@ -2030,8 +2001,8 @@ brands:
         - sku: philips-af-fr-philips-hd9252-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 tong silicone Pinzas
-            de silicona compatibles para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L tong silicone accessory kit
+            pinzas de silicona
           must_include:
           - hd9252
           - tong
@@ -2047,8 +2018,8 @@ brands:
         - sku: philips-af-fr-philips-hd9252-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer HD9252 3.5L
           intent: compra
-          query: Philips Airfryer Airfryer HD9252 3.5L hd9252 rack stand Soporte elevador
-            / estante compatible para Airfryer HD9252 3.5L
+          query: Philips Airfryer Airfryer HD9252 3.5L rack stand shelf dock wall
+            mount soporte elevador estante
           must_include:
           - hd9252
           - rack
@@ -2156,8 +2127,7 @@ brands:
         - sku: philips-af-fr-philips-hd9650-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 basket replacement Cesta
-            de repuesto compatible para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 basket tray cesta de
           must_include:
           - hd9650
           - basket
@@ -2175,8 +2145,8 @@ brands:
         - sku: philips-af-fr-philips-hd9650-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 rack grill Bandeja / rejilla
-            grill compatible para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 rack grill basket tray bandeja
+            rejilla
           must_include:
           - hd9650
           - rack
@@ -2192,8 +2162,7 @@ brands:
         - sku: philips-af-fr-philips-hd9650-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 filter carbon Filtro de
-            carbono compatible para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 filter carbon filtro de carbono
           must_include:
           - hd9650
           - filter
@@ -2209,8 +2178,8 @@ brands:
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 silicone mold Moldes de
-            silicona compatibles para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 silicone mold accessory kit moldes
+            de silicona
           must_include:
           - hd9650
           - silicone
@@ -2225,8 +2194,8 @@ brands:
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 paper liner Papel perforado
-            / liner compatible para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 paper liner parchment accessory
+            kit papel perforado
           must_include:
           - hd9650
           - paper
@@ -2242,8 +2211,8 @@ brands:
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 rotisserie spit Asador
-            / spit rotisserie compatible para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 rotisserie spit accessory kit
+            asador
           must_include:
           - hd9650
           - rotisserie
@@ -2258,8 +2227,8 @@ brands:
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 skewer kebab Brochetas
-            / skewers compatibles para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - hd9650
           - skewer
@@ -2274,8 +2243,7 @@ brands:
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 accessory kit Kit accesorios
-            compatible para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 accessory kit accesorios
           must_include:
           - hd9650
           - accessory
@@ -2289,8 +2257,8 @@ brands:
         - sku: philips-af-fr-philips-hd9650-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 tong silicone Pinzas de
-            silicona compatibles para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - hd9650
           - tong
@@ -2306,8 +2274,8 @@ brands:
         - sku: philips-af-fr-philips-hd9650-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer XL HD9650
           intent: compra
-          query: Philips Airfryer Airfryer XL HD9650 hd9650 rack stand Soporte elevador
-            / estante compatible para Airfryer XL HD9650
+          query: Philips Airfryer Airfryer XL HD9650 rack stand shelf dock wall mount
+            soporte elevador estante
           must_include:
           - hd9650
           - rack
@@ -2415,8 +2383,7 @@ brands:
         - sku: philips-af-fr-philips-hd9860-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 basket replacement Cesta
-            de repuesto compatible para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 basket tray cesta de
           must_include:
           - hd9860
           - basket
@@ -2434,8 +2401,8 @@ brands:
         - sku: philips-af-fr-philips-hd9860-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 rack grill Bandeja /
-            rejilla grill compatible para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 rack grill basket tray bandeja
+            rejilla
           must_include:
           - hd9860
           - rack
@@ -2451,8 +2418,7 @@ brands:
         - sku: philips-af-fr-philips-hd9860-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 filter carbon Filtro
-            de carbono compatible para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 filter carbon filtro de carbono
           must_include:
           - hd9860
           - filter
@@ -2468,8 +2434,8 @@ brands:
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 silicone mold Moldes
-            de silicona compatibles para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 silicone mold accessory kit
+            moldes de silicona
           must_include:
           - hd9860
           - silicone
@@ -2484,8 +2450,8 @@ brands:
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 paper liner Papel perforado
-            / liner compatible para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 paper liner parchment accessory
+            kit papel perforado
           must_include:
           - hd9860
           - paper
@@ -2501,8 +2467,8 @@ brands:
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 rotisserie spit Asador
-            / spit rotisserie compatible para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 rotisserie spit accessory kit
+            asador
           must_include:
           - hd9860
           - rotisserie
@@ -2517,8 +2483,8 @@ brands:
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 skewer kebab Brochetas
-            / skewers compatibles para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - hd9860
           - skewer
@@ -2533,8 +2499,7 @@ brands:
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 accessory kit Kit accesorios
-            compatible para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 accessory kit accesorios
           must_include:
           - hd9860
           - accessory
@@ -2548,8 +2513,8 @@ brands:
         - sku: philips-af-fr-philips-hd9860-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 tong silicone Pinzas
-            de silicona compatibles para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 tong silicone accessory kit
+            pinzas de silicona
           must_include:
           - hd9860
           - tong
@@ -2565,8 +2530,8 @@ brands:
         - sku: philips-af-fr-philips-hd9860-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer XXL HD9860
           intent: compra
-          query: Philips Airfryer Airfryer XXL HD9860 hd9860 rack stand Soporte elevador
-            / estante compatible para Airfryer XXL HD9860
+          query: Philips Airfryer Airfryer XXL HD9860 rack stand shelf dock wall mount
+            soporte elevador estante
           must_include:
           - hd9860
           - rack
@@ -2674,8 +2639,7 @@ brands:
         - sku: philips-af-fr-philips-hd9255-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 basket replacement
-            Cesta de repuesto compatible para Airfryer Connecte
+          query: Philips Airfryer Airfryer Connected HD9255 basket tray cesta de
           must_include:
           - hd9255
           - basket
@@ -2693,8 +2657,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Airfryer Connected HD9255
           intent: compra
-          query: 'Philips Airfryer Airfryer Connected HD9255 hd9255 rack grill Bandeja
-            / rejilla grill compatible para Airfryer Connected '
+          query: Philips Airfryer Airfryer Connected HD9255 rack grill basket tray
+            bandeja rejilla
           must_include:
           - hd9255
           - rack
@@ -2710,8 +2674,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 filter carbon Filtro
-            de carbono compatible para Airfryer Connected HD9
+          query: Philips Airfryer Airfryer Connected HD9255 filter carbon filtro de
+            carbono
           must_include:
           - hd9255
           - filter
@@ -2727,8 +2691,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 silicone mold Moldes
-            de silicona compatibles para Airfryer Connected H
+          query: Philips Airfryer Airfryer Connected HD9255 silicone mold accessory
+            kit moldes de silicona
           must_include:
           - hd9255
           - silicone
@@ -2743,8 +2707,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 paper liner Papel
-            perforado / liner compatible para Airfryer Connected
+          query: Philips Airfryer Airfryer Connected HD9255 paper liner parchment
+            accessory kit papel perforado
           must_include:
           - hd9255
           - paper
@@ -2760,8 +2724,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 rotisserie spit
-            Asador / spit rotisserie compatible para Airfryer Conn
+          query: Philips Airfryer Airfryer Connected HD9255 rotisserie spit accessory
+            kit asador
           must_include:
           - hd9255
           - rotisserie
@@ -2776,8 +2740,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 skewer kebab Brochetas
-            / skewers compatibles para Airfryer Connected H
+          query: Philips Airfryer Airfryer Connected HD9255 skewer kebab accessory
+            kit brochetas skewers
           must_include:
           - hd9255
           - skewer
@@ -2792,8 +2756,7 @@ brands:
         - sku: philips-af-fr-philips-hd9255-accesorios-acc-kit-af
           title: Kit accesorios compatible para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 accessory kit Kit
-            accesorios compatible para Airfryer Connected HD9255
+          query: Philips Airfryer Airfryer Connected HD9255 accessory kit accesorios
           must_include:
           - hd9255
           - accessory
@@ -2807,8 +2770,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 tong silicone Pinzas
-            de silicona compatibles para Airfryer Connected H
+          query: Philips Airfryer Airfryer Connected HD9255 tong silicone accessory
+            kit pinzas de silicona
           must_include:
           - hd9255
           - tong
@@ -2824,8 +2787,8 @@ brands:
         - sku: philips-af-fr-philips-hd9255-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Airfryer Connected HD9255
           intent: compra
-          query: Philips Airfryer Airfryer Connected HD9255 hd9255 rack stand Soporte
-            elevador / estante compatible para Airfryer Connect
+          query: Philips Airfryer Airfryer Connected HD9255 rack stand shelf dock
+            wall mount soporte elevador estante
           must_include:
           - hd9255
           - rack
@@ -2936,8 +2899,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite basket replacement Cesta de repuesto
-            compatible para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 basket tray cesta de
           must_include:
           - lite
           - basket
@@ -2955,8 +2917,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite rack grill Bandeja / rejilla grill
-            compatible para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 rack grill basket tray bandeja rejilla
           must_include:
           - lite
           - rack
@@ -2972,8 +2933,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite filter carbon Filtro de carbono compatible
-            para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 filter carbon filtro de carbono
           must_include:
           - lite
           - filter
@@ -2989,8 +2949,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite silicone mold Moldes de silicona compatibles
-            para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 silicone mold accessory kit moldes de silicona
           must_include:
           - lite
           - silicone
@@ -3005,8 +2964,8 @@ brands:
         - sku: cosori-af-cosori-caf-l301-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite paper liner Papel perforado / liner
-            compatible para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 paper liner parchment accessory kit papel
+            perforado
           must_include:
           - lite
           - paper
@@ -3022,8 +2981,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite rotisserie spit Asador / spit rotisserie
-            compatible para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 rotisserie spit accessory kit asador
           must_include:
           - lite
           - rotisserie
@@ -3038,8 +2996,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite skewer kebab Brochetas / skewers compatibles
-            para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 skewer kebab accessory kit brochetas skewers
           must_include:
           - lite
           - skewer
@@ -3054,8 +3011,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-accesorios-acc-kit-af
           title: Kit accesorios compatible para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite accessory kit Kit accesorios compatible
-            para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 accessory kit accesorios
           must_include:
           - lite
           - accessory
@@ -3069,8 +3025,7 @@ brands:
         - sku: cosori-af-cosori-caf-l301-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite tong silicone Pinzas de silicona compatibles
-            para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 tong silicone accessory kit pinzas de silicona
           must_include:
           - lite
           - tong
@@ -3086,8 +3041,8 @@ brands:
         - sku: cosori-af-cosori-caf-l301-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Lite 3.8L CAF-L301
           intent: compra
-          query: Cosori Lite 3.8L CAF-L301 lite rack stand Soporte elevador / estante
-            compatible para Lite 3.8L CAF-L301
+          query: Cosori Lite 3.8L CAF-L301 rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - lite
           - rack
@@ -3195,8 +3150,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro basket replacement Cesta de repuesto compatible
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 basket tray cesta de
           must_include:
           - pro
           - basket
@@ -3214,8 +3168,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro rack grill Bandeja / rejilla grill compatible
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 rack grill basket tray bandeja rejilla
           must_include:
           - pro
           - rack
@@ -3231,8 +3184,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro filter carbon Filtro de carbono compatible
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 filter carbon filtro de carbono
           must_include:
           - pro
           - filter
@@ -3248,8 +3200,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro silicone mold Moldes de silicona compatibles
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 silicone mold accessory kit moldes de silicona
           must_include:
           - pro
           - silicone
@@ -3264,8 +3215,8 @@ brands:
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro paper liner Papel perforado / liner compatible
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 paper liner parchment accessory kit papel
+            perforado
           must_include:
           - pro
           - paper
@@ -3281,8 +3232,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro rotisserie spit Asador / spit rotisserie
-            compatible para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 rotisserie spit accessory kit asador
           must_include:
           - pro
           - rotisserie
@@ -3297,8 +3247,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro skewer kebab Brochetas / skewers compatibles
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 skewer kebab accessory kit brochetas skewers
           must_include:
           - pro
           - skewer
@@ -3313,8 +3262,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-kit-af
           title: Kit accesorios compatible para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro accessory kit Kit accesorios compatible
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 accessory kit accesorios
           must_include:
           - pro
           - accessory
@@ -3328,8 +3276,7 @@ brands:
         - sku: cosori-af-cosori-caf-l501-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro tong silicone Pinzas de silicona compatibles
-            para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 tong silicone accessory kit pinzas de silicona
           must_include:
           - pro
           - tong
@@ -3345,8 +3292,8 @@ brands:
         - sku: cosori-af-cosori-caf-l501-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Pro II CAF-L501
           intent: compra
-          query: Cosori Pro II CAF-L501 pro rack stand Soporte elevador / estante
-            compatible para Pro II CAF-L501
+          query: Cosori Pro II CAF-L501 rack stand shelf dock wall mount soporte elevador
+            estante
           must_include:
           - pro
           - rack
@@ -3453,8 +3400,7 @@ brands:
         - sku: cosori-af-cosori-caf-p583-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual basket replacement Cesta de repuesto
-            compatible para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 basket tray cesta de
           must_include:
           - dual
           - basket
@@ -3471,8 +3417,7 @@ brands:
         - sku: cosori-af-cosori-caf-p583-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual rack grill Bandeja / rejilla grill
-            compatible para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 rack grill basket tray bandeja rejilla
           must_include:
           - dual
           - rack
@@ -3488,8 +3433,7 @@ brands:
         - sku: cosori-af-cosori-caf-p583-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual filter carbon Filtro de carbono compatible
-            para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 filter carbon filtro de carbono
           must_include:
           - dual
           - filter
@@ -3505,8 +3449,8 @@ brands:
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual silicone mold Moldes de silicona
-            compatibles para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 silicone mold accessory kit moldes de
+            silicona
           must_include:
           - dual
           - silicone
@@ -3521,8 +3465,8 @@ brands:
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual paper liner Papel perforado / liner
-            compatible para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 paper liner parchment accessory kit papel
+            perforado
           must_include:
           - dual
           - paper
@@ -3538,8 +3482,7 @@ brands:
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual rotisserie spit Asador / spit rotisserie
-            compatible para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 rotisserie spit accessory kit asador
           must_include:
           - dual
           - rotisserie
@@ -3554,8 +3497,7 @@ brands:
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual skewer kebab Brochetas / skewers
-            compatibles para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 skewer kebab accessory kit brochetas skewers
           must_include:
           - dual
           - skewer
@@ -3570,8 +3512,7 @@ brands:
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-kit-af
           title: Kit accesorios compatible para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual accessory kit Kit accesorios compatible
-            para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 accessory kit accesorios
           must_include:
           - dual
           - accessory
@@ -3585,8 +3526,8 @@ brands:
         - sku: cosori-af-cosori-caf-p583-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual tong silicone Pinzas de silicona
-            compatibles para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 tong silicone accessory kit pinzas de
+            silicona
           must_include:
           - dual
           - tong
@@ -3602,8 +3543,8 @@ brands:
         - sku: cosori-af-cosori-caf-p583-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Dual Blaze CAF-P583
           intent: compra
-          query: Cosori Dual Blaze CAF-P583 dual rack stand Soporte elevador / estante
-            compatible para Dual Blaze CAF-P583
+          query: Cosori Dual Blaze CAF-P583 rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - dual
           - rack
@@ -3711,8 +3652,7 @@ brands:
         - sku: cosori-af-cosori-caf-t601-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze basket replacement Cesta
-            de repuesto compatible para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 basket tray cesta de
           must_include:
           - turboblaze
           - basket
@@ -3730,8 +3670,7 @@ brands:
         - sku: cosori-af-cosori-caf-t601-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze rack grill Bandeja / rejilla
-            grill compatible para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 rack grill basket tray bandeja rejilla
           must_include:
           - turboblaze
           - rack
@@ -3747,8 +3686,7 @@ brands:
         - sku: cosori-af-cosori-caf-t601-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze filter carbon Filtro de
-            carbono compatible para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 filter carbon filtro de carbono
           must_include:
           - turboblaze
           - filter
@@ -3764,8 +3702,8 @@ brands:
         - sku: cosori-af-cosori-caf-t601-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze silicone mold Moldes de
-            silicona compatibles para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 silicone mold accessory kit moldes
+            de silicona
           must_include:
           - turboblaze
           - silicone
@@ -3780,8 +3718,8 @@ brands:
         - sku: cosori-af-cosori-caf-t601-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze paper liner Papel perforado
-            / liner compatible para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 paper liner parchment accessory kit
+            papel perforado
           must_include:
           - turboblaze
           - paper
@@ -3797,8 +3735,7 @@ brands:
         - sku: cosori-af-cosori-caf-t601-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze rotisserie spit Asador /
-            spit rotisserie compatible para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 rotisserie spit accessory kit asador
           must_include:
           - turboblaze
           - rotisserie
@@ -3813,8 +3750,8 @@ brands:
         - sku: cosori-af-cosori-caf-t601-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze skewer kebab Brochetas /
-            skewers compatibles para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - turboblaze
           - skewer
@@ -3829,8 +3766,7 @@ brands:
         - sku: cosori-af-cosori-caf-t601-accesorios-acc-kit-af
           title: Kit accesorios compatible para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze accessory kit Kit accesorios
-            compatible para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 accessory kit accesorios
           must_include:
           - turboblaze
           - accessory
@@ -3844,8 +3780,8 @@ brands:
         - sku: cosori-af-cosori-caf-t601-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze tong silicone Pinzas de
-            silicona compatibles para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - turboblaze
           - tong
@@ -3861,8 +3797,8 @@ brands:
         - sku: cosori-af-cosori-caf-t601-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para TurboBlaze 6L CAF-T601
           intent: compra
-          query: Cosori TurboBlaze 6L CAF-T601 turboblaze rack stand Soporte elevador
-            / estante compatible para TurboBlaze 6L CAF-T601
+          query: Cosori TurboBlaze 6L CAF-T601 rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - turboblaze
           - rack
@@ -3973,8 +3909,7 @@ brands:
         - sku: tefal-af-tefal-ey2018-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 basket replacement Cesta de
-            repuesto compatible para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 basket tray cesta de
           must_include:
           - ey2018
           - basket
@@ -3992,8 +3927,7 @@ brands:
         - sku: tefal-af-tefal-ey2018-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 rack grill Bandeja / rejilla
-            grill compatible para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 rack grill basket tray bandeja rejilla
           must_include:
           - ey2018
           - rack
@@ -4009,8 +3943,7 @@ brands:
         - sku: tefal-af-tefal-ey2018-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 filter carbon Filtro de carbono
-            compatible para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 filter carbon filtro de carbono
           must_include:
           - ey2018
           - filter
@@ -4026,8 +3959,8 @@ brands:
         - sku: tefal-af-tefal-ey2018-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 silicone mold Moldes de silicona
-            compatibles para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 silicone mold accessory kit moldes
+            de silicona
           must_include:
           - ey2018
           - silicone
@@ -4042,8 +3975,8 @@ brands:
         - sku: tefal-af-tefal-ey2018-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 paper liner Papel perforado
-            / liner compatible para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 paper liner parchment accessory kit
+            papel perforado
           must_include:
           - ey2018
           - paper
@@ -4059,8 +3992,7 @@ brands:
         - sku: tefal-af-tefal-ey2018-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 rotisserie spit Asador / spit
-            rotisserie compatible para Easy Fry Essential EY201
+          query: Tefal Easy Fry Essential EY2018 rotisserie spit accessory kit asador
           must_include:
           - ey2018
           - rotisserie
@@ -4075,8 +4007,8 @@ brands:
         - sku: tefal-af-tefal-ey2018-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 skewer kebab Brochetas / skewers
-            compatibles para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - ey2018
           - skewer
@@ -4091,8 +4023,7 @@ brands:
         - sku: tefal-af-tefal-ey2018-accesorios-acc-kit-af
           title: Kit accesorios compatible para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 accessory kit Kit accesorios
-            compatible para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 accessory kit accesorios
           must_include:
           - ey2018
           - accessory
@@ -4106,8 +4037,8 @@ brands:
         - sku: tefal-af-tefal-ey2018-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 tong silicone Pinzas de silicona
-            compatibles para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - ey2018
           - tong
@@ -4123,8 +4054,8 @@ brands:
         - sku: tefal-af-tefal-ey2018-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Easy Fry Essential EY2018
           intent: compra
-          query: Tefal Easy Fry Essential EY2018 ey2018 rack stand Soporte elevador
-            / estante compatible para Easy Fry Essential EY2018
+          query: Tefal Easy Fry Essential EY2018 rack stand shelf dock wall mount
+            soporte elevador estante
           must_include:
           - ey2018
           - rack
@@ -4232,8 +4163,7 @@ brands:
         - sku: tefal-af-tefal-ey3018-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 basket replacement Cesta de
-            repuesto compatible para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 basket tray cesta de
           must_include:
           - ey3018
           - basket
@@ -4251,8 +4181,7 @@ brands:
         - sku: tefal-af-tefal-ey3018-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 rack grill Bandeja / rejilla
-            grill compatible para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 rack grill basket tray bandeja rejilla
           must_include:
           - ey3018
           - rack
@@ -4268,8 +4197,7 @@ brands:
         - sku: tefal-af-tefal-ey3018-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 filter carbon Filtro de carbono
-            compatible para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 filter carbon filtro de carbono
           must_include:
           - ey3018
           - filter
@@ -4285,8 +4213,8 @@ brands:
         - sku: tefal-af-tefal-ey3018-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 silicone mold Moldes de silicona
-            compatibles para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 silicone mold accessory kit moldes
+            de silicona
           must_include:
           - ey3018
           - silicone
@@ -4301,8 +4229,8 @@ brands:
         - sku: tefal-af-tefal-ey3018-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 paper liner Papel perforado
-            / liner compatible para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 paper liner parchment accessory kit
+            papel perforado
           must_include:
           - ey3018
           - paper
@@ -4318,8 +4246,7 @@ brands:
         - sku: tefal-af-tefal-ey3018-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 rotisserie spit Asador / spit
-            rotisserie compatible para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 rotisserie spit accessory kit asador
           must_include:
           - ey3018
           - rotisserie
@@ -4334,8 +4261,8 @@ brands:
         - sku: tefal-af-tefal-ey3018-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 skewer kebab Brochetas / skewers
-            compatibles para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - ey3018
           - skewer
@@ -4350,8 +4277,7 @@ brands:
         - sku: tefal-af-tefal-ey3018-accesorios-acc-kit-af
           title: Kit accesorios compatible para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 accessory kit Kit accesorios
-            compatible para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 accessory kit accesorios
           must_include:
           - ey3018
           - accessory
@@ -4365,8 +4291,8 @@ brands:
         - sku: tefal-af-tefal-ey3018-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 tong silicone Pinzas de silicona
-            compatibles para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - ey3018
           - tong
@@ -4382,8 +4308,8 @@ brands:
         - sku: tefal-af-tefal-ey3018-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Easy Fry Compact EY3018
           intent: compra
-          query: Tefal Easy Fry Compact EY3018 ey3018 rack stand Soporte elevador
-            / estante compatible para Easy Fry Compact EY3018
+          query: Tefal Easy Fry Compact EY3018 rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - ey3018
           - rack
@@ -4491,8 +4417,7 @@ brands:
         - sku: tefal-af-tefal-ey5018-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 basket replacement Cesta de repuesto
-            compatible para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 basket tray cesta de
           must_include:
           - ey5018
           - basket
@@ -4510,8 +4435,7 @@ brands:
         - sku: tefal-af-tefal-ey5018-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 rack grill Bandeja / rejilla
-            grill compatible para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 rack grill basket tray bandeja rejilla
           must_include:
           - ey5018
           - rack
@@ -4527,8 +4451,7 @@ brands:
         - sku: tefal-af-tefal-ey5018-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 filter carbon Filtro de carbono
-            compatible para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 filter carbon filtro de carbono
           must_include:
           - ey5018
           - filter
@@ -4544,8 +4467,8 @@ brands:
         - sku: tefal-af-tefal-ey5018-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 silicone mold Moldes de silicona
-            compatibles para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 silicone mold accessory kit moldes de
+            silicona
           must_include:
           - ey5018
           - silicone
@@ -4560,8 +4483,8 @@ brands:
         - sku: tefal-af-tefal-ey5018-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 paper liner Papel perforado /
-            liner compatible para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 paper liner parchment accessory kit
+            papel perforado
           must_include:
           - ey5018
           - paper
@@ -4577,8 +4500,7 @@ brands:
         - sku: tefal-af-tefal-ey5018-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 rotisserie spit Asador / spit
-            rotisserie compatible para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 rotisserie spit accessory kit asador
           must_include:
           - ey5018
           - rotisserie
@@ -4593,8 +4515,8 @@ brands:
         - sku: tefal-af-tefal-ey5018-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 skewer kebab Brochetas / skewers
-            compatibles para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - ey5018
           - skewer
@@ -4609,8 +4531,7 @@ brands:
         - sku: tefal-af-tefal-ey5018-accesorios-acc-kit-af
           title: Kit accesorios compatible para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 accessory kit Kit accesorios
-            compatible para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 accessory kit accesorios
           must_include:
           - ey5018
           - accessory
@@ -4624,8 +4545,8 @@ brands:
         - sku: tefal-af-tefal-ey5018-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 tong silicone Pinzas de silicona
-            compatibles para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 tong silicone accessory kit pinzas de
+            silicona
           must_include:
           - ey5018
           - tong
@@ -4641,8 +4562,8 @@ brands:
         - sku: tefal-af-tefal-ey5018-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Easy Fry Deluxe EY5018
           intent: compra
-          query: Tefal Easy Fry Deluxe EY5018 ey5018 rack stand Soporte elevador /
-            estante compatible para Easy Fry Deluxe EY5018
+          query: Tefal Easy Fry Deluxe EY5018 rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - ey5018
           - rack
@@ -4750,8 +4671,7 @@ brands:
         - sku: tefal-af-tefal-ey7818-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 basket replacement Cesta de
-            repuesto compatible para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 basket tray cesta de
           must_include:
           - ey7818
           - basket
@@ -4769,8 +4689,7 @@ brands:
         - sku: tefal-af-tefal-ey7818-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 rack grill Bandeja / rejilla
-            grill compatible para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 rack grill basket tray bandeja rejilla
           must_include:
           - ey7818
           - rack
@@ -4786,8 +4705,7 @@ brands:
         - sku: tefal-af-tefal-ey7818-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 filter carbon Filtro de carbono
-            compatible para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 filter carbon filtro de carbono
           must_include:
           - ey7818
           - filter
@@ -4803,8 +4721,8 @@ brands:
         - sku: tefal-af-tefal-ey7818-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 silicone mold Moldes de silicona
-            compatibles para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 silicone mold accessory kit moldes
+            de silicona
           must_include:
           - ey7818
           - silicone
@@ -4819,8 +4737,8 @@ brands:
         - sku: tefal-af-tefal-ey7818-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 paper liner Papel perforado
-            / liner compatible para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 paper liner parchment accessory kit
+            papel perforado
           must_include:
           - ey7818
           - paper
@@ -4836,8 +4754,7 @@ brands:
         - sku: tefal-af-tefal-ey7818-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 rotisserie spit Asador / spit
-            rotisserie compatible para Easy Fry Genius XL EY781
+          query: Tefal Easy Fry Genius XL EY7818 rotisserie spit accessory kit asador
           must_include:
           - ey7818
           - rotisserie
@@ -4852,8 +4769,8 @@ brands:
         - sku: tefal-af-tefal-ey7818-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 skewer kebab Brochetas / skewers
-            compatibles para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - ey7818
           - skewer
@@ -4868,8 +4785,7 @@ brands:
         - sku: tefal-af-tefal-ey7818-accesorios-acc-kit-af
           title: Kit accesorios compatible para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 accessory kit Kit accesorios
-            compatible para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 accessory kit accesorios
           must_include:
           - ey7818
           - accessory
@@ -4883,8 +4799,8 @@ brands:
         - sku: tefal-af-tefal-ey7818-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 tong silicone Pinzas de silicona
-            compatibles para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - ey7818
           - tong
@@ -4900,8 +4816,8 @@ brands:
         - sku: tefal-af-tefal-ey7818-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Easy Fry Genius XL EY7818
           intent: compra
-          query: Tefal Easy Fry Genius XL EY7818 ey7818 rack stand Soporte elevador
-            / estante compatible para Easy Fry Genius XL EY7818
+          query: Tefal Easy Fry Genius XL EY7818 rack stand shelf dock wall mount
+            soporte elevador estante
           must_include:
           - ey7818
           - rack
@@ -5009,8 +4925,7 @@ brands:
         - sku: tefal-af-tefal-ah960-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 basket replacement Cesta
-            de repuesto compatible para ActiFry Genius Snacking A
+          query: Tefal ActiFry Genius Snacking AH960 basket tray cesta de
           must_include:
           - ah960
           - basket
@@ -5028,8 +4943,8 @@ brands:
         - sku: tefal-af-tefal-ah960-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 rack grill Bandeja / rejilla
-            grill compatible para ActiFry Genius Snacking AH9
+          query: Tefal ActiFry Genius Snacking AH960 rack grill basket tray bandeja
+            rejilla
           must_include:
           - ah960
           - rack
@@ -5045,8 +4960,7 @@ brands:
         - sku: tefal-af-tefal-ah960-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 filter carbon Filtro de
-            carbono compatible para ActiFry Genius Snacking AH960
+          query: Tefal ActiFry Genius Snacking AH960 filter carbon filtro de carbono
           must_include:
           - ah960
           - filter
@@ -5062,8 +4976,8 @@ brands:
         - sku: tefal-af-tefal-ah960-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 silicone mold Moldes de
-            silicona compatibles para ActiFry Genius Snacking AH96
+          query: Tefal ActiFry Genius Snacking AH960 silicone mold accessory kit moldes
+            de silicona
           must_include:
           - ah960
           - silicone
@@ -5078,8 +4992,8 @@ brands:
         - sku: tefal-af-tefal-ah960-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 paper liner Papel perforado
-            / liner compatible para ActiFry Genius Snacking AH
+          query: Tefal ActiFry Genius Snacking AH960 paper liner parchment accessory
+            kit papel perforado
           must_include:
           - ah960
           - paper
@@ -5096,8 +5010,8 @@ brands:
           title: Asador / spit rotisserie compatible para ActiFry Genius Snacking
             AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 rotisserie spit Asador
-            / spit rotisserie compatible para ActiFry Genius Snacki
+          query: Tefal ActiFry Genius Snacking AH960 rotisserie spit accessory kit
+            asador
           must_include:
           - ah960
           - rotisserie
@@ -5112,8 +5026,8 @@ brands:
         - sku: tefal-af-tefal-ah960-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 skewer kebab Brochetas
-            / skewers compatibles para ActiFry Genius Snacking AH96
+          query: Tefal ActiFry Genius Snacking AH960 skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - ah960
           - skewer
@@ -5128,8 +5042,7 @@ brands:
         - sku: tefal-af-tefal-ah960-accesorios-acc-kit-af
           title: Kit accesorios compatible para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 accessory kit Kit accesorios
-            compatible para ActiFry Genius Snacking AH960
+          query: Tefal ActiFry Genius Snacking AH960 accessory kit accesorios
           must_include:
           - ah960
           - accessory
@@ -5143,8 +5056,8 @@ brands:
         - sku: tefal-af-tefal-ah960-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para ActiFry Genius Snacking AH960
           intent: compra
-          query: Tefal ActiFry Genius Snacking AH960 ah960 tong silicone Pinzas de
-            silicona compatibles para ActiFry Genius Snacking AH96
+          query: Tefal ActiFry Genius Snacking AH960 tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - ah960
           - tong
@@ -5161,8 +5074,8 @@ brands:
           title: Soporte elevador / estante compatible para ActiFry Genius Snacking
             AH960
           intent: compra
-          query: 'Tefal ActiFry Genius Snacking AH960 ah960 rack stand Soporte elevador
-            / estante compatible para ActiFry Genius Snacking '
+          query: Tefal ActiFry Genius Snacking AH960 rack stand shelf dock wall mount
+            soporte elevador estante
           must_include:
           - ah960
           - rack
@@ -5273,8 +5186,7 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant basket replacement Cesta
-            de repuesto compatible para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT basket tray cesta de
           must_include:
           - instant
           - basket
@@ -5292,8 +5204,8 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant rack grill Bandeja /
-            rejilla grill compatible para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT rack grill basket tray bandeja
+            rejilla
           must_include:
           - instant
           - rack
@@ -5309,8 +5221,7 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant filter carbon Filtro
-            de carbono compatible para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT filter carbon filtro de carbono
           must_include:
           - instant
           - filter
@@ -5326,8 +5237,8 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant silicone mold Moldes
-            de silicona compatibles para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT silicone mold accessory kit moldes
+            de silicona
           must_include:
           - instant
           - silicone
@@ -5342,8 +5253,8 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant paper liner Papel perforado
-            / liner compatible para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT paper liner parchment accessory
+            kit papel perforado
           must_include:
           - instant
           - paper
@@ -5359,8 +5270,8 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant rotisserie spit Asador
-            / spit rotisserie compatible para Instant Vortex Plus
+          query: Instant Pot Instant Vortex Plus 6QT rotisserie spit accessory kit
+            asador
           must_include:
           - instant
           - rotisserie
@@ -5375,8 +5286,8 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant skewer kebab Brochetas
-            / skewers compatibles para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - instant
           - skewer
@@ -5391,8 +5302,7 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-kit-af
           title: Kit accesorios compatible para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant accessory kit Kit accesorios
-            compatible para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT accessory kit accesorios
           must_include:
           - instant
           - accessory
@@ -5406,8 +5316,8 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant tong silicone Pinzas
-            de silicona compatibles para Instant Vortex Plus 6QT
+          query: Instant Pot Instant Vortex Plus 6QT tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - instant
           - tong
@@ -5423,8 +5333,8 @@ brands:
         - sku: instantpot-af-instant-vortex-plus-6qt-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Instant Vortex Plus 6QT
           intent: compra
-          query: Instant Pot Instant Vortex Plus 6QT instant rack stand Soporte elevador
-            / estante compatible para Instant Vortex Plus 6Q
+          query: Instant Pot Instant Vortex Plus 6QT rack stand shelf dock wall mount
+            soporte elevador estante
           must_include:
           - instant
           - rack
@@ -5532,8 +5442,7 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-cesta-cesta-airfryer
           title: Cesta de repuesto compatible para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant basket replacement Cesta de
-            repuesto compatible para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT basket tray cesta de
           must_include:
           - instant
           - basket
@@ -5551,8 +5460,7 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-cesta-bandeja-grill
           title: Bandeja / rejilla grill compatible para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant rack grill Bandeja / rejilla
-            grill compatible para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT rack grill basket tray bandeja rejilla
           must_include:
           - instant
           - rack
@@ -5568,8 +5476,7 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-filtro-filtro-carbon-af
           title: Filtro de carbono compatible para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant filter carbon Filtro de carbono
-            compatible para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT filter carbon filtro de carbono
           must_include:
           - instant
           - filter
@@ -5585,8 +5492,8 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-molde-silicona
           title: Moldes de silicona compatibles para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant silicone mold Moldes de silicona
-            compatibles para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT silicone mold accessory kit moldes
+            de silicona
           must_include:
           - instant
           - silicone
@@ -5601,8 +5508,8 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-liner-papel
           title: Papel perforado / liner compatible para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant paper liner Papel perforado
-            / liner compatible para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT paper liner parchment accessory kit
+            papel perforado
           must_include:
           - instant
           - paper
@@ -5618,8 +5525,7 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-spit-asador
           title: Asador / spit rotisserie compatible para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant rotisserie spit Asador / spit
-            rotisserie compatible para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT rotisserie spit accessory kit asador
           must_include:
           - instant
           - rotisserie
@@ -5634,8 +5540,8 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-brochetas
           title: Brochetas / skewers compatibles para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant skewer kebab Brochetas / skewers
-            compatibles para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT skewer kebab accessory kit brochetas
+            skewers
           must_include:
           - instant
           - skewer
@@ -5650,8 +5556,7 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-kit-af
           title: Kit accesorios compatible para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant accessory kit Kit accesorios
-            compatible para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT accessory kit accesorios
           must_include:
           - instant
           - accessory
@@ -5665,8 +5570,8 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-accesorios-acc-pinzas-silicona
           title: Pinzas de silicona compatibles para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant tong silicone Pinzas de silicona
-            compatibles para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT tong silicone accessory kit pinzas
+            de silicona
           must_include:
           - instant
           - tong
@@ -5682,8 +5587,8 @@ brands:
         - sku: instantpot-af-instant-vortex-4qt-soporte-soporte-freidora
           title: Soporte elevador / estante compatible para Instant Vortex 4QT
           intent: compra
-          query: Instant Pot Instant Vortex 4QT instant rack stand Soporte elevador
-            / estante compatible para Instant Vortex 4QT
+          query: Instant Pot Instant Vortex 4QT rack stand shelf dock wall mount soporte
+            elevador estante
           must_include:
           - instant
           - rack

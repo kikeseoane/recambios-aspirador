@@ -44,6 +44,30 @@ globals:
     label: Cestas y bandejas
     icon: basket
     buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
   guias_genericas:
     seguridad:
     - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
@@ -147,8 +171,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 eartip silicone Almohadillas silicona
-            S/M/L (pack) compatibles para Samsung Galaxy Bu
+          query: Samsung Samsung Galaxy Buds2 eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - buds2
           - eartip
@@ -168,8 +192,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
             Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 eartip foam Almohadillas espuma
-            memory foam (pack) compatibles para Samsung Galaxy Bu
+          query: Samsung Samsung Galaxy Buds2 eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - buds2
           - eartip
@@ -186,8 +210,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 wing tip Aletas estabilizadoras
-            (pack) compatibles para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 wing tip stabilizer accessory kit aletas
+            estabilizadoras
           must_include:
           - buds2
           - wing
@@ -204,8 +228,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 case charging Estuche de carga
-            de repuesto accesorio para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 case charging accessory kit estuche
+            de carga accesorio
           must_include:
           - buds2
           - case
@@ -222,8 +246,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 ear cushion Almohadillas de auricular
-            (par) accesorios para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - buds2
           - ear
@@ -240,8 +264,7 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 headband replacement Diadema de
-            repuesto accesorio para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 headband accessory kit diadema de accesorio
           must_include:
           - buds2
           - headband
@@ -257,8 +280,7 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 cleaning kit Kit de limpieza accesorio
-            para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 cleaning kit accessory de limpieza accesorio
           must_include:
           - buds2
           - cleaning
@@ -275,8 +297,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 usb-c cable Cable USB-C de carga
-            compatible para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 usb-c cable charging charger adapter
+            de carga
           must_include:
           - buds2
           - usb-c
@@ -293,8 +315,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 battery left Batería auricular
-            izquierdo compatible para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 battery left earbud bater a auricular
+            izquierdo
           must_include:
           - buds2
           - battery
@@ -310,8 +332,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 buds2 battery right Batería auricular
-            derecho compatible para Samsung Galaxy Buds2
+          query: Samsung Samsung Galaxy Buds2 battery right earbud bater a auricular
+            derecho
           must_include:
           - buds2
           - battery
@@ -415,8 +437,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung eartip silicone Almohadillas
-            silicona S/M/L (pack) compatibles para Samsung Gal
+          query: Samsung Samsung Galaxy Buds2 Pro eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - samsung
           - eartip
@@ -436,8 +458,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
             Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung eartip foam Almohadillas
-            espuma memory foam (pack) compatibles para Samsung Gal
+          query: Samsung Samsung Galaxy Buds2 Pro eartip foam memory accessory kit
+            almohadillas espuma
           must_include:
           - samsung
           - eartip
@@ -455,8 +477,8 @@ brands:
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds2
             Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung wing tip Aletas estabilizadoras
-            (pack) compatibles para Samsung Galaxy Buds2 Pr
+          query: Samsung Samsung Galaxy Buds2 Pro wing tip stabilizer accessory kit
+            aletas estabilizadoras
           must_include:
           - samsung
           - wing
@@ -474,8 +496,8 @@ brands:
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds2
             Pro
           intent: compra
-          query: 'Samsung Samsung Galaxy Buds2 Pro samsung case charging Estuche de
-            carga de repuesto accesorio para Samsung Galaxy Buds2 '
+          query: Samsung Samsung Galaxy Buds2 Pro case charging accessory kit estuche
+            de carga accesorio
           must_include:
           - samsung
           - case
@@ -493,8 +515,8 @@ brands:
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds2
             Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung ear cushion Almohadillas
-            de auricular (par) accesorios para Samsung Galaxy Buds
+          query: Samsung Samsung Galaxy Buds2 Pro ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - samsung
           - ear
@@ -511,8 +533,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung headband replacement Diadema
-            de repuesto accesorio para Samsung Galaxy Buds2 Pr
+          query: Samsung Samsung Galaxy Buds2 Pro headband accessory kit diadema de
+            accesorio
           must_include:
           - samsung
           - headband
@@ -528,8 +550,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung cleaning kit Kit de limpieza
-            accesorio para Samsung Galaxy Buds2 Pro
+          query: Samsung Samsung Galaxy Buds2 Pro cleaning kit accessory de limpieza
+            accesorio
           must_include:
           - samsung
           - cleaning
@@ -546,8 +568,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-pro-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Samsung Galaxy Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung usb-c cable Cable USB-C
-            de carga compatible para Samsung Galaxy Buds2 Pro
+          query: Samsung Samsung Galaxy Buds2 Pro usb-c cable charging charger adapter
+            de carga
           must_include:
           - samsung
           - usb-c
@@ -565,8 +587,8 @@ brands:
           title: Batería auricular izquierdo compatible para Samsung Galaxy Buds2
             Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung battery left Batería auricular
-            izquierdo compatible para Samsung Galaxy Buds2 P
+          query: Samsung Samsung Galaxy Buds2 Pro battery left earbud bater a auricular
+            izquierdo
           must_include:
           - samsung
           - battery
@@ -582,8 +604,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds2-pro-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro samsung battery right Batería auricular
-            derecho compatible para Samsung Galaxy Buds2 Pr
+          query: Samsung Samsung Galaxy Buds2 Pro battery right earbud bater a auricular
+            derecho
           must_include:
           - samsung
           - battery
@@ -691,8 +713,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 eartip silicone Almohadillas silicona
-            S/M/L (pack) compatibles para Samsung Galaxy Bu
+          query: Samsung Samsung Galaxy Buds3 eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - buds3
           - eartip
@@ -712,8 +734,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
             Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 eartip foam Almohadillas espuma
-            memory foam (pack) compatibles para Samsung Galaxy Bu
+          query: Samsung Samsung Galaxy Buds3 eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - buds3
           - eartip
@@ -730,8 +752,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 wing tip Aletas estabilizadoras
-            (pack) compatibles para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 wing tip stabilizer accessory kit aletas
+            estabilizadoras
           must_include:
           - buds3
           - wing
@@ -748,8 +770,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 case charging Estuche de carga
-            de repuesto accesorio para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 case charging accessory kit estuche
+            de carga accesorio
           must_include:
           - buds3
           - case
@@ -766,8 +788,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 ear cushion Almohadillas de auricular
-            (par) accesorios para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - buds3
           - ear
@@ -784,8 +806,7 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 headband replacement Diadema de
-            repuesto accesorio para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 headband accessory kit diadema de accesorio
           must_include:
           - buds3
           - headband
@@ -801,8 +822,7 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 cleaning kit Kit de limpieza accesorio
-            para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 cleaning kit accessory de limpieza accesorio
           must_include:
           - buds3
           - cleaning
@@ -819,8 +839,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 usb-c cable Cable USB-C de carga
-            compatible para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 usb-c cable charging charger adapter
+            de carga
           must_include:
           - buds3
           - usb-c
@@ -837,8 +857,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 battery left Batería auricular
-            izquierdo compatible para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 battery left earbud bater a auricular
+            izquierdo
           must_include:
           - buds3
           - battery
@@ -854,8 +874,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 buds3 battery right Batería auricular
-            derecho compatible para Samsung Galaxy Buds3
+          query: Samsung Samsung Galaxy Buds3 battery right earbud bater a auricular
+            derecho
           must_include:
           - buds3
           - battery
@@ -959,8 +979,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung eartip silicone Almohadillas
-            silicona S/M/L (pack) compatibles para Samsung Gal
+          query: Samsung Samsung Galaxy Buds3 Pro eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - samsung
           - eartip
@@ -980,8 +1000,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
             Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung eartip foam Almohadillas
-            espuma memory foam (pack) compatibles para Samsung Gal
+          query: Samsung Samsung Galaxy Buds3 Pro eartip foam memory accessory kit
+            almohadillas espuma
           must_include:
           - samsung
           - eartip
@@ -999,8 +1019,8 @@ brands:
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds3
             Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung wing tip Aletas estabilizadoras
-            (pack) compatibles para Samsung Galaxy Buds3 Pr
+          query: Samsung Samsung Galaxy Buds3 Pro wing tip stabilizer accessory kit
+            aletas estabilizadoras
           must_include:
           - samsung
           - wing
@@ -1018,8 +1038,8 @@ brands:
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds3
             Pro
           intent: compra
-          query: 'Samsung Samsung Galaxy Buds3 Pro samsung case charging Estuche de
-            carga de repuesto accesorio para Samsung Galaxy Buds3 '
+          query: Samsung Samsung Galaxy Buds3 Pro case charging accessory kit estuche
+            de carga accesorio
           must_include:
           - samsung
           - case
@@ -1037,8 +1057,8 @@ brands:
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds3
             Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung ear cushion Almohadillas
-            de auricular (par) accesorios para Samsung Galaxy Buds
+          query: Samsung Samsung Galaxy Buds3 Pro ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - samsung
           - ear
@@ -1055,8 +1075,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung headband replacement Diadema
-            de repuesto accesorio para Samsung Galaxy Buds3 Pr
+          query: Samsung Samsung Galaxy Buds3 Pro headband accessory kit diadema de
+            accesorio
           must_include:
           - samsung
           - headband
@@ -1072,8 +1092,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung cleaning kit Kit de limpieza
-            accesorio para Samsung Galaxy Buds3 Pro
+          query: Samsung Samsung Galaxy Buds3 Pro cleaning kit accessory de limpieza
+            accesorio
           must_include:
           - samsung
           - cleaning
@@ -1090,8 +1110,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-pro-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Samsung Galaxy Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung usb-c cable Cable USB-C
-            de carga compatible para Samsung Galaxy Buds3 Pro
+          query: Samsung Samsung Galaxy Buds3 Pro usb-c cable charging charger adapter
+            de carga
           must_include:
           - samsung
           - usb-c
@@ -1109,8 +1129,8 @@ brands:
           title: Batería auricular izquierdo compatible para Samsung Galaxy Buds3
             Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung battery left Batería auricular
-            izquierdo compatible para Samsung Galaxy Buds3 P
+          query: Samsung Samsung Galaxy Buds3 Pro battery left earbud bater a auricular
+            izquierdo
           must_include:
           - samsung
           - battery
@@ -1126,8 +1146,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds3-pro-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro samsung battery right Batería auricular
-            derecho compatible para Samsung Galaxy Buds3 Pr
+          query: Samsung Samsung Galaxy Buds3 Pro battery right earbud bater a auricular
+            derecho
           must_include:
           - samsung
           - battery
@@ -1234,8 +1254,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung eartip silicone Almohadillas
-            silicona S/M/L (pack) compatibles para Samsung Galax
+          query: Samsung Samsung Galaxy Buds FE eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - samsung
           - eartip
@@ -1255,8 +1275,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para Samsung Galaxy
             Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung eartip foam Almohadillas espuma
-            memory foam (pack) compatibles para Samsung Galax
+          query: Samsung Samsung Galaxy Buds FE eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - samsung
           - eartip
@@ -1274,8 +1294,8 @@ brands:
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds
             FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung wing tip Aletas estabilizadoras
-            (pack) compatibles para Samsung Galaxy Buds FE
+          query: Samsung Samsung Galaxy Buds FE wing tip stabilizer accessory kit
+            aletas estabilizadoras
           must_include:
           - samsung
           - wing
@@ -1292,8 +1312,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung case charging Estuche de carga
-            de repuesto accesorio para Samsung Galaxy Buds FE
+          query: Samsung Samsung Galaxy Buds FE case charging accessory kit estuche
+            de carga accesorio
           must_include:
           - samsung
           - case
@@ -1311,8 +1331,8 @@ brands:
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds
             FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung ear cushion Almohadillas de
-            auricular (par) accesorios para Samsung Galaxy Buds F
+          query: Samsung Samsung Galaxy Buds FE ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - samsung
           - ear
@@ -1329,8 +1349,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung headband replacement Diadema
-            de repuesto accesorio para Samsung Galaxy Buds FE
+          query: Samsung Samsung Galaxy Buds FE headband accessory kit diadema de
+            accesorio
           must_include:
           - samsung
           - headband
@@ -1346,8 +1366,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung cleaning kit Kit de limpieza
-            accesorio para Samsung Galaxy Buds FE
+          query: Samsung Samsung Galaxy Buds FE cleaning kit accessory de limpieza
+            accesorio
           must_include:
           - samsung
           - cleaning
@@ -1364,8 +1384,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds-fe-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Samsung Galaxy Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung usb-c cable Cable USB-C de
-            carga compatible para Samsung Galaxy Buds FE
+          query: Samsung Samsung Galaxy Buds FE usb-c cable charging charger adapter
+            de carga
           must_include:
           - samsung
           - usb-c
@@ -1382,8 +1402,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds-fe-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Samsung Galaxy Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung battery left Batería auricular
-            izquierdo compatible para Samsung Galaxy Buds FE
+          query: Samsung Samsung Galaxy Buds FE battery left earbud bater a auricular
+            izquierdo
           must_include:
           - samsung
           - battery
@@ -1399,8 +1419,8 @@ brands:
         - sku: samsung-aud-samsung-galaxy-buds-fe-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE samsung battery right Batería auricular
-            derecho compatible para Samsung Galaxy Buds FE
+          query: Samsung Samsung Galaxy Buds FE battery right earbud bater a auricular
+            derecho
           must_include:
           - samsung
           - battery
@@ -1507,8 +1527,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 eartip silicone Almohadillas silicona
-            S/M/L (pack) compatibles para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - 1000xm5
           - eartip
@@ -1527,8 +1547,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-foam-pack
           title: Almohadillas espuma memory foam (pack) compatibles para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 eartip foam Almohadillas espuma memory
-            foam (pack) compatibles para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - 1000xm5
           - eartip
@@ -1545,8 +1565,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 wing tip Aletas estabilizadoras (pack)
-            compatibles para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 wing tip stabilizer accessory kit aletas
+            estabilizadoras
           must_include:
           - 1000xm5
           - wing
@@ -1563,8 +1583,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 case charging Estuche de carga de repuesto
-            accesorio para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 case charging accessory kit estuche
+            de carga accesorio
           must_include:
           - 1000xm5
           - case
@@ -1581,8 +1601,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 ear cushion Almohadillas de auricular
-            (par) accesorios para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - 1000xm5
           - ear
@@ -1599,8 +1619,7 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 headband replacement Diadema de repuesto
-            accesorio para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 headband accessory kit diadema de accesorio
           must_include:
           - 1000xm5
           - headband
@@ -1616,8 +1635,7 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 cleaning kit Kit de limpieza accesorio
-            para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 cleaning kit accessory de limpieza accesorio
           must_include:
           - 1000xm5
           - cleaning
@@ -1634,8 +1652,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 usb-c cable Cable USB-C de carga compatible
-            para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 usb-c cable charging charger adapter
+            de carga
           must_include:
           - 1000xm5
           - usb-c
@@ -1652,8 +1670,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 battery left Batería auricular izquierdo
-            compatible para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 battery left earbud bater a auricular
+            izquierdo
           must_include:
           - 1000xm5
           - battery
@@ -1669,8 +1687,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 1000xm5 battery right Batería auricular derecho
-            compatible para Sony WF-1000XM5
+          query: Sony Sony WF-1000XM5 1000xm5 battery right earbud bater a auricular
+            derecho
           must_include:
           - 1000xm5
           - battery
@@ -1770,8 +1788,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 eartip silicone Almohadillas silicona
-            S/M/L (pack) compatibles para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - 1000xm4
           - eartip
@@ -1790,8 +1808,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-foam-pack
           title: Almohadillas espuma memory foam (pack) compatibles para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 eartip foam Almohadillas espuma memory
-            foam (pack) compatibles para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - 1000xm4
           - eartip
@@ -1808,8 +1826,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 wing tip Aletas estabilizadoras (pack)
-            compatibles para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 wing tip stabilizer accessory kit aletas
+            estabilizadoras
           must_include:
           - 1000xm4
           - wing
@@ -1826,8 +1844,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 case charging Estuche de carga de repuesto
-            accesorio para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 case charging accessory kit estuche
+            de carga accesorio
           must_include:
           - 1000xm4
           - case
@@ -1844,8 +1862,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 ear cushion Almohadillas de auricular
-            (par) accesorios para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - 1000xm4
           - ear
@@ -1862,8 +1880,7 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 headband replacement Diadema de repuesto
-            accesorio para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 headband accessory kit diadema de accesorio
           must_include:
           - 1000xm4
           - headband
@@ -1879,8 +1896,7 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 cleaning kit Kit de limpieza accesorio
-            para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 cleaning kit accessory de limpieza accesorio
           must_include:
           - 1000xm4
           - cleaning
@@ -1897,8 +1913,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 usb-c cable Cable USB-C de carga compatible
-            para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 usb-c cable charging charger adapter
+            de carga
           must_include:
           - 1000xm4
           - usb-c
@@ -1915,8 +1931,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 battery left Batería auricular izquierdo
-            compatible para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 battery left earbud bater a auricular
+            izquierdo
           must_include:
           - 1000xm4
           - battery
@@ -1932,8 +1948,8 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 1000xm4 battery right Batería auricular derecho
-            compatible para Sony WF-1000XM4
+          query: Sony Sony WF-1000XM4 1000xm4 battery right earbud bater a auricular
+            derecho
           must_include:
           - 1000xm4
           - battery
@@ -2031,8 +2047,8 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n eartip silicone Almohadillas silicona S/M/L
-            (pack) compatibles para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - c700n
           - eartip
@@ -2051,8 +2067,8 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-eartip-foam-pack
           title: Almohadillas espuma memory foam (pack) compatibles para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n eartip foam Almohadillas espuma memory foam
-            (pack) compatibles para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - c700n
           - eartip
@@ -2069,8 +2085,8 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n wing tip Aletas estabilizadoras (pack) compatibles
-            para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n wing tip stabilizer accessory kit aletas
+            estabilizadoras
           must_include:
           - c700n
           - wing
@@ -2087,8 +2103,8 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n case charging Estuche de carga de repuesto
-            accesorio para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n case charging accessory kit estuche de carga
+            accesorio
           must_include:
           - c700n
           - case
@@ -2105,8 +2121,8 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n ear cushion Almohadillas de auricular (par)
-            accesorios para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - c700n
           - ear
@@ -2123,8 +2139,7 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n headband replacement Diadema de repuesto
-            accesorio para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n headband accessory kit diadema de accesorio
           must_include:
           - c700n
           - headband
@@ -2140,8 +2155,7 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n cleaning kit Kit de limpieza accesorio para
-            Sony WF-C700N
+          query: Sony Sony WF-C700N c700n cleaning kit accessory de limpieza accesorio
           must_include:
           - c700n
           - cleaning
@@ -2158,8 +2172,8 @@ brands:
         - sku: sony-aud-sony-wf-c700n-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n usb-c cable Cable USB-C de carga compatible
-            para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n usb-c cable charging charger adapter de
+            carga
           must_include:
           - c700n
           - usb-c
@@ -2176,8 +2190,7 @@ brands:
         - sku: sony-aud-sony-wf-c700n-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n battery left Batería auricular izquierdo
-            compatible para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n battery left earbud bater a auricular izquierdo
           must_include:
           - c700n
           - battery
@@ -2193,8 +2206,7 @@ brands:
         - sku: sony-aud-sony-wf-c700n-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N c700n battery right Batería auricular derecho
-            compatible para Sony WF-C700N
+          query: Sony Sony WF-C700N c700n battery right earbud bater a auricular derecho
           must_include:
           - c700n
           - battery
@@ -2300,8 +2312,8 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony eartip silicone Almohadillas silicona S/M/L
-            (pack) compatibles para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 eartip silicone accessory kit almohadillas silicona
+            s/m/l
           must_include:
           - sony
           - eartip
@@ -2319,8 +2331,8 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-foam-pack
           title: Almohadillas espuma memory foam (pack) compatibles para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony eartip foam Almohadillas espuma memory
-            foam (pack) compatibles para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - sony
           - eartip
@@ -2337,8 +2349,7 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony wing tip Aletas estabilizadoras (pack)
-            compatibles para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - sony
           - wing
@@ -2355,8 +2366,8 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony case charging Estuche de carga de repuesto
-            accesorio para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 case charging accessory kit estuche de carga
+            accesorio
           must_include:
           - sony
           - case
@@ -2373,8 +2384,8 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony ear cushion Almohadillas de auricular (par)
-            accesorios para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 ear cushion pad accessory kit almohadillas de
+            auricular par accesorios
           must_include:
           - sony
           - ear
@@ -2391,8 +2402,7 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony headband replacement Diadema de repuesto
-            accesorio para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 headband accessory kit diadema de accesorio
           must_include:
           - sony
           - headband
@@ -2408,8 +2418,7 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony cleaning kit Kit de limpieza accesorio
-            para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 cleaning kit accessory de limpieza accesorio
           must_include:
           - sony
           - cleaning
@@ -2426,8 +2435,7 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony usb-c cable Cable USB-C de carga compatible
-            para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 usb-c cable charging charger adapter de carga
           must_include:
           - sony
           - usb-c
@@ -2444,8 +2452,7 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony battery left Batería auricular izquierdo
-            compatible para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 battery left earbud bater a auricular izquierdo
           must_include:
           - sony
           - battery
@@ -2461,8 +2468,7 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 sony battery right Batería auricular derecho
-            compatible para Sony WH-1000XM5
+          query: Sony Sony WH-1000XM5 battery right earbud bater a auricular derecho
           must_include:
           - sony
           - battery
@@ -2568,8 +2574,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n eartip silicone Almohadillas silicona
-            S/M/L (pack) compatibles para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - ch720n
           - eartip
@@ -2588,8 +2594,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-foam-pack
           title: Almohadillas espuma memory foam (pack) compatibles para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n eartip foam Almohadillas espuma memory
-            foam (pack) compatibles para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - ch720n
           - eartip
@@ -2606,8 +2612,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n wing tip Aletas estabilizadoras (pack)
-            compatibles para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n wing tip stabilizer accessory kit aletas
+            estabilizadoras
           must_include:
           - ch720n
           - wing
@@ -2624,8 +2630,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n case charging Estuche de carga de repuesto
-            accesorio para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n case charging accessory kit estuche de
+            carga accesorio
           must_include:
           - ch720n
           - case
@@ -2642,8 +2648,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n ear cushion Almohadillas de auricular
-            (par) accesorios para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - ch720n
           - ear
@@ -2660,8 +2666,7 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n headband replacement Diadema de repuesto
-            accesorio para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n headband accessory kit diadema de accesorio
           must_include:
           - ch720n
           - headband
@@ -2677,8 +2682,7 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n cleaning kit Kit de limpieza accesorio
-            para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n cleaning kit accessory de limpieza accesorio
           must_include:
           - ch720n
           - cleaning
@@ -2695,8 +2699,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n usb-c cable Cable USB-C de carga compatible
-            para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n usb-c cable charging charger adapter de
+            carga
           must_include:
           - ch720n
           - usb-c
@@ -2713,8 +2717,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n battery left Batería auricular izquierdo
-            compatible para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n battery left earbud bater a auricular
+            izquierdo
           must_include:
           - ch720n
           - battery
@@ -2730,8 +2734,8 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N ch720n battery right Batería auricular derecho
-            compatible para Sony WH-CH720N
+          query: Sony Sony WH-CH720N ch720n battery right earbud bater a auricular
+            derecho
           must_include:
           - ch720n
           - battery
@@ -2837,8 +2841,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tour Pro
             2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl eartip silicone Almohadillas silicona S/M/L
-            (pack) compatibles para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 eartip silicone accessory kit almohadillas silicona
+            s/m/l
           must_include:
           - jbl
           - eartip
@@ -2857,8 +2861,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para JBL Tour
             Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl eartip foam Almohadillas espuma memory foam
-            (pack) compatibles para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - jbl
           - eartip
@@ -2875,8 +2879,7 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl wing tip Aletas estabilizadoras (pack) compatibles
-            para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - jbl
           - wing
@@ -2893,8 +2896,7 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl case charging Estuche de carga de repuesto
-            accesorio para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 case charging accessory kit estuche de carga accesorio
           must_include:
           - jbl
           - case
@@ -2911,8 +2913,8 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl ear cushion Almohadillas de auricular (par)
-            accesorios para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 ear cushion pad accessory kit almohadillas de
+            auricular par accesorios
           must_include:
           - jbl
           - ear
@@ -2929,8 +2931,7 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl headband replacement Diadema de repuesto accesorio
-            para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 headband accessory kit diadema de accesorio
           must_include:
           - jbl
           - headband
@@ -2946,8 +2947,7 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl cleaning kit Kit de limpieza accesorio para
-            JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 cleaning kit accessory de limpieza accesorio
           must_include:
           - jbl
           - cleaning
@@ -2964,8 +2964,7 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl usb-c cable Cable USB-C de carga compatible
-            para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 usb-c cable charging charger adapter de carga
           must_include:
           - jbl
           - usb-c
@@ -2982,8 +2981,7 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl battery left Batería auricular izquierdo compatible
-            para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 battery left earbud bater a auricular izquierdo
           must_include:
           - jbl
           - battery
@@ -2999,8 +2997,7 @@ brands:
         - sku: jbl-aud-jbl-tour-pro-2-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbl battery right Batería auricular derecho compatible
-            para JBL Tour Pro 2
+          query: JBL JBL Tour Pro 2 battery right earbud bater a auricular derecho
           must_include:
           - jbl
           - battery
@@ -3101,8 +3098,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Live Pro
             2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl eartip silicone Almohadillas silicona
-            S/M/L (pack) compatibles para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - jbl
           - eartip
@@ -3121,8 +3118,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para JBL Live
             Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl eartip foam Almohadillas espuma memory
-            foam (pack) compatibles para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - jbl
           - eartip
@@ -3139,8 +3136,7 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl wing tip Aletas estabilizadoras (pack)
-            compatibles para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - jbl
           - wing
@@ -3157,8 +3153,8 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl case charging Estuche de carga de repuesto
-            accesorio para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS case charging accessory kit estuche de carga
+            accesorio
           must_include:
           - jbl
           - case
@@ -3175,8 +3171,8 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl ear cushion Almohadillas de auricular
-            (par) accesorios para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - jbl
           - ear
@@ -3193,8 +3189,7 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl headband replacement Diadema de repuesto
-            accesorio para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS headband accessory kit diadema de accesorio
           must_include:
           - jbl
           - headband
@@ -3210,8 +3205,7 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl cleaning kit Kit de limpieza accesorio
-            para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS cleaning kit accessory de limpieza accesorio
           must_include:
           - jbl
           - cleaning
@@ -3228,8 +3222,7 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl usb-c cable Cable USB-C de carga compatible
-            para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS usb-c cable charging charger adapter de carga
           must_include:
           - jbl
           - usb-c
@@ -3246,8 +3239,7 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl battery left Batería auricular izquierdo
-            compatible para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS battery left earbud bater a auricular izquierdo
           must_include:
           - jbl
           - battery
@@ -3263,8 +3255,7 @@ brands:
         - sku: jbl-aud-jbl-live-pro-2-tws-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbl battery right Batería auricular derecho
-            compatible para JBL Live Pro 2 TWS
+          query: JBL JBL Live Pro 2 TWS battery right earbud bater a auricular derecho
           must_include:
           - jbl
           - battery
@@ -3363,8 +3354,8 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tune 230NC
             TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl eartip silicone Almohadillas silicona
-            S/M/L (pack) compatibles para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS eartip silicone accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - jbl
           - eartip
@@ -3384,8 +3375,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para JBL Tune
             230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl eartip foam Almohadillas espuma memory
-            foam (pack) compatibles para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - jbl
           - eartip
@@ -3402,8 +3393,7 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl wing tip Aletas estabilizadoras (pack)
-            compatibles para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - jbl
           - wing
@@ -3420,8 +3410,8 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl case charging Estuche de carga de repuesto
-            accesorio para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS case charging accessory kit estuche de carga
+            accesorio
           must_include:
           - jbl
           - case
@@ -3438,8 +3428,8 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl ear cushion Almohadillas de auricular
-            (par) accesorios para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS ear cushion pad accessory kit almohadillas
+            de auricular par accesorios
           must_include:
           - jbl
           - ear
@@ -3456,8 +3446,7 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl headband replacement Diadema de repuesto
-            accesorio para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS headband accessory kit diadema de accesorio
           must_include:
           - jbl
           - headband
@@ -3473,8 +3462,7 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl cleaning kit Kit de limpieza accesorio
-            para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS cleaning kit accessory de limpieza accesorio
           must_include:
           - jbl
           - cleaning
@@ -3491,8 +3479,7 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl usb-c cable Cable USB-C de carga compatible
-            para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS usb-c cable charging charger adapter de carga
           must_include:
           - jbl
           - usb-c
@@ -3509,8 +3496,7 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl battery left Batería auricular izquierdo
-            compatible para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS battery left earbud bater a auricular izquierdo
           must_include:
           - jbl
           - battery
@@ -3526,8 +3512,7 @@ brands:
         - sku: jbl-aud-jbl-tune-230nc-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbl battery right Batería auricular derecho
-            compatible para JBL Tune 230NC TWS
+          query: JBL JBL Tune 230NC TWS battery right earbud bater a auricular derecho
           must_include:
           - jbl
           - battery
@@ -3624,8 +3609,8 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl eartip silicone Almohadillas silicona S/M/L
-            (pack) compatibles para JBL Tune Flex
+          query: JBL JBL Tune Flex eartip silicone accessory kit almohadillas silicona
+            s/m/l
           must_include:
           - jbl
           - eartip
@@ -3644,8 +3629,7 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para JBL Tune
             Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl eartip foam Almohadillas espuma memory foam
-            (pack) compatibles para JBL Tune Flex
+          query: JBL JBL Tune Flex eartip foam memory accessory kit almohadillas espuma
           must_include:
           - jbl
           - eartip
@@ -3662,8 +3646,7 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl wing tip Aletas estabilizadoras (pack) compatibles
-            para JBL Tune Flex
+          query: JBL JBL Tune Flex wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - jbl
           - wing
@@ -3680,8 +3663,7 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl case charging Estuche de carga de repuesto
-            accesorio para JBL Tune Flex
+          query: JBL JBL Tune Flex case charging accessory kit estuche de carga accesorio
           must_include:
           - jbl
           - case
@@ -3698,8 +3680,8 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl ear cushion Almohadillas de auricular (par)
-            accesorios para JBL Tune Flex
+          query: JBL JBL Tune Flex ear cushion pad accessory kit almohadillas de auricular
+            par accesorios
           must_include:
           - jbl
           - ear
@@ -3716,8 +3698,7 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl headband replacement Diadema de repuesto accesorio
-            para JBL Tune Flex
+          query: JBL JBL Tune Flex headband accessory kit diadema de accesorio
           must_include:
           - jbl
           - headband
@@ -3733,8 +3714,7 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl cleaning kit Kit de limpieza accesorio para
-            JBL Tune Flex
+          query: JBL JBL Tune Flex cleaning kit accessory de limpieza accesorio
           must_include:
           - jbl
           - cleaning
@@ -3751,8 +3731,7 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl usb-c cable Cable USB-C de carga compatible
-            para JBL Tune Flex
+          query: JBL JBL Tune Flex usb-c cable charging charger adapter de carga
           must_include:
           - jbl
           - usb-c
@@ -3769,8 +3748,7 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl battery left Batería auricular izquierdo compatible
-            para JBL Tune Flex
+          query: JBL JBL Tune Flex battery left earbud bater a auricular izquierdo
           must_include:
           - jbl
           - battery
@@ -3786,8 +3764,7 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex jbl battery right Batería auricular derecho compatible
-            para JBL Tune Flex
+          query: JBL JBL Tune Flex battery right earbud bater a auricular derecho
           must_include:
           - jbl
           - battery
@@ -3892,8 +3869,7 @@ brands:
         - sku: qcy-qcy-t13-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 eartip silicone Almohadillas silicona S/M/L (pack)
-            compatibles para QCY T13
+          query: QCY QCY T13 eartip silicone accessory kit almohadillas silicona s/m/l
           must_include:
           - t13
           - eartip
@@ -3911,8 +3887,7 @@ brands:
         - sku: qcy-qcy-t13-accesorios-eartip-foam-pack
           title: Almohadillas espuma memory foam (pack) compatibles para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 eartip foam Almohadillas espuma memory foam (pack)
-            compatibles para QCY T13
+          query: QCY QCY T13 eartip foam memory accessory kit almohadillas espuma
           must_include:
           - t13
           - eartip
@@ -3929,8 +3904,7 @@ brands:
         - sku: qcy-qcy-t13-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 wing tip Aletas estabilizadoras (pack) compatibles
-            para QCY T13
+          query: QCY QCY T13 wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - t13
           - wing
@@ -3947,8 +3921,7 @@ brands:
         - sku: qcy-qcy-t13-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 case charging Estuche de carga de repuesto accesorio
-            para QCY T13
+          query: QCY QCY T13 case charging accessory kit estuche de carga accesorio
           must_include:
           - t13
           - case
@@ -3965,8 +3938,8 @@ brands:
         - sku: qcy-qcy-t13-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 ear cushion Almohadillas de auricular (par) accesorios
-            para QCY T13
+          query: QCY QCY T13 ear cushion pad accessory kit almohadillas de auricular
+            par accesorios
           must_include:
           - t13
           - ear
@@ -3983,8 +3956,7 @@ brands:
         - sku: qcy-qcy-t13-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 headband replacement Diadema de repuesto accesorio
-            para QCY T13
+          query: QCY QCY T13 headband accessory kit diadema de accesorio
           must_include:
           - t13
           - headband
@@ -4000,7 +3972,7 @@ brands:
         - sku: qcy-qcy-t13-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 cleaning kit Kit de limpieza accesorio para QCY T13
+          query: QCY QCY T13 cleaning kit accessory de limpieza accesorio
           must_include:
           - t13
           - cleaning
@@ -4017,8 +3989,7 @@ brands:
         - sku: qcy-qcy-t13-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 usb-c cable Cable USB-C de carga compatible para
-            QCY T13
+          query: QCY QCY T13 usb-c cable charging charger adapter de carga
           must_include:
           - t13
           - usb-c
@@ -4035,8 +4006,7 @@ brands:
         - sku: qcy-qcy-t13-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 battery left Batería auricular izquierdo compatible
-            para QCY T13
+          query: QCY QCY T13 battery left earbud bater a auricular izquierdo
           must_include:
           - t13
           - battery
@@ -4052,8 +4022,7 @@ brands:
         - sku: qcy-qcy-t13-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY T13
           intent: compra
-          query: QCY QCY T13 t13 battery right Batería auricular derecho compatible
-            para QCY T13
+          query: QCY QCY T13 battery right earbud bater a auricular derecho
           must_include:
           - t13
           - battery
@@ -4152,8 +4121,8 @@ brands:
         - sku: qcy-qcy-ht07-anc-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 eartip silicone Almohadillas silicona S/M/L
-            (pack) compatibles para QCY HT07 ANC
+          query: QCY QCY HT07 ANC eartip silicone accessory kit almohadillas silicona
+            s/m/l
           must_include:
           - ht07
           - eartip
@@ -4173,8 +4142,7 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para QCY HT07
             ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 eartip foam Almohadillas espuma memory foam
-            (pack) compatibles para QCY HT07 ANC
+          query: QCY QCY HT07 ANC eartip foam memory accessory kit almohadillas espuma
           must_include:
           - ht07
           - eartip
@@ -4191,8 +4159,7 @@ brands:
         - sku: qcy-qcy-ht07-anc-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 wing tip Aletas estabilizadoras (pack) compatibles
-            para QCY HT07 ANC
+          query: QCY QCY HT07 ANC wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - ht07
           - wing
@@ -4209,8 +4176,7 @@ brands:
         - sku: qcy-qcy-ht07-anc-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 case charging Estuche de carga de repuesto
-            accesorio para QCY HT07 ANC
+          query: QCY QCY HT07 ANC case charging accessory kit estuche de carga accesorio
           must_include:
           - ht07
           - case
@@ -4227,8 +4193,8 @@ brands:
         - sku: qcy-qcy-ht07-anc-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 ear cushion Almohadillas de auricular (par)
-            accesorios para QCY HT07 ANC
+          query: QCY QCY HT07 ANC ear cushion pad accessory kit almohadillas de auricular
+            par accesorios
           must_include:
           - ht07
           - ear
@@ -4245,8 +4211,7 @@ brands:
         - sku: qcy-qcy-ht07-anc-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 headband replacement Diadema de repuesto accesorio
-            para QCY HT07 ANC
+          query: QCY QCY HT07 ANC headband accessory kit diadema de accesorio
           must_include:
           - ht07
           - headband
@@ -4262,8 +4227,7 @@ brands:
         - sku: qcy-qcy-ht07-anc-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 cleaning kit Kit de limpieza accesorio para
-            QCY HT07 ANC
+          query: QCY QCY HT07 ANC cleaning kit accessory de limpieza accesorio
           must_include:
           - ht07
           - cleaning
@@ -4280,8 +4244,7 @@ brands:
         - sku: qcy-qcy-ht07-anc-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 usb-c cable Cable USB-C de carga compatible
-            para QCY HT07 ANC
+          query: QCY QCY HT07 ANC usb-c cable charging charger adapter de carga
           must_include:
           - ht07
           - usb-c
@@ -4298,8 +4261,7 @@ brands:
         - sku: qcy-qcy-ht07-anc-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 battery left Batería auricular izquierdo compatible
-            para QCY HT07 ANC
+          query: QCY QCY HT07 ANC battery left earbud bater a auricular izquierdo
           must_include:
           - ht07
           - battery
@@ -4315,8 +4277,7 @@ brands:
         - sku: qcy-qcy-ht07-anc-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC ht07 battery right Batería auricular derecho compatible
-            para QCY HT07 ANC
+          query: QCY QCY HT07 ANC battery right earbud bater a auricular derecho
           must_include:
           - ht07
           - battery
@@ -4414,8 +4375,7 @@ brands:
         - sku: qcy-qcy-t21-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 eartip silicone Almohadillas silicona S/M/L (pack)
-            compatibles para QCY T21
+          query: QCY QCY T21 eartip silicone accessory kit almohadillas silicona s/m/l
           must_include:
           - t21
           - eartip
@@ -4433,8 +4393,7 @@ brands:
         - sku: qcy-qcy-t21-accesorios-eartip-foam-pack
           title: Almohadillas espuma memory foam (pack) compatibles para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 eartip foam Almohadillas espuma memory foam (pack)
-            compatibles para QCY T21
+          query: QCY QCY T21 eartip foam memory accessory kit almohadillas espuma
           must_include:
           - t21
           - eartip
@@ -4451,8 +4410,7 @@ brands:
         - sku: qcy-qcy-t21-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 wing tip Aletas estabilizadoras (pack) compatibles
-            para QCY T21
+          query: QCY QCY T21 wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - t21
           - wing
@@ -4469,8 +4427,7 @@ brands:
         - sku: qcy-qcy-t21-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 case charging Estuche de carga de repuesto accesorio
-            para QCY T21
+          query: QCY QCY T21 case charging accessory kit estuche de carga accesorio
           must_include:
           - t21
           - case
@@ -4487,8 +4444,8 @@ brands:
         - sku: qcy-qcy-t21-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 ear cushion Almohadillas de auricular (par) accesorios
-            para QCY T21
+          query: QCY QCY T21 ear cushion pad accessory kit almohadillas de auricular
+            par accesorios
           must_include:
           - t21
           - ear
@@ -4505,8 +4462,7 @@ brands:
         - sku: qcy-qcy-t21-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 headband replacement Diadema de repuesto accesorio
-            para QCY T21
+          query: QCY QCY T21 headband accessory kit diadema de accesorio
           must_include:
           - t21
           - headband
@@ -4522,7 +4478,7 @@ brands:
         - sku: qcy-qcy-t21-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 cleaning kit Kit de limpieza accesorio para QCY T21
+          query: QCY QCY T21 cleaning kit accessory de limpieza accesorio
           must_include:
           - t21
           - cleaning
@@ -4539,8 +4495,7 @@ brands:
         - sku: qcy-qcy-t21-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 usb-c cable Cable USB-C de carga compatible para
-            QCY T21
+          query: QCY QCY T21 usb-c cable charging charger adapter de carga
           must_include:
           - t21
           - usb-c
@@ -4557,8 +4512,7 @@ brands:
         - sku: qcy-qcy-t21-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 battery left Batería auricular izquierdo compatible
-            para QCY T21
+          query: QCY QCY T21 battery left earbud bater a auricular izquierdo
           must_include:
           - t21
           - battery
@@ -4574,8 +4528,7 @@ brands:
         - sku: qcy-qcy-t21-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY T21
           intent: compra
-          query: QCY QCY T21 t21 battery right Batería auricular derecho compatible
-            para QCY T21
+          query: QCY QCY T21 battery right earbud bater a auricular derecho
           must_include:
           - t21
           - battery
@@ -4673,8 +4626,8 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy eartip silicone Almohadillas silicona S/M/L
-            (pack) compatibles para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite eartip silicone accessory kit almohadillas silicona
+            s/m/l
           must_include:
           - qcy
           - eartip
@@ -4693,8 +4646,8 @@ brands:
           title: Almohadillas espuma memory foam (pack) compatibles para QCY ArcBuds
             Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy eartip foam Almohadillas espuma memory foam
-            (pack) compatibles para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite eartip foam memory accessory kit almohadillas
+            espuma
           must_include:
           - qcy
           - eartip
@@ -4711,8 +4664,7 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy wing tip Aletas estabilizadoras (pack) compatibles
-            para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite wing tip stabilizer accessory kit aletas estabilizadoras
           must_include:
           - qcy
           - wing
@@ -4729,8 +4681,8 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy case charging Estuche de carga de repuesto
-            accesorio para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite case charging accessory kit estuche de carga
+            accesorio
           must_include:
           - qcy
           - case
@@ -4747,8 +4699,8 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy ear cushion Almohadillas de auricular (par)
-            accesorios para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite ear cushion pad accessory kit almohadillas de
+            auricular par accesorios
           must_include:
           - qcy
           - ear
@@ -4765,8 +4717,7 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy headband replacement Diadema de repuesto
-            accesorio para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite headband accessory kit diadema de accesorio
           must_include:
           - qcy
           - headband
@@ -4782,8 +4733,7 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy cleaning kit Kit de limpieza accesorio para
-            QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite cleaning kit accessory de limpieza accesorio
           must_include:
           - qcy
           - cleaning
@@ -4800,8 +4750,7 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-cargador-cable-usbc-earphone
           title: Cable USB-C de carga compatible para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy usb-c cable Cable USB-C de carga compatible
-            para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite usb-c cable charging charger adapter de carga
           must_include:
           - qcy
           - usb-c
@@ -4818,8 +4767,7 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-bateria-bat-bud-left
           title: Batería auricular izquierdo compatible para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy battery left Batería auricular izquierdo
-            compatible para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite battery left earbud bater a auricular izquierdo
           must_include:
           - qcy
           - battery
@@ -4835,8 +4783,7 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite qcy battery right Batería auricular derecho
-            compatible para QCY ArcBuds Lite
+          query: QCY QCY ArcBuds Lite battery right earbud bater a auricular derecho
           must_include:
           - qcy
           - battery
