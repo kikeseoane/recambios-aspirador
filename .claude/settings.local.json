@@ -46,7 +46,28 @@
       "Bash(cd C:/Users/kikes/Documents/recambios-aspirador && hugo 2>&1 | grep -E \"Pages|ERROR|WARN\")",
       "Bash(find C:/Users/kikes/Documents/recambios-aspirador -maxdepth 2 -name \"hugo.*\" -o -name \"config.*\" 2>/dev/null | grep -v \".claude\\\\|node_modules\")",
       "Bash(python3 -c \"\nimport json\nwith open\\('C:/Users/kikes/Documents/recambios-aspirador/data/.cache_aliexpress/1dd441cb734f96cb8388c076467196b8e016f221.json'\\) as f:\n    d = json.load\\(f\\)\ntry:\n    prods = d['aliexpress_affiliate_product_query_response']['resp_result']['result']['products']['product']\n    print\\(json.dumps\\(list\\(prods[0].keys\\(\\)\\), indent=2\\)\\)\n    print\\('---ejemplo---'\\)\n    print\\('product_main_image_url:', prods[0].get\\('product_main_image_url'\\)\\)\n    print\\('product_small_image_urls:', prods[0].get\\('product_small_image_urls'\\)\\)\nexcept Exception as e:\n    print\\(e\\)\n\" 2>&1)",
-      "Bash(grep -c \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/dyson-v10/index.html 2>/dev/null\ngrep -c \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/lefant-m210/index.html 2>/dev/null\ngrep -rL \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/*/index.html 2>/dev/null | wc -l\ngrep -rl \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/*/index.html 2>/dev/null | wc -l)"
+      "Bash(grep -c \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/dyson-v10/index.html 2>/dev/null\ngrep -c \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/lefant-m210/index.html 2>/dev/null\ngrep -rL \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/*/index.html 2>/dev/null | wc -l\ngrep -rl \"noindex\" C:/Users/kikes/Documents/recambios-aspirador/public/modelos/*/index.html 2>/dev/null | wc -l)",
+      "Bash(gh run:*)",
+      "Bash(ls /c/Users/kikes/Documents/recambios-aspirador/data/catalog_*.yaml)",
+      "Bash(find /c/Users/kikes/Documents/recambios-aspirador/content/modelos -name \"*.md\" | xargs grep -l \"osmosis\" 2>/dev/null | head -20)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(find content/modelos -name \"*.md\" | grep -E \"\\(rowenta|bosch|miele|philips|dyson|hoover|samsung|lg|balay|beko|indesit\\)\" | head -20 2>&1\nls content/modelos/ | grep -E \"\\(rowenta|bosch|miele|philips|dyson|hoover|samsung|lg|balay|beko|indesit\\)\" 2>&1 | head -20)",
+      "Bash(ls data/catalog_brands*.yaml 2>&1)",
+      "Bash(ls content/aspiradoras-normales/modelos/ | wc -l 2>&1\nls content/lavadoras/modelos/ | wc -l 2>&1)",
+      "Bash(python tools/generar.py --force --vertical aspiradoras-normales 2>&1\nfind content/aspiradoras-normales -name \"*.md\" 2>&1 | head -30)",
+      "Bash(find content/lavadoras -name \"*.md\" | wc -l 2>&1\nfind content/aspiradoras-normales -name \"*.md\" | wc -l 2>&1)",
+      "Bash(ls static/ 2>&1\nls static/img/ 2>&1 || echo \"no img dir\"\nfind static -name \"*.jpg\" -o -name \"*.png\" -o -name \"*.webp\" 2>/dev/null | head -20)",
+      "Bash(grep -n \"img\\\\|hero\\\\|image\\\\|photo\" layouts/index.html | head -20 2>&1\ngrep -n \"hero__img\\\\|hero.*img\\\\|img.*hero\" layouts/ -r 2>&1)",
+      "Bash(grep -n \"hero\\\\|img\\\\|image\" static/css/*.css 2>/dev/null | grep -i \"hero__media\\\\|hero__photo\\\\|hero--with\" | head -10 2>&1 || echo \"no css match\")",
+      "Bash(grep -n \"hero--compact\\\\|@media\" static/css/site.css | grep -A2 \"563\\\\|564\\\\|565\" | head -10 2>&1\nsed -n '558,572p' static/css/site.css 2>&1)",
+      "Bash(grep -n \"^\\\\.hero \" static/css/site.css | head -5 2>&1\nsed -n '300,320p' static/css/site.css 2>&1)",
+      "WebFetch(domain:recambios-aspirador.pages.dev)",
+      "Bash(hugo --quiet 2>&1 | tail -5)",
+      "Bash(taskkill /F /FI \"IMAGENAME eq python.exe\" /FI \"WINDOWTITLE eq *sync_ofertas*\" 2>&1; tasklist | grep -i python)",
+      "Bash(taskkill /F /PID 7760 2>&1)",
+      "Bash(cmd /c \"taskkill /F /PID 7760\")",
+      "Bash(cmd /c \"tasklist | findstr python\")"
     ]
   }
 }

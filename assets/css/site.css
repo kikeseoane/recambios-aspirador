@@ -722,6 +722,41 @@ p  { line-height: 1.65; }
 .buy-new-block .title-compact { margin: 4px 0 8px; font-size: 15px; }
 .buy-new-block .offer-action { margin-top: 10px; }
 
+/* Banner ¿Mejor comprar nuevo? — top de la página de modelo */
+.buy-new-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  margin-top: 12px;
+}
+.buy-new-topbar__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.buy-new-topbar__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fg);
+}
+.buy-new-topbar .btn-buy--new {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .buy-new-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .buy-new-topbar .btn-buy--new { width: 100%; justify-content: center; }
+}
+
 /* ----------------------------------------------------------------
    Chips
    ---------------------------------------------------------------- */

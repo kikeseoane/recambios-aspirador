@@ -277,6 +277,8 @@
           </div>
         </section>
 
+        {{ partial "buy_new.html" (dict "model" $model "modelName" $mtitle "brandName" $brand.name "brandKey" $brandKey "modelSlug" $modelSlug "topBar" true) }}
+
         <div class="model-anchor-bar">
           <a class="chip active" href="#compatibilidad">Compatibilidad</a>
           <a class="chip" href="#recambios-destacados">Recambios</a>
@@ -505,10 +507,6 @@
                 </details>
               {{ end }}
             {{ end }}
-
-            <hr>
-
-            {{ partial "buy_new.html" (dict "model" $model "modelName" $mtitle "brandName" $brand.name "brandKey" $brandKey "modelSlug" $modelSlug) }}
 
             <hr>
 

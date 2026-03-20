@@ -12,6 +12,7 @@
 {{ $modelName := .modelName | default "este modelo" }}
 {{ $brandKey := .brandKey | default "" }}
 {{ $modelSlug := .modelSlug | default "" }}
+{{ $topBar := .topBar | default false }}
 
 {{ $comprarNuevo := index $model "comprar_nuevo" }}
 {{ $note := "Si la reparacion no compensa economicamente, compara el precio del modelo nuevo." }}
@@ -27,6 +28,17 @@
 {{ $url := (index $offer "url") | default "" }}
 
 {{ if $url }}
+  {{ if $topBar }}
+<div class="buy-new-topbar">
+  <div class="buy-new-topbar__text">
+    <span class="buy-new-topbar__label">¿Mejor comprar nuevo?</span>
+    <span class="muted small">{{ $note }}</span>
+  </div>
+  <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
+    Ver {{ $modelName }} nuevo en AliExpress ↗
+  </a>
+</div>
+  {{ else }}
 <div class="buy-new-block">
   <div class="kicker">¿Merece la pena reparar?</div>
   <h3 class="title-compact">Comprar {{ $modelName }} nuevo</h3>
@@ -44,4 +56,5 @@
     </div>
   </div>
 </div>
+  {{ end }}
 {{ end }}
