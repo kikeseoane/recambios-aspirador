@@ -12,6 +12,7 @@
 {{ $modelName := .modelName | default "este modelo" }}
 {{ $brandKey := .brandKey | default "" }}
 {{ $modelSlug := .modelSlug | default "" }}
+{{ $verticalKey := .verticalKey | default "aspiradores" }}
 {{ $topBar := .topBar | default false }}
 
 {{ $comprarNuevo := index $model "comprar_nuevo" }}
@@ -20,12 +21,31 @@
   {{ with (index $comprarNuevo "note") }}{{ $note = . }}{{ end }}
 {{ end }}
 
-{{/* Buscar URL en ofertas.yaml igual que offer_btn.html */}}
+{{/* 1. Buscar URL específica del modelo en ofertas.yaml */}}
 {{ $nuevoSku := printf "%s-%s-nuevo" $brandKey $modelSlug }}
 {{ $offersDoc := site.Data.ofertas }}
 {{ $offers := cond (and $offersDoc $offersDoc.offers) $offersDoc.offers (dict) }}
 {{ $offer := cond (and $nuevoSku (isset $offers $nuevoSku)) (index $offers $nuevoSku) (dict) }}
 {{ $url := (index $offer "url") | default "" }}
+
+{{/* 2. Fallback: URL genérica del vertical si no hay URL de modelo */}}
+{{ $btnLabel := printf "Ver %s nuevo en AliExpress" $modelName }}
+{{ $isFallback := false }}
+{{ if not $url }}
+  {{ $vd := site.Data.vertical_defaults }}
+  {{ if $vd }}
+    {{ $vEntry := index $vd $verticalKey }}
+    {{ if $vEntry }}
+      {{ $fallbackUrl := (index $vEntry "buy_new_url") | default "" }}
+      {{ if $fallbackUrl }}
+        {{ $url = $fallbackUrl }}
+        {{ $isFallback = true }}
+        {{ $btnLabel = (index $vEntry "buy_new_label") | default $btnLabel }}
+        {{ $note = "Si la reparacion no compensa, compara con modelos nuevos similares." }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 
 {{ if $url }}
   {{ if $topBar }}
@@ -35,13 +55,13 @@
     <span class="muted small">{{ $note }}</span>
   </div>
   <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-    Ver {{ $modelName }} nuevo en AliExpress ↗
+    {{ $btnLabel }} ↗
   </a>
 </div>
   {{ else }}
 <div class="buy-new-block">
   <div class="kicker">¿Merece la pena reparar?</div>
-  <h3 class="title-compact">Comprar {{ $modelName }} nuevo</h3>
+  <h3 class="title-compact">{{ if $isFallback }}Ver modelos similares nuevos{{ else }}Comprar {{ $modelName }} nuevo{{ end }}</h3>
   <p class="muted small">{{ $note }}</p>
   <div class="offer-action">
     <div class="offer-trust">
@@ -49,7 +69,7 @@
       <span class="offer-trust__text">Enlace de afiliado — abre AliExpress</span>
     </div>
     <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-      Ver {{ $modelName }} nuevo en AliExpress
+      {{ $btnLabel }}
     </a>
     <div class="offer-action__note">
       <small class="muted">Precio y disponibilidad segun vendedor externo</small>
