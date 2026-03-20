@@ -452,6 +452,19 @@ CATEGORY_QUERY_TERMS = {
 }
 
 CATEGORY_NEGATIVE_TERMS = {
+    # Para SKUs -nuevo: excluir recambios, filtros y accesorios — queremos el producto completo
+    "nuevo": [
+        "replacement filter", "filter replacement", "hepa filter", "pre filter", "post filter",
+        "filtro de agua", "water filter replacement", "descal", "descaling", "limescale",
+        "spare part", "spare parts", "recambio", "repuesto", "accessory", "accessories",
+        "accesorios", "refill", "consumable",
+        "dust bag", "bolsa", "cover", "funda", "protector cover",
+        "pipe", "hose", "tube",
+        "valve", "valvula", "gasket", "seal", "junta",
+        "drive belt", "v-belt", "bearing", "carbon brush",
+        "heating element", "thermostat",
+        "wall mount", "bracket", "dock stand",
+    ],
     "soporte": ["trigger", "switch", "button", "pcb", "board", "handle", "motor"],
     "bateria": ["trigger", "switch", "button", "filter", "charger", "dock", "wall mount"],
     "filtro": ["battery", "charger", "trigger", "switch", "button"],
@@ -493,6 +506,10 @@ def looks_bad(title: str) -> bool:
 
 def cat_part_terms(cat: str) -> List[str]:
     c = nrm(cat)
+    if c == "nuevo":
+        # Búsqueda de producto completo: no exigir términos de recambio.
+        # El filtrado se hace con CATEGORY_NEGATIVE_TERMS["nuevo"].
+        return []
     for k, terms in CATEGORY_PART_TERMS.items():
         if k in c:
             return terms
@@ -933,7 +950,7 @@ def pick_best_promotion_link(
                 if req_models and not title_has_required_model(tt, req_models):
                     continue
 
-                if not any(pt in tt for pt in part_terms):
+                if part_terms and not any(pt in tt for pt in part_terms):
                     continue
 
                 if must_include and not contains_all(tt, must_include):
@@ -1212,6 +1229,14 @@ def main() -> None:
             model = (ctx.get("model") or "").lower() or sku.lower()
             category = (ctx.get("category") or "")
             part_terms = cat_part_terms(category)
+
+            # Para SKUs -nuevo: usar required_terms del vertical como filtro de tipo de producto.
+            # Así "Philips EP3221" busca cafeteras, no válvulas de Bosch.
+            if category == "nuevo":
+                vertical = ctx.get("vertical") or ""
+                vert_terms = VERTICAL_REQUIRED_TERMS.get(vertical, [])
+                if vert_terms:
+                    part_terms = vert_terms
 
             must_not_default = cat_negative_terms(category)
 
