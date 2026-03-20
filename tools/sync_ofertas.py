@@ -983,8 +983,9 @@ VERTICAL_FALLBACK_LABELS = {
 }
 
 
-def pick_vertical_best(keyword: str, use_cache: bool) -> Optional[str]:
-    """Busca el producto con mejor comisión para un keyword genérico de vertical."""
+def pick_vertical_best(keyword: str, use_cache: bool) -> Optional[Dict[str, str]]:
+    """Busca el producto con mejor comisión para un keyword genérico de vertical.
+    Devuelve dict con url y product_title, o None si no encuentra nada."""
     for lang in ("EN", "ES"):
         try:
             resp = product_query(keyword, lang=lang, page_no=1, use_cache=use_cache)
@@ -1005,7 +1006,10 @@ def pick_vertical_best(keyword: str, use_cache: bool) -> Optional[str]:
         best = candidates[0]
         url = best.get("promotion_link") or best.get("product_detail_url")
         if url:
-            return str(url).strip()
+            return {
+                "url": str(url).strip(),
+                "product_title": str(best.get("product_title") or "").strip(),
+            }
     return None
 
 
@@ -1034,14 +1038,17 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
             continue
 
         print(f"  [vertical-default] {vertical}: buscando → '{query}'")
-        url = pick_vertical_best(query, use_cache=use_cache)
-        if url:
-            entry["buy_new_url"] = url
-            entry["buy_new_label"] = VERTICAL_FALLBACK_LABELS.get(vertical, f"Ver productos en AliExpress")
+        result = pick_vertical_best(query, use_cache=use_cache)
+        if result:
+            entry["buy_new_url"] = result["url"]
+            entry["buy_new_label"] = VERTICAL_FALLBACK_LABELS.get(vertical, "Ver productos en AliExpress")
+            entry["buy_new_product_title"] = result["product_title"]
             entry["updated_at"] = datetime.now().date().isoformat()
             vd[vertical] = entry
             changed = True
-            print(f"  [vertical-default] {vertical}: OK → {url[:80]}")
+            print(f"  [vertical-default] {vertical}: OK → {result['url'][:80]}")
+            if result["product_title"]:
+                print(f"  [vertical-default] {vertical}: título → {result['product_title'][:80]}")
         else:
             print(f"  [vertical-default] {vertical}: sin resultado en AliExpress")
 

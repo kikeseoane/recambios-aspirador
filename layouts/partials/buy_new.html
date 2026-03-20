@@ -28,8 +28,11 @@
 {{ $offer := cond (and $nuevoSku (isset $offers $nuevoSku)) (index $offers $nuevoSku) (dict) }}
 {{ $url := (index $offer "url") | default "" }}
 
+{{/* Título real del producto si lo tenemos (evita mostrar modelo incorrecto en el botón) */}}
+{{ $productTitle := (index $offer "product_title") | default "" }}
+{{ $btnLabel := cond $productTitle (printf "Ver %s en AliExpress" $productTitle) (printf "Ver %s nuevo en AliExpress" $modelName) }}
+
 {{/* 2. Fallback: URL genérica del vertical si no hay URL de modelo */}}
-{{ $btnLabel := printf "Ver %s nuevo en AliExpress" $modelName }}
 {{ $isFallback := false }}
 {{ if not $url }}
   {{ $vd := site.Data.vertical_defaults }}
@@ -40,7 +43,8 @@
       {{ if $fallbackUrl }}
         {{ $url = $fallbackUrl }}
         {{ $isFallback = true }}
-        {{ $btnLabel = (index $vEntry "buy_new_label") | default $btnLabel }}
+        {{ $fallbackTitle := (index $vEntry "buy_new_product_title") | default "" }}
+        {{ $btnLabel = cond $fallbackTitle (printf "Ver %s en AliExpress" $fallbackTitle) ((index $vEntry "buy_new_label") | default "Ver modelos similares en AliExpress") }}
         {{ $note = "Si la reparacion no compensa, compara con modelos nuevos similares." }}
       {{ end }}
     {{ end }}
