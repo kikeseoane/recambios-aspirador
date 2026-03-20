@@ -67,7 +67,11 @@
       "Bash(taskkill /F /FI \"IMAGENAME eq python.exe\" /FI \"WINDOWTITLE eq *sync_ofertas*\" 2>&1; tasklist | grep -i python)",
       "Bash(taskkill /F /PID 7760 2>&1)",
       "Bash(cmd /c \"taskkill /F /PID 7760\")",
-      "Bash(cmd /c \"tasklist | findstr python\")"
+      "Bash(cmd /c \"tasklist | findstr python\")",
+      "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && hugo 2>&1 | tail -15)",
+      "Bash(cd \"C:\\\\Users\\\\kikes\\\\Documents\\\\recambios-aspirador\" && hugo 2>&1 | tail -12)",
+      "Bash(cd \"C:/Users/kikes/Documents/recambios-aspirador\" && hugo 2>&1 | tail -10)",
+      "Bash(cd \"C:/Users/kikes/Documents/recambios-aspirador\" && hugo 2>&1 | tail -5)"
     ]
   }
 }

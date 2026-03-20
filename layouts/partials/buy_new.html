@@ -30,7 +30,8 @@
 
 {{/* Título real del producto si lo tenemos (evita mostrar modelo incorrecto en el botón) */}}
 {{ $productTitle := (index $offer "product_title") | default "" }}
-{{ $btnLabel := cond $productTitle (printf "Ver %s en AliExpress" $productTitle) (printf "Ver %s nuevo en AliExpress" $modelName) }}
+{{ $productTitleShort := cond $productTitle ($productTitle | truncate 45 "…") "" }}
+{{ $btnLabel := cond $productTitleShort (printf "Ver %s en AliExpress" $productTitleShort) (printf "Ver %s nuevo en AliExpress" $modelName) }}
 
 {{/* 2. Fallback: URL genérica del vertical si no hay URL de modelo */}}
 {{ $isFallback := false }}
@@ -44,7 +45,8 @@
         {{ $url = $fallbackUrl }}
         {{ $isFallback = true }}
         {{ $fallbackTitle := (index $vEntry "buy_new_product_title") | default "" }}
-        {{ $btnLabel = cond $fallbackTitle (printf "Ver %s en AliExpress" $fallbackTitle) ((index $vEntry "buy_new_label") | default "Ver modelos similares en AliExpress") }}
+        {{ $fallbackTitleShort := cond $fallbackTitle ($fallbackTitle | truncate 45 "…") "" }}
+        {{ $btnLabel = cond $fallbackTitleShort (printf "Ver %s en AliExpress" $fallbackTitleShort) ((index $vEntry "buy_new_label") | default "Ver modelos similares en AliExpress") }}
         {{ $note = "Si la reparacion no compensa, compara con modelos nuevos similares." }}
       {{ end }}
     {{ end }}
