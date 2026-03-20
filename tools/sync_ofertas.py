@@ -376,7 +376,36 @@ BANNED_TITLE = [
     "vitroceramic", "induction hob", "induction cooker", "ceramic hob",
     "led strip", "led lamp", "fairy light", "phone case", "phone cover",
     "dog collar", "cat collar", "pet collar", "pet toy",
+    # Automoción — se cuelan por comisión alta
+    "common rail", "fuel injector", "injector valve", "diesel injector",
+    "car valve", "auto valve", "automotive", "bosch f00", "denso",
+    "oil filter car", "car filter", "truck filter", "engine oil",
+    "brake pad", "brake disc", "shock absorber", "suspension",
+    "car seat", "steering wheel", "gear shift", "clutch",
+    "obd", "ecu", "alternator", "radiator hose", "timing belt car",
+    # Electrónica genérica
+    "arduino", "raspberry", "pcb board", "motherboard", "gpu", "cpu cooler",
+    # Ropa / calzado
+    "sneakers", "shoes", "boots", "jacket", "hoodie", "pants", "jeans",
 ]
+
+# Términos mínimos que debe contener el título para ser válido en cada vertical
+VERTICAL_REQUIRED_TERMS = {
+    "aspiradores":          ["vacuum", "aspirador", "robot", "cleaner", "mop"],
+    "afeitadoras":          ["shaver", "razor", "foil", "afeitadora", "electric shav"],
+    "aspiradoras-normales": ["vacuum", "aspirador", "cleaner"],
+    "auriculares":          ["earbuds", "earphone", "headphone", "auricular", "headset", "tws"],
+    "cafeteras":            ["coffee", "espresso", "cafetera", "capsule", "brew"],
+    "cepillos":             ["toothbrush", "cepillo", "electric brush", "sonic"],
+    "freidoras":            ["air fryer", "freidora", "airfryer"],
+    "herramientas":         ["drill", "screwdriver", "grinder", "saw", "impact", "tool", "taladro"],
+    "lavadoras":            ["washing machine", "washer", "lavadora", "dryer"],
+    "mascotas":             ["pet", "dog", "cat", "groomer", "clipper", "mascotas"],
+    "osmosis":              ["osmosis", "water filter", "filtro agua", "reverse osmosis", "purifier"],
+    "robots-cristales":     ["window", "glass", "cristal", "robot"],
+    "robots-fregar":        ["robot", "mop", "floor", "fregar", "washing"],
+    "robots-piscina":       ["pool", "piscina", "robot"],
+}
 
 CATEGORY_PART_TERMS = {
     "bateria": ["battery", "bateria", "pack", "rechargeable", "22.2v", "21.6v", "25.2v", "click-in", "click in"],
@@ -983,9 +1012,13 @@ VERTICAL_FALLBACK_LABELS = {
 }
 
 
-def pick_vertical_best(keyword: str, use_cache: bool) -> Optional[Dict[str, str]]:
+def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional[Dict[str, str]]:
     """Busca el producto con mejor comisión para un keyword genérico de vertical.
+    Exige que el título contenga al menos un término del vertical para evitar
+    productos de automoción u otras categorías que se cuelan por comisión alta.
     Devuelve dict con url y product_title, o None si no encuentra nada."""
+    required_terms = VERTICAL_REQUIRED_TERMS.get(vertical, [])
+
     for lang in ("EN", "ES"):
         try:
             resp = product_query(keyword, lang=lang, page_no=1, use_cache=use_cache)
@@ -995,14 +1028,27 @@ def pick_vertical_best(keyword: str, use_cache: bool) -> Optional[Dict[str, str]
         prods = extract_products(resp)
         if not prods:
             continue
-        candidates = [p for p in prods if not looks_bad(p.get("product_title") or "")]
+        candidates = []
+        for p in prods:
+            title = p.get("product_title") or ""
+            tt = nrm(title)
+            if looks_bad(tt):
+                continue
+            # Exigir al menos un término del vertical en el título
+            if required_terms and not any(nrm(t) in tt for t in required_terms):
+                continue
+            candidates.append(p)
         if not candidates:
             continue
-        # Prioridad: comisión primero, ventas como desempate
-        candidates.sort(
-            key=lambda p: get_commission_rate(p) * 10 + get_orders(p) * 0.001,
-            reverse=True,
-        )
+        # Prioridad: comisión absoluta estimada (precio * %comisión), ventas como desempate
+        def commission_score(p: Dict[str, Any]) -> float:
+            try:
+                price = float(str(p.get("sale_price") or p.get("original_price") or 0))
+            except Exception:
+                price = 0.0
+            return price * get_commission_rate(p) + get_orders(p) * 0.001
+
+        candidates.sort(key=commission_score, reverse=True)
         best = candidates[0]
         url = best.get("promotion_link") or best.get("product_detail_url")
         if url:
@@ -1038,7 +1084,7 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
             continue
 
         print(f"  [vertical-default] {vertical}: buscando → '{query}'")
-        result = pick_vertical_best(query, use_cache=use_cache)
+        result = pick_vertical_best(query, vertical=vertical, use_cache=use_cache)
         if result:
             entry["buy_new_url"] = result["url"]
             entry["buy_new_label"] = VERTICAL_FALLBACK_LABELS.get(vertical, "Ver productos en AliExpress")
