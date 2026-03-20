@@ -37,6 +37,7 @@ except Exception:
 ROOT = Path(__file__).resolve().parents[1]
 OFFERS = ROOT / "data" / "ofertas.yaml"
 VERTICALS_YAML = ROOT / "data" / "verticals.yaml"
+VERTICAL_DEFAULTS_YAML = ROOT / "data" / "vertical_defaults.yaml"
 
 DEFAULT_URL = "https://s.click.aliexpress.com/e/_c3VfQRLt"
 
@@ -945,6 +946,111 @@ def pick_best_promotion_link(
 
 
 # =========================
+# Vertical fallback (buy-new genérico por vertical)
+# =========================
+VERTICAL_FALLBACK_QUERIES = {
+    "aspiradores":          "cordless stick vacuum cleaner robot mop",
+    "afeitadoras":          "electric shaver men foil rotary",
+    "aspiradoras-normales": "upright canister vacuum cleaner",
+    "auriculares":          "wireless earbuds bluetooth noise cancelling",
+    "cafeteras":            "espresso coffee machine capsule automatic",
+    "cepillos":             "electric toothbrush sonic",
+    "freidoras":            "air fryer digital xl",
+    "herramientas":         "cordless drill power tool set brushless",
+    "lavadoras":            "washing machine front load fully automatic",
+    "mascotas":             "pet groomer dog clipper vacuum",
+    "osmosis":              "reverse osmosis water filter system",
+    "robots-cristales":     "window cleaning robot automatic",
+    "robots-fregar":        "floor washing robot mop self cleaning",
+    "robots-piscina":       "robotic pool cleaner automatic",
+}
+
+VERTICAL_FALLBACK_LABELS = {
+    "aspiradores":          "Ver aspiradoras en AliExpress",
+    "afeitadoras":          "Ver afeitadoras en AliExpress",
+    "aspiradoras-normales": "Ver aspiradoras en AliExpress",
+    "auriculares":          "Ver auriculares en AliExpress",
+    "cafeteras":            "Ver cafeteras en AliExpress",
+    "cepillos":             "Ver cepillos eléctricos en AliExpress",
+    "freidoras":            "Ver freidoras de aire en AliExpress",
+    "herramientas":         "Ver herramientas en AliExpress",
+    "lavadoras":            "Ver lavadoras en AliExpress",
+    "mascotas":             "Ver productos mascotas en AliExpress",
+    "osmosis":              "Ver sistemas osmosis en AliExpress",
+    "robots-cristales":     "Ver robots limpiacristales en AliExpress",
+    "robots-fregar":        "Ver robots friegasuelos en AliExpress",
+    "robots-piscina":       "Ver robots limpiapiscinas en AliExpress",
+}
+
+
+def pick_vertical_best(keyword: str, use_cache: bool) -> Optional[str]:
+    """Busca el producto con mejor comisión para un keyword genérico de vertical."""
+    for lang in ("EN", "ES"):
+        try:
+            resp = product_query(keyword, lang=lang, page_no=1, use_cache=use_cache)
+        except Exception as exc:
+            print(f"  [vertical-error] kw='{keyword}' lang={lang} - {exc}")
+            continue
+        prods = extract_products(resp)
+        if not prods:
+            continue
+        candidates = [p for p in prods if not looks_bad(p.get("product_title") or "")]
+        if not candidates:
+            continue
+        # Prioridad: comisión primero, ventas como desempate
+        candidates.sort(
+            key=lambda p: get_commission_rate(p) * 10 + get_orders(p) * 0.001,
+            reverse=True,
+        )
+        best = candidates[0]
+        url = best.get("promotion_link") or best.get("product_detail_url")
+        if url:
+            return str(url).strip()
+    return None
+
+
+def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -> None:
+    """
+    Para cada vertical, si buy_new_url está vacío (o --force), busca en AliExpress
+    el producto con mejor comisión y actualiza data/vertical_defaults.yaml.
+    """
+    vd = load_yaml(VERTICAL_DEFAULTS_YAML)
+    changed = False
+
+    for vertical in verticals:
+        entry = vd.get(vertical)
+        if not isinstance(entry, dict):
+            entry = {}
+            vd[vertical] = entry
+
+        current_url = str(entry.get("buy_new_url") or "").strip()
+        if current_url and not force:
+            print(f"  [vertical-default] {vertical}: ya tiene URL, saltando (usa --force para refrescar)")
+            continue
+
+        query = VERTICAL_FALLBACK_QUERIES.get(vertical)
+        if not query:
+            print(f"  [vertical-default] {vertical}: sin query definida, saltando")
+            continue
+
+        print(f"  [vertical-default] {vertical}: buscando → '{query}'")
+        url = pick_vertical_best(query, use_cache=use_cache)
+        if url:
+            entry["buy_new_url"] = url
+            entry["buy_new_label"] = VERTICAL_FALLBACK_LABELS.get(vertical, f"Ver productos en AliExpress")
+            entry["updated_at"] = datetime.now().date().isoformat()
+            vd[vertical] = entry
+            changed = True
+            print(f"  [vertical-default] {vertical}: OK → {url[:80]}")
+        else:
+            print(f"  [vertical-default] {vertical}: sin resultado en AliExpress")
+
+    if changed:
+        dump_yaml(VERTICAL_DEFAULTS_YAML, vd)
+        print(f"  vertical_defaults.yaml actualizado")
+
+
+# =========================
 # CLI
 # =========================
 def parse_args() -> argparse.Namespace:
@@ -1183,6 +1289,10 @@ def main() -> None:
                     orphaned += 1
 
     dump_yaml(OFFERS, {"offers": offers})
+
+    # Sincronizar URLs de fallback por vertical (buy-new genérico)
+    print("\n  --- Sincronizando vertical_defaults (buy-new fallback) ---")
+    sync_vertical_defaults(selected_verticals, force=args.force, use_cache=use_cache)
 
     _total_elapsed = time.time() - _t0
     _avg_api = (_api_time_real / _api_calls_real) if _api_calls_real else 0.0
