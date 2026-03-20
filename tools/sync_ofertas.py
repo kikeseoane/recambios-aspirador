@@ -5,10 +5,18 @@ from __future__ import annotations
 import argparse
 import hashlib
 import hmac
+import io
 import json
 import os
 import re
+import sys
 import time
+
+# Windows cp1252 fix: force UTF-8 output
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -363,15 +371,33 @@ BANNED_TITLE = [
     "women", "woman", "spa", "sleep", "eye mask", "mask", "gift", "dress",
     "skincare", "beauty", "cosmetic", "lingerie", "bikini", "jewelry",
     "t-shirt", "shorts", "matching sets", "makeup", "perfume",
+    "lip balm", "lip gloss", "lipstick", "nail polish", "nail art", "eyeliner",
+    "vitroceramic", "induction hob", "induction cooker", "ceramic hob",
+    "led strip", "led lamp", "fairy light", "phone case", "phone cover",
+    "dog collar", "cat collar", "pet collar", "pet toy",
 ]
 
 CATEGORY_PART_TERMS = {
     "bateria": ["battery", "bateria", "pack", "rechargeable", "22.2v", "21.6v", "25.2v", "click-in", "click in"],
-    "filtro": ["filter", "filtro", "hepa", "rear", "pre", "post"],
+    "filtro": ["filter", "filtro", "hepa", "rear", "pre", "post", "membrane", "sediment", "carbon filter"],
     "cargador": ["charger", "cargador", "adapter", "adaptador", "power", "ac adapter"],
     "cepillo": ["brush", "cepillo", "head", "roller", "rodillo", "torque", "drive"],
     "soporte": ["wall", "mount", "holder", "dock", "stand", "bracket", "storage", "rack", "base"],
     "accesorios": ["accessory", "accessories", "kit", "crevice", "tool", "brush", "nozzle", "boquilla"],
+    # Categorías de lavadora y electrodomésticos
+    "bomba": ["pump", "drain pump", "drain", "impeller"],
+    "resistencia": ["heating element", "heater", "heating", "resistencia", "thermostat"],
+    "rodamiento": ["bearing", "drum bearing", "ball bearing"],
+    "escobillas": ["carbon brush", "motor brush", "brush holder"],
+    "correa": ["belt", "drive belt", "poly v", "poly-v", "v-belt"],
+    "bolsa": ["dust bag", "vacuum bag", "paper bag"],
+    # Categorías de ósmosis, cafeteras, freidoras, etc.
+    "junta": ["seal", "gasket", "door seal", "o-ring", "rubber seal", "boot seal"],
+    "deposito": ["tank", "container", "reservoir", "water tank", "dust cup"],
+    "cesta": ["basket", "tray", "bin", "dust cup", "cup"],
+    # Categorías de afeitadoras y cepillos eléctricos
+    "laminas": ["foil", "shaving foil", "cutting foil", "blade", "foil replacement"],
+    "cabezal": ["shaver head", "replacement head", "head", "rotary head"],
 }
 
 CATEGORY_QUERY_TERMS = {
@@ -386,6 +412,13 @@ CATEGORY_QUERY_TERMS = {
     "junta": ["gasket", "seal"],
     "deposito": ["tank", "container"],
     "cesta": ["basket", "tray"],
+    # Categorías de lavadora y electrodomésticos
+    "bomba": ["drain pump", "pump"],
+    "resistencia": ["heating element", "heater"],
+    "rodamiento": ["bearing", "drum"],
+    "escobillas": ["carbon brush", "motor brush"],
+    "correa": ["drive belt", "belt"],
+    "bolsa": ["dust bag", "bag"],
 }
 
 CATEGORY_NEGATIVE_TERMS = {
@@ -394,6 +427,14 @@ CATEGORY_NEGATIVE_TERMS = {
     "filtro": ["battery", "charger", "trigger", "switch", "button"],
     "cargador": ["battery", "filter", "trigger", "switch", "button"],
     "cepillo": ["battery", "filter", "charger", "trigger", "switch", "button"],
+    # Lavadora: exclusiones cruzadas entre recambios incompatibles
+    "bomba": ["belt", "bearing", "heating element", "heater", "seal", "gasket", "carbon brush", "filter"],
+    "resistencia": ["pump", "drain", "belt", "bearing", "seal", "gasket", "carbon brush"],
+    "rodamiento": ["pump", "drain", "belt", "heating element", "heater", "seal", "gasket", "carbon brush"],
+    "escobillas": ["pump", "drain", "belt", "bearing", "heating element", "heater", "seal", "gasket"],
+    "correa": ["pump", "drain", "bearing", "heating element", "heater", "seal", "gasket", "carbon brush"],
+    "junta": ["pump", "drain", "belt", "bearing", "heating element", "heater", "carbon brush"],
+    "bolsa": ["pump", "drain", "belt", "bearing", "heating element", "heater", "carbon brush"],
 }
 
 MODEL_TOKEN_RE = re.compile(r"\b(v\d{1,2}|sv\d{2}|dc\d{2,3})\b", re.IGNORECASE)
@@ -435,7 +476,9 @@ def cat_part_terms(cat: str) -> List[str]:
         return CATEGORY_PART_TERMS["cepillo"]
     if "soport" in c or "mount" in c or "dock" in c:
         return CATEGORY_PART_TERMS["soporte"]
-    return ["replacement", "spare", "parts", "compatible"]
+    # Fallback: usa el nombre de categoría como término de ancla — mucho más específico
+    # que "replacement/spare" que pasaría cualquier producto del mundo.
+    return [c, "replacement"] if c else ["replacement"]
 
 
 def cat_negative_terms(cat: str) -> List[str]:
@@ -667,6 +710,15 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
     include_terms = " ".join([compact_spaces(x) for x in must_include[:4] if compact_spaces(x)])
     model_tokens = " ".join(model_tokens_from_ctx(model)[:3])
 
+    # Cascada de mayor a menor precisión:
+    # 1. Query override explícito
+    # 2. Marca + modelo completo + términos must_include + tipo recambio
+    # 3. Marca + modelo completo + tipo recambio
+    # 4. Marca + tokens de modelo + tipo recambio
+    # 5. Marca + modelo + título del item
+    # 6. Marca + modelo + nombre categoría + título
+    # 7. Marca + tipo recambio (sin modelo — cubre listings genéricos de marca)
+    # 8. Marca + modelo solo
     candidates = [
         compose_search_query([], [query_override]),
         compose_search_query([brand, model], [include_terms, category_terms]),
@@ -674,6 +726,7 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
         compose_search_query([brand, model], [model_tokens, category_terms]),
         compose_search_query([brand, model], [item_title]),
         compose_search_query([brand, model], [str(ctx.get("category") or ""), str(ctx.get("item_title") or "")]),
+        compose_search_query([brand], [category_terms, "replacement"]),
         compose_search_query([brand, model], []),
     ]
     return unique_keywords(candidates)
@@ -754,11 +807,12 @@ def pick_relaxed_link(
     brand: str,
     category: str,
     part_terms: List[str],
+    must_not_include: List[str],
     use_cache: bool,
 ) -> Optional[str]:
     """
     Búsqueda relajada sin filtro de modelo: solo marca + categoría.
-    Garantiza un enlace de afiliado aunque no haya producto exacto.
+    Aplica must_not_include para evitar contaminar con categorías cruzadas.
     """
     relaxed_terms = " ".join(cat_query_terms(category)[:2])
     keyword = compact_spaces(f"{brand} {relaxed_terms} replacement")[:120]
@@ -785,6 +839,8 @@ def pick_relaxed_link(
                 if looks_bad(tt):
                     continue
                 if not any(pt in tt for pt in part_terms):
+                    continue
+                if must_not_include and contains_any(tt, must_not_include):
                     continue
                 candidates.append(p)
 
@@ -1055,6 +1111,7 @@ def main() -> None:
                     brand=brand,
                     category=category,
                     part_terms=part_terms,
+                    must_not_include=must_not_combined,
                     use_cache=use_cache,
                 )
                 if relaxed:
@@ -1078,8 +1135,11 @@ def main() -> None:
                     obj["updated_at"] = today
                     filled_from_aliexpress += 1
                 else:
-                    if obj.get("url") != DEFAULT_URL:
-                        obj["url"] = DEFAULT_URL
+                    # Sin producto encontrado: limpia la URL para que el template
+                    # muestre un botón de búsqueda construido desde fallback_search_query.
+                    # Nunca usamos DEFAULT_URL genérico (era un link de aspiradoras para todos los verticals).
+                    if obj.get("url") in ("", DEFAULT_URL, None) or obj.get("needs_url"):
+                        obj["url"] = ""
                         changed_urls_to_default += 1
 
                     obj["needs_url"] = True
@@ -1107,7 +1167,7 @@ def main() -> None:
         _remaining = _total_want - _processed
         _eta_s = int(_remaining / _rate) if _rate > 0 else 0
         _eta_str = f"{_eta_s//3600:02d}h{(_eta_s%3600)//60:02d}m{_eta_s%60:02d}s" if _eta_s >= 3600 else f"{_eta_s//60:02d}m{_eta_s%60:02d}s"
-        _status = "✓" if obj.get("url") and obj.get("url") != DEFAULT_URL else "~"
+        _status = "OK" if obj.get("url") and obj.get("url") != DEFAULT_URL else "~"
         print(f"  [{_processed:4d}/{_total_want}] {_status} {sku[:55]:<55} | elapsed {int(_elapsed//60):02d}m{int(_elapsed%60):02d}s ETA {_eta_str}", flush=True)
         if _processed % SAVE_EVERY == 0:
             dump_yaml(OFFERS, {"offers": offers})

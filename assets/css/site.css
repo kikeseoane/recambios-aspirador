@@ -685,19 +685,24 @@ p  { line-height: 1.65; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 18px;
-  min-height: 44px;
+  padding: 13px 22px;
+  min-height: 48px;
   border-radius: var(--radius-sm);
   background: linear-gradient(135deg, var(--primary), var(--primary-2));
   color: #fff;
   font-weight: 700;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(var(--primary-rgb), .28);
-  transition: filter .12s, transform .1s;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), .38);
+  transition: filter .15s, transform .12s, box-shadow .15s;
   text-decoration: none;
   width: auto;
 }
-.btn-buy:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.btn-buy:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(var(--primary-rgb), .48);
+}
 @media (max-width: 720px) { .btn-buy { width: 100%; } }
 
 /* Variante "comprar nuevo" — color neutro oscuro para diferenciar de los recambios */
@@ -1614,12 +1619,12 @@ p  { line-height: 1.65; }
 
 .product--featured {
   grid-column: span 2;
-  padding: 18px;
-  border-color: rgba(var(--primary-rgb), .2);
-  box-shadow: 0 14px 30px rgba(var(--primary-rgb), .12);
+  padding: 22px;
+  border-color: rgba(var(--primary-rgb), .3);
+  box-shadow: 0 16px 40px rgba(var(--primary-rgb), .16);
   background:
-    radial-gradient(circle at top right, rgba(var(--primary-rgb), .09), transparent 38%),
-    linear-gradient(180deg, #fff, rgba(var(--primary-rgb), .02));
+    radial-gradient(circle at top right, rgba(var(--primary-rgb), .12), transparent 42%),
+    linear-gradient(160deg, rgba(var(--primary-rgb), .04), #fff 60%);
 }
 
 .product--featured .img {
@@ -1761,9 +1766,9 @@ p  { line-height: 1.65; }
   margin-bottom: 4px;
 }
 .offer-price__sale {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary);
 }
 .offer-price__original {
   font-size: 13px;
@@ -1783,6 +1788,26 @@ p  { line-height: 1.65; }
   .product--featured {
     grid-column: span 1;
   }
+}
+
+/* Product entrance animation */
+@keyframes product-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#opciones-populares .product {
+  animation: product-fade-in .32s ease both;
+}
+#opciones-populares .product:nth-child(1) { animation-delay: .04s; }
+#opciones-populares .product:nth-child(2) { animation-delay: .12s; }
+#opciones-populares .product:nth-child(3) { animation-delay: .20s; }
+
+/* Make the #opciones-populares top panel stand out more */
+#opciones-populares.panel--commerce {
+  border-top-width: 4px;
+  border-top-color: var(--primary);
+  box-shadow: 0 14px 36px rgba(var(--primary-rgb), .13);
 }
 
 /* ----------------------------------------------------------------

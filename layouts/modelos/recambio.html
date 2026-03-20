@@ -140,25 +140,12 @@
 
   <div class="hero hero--bg hero--compact hero--editorial hero--photo-right mt-10">
     <div class="hero__inner">
-      <div class="hero__kicker">Recambios</div>
+      <div class="hero__kicker">Recambios · {{ len $items }} opciones</div>
       <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
       <p class="muted hero__copy">{{ $catIntro1 }}</p>
-      <p class="muted hero__copy">{{ $catIntro2 }}</p>
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}"><- Volver al modelo</a>
-        <a class="btn btn--link" href="#opciones-populares">Ir a opciones populares</a>
-      </div>
-
-      <div class="hero-mini-stats">
-        <div class="hero-mini-stat">
-          <strong>{{ len $items }} opciones</strong>
-          <span>catalogadas para esta categoria</span>
-        </div>
-        <div class="hero-mini-stat">
-          <strong>Revision previa</strong>
-          <span>serie, encaje y dato tecnico antes de abrir una oferta</span>
-        </div>
       </div>
     </div>
     <div class="hero__photo-wrap">
@@ -167,10 +154,9 @@
   </div>
 
   <div class="model-anchor-bar">
-    <a class="chip active" href="#checklist-compra">Checklist</a>
-    <a class="chip" href="#opciones-populares">Opciones populares</a>
-    <a class="chip" href="#recambios-disponibles">Recambios</a>
-    <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
+    <a class="chip active" href="#opciones-populares">Ver opciones</a>
+    <a class="chip" href="#recambios-disponibles">Todos los recambios</a>
+    <a class="chip" href="#checklist-compra">Checklist</a>
   </div>
 
   {{/* ---- Checks especificos por categoria ---- */}}
@@ -260,48 +246,7 @@
     {{ $check3Body  = "La malla de la cesta debe tener la densidad adecuada para retener particulas sin reducir la succion. Evita cestas con malla demasiado fina o demasiado gruesa para tu equipo." }}
   {{ end }}
 
-  <div id="checklist-compra" class="antes-de-comprar mt-14">
-    <div class="antes-de-comprar__header">
-      <span class="badge badge--best">Antes de comprar</span>
-      <h2 class="antes-de-comprar__title">3 checks clave para {{ $catLabel | lower }} compatibles con {{ $mtitle }}</h2>
-    </div>
-    <div class="antes-de-comprar__grid">
-      <article class="antes-de-comprar__item">
-        <div class="antes-de-comprar__num">1</div>
-        <div class="antes-de-comprar__body">
-          <h3>{{ $check1Title }}</h3>
-          <p class="muted">{{ $check1Body }}</p>
-        </div>
-      </article>
-      <article class="antes-de-comprar__item">
-        <div class="antes-de-comprar__num">2</div>
-        <div class="antes-de-comprar__body">
-          <h3>{{ $check2Title }}</h3>
-          <p class="muted">{{ $check2Body }}</p>
-        </div>
-      </article>
-      <article class="antes-de-comprar__item">
-        <div class="antes-de-comprar__num">3</div>
-        <div class="antes-de-comprar__body">
-          <h3>{{ $check3Title }}</h3>
-          <p class="muted">{{ $check3Body }}</p>
-        </div>
-      </article>
-    </div>
-  </div>
-
-  {{ partial "compatibility_guard.html" (dict
-    "title" (printf "Checklist de compatibilidad para %s" $catLabel)
-    "intro" "La categoria correcta ayuda, pero la compatibilidad real depende de validar serie, encaje y datos tecnicos antes de abrir una oferta."
-    "badge" "Compra segura"
-    "checks" (slice
-      "Submodelo o variante exacta del equipo"
-      "Conector, acople, forma o medidas de la pieza"
-      "Voltaje o capacidad si compras bateria o cargador"
-    )
-  ) }}
-
-  <div id="opciones-populares" class="panel panel--commerce mt-14">
+  <div id="opciones-populares" class="panel panel--commerce mt-10">
     <h2 class="title-reset">Opciones populares</h2>
     <div class="products mt-10">
       {{ $shown := 0 }}
@@ -462,6 +407,47 @@
       </p>
     </aside>
   </div>
+
+  <div id="checklist-compra" class="antes-de-comprar mt-14">
+    <div class="antes-de-comprar__header">
+      <span class="badge badge--best">Antes de comprar</span>
+      <h2 class="antes-de-comprar__title">3 checks clave para {{ $catLabel | lower }} compatibles con {{ $mtitle }}</h2>
+    </div>
+    <div class="antes-de-comprar__grid">
+      <article class="antes-de-comprar__item">
+        <div class="antes-de-comprar__num">1</div>
+        <div class="antes-de-comprar__body">
+          <h3>{{ $check1Title }}</h3>
+          <p class="muted">{{ $check1Body }}</p>
+        </div>
+      </article>
+      <article class="antes-de-comprar__item">
+        <div class="antes-de-comprar__num">2</div>
+        <div class="antes-de-comprar__body">
+          <h3>{{ $check2Title }}</h3>
+          <p class="muted">{{ $check2Body }}</p>
+        </div>
+      </article>
+      <article class="antes-de-comprar__item">
+        <div class="antes-de-comprar__num">3</div>
+        <div class="antes-de-comprar__body">
+          <h3>{{ $check3Title }}</h3>
+          <p class="muted">{{ $check3Body }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  {{ partial "compatibility_guard.html" (dict
+    "title" (printf "Checklist de compatibilidad para %s" $catLabel)
+    "intro" "La categoria correcta ayuda, pero la compatibilidad real depende de validar serie, encaje y datos tecnicos antes de abrir una oferta."
+    "badge" "Compra segura"
+    "checks" (slice
+      "Submodelo o variante exacta del equipo"
+      "Conector, acople, forma o medidas de la pieza"
+      "Voltaje o capacidad si compras bateria o cargador"
+    )
+  ) }}
 
   {{ partial "model_crosslinks.html" (dict
     "db" $db
