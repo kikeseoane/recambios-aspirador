@@ -480,6 +480,40 @@ CATEGORY_NEGATIVE_TERMS = {
     "bolsa": ["pump", "drain", "belt", "bearing", "heating element", "heater", "carbon brush"],
 }
 
+VERTICAL_COMPLETE_TERMS = {
+    "aspiradores":          ["vacuum cleaner", "robot vacuum", "stick vacuum", "cordless vacuum", "vacuum"],
+    "afeitadoras":          ["electric shaver", "foil shaver", "rotary shaver", "shaver"],
+    "aspiradoras-normales": ["vacuum cleaner", "canister vacuum", "upright vacuum", "vacuum"],
+    "auriculares":          ["wireless earbuds", "bluetooth earbuds", "headphones", "earbuds", "headset"],
+    "cafeteras":            ["coffee machine", "espresso machine", "coffee maker", "espresso maker", "cafetera"],
+    "cepillos":             ["electric toothbrush", "sonic toothbrush", "toothbrush"],
+    "freidoras":            ["air fryer", "airfryer", "fryer oven"],
+    "herramientas":         ["cordless drill", "impact driver", "power tool", "drill", "tool set"],
+    "lavadoras":            ["washing machine", "washer", "washer dryer"],
+    "mascotas":             ["pet groomer", "dog clipper", "pet clipper", "grooming vacuum"],
+    "osmosis":              ["reverse osmosis system", "water purifier", "ro system", "osmosis system"],
+    "robots-cristales":     ["window cleaning robot", "window cleaner robot", "glass cleaning robot"],
+    "robots-fregar":        ["robot vacuum mop", "floor washing robot", "robot mop", "self-clean floor"],
+    "robots-piscina":       ["pool cleaner robot", "robot pool cleaner", "robotic pool cleaner", "pool robot"],
+}
+
+VERTICAL_NEW_NEGATIVE_TERMS = {
+    "aspiradores":          ["filter", "brush head", "roller brush", "battery pack", "charger", "dust bag", "mop pad", "main brush"],
+    "afeitadoras":          ["replacement foil", "foil head", "blade", "replacement head", "charger", "shaving head"],
+    "aspiradoras-normales": ["dust bag", "filter", "brush head", "hose", "belt", "charger"],
+    "auriculares":          ["ear tips", "ear cushions", "ear pads", "charging case cover", "battery", "cable"],
+    "cafeteras":            ["filter", "water filter", "capsule", "gasket", "seal", "descaler", "tank", "milk container", "drip tray", "portafilter"],
+    "cepillos":             ["brush head", "replacement head", "charger", "travel case", "battery", "cabezal"],
+    "freidoras":            ["basket", "tray", "rack", "liner", "paper", "grill plate", "accessory", "silicone pot"],
+    "herramientas":         ["battery", "charger", "drill bit", "saw blade", "socket", "accessory"],
+    "lavadoras":            ["drain pump", "filter", "bearing", "gasket", "door seal", "heater", "belt"],
+    "mascotas":             ["blade", "clipper blade", "comb", "filter", "hose", "battery", "charger"],
+    "osmosis":              ["membrane", "filter cartridge", "sediment filter", "carbon filter", "housing", "o-ring", "faucet", "tank", "pump head"],
+    "robots-cristales":     ["cleaning pad", "mop pad", "spray nozzle", "battery", "charger", "rope"],
+    "robots-fregar":        ["mop pad", "filter", "main brush", "side brush", "battery", "charger", "dust bag"],
+    "robots-piscina":       ["filter bag", "filter cartridge", "brush", "cable", "impeller", "caddy", "charger"],
+}
+
 MODEL_TOKEN_RE = re.compile(r"\b(v\d{1,2}|sv\d{2}|dc\d{2,3})\b", re.IGNORECASE)
 GENERIC_MODEL_WORD_RE = re.compile(r"[a-z0-9][a-z0-9+.-]{1,}", re.IGNORECASE)
 QUERY_NOISE_RE = re.compile(
@@ -617,6 +651,14 @@ def get_commission_rate(p: Dict[str, Any]) -> float:
         return 0.0
 
 
+def get_price_value(p: Dict[str, Any]) -> float:
+    raw = p.get("sale_price") or p.get("original_price") or p.get("target_sale_price") or 0
+    try:
+        return float(str(raw).replace(",", "."))
+    except Exception:
+        return 0.0
+
+
 def contains_all(title: str, must: List[str]) -> bool:
     tt = nrm(title)
     for m in must:
@@ -666,6 +708,44 @@ def score_product(
     s += get_orders(p) * 0.015
     s += get_commission_rate(p) * 0.4
 
+    return s
+
+
+def is_complete_new_product(title: str, vertical: str) -> bool:
+    tt = nrm(title)
+    positives = VERTICAL_COMPLETE_TERMS.get(vertical, [])
+    negatives = VERTICAL_NEW_NEGATIVE_TERMS.get(vertical, [])
+
+    if positives and not any(nrm(term) in tt for term in positives):
+        return False
+    if negatives and any(nrm(term) in tt for term in negatives):
+        return False
+    return True
+
+
+def score_new_product(
+    title: str,
+    p: Dict[str, Any],
+    must_brand: str,
+    req_models: List[str],
+    vertical: str,
+) -> float:
+    t = nrm(title)
+    if not is_complete_new_product(t, vertical):
+        return -1e9
+
+    s = 0.0
+    if must_brand and must_brand in t:
+        s += 7.0
+
+    if req_models:
+        if not title_has_required_model(t, req_models):
+            return -1e9
+        s -= model_mismatch_penalty(t, req_models)
+
+    s += min(get_price_value(p), 2500.0) * 0.06
+    s += get_orders(p) * 0.01
+    s += get_commission_rate(p) * 0.2
     return s
 
 
@@ -815,6 +895,8 @@ def choose_fallback_search_label(ctx: Dict[str, Any], query_text: str) -> str:
     model = compact_spaces(str(ctx.get("model") or ""))
     brand = compact_spaces(str(ctx.get("brand") or ""))
 
+    if category == "nuevo" and model:
+        return f"Ver {model} nuevo"
     if category and model:
         return f"Buscar {category} para {model}"
     if model:
@@ -922,6 +1004,8 @@ def pick_best_promotion_link(
     must_include: List[str],
     must_not_include: List[str],
     model_tokens_override: List[str],
+    vertical: str,
+    category: str,
     use_cache: bool,
 ) -> Optional[str]:
     req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
@@ -964,16 +1048,28 @@ def pick_best_promotion_link(
             if not candidates:
                 continue
 
-            candidates.sort(
-                key=lambda p: score_product(
-                    p.get("product_title") or "",
-                    p,
-                    must_brand=nrm(must_brand),
-                    part_terms=part_terms,
-                    req_models=req_models,
-                ),
-                reverse=True,
-            )
+            if category == "nuevo":
+                candidates.sort(
+                    key=lambda p: score_new_product(
+                        p.get("product_title") or "",
+                        p,
+                        must_brand=nrm(must_brand),
+                        req_models=req_models,
+                        vertical=vertical,
+                    ),
+                    reverse=True,
+                )
+            else:
+                candidates.sort(
+                    key=lambda p: score_product(
+                        p.get("product_title") or "",
+                        p,
+                        must_brand=nrm(must_brand),
+                        part_terms=part_terms,
+                        req_models=req_models,
+                    ),
+                    reverse=True,
+                )
 
             best = candidates[0]
             url = best.get("promotion_link") or best.get("product_detail_url")
@@ -1054,24 +1150,33 @@ def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional
             # Exigir al menos un término del vertical en el título
             if required_terms and not any(nrm(t) in tt for t in required_terms):
                 continue
+            if not is_complete_new_product(tt, vertical):
+                continue
             candidates.append(p)
         if not candidates:
             continue
         # Prioridad: comisión absoluta estimada (precio * %comisión), ventas como desempate
-        def commission_score(p: Dict[str, Any]) -> float:
-            try:
-                price = float(str(p.get("sale_price") or p.get("original_price") or 0))
-            except Exception:
-                price = 0.0
-            return price * get_commission_rate(p) + get_orders(p) * 0.001
-
-        candidates.sort(key=commission_score, reverse=True)
+        candidates.sort(
+            key=lambda p: score_new_product(
+                p.get("product_title") or "",
+                p,
+                must_brand="",
+                req_models=[],
+                vertical=vertical,
+            ),
+            reverse=True,
+        )
         best = candidates[0]
         url = best.get("promotion_link") or best.get("product_detail_url")
         if url:
             return {
                 "url": str(url).strip(),
                 "product_title": str(best.get("product_title") or "").strip(),
+                "image_url": str(best.get("product_main_image_url") or "").strip(),
+                "sale_price": str(best.get("sale_price") or "").strip(),
+                "sale_price_currency": str(best.get("sale_price_currency") or "").strip(),
+                "original_price": str(best.get("original_price") or "").strip(),
+                "discount": str(best.get("discount") or "").strip(),
             }
     return None
 
@@ -1106,6 +1211,15 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
             entry["buy_new_url"] = result["url"]
             entry["buy_new_label"] = VERTICAL_FALLBACK_LABELS.get(vertical, "Ver productos en AliExpress")
             entry["buy_new_product_title"] = result["product_title"]
+            if result.get("image_url"):
+                entry["buy_new_image_url"] = result["image_url"]
+            if result.get("sale_price"):
+                entry["buy_new_sale_price"] = result["sale_price"]
+                entry["buy_new_sale_price_currency"] = result.get("sale_price_currency", "EUR")
+            if result.get("original_price"):
+                entry["buy_new_original_price"] = result["original_price"]
+            if result.get("discount"):
+                entry["buy_new_discount"] = result["discount"]
             entry["updated_at"] = datetime.now().date().isoformat()
             vd[vertical] = entry
             changed = True
@@ -1263,6 +1377,8 @@ def main() -> None:
                     must_include=must_include,
                     must_not_include=must_not_combined,
                     model_tokens_override=model_tokens_override,
+                    vertical=str(ctx.get("vertical") or ""),
+                    category=category,
                     use_cache=use_cache,
                 )
                 if found:

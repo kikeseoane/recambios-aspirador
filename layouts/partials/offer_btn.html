@@ -42,6 +42,11 @@
 {{ $discount := (index $offer "discount") | default "" }}
 {{ $currency := (index $offer "sale_price_currency") | default "EUR" }}
 {{ $searchURL := "" }}
+{{ $modelNewSku := .modelNewSku | default "" }}
+{{ $newOffer := cond (and $modelNewSku (isset $offers $modelNewSku)) (index $offers $modelNewSku) (dict) }}
+{{ $newURL := (index $newOffer "url") | default "" }}
+{{ $newProductTitle := (index $newOffer "product_title") | default "" }}
+{{ $newLabel := cond $newProductTitle (printf "Ver %s nuevo" ($newProductTitle | truncate 42 "...")) "Ver producto nuevo recomendado" }}
 
 {{ if $searchQuery }}
   {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
@@ -97,7 +102,22 @@
   </div>
 
 {{ else if $sku }}
-  {{ if $searchURL }}
+  {{ if and $newURL (or $needs (eq $matchType "fallback_search")) }}
+    <div class="offer-action">
+      {{ if not $hideTrust }}
+        <div class="offer-trust">
+          <span class="offer-trust__icon" aria-hidden="true">↗</span>
+          <span class="offer-trust__text">No hay recambio claro: mejor ver el producto nuevo</span>
+        </div>
+      {{ end }}
+      <a class="{{ $class }}" href="{{ $newURL }}" rel="nofollow sponsored noopener" target="_blank">
+        {{ $newLabel }}
+      </a>
+      <div class="offer-action__note">
+        <small class="muted">Alternativa recomendada cuando no aparece un recambio fiable</small>
+      </div>
+    </div>
+  {{ else if $searchURL }}
     <div class="offer-action">
       {{ if not $hideTrust }}
         <div class="offer-trust">

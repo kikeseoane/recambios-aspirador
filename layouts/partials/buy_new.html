@@ -1,11 +1,13 @@
 {{/* partials/buy_new.html
-     Bloque "¿Mejor comprar nuevo?" con enlace de afiliado generado por sync_ofertas.
+     Bloque "Mejor comprar nuevo?" con enlace de afiliado generado por sync_ofertas.
      Parametros:
-       .model      — dict del modelo (de aspiradores.yaml / vertical.yaml compilado)
-       .modelName  — nombre legible del modelo (string)
-       .brandName  — nombre de la marca (string, opcional)
-       .brandKey   — key de la marca (para construir el SKU nuevo)
-       .modelSlug  — slug del modelo (para construir el SKU nuevo)
+       .model
+       .modelName
+       .brandName
+       .brandKey
+       .modelSlug
+       .verticalKey
+       .topBar
 */}}
 
 {{ $model := .model }}
@@ -21,19 +23,21 @@
   {{ with (index $comprarNuevo "note") }}{{ $note = . }}{{ end }}
 {{ end }}
 
-{{/* 1. Buscar URL específica del modelo en ofertas.yaml */}}
 {{ $nuevoSku := printf "%s-%s-nuevo" $brandKey $modelSlug }}
 {{ $offersDoc := site.Data.ofertas }}
 {{ $offers := cond (and $offersDoc $offersDoc.offers) $offersDoc.offers (dict) }}
 {{ $offer := cond (and $nuevoSku (isset $offers $nuevoSku)) (index $offers $nuevoSku) (dict) }}
 {{ $url := (index $offer "url") | default "" }}
+{{ $imageURL := (index $offer "image_url") | default "" }}
+{{ $salePrice := (index $offer "sale_price") | default "" }}
+{{ $originalPrice := (index $offer "original_price") | default "" }}
+{{ $discount := (index $offer "discount") | default "" }}
+{{ $currency := (index $offer "sale_price_currency") | default "EUR" }}
 
-{{/* Título real del producto si lo tenemos (evita mostrar modelo incorrecto en el botón) */}}
 {{ $productTitle := (index $offer "product_title") | default "" }}
-{{ $productTitleShort := cond $productTitle ($productTitle | truncate 45 "…") "" }}
+{{ $productTitleShort := cond $productTitle ($productTitle | truncate 45 "...") "" }}
 {{ $btnLabel := cond $productTitleShort (printf "Ver %s en AliExpress" $productTitleShort) (printf "Ver %s nuevo en AliExpress" $modelName) }}
 
-{{/* 2. Fallback: URL genérica del vertical si no hay URL de modelo */}}
 {{ $isFallback := false }}
 {{ if not $url }}
   {{ $vd := site.Data.vertical_defaults }}
@@ -45,7 +49,12 @@
         {{ $url = $fallbackUrl }}
         {{ $isFallback = true }}
         {{ $fallbackTitle := (index $vEntry "buy_new_product_title") | default "" }}
-        {{ $fallbackTitleShort := cond $fallbackTitle ($fallbackTitle | truncate 45 "…") "" }}
+        {{ $fallbackTitleShort := cond $fallbackTitle ($fallbackTitle | truncate 45 "...") "" }}
+        {{ $imageURL = (index $vEntry "buy_new_image_url") | default "" }}
+        {{ $salePrice = (index $vEntry "buy_new_sale_price") | default "" }}
+        {{ $originalPrice = (index $vEntry "buy_new_original_price") | default "" }}
+        {{ $discount = (index $vEntry "buy_new_discount") | default "" }}
+        {{ $currency = (index $vEntry "buy_new_sale_price_currency") | default "EUR" }}
         {{ $btnLabel = cond $fallbackTitleShort (printf "Ver %s en AliExpress" $fallbackTitleShort) ((index $vEntry "buy_new_label") | default "Ver modelos similares en AliExpress") }}
         {{ $note = "Si la reparacion no compensa, compara con modelos nuevos similares." }}
       {{ end }}
@@ -57,22 +66,36 @@
   {{ if $topBar }}
 <div class="buy-new-topbar">
   <div class="buy-new-topbar__text">
-    <span class="buy-new-topbar__label">¿Mejor comprar nuevo?</span>
+    <span class="buy-new-topbar__label">Mejor comprar nuevo?</span>
     <span class="muted small">{{ $note }}</span>
   </div>
   <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-    {{ $btnLabel }} ↗
+    {{ $btnLabel }} ->
   </a>
 </div>
   {{ else }}
 <div class="buy-new-block">
-  <div class="kicker">¿Merece la pena reparar?</div>
+  <div class="kicker">Merece la pena reparar?</div>
   <h3 class="title-compact">{{ if $isFallback }}Ver modelos similares nuevos{{ else }}Comprar {{ $modelName }} nuevo{{ end }}</h3>
   <p class="muted small">{{ $note }}</p>
   <div class="offer-action">
+    {{ if $imageURL }}
+      <div class="offer-image">
+        <img src="{{ $imageURL }}" alt="{{ $btnLabel }}" loading="lazy" width="120" height="120">
+      </div>
+    {{ end }}
+    {{ if $salePrice }}
+      <div class="offer-price">
+        <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
+        {{ if and $originalPrice (ne $originalPrice $salePrice) }}
+          <span class="offer-price__original">{{ $originalPrice }} {{ $currency }}</span>
+        {{ end }}
+        {{ if $discount }}<span class="offer-price__discount">-{{ $discount }}%</span>{{ end }}
+      </div>
+    {{ end }}
     <div class="offer-trust">
-      <span class="offer-trust__icon" aria-hidden="true">↗</span>
-      <span class="offer-trust__text">Enlace de afiliado — abre AliExpress</span>
+      <span class="offer-trust__icon" aria-hidden="true">-></span>
+      <span class="offer-trust__text">Enlace de afiliado - abre AliExpress</span>
     </div>
     <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
       {{ $btnLabel }}
