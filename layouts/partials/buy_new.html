@@ -34,9 +34,7 @@
 {{ $discount := (index $offer "discount") | default "" }}
 {{ $currency := (index $offer "sale_price_currency") | default "EUR" }}
 
-{{ $productTitle := (index $offer "product_title") | default "" }}
-{{ $productTitleShort := cond $productTitle ($productTitle | truncate 45 "...") "" }}
-{{ $btnLabel := cond $productTitleShort (printf "Ver %s en AliExpress" $productTitleShort) (printf "Ver %s nuevo en AliExpress" $modelName) }}
+{{ $btnLabel := printf "Ver %s nuevo en AliExpress" $modelName }}
 
 {{ $isFallback := false }}
 {{ if not $url }}
@@ -48,14 +46,12 @@
       {{ if $fallbackUrl }}
         {{ $url = $fallbackUrl }}
         {{ $isFallback = true }}
-        {{ $fallbackTitle := (index $vEntry "buy_new_product_title") | default "" }}
-        {{ $fallbackTitleShort := cond $fallbackTitle ($fallbackTitle | truncate 45 "...") "" }}
         {{ $imageURL = (index $vEntry "buy_new_image_url") | default "" }}
         {{ $salePrice = (index $vEntry "buy_new_sale_price") | default "" }}
         {{ $originalPrice = (index $vEntry "buy_new_original_price") | default "" }}
         {{ $discount = (index $vEntry "buy_new_discount") | default "" }}
         {{ $currency = (index $vEntry "buy_new_sale_price_currency") | default "EUR" }}
-        {{ $btnLabel = cond $fallbackTitleShort (printf "Ver %s en AliExpress" $fallbackTitleShort) ((index $vEntry "buy_new_label") | default "Ver modelos similares en AliExpress") }}
+        {{ $btnLabel = (index $vEntry "buy_new_label") | default "Ver producto nuevo en AliExpress" }}
         {{ $note = "Si la reparacion no compensa, compara con modelos nuevos similares." }}
       {{ end }}
     {{ end }}

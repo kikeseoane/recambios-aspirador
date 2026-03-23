@@ -45,8 +45,7 @@
 {{ $modelNewSku := .modelNewSku | default "" }}
 {{ $newOffer := cond (and $modelNewSku (isset $offers $modelNewSku)) (index $offers $modelNewSku) (dict) }}
 {{ $newURL := (index $newOffer "url") | default "" }}
-{{ $newProductTitle := (index $newOffer "product_title") | default "" }}
-{{ $newLabel := cond $newProductTitle (printf "Ver %s nuevo" ($newProductTitle | truncate 42 "...")) "Ver producto nuevo recomendado" }}
+{{ $newLabel := cond $modelName (printf "Ver %s nuevo" $modelName) "Ver producto nuevo recomendado" }}
 
 {{ if $searchQuery }}
   {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
