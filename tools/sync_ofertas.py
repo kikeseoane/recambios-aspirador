@@ -532,6 +532,16 @@ QUERY_NOISE_TERMS = {
     "part", "parts", "pieza", "piezas", "kit", "pack",
 }
 
+RELAXED_ANCHOR_STOPWORDS = {
+    "accessory", "accessories", "accesorio", "accesorios", "replacement", "compatible",
+    "spare", "part", "parts", "kit", "pack", "tool", "tools", "pieza", "piezas",
+    "for", "para", "con", "sin", "robot", "vacuum", "cleaner", "brush", "filter",
+    "battery", "charger", "adapter", "head", "roller", "dock", "mount", "wall",
+    "tank", "container", "seal", "gasket", "basket", "tray", "bag",
+}
+
+STRICT_RELAXED_CATEGORIES = {"accesorios", "soporte", "deposito", "cesta", "junta", "bolsa"}
+
 
 def looks_bad(title: str) -> bool:
     t = nrm(title)
@@ -782,6 +792,33 @@ def query_phrase(text: str, seen: set[str]) -> str:
     return " ".join(out)
 
 
+def extract_relaxed_anchor_terms(
+    ctx: Dict[str, Any],
+    must_include: List[str],
+    limit: int = 4,
+) -> List[str]:
+    parts = [
+        *must_include,
+        str(ctx.get("item_title") or ""),
+        str(ctx.get("query") or ""),
+    ]
+    out: List[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        for tok in query_tokens(clean_query_fragment(part)):
+            if tok in QUERY_NOISE_TERMS or tok in RELAXED_ANCHOR_STOPWORDS:
+                continue
+            if tok.isdigit() or len(tok) < 3:
+                continue
+            if tok in seen:
+                continue
+            seen.add(tok)
+            out.append(tok)
+            if len(out) >= limit:
+                return out
+    return out
+
+
 def compose_search_query(base_parts: List[str], extra_parts: List[str]) -> str:
     parts: List[str] = []
     seen: set[str] = set()
@@ -937,14 +974,21 @@ def pick_relaxed_link(
     category: str,
     part_terms: List[str],
     must_not_include: List[str],
+    anchor_terms: List[str],
     use_cache: bool,
-) -> Optional[str]:
+) -> Optional[Dict[str, str]]:
     """
     Búsqueda relajada sin filtro de modelo: solo marca + categoría.
     Aplica must_not_include para evitar contaminar con categorías cruzadas.
     """
     relaxed_terms = " ".join(cat_query_terms(category)[:2])
-    keyword = compact_spaces(f"{brand} {relaxed_terms} replacement")[:120]
+    category_key = nrm(category)
+    require_anchor = category_key in STRICT_RELAXED_CATEGORIES
+    if require_anchor and not anchor_terms:
+        return None
+
+    anchor_text = " ".join(anchor_terms[:2])
+    keyword = compact_spaces(f"{brand} {anchor_text} {relaxed_terms} replacement")[:120]
     if not keyword.strip():
         return None
 
@@ -971,13 +1015,19 @@ def pick_relaxed_link(
                     continue
                 if must_not_include and contains_any(tt, must_not_include):
                     continue
+                if anchor_terms and not any(anchor in tt for anchor in anchor_terms):
+                    continue
                 candidates.append(p)
 
             if not candidates:
                 continue
 
             candidates.sort(
-                key=lambda p: get_orders(p) * 0.015 + get_commission_rate(p) * 0.4,
+                key=lambda p: (
+                    sum(1 for anchor in anchor_terms if anchor in nrm(str(p.get("product_title") or ""))) * 4.0
+                    + get_orders(p) * 0.015
+                    + get_commission_rate(p) * 0.4
+                ),
                 reverse=True,
             )
             best = candidates[0]
@@ -1407,11 +1457,13 @@ def main() -> None:
                 filled_from_aliexpress += 1
             else:
                 # Fallback relajado: busca en API solo marca + categoría
+                anchor_terms = extract_relaxed_anchor_terms(ctx, must_include)
                 relaxed = pick_relaxed_link(
                     brand=brand,
                     category=category,
                     part_terms=part_terms,
                     must_not_include=must_not_combined,
+                    anchor_terms=anchor_terms,
                     use_cache=use_cache,
                 )
                 if relaxed:
