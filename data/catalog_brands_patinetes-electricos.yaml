@@ -1,0 +1,123 @@
+brands:
+  xiaomi-scoot:
+    name: "Xiaomi"
+    vertical: "patinetes-electricos"
+    notes_brand: "La familia M365 y sus derivadas es la más buscada para cámaras, neumáticos, frenos y piezas de plegado."
+    models:
+      - model: "Xiaomi M365"
+        slug: "xiaomi-m365"
+        year_range: "2017-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["m365", "xiaomi m365", "mi scooter"]
+        intro: "El Xiaomi M365 fue el patinete eléctrico urbano que disparó la demanda de recambios en España. Cámaras, cubiertas, frenos y gancho de plegado son las piezas más sustituidas."
+        comprar_nuevo:
+          query: "xiaomi m365 electric scooter"
+          label: "Ver Xiaomi M365 nuevo"
+      - model: "Xiaomi Mi Scooter 1S"
+        slug: "xiaomi-1s"
+        year_range: "2020-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["1s", "xiaomi 1s", "mi scooter 1s"]
+        intro: "El Xiaomi 1S es uno de los modelos más vendidos para trayectos urbanos cortos. Las ruedas de 8,5 pulgadas y el freno trasero concentran la mayor parte de averías."
+        comprar_nuevo:
+          query: "xiaomi 1s electric scooter"
+          label: "Ver Xiaomi 1S nuevo"
+      - model: "Xiaomi Mi Scooter Pro 2"
+        slug: "xiaomi-pro-2"
+        year_range: "2020-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["pro 2", "pro2", "xiaomi pro 2"]
+        intro: "El Xiaomi Pro 2 mejora autonomía frente al M365, pero sigue compartiendo una demanda muy alta de neumáticos, cámaras y recambios de frenada."
+        comprar_nuevo:
+          query: "xiaomi pro 2 electric scooter"
+          label: "Ver Xiaomi Pro 2 nuevo"
+      - model: "Xiaomi Electric Scooter 4"
+        slug: "xiaomi-scooter-4"
+        year_range: "2022-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["scooter 4", "xiaomi scooter 4", "electric scooter 4"]
+        intro: "La gama Xiaomi Scooter 4 popularizó las ruedas de 10 pulgadas dentro de la marca. Los recambios más buscados son neumáticos, frenos y cargador."
+        comprar_nuevo:
+          query: "xiaomi electric scooter 4"
+          label: "Ver Xiaomi Scooter 4 nuevo"
+
+  ninebot-scoot:
+    name: "Segway Ninebot"
+    vertical: "patinetes-electricos"
+    notes_brand: "Ninebot domina gama media y urbana. El Max G30 y la serie F concentran búsquedas de ruedas, frenos y cargadores."
+    models:
+      - model: "Segway Ninebot Max G30"
+        slug: "ninebot-max-g30"
+        year_range: "2019-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["g30", "max g30", "ninebot g30"]
+        intro: "El Ninebot Max G30 es uno de los patinetes eléctricos más robustos del mercado, con alta demanda de frenos, ruedas y cargadores compatibles."
+        comprar_nuevo:
+          query: "ninebot max g30 electric scooter"
+          label: "Ver Ninebot Max G30 nuevo"
+      - model: "Segway Ninebot F25E"
+        slug: "ninebot-f25e"
+        year_range: "2021-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["f25e", "ninebot f25e", "segway f25"]
+        intro: "El Ninebot F25E es una opción urbana de entrada muy extendida en Europa. Las piezas más buscadas son frenos, rueda trasera y sistema de plegado."
+        comprar_nuevo:
+          query: "ninebot f25e electric scooter"
+          label: "Ver Ninebot F25E nuevo"
+      - model: "Segway Ninebot E25E"
+        slug: "ninebot-e25e"
+        year_range: "2020-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["e25e", "ninebot e25e", "segway e25"]
+        intro: "El Ninebot E25E es muy habitual en ciudad y comparte una demanda alta de ruedas, freno y piezas de mantenimiento básico."
+        comprar_nuevo:
+          query: "ninebot e25e electric scooter"
+          label: "Ver Ninebot E25E nuevo"
+
+  cecotec-scoot:
+    name: "Cecotec"
+    vertical: "patinetes-electricos"
+    notes_brand: "La gama Bongo tiene mucha presencia en España y concentra búsquedas de cargador, batería y recambios de rueda."
+    models:
+      - model: "Cecotec Bongo Serie A"
+        slug: "cecotec-bongo-serie-a"
+        year_range: "2020-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["bongo serie a", "cecotec bongo a", "bongo a"]
+        intro: "El Bongo Serie A es uno de los patinetes más conocidos de Cecotec. Los recambios más habituales son cargador, neumático y componentes de freno."
+        comprar_nuevo:
+          query: "cecotec bongo serie a patinete electrico"
+          label: "Ver Cecotec Bongo Serie A nuevo"
+      - model: "Cecotec Bongo Serie Z"
+        slug: "cecotec-bongo-serie-z"
+        year_range: "2021-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["bongo serie z", "cecotec bongo z", "bongo z"]
+        intro: "El Bongo Serie Z busca más autonomía y uso urbano intensivo. La rueda trasera, el freno y el cargador concentran el mayor interés de recambio."
+        comprar_nuevo:
+          query: "cecotec bongo serie z patinete electrico"
+          label: "Ver Cecotec Bongo Serie Z nuevo"
+
+  smartgyro-scoot:
+    name: "Smartgyro"
+    vertical: "patinetes-electricos"
+    notes_brand: "Marca con bastante penetración en España. Speedway y Rockway generan búsquedas de baterías, ruedas y piezas de plegado."
+    models:
+      - model: "Smartgyro Speedway"
+        slug: "smartgyro-speedway"
+        year_range: "2020-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["smartgyro speedway", "speedway", "sg speedway"]
+        intro: "El Smartgyro Speedway es un modelo muy popular en España para trayectos urbanos diarios. Su mantenimiento suele centrarse en ruedas, frenos y batería."
+        comprar_nuevo:
+          query: "smartgyro speedway patinete electrico"
+          label: "Ver Smartgyro Speedway nuevo"
+      - model: "Smartgyro Rockway"
+        slug: "smartgyro-rockway"
+        year_range: "2021-2024"
+        sku_pack: "scooter10"
+        model_tokens: ["smartgyro rockway", "rockway", "sg rockway"]
+        intro: "El Smartgyro Rockway es un patinete eléctrico muy visible en España. Las búsquedas más frecuentes se centran en neumáticos, cámara, freno y piezas de plegado."
+        comprar_nuevo:
+          query: "smartgyro rockway patinete electrico"
+          label: "Ver Smartgyro Rockway nuevo"

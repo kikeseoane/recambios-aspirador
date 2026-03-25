@@ -68,6 +68,14 @@ globals:
       label: "Escobillas de carbón"
       icon: "brush"
       buy_intent: "compra"
+    - key: rueda
+      label: "Ruedas y neumáticos"
+      icon: "wheel"
+      buy_intent: "compra"
+    - key: freno
+      label: "Frenos y pastillas"
+      icon: "brake"
+      buy_intent: "compra"
 
   guias_genericas:
     seguridad:
@@ -1072,6 +1080,73 @@ sku_packs:
       must_include_tpl: ["{model_token}", "door", "handle", "latch"]
       must_not_include: ["seal", "pump", "belt", "bearing", "heater", "brush"]
 
+  # Patinete eléctrico: 2 bateria + 1 cargador + 3 rueda + 2 freno + 2 accesorios = 10
+  scooter10:
+    - catKey: bateria
+      sku_suffix: bat-std
+      intent: "compra"
+      title_tpl: "Batería compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery", "36v"]
+      must_not_include: ["charger", "tire", "tyre", "wheel", "brake", "pad", "disc", "fender"]
+    - catKey: bateria
+      sku_suffix: bat-high
+      intent: "compra"
+      title_tpl: "Batería alta capacidad compatible para {model}"
+      must_include_tpl: ["{model_token}", "battery", "high capacity"]
+      must_not_include: ["charger", "tire", "tyre", "wheel", "brake", "pad", "disc", "fender"]
+
+    - catKey: cargador
+      sku_suffix: charger-eu
+      intent: "compra"
+      title_tpl: "Cargador compatible EU para {model}"
+      must_include_tpl: ["{model_token}", "charger", "adapter"]
+      must_not_include: ["battery", "tire", "tyre", "wheel", "brake", "pad", "disc", "fender"]
+
+    - catKey: rueda
+      sku_suffix: wheel-front-outer
+      intent: "compra"
+      title_tpl: "Neumático delantero compatible para {model}"
+      must_include_tpl: ["{model_token}", "front", "tire"]
+      must_not_include: ["battery", "charger", "brake", "pad", "disc", "fender", "light"]
+    - catKey: rueda
+      sku_suffix: wheel-rear-outer
+      intent: "compra"
+      title_tpl: "Neumático trasero compatible para {model}"
+      must_include_tpl: ["{model_token}", "rear", "tire"]
+      must_not_include: ["battery", "charger", "brake", "pad", "disc", "fender", "light"]
+    - catKey: rueda
+      sku_suffix: wheel-inner-tube
+      intent: "compra"
+      title_tpl: "Cámara / tubo interior compatible para {model}"
+      must_include_tpl: ["{model_token}", "inner", "tube"]
+      must_not_include: ["battery", "charger", "brake", "pad", "disc", "fender", "light"]
+
+    - catKey: freno
+      sku_suffix: brake-pad-pack
+      intent: "compra"
+      title_tpl: "Pastillas de freno compatibles para {model}"
+      must_include_tpl: ["{model_token}", "brake", "pad"]
+      must_not_include: ["battery", "charger", "tire", "tyre", "wheel", "disc only", "fender"]
+    - catKey: freno
+      sku_suffix: brake-disc-rotor
+      intent: "compra"
+      title_tpl: "Disco de freno compatible para {model}"
+      must_include_tpl: ["{model_token}", "brake", "disc"]
+      must_not_include: ["battery", "charger", "tire", "tyre", "wheel", "pad only", "fender"]
+
+    - catKey: accesorios
+      sku_suffix: acc-fender-mudguard
+      intent: "compra"
+      title_tpl: "Guardabarros compatible para {model}"
+      must_include_tpl: ["{model_token}", "fender", "mudguard"]
+      must_not_include: ["battery", "charger", "tire", "tyre", "wheel", "brake", "disc"]
+    - catKey: accesorios
+      sku_suffix: acc-folding-hook
+      intent: "compra"
+      title_tpl: "Gancho / cierre plegado compatible para {model}"
+      must_include_tpl: ["{model_token}", "folding", "hook"]
+      must_not_include: ["battery", "charger", "tire", "tyre", "wheel", "brake", "disc", "fender"]
+
 # =========================================================
 # PROBLEM PACKS
 # REGLA: {model} y {model_token} se sustituyen en compilación
@@ -1496,6 +1571,79 @@ problem_packs:
         - Comprobar que el accesorio está bien centrado y en buen estado
       fix_hint: "Un disco o broca desgastados son la causa más frecuente de vibración. Cambiarlos es barato y rápido."
 
+  scooter_base:
+    - key: no-carga
+      title: "{model} no carga o dura poco la batería"
+      intent: info
+      cta_cat: bateria
+      symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+      causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+      checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      fix_hint: "En patinetes con más de 2-3 años, la batería es la causa más habitual de pérdida brusca de autonomía."
+
+    - key: pinchazo-rueda
+      title: "{model} ha pinchado o pierde presión"
+      intent: info
+      cta_cat: rueda
+      symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+      causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+      checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      fix_hint: "En muchos modelos conviene cambiar cámara y cubierta a la vez si el neumático ya está cuarteado."
+
+    - key: frena-mal
+      title: "{model} frena mal o hace ruido al frenar"
+      intent: info
+      cta_cat: freno
+      symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+      causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+      checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      fix_hint: "Un disco ligeramente doblado puede rozar siempre, pero si el problema es falta de frenada suele empezar por pastillas gastadas."
+
+    - key: holgura-plegado
+      title: "{model} tiene holgura en el plegado o hace clac"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+      causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+      checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      fix_hint: "La holgura de plegado suele empezar por piezas pequeñas y baratas. Conviene corregirla pronto para evitar fatiga estructural."
+
   toothbrush_base:
     - key: no-carga-cepillo
       title: "{model} no carga o batería dura poco"
@@ -1645,6 +1793,13 @@ compatibility_packs:
     - "En accesorios de corte (discos, hojas), verifica el diámetro y el tamaño del agujero central."
     - "Los portabrocas tienen rosca específica: comprueba el paso de rosca antes de comprar uno compatible."
 
+  scooter_base:
+    - "Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian entre 8,5 y 10 pulgadas dentro de la misma familia."
+    - "En baterías y cargadores, verifica voltaje nominal y tipo de conector antes de comprar."
+    - "En frenos, distingue entre disco, tambor y freno electrónico: las piezas no son intercambiables."
+    - "En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es tubeless o con cámara."
+    - "Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian mucho entre revisiones."
+
   toothbrush_base:
     - "Los cabezales Oral-B son casi universales entre modelos, salvo los de la serie IO que tienen conector diferente."
     - "Philips Sonicare tiene cabezales con distintos sistemas de clic: C1, C2, G3... no todos encajan en todos los modelos."
@@ -1712,6 +1867,16 @@ faq_packs:
       a: "Cuando notes que el corte requiere más presión, el resultado es rugoso o la broca se calienta rápido. Una broca gastada daña tanto el material como la herramienta."
     - q: "¿Puedo dejar la batería cargando toda la noche?"
       a: "Los cargadores modernos tienen corte automático al llegar al 100%, por lo que no debería haber problema. Aun así, evitar la carga prolongada permanente prolonga la vida de la batería."
+
+  scooter_base:
+    - q: "¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?"
+      a: "Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar ruedas distintas."
+    - q: "¿Puedo usar un cargador compatible en vez del original?"
+      a: "Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector. Un cargador incorrecto puede dañar la batería o no cargarla por completo."
+    - q: "¿Cuándo hay que cambiar las pastillas o el disco de freno?"
+      a: "Cuando notes menos frenada, chirridos continuos o veas las pastillas muy finas. Si el disco está doblado o tiene surcos profundos, también conviene sustituirlo."
+    - q: "¿Es normal que el patinete tenga algo de holgura en el mástil?"
+      a: "No debería tener juego perceptible. Una pequeña holgura en el plegado suele indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla cuanto antes."
 
   toothbrush_base:
     - q: "¿Con qué frecuencia debo cambiar el cabezal del cepillo eléctrico?"

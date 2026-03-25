@@ -54,6 +54,11 @@ SKU_PACK_DEFAULTS: Dict[str, Dict[str, str]] = {
         "problem_pack": "airfryer_base",
         "faq_pack": "airfryer_base",
     },
+    "scooter10": {
+        "compatibility_pack": "scooter_base",
+        "problem_pack": "scooter_base",
+        "faq_pack": "scooter_base",
+    },
     "poolrobot10": {
         "compatibility_pack": "robot_base",
         "problem_pack": "robot_base",
@@ -88,6 +93,8 @@ CATEGORY_QUERY_TERMS: Dict[str, List[str]] = {
     "junta": ["gasket", "seal"],
     "deposito": ["tank", "container"],
     "cesta": ["basket", "tray"],
+    "rueda": ["tire", "wheel"],
+    "freno": ["brake", "pad"],
 }
 
 QUERY_TOKEN_RE = re.compile(r"[a-z0-9]+(?:[.+/-][a-z0-9]+)*", re.IGNORECASE)

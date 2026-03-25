@@ -1,0 +1,3409 @@
+globals:
+  categorias_recambios:
+  - key: bateria
+    label: Batería
+    icon: battery
+    buy_intent: compra
+  - key: filtro
+    label: Filtros
+    icon: filter
+    buy_intent: compra
+  - key: cepillo
+    label: Cepillos y rodillos
+    icon: brush
+    buy_intent: compra
+  - key: cargador
+    label: Cargadores y fuentes
+    icon: plug
+    buy_intent: compra
+  - key: soporte
+    label: Soportes y bases
+    icon: mount
+    buy_intent: compra
+  - key: accesorios
+    label: Accesorios
+    icon: tools
+    buy_intent: compra
+  - key: laminas
+    label: Láminas y cabezales
+    icon: blade
+    buy_intent: compra
+  - key: cabezal
+    label: Cabezales de recambio
+    icon: head
+    buy_intent: compra
+  - key: junta
+    label: Juntas y sellos
+    icon: seal
+    buy_intent: compra
+  - key: deposito
+    label: Depósitos y tanques
+    icon: tank
+    buy_intent: compra
+  - key: cesta
+    label: Cestas y bandejas
+    icon: basket
+    buy_intent: compra
+  - key: bolsa
+    label: Bolsas de aspiradora
+    icon: bag
+    buy_intent: compra
+  - key: correa
+    label: Correas y transmisión
+    icon: belt
+    buy_intent: compra
+  - key: bomba
+    label: Bombas y desagüe
+    icon: pump
+    buy_intent: compra
+  - key: resistencia
+    label: Resistencias y calefacción
+    icon: heat
+    buy_intent: compra
+  - key: rodamiento
+    label: Rodamientos y cojinetes
+    icon: bearing
+    buy_intent: compra
+  - key: escobillas
+    label: Escobillas de carbón
+    icon: brush
+    buy_intent: compra
+  - key: rueda
+    label: Ruedas y neumáticos
+    icon: wheel
+    buy_intent: compra
+  - key: freno
+    label: Frenos y pastillas
+    icon: brake
+    buy_intent: compra
+  guias_genericas:
+    seguridad:
+    - Desconecta el aspirador antes de manipular filtros, rodillos o batería.
+    - 'No laves filtros no lavables: revisa el tipo (HEPA lavable vs. cartucho seco).'
+    - 'Evita baterías no compatibles con el modelo/serie: riesgo de sobrecalentamiento
+      y fallos de carga.'
+    - 'Si hay olor a quemado, chispas o cortes repetidos: detén el uso y revisa obstrucciones
+      y cableado.'
+    mantenimiento:
+    - 'Limpia el depósito y conductos: la obstrucción es la causa nº1 de pérdida de
+      succión.'
+    - 'Lava y seca filtros lavables (24h): la humedad genera malos olores y reduce
+      el caudal.'
+    - Retira pelo/hilos del rodillo cada 1-2 semanas si hay mascotas o alfombras.
+    - 'Revisa juntas y sellos: una fuga de aire baja el rendimiento incluso con motor
+      correcto.'
+    compra:
+    - Prioriza recambios con encaje y conectores equivalentes (voltaje nominal y tipo
+      de anclaje).
+    - 'En filtros, elige el grado adecuado: HEPA para alergias; estándar para uso
+      general.'
+    - 'En rodillos, elige según suelo: soft roller para duro; multisuperficie para
+      mixto.'
+    - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
+      para abaratar mantenimiento.
+brands:
+  xiaomi-scoot:
+    name: Xiaomi
+    notes_brand: La familia M365 y sus derivadas es la más buscada para cámaras, neumáticos,
+      frenos y piezas de plegado.
+    models:
+    - model: Xiaomi M365
+      slug: xiaomi-m365
+      year_range: 2017-2024
+      sku_pack: scooter10
+      model_tokens:
+      - m365
+      - xiaomi m365
+      - mi scooter
+      intro: El Xiaomi M365 fue el patinete eléctrico urbano que disparó la demanda
+        de recambios en España. Cámaras, cubiertas, frenos y gancho de plegado son
+        las piezas más sustituidas.
+      comprar_nuevo:
+        query: xiaomi m365 electric scooter
+        label: Ver Xiaomi M365 nuevo
+      recambios:
+        bateria:
+        - sku: xiaomi-scoot-xiaomi-m365-bateria-bat-std
+          title: Batería compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 battery 36v bater a
+          must_include:
+          - m365
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id001
+          - m365
+          - xiaomi m365
+          - mi scooter
+        - sku: xiaomi-scoot-xiaomi-m365-bateria-bat-high
+          title: Batería alta capacidad compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 battery high capacity bater a alta capacidad
+          must_include:
+          - m365
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id001
+        cargador:
+        - sku: xiaomi-scoot-xiaomi-m365-cargador-charger-eu
+          title: Cargador compatible EU para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 charger adapter cargador eu
+          must_include:
+          - m365
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id001
+        rueda:
+        - sku: xiaomi-scoot-xiaomi-m365-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 front tire wheel neum tico delantero
+          must_include:
+          - m365
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id001
+        - sku: xiaomi-scoot-xiaomi-m365-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 rear tire wheel neum tico trasero
+          must_include:
+          - m365
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id001
+        - sku: xiaomi-scoot-xiaomi-m365-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 inner tube tire wheel c mara tubo interior
+          must_include:
+          - m365
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id001
+        freno:
+        - sku: xiaomi-scoot-xiaomi-m365-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 brake pad pastillas de freno
+          must_include:
+          - m365
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id001
+        - sku: xiaomi-scoot-xiaomi-m365-freno-brake-disc-rotor
+          title: Disco de freno compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 brake disc pad disco de freno
+          must_include:
+          - m365
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id001
+        accesorios:
+        - sku: xiaomi-scoot-xiaomi-m365-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 fender mudguard accessory kit guardabarros
+          must_include:
+          - m365
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id001
+        - sku: xiaomi-scoot-xiaomi-m365-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Xiaomi M365
+          intent: compra
+          query: Xiaomi Xiaomi M365 folding hook accessory kit gancho cierre plegado
+          must_include:
+          - m365
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id001
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Xiaomi M365 no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Xiaomi M365 ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Xiaomi M365 frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Xiaomi M365 tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+    - model: Xiaomi Mi Scooter 1S
+      slug: xiaomi-1s
+      year_range: 2020-2024
+      sku_pack: scooter10
+      model_tokens:
+      - 1s
+      - xiaomi 1s
+      - mi scooter 1s
+      intro: El Xiaomi 1S es uno de los modelos más vendidos para trayectos urbanos
+        cortos. Las ruedas de 8,5 pulgadas y el freno trasero concentran la mayor
+        parte de averías.
+      comprar_nuevo:
+        query: xiaomi 1s electric scooter
+        label: Ver Xiaomi 1S nuevo
+      recambios:
+        bateria:
+        - sku: xiaomi-scoot-xiaomi-1s-bateria-bat-std
+          title: Batería compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S battery 36v bater a
+          must_include:
+          - 1s
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id002
+          - 1s
+          - xiaomi 1s
+          - mi scooter 1s
+        - sku: xiaomi-scoot-xiaomi-1s-bateria-bat-high
+          title: Batería alta capacidad compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S battery high capacity bater a alta capacidad
+          must_include:
+          - 1s
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id002
+        cargador:
+        - sku: xiaomi-scoot-xiaomi-1s-cargador-charger-eu
+          title: Cargador compatible EU para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S charger adapter cargador eu
+          must_include:
+          - 1s
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id002
+        rueda:
+        - sku: xiaomi-scoot-xiaomi-1s-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S front tire wheel neum tico delantero
+          must_include:
+          - 1s
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id002
+        - sku: xiaomi-scoot-xiaomi-1s-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S rear tire wheel neum tico trasero
+          must_include:
+          - 1s
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id002
+        - sku: xiaomi-scoot-xiaomi-1s-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S inner tube tire wheel c mara tubo interior
+          must_include:
+          - 1s
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id002
+        freno:
+        - sku: xiaomi-scoot-xiaomi-1s-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S brake pad pastillas de freno
+          must_include:
+          - 1s
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id002
+        - sku: xiaomi-scoot-xiaomi-1s-freno-brake-disc-rotor
+          title: Disco de freno compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S brake disc pad disco de freno
+          must_include:
+          - 1s
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id002
+        accesorios:
+        - sku: xiaomi-scoot-xiaomi-1s-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S fender mudguard accessory kit guardabarros
+          must_include:
+          - 1s
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id002
+        - sku: xiaomi-scoot-xiaomi-1s-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Xiaomi Mi Scooter 1S
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter 1S folding hook accessory kit gancho cierre
+            plegado
+          must_include:
+          - 1s
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id002
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Xiaomi Mi Scooter 1S no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Xiaomi Mi Scooter 1S ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Xiaomi Mi Scooter 1S frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Xiaomi Mi Scooter 1S tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+    - model: Xiaomi Mi Scooter Pro 2
+      slug: xiaomi-pro-2
+      year_range: 2020-2024
+      sku_pack: scooter10
+      model_tokens:
+      - pro 2
+      - pro2
+      - xiaomi pro 2
+      intro: El Xiaomi Pro 2 mejora autonomía frente al M365, pero sigue compartiendo
+        una demanda muy alta de neumáticos, cámaras y recambios de frenada.
+      comprar_nuevo:
+        query: xiaomi pro 2 electric scooter
+        label: Ver Xiaomi Pro 2 nuevo
+      recambios:
+        bateria:
+        - sku: xiaomi-scoot-xiaomi-pro-2-bateria-bat-std
+          title: Batería compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 battery 36v bater a
+          must_include:
+          - pro2
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id003
+          - pro 2
+          - pro2
+          - xiaomi pro 2
+        - sku: xiaomi-scoot-xiaomi-pro-2-bateria-bat-high
+          title: Batería alta capacidad compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 battery high capacity bater a
+            alta capacidad
+          must_include:
+          - pro2
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id003
+        cargador:
+        - sku: xiaomi-scoot-xiaomi-pro-2-cargador-charger-eu
+          title: Cargador compatible EU para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 charger adapter cargador eu
+          must_include:
+          - pro2
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id003
+        rueda:
+        - sku: xiaomi-scoot-xiaomi-pro-2-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 front tire wheel neum tico delantero
+          must_include:
+          - pro2
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id003
+        - sku: xiaomi-scoot-xiaomi-pro-2-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 rear tire wheel neum tico trasero
+          must_include:
+          - pro2
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id003
+        - sku: xiaomi-scoot-xiaomi-pro-2-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 inner tube tire wheel c mara
+            tubo interior
+          must_include:
+          - pro2
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id003
+        freno:
+        - sku: xiaomi-scoot-xiaomi-pro-2-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 brake pad pastillas de freno
+          must_include:
+          - pro2
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id003
+        - sku: xiaomi-scoot-xiaomi-pro-2-freno-brake-disc-rotor
+          title: Disco de freno compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 brake disc pad disco de freno
+          must_include:
+          - pro2
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id003
+        accesorios:
+        - sku: xiaomi-scoot-xiaomi-pro-2-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 fender mudguard accessory kit
+            guardabarros
+          must_include:
+          - pro2
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id003
+        - sku: xiaomi-scoot-xiaomi-pro-2-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Xiaomi Mi Scooter Pro 2
+          intent: compra
+          query: Xiaomi Xiaomi Mi Scooter Pro 2 pro2 folding hook accessory kit gancho
+            cierre plegado
+          must_include:
+          - pro2
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id003
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Xiaomi Mi Scooter Pro 2 no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Xiaomi Mi Scooter Pro 2 ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Xiaomi Mi Scooter Pro 2 frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Xiaomi Mi Scooter Pro 2 tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+    - model: Xiaomi Electric Scooter 4
+      slug: xiaomi-scooter-4
+      year_range: 2022-2024
+      sku_pack: scooter10
+      model_tokens:
+      - scooter 4
+      - xiaomi scooter 4
+      - electric scooter 4
+      intro: La gama Xiaomi Scooter 4 popularizó las ruedas de 10 pulgadas dentro
+        de la marca. Los recambios más buscados son neumáticos, frenos y cargador.
+      comprar_nuevo:
+        query: xiaomi electric scooter 4
+        label: Ver Xiaomi Scooter 4 nuevo
+      recambios:
+        bateria:
+        - sku: xiaomi-scoot-xiaomi-scooter-4-bateria-bat-std
+          title: Batería compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 battery 36v bater a
+          must_include:
+          - xiaomi
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id004
+          - scooter 4
+          - xiaomi scooter 4
+          - electric scooter 4
+        - sku: xiaomi-scoot-xiaomi-scooter-4-bateria-bat-high
+          title: Batería alta capacidad compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 battery high capacity bater a alta
+            capacidad
+          must_include:
+          - xiaomi
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id004
+        cargador:
+        - sku: xiaomi-scoot-xiaomi-scooter-4-cargador-charger-eu
+          title: Cargador compatible EU para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 charger adapter cargador eu
+          must_include:
+          - xiaomi
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id004
+        rueda:
+        - sku: xiaomi-scoot-xiaomi-scooter-4-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 front tire wheel neum tico delantero
+          must_include:
+          - xiaomi
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id004
+        - sku: xiaomi-scoot-xiaomi-scooter-4-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 rear tire wheel neum tico trasero
+          must_include:
+          - xiaomi
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id004
+        - sku: xiaomi-scoot-xiaomi-scooter-4-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 inner tube tire wheel c mara tubo
+            interior
+          must_include:
+          - xiaomi
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id004
+        freno:
+        - sku: xiaomi-scoot-xiaomi-scooter-4-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 brake pad pastillas de freno
+          must_include:
+          - xiaomi
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id004
+        - sku: xiaomi-scoot-xiaomi-scooter-4-freno-brake-disc-rotor
+          title: Disco de freno compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 brake disc pad disco de freno
+          must_include:
+          - xiaomi
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id004
+        accesorios:
+        - sku: xiaomi-scoot-xiaomi-scooter-4-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 fender mudguard accessory kit guardabarros
+          must_include:
+          - xiaomi
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id004
+        - sku: xiaomi-scoot-xiaomi-scooter-4-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Xiaomi Electric Scooter 4
+          intent: compra
+          query: Xiaomi Xiaomi Electric Scooter 4 folding hook accessory kit gancho
+            cierre plegado
+          must_include:
+          - xiaomi
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id004
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Xiaomi Electric Scooter 4 no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Xiaomi Electric Scooter 4 ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Xiaomi Electric Scooter 4 frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Xiaomi Electric Scooter 4 tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+  ninebot-scoot:
+    name: Segway Ninebot
+    notes_brand: Ninebot domina gama media y urbana. El Max G30 y la serie F concentran
+      búsquedas de ruedas, frenos y cargadores.
+    models:
+    - model: Segway Ninebot Max G30
+      slug: ninebot-max-g30
+      year_range: 2019-2024
+      sku_pack: scooter10
+      model_tokens:
+      - g30
+      - max g30
+      - ninebot g30
+      intro: El Ninebot Max G30 es uno de los patinetes eléctricos más robustos del
+        mercado, con alta demanda de frenos, ruedas y cargadores compatibles.
+      comprar_nuevo:
+        query: ninebot max g30 electric scooter
+        label: Ver Ninebot Max G30 nuevo
+      recambios:
+        bateria:
+        - sku: ninebot-scoot-ninebot-max-g30-bateria-bat-std
+          title: Batería compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 battery 36v bater a
+          must_include:
+          - g30
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id005
+          - g30
+          - max g30
+          - ninebot g30
+        - sku: ninebot-scoot-ninebot-max-g30-bateria-bat-high
+          title: Batería alta capacidad compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 battery high capacity bater
+            a alta capacidad
+          must_include:
+          - g30
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id005
+        cargador:
+        - sku: ninebot-scoot-ninebot-max-g30-cargador-charger-eu
+          title: Cargador compatible EU para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 charger adapter cargador eu
+          must_include:
+          - g30
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id005
+        rueda:
+        - sku: ninebot-scoot-ninebot-max-g30-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 front tire wheel neum tico
+            delantero
+          must_include:
+          - g30
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id005
+        - sku: ninebot-scoot-ninebot-max-g30-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 rear tire wheel neum tico trasero
+          must_include:
+          - g30
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id005
+        - sku: ninebot-scoot-ninebot-max-g30-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 inner tube tire wheel c mara
+            tubo interior
+          must_include:
+          - g30
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id005
+        freno:
+        - sku: ninebot-scoot-ninebot-max-g30-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 brake pad pastillas de freno
+          must_include:
+          - g30
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id005
+        - sku: ninebot-scoot-ninebot-max-g30-freno-brake-disc-rotor
+          title: Disco de freno compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 brake disc pad disco de freno
+          must_include:
+          - g30
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id005
+        accesorios:
+        - sku: ninebot-scoot-ninebot-max-g30-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 fender mudguard accessory kit
+            guardabarros
+          must_include:
+          - g30
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id005
+        - sku: ninebot-scoot-ninebot-max-g30-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Segway Ninebot Max G30
+          intent: compra
+          query: Segway Ninebot Segway Ninebot Max G30 folding hook accessory kit
+            gancho cierre plegado
+          must_include:
+          - g30
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id005
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Segway Ninebot Max G30 no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Segway Ninebot Max G30 ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Segway Ninebot Max G30 frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Segway Ninebot Max G30 tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+    - model: Segway Ninebot F25E
+      slug: ninebot-f25e
+      year_range: 2021-2024
+      sku_pack: scooter10
+      model_tokens:
+      - f25e
+      - ninebot f25e
+      - segway f25
+      intro: El Ninebot F25E es una opción urbana de entrada muy extendida en Europa.
+        Las piezas más buscadas son frenos, rueda trasera y sistema de plegado.
+      comprar_nuevo:
+        query: ninebot f25e electric scooter
+        label: Ver Ninebot F25E nuevo
+      recambios:
+        bateria:
+        - sku: ninebot-scoot-ninebot-f25e-bateria-bat-std
+          title: Batería compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E battery 36v bater a
+          must_include:
+          - f25e
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id006
+          - f25e
+          - ninebot f25e
+          - segway f25
+        - sku: ninebot-scoot-ninebot-f25e-bateria-bat-high
+          title: Batería alta capacidad compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E battery high capacity bater a
+            alta capacidad
+          must_include:
+          - f25e
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id006
+        cargador:
+        - sku: ninebot-scoot-ninebot-f25e-cargador-charger-eu
+          title: Cargador compatible EU para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E charger adapter cargador eu
+          must_include:
+          - f25e
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id006
+        rueda:
+        - sku: ninebot-scoot-ninebot-f25e-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E front tire wheel neum tico delantero
+          must_include:
+          - f25e
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id006
+        - sku: ninebot-scoot-ninebot-f25e-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E rear tire wheel neum tico trasero
+          must_include:
+          - f25e
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id006
+        - sku: ninebot-scoot-ninebot-f25e-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E inner tube tire wheel c mara tubo
+            interior
+          must_include:
+          - f25e
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id006
+        freno:
+        - sku: ninebot-scoot-ninebot-f25e-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E brake pad pastillas de freno
+          must_include:
+          - f25e
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id006
+        - sku: ninebot-scoot-ninebot-f25e-freno-brake-disc-rotor
+          title: Disco de freno compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E brake disc pad disco de freno
+          must_include:
+          - f25e
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id006
+        accesorios:
+        - sku: ninebot-scoot-ninebot-f25e-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E fender mudguard accessory kit
+            guardabarros
+          must_include:
+          - f25e
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id006
+        - sku: ninebot-scoot-ninebot-f25e-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Segway Ninebot F25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot F25E folding hook accessory kit gancho
+            cierre plegado
+          must_include:
+          - f25e
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id006
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Segway Ninebot F25E no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Segway Ninebot F25E ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Segway Ninebot F25E frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Segway Ninebot F25E tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+    - model: Segway Ninebot E25E
+      slug: ninebot-e25e
+      year_range: 2020-2024
+      sku_pack: scooter10
+      model_tokens:
+      - e25e
+      - ninebot e25e
+      - segway e25
+      intro: El Ninebot E25E es muy habitual en ciudad y comparte una demanda alta
+        de ruedas, freno y piezas de mantenimiento básico.
+      comprar_nuevo:
+        query: ninebot e25e electric scooter
+        label: Ver Ninebot E25E nuevo
+      recambios:
+        bateria:
+        - sku: ninebot-scoot-ninebot-e25e-bateria-bat-std
+          title: Batería compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E battery 36v bater a
+          must_include:
+          - e25e
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id007
+          - e25e
+          - ninebot e25e
+          - segway e25
+        - sku: ninebot-scoot-ninebot-e25e-bateria-bat-high
+          title: Batería alta capacidad compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E battery high capacity bater a
+            alta capacidad
+          must_include:
+          - e25e
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id007
+        cargador:
+        - sku: ninebot-scoot-ninebot-e25e-cargador-charger-eu
+          title: Cargador compatible EU para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E charger adapter cargador eu
+          must_include:
+          - e25e
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id007
+        rueda:
+        - sku: ninebot-scoot-ninebot-e25e-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E front tire wheel neum tico delantero
+          must_include:
+          - e25e
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id007
+        - sku: ninebot-scoot-ninebot-e25e-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E rear tire wheel neum tico trasero
+          must_include:
+          - e25e
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id007
+        - sku: ninebot-scoot-ninebot-e25e-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E inner tube tire wheel c mara tubo
+            interior
+          must_include:
+          - e25e
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id007
+        freno:
+        - sku: ninebot-scoot-ninebot-e25e-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E brake pad pastillas de freno
+          must_include:
+          - e25e
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id007
+        - sku: ninebot-scoot-ninebot-e25e-freno-brake-disc-rotor
+          title: Disco de freno compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E brake disc pad disco de freno
+          must_include:
+          - e25e
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id007
+        accesorios:
+        - sku: ninebot-scoot-ninebot-e25e-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E fender mudguard accessory kit
+            guardabarros
+          must_include:
+          - e25e
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id007
+        - sku: ninebot-scoot-ninebot-e25e-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Segway Ninebot E25E
+          intent: compra
+          query: Segway Ninebot Segway Ninebot E25E folding hook accessory kit gancho
+            cierre plegado
+          must_include:
+          - e25e
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id007
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Segway Ninebot E25E no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Segway Ninebot E25E ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Segway Ninebot E25E frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Segway Ninebot E25E tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+  cecotec-scoot:
+    name: Cecotec
+    notes_brand: La gama Bongo tiene mucha presencia en España y concentra búsquedas
+      de cargador, batería y recambios de rueda.
+    models:
+    - model: Cecotec Bongo Serie A
+      slug: cecotec-bongo-serie-a
+      year_range: 2020-2024
+      sku_pack: scooter10
+      model_tokens:
+      - bongo serie a
+      - cecotec bongo a
+      - bongo a
+      intro: El Bongo Serie A es uno de los patinetes más conocidos de Cecotec. Los
+        recambios más habituales son cargador, neumático y componentes de freno.
+      comprar_nuevo:
+        query: cecotec bongo serie a patinete electrico
+        label: Ver Cecotec Bongo Serie A nuevo
+      recambios:
+        bateria:
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-bateria-bat-std
+          title: Batería compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A battery 36v bater
+          must_include:
+          - cecotec
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id008
+          - bongo serie a
+          - cecotec bongo a
+          - bongo a
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-bateria-bat-high
+          title: Batería alta capacidad compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A battery high capacity bater alta capacidad
+          must_include:
+          - cecotec
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id008
+        cargador:
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-cargador-charger-eu
+          title: Cargador compatible EU para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A charger adapter cargador eu
+          must_include:
+          - cecotec
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id008
+        rueda:
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A front tire wheel neum tico delantero
+          must_include:
+          - cecotec
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id008
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A rear tire wheel neum tico trasero
+          must_include:
+          - cecotec
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id008
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A inner tube tire wheel c mara tubo interior
+          must_include:
+          - cecotec
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id008
+        freno:
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A brake pad pastillas de freno
+          must_include:
+          - cecotec
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id008
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-freno-brake-disc-rotor
+          title: Disco de freno compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A brake disc pad disco de freno
+          must_include:
+          - cecotec
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id008
+        accesorios:
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A fender mudguard accessory kit guardabarros
+          must_include:
+          - cecotec
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id008
+        - sku: cecotec-scoot-cecotec-bongo-serie-a-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Cecotec Bongo Serie A
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie A folding hook accessory kit gancho cierre
+            plegado
+          must_include:
+          - cecotec
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id008
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Cecotec Bongo Serie A no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Cecotec Bongo Serie A ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Cecotec Bongo Serie A frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Cecotec Bongo Serie A tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+    - model: Cecotec Bongo Serie Z
+      slug: cecotec-bongo-serie-z
+      year_range: 2021-2024
+      sku_pack: scooter10
+      model_tokens:
+      - bongo serie z
+      - cecotec bongo z
+      - bongo z
+      intro: El Bongo Serie Z busca más autonomía y uso urbano intensivo. La rueda
+        trasera, el freno y el cargador concentran el mayor interés de recambio.
+      comprar_nuevo:
+        query: cecotec bongo serie z patinete electrico
+        label: Ver Cecotec Bongo Serie Z nuevo
+      recambios:
+        bateria:
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-bateria-bat-std
+          title: Batería compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z battery 36v bater a
+          must_include:
+          - cecotec
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id009
+          - bongo serie z
+          - cecotec bongo z
+          - bongo z
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-bateria-bat-high
+          title: Batería alta capacidad compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z battery high capacity bater a alta
+            capacidad
+          must_include:
+          - cecotec
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id009
+        cargador:
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-cargador-charger-eu
+          title: Cargador compatible EU para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z charger adapter cargador eu
+          must_include:
+          - cecotec
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id009
+        rueda:
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z front tire wheel neum tico delantero
+          must_include:
+          - cecotec
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id009
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z rear tire wheel neum tico trasero
+          must_include:
+          - cecotec
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id009
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z inner tube tire wheel c mara tubo interior
+          must_include:
+          - cecotec
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id009
+        freno:
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z brake pad pastillas de freno
+          must_include:
+          - cecotec
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id009
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-freno-brake-disc-rotor
+          title: Disco de freno compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z brake disc pad disco de freno
+          must_include:
+          - cecotec
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id009
+        accesorios:
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z fender mudguard accessory kit guardabarros
+          must_include:
+          - cecotec
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id009
+        - sku: cecotec-scoot-cecotec-bongo-serie-z-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Cecotec Bongo Serie Z
+          intent: compra
+          query: Cecotec Cecotec Bongo Serie Z folding hook accessory kit gancho cierre
+            plegado
+          must_include:
+          - cecotec
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id009
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Cecotec Bongo Serie Z no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Cecotec Bongo Serie Z ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Cecotec Bongo Serie Z frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Cecotec Bongo Serie Z tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+  smartgyro-scoot:
+    name: Smartgyro
+    notes_brand: Marca con bastante penetración en España. Speedway y Rockway generan
+      búsquedas de baterías, ruedas y piezas de plegado.
+    models:
+    - model: Smartgyro Speedway
+      slug: smartgyro-speedway
+      year_range: 2020-2024
+      sku_pack: scooter10
+      model_tokens:
+      - smartgyro speedway
+      - speedway
+      - sg speedway
+      intro: El Smartgyro Speedway es un modelo muy popular en España para trayectos
+        urbanos diarios. Su mantenimiento suele centrarse en ruedas, frenos y batería.
+      comprar_nuevo:
+        query: smartgyro speedway patinete electrico
+        label: Ver Smartgyro Speedway nuevo
+      recambios:
+        bateria:
+        - sku: smartgyro-scoot-smartgyro-speedway-bateria-bat-std
+          title: Batería compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway battery 36v bater a
+          must_include:
+          - smartgyro
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id010
+          - smartgyro speedway
+          - speedway
+          - sg speedway
+        - sku: smartgyro-scoot-smartgyro-speedway-bateria-bat-high
+          title: Batería alta capacidad compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway battery high capacity bater a alta capacidad
+          must_include:
+          - smartgyro
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id010
+        cargador:
+        - sku: smartgyro-scoot-smartgyro-speedway-cargador-charger-eu
+          title: Cargador compatible EU para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway charger adapter cargador eu
+          must_include:
+          - smartgyro
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id010
+        rueda:
+        - sku: smartgyro-scoot-smartgyro-speedway-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway front tire wheel neum tico delantero
+          must_include:
+          - smartgyro
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id010
+        - sku: smartgyro-scoot-smartgyro-speedway-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway rear tire wheel neum tico trasero
+          must_include:
+          - smartgyro
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id010
+        - sku: smartgyro-scoot-smartgyro-speedway-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway inner tube tire wheel c mara tubo interior
+          must_include:
+          - smartgyro
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id010
+        freno:
+        - sku: smartgyro-scoot-smartgyro-speedway-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway brake pad pastillas de freno
+          must_include:
+          - smartgyro
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id010
+        - sku: smartgyro-scoot-smartgyro-speedway-freno-brake-disc-rotor
+          title: Disco de freno compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway brake disc pad disco de freno
+          must_include:
+          - smartgyro
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id010
+        accesorios:
+        - sku: smartgyro-scoot-smartgyro-speedway-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway fender mudguard accessory kit guardabarros
+          must_include:
+          - smartgyro
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id010
+        - sku: smartgyro-scoot-smartgyro-speedway-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Smartgyro Speedway
+          intent: compra
+          query: Smartgyro Smartgyro Speedway folding hook accessory kit gancho cierre
+            plegado
+          must_include:
+          - smartgyro
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id010
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Smartgyro Speedway no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Smartgyro Speedway ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Smartgyro Speedway frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Smartgyro Speedway tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.
+    - model: Smartgyro Rockway
+      slug: smartgyro-rockway
+      year_range: 2021-2024
+      sku_pack: scooter10
+      model_tokens:
+      - smartgyro rockway
+      - rockway
+      - sg rockway
+      intro: El Smartgyro Rockway es un patinete eléctrico muy visible en España.
+        Las búsquedas más frecuentes se centran en neumáticos, cámara, freno y piezas
+        de plegado.
+      comprar_nuevo:
+        query: smartgyro rockway patinete electrico
+        label: Ver Smartgyro Rockway nuevo
+      recambios:
+        bateria:
+        - sku: smartgyro-scoot-smartgyro-rockway-bateria-bat-std
+          title: Batería compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway battery 36v bater a
+          must_include:
+          - smartgyro
+          - battery
+          - 36v
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: &id011
+          - smartgyro rockway
+          - rockway
+          - sg rockway
+        - sku: smartgyro-scoot-smartgyro-rockway-bateria-bat-high
+          title: Batería alta capacidad compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway battery high capacity bater a alta capacidad
+          must_include:
+          - smartgyro
+          - battery
+          - high capacity
+          must_not_include:
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id011
+        cargador:
+        - sku: smartgyro-scoot-smartgyro-rockway-cargador-charger-eu
+          title: Cargador compatible EU para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway charger adapter cargador eu
+          must_include:
+          - smartgyro
+          - charger
+          - adapter
+          must_not_include:
+          - battery
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - pad
+          - disc
+          - fender
+          model_tokens: *id011
+        rueda:
+        - sku: smartgyro-scoot-smartgyro-rockway-rueda-wheel-front-outer
+          title: Neumático delantero compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway front tire wheel neum tico delantero
+          must_include:
+          - smartgyro
+          - front
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id011
+        - sku: smartgyro-scoot-smartgyro-rockway-rueda-wheel-rear-outer
+          title: Neumático trasero compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway rear tire wheel neum tico trasero
+          must_include:
+          - smartgyro
+          - rear
+          - tire
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id011
+        - sku: smartgyro-scoot-smartgyro-rockway-rueda-wheel-inner-tube
+          title: Cámara / tubo interior compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway inner tube tire wheel c mara tubo interior
+          must_include:
+          - smartgyro
+          - inner
+          - tube
+          must_not_include:
+          - battery
+          - charger
+          - brake
+          - pad
+          - disc
+          - fender
+          - light
+          model_tokens: *id011
+        freno:
+        - sku: smartgyro-scoot-smartgyro-rockway-freno-brake-pad-pack
+          title: Pastillas de freno compatibles para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway brake pad pastillas de freno
+          must_include:
+          - smartgyro
+          - brake
+          - pad
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - disc only
+          - fender
+          model_tokens: *id011
+        - sku: smartgyro-scoot-smartgyro-rockway-freno-brake-disc-rotor
+          title: Disco de freno compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway brake disc pad disco de freno
+          must_include:
+          - smartgyro
+          - brake
+          - disc
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - pad only
+          - fender
+          model_tokens: *id011
+        accesorios:
+        - sku: smartgyro-scoot-smartgyro-rockway-accesorios-acc-fender-mudguard
+          title: Guardabarros compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway fender mudguard accessory kit guardabarros
+          must_include:
+          - smartgyro
+          - fender
+          - mudguard
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          model_tokens: *id011
+        - sku: smartgyro-scoot-smartgyro-rockway-accesorios-acc-folding-hook
+          title: Gancho / cierre plegado compatible para Smartgyro Rockway
+          intent: compra
+          query: Smartgyro Smartgyro Rockway folding hook accessory kit gancho cierre
+            plegado
+          must_include:
+          - smartgyro
+          - folding
+          - hook
+          must_not_include:
+          - battery
+          - charger
+          - tire
+          - tyre
+          - wheel
+          - brake
+          - disc
+          - fender
+          model_tokens: *id011
+      compatibilidad:
+      - 'Comprueba el modelo exacto y la versión de rueda: algunos patinetes cambian
+        entre 8,5 y 10 pulgadas dentro de la misma familia.'
+      - En baterías y cargadores, verifica voltaje nominal y tipo de conector antes
+        de comprar.
+      - 'En frenos, distingue entre disco, tambor y freno electrónico: las piezas
+        no son intercambiables.'
+      - En neumáticos y cámaras, confirma medida, tipo de válvula y si tu rueda es
+        tubeless o con cámara.
+      - 'Compara anclajes y tornillería en guardabarros y piezas de plegado: cambian
+        mucho entre revisiones.'
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: En patinetes con más de 2-3 años, la batería es la causa más habitual
+          de pérdida brusca de autonomía.
+        title: Smartgyro Rockway no carga o dura poco la batería
+        symptoms:
+        - El patinete no enciende tras cargar toda la noche
+        - La autonomía ha caído mucho respecto a cuando era nuevo
+        - El cargador marca verde demasiado rápido o no cambia de color
+        causes:
+        - Batería degradada por ciclos de carga o almacenamiento largo
+        - Cargador defectuoso o con voltaje incorrecto
+        - Conector de carga sucio, dañado o con mal contacto
+        checks:
+        - Probar el cargador en otro enchufe y revisar si cambia de rojo a verde
+        - Inspeccionar el puerto de carga y limpiar polvo o humedad
+        - Comprobar si la autonomía real cae en cuestas o bajo carga fuerte
+      - key: pinchazo-rueda
+        intent: info
+        cta_cat: rueda
+        fix_hint: En muchos modelos conviene cambiar cámara y cubierta a la vez si
+          el neumático ya está cuarteado.
+        title: Smartgyro Rockway ha pinchado o pierde presión
+        symptoms:
+        - La rueda se desinfla en horas o días
+        - Se nota el patinete más duro o inestable al rodar
+        - Aparecen grietas o desgaste plano en el neumático
+        causes:
+        - Cámara pinchada por bordillo, cristal o pellizco
+        - Neumático exterior agrietado o gastado
+        - Válvula dañada o mal cerrada
+        checks:
+        - Revisar la presión recomendada antes de desmontar
+        - Inspeccionar el neumático por cortes, clavos o grietas
+        - Verificar si la fuga viene de la válvula o de la cámara
+      - key: frena-mal
+        intent: info
+        cta_cat: freno
+        fix_hint: Un disco ligeramente doblado puede rozar siempre, pero si el problema
+          es falta de frenada suele empezar por pastillas gastadas.
+        title: Smartgyro Rockway frena mal o hace ruido al frenar
+        symptoms:
+        - Necesita más distancia para detenerse
+        - Hace chirridos o roces metálicos al frenar
+        - La maneta tiene tacto esponjoso o recorrido excesivo
+        causes:
+        - Pastillas de freno gastadas o cristalizadas
+        - Disco doblado o sucio
+        - Cable o ajuste de pinza descompensado
+        checks:
+        - Revisar grosor de las pastillas y desgaste irregular
+        - Girar la rueda al aire para comprobar si el disco roza
+        - Comprobar tensión del cable y centrado de la pinza
+      - key: holgura-plegado
+        intent: info
+        cta_cat: accesorios
+        fix_hint: La holgura de plegado suele empezar por piezas pequeñas y baratas.
+          Conviene corregirla pronto para evitar fatiga estructural.
+        title: Smartgyro Rockway tiene holgura en el plegado o hace clac
+        symptoms:
+        - Se oye un clac al acelerar o frenar
+        - La caña tiene un pequeño juego hacia delante y atrás
+        - El cierre cuesta más de encajar que antes
+        causes:
+        - Gancho o cierre de plegado desgastado
+        - Tornillería floja en la zona de bisagra
+        - Tope de goma o pieza de ajuste deformada
+        checks:
+        - Apretar tornillería con el par recomendado por el fabricante
+        - Revisar desgaste visible del gancho o cierre
+        - Comprobar si el juego desaparece con ajuste del cierre
+      faqs:
+      - q: ¿Cómo sé qué rueda o cámara necesita mi patinete eléctrico?
+        a: Comprueba la medida exacta del neumático, el tipo de válvula y si tu modelo
+          usa cámara o sistema tubeless. Dos patinetes muy parecidos pueden montar
+          ruedas distintas.
+      - q: ¿Puedo usar un cargador compatible en vez del original?
+        a: Sí, siempre que coincidan voltaje de salida, amperaje suficiente y conector.
+          Un cargador incorrecto puede dañar la batería o no cargarla por completo.
+      - q: ¿Cuándo hay que cambiar las pastillas o el disco de freno?
+        a: Cuando notes menos frenada, chirridos continuos o veas las pastillas muy
+          finas. Si el disco está doblado o tiene surcos profundos, también conviene
+          sustituirlo.
+      - q: ¿Es normal que el patinete tenga algo de holgura en el mástil?
+        a: No debería tener juego perceptible. Una pequeña holgura en el plegado suele
+          indicar desgaste en el gancho, el cierre o la tornillería y conviene corregirla
+          cuanto antes.

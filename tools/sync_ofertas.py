@@ -402,6 +402,7 @@ VERTICAL_REQUIRED_TERMS = {
     "lavadoras":            ["washing machine", "washer", "lavadora", "dryer"],
     "mascotas":             ["pet", "dog", "cat", "groomer", "clipper", "mascotas"],
     "osmosis":              ["osmosis", "water filter", "filtro agua", "reverse osmosis", "purifier"],
+    "patinetes-electricos": ["electric scooter", "escooter", "patinete", "scooter"],
     "robots-cristales":     ["window", "glass", "cristal", "robot"],
     "robots-fregar":        ["robot", "mop", "floor", "fregar", "washing"],
     "robots-piscina":       ["pool", "piscina", "robot"],
@@ -426,6 +427,8 @@ CATEGORY_PART_TERMS = {
     "deposito": ["tank", "container", "reservoir", "water tank", "dust cup"],
     "cesta": ["basket", "tray", "bin", "dust cup", "cup"],
     # Categorías de afeitadoras y cepillos eléctricos
+    "rueda": ["tire", "tyre", "wheel", "inner tube", "tubeless"],
+    "freno": ["brake", "brake pad", "disc brake", "brake disc", "caliper"],
     "laminas": ["foil", "shaving foil", "cutting foil", "blade", "foil replacement"],
     "cabezal": ["shaver head", "replacement head", "head", "rotary head"],
 }
@@ -449,6 +452,8 @@ CATEGORY_QUERY_TERMS = {
     "escobillas": ["carbon brush", "motor brush"],
     "correa": ["drive belt", "belt"],
     "bolsa": ["dust bag", "bag"],
+    "rueda": ["tire", "wheel"],
+    "freno": ["brake", "pad"],
 }
 
 CATEGORY_NEGATIVE_TERMS = {
@@ -478,6 +483,8 @@ CATEGORY_NEGATIVE_TERMS = {
     "correa": ["pump", "drain", "bearing", "heating element", "heater", "seal", "gasket", "carbon brush"],
     "junta": ["pump", "drain", "belt", "bearing", "heating element", "heater", "carbon brush"],
     "bolsa": ["pump", "drain", "belt", "bearing", "heating element", "heater", "carbon brush"],
+    "rueda": ["battery", "charger", "brake", "pad", "disc", "fender", "hook"],
+    "freno": ["battery", "charger", "tire", "tyre", "wheel", "fender", "hook"],
 }
 
 VERTICAL_COMPLETE_TERMS = {
@@ -492,6 +499,7 @@ VERTICAL_COMPLETE_TERMS = {
     "lavadoras":            ["washing machine", "washer", "washer dryer"],
     "mascotas":             ["pet groomer", "dog clipper", "pet clipper", "grooming vacuum"],
     "osmosis":              ["reverse osmosis system", "water purifier", "ro system", "osmosis system"],
+    "patinetes-electricos": ["electric scooter", "adult electric scooter", "e scooter", "escooter"],
     "robots-cristales":     ["window cleaning robot", "window cleaner robot", "glass cleaning robot"],
     "robots-fregar":        ["robot vacuum mop", "floor washing robot", "robot mop", "self-clean floor"],
     "robots-piscina":       ["pool cleaner robot", "robot pool cleaner", "robotic pool cleaner", "pool robot"],
@@ -509,6 +517,7 @@ VERTICAL_NEW_NEGATIVE_TERMS = {
     "lavadoras":            ["drain pump", "filter", "bearing", "gasket", "door seal", "heater", "belt"],
     "mascotas":             ["blade", "clipper blade", "comb", "filter", "hose", "battery", "charger"],
     "osmosis":              ["membrane", "filter cartridge", "sediment filter", "carbon filter", "housing", "o-ring", "faucet", "tank", "pump head"],
+    "patinetes-electricos": ["tire", "tyre", "wheel", "inner tube", "battery", "charger", "brake pad", "brake disc", "fender", "mudguard", "hook"],
     "robots-cristales":     ["cleaning pad", "mop pad", "spray nozzle", "battery", "charger", "rope"],
     "robots-fregar":        ["mop pad", "filter", "main brush", "side brush", "battery", "charger", "dust bag"],
     "robots-piscina":       ["filter bag", "filter cartridge", "brush", "cable", "impeller", "caddy", "charger"],
@@ -1152,6 +1161,7 @@ VERTICAL_FALLBACK_QUERIES = {
     "lavadoras":            "washing machine front load fully automatic",
     "mascotas":             "pet groomer dog clipper vacuum",
     "osmosis":              "reverse osmosis water filter system",
+    "patinetes-electricos": "electric scooter adult 350w 500w",
     "robots-cristales":     "window cleaning robot automatic",
     "robots-fregar":        "floor washing robot mop self cleaning",
     "robots-piscina":       "robotic pool cleaner automatic",
@@ -1169,6 +1179,7 @@ VERTICAL_FALLBACK_LABELS = {
     "lavadoras":            "Ver lavadoras en AliExpress",
     "mascotas":             "Ver productos mascotas en AliExpress",
     "osmosis":              "Ver sistemas osmosis en AliExpress",
+    "patinetes-electricos": "Ver patinetes eléctricos en AliExpress",
     "robots-cristales":     "Ver robots limpiacristales en AliExpress",
     "robots-fregar":        "Ver robots friegasuelos en AliExpress",
     "robots-piscina":       "Ver robots limpiapiscinas en AliExpress",
