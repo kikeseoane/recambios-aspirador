@@ -19,7 +19,7 @@
 
   {{ if not $brandKey }}
 
-    <section class="hero hero--bg hero--compact hero--editorial">
+    <section class="hero hero--bg hero--compact hero--editorial hero--photo-right">
       <div class="hero__inner">
         <div class="hero__kicker">Modelos</div>
         <h1>{{ .Title }}</h1>
@@ -46,6 +46,9 @@
           </div>
         </div>
       </div>
+      <div class="hero__photo-wrap">
+        <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ .Title }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
+      </div>
     </section>
 
     {{ if not $brands }}
@@ -60,7 +63,6 @@
           {{ $models := $b.models }}
 
           <div class="card">
-            <img class="card__hero-img" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $b.name }}" loading="lazy" onerror="this.style.display='none'">
             <h2 class="title-compact">{{ $b.name }}</h2>
 
             {{ $hasRobot := false }}
