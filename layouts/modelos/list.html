@@ -213,10 +213,11 @@
           {{ $introLen = len (plainify .) }}
         {{ end }}
 
-        {{/* Criterios de calidad: necesita recambios en 2+ cats O 2+ problemas ricos */}}
-        {{ $hasEnoughRecambios := ge $catsWithItems 2 }}
-        {{ $hasEnoughProblemas := ge $richProbCount 2 }}
-        {{ $isThin := not (or $hasEnoughRecambios $hasEnoughProblemas) }}
+        {{/* Criterios de calidad: indexa si ya hay alguna senal fuerte de utilidad */}}
+        {{ $hasEnoughRecambios := ge $catsWithItems 1 }}
+        {{ $hasEnoughProblemas := ge $richProbCount 1 }}
+        {{ $hasUsefulIntro := ge $introLen 140 }}
+        {{ $isThin := not (or $hasEnoughRecambios $hasEnoughProblemas $hasUsefulIntro) }}
         {{ if $isThin }}
           {{ .Scratch.Set "noindex" true }}
         {{ end }}

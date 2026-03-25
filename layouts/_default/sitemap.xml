@@ -25,6 +25,7 @@
       {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize }}
       {{- $catKey := .Params.catKey | default "" | urlize }}
       {{- $itemCount := 0 }}
+      {{- $relatedProblemCount := 0 }}
       {{- if and $db $db.brands $brandKey }}
         {{- $brand := index $db.brands $brandKey }}
         {{- if $brand }}
@@ -38,11 +39,19 @@
                   {{- $itemCount = len $catItems }}
                 {{- end }}
               {{- end }}
+              {{- range (index . "problemas" | default (slice)) }}
+                {{- $ctaCat := (index . "cta_cat") | default "" | urlize }}
+                {{- $ctaObj := (index . "cta") | default dict }}
+                {{- $ctaObjCat := (index $ctaObj "catKey") | default "" | urlize }}
+                {{- if or (eq $ctaCat $catKey) (eq $ctaObjCat $catKey) }}
+                  {{- $relatedProblemCount = add $relatedProblemCount 1 }}
+                {{- end }}
+              {{- end }}
             {{- end }}
           {{- end }}
         {{- end }}
       {{- end }}
-      {{- if lt $itemCount 1 }}{{ continue }}{{ end }}
+      {{- if and (lt $itemCount 1) (lt $relatedProblemCount 1) }}{{ continue }}{{ end }}
     {{- end }}
 
     {{- /* ---- Excluir hubs de modelo con contenido insuficiente ---- */}}
@@ -53,6 +62,7 @@
       {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize }}
       {{- $catsWithItems := 0 }}
       {{- $richProbCount := 0 }}
+      {{- $introLen := 0 }}
       {{- if and $db $db.brands $brandKey }}
         {{- $brand := index $db.brands $brandKey }}
         {{- if $brand }}
@@ -72,11 +82,14 @@
                   {{- $richProbCount = add $richProbCount 1 }}
                 {{- end }}
               {{- end }}
+              {{- with (index . "intro") }}
+                {{- $introLen = len (plainify .) }}
+              {{- end }}
             {{- end }}
           {{- end }}
         {{- end }}
       {{- end }}
-      {{- if not (or (ge $catsWithItems 2) (ge $richProbCount 2)) }}{{ continue }}{{ end }}
+      {{- if and (lt $catsWithItems 1) (lt $richProbCount 1) (lt $introLen 140) }}{{ continue }}{{ end }}
     {{- end }}
 
     {{- /* ---- Prioridad por tipo de pagina ---- */}}

@@ -1,9 +1,5 @@
 {{/* Canonical absoluto y limpio. Respeta .Params.canonical si existe. */}}
 
-{{- if or (.Scratch.Get "noindex") (and (.Params.robots) (strings.Contains (lower .Params.robots) "noindex")) -}}
-  {{- return -}}
-{{- end -}}
-
 {{- $base := site.BaseURL | default "https://recambios-aspirador.com/" -}}
 {{- $base = replaceRE `^https?://www\.` `https://` $base -}}
 {{- $base = strings.TrimSuffix "/" $base -}}
