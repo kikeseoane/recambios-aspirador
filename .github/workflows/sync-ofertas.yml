@@ -127,12 +127,11 @@ jobs:
           STATS="${{ steps.sync.outputs.stats }}"
           MISSING_NEW="${{ steps.sync.outputs.missing_new }}"
           if [ "$CHANGED" = "true" ]; then
-            MSG="Sync completado en ${MINS}m${SECS}s, actualizado. ${STATS}
-${MISSING_NEW}"
+            MSG="Sync completado en ${MINS}m${SECS}s, actualizado. ${STATS}"
           else
-            MSG="Sync completado en ${MINS}m${SECS}s, sin cambios. ${STATS}
-${MISSING_NEW}"
+            MSG="Sync completado en ${MINS}m${SECS}s, sin cambios. ${STATS}"
           fi
+          printf -v MSG '%s\n%s' "$MSG" "$MISSING_NEW"
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
             -d text="$MSG"
