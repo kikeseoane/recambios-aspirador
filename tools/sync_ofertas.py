@@ -11,6 +11,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 
 # Windows cp1252 fix: force UTF-8 output
 if hasattr(sys.stdout, "reconfigure"):
@@ -529,7 +530,7 @@ QUERY_NOISE_RE = re.compile(
     r"\b(compatible|compatibles|para|repuesto|recambio|replacement|spare|kit|pack)\b",
     re.IGNORECASE,
 )
-QUERY_TOKEN_RE = re.compile(r"[a-z0-9]+(?:[.+/-][a-z0-9]+)*", re.IGNORECASE)
+QUERY_TOKEN_RE = re.compile(r"[^\W_]+(?:[.+/-][^\W_]+)*", re.IGNORECASE | re.UNICODE)
 MODEL_STOPWORDS = {
     "series", "serie", "robot", "aspirador", "aspiradora", "vacuum", "cordless",
     "airfryer", "freidora", "cafetera", "coffee", "maker", "shaver", "toothbrush",
@@ -548,8 +549,21 @@ RELAXED_ANCHOR_STOPWORDS = {
     "battery", "charger", "adapter", "head", "roller", "dock", "mount", "wall",
     "tank", "container", "seal", "gasket", "basket", "tray", "bag",
 }
+SPECIFIC_ITEM_STOPWORDS = RELAXED_ANCHOR_STOPWORDS | {
+    "group", "oring", "o-ring",
+}
 
 STRICT_RELAXED_CATEGORIES = {"accesorios", "soporte", "deposito", "cesta", "junta", "bolsa"}
+STRICT_EXACT_MATCH_CATEGORIES = {
+    "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal",
+    "accesorios", "soporte", "deposito", "cesta", "junta", "bolsa",
+    "bomba", "resistencia", "rodamiento", "escobillas", "correa", "rueda", "freno",
+}
+LOW_QUALITY_NEW_TITLE_TERMS = {
+    "oem", "odm", "wholesale", "factory direct", "factory price", "supplier",
+    "custom logo", "private label", "dropshipping", "bulk order",
+}
+SUSPICIOUS_TITLE_RE = re.compile(r"[*#%$]{2,}|\b[A-Z0-9]{7,}\b")
 
 
 def looks_bad(title: str) -> bool:
@@ -750,6 +764,8 @@ def score_new_product(
     vertical: str,
 ) -> float:
     t = nrm(title)
+    if is_low_quality_new_title(title):
+        return -1e9
     if not is_complete_new_product(t, vertical):
         return -1e9
 
@@ -782,13 +798,19 @@ def compact_spaces(s: str) -> str:
     return re.sub(r"\s+", " ", str(s or "")).strip()
 
 
+def fold_query_text(text: str) -> str:
+    folded = unicodedata.normalize("NFKD", str(text or ""))
+    folded = "".join(ch for ch in folded if not unicodedata.combining(ch))
+    return compact_spaces(folded)
+
+
 def clean_query_fragment(text: str) -> str:
     cleaned = QUERY_NOISE_RE.sub(" ", normalize(text))
     return compact_spaces(cleaned)
 
 
 def query_tokens(text: str) -> List[str]:
-    return [tok.lower() for tok in QUERY_TOKEN_RE.findall(compact_spaces(text))]
+    return [tok.lower() for tok in QUERY_TOKEN_RE.findall(fold_query_text(text))]
 
 
 def query_phrase(text: str, seen: set[str]) -> str:
@@ -817,7 +839,7 @@ def extract_relaxed_anchor_terms(
         for tok in query_tokens(clean_query_fragment(part)):
             if tok in QUERY_NOISE_TERMS or tok in RELAXED_ANCHOR_STOPWORDS:
                 continue
-            if tok.isdigit() or len(tok) < 3:
+            if tok.isdigit() or (len(tok) < 3 and not any(ch.isdigit() for ch in tok)):
                 continue
             if tok in seen:
                 continue
@@ -826,6 +848,94 @@ def extract_relaxed_anchor_terms(
             if len(out) >= limit:
                 return out
     return out
+
+
+def extract_strict_anchor_terms(
+    ctx: Dict[str, Any],
+    must_include: List[str],
+    model_tokens: List[str],
+    limit: int = 6,
+) -> List[str]:
+    parts = [
+        *must_include,
+        *model_tokens,
+        str(ctx.get("item_title") or ""),
+        str(ctx.get("query") or ""),
+        str(ctx.get("model") or ""),
+    ]
+    out: List[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        for tok in query_tokens(clean_query_fragment(part)):
+            if tok in QUERY_NOISE_TERMS or tok in RELAXED_ANCHOR_STOPWORDS:
+                continue
+            if tok.isdigit() or (len(tok) < 3 and not any(ch.isdigit() for ch in tok)):
+                continue
+            if tok in seen:
+                continue
+            seen.add(tok)
+            out.append(tok)
+            if len(out) >= limit:
+                return out
+    return out
+
+
+def extract_specific_item_terms(
+    ctx: Dict[str, Any],
+    model_tokens: List[str],
+    limit: int = 4,
+) -> List[str]:
+    parts = [
+        str(ctx.get("item_title") or ""),
+        str(ctx.get("query") or ""),
+    ]
+    blocked = {nrm(fold_query_text(tok)) for tok in model_tokens if tok}
+    out: List[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        for tok in query_tokens(clean_query_fragment(part)):
+            norm_tok = nrm(fold_query_text(tok))
+            if not norm_tok:
+                continue
+            if norm_tok in QUERY_NOISE_TERMS or norm_tok in SPECIFIC_ITEM_STOPWORDS:
+                continue
+            if norm_tok in blocked:
+                continue
+            if norm_tok.isdigit() or (len(norm_tok) < 3 and not any(ch.isdigit() for ch in norm_tok)):
+                continue
+            if norm_tok in seen:
+                continue
+            seen.add(norm_tok)
+            out.append(norm_tok)
+            if len(out) >= limit:
+                return out
+    return out
+
+
+def count_anchor_hits(title: str, terms: List[str]) -> int:
+    tt = nrm(fold_query_text(title))
+    hits = 0
+    for term in terms:
+        norm_term = nrm(fold_query_text(term))
+        if norm_term and norm_term in tt:
+            hits += 1
+    return hits
+
+
+def is_deceptive_title(title: str, category: str) -> bool:
+    tt = nrm(title)
+    if SUSPICIOUS_TITLE_RE.search(title):
+        return True
+    if category != "nuevo" and ("universal" in tt or "all model" in tt or "all models" in tt):
+        return True
+    return False
+
+
+def is_low_quality_new_title(title: str) -> bool:
+    tt = nrm(title)
+    if SUSPICIOUS_TITLE_RE.search(title):
+        return True
+    return any(term in tt for term in LOW_QUALITY_NEW_TITLE_TERMS)
 
 
 def compose_search_query(base_parts: List[str], extra_parts: List[str]) -> str:
@@ -984,6 +1094,7 @@ def pick_relaxed_link(
     part_terms: List[str],
     must_not_include: List[str],
     anchor_terms: List[str],
+    specific_item_terms: List[str],
     use_cache: bool,
 ) -> Optional[Dict[str, str]]:
     """
@@ -993,7 +1104,8 @@ def pick_relaxed_link(
     relaxed_terms = " ".join(cat_query_terms(category)[:2])
     category_key = nrm(category)
     require_anchor = category_key in STRICT_RELAXED_CATEGORIES
-    if require_anchor and not anchor_terms:
+    min_anchor_hits = 2 if require_anchor else 1
+    if require_anchor and len(anchor_terms) < min_anchor_hits:
         return None
 
     anchor_text = " ".join(anchor_terms[:2])
@@ -1020,11 +1132,15 @@ def pick_relaxed_link(
                 tt = nrm(title)
                 if looks_bad(tt):
                     continue
+                if is_deceptive_title(title, category):
+                    continue
                 if not any(pt in tt for pt in part_terms):
                     continue
                 if must_not_include and contains_any(tt, must_not_include):
                     continue
-                if anchor_terms and not any(anchor in tt for anchor in anchor_terms):
+                if anchor_terms and count_anchor_hits(title, anchor_terms) < min_anchor_hits:
+                    continue
+                if specific_item_terms and count_anchor_hits(title, specific_item_terms) < 1:
                     continue
                 candidates.append(p)
 
@@ -1065,9 +1181,13 @@ def pick_best_promotion_link(
     model_tokens_override: List[str],
     vertical: str,
     category: str,
+    strict_anchor_terms: List[str],
+    specific_item_terms: List[str],
     use_cache: bool,
 ) -> Optional[str]:
     req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
+    strict_category = nrm(category) in STRICT_EXACT_MATCH_CATEGORIES
+    min_anchor_hits = 2 if strict_category else 1
 
     for lang in ("EN", "ES"):
         for page_no in (1,):
@@ -1089,6 +1209,10 @@ def pick_best_promotion_link(
                 tt = nrm(title)
                 if looks_bad(tt):
                     continue
+                if is_deceptive_title(title, category):
+                    continue
+                if category == "nuevo" and is_low_quality_new_title(title):
+                    continue
 
                 if req_models and not title_has_required_model(tt, req_models):
                     continue
@@ -1100,6 +1224,11 @@ def pick_best_promotion_link(
                     continue
 
                 if must_not_include and contains_any(tt, must_not_include):
+                    continue
+
+                if strict_anchor_terms and count_anchor_hits(title, strict_anchor_terms) < min_anchor_hits:
+                    continue
+                if specific_item_terms and count_anchor_hits(title, specific_item_terms) < 1:
                     continue
 
                 candidates.append(p)
@@ -1150,17 +1279,17 @@ def pick_best_promotion_link(
 # Vertical fallback (buy-new genérico por vertical)
 # =========================
 VERTICAL_FALLBACK_QUERIES = {
-    "aspiradores":          "cordless stick vacuum cleaner robot mop",
+    "aspiradores":          "cordless stick vacuum cleaner household",
     "afeitadoras":          "electric shaver men foil rotary",
     "aspiradoras-normales": "upright canister vacuum cleaner",
     "auriculares":          "wireless earbuds bluetooth noise cancelling",
-    "cafeteras":            "espresso coffee machine capsule automatic",
+    "cafeteras":            "automatic espresso coffee machine household",
     "cepillos":             "electric toothbrush sonic",
-    "freidoras":            "air fryer digital xl",
-    "herramientas":         "cordless drill power tool set brushless",
+    "freidoras":            "air fryer household digital 6l 8l",
+    "herramientas":         "cordless drill brushless household tool set",
     "lavadoras":            "washing machine front load fully automatic",
     "mascotas":             "pet groomer dog clipper vacuum",
-    "osmosis":              "reverse osmosis water filter system",
+    "osmosis":              "reverse osmosis water purifier system household",
     "patinetes-electricos": "electric scooter adult 350w 500w",
     "robots-cristales":     "window cleaning robot automatic",
     "robots-fregar":        "floor washing robot mop self cleaning",
@@ -1207,6 +1336,8 @@ def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional
             title = p.get("product_title") or ""
             tt = nrm(title)
             if looks_bad(tt):
+                continue
+            if is_low_quality_new_title(title):
                 continue
             # Exigir al menos un término del vertical en el título
             if required_terms and not any(nrm(t) in tt for t in required_terms):
@@ -1311,6 +1442,8 @@ def parse_args() -> argparse.Namespace:
                     help="Procesa como máximo N SKUs por ejecución, los más antiguos primero (0 = todos). Combina con --only-stale para repartir en días.")
     ap.add_argument("--max-minutes", type=float, default=0, metavar="MIN",
                     help="Detiene el procesado cuando se acerca a MIN minutos de ejecución, guarda y sale limpiamente (0 = sin límite).")
+    ap.add_argument("--skip-vertical-defaults", action="store_true",
+                    help="No actualiza vertical_defaults.yaml al final. Útil para la Action horaria o pruebas puntuales.")
     return ap.parse_args()
 
 
@@ -1421,6 +1554,9 @@ def main() -> None:
                 offers_obj=obj,
             )
             must_not_combined = [*must_not_default, *must_not_override]
+            effective_model_tokens = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model)
+            strict_anchor_terms = extract_strict_anchor_terms(ctx, must_include, effective_model_tokens)
+            specific_item_terms = extract_specific_item_terms(ctx, effective_model_tokens)
 
             kws = build_search_keywords(ctx, query, must_include)
             fallback_search_query = kws[0] if kws else choose_fallback_search_query(ctx, query)
@@ -1440,6 +1576,8 @@ def main() -> None:
                     model_tokens_override=model_tokens_override,
                     vertical=str(ctx.get("vertical") or ""),
                     category=category,
+                    strict_anchor_terms=strict_anchor_terms,
+                    specific_item_terms=specific_item_terms,
                     use_cache=use_cache,
                 )
                 if found:
@@ -1475,6 +1613,7 @@ def main() -> None:
                     part_terms=part_terms,
                     must_not_include=must_not_combined,
                     anchor_terms=anchor_terms,
+                    specific_item_terms=specific_item_terms,
                     use_cache=use_cache,
                 )
                 if relaxed:
@@ -1506,7 +1645,7 @@ def main() -> None:
                         changed_urls_to_default += 1
 
                     obj["needs_url"] = True
-                    obj["match_type"] = "fallback_search"
+                    obj["match_type"] = "fallback_buy_new"
                     obj["fallback_search_query"] = fallback_search_query
                     obj["fallback_search_label"] = fallback_search_label
                     obj.pop("matched_query", None)
@@ -1548,8 +1687,11 @@ def main() -> None:
     dump_yaml(OFFERS, {"offers": offers})
 
     # Sincronizar URLs de fallback por vertical (buy-new genérico)
-    print("\n  --- Sincronizando vertical_defaults (buy-new fallback) ---")
-    sync_vertical_defaults(selected_verticals, force=args.force, use_cache=use_cache)
+    if args.skip_vertical_defaults:
+        print("\n  --- Saltando vertical_defaults (--skip-vertical-defaults) ---")
+    else:
+        print("\n  --- Sincronizando vertical_defaults (buy-new fallback) ---")
+        sync_vertical_defaults(selected_verticals, force=args.force, use_cache=use_cache)
 
     _total_elapsed = time.time() - _t0
     _avg_api = (_api_time_real / _api_calls_real) if _api_calls_real else 0.0

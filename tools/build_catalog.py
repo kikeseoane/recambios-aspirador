@@ -6,6 +6,7 @@ import argparse
 import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+import unicodedata
 
 import yaml
 
@@ -97,7 +98,7 @@ CATEGORY_QUERY_TERMS: Dict[str, List[str]] = {
     "freno": ["brake", "pad"],
 }
 
-QUERY_TOKEN_RE = re.compile(r"[a-z0-9]+(?:[.+/-][a-z0-9]+)*", re.IGNORECASE)
+QUERY_TOKEN_RE = re.compile(r"[^\W_]+(?:[.+/-][^\W_]+)*", re.IGNORECASE | re.UNICODE)
 QUERY_NOISE_TERMS = {
     "compatible", "compatibles", "para", "con", "sin", "recambio", "recambios",
     "repuesto", "repuestos", "replacement", "replacements", "spare", "spares",
@@ -124,8 +125,14 @@ def compact_spaces(s: str) -> str:
     return re.sub(r"\s+", " ", str(s or "")).strip()
 
 
+def fold_query_text(text: str) -> str:
+    folded = unicodedata.normalize("NFKD", str(text or ""))
+    folded = "".join(ch for ch in folded if not unicodedata.combining(ch))
+    return compact_spaces(folded)
+
+
 def query_tokens(text: str) -> List[str]:
-    return [tok.lower() for tok in QUERY_TOKEN_RE.findall(compact_spaces(text))]
+    return [tok.lower() for tok in QUERY_TOKEN_RE.findall(fold_query_text(text))]
 
 
 def query_phrase(text: str, seen: set[str]) -> str:

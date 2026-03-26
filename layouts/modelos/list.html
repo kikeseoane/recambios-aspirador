@@ -368,7 +368,7 @@
 
                             <div class="cta">
                               {{ $sku := index $it "sku" }}
-                              {{ partial "offer_btn.html" (dict "sku" $sku "catKey" $catKey "modelName" $mtitle "class" "btn-buy" "hideTrust" true "modelNewSku" (printf "%s-%s-nuevo" $brandKey $modelSlug)) }}
+                              {{ partial "offer_btn.html" (dict "sku" $sku "catKey" $catKey "modelName" $mtitle "class" "btn-buy" "hideTrust" true "modelNewSku" (printf "%s-%s-nuevo" $brandKey $modelSlug) "verticalKey" $verticalKey) }}
                             </div>
                           </div>
                         </div>

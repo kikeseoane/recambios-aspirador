@@ -73,7 +73,8 @@ jobs:
             --only-stale 30 \
             --max-minutes 28 \
             --force \
-            --no-cache | tee /tmp/sync_output.txt
+            --no-cache \
+            --skip-vertical-defaults | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt || echo "STATS: n/a")
           echo "stats=$STATS_LINE" >> $GITHUB_OUTPUT
 

@@ -43,9 +43,20 @@
 {{ $currency := (index $offer "sale_price_currency") | default "EUR" }}
 {{ $searchURL := "" }}
 {{ $modelNewSku := .modelNewSku | default "" }}
+{{ $verticalKey := .verticalKey | default "aspiradores" }}
 {{ $newOffer := cond (and $modelNewSku (isset $offers $modelNewSku)) (index $offers $modelNewSku) (dict) }}
 {{ $newURL := (index $newOffer "url") | default "" }}
-{{ $newLabel := cond $modelName (printf "Ver %s nuevo" $modelName) "Ver producto nuevo recomendado" }}
+{{ $newLabel := "Ver producto nuevo" }}
+{{ $vd := site.Data.vertical_defaults }}
+{{ $vEntry := cond (and $vd (isset $vd $verticalKey)) (index $vd $verticalKey) (dict) }}
+{{ $verticalNewURL := (index $vEntry "buy_new_url") | default "" }}
+{{ $verticalNewLabel := (index $vEntry "buy_new_label") | default "Ver producto nuevo" }}
+{{ $buyNewURL := $newURL }}
+{{ $buyNewLabel := $newLabel }}
+{{ if and (not $buyNewURL) $verticalNewURL }}
+  {{ $buyNewURL = $verticalNewURL }}
+  {{ $buyNewLabel = $verticalNewLabel }}
+{{ end }}
 
 {{ if $searchQuery }}
   {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
@@ -101,7 +112,7 @@
   </div>
 
 {{ else if $sku }}
-  {{ if and $newURL (or $needs (eq $matchType "fallback_search")) }}
+  {{ if and $buyNewURL (or $needs (eq $matchType "fallback_search") (eq $matchType "fallback_buy_new")) }}
     <div class="offer-action">
       {{ if not $hideTrust }}
         <div class="offer-trust">
@@ -109,8 +120,8 @@
           <span class="offer-trust__text">No hay recambio claro: mejor ver el producto nuevo</span>
         </div>
       {{ end }}
-      <a class="{{ $class }}" href="{{ $newURL }}" rel="nofollow sponsored noopener" target="_blank">
-        {{ $newLabel }}
+      <a class="{{ $class }}" href="{{ $buyNewURL }}" rel="nofollow sponsored noopener" target="_blank">
+        {{ $buyNewLabel }}
       </a>
       <div class="offer-action__note">
         <small class="muted">Alternativa recomendada cuando no aparece un recambio fiable</small>
