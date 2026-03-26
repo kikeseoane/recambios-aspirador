@@ -1707,6 +1707,29 @@ def main() -> None:
     _cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat() if args.only_stale > 0 else None
     _needs_url = sum(1 for s, o in offers.items() if ensure_offer_obj(o).get("needs_url") and not ensure_offer_obj(o).get("orphaned"))
     _still_stale = sum(1 for s in sku_ctx if _cutoff and str(ensure_offer_obj(offers.get(s)).get("updated_at") or "").strip() < _cutoff) if _cutoff else 0
+    _missing_new: List[str] = []
+    for s in sorted(sku_ctx.keys()):
+        ctx = sku_ctx.get(s) or {}
+        if str(ctx.get("category") or "") != "nuevo":
+            continue
+        offer_obj = ensure_offer_obj(offers.get(s))
+        if offer_obj.get("orphaned"):
+            continue
+        url_now = str(offer_obj.get("url") or "").strip()
+        if url_now and not offer_obj.get("needs_url"):
+            continue
+        brand = normalize(str(ctx.get("brand") or ""))
+        model = normalize(str(ctx.get("model") or s))
+        vertical = normalize(str(ctx.get("vertical") or ""))
+        _missing_new.append(f"{vertical}: {brand} {model}".strip())
+    if _missing_new:
+        _missing_new_preview = _missing_new[:5]
+        _missing_new_more = len(_missing_new) - len(_missing_new_preview)
+        _missing_new_sample = " | ".join(_missing_new_preview)
+        if _missing_new_more > 0:
+            _missing_new_sample = f"{_missing_new_sample} | +{_missing_new_more} mas"
+    else:
+        _missing_new_sample = "none"
 
     print("OK: sync_ofertas (AliExpress autolinks + catalog overrides + cache flags)")
     print(f"  Verticales:            {', '.join(selected_verticals)}")
@@ -1728,8 +1751,10 @@ def main() -> None:
     print(f"  Tiempo total script:    {_total_elapsed:.1f}s")
     print(f"  --- Pendientes restantes ---")
     print(f"  Sin URL (needs_url):    {_needs_url}")
+    print(f"  Nuevo sin enlace:       {len(_missing_new)}")
     print(f"  Stale >{args.only_stale}d:            {_still_stale}")
     print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)} needs_url={_needs_url} stale={_still_stale}")
+    print(f"MISSING_NEW: count={len(_missing_new)} sample={_missing_new_sample}")
 
 
 if __name__ == "__main__":

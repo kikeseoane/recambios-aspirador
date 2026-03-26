@@ -2,10 +2,8 @@ name: Sync ofertas AliExpress
 
 on:
   schedule:
-    # Cada hora
     - cron: "0 * * * *"
   workflow_dispatch:
-    # Permite lanzarlo manualmente desde GitHub > Actions
 
 concurrency:
   group: sync-ofertas
@@ -41,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Rebuild catálogos
+      - name: Rebuild catalogos
         run: |
           python - <<'PY'
           import pathlib
@@ -76,7 +74,9 @@ jobs:
             --no-cache \
             --skip-vertical-defaults | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt || echo "STATS: n/a")
+          MISSING_NEW_LINE=$(grep "^MISSING_NEW:" /tmp/sync_output.txt || echo "MISSING_NEW: n/a")
           echo "stats=$STATS_LINE" >> $GITHUB_OUTPUT
+          echo "missing_new=$MISSING_NEW_LINE" >> $GITHUB_OUTPUT
 
       - name: Commit y push si hay cambios generados
         id: commit
@@ -118,17 +118,20 @@ jobs:
           done
           if [ "$DONE" != "true" ]; then exit 1; fi
 
-      - name: Notificar Telegram (éxito)
+      - name: Notificar Telegram (exito)
         if: success()
         run: |
           ELAPSED=$(( $(date +%s) - START_TIME ))
           MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))
           CHANGED="${{ steps.commit.outputs.changed }}"
           STATS="${{ steps.sync.outputs.stats }}"
+          MISSING_NEW="${{ steps.sync.outputs.missing_new }}"
           if [ "$CHANGED" = "true" ]; then
-            MSG="✅ Sync completado en ${MINS}m${SECS}s — actualizado. ${STATS}"
+            MSG="Sync completado en ${MINS}m${SECS}s, actualizado. ${STATS}
+${MISSING_NEW}"
           else
-            MSG="✅ Sync completado en ${MINS}m${SECS}s — sin cambios. ${STATS}"
+            MSG="Sync completado en ${MINS}m${SECS}s, sin cambios. ${STATS}
+${MISSING_NEW}"
           fi
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
@@ -141,4 +144,4 @@ jobs:
           MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-            -d text="❌ Sync AliExpress FALLIDO (estado: ${{ job.status }}) tras ${MINS}m${SECS}s — revisa el log en GitHub Actions."
+            -d text="Sync AliExpress FALLIDO (estado: ${{ job.status }}) tras ${MINS}m${SECS}s. Revisa el log en GitHub Actions."
