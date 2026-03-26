@@ -1473,16 +1473,22 @@ def main() -> None:
     if only:
         want = set([s for s in only if s in sku_ctx])
 
+    def sku_updated_at(sku: str) -> str:
+        return str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "0000-00-00")
+
     # --only-stale: filtra SKUs cuyo updated_at supera N días
     if not only and args.only_stale > 0:
         cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat()
         stale = {sku for sku in want if str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "").strip() < cutoff}
         print(f"  --only-stale {args.only_stale}d: {len(stale)}/{len(want)} SKUs sin actualizar desde {cutoff}")
-        want = stale
+        if stale:
+            want = stale
+        else:
+            print("  --only-stale: no hay SKUs vencidos; se renuevan enlaces existentes por antigüedad")
 
     # --batch-size: toma los N más antiguos para no saturar la API en una sola pasada
     if not only and args.batch_size > 0 and len(want) > args.batch_size:
-        sorted_want = sorted(want, key=lambda sku: str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "0000-00-00"))
+        sorted_want = sorted(want, key=sku_updated_at)
         want = set(sorted_want[:args.batch_size])
         print(f"  --batch-size {args.batch_size}: procesando {args.batch_size} SKUs más antiguos")
 
@@ -1500,10 +1506,11 @@ def main() -> None:
     _t0 = time.time()
     _total_want = len(want)
     _time_budget_s = args.max_minutes * 60 if args.max_minutes > 0 else 0
+    ordered_want = sorted(want, key=sku_updated_at)
 
     print(f"  Iniciando procesado de {_total_want} SKUs...")
 
-    for sku in sorted(want):
+    for sku in ordered_want:
         if _time_budget_s and (time.time() - _t0) >= _time_budget_s:
             print(f"  [time-budget] {args.max_minutes:.0f}min alcanzados, saliendo limpiamente tras {_processed} SKUs.")
             break
