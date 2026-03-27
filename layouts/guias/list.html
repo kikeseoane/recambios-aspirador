@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{ $verticalKey := .Params.vertical | default "aspiradores" }}
+  {{ $vurls := partial "vertical_urls.html" $verticalKey }}
+  {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ partial "hero.html" . }}
 
   <div class="container section">
@@ -8,7 +11,7 @@
           <div class="kicker">Uso recomendado</div>
           <h2 style="margin:4px 0 0;">Consulta y vuelve al modelo</h2>
         </div>
-        <a class="btn btn--primary" href="{{ "modelos/" | relURL }}">Buscar por modelo</a>
+        <a class="btn btn--primary" href="{{ (print $modBase "/") | relURL }}">Buscar por modelo</a>
       </div>
       <p class="muted" style="margin:10px 0 0;">
         Estas guias ayudan a revisar compatibilidad o mantenimiento, pero la compra final conviene hacerla desde la ficha del modelo.

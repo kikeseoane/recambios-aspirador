@@ -1,4 +1,8 @@
 {{ define "main" }}
+  {{ $verticalKey := .Params.vertical | default "aspiradores" }}
+  {{ $vurls := partial "vertical_urls.html" $verticalKey }}
+  {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
+  {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
   {{ partial "hero.html" . }}
 
   <div class="container section">
@@ -14,8 +18,8 @@
           Cuando termines de revisar la guia, entra en tu modelo para abrir la categoria de recambio correcta.
         </p>
         <div class="chips" style="margin-top:12px;">
-          <a class="chip" href="{{ "modelos/" | relURL }}">Buscar por modelo</a>
-          <a class="chip" href="{{ "marcas/" | relURL }}">Ver marcas</a>
+          <a class="chip" href="{{ (print $modBase "/") | relURL }}">Buscar por modelo</a>
+          <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
         </div>
       </aside>
     </div>
