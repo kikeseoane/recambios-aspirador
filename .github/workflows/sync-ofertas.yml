@@ -15,15 +15,38 @@ jobs:
     timeout-minutes: 55
     permissions:
       contents: write
+    env:
+      SYNC_OFERTAS_PAUSED: ${{ vars.SYNC_OFERTAS_PAUSED }}
+      SYNC_OFERTAS_PAUSED_AT: ${{ vars.SYNC_OFERTAS_PAUSED_AT }}
 
     steps:
-      - name: Salir si sync está pausado
-        if: vars.SYNC_OFERTAS_PAUSED == '1'
+      - name: Resolver pausa efectiva
         run: |
-          echo "SYNC_OFERTAS_PAUSED=1, omitiendo ejecución."
+          SHOULD_RUN=1
+          REASON="active"
+          if [ "${SYNC_OFERTAS_PAUSED}" = "1" ]; then
+            SHOULD_RUN=0
+            REASON="paused"
+            if [ -n "${SYNC_OFERTAS_PAUSED_AT}" ]; then
+              NOW_TS=$(date -u +%s)
+              PAUSED_TS=$(date -u -d "${SYNC_OFERTAS_PAUSED_AT}" +%s 2>/dev/null || echo 0)
+              AGE_DAYS=$(( (NOW_TS - PAUSED_TS) / 86400 ))
+              if [ "${PAUSED_TS}" -gt 0 ] && [ "${AGE_DAYS}" -ge 10 ]; then
+                SHOULD_RUN=1
+                REASON="pause-expired-${AGE_DAYS}d"
+              fi
+            fi
+          fi
+          echo "SYNC_SHOULD_RUN=${SHOULD_RUN}" >> $GITHUB_ENV
+          echo "SYNC_PAUSE_REASON=${REASON}" >> $GITHUB_ENV
+
+      - name: Salir si sync está pausado
+        if: env.SYNC_SHOULD_RUN != '1'
+        run: |
+          echo "Sync pausado, omitiendo ejecución. Motivo: ${SYNC_PAUSE_REASON}"
 
       - name: Notificar Telegram (inicio)
-        if: vars.SYNC_OFERTAS_PAUSED != '1'
+        if: env.SYNC_SHOULD_RUN == '1'
         continue-on-error: true
         run: |
           echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
@@ -33,23 +56,23 @@ jobs:
           echo "Telegram inicio: $RESP"
 
       - name: Checkout
-        if: vars.SYNC_OFERTAS_PAUSED != '1'
+        if: env.SYNC_SHOULD_RUN == '1'
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python
-        if: vars.SYNC_OFERTAS_PAUSED != '1'
+        if: env.SYNC_SHOULD_RUN == '1'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
-        if: vars.SYNC_OFERTAS_PAUSED != '1'
+        if: env.SYNC_SHOULD_RUN == '1'
         run: pip install -r requirements.txt
 
       - name: Rebuild catalogos
-        if: vars.SYNC_OFERTAS_PAUSED != '1'
+        if: env.SYNC_SHOULD_RUN == '1'
         run: |
           python - <<'PY'
           import pathlib
@@ -71,7 +94,7 @@ jobs:
           PY
 
       - name: Run sync_ofertas (batch horario)
-        if: vars.SYNC_OFERTAS_PAUSED != '1'
+        if: env.SYNC_SHOULD_RUN == '1'
         id: sync
         env:
           ALI_APP_KEY: ${{ secrets.ALI_APP_KEY }}
@@ -92,7 +115,7 @@ jobs:
           echo "compat_status=$COMPAT_STATUS_LINE" >> $GITHUB_OUTPUT
 
       - name: Commit y push si hay cambios generados
-        if: vars.SYNC_OFERTAS_PAUSED != '1'
+        if: env.SYNC_SHOULD_RUN == '1'
         id: commit
         run: |
           git config user.name "github-actions[bot]"
@@ -133,7 +156,7 @@ jobs:
           if [ "$DONE" != "true" ]; then exit 1; fi
 
       - name: Notificar Telegram (exito)
-        if: success() && vars.SYNC_OFERTAS_PAUSED != '1'
+        if: success() && env.SYNC_SHOULD_RUN == '1'
         run: |
           ELAPSED=$(( $(date +%s) - START_TIME ))
           MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))
@@ -152,7 +175,7 @@ jobs:
             -d text="$MSG"
 
       - name: Notificar Telegram (error)
-        if: (failure() || cancelled()) && vars.SYNC_OFERTAS_PAUSED != '1'
+        if: (failure() || cancelled()) && env.SYNC_SHOULD_RUN == '1'
         run: |
           ELAPSED=$(( $(date +%s) - START_TIME ))
           MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))

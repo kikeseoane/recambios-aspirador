@@ -58,6 +58,7 @@ API_URL = (os.getenv("ALI_API_URL") or "https://api-sg.aliexpress.com/sync").str
 GITHUB_REPO = (os.getenv("GITHUB_REPO") or os.getenv("GITHUB_REPOSITORY") or "").strip()
 GITHUB_ACTIONS_PAUSE_TOKEN = (os.getenv("GITHUB_ACTIONS_PAUSE_TOKEN") or os.getenv("GITHUB_TOKEN") or "").strip()
 GITHUB_ACTIONS_PAUSE_VAR = (os.getenv("GITHUB_ACTIONS_PAUSE_VAR") or "SYNC_OFERTAS_PAUSED").strip()
+GITHUB_ACTIONS_PAUSE_AT_VAR = (os.getenv("GITHUB_ACTIONS_PAUSE_AT_VAR") or f"{GITHUB_ACTIONS_PAUSE_VAR}_AT").strip()
 
 SHIP_TO = (os.getenv("ALI_SHIP_TO") or "ES").strip()
 CURRENCY = (os.getenv("ALI_CURRENCY") or "EUR").strip()
@@ -197,27 +198,35 @@ def github_delete_repo_variable(name: str) -> None:
         r.raise_for_status()
 
 
-def github_pause_sync_workflow() -> Optional[str]:
+def github_pause_sync_workflow() -> Dict[str, Optional[str]]:
     if not github_pause_enabled():
-        return None
+        return {"paused": None, "paused_at": None}
     previous = github_get_repo_variable(GITHUB_ACTIONS_PAUSE_VAR)
+    previous_at = github_get_repo_variable(GITHUB_ACTIONS_PAUSE_AT_VAR)
     if previous != "1":
         github_set_repo_variable(GITHUB_ACTIONS_PAUSE_VAR, "1")
+        github_set_repo_variable(GITHUB_ACTIONS_PAUSE_AT_VAR, datetime.now().date().isoformat())
         print(f"  GitHub Action pausada via variable {GITHUB_ACTIONS_PAUSE_VAR}=1")
     else:
         print(f"  GitHub Action ya estaba pausada ({GITHUB_ACTIONS_PAUSE_VAR}=1)")
-    return previous
+    return {"paused": previous, "paused_at": previous_at}
 
 
-def github_restore_sync_workflow(previous: Optional[str]) -> None:
+def github_restore_sync_workflow(previous: Dict[str, Optional[str]]) -> None:
     if not github_pause_enabled():
         return
-    if previous is None:
+    previous_paused = previous.get("paused")
+    previous_paused_at = previous.get("paused_at")
+    if previous_paused is None:
         github_delete_repo_variable(GITHUB_ACTIONS_PAUSE_VAR)
         print(f"  GitHub Action reactivada borrando variable {GITHUB_ACTIONS_PAUSE_VAR}")
-        return
-    github_set_repo_variable(GITHUB_ACTIONS_PAUSE_VAR, previous)
-    print(f"  GitHub Action restaurada: {GITHUB_ACTIONS_PAUSE_VAR}={previous}")
+    else:
+        github_set_repo_variable(GITHUB_ACTIONS_PAUSE_VAR, previous_paused)
+        print(f"  GitHub Action restaurada: {GITHUB_ACTIONS_PAUSE_VAR}={previous_paused}")
+    if previous_paused_at is None:
+        github_delete_repo_variable(GITHUB_ACTIONS_PAUSE_AT_VAR)
+    else:
+        github_set_repo_variable(GITHUB_ACTIONS_PAUSE_AT_VAR, previous_paused_at)
 
 
 # =========================
