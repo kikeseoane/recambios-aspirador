@@ -180,12 +180,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 r177 eartip silicone accessory kit almohadillas
-            silicona s/m/l
+          query: Samsung Samsung Galaxy Buds2 r177 eartip silicone earbud accessory
+            kit almohadillas silicona s/m/l
           must_include:
           - r177
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -193,6 +194,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id001
           - galaxy buds2
           - samsung galaxy buds2
@@ -209,6 +216,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -216,6 +224,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id001
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds2
@@ -227,6 +241,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -234,6 +249,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id001
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds2
@@ -245,6 +266,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -252,6 +274,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id001
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds2
@@ -263,6 +291,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -270,16 +299,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id001
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds2
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 r177 headband accessory kit diadema
-            de accesorio
+          query: Samsung Samsung Galaxy Buds2 r177 headband headphone accessory kit
+            diadema de accesorio
           must_include:
           - r177
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -287,6 +323,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id001
         - sku: samsung-aud-samsung-galaxy-buds2-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds2
@@ -298,12 +340,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id001
         cargador:
         - sku: samsung-aud-samsung-galaxy-buds2-cargador-cable-usbc-earphone
@@ -316,12 +365,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id001
         bateria:
         - sku: samsung-aud-samsung-galaxy-buds2-bateria-bat-bud-left
@@ -334,12 +390,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id001
         - sku: samsung-aud-samsung-galaxy-buds2-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds2
@@ -351,12 +416,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id001
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -450,12 +524,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro r510 eartip silicone accessory kit
-            almohadillas silicona s/m/l
+          query: Samsung Samsung Galaxy Buds2 Pro r510 eartip silicone earbud accessory
+            kit almohadillas silicona s/m/l
           must_include:
           - r510
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -463,6 +538,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id002
           - galaxy buds2 pro
           - samsung galaxy buds2 pro
@@ -479,6 +560,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -486,6 +568,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id002
         - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds2
@@ -498,6 +586,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -505,6 +594,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id002
         - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds2
@@ -517,6 +612,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -524,6 +620,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id002
         - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds2
@@ -536,6 +638,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -543,16 +646,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id002
         - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds2 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds2 Pro r510 headband accessory kit diadema
-            de accesorio
+          query: Samsung Samsung Galaxy Buds2 Pro r510 headband headphone accessory
+            kit diadema de accesorio
           must_include:
           - r510
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -560,6 +670,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id002
         - sku: samsung-aud-samsung-galaxy-buds2-pro-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds2 Pro
@@ -571,12 +687,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id002
         cargador:
         - sku: samsung-aud-samsung-galaxy-buds2-pro-cargador-cable-usbc-earphone
@@ -589,12 +712,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id002
         bateria:
         - sku: samsung-aud-samsung-galaxy-buds2-pro-bateria-bat-bud-left
@@ -608,12 +738,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id002
         - sku: samsung-aud-samsung-galaxy-buds2-pro-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds2 Pro
@@ -625,12 +764,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id002
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -728,12 +876,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 r530 eartip silicone accessory kit almohadillas
-            silicona s/m/l
+          query: Samsung Samsung Galaxy Buds3 r530 eartip silicone earbud accessory
+            kit almohadillas silicona s/m/l
           must_include:
           - r530
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -741,6 +890,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id003
           - galaxy buds3
           - samsung galaxy buds3
@@ -757,6 +912,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -764,6 +920,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id003
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds3
@@ -775,6 +937,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -782,6 +945,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id003
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds3
@@ -793,6 +962,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -800,6 +970,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id003
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds3
@@ -811,6 +987,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -818,16 +995,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id003
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds3
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 r530 headband accessory kit diadema
-            de accesorio
+          query: Samsung Samsung Galaxy Buds3 r530 headband headphone accessory kit
+            diadema de accesorio
           must_include:
           - r530
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -835,6 +1019,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id003
         - sku: samsung-aud-samsung-galaxy-buds3-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds3
@@ -846,12 +1036,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id003
         cargador:
         - sku: samsung-aud-samsung-galaxy-buds3-cargador-cable-usbc-earphone
@@ -864,12 +1061,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id003
         bateria:
         - sku: samsung-aud-samsung-galaxy-buds3-bateria-bat-bud-left
@@ -882,12 +1086,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id003
         - sku: samsung-aud-samsung-galaxy-buds3-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds3
@@ -899,12 +1112,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id003
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -998,12 +1220,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro r630 eartip silicone accessory kit
-            almohadillas silicona s/m/l
+          query: Samsung Samsung Galaxy Buds3 Pro r630 eartip silicone earbud accessory
+            kit almohadillas silicona s/m/l
           must_include:
           - r630
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1011,6 +1234,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id004
           - galaxy buds3 pro
           - samsung galaxy buds3 pro
@@ -1027,6 +1256,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1034,6 +1264,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id004
         - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds3
@@ -1046,6 +1282,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1053,6 +1290,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id004
         - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds3
@@ -1065,6 +1308,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1072,6 +1316,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id004
         - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds3
@@ -1084,6 +1334,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1091,16 +1342,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id004
         - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds3 Pro
           intent: compra
-          query: Samsung Samsung Galaxy Buds3 Pro r630 headband accessory kit diadema
-            de accesorio
+          query: Samsung Samsung Galaxy Buds3 Pro r630 headband headphone accessory
+            kit diadema de accesorio
           must_include:
           - r630
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1108,6 +1366,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id004
         - sku: samsung-aud-samsung-galaxy-buds3-pro-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds3 Pro
@@ -1119,12 +1383,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id004
         cargador:
         - sku: samsung-aud-samsung-galaxy-buds3-pro-cargador-cable-usbc-earphone
@@ -1137,12 +1408,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id004
         bateria:
         - sku: samsung-aud-samsung-galaxy-buds3-pro-bateria-bat-bud-left
@@ -1156,12 +1434,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id004
         - sku: samsung-aud-samsung-galaxy-buds3-pro-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds3 Pro
@@ -1173,12 +1460,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id004
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -1275,12 +1571,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para Samsung Galaxy
             Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE r400 eartip silicone accessory kit
-            almohadillas silicona s/m/l
+          query: Samsung Samsung Galaxy Buds FE r400 eartip silicone earbud accessory
+            kit almohadillas silicona s/m/l
           must_include:
           - r400
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1288,6 +1585,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id005
           - galaxy buds fe
           - samsung galaxy buds fe
@@ -1304,6 +1607,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1311,6 +1615,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id005
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Samsung Galaxy Buds
@@ -1323,6 +1633,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1330,6 +1641,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id005
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Samsung Galaxy Buds FE
@@ -1341,6 +1658,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1348,6 +1666,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id005
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Samsung Galaxy Buds
@@ -1360,6 +1684,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1367,16 +1692,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id005
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Samsung Galaxy Buds FE
           intent: compra
-          query: Samsung Samsung Galaxy Buds FE r400 headband accessory kit diadema
-            de accesorio
+          query: Samsung Samsung Galaxy Buds FE r400 headband headphone accessory
+            kit diadema de accesorio
           must_include:
           - r400
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1384,6 +1716,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id005
         - sku: samsung-aud-samsung-galaxy-buds-fe-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Samsung Galaxy Buds FE
@@ -1395,12 +1733,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id005
         cargador:
         - sku: samsung-aud-samsung-galaxy-buds-fe-cargador-cable-usbc-earphone
@@ -1413,12 +1758,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id005
         bateria:
         - sku: samsung-aud-samsung-galaxy-buds-fe-bateria-bat-bud-left
@@ -1431,12 +1783,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id005
         - sku: samsung-aud-samsung-galaxy-buds-fe-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Samsung Galaxy Buds FE
@@ -1448,12 +1809,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id005
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -1550,12 +1920,13 @@ brands:
         - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 wf1000xm5 eartip silicone accessory kit almohadillas
-            silicona s/m/l
+          query: Sony Sony WF-1000XM5 wf1000xm5 eartip silicone earbud accessory kit
+            almohadillas silicona s/m/l
           must_include:
           - wf1000xm5
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1563,6 +1934,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id006
           - wf-1000xm5
           - wf 1000xm5
@@ -1578,6 +1955,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1585,6 +1963,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id006
         - sku: sony-aud-sony-wf-1000xm5-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WF-1000XM5
@@ -1596,6 +1980,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1603,6 +1988,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id006
         - sku: sony-aud-sony-wf-1000xm5-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WF-1000XM5
@@ -1614,6 +2005,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1621,6 +2013,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id006
         - sku: sony-aud-sony-wf-1000xm5-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WF-1000XM5
@@ -1632,6 +2030,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1639,16 +2038,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id006
         - sku: sony-aud-sony-wf-1000xm5-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WF-1000XM5
           intent: compra
-          query: Sony Sony WF-1000XM5 wf1000xm5 headband accessory kit diadema de
-            accesorio
+          query: Sony Sony WF-1000XM5 wf1000xm5 headband headphone accessory kit diadema
+            de accesorio
           must_include:
           - wf1000xm5
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1656,6 +2062,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id006
         - sku: sony-aud-sony-wf-1000xm5-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WF-1000XM5
@@ -1667,12 +2079,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id006
         cargador:
         - sku: sony-aud-sony-wf-1000xm5-cargador-cable-usbc-earphone
@@ -1685,12 +2104,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id006
         bateria:
         - sku: sony-aud-sony-wf-1000xm5-bateria-bat-bud-left
@@ -1703,12 +2129,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id006
         - sku: sony-aud-sony-wf-1000xm5-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WF-1000XM5
@@ -1720,12 +2155,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id006
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -1815,12 +2259,13 @@ brands:
         - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 wf1000xm4 eartip silicone accessory kit almohadillas
-            silicona s/m/l
+          query: Sony Sony WF-1000XM4 wf1000xm4 eartip silicone earbud accessory kit
+            almohadillas silicona s/m/l
           must_include:
           - wf1000xm4
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1828,6 +2273,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id007
           - wf-1000xm4
           - wf 1000xm4
@@ -1843,6 +2294,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1850,6 +2302,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id007
         - sku: sony-aud-sony-wf-1000xm4-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WF-1000XM4
@@ -1861,6 +2319,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1868,6 +2327,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id007
         - sku: sony-aud-sony-wf-1000xm4-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WF-1000XM4
@@ -1879,6 +2344,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -1886,6 +2352,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id007
         - sku: sony-aud-sony-wf-1000xm4-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WF-1000XM4
@@ -1897,6 +2369,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1904,16 +2377,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id007
         - sku: sony-aud-sony-wf-1000xm4-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WF-1000XM4
           intent: compra
-          query: Sony Sony WF-1000XM4 wf1000xm4 headband accessory kit diadema de
-            accesorio
+          query: Sony Sony WF-1000XM4 wf1000xm4 headband headphone accessory kit diadema
+            de accesorio
           must_include:
           - wf1000xm4
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -1921,6 +2401,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id007
         - sku: sony-aud-sony-wf-1000xm4-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WF-1000XM4
@@ -1932,12 +2418,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id007
         cargador:
         - sku: sony-aud-sony-wf-1000xm4-cargador-cable-usbc-earphone
@@ -1950,12 +2443,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id007
         bateria:
         - sku: sony-aud-sony-wf-1000xm4-bateria-bat-bud-left
@@ -1968,12 +2468,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id007
         - sku: sony-aud-sony-wf-1000xm4-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WF-1000XM4
@@ -1985,12 +2494,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id007
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -2078,12 +2596,13 @@ brands:
         - sku: sony-aud-sony-wf-c700n-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N wfc700n eartip silicone accessory kit almohadillas
+          query: Sony Sony WF-C700N wfc700n eartip silicone earbud accessory kit almohadillas
             silicona s/m/l
           must_include:
           - wfc700n
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2091,6 +2610,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id008
           - wf-c700n
           - wf c700n
@@ -2106,6 +2631,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2113,6 +2639,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id008
         - sku: sony-aud-sony-wf-c700n-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WF-C700N
@@ -2124,6 +2656,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2131,6 +2664,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id008
         - sku: sony-aud-sony-wf-c700n-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WF-C700N
@@ -2142,6 +2681,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2149,6 +2689,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id008
         - sku: sony-aud-sony-wf-c700n-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WF-C700N
@@ -2160,6 +2706,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2167,15 +2714,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id008
         - sku: sony-aud-sony-wf-c700n-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WF-C700N
           intent: compra
-          query: Sony Sony WF-C700N wfc700n headband accessory kit diadema de accesorio
+          query: Sony Sony WF-C700N wfc700n headband headphone accessory kit diadema
+            de accesorio
           must_include:
           - wfc700n
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2183,6 +2738,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id008
         - sku: sony-aud-sony-wf-c700n-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WF-C700N
@@ -2193,12 +2754,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id008
         cargador:
         - sku: sony-aud-sony-wf-c700n-cargador-cable-usbc-earphone
@@ -2211,12 +2779,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id008
         bateria:
         - sku: sony-aud-sony-wf-c700n-bateria-bat-bud-left
@@ -2229,12 +2804,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id008
         - sku: sony-aud-sony-wf-c700n-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WF-C700N
@@ -2246,12 +2830,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id008
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -2348,12 +2941,13 @@ brands:
         - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 wh1000xm5 eartip silicone accessory kit almohadillas
-            silicona s/m/l
+          query: Sony Sony WH-1000XM5 wh1000xm5 eartip silicone earbud accessory kit
+            almohadillas silicona s/m/l
           must_include:
           - wh1000xm5
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2361,6 +2955,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id009
           - wh-1000xm5
           - wh 1000xm5
@@ -2376,6 +2976,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2383,6 +2984,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id009
         - sku: sony-aud-sony-wh-1000xm5-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WH-1000XM5
@@ -2394,6 +3001,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2401,6 +3009,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id009
         - sku: sony-aud-sony-wh-1000xm5-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WH-1000XM5
@@ -2412,6 +3026,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2419,6 +3034,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id009
         - sku: sony-aud-sony-wh-1000xm5-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WH-1000XM5
@@ -2430,6 +3051,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2437,16 +3059,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id009
         - sku: sony-aud-sony-wh-1000xm5-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WH-1000XM5
           intent: compra
-          query: Sony Sony WH-1000XM5 wh1000xm5 headband accessory kit diadema de
-            accesorio
+          query: Sony Sony WH-1000XM5 wh1000xm5 headband headphone accessory kit diadema
+            de accesorio
           must_include:
           - wh1000xm5
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2454,6 +3083,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id009
         - sku: sony-aud-sony-wh-1000xm5-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WH-1000XM5
@@ -2465,12 +3100,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id009
         cargador:
         - sku: sony-aud-sony-wh-1000xm5-cargador-cable-usbc-earphone
@@ -2483,12 +3125,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id009
         bateria:
         - sku: sony-aud-sony-wh-1000xm5-bateria-bat-bud-left
@@ -2501,12 +3150,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id009
         - sku: sony-aud-sony-wh-1000xm5-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WH-1000XM5
@@ -2518,12 +3176,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id009
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -2619,12 +3286,13 @@ brands:
         - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N whch720n eartip silicone accessory kit almohadillas
-            silicona s/m/l
+          query: Sony Sony WH-CH720N whch720n eartip silicone earbud accessory kit
+            almohadillas silicona s/m/l
           must_include:
           - whch720n
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2632,6 +3300,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id010
           - wh-ch720n
           - wh ch720n
@@ -2647,6 +3321,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2654,6 +3329,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id010
         - sku: sony-aud-sony-wh-ch720n-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para Sony WH-CH720N
@@ -2665,6 +3346,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2672,6 +3354,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id010
         - sku: sony-aud-sony-wh-ch720n-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para Sony WH-CH720N
@@ -2683,6 +3371,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2690,6 +3379,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id010
         - sku: sony-aud-sony-wh-ch720n-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para Sony WH-CH720N
@@ -2701,6 +3396,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2708,15 +3404,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id010
         - sku: sony-aud-sony-wh-ch720n-accesorios-headband-acc
           title: Diadema de repuesto accesorio para Sony WH-CH720N
           intent: compra
-          query: Sony Sony WH-CH720N whch720n headband accessory kit diadema de accesorio
+          query: Sony Sony WH-CH720N whch720n headband headphone accessory kit diadema
+            de accesorio
           must_include:
           - whch720n
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2724,6 +3428,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id010
         - sku: sony-aud-sony-wh-ch720n-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para Sony WH-CH720N
@@ -2734,12 +3444,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id010
         cargador:
         - sku: sony-aud-sony-wh-ch720n-cargador-cable-usbc-earphone
@@ -2752,12 +3469,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id010
         bateria:
         - sku: sony-aud-sony-wh-ch720n-bateria-bat-bud-left
@@ -2770,12 +3494,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id010
         - sku: sony-aud-sony-wh-ch720n-bateria-bat-bud-right
           title: Batería auricular derecho compatible para Sony WH-CH720N
@@ -2787,12 +3520,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id010
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -2888,12 +3630,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tour Pro
             2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbltourpro2 eartip silicone accessory kit almohadillas
-            silicona s/m/l
+          query: JBL JBL Tour Pro 2 jbltourpro2 eartip silicone earbud accessory kit
+            almohadillas silicona s/m/l
           must_include:
           - jbltourpro2
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2901,6 +3644,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id011
           - jbl tour pro 2
           - tour pro 2
@@ -2916,6 +3665,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2923,6 +3673,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id011
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Tour Pro 2
@@ -2934,6 +3690,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2941,6 +3698,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id011
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Tour Pro 2
@@ -2952,6 +3715,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -2959,6 +3723,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id011
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Tour Pro 2
@@ -2970,6 +3740,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2977,16 +3748,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id011
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Tour Pro 2
           intent: compra
-          query: JBL JBL Tour Pro 2 jbltourpro2 headband accessory kit diadema de
-            accesorio
+          query: JBL JBL Tour Pro 2 jbltourpro2 headband headphone accessory kit diadema
+            de accesorio
           must_include:
           - jbltourpro2
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -2994,6 +3772,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id011
         - sku: jbl-aud-jbl-tour-pro-2-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Tour Pro 2
@@ -3005,12 +3789,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id011
         cargador:
         - sku: jbl-aud-jbl-tour-pro-2-cargador-cable-usbc-earphone
@@ -3023,12 +3814,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id011
         bateria:
         - sku: jbl-aud-jbl-tour-pro-2-bateria-bat-bud-left
@@ -3041,12 +3839,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id011
         - sku: jbl-aud-jbl-tour-pro-2-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Tour Pro 2
@@ -3058,12 +3865,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id011
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -3154,12 +3970,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Live Pro
             2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbllivepro2 eartip silicone accessory kit
-            almohadillas silicona s/m/l
+          query: JBL JBL Live Pro 2 TWS jbllivepro2 eartip silicone earbud accessory
+            kit almohadillas silicona s/m/l
           must_include:
           - jbllivepro2
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3167,6 +3984,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id012
           - jbl live pro 2
           - live pro 2
@@ -3182,6 +4005,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3189,6 +4013,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id012
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Live Pro 2 TWS
@@ -3200,6 +4030,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3207,6 +4038,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id012
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Live Pro 2 TWS
@@ -3218,6 +4055,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3225,6 +4063,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id012
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Live Pro 2 TWS
@@ -3236,6 +4080,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -3243,16 +4088,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id012
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Live Pro 2 TWS
           intent: compra
-          query: JBL JBL Live Pro 2 TWS jbllivepro2 headband accessory kit diadema
-            de accesorio
+          query: JBL JBL Live Pro 2 TWS jbllivepro2 headband headphone accessory kit
+            diadema de accesorio
           must_include:
           - jbllivepro2
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -3260,6 +4112,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id012
         - sku: jbl-aud-jbl-live-pro-2-tws-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Live Pro 2 TWS
@@ -3271,12 +4129,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id012
         cargador:
         - sku: jbl-aud-jbl-live-pro-2-tws-cargador-cable-usbc-earphone
@@ -3289,12 +4154,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id012
         bateria:
         - sku: jbl-aud-jbl-live-pro-2-tws-bateria-bat-bud-left
@@ -3307,12 +4179,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id012
         - sku: jbl-aud-jbl-live-pro-2-tws-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Live Pro 2 TWS
@@ -3324,12 +4205,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id012
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -3417,12 +4307,13 @@ brands:
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tune 230NC
             TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbltune230nc eartip silicone accessory kit
-            almohadillas silicona s/m/l
+          query: JBL JBL Tune 230NC TWS jbltune230nc eartip silicone earbud accessory
+            kit almohadillas silicona s/m/l
           must_include:
           - jbltune230nc
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3430,6 +4321,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id013
           - jbl tune 230nc
           - tune 230nc
@@ -3445,6 +4342,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3452,6 +4350,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id013
         - sku: jbl-aud-jbl-tune-230nc-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Tune 230NC TWS
@@ -3463,6 +4367,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3470,6 +4375,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id013
         - sku: jbl-aud-jbl-tune-230nc-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Tune 230NC TWS
@@ -3481,6 +4392,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3488,6 +4400,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id013
         - sku: jbl-aud-jbl-tune-230nc-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Tune 230NC TWS
@@ -3499,6 +4417,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -3506,16 +4425,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id013
         - sku: jbl-aud-jbl-tune-230nc-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Tune 230NC TWS
           intent: compra
-          query: JBL JBL Tune 230NC TWS jbltune230nc headband accessory kit diadema
-            de accesorio
+          query: JBL JBL Tune 230NC TWS jbltune230nc headband headphone accessory
+            kit diadema de accesorio
           must_include:
           - jbltune230nc
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -3523,6 +4449,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id013
         - sku: jbl-aud-jbl-tune-230nc-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Tune 230NC TWS
@@ -3534,12 +4466,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id013
         cargador:
         - sku: jbl-aud-jbl-tune-230nc-cargador-cable-usbc-earphone
@@ -3552,12 +4491,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id013
         bateria:
         - sku: jbl-aud-jbl-tune-230nc-bateria-bat-bud-left
@@ -3570,12 +4516,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id013
         - sku: jbl-aud-jbl-tune-230nc-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Tune 230NC TWS
@@ -3587,12 +4542,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id013
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -3679,12 +4643,13 @@ brands:
         - sku: jbl-aud-jbl-tune-flex-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex eartip silicone accessory kit almohadillas silicona
-            s/m/l
+          query: JBL JBL Tune Flex eartip silicone earbud accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - jbl
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3692,6 +4657,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id014
           - jbl tune flex
           - tune flex
@@ -3706,6 +4677,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3713,6 +4685,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id014
         - sku: jbl-aud-jbl-tune-flex-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para JBL Tune Flex
@@ -3723,6 +4701,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3730,6 +4709,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id014
         - sku: jbl-aud-jbl-tune-flex-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para JBL Tune Flex
@@ -3740,6 +4725,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3747,6 +4733,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id014
         - sku: jbl-aud-jbl-tune-flex-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para JBL Tune Flex
@@ -3758,6 +4750,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -3765,15 +4758,22 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id014
         - sku: jbl-aud-jbl-tune-flex-accesorios-headband-acc
           title: Diadema de repuesto accesorio para JBL Tune Flex
           intent: compra
-          query: JBL JBL Tune Flex headband accessory kit diadema de accesorio
+          query: JBL JBL Tune Flex headband headphone accessory kit diadema de accesorio
           must_include:
           - jbl
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -3781,6 +4781,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id014
         - sku: jbl-aud-jbl-tune-flex-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para JBL Tune Flex
@@ -3791,12 +4797,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id014
         cargador:
         - sku: jbl-aud-jbl-tune-flex-cargador-cable-usbc-earphone
@@ -3808,12 +4821,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id014
         bateria:
         - sku: jbl-aud-jbl-tune-flex-bateria-bat-bud-left
@@ -3825,12 +4845,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id014
         - sku: jbl-aud-jbl-tune-flex-bateria-bat-bud-right
           title: Batería auricular derecho compatible para JBL Tune Flex
@@ -3841,12 +4870,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id014
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -3941,12 +4979,13 @@ brands:
         - sku: qcy-qcy-t13-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY T13
           intent: compra
-          query: QCY QCY T13 qcyt13 eartip silicone accessory kit almohadillas silicona
-            s/m/l
+          query: QCY QCY T13 qcyt13 eartip silicone earbud accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - qcyt13
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3954,6 +4993,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id015
           - qcy t13
           - qcyt13
@@ -3968,6 +5013,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3975,6 +5021,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id015
         - sku: qcy-qcy-t13-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY T13
@@ -3985,6 +5037,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -3992,6 +5045,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id015
         - sku: qcy-qcy-t13-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY T13
@@ -4002,6 +5061,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4009,6 +5069,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id015
         - sku: qcy-qcy-t13-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY T13
@@ -4020,6 +5086,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4027,15 +5094,22 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id015
         - sku: qcy-qcy-t13-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY T13
           intent: compra
-          query: QCY QCY T13 qcyt13 headband accessory kit diadema de accesorio
+          query: QCY QCY T13 qcyt13 headband headphone accessory kit diadema de accesorio
           must_include:
           - qcyt13
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4043,6 +5117,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id015
         - sku: qcy-qcy-t13-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY T13
@@ -4053,12 +5133,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id015
         cargador:
         - sku: qcy-qcy-t13-cargador-cable-usbc-earphone
@@ -4070,12 +5157,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id015
         bateria:
         - sku: qcy-qcy-t13-bateria-bat-bud-left
@@ -4087,12 +5181,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id015
         - sku: qcy-qcy-t13-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY T13
@@ -4103,12 +5206,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id015
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -4197,12 +5309,13 @@ brands:
         - sku: qcy-qcy-ht07-anc-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC qcyht07 eartip silicone accessory kit almohadillas
+          query: QCY QCY HT07 ANC qcyht07 eartip silicone earbud accessory kit almohadillas
             silicona s/m/l
           must_include:
           - qcyht07
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4210,6 +5323,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id016
           - qcy ht07
           - qcyht07
@@ -4226,6 +5345,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4233,6 +5353,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id016
         - sku: qcy-qcy-ht07-anc-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY HT07 ANC
@@ -4244,6 +5370,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4251,6 +5378,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id016
         - sku: qcy-qcy-ht07-anc-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY HT07 ANC
@@ -4262,6 +5395,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4269,6 +5403,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id016
         - sku: qcy-qcy-ht07-anc-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY HT07 ANC
@@ -4280,6 +5420,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4287,15 +5428,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id016
         - sku: qcy-qcy-ht07-anc-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY HT07 ANC
           intent: compra
-          query: QCY QCY HT07 ANC qcyht07 headband accessory kit diadema de accesorio
+          query: QCY QCY HT07 ANC qcyht07 headband headphone accessory kit diadema
+            de accesorio
           must_include:
           - qcyht07
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4303,6 +5452,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id016
         - sku: qcy-qcy-ht07-anc-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY HT07 ANC
@@ -4313,12 +5468,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id016
         cargador:
         - sku: qcy-qcy-ht07-anc-cargador-cable-usbc-earphone
@@ -4331,12 +5493,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id016
         bateria:
         - sku: qcy-qcy-ht07-anc-bateria-bat-bud-left
@@ -4348,12 +5517,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id016
         - sku: qcy-qcy-ht07-anc-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY HT07 ANC
@@ -4364,12 +5542,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id016
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -4457,12 +5644,13 @@ brands:
         - sku: qcy-qcy-t21-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY T21
           intent: compra
-          query: QCY QCY T21 qcyt21 eartip silicone accessory kit almohadillas silicona
-            s/m/l
+          query: QCY QCY T21 qcyt21 eartip silicone earbud accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - qcyt21
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4470,6 +5658,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id017
           - qcy t21
           - qcyt21
@@ -4484,6 +5678,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4491,6 +5686,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id017
         - sku: qcy-qcy-t21-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY T21
@@ -4501,6 +5702,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4508,6 +5710,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id017
         - sku: qcy-qcy-t21-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY T21
@@ -4518,6 +5726,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4525,6 +5734,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id017
         - sku: qcy-qcy-t21-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY T21
@@ -4536,6 +5751,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4543,15 +5759,22 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id017
         - sku: qcy-qcy-t21-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY T21
           intent: compra
-          query: QCY QCY T21 qcyt21 headband accessory kit diadema de accesorio
+          query: QCY QCY T21 qcyt21 headband headphone accessory kit diadema de accesorio
           must_include:
           - qcyt21
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4559,6 +5782,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id017
         - sku: qcy-qcy-t21-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY T21
@@ -4569,12 +5798,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id017
         cargador:
         - sku: qcy-qcy-t21-cargador-cable-usbc-earphone
@@ -4586,12 +5822,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id017
         bateria:
         - sku: qcy-qcy-t21-bateria-bat-bud-left
@@ -4603,12 +5846,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id017
         - sku: qcy-qcy-t21-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY T21
@@ -4619,12 +5871,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id017
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
@@ -4712,12 +5973,13 @@ brands:
         - sku: qcy-qcy-arcbuds-lite-accesorios-eartip-silicone-sml
           title: Almohadillas silicona S/M/L (pack) compatibles para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite eartip silicone accessory kit almohadillas silicona
-            s/m/l
+          query: QCY QCY ArcBuds Lite eartip silicone earbud accessory kit almohadillas
+            silicona s/m/l
           must_include:
           - qcy
           - eartip
           - silicone
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4725,6 +5987,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: &id018
           - qcy arcbuds lite
           - qcy arcbuds
@@ -4740,6 +6008,7 @@ brands:
           - eartip
           - foam
           - memory
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4747,6 +6016,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id018
         - sku: qcy-qcy-arcbuds-lite-accesorios-eartip-wings-pack
           title: Aletas estabilizadoras (pack) compatibles para QCY ArcBuds Lite
@@ -4757,6 +6032,7 @@ brands:
           - wing
           - tip
           - stabilizer
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4764,6 +6040,12 @@ brands:
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id018
         - sku: qcy-qcy-arcbuds-lite-accesorios-case-replacement-acc
           title: Estuche de carga de repuesto accesorio para QCY ArcBuds Lite
@@ -4775,6 +6057,7 @@ brands:
           - case
           - charging
           - replacement
+          - earbud
           must_not_include:
           - battery
           - charger
@@ -4782,6 +6065,12 @@ brands:
           - eartip
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id018
         - sku: qcy-qcy-arcbuds-lite-accesorios-cushion-pad-acc
           title: Almohadillas de auricular (par) accesorios para QCY ArcBuds Lite
@@ -4793,6 +6082,7 @@ brands:
           - ear
           - cushion
           - pad
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4800,15 +6090,23 @@ brands:
           - eartip
           - case
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id018
         - sku: qcy-qcy-arcbuds-lite-accesorios-headband-acc
           title: Diadema de repuesto accesorio para QCY ArcBuds Lite
           intent: compra
-          query: QCY QCY ArcBuds Lite headband accessory kit diadema de accesorio
+          query: QCY QCY ArcBuds Lite headband headphone accessory kit diadema de
+            accesorio
           must_include:
           - qcy
           - headband
           - replacement
+          - headphone
           must_not_include:
           - battery
           - charger
@@ -4816,6 +6114,12 @@ brands:
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id018
         - sku: qcy-qcy-arcbuds-lite-accesorios-kit-clean-earphone
           title: Kit de limpieza accesorio para QCY ArcBuds Lite
@@ -4826,12 +6130,19 @@ brands:
           - cleaning
           - kit
           - accessory
+          - earbud
           must_not_include:
           - battery
           - charger
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id018
         cargador:
         - sku: qcy-qcy-arcbuds-lite-cargador-cable-usbc-earphone
@@ -4843,12 +6154,19 @@ brands:
           - usb-c
           - cable
           - charging
+          - earbud
           must_not_include:
           - battery
           - eartip
           - case
           - cushion
           - headband
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
           model_tokens: *id018
         bateria:
         - sku: qcy-qcy-arcbuds-lite-bateria-bat-bud-left
@@ -4860,12 +6178,21 @@ brands:
           - battery
           - left
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id018
         - sku: qcy-qcy-arcbuds-lite-bateria-bat-bud-right
           title: Batería auricular derecho compatible para QCY ArcBuds Lite
@@ -4876,12 +6203,21 @@ brands:
           - battery
           - right
           - earbud
+          - replacement
           must_not_include:
           - charger
           - cable
           - eartip
           - case
           - cushion
+          - phone
+          - tablet
+          - watch
+          - camera
+          - screen
+          - cover
+          - door
+          - housing
           model_tokens: *id018
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar

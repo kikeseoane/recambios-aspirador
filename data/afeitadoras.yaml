@@ -120,15 +120,20 @@ brands:
         - sku: philips-af-philips-s1231-laminas-foil-std
           title: Láminas compatibles para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 foil laminas
+          query: Philips Series 1000 S1231 foil shaver laminas
           must_include:
           - s1231
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id001
           - s1231
           - s 1231
@@ -137,134 +142,181 @@ brands:
         - sku: philips-af-philips-s1231-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 foil 3 laminas
+          query: Philips Series 1000 S1231 foil shaver 3 laminas
           must_include:
           - s1231
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
         cabezal:
         - sku: philips-af-philips-s1231-cabezal-head-std
           title: Cabezal de recambio compatible para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 head cabezal de
+          query: Philips Series 1000 S1231 head shaver cabezal de
           must_include:
           - s1231
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
         - sku: philips-af-philips-s1231-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 head 4 cabezales
+          query: Philips Series 1000 S1231 head shaver 4 cabezales
           must_include:
           - s1231
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
         cargador:
         - sku: philips-af-philips-s1231-cargador-charger-shaver
           title: Cargador compatible para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 charger adapter cargador
+          query: Philips Series 1000 S1231 charger shaver adapter cargador
           must_include:
           - s1231
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
         - sku: philips-af-philips-s1231-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 cable adapter charger adaptador
+          query: Philips Series 1000 S1231 cable adapter shaver charger adaptador
           must_include:
           - s1231
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
         accesorios:
         - sku: philips-af-philips-s1231-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips Series 1000 S1231 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - s1231
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id001
         - sku: philips-af-philips-s1231-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 case travel accessory kit funda estuche
-            de viaje
+          query: Philips Series 1000 S1231 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - s1231
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
         - sku: philips-af-philips-s1231-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips Series 1000 S1231 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - s1231
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
         - sku: philips-af-philips-s1231-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 1000 S1231
           intent: compra
-          query: Philips Series 1000 S1231 kit accessory accesorios
+          query: Philips Series 1000 S1231 kit accessory shaver accesorios
           must_include:
           - s1231
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id001
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -364,15 +416,20 @@ brands:
         - sku: philips-af-philips-s2910-laminas-foil-std
           title: Láminas compatibles para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 foil laminas
+          query: Philips Series 2000 S2910 foil shaver laminas
           must_include:
           - s2910
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id002
           - s2910
           - s 2910
@@ -381,134 +438,181 @@ brands:
         - sku: philips-af-philips-s2910-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 foil 3 laminas
+          query: Philips Series 2000 S2910 foil shaver 3 laminas
           must_include:
           - s2910
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
         cabezal:
         - sku: philips-af-philips-s2910-cabezal-head-std
           title: Cabezal de recambio compatible para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 head cabezal de
+          query: Philips Series 2000 S2910 head shaver cabezal de
           must_include:
           - s2910
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
         - sku: philips-af-philips-s2910-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 head 4 cabezales
+          query: Philips Series 2000 S2910 head shaver 4 cabezales
           must_include:
           - s2910
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
         cargador:
         - sku: philips-af-philips-s2910-cargador-charger-shaver
           title: Cargador compatible para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 charger adapter cargador
+          query: Philips Series 2000 S2910 charger shaver adapter cargador
           must_include:
           - s2910
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
         - sku: philips-af-philips-s2910-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 cable adapter charger adaptador
+          query: Philips Series 2000 S2910 cable adapter shaver charger adaptador
           must_include:
           - s2910
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
         accesorios:
         - sku: philips-af-philips-s2910-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips Series 2000 S2910 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - s2910
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id002
         - sku: philips-af-philips-s2910-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 case travel accessory kit funda estuche
-            de viaje
+          query: Philips Series 2000 S2910 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - s2910
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
         - sku: philips-af-philips-s2910-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips Series 2000 S2910 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - s2910
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
         - sku: philips-af-philips-s2910-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 2000 S2910
           intent: compra
-          query: Philips Series 2000 S2910 kit accessory accesorios
+          query: Philips Series 2000 S2910 kit accessory shaver accesorios
           must_include:
           - s2910
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id002
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -608,15 +712,20 @@ brands:
         - sku: philips-af-philips-s3710-laminas-foil-std
           title: Láminas compatibles para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 foil laminas
+          query: Philips Series 3000 S3710 foil shaver laminas
           must_include:
           - s3710
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id003
           - s3710
           - s 3710
@@ -625,134 +734,181 @@ brands:
         - sku: philips-af-philips-s3710-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 foil 3 laminas
+          query: Philips Series 3000 S3710 foil shaver 3 laminas
           must_include:
           - s3710
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
         cabezal:
         - sku: philips-af-philips-s3710-cabezal-head-std
           title: Cabezal de recambio compatible para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 head cabezal de
+          query: Philips Series 3000 S3710 head shaver cabezal de
           must_include:
           - s3710
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
         - sku: philips-af-philips-s3710-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 head 4 cabezales
+          query: Philips Series 3000 S3710 head shaver 4 cabezales
           must_include:
           - s3710
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
         cargador:
         - sku: philips-af-philips-s3710-cargador-charger-shaver
           title: Cargador compatible para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 charger adapter cargador
+          query: Philips Series 3000 S3710 charger shaver adapter cargador
           must_include:
           - s3710
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
         - sku: philips-af-philips-s3710-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 cable adapter charger adaptador
+          query: Philips Series 3000 S3710 cable adapter shaver charger adaptador
           must_include:
           - s3710
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
         accesorios:
         - sku: philips-af-philips-s3710-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips Series 3000 S3710 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - s3710
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id003
         - sku: philips-af-philips-s3710-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 case travel accessory kit funda estuche
-            de viaje
+          query: Philips Series 3000 S3710 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - s3710
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
         - sku: philips-af-philips-s3710-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips Series 3000 S3710 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - s3710
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
         - sku: philips-af-philips-s3710-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 3000 S3710
           intent: compra
-          query: Philips Series 3000 S3710 kit accessory accesorios
+          query: Philips Series 3000 S3710 kit accessory shaver accesorios
           must_include:
           - s3710
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id003
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -852,15 +1008,20 @@ brands:
         - sku: philips-af-philips-s5585-laminas-foil-std
           title: Láminas compatibles para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 foil laminas
+          query: Philips Series 5000 S5585 foil shaver laminas
           must_include:
           - s5585
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id004
           - s5585
           - s 5585
@@ -869,134 +1030,181 @@ brands:
         - sku: philips-af-philips-s5585-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 foil 3 laminas
+          query: Philips Series 5000 S5585 foil shaver 3 laminas
           must_include:
           - s5585
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
         cabezal:
         - sku: philips-af-philips-s5585-cabezal-head-std
           title: Cabezal de recambio compatible para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 head cabezal de
+          query: Philips Series 5000 S5585 head shaver cabezal de
           must_include:
           - s5585
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
         - sku: philips-af-philips-s5585-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 head 4 cabezales
+          query: Philips Series 5000 S5585 head shaver 4 cabezales
           must_include:
           - s5585
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
         cargador:
         - sku: philips-af-philips-s5585-cargador-charger-shaver
           title: Cargador compatible para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 charger adapter cargador
+          query: Philips Series 5000 S5585 charger shaver adapter cargador
           must_include:
           - s5585
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
         - sku: philips-af-philips-s5585-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 cable adapter charger adaptador
+          query: Philips Series 5000 S5585 cable adapter shaver charger adaptador
           must_include:
           - s5585
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
         accesorios:
         - sku: philips-af-philips-s5585-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips Series 5000 S5585 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - s5585
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id004
         - sku: philips-af-philips-s5585-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 case travel accessory kit funda estuche
-            de viaje
+          query: Philips Series 5000 S5585 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - s5585
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
         - sku: philips-af-philips-s5585-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips Series 5000 S5585 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - s5585
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
         - sku: philips-af-philips-s5585-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 5000 S5585
           intent: compra
-          query: Philips Series 5000 S5585 kit accessory accesorios
+          query: Philips Series 5000 S5585 kit accessory shaver accesorios
           must_include:
           - s5585
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id004
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -1096,15 +1304,20 @@ brands:
         - sku: philips-af-philips-s6640-laminas-foil-std
           title: Láminas compatibles para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 foil laminas
+          query: Philips Series 6000 S6640 foil shaver laminas
           must_include:
           - s6640
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id005
           - s6640
           - s 6640
@@ -1113,134 +1326,181 @@ brands:
         - sku: philips-af-philips-s6640-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 foil 3 laminas
+          query: Philips Series 6000 S6640 foil shaver 3 laminas
           must_include:
           - s6640
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
         cabezal:
         - sku: philips-af-philips-s6640-cabezal-head-std
           title: Cabezal de recambio compatible para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 head cabezal de
+          query: Philips Series 6000 S6640 head shaver cabezal de
           must_include:
           - s6640
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
         - sku: philips-af-philips-s6640-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 head 4 cabezales
+          query: Philips Series 6000 S6640 head shaver 4 cabezales
           must_include:
           - s6640
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
         cargador:
         - sku: philips-af-philips-s6640-cargador-charger-shaver
           title: Cargador compatible para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 charger adapter cargador
+          query: Philips Series 6000 S6640 charger shaver adapter cargador
           must_include:
           - s6640
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
         - sku: philips-af-philips-s6640-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 cable adapter charger adaptador
+          query: Philips Series 6000 S6640 cable adapter shaver charger adaptador
           must_include:
           - s6640
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
         accesorios:
         - sku: philips-af-philips-s6640-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips Series 6000 S6640 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - s6640
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id005
         - sku: philips-af-philips-s6640-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 case travel accessory kit funda estuche
-            de viaje
+          query: Philips Series 6000 S6640 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - s6640
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
         - sku: philips-af-philips-s6640-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips Series 6000 S6640 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - s6640
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
         - sku: philips-af-philips-s6640-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 6000 S6640
           intent: compra
-          query: Philips Series 6000 S6640 kit accessory accesorios
+          query: Philips Series 6000 S6640 kit accessory shaver accesorios
           must_include:
           - s6640
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id005
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -1340,15 +1600,20 @@ brands:
         - sku: philips-af-philips-s7788-laminas-foil-std
           title: Láminas compatibles para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 foil laminas
+          query: Philips Series 7000 S7788 foil shaver laminas
           must_include:
           - s7788
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id006
           - s7788
           - s 7788
@@ -1357,134 +1622,181 @@ brands:
         - sku: philips-af-philips-s7788-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 foil 3 laminas
+          query: Philips Series 7000 S7788 foil shaver 3 laminas
           must_include:
           - s7788
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
         cabezal:
         - sku: philips-af-philips-s7788-cabezal-head-std
           title: Cabezal de recambio compatible para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 head cabezal de
+          query: Philips Series 7000 S7788 head shaver cabezal de
           must_include:
           - s7788
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
         - sku: philips-af-philips-s7788-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 head 4 cabezales
+          query: Philips Series 7000 S7788 head shaver 4 cabezales
           must_include:
           - s7788
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
         cargador:
         - sku: philips-af-philips-s7788-cargador-charger-shaver
           title: Cargador compatible para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 charger adapter cargador
+          query: Philips Series 7000 S7788 charger shaver adapter cargador
           must_include:
           - s7788
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
         - sku: philips-af-philips-s7788-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 cable adapter charger adaptador
+          query: Philips Series 7000 S7788 cable adapter shaver charger adaptador
           must_include:
           - s7788
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
         accesorios:
         - sku: philips-af-philips-s7788-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips Series 7000 S7788 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - s7788
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id006
         - sku: philips-af-philips-s7788-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 case travel accessory kit funda estuche
-            de viaje
+          query: Philips Series 7000 S7788 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - s7788
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
         - sku: philips-af-philips-s7788-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips Series 7000 S7788 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - s7788
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
         - sku: philips-af-philips-s7788-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 7000 S7788
           intent: compra
-          query: Philips Series 7000 S7788 kit accessory accesorios
+          query: Philips Series 7000 S7788 kit accessory shaver accesorios
           must_include:
           - s7788
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id006
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -1584,15 +1896,20 @@ brands:
         - sku: philips-af-philips-sp9860-laminas-foil-std
           title: Láminas compatibles para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 foil laminas
+          query: Philips Series 9000 SP9860 foil shaver laminas
           must_include:
           - sp9860
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id007
           - sp9860
           - sp 9860
@@ -1601,134 +1918,181 @@ brands:
         - sku: philips-af-philips-sp9860-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 foil 3 laminas
+          query: Philips Series 9000 SP9860 foil shaver 3 laminas
           must_include:
           - sp9860
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
         cabezal:
         - sku: philips-af-philips-sp9860-cabezal-head-std
           title: Cabezal de recambio compatible para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 head cabezal de
+          query: Philips Series 9000 SP9860 head shaver cabezal de
           must_include:
           - sp9860
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
         - sku: philips-af-philips-sp9860-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 head 4 cabezales
+          query: Philips Series 9000 SP9860 head shaver 4 cabezales
           must_include:
           - sp9860
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
         cargador:
         - sku: philips-af-philips-sp9860-cargador-charger-shaver
           title: Cargador compatible para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 charger adapter cargador
+          query: Philips Series 9000 SP9860 charger shaver adapter cargador
           must_include:
           - sp9860
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
         - sku: philips-af-philips-sp9860-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 cable adapter charger adaptador
+          query: Philips Series 9000 SP9860 cable adapter shaver charger adaptador
           must_include:
           - sp9860
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
         accesorios:
         - sku: philips-af-philips-sp9860-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips Series 9000 SP9860 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - sp9860
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id007
         - sku: philips-af-philips-sp9860-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 case travel accessory kit funda estuche
-            de viaje
+          query: Philips Series 9000 SP9860 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - sp9860
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
         - sku: philips-af-philips-sp9860-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips Series 9000 SP9860 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - sp9860
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
         - sku: philips-af-philips-sp9860-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 9000 SP9860
           intent: compra
-          query: Philips Series 9000 SP9860 kit accessory accesorios
+          query: Philips Series 9000 SP9860 kit accessory shaver accesorios
           must_include:
           - sp9860
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id007
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -1828,15 +2192,20 @@ brands:
         - sku: philips-af-philips-qp2730-laminas-foil-std
           title: Láminas compatibles para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 foil laminas
+          query: Philips OneBlade QP2730 foil shaver laminas
           must_include:
           - qp2730
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id008
           - qp2730
           - qp 2730
@@ -1845,134 +2214,180 @@ brands:
         - sku: philips-af-philips-qp2730-laminas-foil-pack3
           title: Pack 3 láminas compatibles para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 foil 3 laminas
+          query: Philips OneBlade QP2730 foil shaver 3 laminas
           must_include:
           - qp2730
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
         cabezal:
         - sku: philips-af-philips-qp2730-cabezal-head-std
           title: Cabezal de recambio compatible para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 head cabezal de
+          query: Philips OneBlade QP2730 head shaver cabezal de
           must_include:
           - qp2730
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
         - sku: philips-af-philips-qp2730-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 head 4 cabezales
+          query: Philips OneBlade QP2730 head shaver 4 cabezales
           must_include:
           - qp2730
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
         cargador:
         - sku: philips-af-philips-qp2730-cargador-charger-shaver
           title: Cargador compatible para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 charger adapter cargador
+          query: Philips OneBlade QP2730 charger shaver adapter cargador
           must_include:
           - qp2730
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
         - sku: philips-af-philips-qp2730-cargador-cable-shaver
           title: Cable / adaptador compatible para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 cable adapter charger adaptador
+          query: Philips OneBlade QP2730 cable adapter shaver charger adaptador
           must_include:
           - qp2730
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
         accesorios:
         - sku: philips-af-philips-qp2730-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips OneBlade QP2730 trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - qp2730
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id008
         - sku: philips-af-philips-qp2730-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 case travel accessory kit funda estuche de
-            viaje
+          query: Philips OneBlade QP2730 case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - qp2730
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
         - sku: philips-af-philips-qp2730-accesorios-acc-limpiador
           title: Solución limpiadora compatible para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 cleaning solution accessory kit solucion
+          query: Philips OneBlade QP2730 cleaning solution shaver accessory kit solucion
             limpiadora
           must_include:
           - qp2730
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
         - sku: philips-af-philips-qp2730-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para OneBlade QP2730
           intent: compra
-          query: Philips OneBlade QP2730 kit accessory accesorios
+          query: Philips OneBlade QP2730 kit accessory shaver accesorios
           must_include:
           - qp2730
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id008
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -2072,15 +2487,20 @@ brands:
         - sku: philips-af-philips-qp6550-laminas-foil-std
           title: Láminas compatibles para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 foil laminas
+          query: Philips OneBlade Pro QP6550 foil shaver laminas
           must_include:
           - qp6550
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id009
           - qp6550
           - qp 6550
@@ -2089,134 +2509,181 @@ brands:
         - sku: philips-af-philips-qp6550-laminas-foil-pack3
           title: Pack 3 láminas compatibles para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 foil 3 laminas
+          query: Philips OneBlade Pro QP6550 foil shaver 3 laminas
           must_include:
           - qp6550
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
         cabezal:
         - sku: philips-af-philips-qp6550-cabezal-head-std
           title: Cabezal de recambio compatible para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 head cabezal de
+          query: Philips OneBlade Pro QP6550 head shaver cabezal de
           must_include:
           - qp6550
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
         - sku: philips-af-philips-qp6550-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 head 4 cabezales
+          query: Philips OneBlade Pro QP6550 head shaver 4 cabezales
           must_include:
           - qp6550
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
         cargador:
         - sku: philips-af-philips-qp6550-cargador-charger-shaver
           title: Cargador compatible para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 charger adapter cargador
+          query: Philips OneBlade Pro QP6550 charger shaver adapter cargador
           must_include:
           - qp6550
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
         - sku: philips-af-philips-qp6550-cargador-cable-shaver
           title: Cable / adaptador compatible para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 cable adapter charger adaptador
+          query: Philips OneBlade Pro QP6550 cable adapter shaver charger adaptador
           must_include:
           - qp6550
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
         accesorios:
         - sku: philips-af-philips-qp6550-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 trimmer accessory kit accesorio perfilador/barbero
+          query: Philips OneBlade Pro QP6550 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - qp6550
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id009
         - sku: philips-af-philips-qp6550-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 case travel accessory kit funda estuche
-            de viaje
+          query: Philips OneBlade Pro QP6550 case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - qp6550
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
         - sku: philips-af-philips-qp6550-accesorios-acc-limpiador
           title: Solución limpiadora compatible para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 cleaning solution accessory kit solucion
-            limpiadora
+          query: Philips OneBlade Pro QP6550 cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - qp6550
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
         - sku: philips-af-philips-qp6550-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para OneBlade Pro QP6550
           intent: compra
-          query: Philips OneBlade Pro QP6550 kit accessory accesorios
+          query: Philips OneBlade Pro QP6550 kit accessory shaver accesorios
           must_include:
           - qp6550
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id009
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -2316,15 +2783,20 @@ brands:
         - sku: philips-af-philips-bg7025-laminas-foil-std
           title: Láminas compatibles para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 foil laminas
+          query: Philips Bodygroom Series 7000 BG7025 foil shaver laminas
           must_include:
           - bg7025
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id010
           - bg7025
           - bg 7025
@@ -2333,136 +2805,183 @@ brands:
         - sku: philips-af-philips-bg7025-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 foil 3 laminas
+          query: Philips Bodygroom Series 7000 BG7025 foil shaver 3 laminas
           must_include:
           - bg7025
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
         cabezal:
         - sku: philips-af-philips-bg7025-cabezal-head-std
           title: Cabezal de recambio compatible para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 head cabezal de
+          query: Philips Bodygroom Series 7000 BG7025 head shaver cabezal de
           must_include:
           - bg7025
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
         - sku: philips-af-philips-bg7025-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 head 4 cabezales
+          query: Philips Bodygroom Series 7000 BG7025 head shaver 4 cabezales
           must_include:
           - bg7025
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
         cargador:
         - sku: philips-af-philips-bg7025-cargador-charger-shaver
           title: Cargador compatible para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 charger adapter cargador
+          query: Philips Bodygroom Series 7000 BG7025 charger shaver adapter cargador
           must_include:
           - bg7025
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
         - sku: philips-af-philips-bg7025-cargador-cable-shaver
           title: Cable / adaptador compatible para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 cable adapter charger adaptador
+          query: Philips Bodygroom Series 7000 BG7025 cable adapter shaver charger
+            adaptador
           must_include:
           - bg7025
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
         accesorios:
         - sku: philips-af-philips-bg7025-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Bodygroom Series 7000
             BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 trimmer accessory kit accesorio
-            perfilador/barbero
+          query: Philips Bodygroom Series 7000 BG7025 trimmer accessory shaver kit
+            accesorio perfilador/barbero
           must_include:
           - bg7025
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id010
         - sku: philips-af-philips-bg7025-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 case travel accessory kit funda
-            estuche de viaje
+          query: Philips Bodygroom Series 7000 BG7025 case travel shaver accessory
+            kit funda estuche de viaje
           must_include:
           - bg7025
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
         - sku: philips-af-philips-bg7025-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 cleaning solution accessory
+          query: Philips Bodygroom Series 7000 BG7025 cleaning solution shaver accessory
             kit solucion limpiadora
           must_include:
           - bg7025
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
         - sku: philips-af-philips-bg7025-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Bodygroom Series 7000 BG7025
           intent: compra
-          query: Philips Bodygroom Series 7000 BG7025 kit accessory accesorios
+          query: Philips Bodygroom Series 7000 BG7025 kit accessory shaver accesorios
           must_include:
           - bg7025
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id010
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -2565,15 +3084,20 @@ brands:
         - sku: braun-af-braun-10b1200s-laminas-foil-std
           title: Láminas compatibles para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 foil laminas
+          query: Braun Series 1 10B1200s 10b1200 foil shaver laminas
           must_include:
           - 10b1200
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id011
           - 10b1200
           - 10b 1200
@@ -2582,134 +3106,181 @@ brands:
         - sku: braun-af-braun-10b1200s-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 foil 3 laminas
+          query: Braun Series 1 10B1200s 10b1200 foil shaver 3 laminas
           must_include:
           - 10b1200
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
         cabezal:
         - sku: braun-af-braun-10b1200s-cabezal-head-std
           title: Cabezal de recambio compatible para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 head cabezal de
+          query: Braun Series 1 10B1200s 10b1200 head shaver cabezal de
           must_include:
           - 10b1200
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
         - sku: braun-af-braun-10b1200s-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 head 4 cabezales
+          query: Braun Series 1 10B1200s 10b1200 head shaver 4 cabezales
           must_include:
           - 10b1200
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
         cargador:
         - sku: braun-af-braun-10b1200s-cargador-charger-shaver
           title: Cargador compatible para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 charger adapter cargador
+          query: Braun Series 1 10B1200s 10b1200 charger shaver adapter cargador
           must_include:
           - 10b1200
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
         - sku: braun-af-braun-10b1200s-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 cable adapter charger adaptador
+          query: Braun Series 1 10B1200s 10b1200 cable adapter shaver charger adaptador
           must_include:
           - 10b1200
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
         accesorios:
         - sku: braun-af-braun-10b1200s-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 trimmer accessory kit accesorio perfilador/barbero
+          query: Braun Series 1 10B1200s 10b1200 trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - 10b1200
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id011
         - sku: braun-af-braun-10b1200s-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 case travel accessory kit funda estuche
-            de viaje
+          query: Braun Series 1 10B1200s 10b1200 case travel shaver accessory kit
+            funda estuche de viaje
           must_include:
           - 10b1200
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
         - sku: braun-af-braun-10b1200s-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 cleaning solution accessory kit solucion
-            limpiadora
+          query: Braun Series 1 10B1200s 10b1200 cleaning solution shaver accessory
+            kit solucion limpiadora
           must_include:
           - 10b1200
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
         - sku: braun-af-braun-10b1200s-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 1 10B1200s
           intent: compra
-          query: Braun Series 1 10B1200s 10b1200 kit accessory accesorios
+          query: Braun Series 1 10B1200s 10b1200 kit accessory shaver accesorios
           must_include:
           - 10b1200
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id011
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -2809,15 +3380,20 @@ brands:
         - sku: braun-af-braun-3010-laminas-foil-std
           title: Láminas compatibles para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 foil laminas
+          query: Braun Series 3 3010 foil shaver laminas
           must_include:
           - '3010'
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id012
           - '3010'
           - braun 3010
@@ -2826,132 +3402,180 @@ brands:
         - sku: braun-af-braun-3010-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 foil laminas
+          query: Braun Series 3 3010 foil shaver laminas
           must_include:
           - '3010'
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
         cabezal:
         - sku: braun-af-braun-3010-cabezal-head-std
           title: Cabezal de recambio compatible para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 head cabezal de
+          query: Braun Series 3 3010 head shaver cabezal de
           must_include:
           - '3010'
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
         - sku: braun-af-braun-3010-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 head 4 cabezales
+          query: Braun Series 3 3010 head shaver 4 cabezales
           must_include:
           - '3010'
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
         cargador:
         - sku: braun-af-braun-3010-cargador-charger-shaver
           title: Cargador compatible para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 charger adapter cargador
+          query: Braun Series 3 3010 charger shaver adapter cargador
           must_include:
           - '3010'
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
         - sku: braun-af-braun-3010-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 cable adapter charger adaptador
+          query: Braun Series 3 3010 cable adapter shaver charger adaptador
           must_include:
           - '3010'
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
         accesorios:
         - sku: braun-af-braun-3010-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 trimmer accessory kit accesorio perfilador/barbero
+          query: Braun Series 3 3010 trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - '3010'
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id012
         - sku: braun-af-braun-3010-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 case travel accessory kit funda estuche de viaje
+          query: Braun Series 3 3010 case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - '3010'
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
         - sku: braun-af-braun-3010-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 cleaning solution accessory kit solucion limpiadora
+          query: Braun Series 3 3010 cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - '3010'
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
         - sku: braun-af-braun-3010-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 3 3010
           intent: compra
-          query: Braun Series 3 3010 kit accessory accesorios
+          query: Braun Series 3 3010 kit accessory shaver accesorios
           must_include:
           - '3010'
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id012
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -3051,15 +3675,20 @@ brands:
         - sku: braun-af-braun-5018s-laminas-foil-std
           title: Láminas compatibles para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s foil laminas
+          query: Braun Series 5 5018s foil shaver laminas
           must_include:
           - 5018s
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id013
           - 5018s
           - '5018'
@@ -3068,132 +3697,180 @@ brands:
         - sku: braun-af-braun-5018s-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s foil 3 laminas
+          query: Braun Series 5 5018s foil shaver 3 laminas
           must_include:
           - 5018s
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
         cabezal:
         - sku: braun-af-braun-5018s-cabezal-head-std
           title: Cabezal de recambio compatible para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s head cabezal de
+          query: Braun Series 5 5018s head shaver cabezal de
           must_include:
           - 5018s
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
         - sku: braun-af-braun-5018s-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s head 4 cabezales
+          query: Braun Series 5 5018s head shaver 4 cabezales
           must_include:
           - 5018s
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
         cargador:
         - sku: braun-af-braun-5018s-cargador-charger-shaver
           title: Cargador compatible para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s charger adapter cargador
+          query: Braun Series 5 5018s charger shaver adapter cargador
           must_include:
           - 5018s
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
         - sku: braun-af-braun-5018s-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s cable adapter charger adaptador
+          query: Braun Series 5 5018s cable adapter shaver charger adaptador
           must_include:
           - 5018s
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
         accesorios:
         - sku: braun-af-braun-5018s-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s trimmer accessory kit accesorio perfilador/barbero
+          query: Braun Series 5 5018s trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - 5018s
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id013
         - sku: braun-af-braun-5018s-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s case travel accessory kit funda estuche de viaje
+          query: Braun Series 5 5018s case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - 5018s
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
         - sku: braun-af-braun-5018s-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s cleaning solution accessory kit solucion limpiadora
+          query: Braun Series 5 5018s cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - 5018s
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
         - sku: braun-af-braun-5018s-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 5 5018s
           intent: compra
-          query: Braun Series 5 5018s kit accessory accesorios
+          query: Braun Series 5 5018s kit accessory shaver accesorios
           must_include:
           - 5018s
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id013
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -3293,15 +3970,20 @@ brands:
         - sku: braun-af-braun-61n7000cc-laminas-foil-std
           title: Láminas compatibles para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 foil laminas
+          query: Braun Series 6 61-N7000cc 61-n7000 foil shaver laminas
           must_include:
           - 61-n7000
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id014
           - 61-n7000
           - 61 n7000
@@ -3310,135 +3992,181 @@ brands:
         - sku: braun-af-braun-61n7000cc-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 foil 3 laminas
+          query: Braun Series 6 61-N7000cc 61-n7000 foil shaver 3 laminas
           must_include:
           - 61-n7000
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
         cabezal:
         - sku: braun-af-braun-61n7000cc-cabezal-head-std
           title: Cabezal de recambio compatible para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 head cabezal de
+          query: Braun Series 6 61-N7000cc 61-n7000 head shaver cabezal de
           must_include:
           - 61-n7000
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
         - sku: braun-af-braun-61n7000cc-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 head 4 cabezales
+          query: Braun Series 6 61-N7000cc 61-n7000 head shaver 4 cabezales
           must_include:
           - 61-n7000
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
         cargador:
         - sku: braun-af-braun-61n7000cc-cargador-charger-shaver
           title: Cargador compatible para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 charger adapter cargador
+          query: Braun Series 6 61-N7000cc 61-n7000 charger shaver adapter cargador
           must_include:
           - 61-n7000
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
         - sku: braun-af-braun-61n7000cc-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 cable adapter charger adaptador
+          query: Braun Series 6 61-N7000cc 61-n7000 cable adapter shaver charger adaptador
           must_include:
           - 61-n7000
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
         accesorios:
         - sku: braun-af-braun-61n7000cc-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 trimmer accessory kit accesorio
+          query: Braun Series 6 61-N7000cc 61-n7000 trimmer accessory shaver kit accesorio
             perfilador/barbero
           must_include:
           - 61-n7000
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id014
         - sku: braun-af-braun-61n7000cc-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 case travel accessory kit funda
-            estuche de viaje
+          query: Braun Series 6 61-N7000cc 61-n7000 case travel shaver accessory kit
+            funda estuche de viaje
           must_include:
           - 61-n7000
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
         - sku: braun-af-braun-61n7000cc-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 cleaning solution accessory kit
-            solucion limpiadora
+          query: Braun Series 6 61-N7000cc 61-n7000 cleaning solution shaver accessory
+            kit solucion limpiadora
           must_include:
           - 61-n7000
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
         - sku: braun-af-braun-61n7000cc-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 6 61-N7000cc
           intent: compra
-          query: Braun Series 6 61-N7000cc 61-n7000 kit accessory accesorios
+          query: Braun Series 6 61-N7000cc 61-n7000 kit accessory shaver accesorios
           must_include:
           - 61-n7000
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id014
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -3538,15 +4266,20 @@ brands:
         - sku: braun-af-braun-7071cc-laminas-foil-std
           title: Láminas compatibles para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc foil laminas
+          query: Braun Series 7 7071cc foil shaver laminas
           must_include:
           - 7071cc
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id015
           - 7071cc
           - 7071 cc
@@ -3555,133 +4288,180 @@ brands:
         - sku: braun-af-braun-7071cc-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc foil 3 laminas
+          query: Braun Series 7 7071cc foil shaver 3 laminas
           must_include:
           - 7071cc
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
         cabezal:
         - sku: braun-af-braun-7071cc-cabezal-head-std
           title: Cabezal de recambio compatible para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc head cabezal de
+          query: Braun Series 7 7071cc head shaver cabezal de
           must_include:
           - 7071cc
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
         - sku: braun-af-braun-7071cc-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc head 4 cabezales
+          query: Braun Series 7 7071cc head shaver 4 cabezales
           must_include:
           - 7071cc
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
         cargador:
         - sku: braun-af-braun-7071cc-cargador-charger-shaver
           title: Cargador compatible para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc charger adapter cargador
+          query: Braun Series 7 7071cc charger shaver adapter cargador
           must_include:
           - 7071cc
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
         - sku: braun-af-braun-7071cc-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc cable adapter charger adaptador
+          query: Braun Series 7 7071cc cable adapter shaver charger adaptador
           must_include:
           - 7071cc
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
         accesorios:
         - sku: braun-af-braun-7071cc-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc trimmer accessory kit accesorio perfilador/barbero
+          query: Braun Series 7 7071cc trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - 7071cc
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id015
         - sku: braun-af-braun-7071cc-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc case travel accessory kit funda estuche de
-            viaje
+          query: Braun Series 7 7071cc case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - 7071cc
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
         - sku: braun-af-braun-7071cc-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc cleaning solution accessory kit solucion limpiadora
+          query: Braun Series 7 7071cc cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - 7071cc
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
         - sku: braun-af-braun-7071cc-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 7 7071cc
           intent: compra
-          query: Braun Series 7 7071cc kit accessory accesorios
+          query: Braun Series 7 7071cc kit accessory shaver accesorios
           must_include:
           - 7071cc
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id015
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -3781,15 +4561,20 @@ brands:
         - sku: braun-af-braun-8457cc-laminas-foil-std
           title: Láminas compatibles para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc foil laminas
+          query: Braun Series 8 8457cc foil shaver laminas
           must_include:
           - 8457cc
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id016
           - 8457cc
           - 8457 cc
@@ -3798,133 +4583,180 @@ brands:
         - sku: braun-af-braun-8457cc-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc foil 3 laminas
+          query: Braun Series 8 8457cc foil shaver 3 laminas
           must_include:
           - 8457cc
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
         cabezal:
         - sku: braun-af-braun-8457cc-cabezal-head-std
           title: Cabezal de recambio compatible para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc head cabezal de
+          query: Braun Series 8 8457cc head shaver cabezal de
           must_include:
           - 8457cc
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
         - sku: braun-af-braun-8457cc-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc head 4 cabezales
+          query: Braun Series 8 8457cc head shaver 4 cabezales
           must_include:
           - 8457cc
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
         cargador:
         - sku: braun-af-braun-8457cc-cargador-charger-shaver
           title: Cargador compatible para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc charger adapter cargador
+          query: Braun Series 8 8457cc charger shaver adapter cargador
           must_include:
           - 8457cc
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
         - sku: braun-af-braun-8457cc-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc cable adapter charger adaptador
+          query: Braun Series 8 8457cc cable adapter shaver charger adaptador
           must_include:
           - 8457cc
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
         accesorios:
         - sku: braun-af-braun-8457cc-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc trimmer accessory kit accesorio perfilador/barbero
+          query: Braun Series 8 8457cc trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - 8457cc
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id016
         - sku: braun-af-braun-8457cc-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc case travel accessory kit funda estuche de
-            viaje
+          query: Braun Series 8 8457cc case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - 8457cc
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
         - sku: braun-af-braun-8457cc-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc cleaning solution accessory kit solucion limpiadora
+          query: Braun Series 8 8457cc cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - 8457cc
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
         - sku: braun-af-braun-8457cc-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 8 8457cc
           intent: compra
-          query: Braun Series 8 8457cc kit accessory accesorios
+          query: Braun Series 8 8457cc kit accessory shaver accesorios
           must_include:
           - 8457cc
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id016
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -4024,15 +4856,20 @@ brands:
         - sku: braun-af-braun-9385cc-laminas-foil-std
           title: Láminas compatibles para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc foil laminas
+          query: Braun Series 9 9385cc foil shaver laminas
           must_include:
           - 9385cc
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id017
           - 9385cc
           - 9385 cc
@@ -4041,133 +4878,180 @@ brands:
         - sku: braun-af-braun-9385cc-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc foil 3 laminas
+          query: Braun Series 9 9385cc foil shaver 3 laminas
           must_include:
           - 9385cc
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
         cabezal:
         - sku: braun-af-braun-9385cc-cabezal-head-std
           title: Cabezal de recambio compatible para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc head cabezal de
+          query: Braun Series 9 9385cc head shaver cabezal de
           must_include:
           - 9385cc
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
         - sku: braun-af-braun-9385cc-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc head 4 cabezales
+          query: Braun Series 9 9385cc head shaver 4 cabezales
           must_include:
           - 9385cc
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
         cargador:
         - sku: braun-af-braun-9385cc-cargador-charger-shaver
           title: Cargador compatible para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc charger adapter cargador
+          query: Braun Series 9 9385cc charger shaver adapter cargador
           must_include:
           - 9385cc
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
         - sku: braun-af-braun-9385cc-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc cable adapter charger adaptador
+          query: Braun Series 9 9385cc cable adapter shaver charger adaptador
           must_include:
           - 9385cc
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
         accesorios:
         - sku: braun-af-braun-9385cc-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc trimmer accessory kit accesorio perfilador/barbero
+          query: Braun Series 9 9385cc trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - 9385cc
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id017
         - sku: braun-af-braun-9385cc-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc case travel accessory kit funda estuche de
-            viaje
+          query: Braun Series 9 9385cc case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - 9385cc
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
         - sku: braun-af-braun-9385cc-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc cleaning solution accessory kit solucion limpiadora
+          query: Braun Series 9 9385cc cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - 9385cc
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
         - sku: braun-af-braun-9385cc-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 9 9385cc
           intent: compra
-          query: Braun Series 9 9385cc kit accessory accesorios
+          query: Braun Series 9 9385cc kit accessory shaver accesorios
           must_include:
           - 9385cc
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id017
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -4267,15 +5151,20 @@ brands:
         - sku: braun-af-braun-9467cc-laminas-foil-std
           title: Láminas compatibles para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc foil laminas
+          query: Braun Series 9 Pro 9467cc foil shaver laminas
           must_include:
           - 9467cc
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id018
           - 9467cc
           - 9467 cc
@@ -4284,134 +5173,181 @@ brands:
         - sku: braun-af-braun-9467cc-laminas-foil-pack3
           title: Pack 3 láminas compatibles para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc foil 3 laminas
+          query: Braun Series 9 Pro 9467cc foil shaver 3 laminas
           must_include:
           - 9467cc
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
         cabezal:
         - sku: braun-af-braun-9467cc-cabezal-head-std
           title: Cabezal de recambio compatible para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc head cabezal de
+          query: Braun Series 9 Pro 9467cc head shaver cabezal de
           must_include:
           - 9467cc
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
         - sku: braun-af-braun-9467cc-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc head 4 cabezales
+          query: Braun Series 9 Pro 9467cc head shaver 4 cabezales
           must_include:
           - 9467cc
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
         cargador:
         - sku: braun-af-braun-9467cc-cargador-charger-shaver
           title: Cargador compatible para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc charger adapter cargador
+          query: Braun Series 9 Pro 9467cc charger shaver adapter cargador
           must_include:
           - 9467cc
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
         - sku: braun-af-braun-9467cc-cargador-cable-shaver
           title: Cable / adaptador compatible para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc cable adapter charger adaptador
+          query: Braun Series 9 Pro 9467cc cable adapter shaver charger adaptador
           must_include:
           - 9467cc
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
         accesorios:
         - sku: braun-af-braun-9467cc-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc trimmer accessory kit accesorio perfilador/barbero
+          query: Braun Series 9 Pro 9467cc trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - 9467cc
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id018
         - sku: braun-af-braun-9467cc-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc case travel accessory kit funda estuche
-            de viaje
+          query: Braun Series 9 Pro 9467cc case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - 9467cc
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
         - sku: braun-af-braun-9467cc-accesorios-acc-limpiador
           title: Solución limpiadora compatible para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc cleaning solution accessory kit solucion
-            limpiadora
+          query: Braun Series 9 Pro 9467cc cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - 9467cc
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
         - sku: braun-af-braun-9467cc-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para Series 9 Pro 9467cc
           intent: compra
-          query: Braun Series 9 Pro 9467cc kit accessory accesorios
+          query: Braun Series 9 Pro 9467cc kit accessory shaver accesorios
           must_include:
           - 9467cc
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id018
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -4510,15 +5446,20 @@ brands:
         - sku: braun-af-braun-king-c-style-master-laminas-foil-std
           title: Láminas compatibles para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master foil laminas
+          query: Braun King C Gillette Style Master foil shaver laminas
           must_include:
           - king
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id019
           - king c style master
           - gillette style master
@@ -4526,136 +5467,182 @@ brands:
         - sku: braun-af-braun-king-c-style-master-laminas-foil-pack3
           title: Pack 3 láminas compatibles para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master foil 3 laminas
+          query: Braun King C Gillette Style Master foil shaver 3 laminas
           must_include:
           - king
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
         cabezal:
         - sku: braun-af-braun-king-c-style-master-cabezal-head-std
           title: Cabezal de recambio compatible para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master head cabezal de
+          query: Braun King C Gillette Style Master head shaver cabezal de
           must_include:
           - king
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
         - sku: braun-af-braun-king-c-style-master-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master head 4 cabezales
+          query: Braun King C Gillette Style Master head shaver 4 cabezales
           must_include:
           - king
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
         cargador:
         - sku: braun-af-braun-king-c-style-master-cargador-charger-shaver
           title: Cargador compatible para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master charger adapter cargador
+          query: Braun King C Gillette Style Master charger shaver adapter cargador
           must_include:
           - king
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
         - sku: braun-af-braun-king-c-style-master-cargador-cable-shaver
           title: Cable / adaptador compatible para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master cable adapter charger adaptador
+          query: Braun King C Gillette Style Master cable adapter shaver charger adaptador
           must_include:
           - king
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
         accesorios:
         - sku: braun-af-braun-king-c-style-master-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para King C Gillette Style
             Master
           intent: compra
-          query: Braun King C Gillette Style Master trimmer accessory kit accesorio
+          query: Braun King C Gillette Style Master trimmer accessory shaver kit accesorio
             perfilador/barbero
           must_include:
           - king
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id019
         - sku: braun-af-braun-king-c-style-master-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master case travel accessory kit funda
-            estuche de viaje
+          query: Braun King C Gillette Style Master case travel shaver accessory kit
+            funda estuche de viaje
           must_include:
           - king
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
         - sku: braun-af-braun-king-c-style-master-accesorios-acc-limpiador
           title: Solución limpiadora compatible para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master cleaning solution accessory kit
-            solucion limpiadora
+          query: Braun King C Gillette Style Master cleaning solution shaver accessory
+            kit solucion limpiadora
           must_include:
           - king
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
         - sku: braun-af-braun-king-c-style-master-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para King C Gillette Style Master
           intent: compra
-          query: Braun King C Gillette Style Master kit accessory accesorios
+          query: Braun King C Gillette Style Master kit accessory shaver accesorios
           must_include:
           - king
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id019
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -4758,15 +5745,20 @@ brands:
         - sku: panasonic-af-panasonic-es-lt4n-laminas-foil-std
           title: Láminas compatibles para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 foil laminas
+          query: Panasonic ES-LT4N Arc3 foil shaver laminas
           must_include:
           - es-lt4n
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id020
           - es-lt4n
           - es lt4n
@@ -4775,133 +5767,180 @@ brands:
         - sku: panasonic-af-panasonic-es-lt4n-laminas-foil-pack3
           title: Pack 3 láminas compatibles para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 foil 3 laminas
+          query: Panasonic ES-LT4N Arc3 foil shaver 3 laminas
           must_include:
           - es-lt4n
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
         cabezal:
         - sku: panasonic-af-panasonic-es-lt4n-cabezal-head-std
           title: Cabezal de recambio compatible para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 head cabezal de
+          query: Panasonic ES-LT4N Arc3 head shaver cabezal de
           must_include:
           - es-lt4n
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
         - sku: panasonic-af-panasonic-es-lt4n-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 head 4 cabezales
+          query: Panasonic ES-LT4N Arc3 head shaver 4 cabezales
           must_include:
           - es-lt4n
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
         cargador:
         - sku: panasonic-af-panasonic-es-lt4n-cargador-charger-shaver
           title: Cargador compatible para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 charger adapter cargador
+          query: Panasonic ES-LT4N Arc3 charger shaver adapter cargador
           must_include:
           - es-lt4n
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
         - sku: panasonic-af-panasonic-es-lt4n-cargador-cable-shaver
           title: Cable / adaptador compatible para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 cable adapter charger adaptador
+          query: Panasonic ES-LT4N Arc3 cable adapter shaver charger adaptador
           must_include:
           - es-lt4n
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
         accesorios:
         - sku: panasonic-af-panasonic-es-lt4n-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 trimmer accessory kit accesorio perfilador/barbero
+          query: Panasonic ES-LT4N Arc3 trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - es-lt4n
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id020
         - sku: panasonic-af-panasonic-es-lt4n-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 case travel accessory kit funda estuche de
-            viaje
+          query: Panasonic ES-LT4N Arc3 case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - es-lt4n
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
         - sku: panasonic-af-panasonic-es-lt4n-accesorios-acc-limpiador
           title: Solución limpiadora compatible para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 cleaning solution accessory kit solucion limpiadora
+          query: Panasonic ES-LT4N Arc3 cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - es-lt4n
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
         - sku: panasonic-af-panasonic-es-lt4n-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para ES-LT4N Arc3
           intent: compra
-          query: Panasonic ES-LT4N Arc3 kit accessory accesorios
+          query: Panasonic ES-LT4N Arc3 kit accessory shaver accesorios
           must_include:
           - es-lt4n
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id020
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -5001,15 +6040,20 @@ brands:
         - sku: panasonic-af-panasonic-es-lt67-laminas-foil-std
           title: Láminas compatibles para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 foil laminas
+          query: Panasonic ES-LT67 Arc3 foil shaver laminas
           must_include:
           - es-lt67
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id021
           - es-lt67
           - es lt67
@@ -5018,133 +6062,180 @@ brands:
         - sku: panasonic-af-panasonic-es-lt67-laminas-foil-pack3
           title: Pack 3 láminas compatibles para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 foil 3 laminas
+          query: Panasonic ES-LT67 Arc3 foil shaver 3 laminas
           must_include:
           - es-lt67
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
         cabezal:
         - sku: panasonic-af-panasonic-es-lt67-cabezal-head-std
           title: Cabezal de recambio compatible para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 head cabezal de
+          query: Panasonic ES-LT67 Arc3 head shaver cabezal de
           must_include:
           - es-lt67
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
         - sku: panasonic-af-panasonic-es-lt67-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 head 4 cabezales
+          query: Panasonic ES-LT67 Arc3 head shaver 4 cabezales
           must_include:
           - es-lt67
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
         cargador:
         - sku: panasonic-af-panasonic-es-lt67-cargador-charger-shaver
           title: Cargador compatible para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 charger adapter cargador
+          query: Panasonic ES-LT67 Arc3 charger shaver adapter cargador
           must_include:
           - es-lt67
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
         - sku: panasonic-af-panasonic-es-lt67-cargador-cable-shaver
           title: Cable / adaptador compatible para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 cable adapter charger adaptador
+          query: Panasonic ES-LT67 Arc3 cable adapter shaver charger adaptador
           must_include:
           - es-lt67
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
         accesorios:
         - sku: panasonic-af-panasonic-es-lt67-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 trimmer accessory kit accesorio perfilador/barbero
+          query: Panasonic ES-LT67 Arc3 trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - es-lt67
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id021
         - sku: panasonic-af-panasonic-es-lt67-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 case travel accessory kit funda estuche de
-            viaje
+          query: Panasonic ES-LT67 Arc3 case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - es-lt67
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
         - sku: panasonic-af-panasonic-es-lt67-accesorios-acc-limpiador
           title: Solución limpiadora compatible para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 cleaning solution accessory kit solucion limpiadora
+          query: Panasonic ES-LT67 Arc3 cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - es-lt67
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
         - sku: panasonic-af-panasonic-es-lt67-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para ES-LT67 Arc3
           intent: compra
-          query: Panasonic ES-LT67 Arc3 kit accessory accesorios
+          query: Panasonic ES-LT67 Arc3 kit accessory shaver accesorios
           must_include:
           - es-lt67
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id021
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -5244,15 +6335,20 @@ brands:
         - sku: panasonic-af-panasonic-es-la93-laminas-foil-std
           title: Láminas compatibles para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 foil laminas
+          query: Panasonic ES-LA93 Arc4 foil shaver laminas
           must_include:
           - es-la93
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id022
           - es-la93
           - es la93
@@ -5261,133 +6357,180 @@ brands:
         - sku: panasonic-af-panasonic-es-la93-laminas-foil-pack3
           title: Pack 3 láminas compatibles para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 foil 3 laminas
+          query: Panasonic ES-LA93 Arc4 foil shaver 3 laminas
           must_include:
           - es-la93
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
         cabezal:
         - sku: panasonic-af-panasonic-es-la93-cabezal-head-std
           title: Cabezal de recambio compatible para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 head cabezal de
+          query: Panasonic ES-LA93 Arc4 head shaver cabezal de
           must_include:
           - es-la93
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
         - sku: panasonic-af-panasonic-es-la93-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 head 4 cabezales
+          query: Panasonic ES-LA93 Arc4 head shaver 4 cabezales
           must_include:
           - es-la93
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
         cargador:
         - sku: panasonic-af-panasonic-es-la93-cargador-charger-shaver
           title: Cargador compatible para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 charger adapter cargador
+          query: Panasonic ES-LA93 Arc4 charger shaver adapter cargador
           must_include:
           - es-la93
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
         - sku: panasonic-af-panasonic-es-la93-cargador-cable-shaver
           title: Cable / adaptador compatible para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 cable adapter charger adaptador
+          query: Panasonic ES-LA93 Arc4 cable adapter shaver charger adaptador
           must_include:
           - es-la93
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
         accesorios:
         - sku: panasonic-af-panasonic-es-la93-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 trimmer accessory kit accesorio perfilador/barbero
+          query: Panasonic ES-LA93 Arc4 trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - es-la93
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id022
         - sku: panasonic-af-panasonic-es-la93-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 case travel accessory kit funda estuche de
-            viaje
+          query: Panasonic ES-LA93 Arc4 case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - es-la93
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
         - sku: panasonic-af-panasonic-es-la93-accesorios-acc-limpiador
           title: Solución limpiadora compatible para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 cleaning solution accessory kit solucion limpiadora
+          query: Panasonic ES-LA93 Arc4 cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - es-la93
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
         - sku: panasonic-af-panasonic-es-la93-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para ES-LA93 Arc4
           intent: compra
-          query: Panasonic ES-LA93 Arc4 kit accessory accesorios
+          query: Panasonic ES-LA93 Arc4 kit accessory shaver accesorios
           must_include:
           - es-la93
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id022
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -5487,15 +6630,20 @@ brands:
         - sku: panasonic-af-panasonic-es-lv67-laminas-foil-std
           title: Láminas compatibles para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 foil laminas
+          query: Panasonic ES-LV67 Arc5 foil shaver laminas
           must_include:
           - es-lv67
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id023
           - es-lv67
           - es lv67
@@ -5504,133 +6652,180 @@ brands:
         - sku: panasonic-af-panasonic-es-lv67-laminas-foil-pack3
           title: Pack 3 láminas compatibles para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 foil 3 laminas
+          query: Panasonic ES-LV67 Arc5 foil shaver 3 laminas
           must_include:
           - es-lv67
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
         cabezal:
         - sku: panasonic-af-panasonic-es-lv67-cabezal-head-std
           title: Cabezal de recambio compatible para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 head cabezal de
+          query: Panasonic ES-LV67 Arc5 head shaver cabezal de
           must_include:
           - es-lv67
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
         - sku: panasonic-af-panasonic-es-lv67-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 head 4 cabezales
+          query: Panasonic ES-LV67 Arc5 head shaver 4 cabezales
           must_include:
           - es-lv67
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
         cargador:
         - sku: panasonic-af-panasonic-es-lv67-cargador-charger-shaver
           title: Cargador compatible para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 charger adapter cargador
+          query: Panasonic ES-LV67 Arc5 charger shaver adapter cargador
           must_include:
           - es-lv67
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
         - sku: panasonic-af-panasonic-es-lv67-cargador-cable-shaver
           title: Cable / adaptador compatible para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 cable adapter charger adaptador
+          query: Panasonic ES-LV67 Arc5 cable adapter shaver charger adaptador
           must_include:
           - es-lv67
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
         accesorios:
         - sku: panasonic-af-panasonic-es-lv67-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 trimmer accessory kit accesorio perfilador/barbero
+          query: Panasonic ES-LV67 Arc5 trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - es-lv67
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id023
         - sku: panasonic-af-panasonic-es-lv67-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 case travel accessory kit funda estuche de
-            viaje
+          query: Panasonic ES-LV67 Arc5 case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - es-lv67
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
         - sku: panasonic-af-panasonic-es-lv67-accesorios-acc-limpiador
           title: Solución limpiadora compatible para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 cleaning solution accessory kit solucion limpiadora
+          query: Panasonic ES-LV67 Arc5 cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - es-lv67
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
         - sku: panasonic-af-panasonic-es-lv67-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para ES-LV67 Arc5
           intent: compra
-          query: Panasonic ES-LV67 Arc5 kit accessory accesorios
+          query: Panasonic ES-LV67 Arc5 kit accessory shaver accesorios
           must_include:
           - es-lv67
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id023
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -5733,15 +6928,20 @@ brands:
         - sku: remington-af-remington-f5-5800-laminas-foil-std
           title: Láminas compatibles para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil laminas
+          query: Remington F5-5800 Foil shaver laminas
           must_include:
           - f5-5800
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id024
           - f5-5800
           - f5 5800
@@ -5750,133 +6950,180 @@ brands:
         - sku: remington-af-remington-f5-5800-laminas-foil-pack3
           title: Pack 3 láminas compatibles para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil 3 laminas
+          query: Remington F5-5800 Foil shaver 3 laminas
           must_include:
           - f5-5800
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
         cabezal:
         - sku: remington-af-remington-f5-5800-cabezal-head-std
           title: Cabezal de recambio compatible para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil head cabezal de
+          query: Remington F5-5800 Foil head shaver cabezal de
           must_include:
           - f5-5800
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
         - sku: remington-af-remington-f5-5800-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil head 4 cabezales
+          query: Remington F5-5800 Foil head shaver 4 cabezales
           must_include:
           - f5-5800
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
         cargador:
         - sku: remington-af-remington-f5-5800-cargador-charger-shaver
           title: Cargador compatible para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil charger adapter cargador
+          query: Remington F5-5800 Foil charger shaver adapter cargador
           must_include:
           - f5-5800
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
         - sku: remington-af-remington-f5-5800-cargador-cable-shaver
           title: Cable / adaptador compatible para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil cable adapter charger adaptador
+          query: Remington F5-5800 Foil cable adapter shaver charger adaptador
           must_include:
           - f5-5800
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
         accesorios:
         - sku: remington-af-remington-f5-5800-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil trimmer accessory kit accesorio perfilador/barbero
+          query: Remington F5-5800 Foil trimmer accessory shaver kit accesorio perfilador/barbero
           must_include:
           - f5-5800
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id024
         - sku: remington-af-remington-f5-5800-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil case travel accessory kit funda estuche de
-            viaje
+          query: Remington F5-5800 Foil case travel shaver accessory kit funda estuche
+            de viaje
           must_include:
           - f5-5800
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
         - sku: remington-af-remington-f5-5800-accesorios-acc-limpiador
           title: Solución limpiadora compatible para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil cleaning solution accessory kit solucion limpiadora
+          query: Remington F5-5800 Foil cleaning solution shaver accessory kit solucion
+            limpiadora
           must_include:
           - f5-5800
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
         - sku: remington-af-remington-f5-5800-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para F5-5800 Foil
           intent: compra
-          query: Remington F5-5800 Foil kit accessory accesorios
+          query: Remington F5-5800 Foil kit accessory shaver accesorios
           must_include:
           - f5-5800
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id024
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -5976,15 +7223,20 @@ brands:
         - sku: remington-af-remington-pg6171-laminas-foil-std
           title: Láminas compatibles para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit foil laminas
+          query: Remington PG6171 Grooming Kit foil shaver laminas
           must_include:
           - pg6171
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id025
           - pg6171
           - pg 6171
@@ -5993,134 +7245,181 @@ brands:
         - sku: remington-af-remington-pg6171-laminas-foil-pack3
           title: Pack 3 láminas compatibles para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit foil 3 laminas
+          query: Remington PG6171 Grooming Kit foil shaver 3 laminas
           must_include:
           - pg6171
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
         cabezal:
         - sku: remington-af-remington-pg6171-cabezal-head-std
           title: Cabezal de recambio compatible para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit head cabezal de
+          query: Remington PG6171 Grooming Kit head shaver cabezal de
           must_include:
           - pg6171
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
         - sku: remington-af-remington-pg6171-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit head 4 cabezales
+          query: Remington PG6171 Grooming Kit head shaver 4 cabezales
           must_include:
           - pg6171
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
         cargador:
         - sku: remington-af-remington-pg6171-cargador-charger-shaver
           title: Cargador compatible para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit charger adapter cargador
+          query: Remington PG6171 Grooming Kit charger shaver adapter cargador
           must_include:
           - pg6171
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
         - sku: remington-af-remington-pg6171-cargador-cable-shaver
           title: Cable / adaptador compatible para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit cable adapter charger adaptador
+          query: Remington PG6171 Grooming Kit cable adapter shaver charger adaptador
           must_include:
           - pg6171
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
         accesorios:
         - sku: remington-af-remington-pg6171-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit trimmer accessory accesorio perfilador/barbero
+          query: Remington PG6171 Grooming Kit trimmer accessory shaver accesorio
+            perfilador/barbero
           must_include:
           - pg6171
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id025
         - sku: remington-af-remington-pg6171-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit case travel accessory funda estuche
-            de viaje
+          query: Remington PG6171 Grooming Kit case travel shaver accessory funda
+            estuche de viaje
           must_include:
           - pg6171
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
         - sku: remington-af-remington-pg6171-accesorios-acc-limpiador
           title: Solución limpiadora compatible para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit cleaning solution accessory solucion
-            limpiadora
+          query: Remington PG6171 Grooming Kit cleaning solution shaver accessory
+            solucion limpiadora
           must_include:
           - pg6171
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
         - sku: remington-af-remington-pg6171-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para PG6171 Grooming Kit
           intent: compra
-          query: Remington PG6171 Grooming Kit accessory accesorios
+          query: Remington PG6171 Grooming Kit accessory shaver accesorios
           must_include:
           - pg6171
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id025
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas
@@ -6220,15 +7519,20 @@ brands:
         - sku: remington-af-remington-xr1500-laminas-foil-std
           title: Láminas compatibles para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex foil laminas
+          query: Remington XR1500 HyperFlex foil shaver laminas
           must_include:
           - xr1500
           - foil
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: &id026
           - xr1500
           - xr 1500
@@ -6237,134 +7541,181 @@ brands:
         - sku: remington-af-remington-xr1500-laminas-foil-pack3
           title: Pack 3 láminas compatibles para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex foil 3 laminas
+          query: Remington XR1500 HyperFlex foil shaver 3 laminas
           must_include:
           - xr1500
           - foil
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - brush
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
         cabezal:
         - sku: remington-af-remington-xr1500-cabezal-head-std
           title: Cabezal de recambio compatible para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex head cabezal de
+          query: Remington XR1500 HyperFlex head shaver cabezal de
           must_include:
           - xr1500
           - head
           - replacement
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
         - sku: remington-af-remington-xr1500-cabezal-head-pack4
           title: Pack 4 cabezales compatibles para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex head 4 cabezales
+          query: Remington XR1500 HyperFlex head shaver 4 cabezales
           must_include:
           - xr1500
           - head
           - pack
+          - shaver
           must_not_include:
           - charger
           - case
           - foil
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
         cargador:
         - sku: remington-af-remington-xr1500-cargador-charger-shaver
           title: Cargador compatible para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex charger adapter cargador
+          query: Remington XR1500 HyperFlex charger shaver adapter cargador
           must_include:
           - xr1500
           - charger
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
         - sku: remington-af-remington-xr1500-cargador-cable-shaver
           title: Cable / adaptador compatible para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex cable adapter charger adaptador
+          query: Remington XR1500 HyperFlex cable adapter shaver charger adaptador
           must_include:
           - xr1500
           - cable
           - adapter
+          - shaver
           must_not_include:
           - foil
           - head
           - case
           - stand
           - brush
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
         accesorios:
         - sku: remington-af-remington-xr1500-accesorios-acc-trimmer
           title: Accesorio perfilador/barbero compatible para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex trimmer accessory kit accesorio perfilador/barbero
+          query: Remington XR1500 HyperFlex trimmer accessory shaver kit accesorio
+            perfilador/barbero
           must_include:
           - xr1500
           - trimmer
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
+          - housing
           model_tokens: *id026
         - sku: remington-af-remington-xr1500-accesorios-acc-funda
           title: Funda / estuche de viaje compatible para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex case travel accessory kit funda estuche
-            de viaje
+          query: Remington XR1500 HyperFlex case travel shaver accessory kit funda
+            estuche de viaje
           must_include:
           - xr1500
           - case
           - travel
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
         - sku: remington-af-remington-xr1500-accesorios-acc-limpiador
           title: Solución limpiadora compatible para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex cleaning solution accessory kit solucion
-            limpiadora
+          query: Remington XR1500 HyperFlex cleaning solution shaver accessory kit
+            solucion limpiadora
           must_include:
           - xr1500
           - cleaning
           - solution
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
         - sku: remington-af-remington-xr1500-accesorios-acc-kit-shaver
           title: Kit accesorios compatible para XR1500 HyperFlex
           intent: compra
-          query: Remington XR1500 HyperFlex kit accessory accesorios
+          query: Remington XR1500 HyperFlex kit accessory shaver accesorios
           must_include:
           - xr1500
           - kit
           - accessory
+          - shaver
           must_not_include:
           - charger
           - foil
           - head
           - stand
+          - camera
+          - lens
+          - battery door
+          - back cover
           model_tokens: *id026
       compatibilidad:
       - Comprueba la serie exacta (Series 3000, 5000, 7000...) antes de comprar láminas

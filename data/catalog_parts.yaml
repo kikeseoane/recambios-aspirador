@@ -236,62 +236,62 @@ sku_packs:
       sku_suffix: foil-std
       intent: "compra"
       title_tpl: "Láminas compatibles para {model}"
-      must_include_tpl: ["{model_token}", "foil"]
-      must_not_include: ["charger", "case", "brush", "stand"]
+      must_include_tpl: ["{model_token}", "foil", "shaver"]
+      must_not_include: ["charger", "case", "brush", "stand", "camera", "lens", "battery door", "back cover"]
     - catKey: laminas
       sku_suffix: foil-pack3
       intent: "compra"
       title_tpl: "Pack 3 láminas compatibles para {model}"
-      must_include_tpl: ["{model_token}", "foil", "replacement"]
-      must_not_include: ["charger", "case", "brush", "stand"]
+      must_include_tpl: ["{model_token}", "foil", "replacement", "shaver"]
+      must_not_include: ["charger", "case", "brush", "stand", "camera", "lens", "battery door", "back cover"]
     - catKey: cabezal
       sku_suffix: head-std
       intent: "compra"
       title_tpl: "Cabezal de recambio compatible para {model}"
-      must_include_tpl: ["{model_token}", "head", "replacement"]
-      must_not_include: ["charger", "case", "foil", "stand"]
+      must_include_tpl: ["{model_token}", "head", "replacement", "shaver"]
+      must_not_include: ["charger", "case", "foil", "stand", "camera", "lens", "battery door", "back cover"]
     - catKey: cabezal
       sku_suffix: head-pack4
       intent: "compra"
       title_tpl: "Pack 4 cabezales compatibles para {model}"
-      must_include_tpl: ["{model_token}", "head", "pack"]
-      must_not_include: ["charger", "case", "foil", "stand"]
+      must_include_tpl: ["{model_token}", "head", "pack", "shaver"]
+      must_not_include: ["charger", "case", "foil", "stand", "camera", "lens", "battery door", "back cover"]
     - catKey: cargador
       sku_suffix: charger-shaver
       intent: "compra"
       title_tpl: "Cargador compatible para {model}"
-      must_include_tpl: ["{model_token}", "charger"]
-      must_not_include: ["foil", "head", "case", "stand", "brush"]
+      must_include_tpl: ["{model_token}", "charger", "shaver"]
+      must_not_include: ["foil", "head", "case", "stand", "brush", "camera", "lens", "battery door", "back cover"]
     - catKey: cargador
       sku_suffix: cable-shaver
       intent: "compra"
       title_tpl: "Cable / adaptador compatible para {model}"
-      must_include_tpl: ["{model_token}", "cable", "adapter"]
-      must_not_include: ["foil", "head", "case", "stand", "brush"]
+      must_include_tpl: ["{model_token}", "cable", "adapter", "shaver"]
+      must_not_include: ["foil", "head", "case", "stand", "brush", "camera", "lens", "battery door", "back cover"]
     - catKey: accesorios
       sku_suffix: acc-trimmer
       intent: "compra"
       title_tpl: "Accesorio perfilador/barbero compatible para {model}"
-      must_include_tpl: ["{model_token}", "trimmer", "accessory"]
-      must_not_include: ["charger", "foil", "head", "stand"]
+      must_include_tpl: ["{model_token}", "trimmer", "accessory", "shaver"]
+      must_not_include: ["charger", "foil", "head", "stand", "camera", "lens", "battery door", "back cover", "housing"]
     - catKey: accesorios
       sku_suffix: acc-funda
       intent: "compra"
       title_tpl: "Funda / estuche de viaje compatible para {model}"
-      must_include_tpl: ["{model_token}", "case", "travel"]
-      must_not_include: ["charger", "foil", "head", "stand"]
+      must_include_tpl: ["{model_token}", "case", "travel", "shaver"]
+      must_not_include: ["charger", "foil", "head", "stand", "camera", "lens", "battery door", "back cover"]
     - catKey: accesorios
       sku_suffix: acc-limpiador
       intent: "compra"
       title_tpl: "Solución limpiadora compatible para {model}"
-      must_include_tpl: ["{model_token}", "cleaning", "solution"]
-      must_not_include: ["charger", "foil", "head", "stand"]
+      must_include_tpl: ["{model_token}", "cleaning", "solution", "shaver"]
+      must_not_include: ["charger", "foil", "head", "stand", "camera", "lens", "battery door", "back cover"]
     - catKey: accesorios
       sku_suffix: acc-kit-shaver
       intent: "compra"
       title_tpl: "Kit accesorios compatible para {model}"
-      must_include_tpl: ["{model_token}", "kit", "accessory"]
-      must_not_include: ["charger", "foil", "head", "stand"]
+      must_include_tpl: ["{model_token}", "kit", "accessory", "shaver"]
+      must_not_include: ["charger", "foil", "head", "stand", "camera", "lens", "battery door", "back cover"]
 
   # Cafetera: 2 filtro + 2 junta + 2 deposito + 4 accesorios = 10
   cafetera10:
@@ -299,62 +299,62 @@ sku_packs:
       sku_suffix: filtro-agua
       intent: "compra"
       title_tpl: "Filtro de agua compatible para {model}"
-      must_include_tpl: ["{model_token}", "filter", "water"]
-      must_not_include: ["gasket", "seal", "tank", "jug", "frother"]
+      must_include_tpl: ["{model_token}", "filter", "water", "coffee"]
+      must_not_include: ["gasket", "seal", "tank", "jug", "frother", "humidifier", "air", "purifier", "vacuum"]
     - catKey: filtro
       sku_suffix: filtro-cafe
       intent: "compra"
       title_tpl: "Filtro portacápsulas compatible para {model}"
-      must_include_tpl: ["{model_token}", "filter", "coffee"]
-      must_not_include: ["water", "gasket", "seal", "tank", "jug"]
+      must_include_tpl: ["{model_token}", "filter", "coffee", "machine"]
+      must_not_include: ["water", "gasket", "seal", "tank", "jug", "humidifier", "air", "purifier", "vacuum"]
     - catKey: junta
       sku_suffix: junta-cafetera
       intent: "compra"
       title_tpl: "Junta de goma compatible para {model}"
-      must_include_tpl: ["{model_token}", "gasket", "seal"]
-      must_not_include: ["filter", "tank", "frother", "tray"]
+      must_include_tpl: ["{model_token}", "gasket", "seal", "coffee"]
+      must_not_include: ["filter", "tank", "frother", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: junta
       sku_suffix: junta-grupo
       intent: "compra"
       title_tpl: "Junta de grupo / oring compatible para {model}"
-      must_include_tpl: ["{model_token}", "o-ring", "group"]
-      must_not_include: ["filter", "tank", "frother", "tray"]
+      must_include_tpl: ["{model_token}", "o-ring", "group", "coffee"]
+      must_not_include: ["filter", "tank", "frother", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: deposito
       sku_suffix: deposito-agua
       intent: "compra"
       title_tpl: "Depósito de agua compatible para {model}"
-      must_include_tpl: ["{model_token}", "water", "tank"]
-      must_not_include: ["filter", "gasket", "frother", "tray"]
+      must_include_tpl: ["{model_token}", "water", "tank", "coffee"]
+      must_not_include: ["filter", "gasket", "frother", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: deposito
       sku_suffix: deposito-leche
       intent: "compra"
       title_tpl: "Depósito / recipiente leche compatible para {model}"
-      must_include_tpl: ["{model_token}", "milk", "container"]
-      must_not_include: ["filter", "gasket", "water tank", "tray"]
+      must_include_tpl: ["{model_token}", "milk", "container", "coffee"]
+      must_not_include: ["filter", "gasket", "water tank", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: accesorios
       sku_suffix: acc-espumador
       intent: "compra"
       title_tpl: "Espumador de leche compatible para {model}"
-      must_include_tpl: ["{model_token}", "frother", "accessory"]
-      must_not_include: ["filter", "gasket", "tank", "tray"]
+      must_include_tpl: ["{model_token}", "frother", "milk", "coffee"]
+      must_not_include: ["filter", "gasket", "tank", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: accesorios
       sku_suffix: acc-bandeja
       intent: "compra"
       title_tpl: "Bandeja recogetazas compatible para {model}"
-      must_include_tpl: ["{model_token}", "drip", "tray"]
-      must_not_include: ["filter", "gasket", "tank", "frother"]
+      must_include_tpl: ["{model_token}", "drip", "tray", "coffee"]
+      must_not_include: ["filter", "gasket", "tank", "frother", "humidifier", "air", "purifier", "vacuum"]
     - catKey: accesorios
       sku_suffix: acc-kit-mant
       intent: "compra"
       title_tpl: "Kit mantenimiento compatible para {model}"
-      must_include_tpl: ["{model_token}", "maintenance", "kit"]
-      must_not_include: ["filter", "gasket", "tank", "tray"]
+      must_include_tpl: ["{model_token}", "maintenance", "kit", "coffee"]
+      must_not_include: ["filter", "gasket", "tank", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: accesorios
       sku_suffix: acc-descalc
       intent: "compra"
       title_tpl: "Descalcificador compatible para {model}"
-      must_include_tpl: ["{model_token}", "descaler", "descaling"]
-      must_not_include: ["filter", "gasket", "tank", "tray"]
+      must_include_tpl: ["{model_token}", "descaler", "descaling", "coffee"]
+      must_not_include: ["filter", "gasket", "tank", "tray", "humidifier", "air", "purifier", "vacuum"]
 
   # Herramientas batería: 2 bateria + 2 cargador + 5 accesorios + 1 soporte = 10
   power-tool10:
@@ -751,65 +751,65 @@ sku_packs:
       sku_suffix: eartip-silicone-sml
       intent: "compra"
       title_tpl: "Almohadillas silicona S/M/L (pack) compatibles para {model}"
-      must_include_tpl: ["{model_token}", "eartip", "silicone"]
-      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband"]
+      must_include_tpl: ["{model_token}", "eartip", "silicone", "earbud"]
+      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband", "phone", "tablet", "watch", "camera", "screen", "cover"]
     - catKey: accesorios
       sku_suffix: eartip-foam-pack
       intent: "compra"
       title_tpl: "Almohadillas espuma memory foam (pack) compatibles para {model}"
-      must_include_tpl: ["{model_token}", "eartip", "foam", "memory"]
-      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband"]
+      must_include_tpl: ["{model_token}", "eartip", "foam", "memory", "earbud"]
+      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband", "phone", "tablet", "watch", "camera", "screen", "cover"]
     - catKey: accesorios
       sku_suffix: eartip-wings-pack
       intent: "compra"
       title_tpl: "Aletas estabilizadoras (pack) compatibles para {model}"
-      must_include_tpl: ["{model_token}", "wing", "tip", "stabilizer"]
-      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband"]
+      must_include_tpl: ["{model_token}", "wing", "tip", "stabilizer", "earbud"]
+      must_not_include: ["battery", "charger", "cable", "case", "cushion", "headband", "phone", "tablet", "watch", "camera", "screen", "cover"]
     - catKey: accesorios
       sku_suffix: case-replacement-acc
       intent: "compra"
       title_tpl: "Estuche de carga de repuesto accesorio para {model}"
-      must_include_tpl: ["{model_token}", "case", "charging", "replacement"]
-      must_not_include: ["battery", "charger", "cable", "eartip", "cushion", "headband"]
+      must_include_tpl: ["{model_token}", "case", "charging", "replacement", "earbud"]
+      must_not_include: ["battery", "charger", "cable", "eartip", "cushion", "headband", "phone", "tablet", "watch", "camera", "screen", "cover"]
     - catKey: accesorios
       sku_suffix: cushion-pad-acc
       intent: "compra"
       title_tpl: "Almohadillas de auricular (par) accesorios para {model}"
-      must_include_tpl: ["{model_token}", "ear", "cushion", "pad"]
-      must_not_include: ["battery", "charger", "cable", "eartip", "case", "headband"]
+      must_include_tpl: ["{model_token}", "ear", "cushion", "pad", "headphone"]
+      must_not_include: ["battery", "charger", "cable", "eartip", "case", "headband", "phone", "tablet", "watch", "camera", "screen", "cover"]
     - catKey: accesorios
       sku_suffix: headband-acc
       intent: "compra"
       title_tpl: "Diadema de repuesto accesorio para {model}"
-      must_include_tpl: ["{model_token}", "headband", "replacement"]
-      must_not_include: ["battery", "charger", "cable", "eartip", "case", "cushion"]
+      must_include_tpl: ["{model_token}", "headband", "replacement", "headphone"]
+      must_not_include: ["battery", "charger", "cable", "eartip", "case", "cushion", "phone", "tablet", "watch", "camera", "screen", "cover"]
 
     - catKey: cargador
       sku_suffix: cable-usbc-earphone
       intent: "compra"
       title_tpl: "Cable USB-C de carga compatible para {model}"
-      must_include_tpl: ["{model_token}", "usb-c", "cable", "charging"]
-      must_not_include: ["battery", "eartip", "case", "cushion", "headband"]
+      must_include_tpl: ["{model_token}", "usb-c", "cable", "charging", "earbud"]
+      must_not_include: ["battery", "eartip", "case", "cushion", "headband", "phone", "tablet", "watch", "camera", "screen", "cover"]
 
     - catKey: bateria
       sku_suffix: bat-bud-left
       intent: "compra"
       title_tpl: "Batería auricular izquierdo compatible para {model}"
-      must_include_tpl: ["{model_token}", "battery", "left", "earbud"]
-      must_not_include: ["charger", "cable", "eartip", "case", "cushion"]
+      must_include_tpl: ["{model_token}", "battery", "left", "earbud", "replacement"]
+      must_not_include: ["charger", "cable", "eartip", "case", "cushion", "phone", "tablet", "watch", "camera", "screen", "cover", "door", "housing"]
     - catKey: bateria
       sku_suffix: bat-bud-right
       intent: "compra"
       title_tpl: "Batería auricular derecho compatible para {model}"
-      must_include_tpl: ["{model_token}", "battery", "right", "earbud"]
-      must_not_include: ["charger", "cable", "eartip", "case", "cushion"]
+      must_include_tpl: ["{model_token}", "battery", "right", "earbud", "replacement"]
+      must_not_include: ["charger", "cable", "eartip", "case", "cushion", "phone", "tablet", "watch", "camera", "screen", "cover", "door", "housing"]
 
     - catKey: accesorios
       sku_suffix: kit-clean-earphone
       intent: "compra"
       title_tpl: "Kit de limpieza accesorio para {model}"
-      must_include_tpl: ["{model_token}", "cleaning", "kit", "accessory"]
-      must_not_include: ["battery", "charger", "eartip", "case", "cushion"]
+      must_include_tpl: ["{model_token}", "cleaning", "kit", "accessory", "earbud"]
+      must_not_include: ["battery", "charger", "eartip", "case", "cushion", "phone", "tablet", "watch", "camera", "screen", "cover"]
 
   # Ósmosis inversa: 5 filtro + 1 junta + 1 deposito + 3 accesorios = 10
   osmosis10:
