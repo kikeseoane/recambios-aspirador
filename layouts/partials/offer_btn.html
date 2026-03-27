@@ -36,6 +36,8 @@
 {{ $matchType := (index $offer "match_type") | default "" }}
 {{ $searchLabel := (index $offer "fallback_search_label") | default "" }}
 {{ $searchQuery := (index $offer "fallback_search_query") | default "" }}
+{{ $compatStatus := (index $offer "compatibility_status") | default "" }}
+{{ $compatNote := (index $offer "compatibility_note") | default "" }}
 {{ $imageURL := (index $offer "image_url") | default "" }}
 {{ $salePrice := (index $offer "sale_price") | default "" }}
 {{ $originalPrice := (index $offer "original_price") | default "" }}
@@ -60,6 +62,25 @@
 
 {{ if $searchQuery }}
   {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
+{{ end }}
+
+{{ $trustIcon := "✓" }}
+{{ $trustText := "Compatibilidad probable: revisa modelo y encaje" }}
+{{ if eq $compatStatus "compatible_alto" }}
+  {{ $trustText = cond $modelName (printf "Compatibilidad alta para %s" $modelName) "Compatibilidad alta" }}
+{{ else if eq $compatStatus "compatible_probable" }}
+  {{ $trustText = cond $modelName (printf "Compatibilidad probable para %s" $modelName) "Compatibilidad probable" }}
+{{ else if eq $compatStatus "dudoso" }}
+  {{ $trustIcon = "!" }}
+  {{ $trustText = $compatNote | default "Coincidencia heuristica: valida compatibilidad antes de comprar" }}
+{{ else if eq $compatStatus "fallback_buy_new" }}
+  {{ $trustIcon = "↗" }}
+  {{ $trustText = "No hay recambio fiable: mejor ver producto nuevo" }}
+{{ else if eq $compatStatus "sin_cobertura" }}
+  {{ $trustIcon = "!" }}
+  {{ $trustText = "Sin cobertura fiable de recambio" }}
+{{ else if $compatNote }}
+  {{ $trustText = $compatNote }}
 {{ end }}
 
 {{ if $url }}
@@ -87,14 +108,8 @@
     {{ end }}
     {{ if not $hideTrust }}
       <div class="offer-trust">
-        <span class="offer-trust__icon" aria-hidden="true">✓</span>
-        <span class="offer-trust__text">
-          {{ if $modelName -}}
-            Compatibilidad verificada para {{ $modelName }}
-          {{- else -}}
-            Compatibilidad verificada
-          {{- end }}
-        </span>
+        <span class="offer-trust__icon" aria-hidden="true">{{ $trustIcon }}</span>
+        <span class="offer-trust__text">{{ $trustText }}</span>
       </div>
     {{ end }}
     <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
@@ -117,7 +132,7 @@
       {{ if not $hideTrust }}
         <div class="offer-trust">
           <span class="offer-trust__icon" aria-hidden="true">↗</span>
-          <span class="offer-trust__text">No hay recambio claro: mejor ver el producto nuevo</span>
+          <span class="offer-trust__text">{{ $compatNote | default "No hay recambio claro: mejor ver el producto nuevo" }}</span>
         </div>
       {{ end }}
       <a class="{{ $class }}" href="{{ $buyNewURL }}" rel="nofollow sponsored noopener" target="_blank">

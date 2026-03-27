@@ -938,6 +938,41 @@ def is_low_quality_new_title(title: str) -> bool:
     return any(term in tt for term in LOW_QUALITY_NEW_TITLE_TERMS)
 
 
+def derive_compatibility_status(offer_obj: Dict[str, Any]) -> str:
+    match_type = str(offer_obj.get("match_type") or "").strip()
+    needs_url = bool(offer_obj.get("needs_url"))
+    orphaned = bool(offer_obj.get("orphaned"))
+    url_now = str(offer_obj.get("url") or "").strip()
+
+    if orphaned:
+        return "sin_cobertura"
+    if match_type == "exact_or_best_match":
+        return "compatible_alto"
+    if match_type == "relaxed_fallback":
+        return "dudoso"
+    if match_type == "fallback_buy_new":
+        return "fallback_buy_new"
+    if needs_url and not url_now:
+        return "sin_cobertura"
+    if match_type == "manual_or_existing" and url_now:
+        return "compatible_probable"
+    if url_now and not needs_url:
+        return "compatible_probable"
+    return "sin_cobertura"
+
+
+def derive_compatibility_note(status: str) -> str:
+    if status == "compatible_alto":
+        return "Compatibilidad alta por modelo y tipo de pieza"
+    if status == "compatible_probable":
+        return "Compatibilidad probable: revisa modelo y encaje"
+    if status == "dudoso":
+        return "Coincidencia heuristica: valida compatibilidad antes de comprar"
+    if status == "fallback_buy_new":
+        return "Sin recambio fiable: mejor ver producto nuevo"
+    return "Sin cobertura fiable de recambio"
+
+
 def compose_search_query(base_parts: List[str], extra_parts: List[str]) -> str:
     parts: List[str] = []
     seen: set[str] = set()
@@ -1609,6 +1644,8 @@ def main() -> None:
                 if found.get("product_title"):
                     obj["product_title"] = found["product_title"]
                 obj.pop("needs_url", None)
+                obj["compatibility_status"] = derive_compatibility_status(obj)
+                obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
                 obj["updated_at"] = today
                 filled_from_aliexpress += 1
             else:
@@ -1641,6 +1678,8 @@ def main() -> None:
                         obj["product_title"] = relaxed["product_title"]
                     obj.pop("needs_url", None)
                     obj.pop("matched_query", None)
+                    obj["compatibility_status"] = derive_compatibility_status(obj)
+                    obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
                     obj["updated_at"] = today
                     filled_from_aliexpress += 1
                 else:
@@ -1656,11 +1695,15 @@ def main() -> None:
                     obj["fallback_search_query"] = fallback_search_query
                     obj["fallback_search_label"] = fallback_search_label
                     obj.pop("matched_query", None)
+                    obj["compatibility_status"] = derive_compatibility_status(obj)
+                    obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
 
         else:
             obj.pop("needs_url", None)
             if "match_type" not in obj:
                 obj["match_type"] = "manual_or_existing"
+            obj["compatibility_status"] = derive_compatibility_status(obj)
+            obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
 
         if sku not in offers:
             offers[sku] = obj
@@ -1707,6 +1750,11 @@ def main() -> None:
     _cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat() if args.only_stale > 0 else None
     _needs_url = sum(1 for s, o in offers.items() if ensure_offer_obj(o).get("needs_url") and not ensure_offer_obj(o).get("orphaned"))
     _still_stale = sum(1 for s in sku_ctx if _cutoff and str(ensure_offer_obj(offers.get(s)).get("updated_at") or "").strip() < _cutoff) if _cutoff else 0
+    _status_counts: Dict[str, int] = {}
+    for s in sku_ctx.keys():
+        offer_obj = ensure_offer_obj(offers.get(s))
+        status = str(offer_obj.get("compatibility_status") or derive_compatibility_status(offer_obj)).strip() or "sin_cobertura"
+        _status_counts[status] = _status_counts.get(status, 0) + 1
     _missing_new: List[str] = []
     for s in sorted(sku_ctx.keys()):
         ctx = sku_ctx.get(s) or {}
@@ -1752,9 +1800,22 @@ def main() -> None:
     print(f"  --- Pendientes restantes ---")
     print(f"  Sin URL (needs_url):    {_needs_url}")
     print(f"  Nuevo sin enlace:       {len(_missing_new)}")
+    print(f"  Compat alto:            {_status_counts.get('compatible_alto', 0)}")
+    print(f"  Compat probable:        {_status_counts.get('compatible_probable', 0)}")
+    print(f"  Dudosos:                {_status_counts.get('dudoso', 0)}")
+    print(f"  Fallback buy-new:       {_status_counts.get('fallback_buy_new', 0)}")
+    print(f"  Sin cobertura:          {_status_counts.get('sin_cobertura', 0)}")
     print(f"  Stale >{args.only_stale}d:            {_still_stale}")
     print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)} needs_url={_needs_url} stale={_still_stale}")
     print(f"MISSING_NEW: count={len(_missing_new)} sample={_missing_new_sample}")
+    print(
+        "COMPAT_STATUS: "
+        f"alto={_status_counts.get('compatible_alto', 0)} "
+        f"probable={_status_counts.get('compatible_probable', 0)} "
+        f"dudoso={_status_counts.get('dudoso', 0)} "
+        f"buy_new={_status_counts.get('fallback_buy_new', 0)} "
+        f"sin_cobertura={_status_counts.get('sin_cobertura', 0)}"
+    )
 
 
 if __name__ == "__main__":

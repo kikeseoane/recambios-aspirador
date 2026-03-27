@@ -75,8 +75,10 @@ jobs:
             --skip-vertical-defaults | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt || echo "STATS: n/a")
           MISSING_NEW_LINE=$(grep "^MISSING_NEW:" /tmp/sync_output.txt || echo "MISSING_NEW: n/a")
+          COMPAT_STATUS_LINE=$(grep "^COMPAT_STATUS:" /tmp/sync_output.txt || echo "COMPAT_STATUS: n/a")
           echo "stats=$STATS_LINE" >> $GITHUB_OUTPUT
           echo "missing_new=$MISSING_NEW_LINE" >> $GITHUB_OUTPUT
+          echo "compat_status=$COMPAT_STATUS_LINE" >> $GITHUB_OUTPUT
 
       - name: Commit y push si hay cambios generados
         id: commit
@@ -126,12 +128,13 @@ jobs:
           CHANGED="${{ steps.commit.outputs.changed }}"
           STATS="${{ steps.sync.outputs.stats }}"
           MISSING_NEW="${{ steps.sync.outputs.missing_new }}"
+          COMPAT_STATUS="${{ steps.sync.outputs.compat_status }}"
           if [ "$CHANGED" = "true" ]; then
             MSG="Sync completado en ${MINS}m${SECS}s, actualizado. ${STATS}"
           else
             MSG="Sync completado en ${MINS}m${SECS}s, sin cambios. ${STATS}"
           fi
-          printf -v MSG '%s\n%s' "$MSG" "$MISSING_NEW"
+          printf -v MSG '%s\n%s\n%s' "$MSG" "$MISSING_NEW" "$COMPAT_STATUS"
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
             -d text="$MSG"
