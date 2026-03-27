@@ -55,6 +55,14 @@
       {{ end }}
     {{ end }}
   {{ end }}
+  {{ $heroImage := partial "resolved_hero_image.html" (dict
+    "verticalKey" $verticalKey
+    "brandKey" $brandKey
+    "brand" $brand
+    "modelSlug" $modelSlug
+    "modelName" $mtitle
+    "pageTitle" (printf "%s %s" $catLabel $mtitle)
+  ) }}
 
   {{ $catIntro1 := printf "Encuentra %s compatibles para %s con una seleccion pensada para mantenimiento, sustitucion y reparacion habitual." ($catLabel | lower) $mtitle }}
   {{ $catIntro2 := "Antes de comprar, revisa el modelo exacto, la serie, el encaje y las especificaciones clave del recambio." }}
@@ -149,7 +157,7 @@
       </div>
     </div>
     <div class="hero__photo-wrap">
-      <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $catLabel }} {{ $mtitle }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
+      <img class="hero__photo" src="{{ index $heroImage "src" }}" alt="{{ index $heroImage "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
     </div>
   </div>
 

@@ -83,6 +83,14 @@
   {{ $ptitle := (index $p "title") | default .Title }}
   {{ $ctaObj := (index $p "cta") | default dict }}
   {{ $catKey := ((index $p "cta_cat") | default (index $ctaObj "catKey") | default "" | urlize) }}
+  {{ $heroImage := partial "resolved_hero_image.html" (dict
+    "verticalKey" $verticalKey
+    "brandKey" $brandKey
+    "brand" $brand
+    "modelSlug" $modelSlug
+    "modelName" $mtitle
+    "pageTitle" $mtitle
+  ) }}
 
   {{/* --- Datos del problema --- */}}
   {{ $sym    := index $p "symptoms" }}
@@ -113,7 +121,7 @@
     <span>{{ $ptitle }}</span>
   </div>
 
-  <div class="hero hero--bg hero--compact hero--editorial mt-10">
+  <div class="hero hero--bg hero--compact hero--editorial hero--photo-right mt-10">
     <div class="hero__inner">
       <div class="hero__kicker">Diagnostico — {{ $mtitle }}</div>
       <h1>{{ $ptitle }}</h1>
@@ -130,6 +138,9 @@
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}">← Volver al modelo</a>
         {{ if $catKey }}<a class="btn btn--primary" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | relURL }}">Ver recambio relacionado</a>{{ end }}
       </div>
+    </div>
+    <div class="hero__photo-wrap">
+      <img class="hero__photo" src="{{ index $heroImage "src" }}" alt="{{ index $heroImage "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
     </div>
   </div>
 

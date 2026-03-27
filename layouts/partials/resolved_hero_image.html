@@ -1,0 +1,69 @@
+{{ $verticalKey := .verticalKey | default "aspiradores" }}
+{{ $brandKey := .brandKey | default "" }}
+{{ $brand := .brand | default dict }}
+{{ $modelSlug := .modelSlug | default "" }}
+{{ $modelName := .modelName | default "" }}
+{{ $pageTitle := .pageTitle | default $modelName | default "producto" }}
+
+{{ $offersDoc := site.Data.ofertas | default dict }}
+{{ $offers := cond (and $offersDoc $offersDoc.offers) $offersDoc.offers (dict) }}
+{{ $defaults := site.Data.vertical_defaults | default dict }}
+{{ $result := dict
+  "src" (printf "/img/verticals/%s.webp" $verticalKey)
+  "alt" $pageTitle
+  "source" "vertical_static"
+  "isApproximate" true
+}}
+
+{{ if and $brandKey $modelSlug }}
+  {{ $newSku := printf "%s-%s-nuevo" $brandKey $modelSlug }}
+  {{ if isset $offers $newSku }}
+    {{ $offer := index $offers $newSku }}
+    {{ $imageURL := index $offer "image_url" | default "" }}
+    {{ if $imageURL }}
+      {{ $result = dict
+        "src" $imageURL
+        "alt" (printf "Imagen orientativa de %s nuevo" ($modelName | default $pageTitle))
+        "source" "model_new"
+        "isApproximate" false
+      }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if and (ne (index $result "source") "model_new") $brandKey $brand.models }}
+  {{ range $candidate := ($brand.models | default (slice)) }}
+    {{ $candidateSlug := (or (index $candidate "slug") (index $candidate "canonical_slug") (index $candidate "id")) | default "" | urlize }}
+    {{ if and $candidateSlug (ne (index $result "source") "brand_model_new") }}
+      {{ $candidateSku := printf "%s-%s-nuevo" $brandKey $candidateSlug }}
+      {{ if isset $offers $candidateSku }}
+        {{ $candidateOffer := index $offers $candidateSku }}
+        {{ $candidateImage := index $candidateOffer "image_url" | default "" }}
+        {{ if $candidateImage }}
+          {{ $candidateName := index $candidate "model" | default $brand.name | default $pageTitle }}
+          {{ $result = dict
+            "src" $candidateImage
+            "alt" (printf "Imagen orientativa de %s" $candidateName)
+            "source" "brand_model_new"
+            "isApproximate" true
+          }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if and (or (eq (index $result "source") "vertical_static") (eq (index $result "source") "")) (isset $defaults $verticalKey) }}
+  {{ $entry := index $defaults $verticalKey }}
+  {{ $fallbackImage := index $entry "buy_new_image_url" | default "" }}
+  {{ if $fallbackImage }}
+    {{ $result = dict
+      "src" $fallbackImage
+      "alt" (printf "Imagen orientativa de %s" $pageTitle)
+      "source" "vertical_buy_new"
+      "isApproximate" true
+    }}
+  {{ end }}
+{{ end }}
+
+{{ return $result }}

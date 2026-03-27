@@ -8,6 +8,12 @@
   {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brandKey := .Params.brandKey }}
   {{ $brand := index $db.brands $brandKey }}
+  {{ $heroImage := partial "resolved_hero_image.html" (dict
+    "verticalKey" $verticalKey
+    "brandKey" $brandKey
+    "brand" $brand
+    "pageTitle" (.Title | default "Marca")
+  ) }}
 
   {{ if not $brand }}
     {{ .Scratch.Set "noindex" true }}
@@ -101,7 +107,7 @@
         </div>
       </div>
       <div class="hero__photo-wrap">
-        <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $brandName }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
+        <img class="hero__photo" src="{{ index $heroImage "src" }}" alt="{{ index $heroImage "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
       </div>
     </div>
 

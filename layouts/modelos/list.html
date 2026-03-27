@@ -16,6 +16,10 @@
   {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ $brands := $db.brands }}
   {{ $brandKey := .Params.brandKey }}
+  {{ $sectionHero := partial "resolved_hero_image.html" (dict
+    "verticalKey" $verticalKey
+    "pageTitle" .Title
+  ) }}
 
   {{ if not $brandKey }}
 
@@ -47,7 +51,7 @@
         </div>
       </div>
       <div class="hero__photo-wrap">
-        <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ .Title }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
+        <img class="hero__photo" src="{{ index $sectionHero "src" }}" alt="{{ index $sectionHero "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
       </div>
     </section>
 
@@ -226,6 +230,14 @@
         {{ if not $mtitle }}
           {{ $mtitle = .Title }}
         {{ end }}
+        {{ $heroImage := partial "resolved_hero_image.html" (dict
+          "verticalKey" $verticalKey
+          "brandKey" $brandKey
+          "brand" $brand
+          "modelSlug" $modelSlug
+          "modelName" $mtitle
+          "pageTitle" $mtitle
+        ) }}
 
         <div class="breadcrumbs">
           <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
@@ -276,7 +288,7 @@
             </div>
           </div>
           <div class="hero__photo-wrap">
-            <img class="hero__photo" src="{{ (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}" alt="{{ $mtitle }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
+            <img class="hero__photo" src="{{ index $heroImage "src" }}" alt="{{ index $heroImage "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
           </div>
         </section>
 

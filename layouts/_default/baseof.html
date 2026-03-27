@@ -127,8 +127,32 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
+  {{- if and (not $ogimg) (eq .Type "modelos") .Params.brandKey -}}
+    {{- $heroImg := partial "resolved_hero_image.html" (dict
+      "verticalKey" $verticalKey
+      "brandKey" (.Params.brandKey | default "")
+      "brand" (cond (and $db $db.brands (.Params.brandKey | default "") (isset $db.brands (.Params.brandKey | default ""))) (index $db.brands (.Params.brandKey | default "")) (dict))
+      "modelSlug" ((or .Params.modelSlug .Params.slug) | default "" | urlize)
+      "modelName" .Title
+      "pageTitle" .Title
+    ) -}}
+    {{- $ogimg = index $heroImg "src" | default "" -}}
+  {{- end -}}
+  {{- if and (not $ogimg) (eq .Type "marcas") .Params.brandKey -}}
+    {{- $brandHero := partial "resolved_hero_image.html" (dict
+      "verticalKey" $verticalKey
+      "brandKey" (.Params.brandKey | default "")
+      "brand" (cond (and $db $db.brands (.Params.brandKey | default "") (isset $db.brands (.Params.brandKey | default ""))) (index $db.brands (.Params.brandKey | default "")) (dict))
+      "pageTitle" .Title
+    ) -}}
+    {{- $ogimg = index $brandHero "src" | default "" -}}
+  {{- end -}}
   {{- if $ogimg -}}
-    <meta property="og:image" content="{{ $ogimg | absURL }}">
+    {{- if or (hasPrefix $ogimg "http://") (hasPrefix $ogimg "https://") -}}
+      <meta property="og:image" content="{{ $ogimg }}">
+    {{- else -}}
+      <meta property="og:image" content="{{ $ogimg | absURL }}">
+    {{- end -}}
   {{- end -}}
 
   <meta name="twitter:card" content="summary_large_image">
@@ -137,7 +161,11 @@
     <meta name="twitter:description" content="{{ $desc }}">
   {{- end -}}
   {{- if $ogimg -}}
-    <meta name="twitter:image" content="{{ $ogimg | absURL }}">
+    {{- if or (hasPrefix $ogimg "http://") (hasPrefix $ogimg "https://") -}}
+      <meta name="twitter:image" content="{{ $ogimg }}">
+    {{- else -}}
+      <meta name="twitter:image" content="{{ $ogimg | absURL }}">
+    {{- end -}}
   {{- end -}}
 
   {{ $css := resources.Get "css/site.css" | fingerprint }}
