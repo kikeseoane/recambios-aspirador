@@ -518,6 +518,14 @@
           </aside>
         </div>
 
+        {{ partial "model_crosslinks.html" (dict
+          "db" $db
+          "brandKey" .Params.brandKey
+          "modelSlug" .Params.modelSlug
+          "verticalKey" $verticalKey
+          "wrap" true
+        ) }}
+
       {{ end }}
     {{ end }}
   {{ end }}

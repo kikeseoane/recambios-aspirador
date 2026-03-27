@@ -280,15 +280,6 @@
 
       <hr>
 
-      {{ partial "model_crosslinks.html" (dict
-        "db" $db
-        "brandKey" .Params.brandKey
-        "modelSlug" .Params.modelSlug
-        "currentProblem" .Params.problemKey
-        "verticalKey" (.Params.vertical | default "aspiradores")
-        "wrap" false
-      ) }}
-
       <p class="muted small mt-12">
         Algunos enlaces pueden ser de afiliacion. Precio y disponibilidad dependen del vendedor.
       </p>
