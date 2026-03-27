@@ -6,18 +6,21 @@
 {{ range $vk, $vc := $allVerticals }}
   {{ $vdb := index site.Data $vk }}
   {{ if $vdb }}
-    {{ $isRoot := $vc.root | default true }}
+    {{ $vurls := partial "vertical_urls.html" $vk }}
+    {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
     {{ range $bk, $b := $vdb.brands }}
       {{ range $b.models }}
         {{ $slug := (or (index . "slug") (index . "canonical_slug")) | urlize }}
         {{ $name := index . "model" | default "" }}
         {{ if and $slug $name }}
-          {{ $url := cond $isRoot (printf "/modelos/%s/" $slug | relURL) (printf "/%s/modelos/%s/" $vk $slug | relURL) }}
+          {{ $brandSlug := ($bk | urlize) }}
+          {{ $url := (printf "%s/%s/%s/" $marcBase $brandSlug $slug) | relURL }}
           {{ $index = $index | append (dict
             "slug" $slug
             "model" $name
             "brand" $b.name
-            "brandSlug" ($bk | urlize)
+            "brandSlug" $brandSlug
+            "vertical" $vk
             "url" $url
           ) }}
         {{ end }}

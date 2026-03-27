@@ -81,7 +81,8 @@
   {{ end }}
 
   {{ $ptitle := (index $p "title") | default .Title }}
-  {{ $catKey := (index $p "cta_cat") | default "" | urlize }}
+  {{ $ctaObj := (index $p "cta") | default dict }}
+  {{ $catKey := ((index $p "cta_cat") | default (index $ctaObj "catKey") | default "" | urlize) }}
 
   {{/* --- Datos del problema --- */}}
   {{ $sym    := index $p "symptoms" }}
@@ -293,4 +294,14 @@
       </p>
     </aside>
   </div>
+
+  {{ partial "model_crosslinks.html" (dict
+    "db" $db
+    "brandKey" .Params.brandKey
+    "modelSlug" .Params.modelSlug
+    "currentProblem" .Params.problemKey
+    "currentCat" $catKey
+    "verticalKey" $verticalKey
+    "wrap" true
+  ) }}
 {{ end }}
