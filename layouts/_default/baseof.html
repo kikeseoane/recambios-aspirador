@@ -13,24 +13,43 @@
        TITLE SEO DINAMICO
      ========================================================= */ -}}
   {{- $seoTitle := "" -}}
+  {{- $brandKey := .Params.brandKey | default "" -}}
+  {{- $brandName := "" -}}
+  {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
+  {{- $db := index site.Data $verticalKey -}}
+  {{- if and $db $db.brands $brandKey (isset $db.brands $brandKey) -}}
+    {{- $brandName = (index (index $db.brands $brandKey) "name") | default "" -}}
+  {{- end -}}
+  {{- $catKey := .Params.catKey | default "" | urlize -}}
+  {{- $catLabel := $catKey -}}
+  {{- $cats := $db.globals.categorias_recambios | default (slice) -}}
+  {{- range $c := $cats -}}
+    {{- if eq ((index $c "key") | urlize) $catKey -}}
+      {{- $catLabel = (index $c "label") | default $catLabel -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $problemTitle := .Title -}}
+  {{- if eq .Layout "problema" -}}
+    {{- $problemTitle = .Title -}}
+  {{- end -}}
 
   {{- if .IsHome -}}
     {{- $seoTitle = .Site.Title -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "problema") -}}
-    {{- $seoTitle = printf "%s: causas, soluciones y recambios compatibles" .Title -}}
+    {{- $seoTitle = printf "%s | causas, checks y recambio" $problemTitle -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
-    {{- $seoTitle = printf "%s compatibles | %s" .Title .Site.Title -}}
+    {{- $seoTitle = printf "%s para %s | compatibilidad y compra" $catLabel .Title -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
-    {{- $seoTitle = printf "Recambios %s: filtros, baterias y cepillos compatibles" .Title -}}
+    {{- $seoTitle = printf "Recambios para %s | filtros, piezas y fallos" .Title -}}
 
   {{- else if and (eq .Type "marcas") .Params.brandKey -}}
-    {{- $seoTitle = printf "Recambios %s: modelos, filtros y piezas compatibles" .Title -}}
+    {{- $seoTitle = printf "Recambios %s | modelos y piezas compatibles" .Title -}}
 
   {{- else if eq .Section "guias" -}}
-    {{- $seoTitle = printf "%s | Guia de recambios y mantenimiento" .Title -}}
+    {{- $seoTitle = printf "%s | guia practica de compra y mantenimiento" .Title -}}
 
   {{- else -}}
     {{- $seoTitle = printf "%s | %s" .Title .Site.Title -}}
@@ -47,19 +66,19 @@
     {{- $desc = .Description -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "problema") -}}
-    {{- $desc = printf "Descubre las causas mas habituales de %s, como comprobar el fallo y que recambios compatibles pueden ayudarte a solucionarlo." .Title -}}
+    {{- $desc = printf "Diagnostica %s con sintomas, causas probables, comprobaciones y el recambio que suele resolver el fallo sin comprar a ciegas." $problemTitle -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
-    {{- $desc = printf "Encuentra %s compatibles, consejos para comprobar compatibilidad y recomendaciones para elegir el recambio adecuado." .Title -}}
+    {{- $desc = printf "Compara %s para %s, revisa compatibilidad, encaje y datos tecnicos antes de abrir una oferta o pasar a producto nuevo si no hay recambio fiable." ($catLabel | lower) .Title -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
-    {{- $desc = printf "Encuentra recambios compatibles para %s: filtros, baterias, cepillos, cargadores y problemas frecuentes por modelo." .Title -}}
+    {{- $desc = printf "Encuentra recambios para %s, problemas frecuentes y checks de compatibilidad para elegir filtro, bateria, cargador o accesorio correcto." .Title -}}
 
   {{- else if and (eq .Type "marcas") .Params.brandKey -}}
-    {{- $desc = printf "Consulta modelos %s con recambios compatibles, filtros, baterias, cepillos y guias para elegir la pieza adecuada." .Title -}}
+    {{- $desc = printf "Explora modelos %s y entra en cada ficha para ver recambios, problemas reales y consejos de compatibilidad antes de comprar." .Title -}}
 
   {{- else if eq .Section "guias" -}}
-    {{- $desc = printf "Guia sobre %s para elegir recambios compatibles, mantener el aspirador y evitar errores de compra." .Title -}}
+    {{- $desc = printf "Guia practica sobre %s para elegir mejor, evitar incompatibilidades y mantener el equipo sin errores de compra." .Title -}}
 
   {{- else if .Site.Params.defaultDescription -}}
     {{- $desc = .Site.Params.defaultDescription -}}
