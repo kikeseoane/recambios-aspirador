@@ -973,6 +973,17 @@ def derive_compatibility_note(status: str) -> str:
     return "Sin cobertura fiable de recambio"
 
 
+def compatibility_priority(status: str) -> int:
+    priorities = {
+        "sin_cobertura": 0,
+        "dudoso": 1,
+        "fallback_buy_new": 2,
+        "compatible_probable": 3,
+        "compatible_alto": 4,
+    }
+    return priorities.get(str(status or "").strip(), 5)
+
+
 def compose_search_query(base_parts: List[str], extra_parts: List[str]) -> str:
     parts: List[str] = []
     seen: set[str] = set()
@@ -1511,6 +1522,11 @@ def main() -> None:
     def sku_updated_at(sku: str) -> str:
         return str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "0000-00-00")
 
+    def sku_refresh_priority(sku: str) -> Tuple[int, str]:
+        offer_obj = ensure_offer_obj(offers.get(sku))
+        status = str(offer_obj.get("compatibility_status") or derive_compatibility_status(offer_obj)).strip()
+        return (compatibility_priority(status), sku_updated_at(sku))
+
     # --only-stale: filtra SKUs cuyo updated_at supera N días
     if not only and args.only_stale > 0:
         cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat()
@@ -1523,9 +1539,9 @@ def main() -> None:
 
     # --batch-size: toma los N más antiguos para no saturar la API en una sola pasada
     if not only and args.batch_size > 0 and len(want) > args.batch_size:
-        sorted_want = sorted(want, key=sku_updated_at)
+        sorted_want = sorted(want, key=sku_refresh_priority)
         want = set(sorted_want[:args.batch_size])
-        print(f"  --batch-size {args.batch_size}: procesando {args.batch_size} SKUs más antiguos")
+        print(f"  --batch-size {args.batch_size}: procesando {args.batch_size} SKUs con peor cobertura y mayor antigüedad")
 
     added = 0
     updated = 0
@@ -1541,7 +1557,7 @@ def main() -> None:
     _t0 = time.time()
     _total_want = len(want)
     _time_budget_s = args.max_minutes * 60 if args.max_minutes > 0 else 0
-    ordered_want = sorted(want, key=sku_updated_at)
+    ordered_want = sorted(want, key=sku_refresh_priority)
 
     print(f"  Iniciando procesado de {_total_want} SKUs...")
 

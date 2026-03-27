@@ -23,10 +23,11 @@
 {{- else if eq .Layout "recambio" -}}
   {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
   {{- $db := index site.Data $verticalKey -}}
+  {{- $offers := ((site.Data.ofertas).offers) | default dict -}}
   {{- $brandKey := .Params.brandKey | default "" -}}
   {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize -}}
   {{- $catKey := .Params.catKey | default "" | urlize -}}
-  {{- $itemCount := 0 -}}
+  {{- $strongItemCount := 0 -}}
   {{- $relatedProblemCount := 0 -}}
   {{- if and $db $db.brands $brandKey -}}
     {{- $brand := index $db.brands $brandKey -}}
@@ -38,7 +39,14 @@
           {{- if and $rec (reflect.IsMap $rec) -}}
             {{- $catItems := index $rec $catKey -}}
             {{- if and $catItems (reflect.IsSlice $catItems) -}}
-              {{- $itemCount = len $catItems -}}
+              {{- range $catItems -}}
+                {{- $sku := (index . "sku") | default "" -}}
+                {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
+                {{- $status := (index $offer "compatibility_status") | default "" -}}
+                {{- if or (eq $status "compatible_alto") (eq $status "compatible_probable") -}}
+                  {{- $strongItemCount = add $strongItemCount 1 -}}
+                {{- end -}}
+              {{- end -}}
             {{- end -}}
           {{- end -}}
           {{- range (index . "problemas" | default (slice)) -}}
@@ -53,14 +61,15 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
-  {{- if and (lt $itemCount 1) (lt $relatedProblemCount 1) -}}{{- $noindex = true -}}{{- end -}}
+  {{- if and (lt $strongItemCount 1) (lt $relatedProblemCount 1) -}}{{- $noindex = true -}}{{- end -}}
 
 {{- else if and (eq .Type "modelos") .Params.brandKey (not .Params.catKey) (not .Params.problemKey) (ne .Layout "problemas") -}}
   {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
   {{- $db := index site.Data $verticalKey -}}
+  {{- $offers := ((site.Data.ofertas).offers) | default dict -}}
   {{- $brandKey := .Params.brandKey | default "" -}}
   {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize -}}
-  {{- $catsWithItems := 0 -}}
+  {{- $catsWithCoverage := 0 -}}
   {{- $richProbCount := 0 -}}
   {{- $introLen := 0 -}}
   {{- if and $db $db.brands $brandKey -}}
@@ -73,7 +82,18 @@
           {{- if and $rec (reflect.IsMap $rec) -}}
             {{- range $k, $v := $rec -}}
               {{- if and $v (reflect.IsSlice $v) (gt (len $v) 0) -}}
-                {{- $catsWithItems = add $catsWithItems 1 -}}
+                {{- $catHasCoverage := false -}}
+                {{- range $v -}}
+                  {{- $sku := (index . "sku") | default "" -}}
+                  {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
+                  {{- $status := (index $offer "compatibility_status") | default "" -}}
+                  {{- if or (eq $status "compatible_alto") (eq $status "compatible_probable") -}}
+                    {{- $catHasCoverage = true -}}
+                  {{- end -}}
+                {{- end -}}
+                {{- if $catHasCoverage -}}
+                  {{- $catsWithCoverage = add $catsWithCoverage 1 -}}
+                {{- end -}}
               {{- end -}}
             {{- end -}}
           {{- end -}}
@@ -89,7 +109,7 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
-  {{- if and (lt $catsWithItems 1) (lt $richProbCount 1) (lt $introLen 140) -}}{{- $noindex = true -}}{{- end -}}
+  {{- if and (lt $catsWithCoverage 1) (lt $richProbCount 1) (lt $introLen 140) -}}{{- $noindex = true -}}{{- end -}}
 
 {{- end -}}
 
