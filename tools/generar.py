@@ -180,6 +180,36 @@ def safe_clean_section(section_dir: Path) -> None:
                 child.unlink()
 
 
+def clean_generated_model_children(section_dir: Path) -> None:
+    """
+    En verticales no-root, content/<vertical>/modelos/ solo debe conservar
+    el hub _index.md. Cualquier hijo generado antiguo duplica el contenido
+    que ya vive bajo content/<vertical>/marcas/<brand>/<model>/.
+    """
+    if not section_dir.exists():
+        return
+
+    for child in section_dir.iterdir():
+        if child.name == "_index.md":
+            continue
+
+        if child.is_dir():
+            idx_leaf = child / "index.md"
+            idx_branch = child / "_index.md"
+
+            if is_generated_file(idx_leaf) or is_generated_file(idx_branch):
+                for p in sorted(child.rglob("*"), reverse=True):
+                    if p.is_file():
+                        p.unlink()
+                    else:
+                        p.rmdir()
+                child.rmdir()
+            continue
+
+        if child.is_file() and child.suffix.lower() == ".md" and is_generated_file(child):
+            child.unlink()
+
+
 # -------------------------------
 # Helpers SEO / títulos
 # -------------------------------
@@ -352,6 +382,7 @@ def main() -> None:
             fm(title="Modelos", kind="modelos", extra={"vertical": args.vertical}),
             force=True,
         )
+        clean_generated_model_children(section_modelos)
 
         # Guías para vertical no-root
         guides_dir = CONTENT / args.vertical / "guias"
