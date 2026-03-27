@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
+import atexit
 import argparse
 import hashlib
 import hmac
@@ -54,6 +55,9 @@ APP_KEY = (os.getenv("ALI_APP_KEY") or "").strip()
 APP_SECRET = (os.getenv("ALI_APP_SECRET") or "").strip()
 TRACKING_ID = (os.getenv("ALI_TRACKING_ID") or "recambiosaspiradora").strip()
 API_URL = (os.getenv("ALI_API_URL") or "https://api-sg.aliexpress.com/sync").strip()
+GITHUB_REPO = (os.getenv("GITHUB_REPO") or os.getenv("GITHUB_REPOSITORY") or "").strip()
+GITHUB_ACTIONS_PAUSE_TOKEN = (os.getenv("GITHUB_ACTIONS_PAUSE_TOKEN") or os.getenv("GITHUB_TOKEN") or "").strip()
+GITHUB_ACTIONS_PAUSE_VAR = (os.getenv("GITHUB_ACTIONS_PAUSE_VAR") or "SYNC_OFERTAS_PAUSED").strip()
 
 SHIP_TO = (os.getenv("ALI_SHIP_TO") or "ES").strip()
 CURRENCY = (os.getenv("ALI_CURRENCY") or "EUR").strip()
@@ -144,6 +148,76 @@ def resolve_verticals(raw_vertical: str) -> List[str]:
     if missing:
         raise SystemExit(f"Vertical(es) no válidas: {', '.join(missing)}. Disponibles: {', '.join(all_verticals)}")
     return resolved
+
+
+# =========================
+# GitHub Actions pause switch
+# =========================
+def github_pause_enabled() -> bool:
+    if os.getenv("GITHUB_ACTIONS") == "true":
+        return False
+    return bool(GITHUB_REPO and GITHUB_ACTIONS_PAUSE_TOKEN and GITHUB_ACTIONS_PAUSE_VAR)
+
+
+def github_headers() -> Dict[str, str]:
+    return {
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {GITHUB_ACTIONS_PAUSE_TOKEN}",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+
+
+def github_variable_url(name: str) -> str:
+    return f"https://api.github.com/repos/{GITHUB_REPO}/actions/variables/{name}"
+
+
+def github_get_repo_variable(name: str) -> Optional[str]:
+    r = requests.get(github_variable_url(name), headers=github_headers(), timeout=20)
+    if r.status_code == 404:
+        return None
+    r.raise_for_status()
+    data = r.json() or {}
+    return str(data.get("value") or "")
+
+
+def github_set_repo_variable(name: str, value: str) -> None:
+    payload = {"name": name, "value": value}
+    put = requests.patch(github_variable_url(name), headers=github_headers(), json=payload, timeout=20)
+    if put.status_code == 404:
+        create_url = f"https://api.github.com/repos/{GITHUB_REPO}/actions/variables"
+        post = requests.post(create_url, headers=github_headers(), json=payload, timeout=20)
+        post.raise_for_status()
+        return
+    put.raise_for_status()
+
+
+def github_delete_repo_variable(name: str) -> None:
+    r = requests.delete(github_variable_url(name), headers=github_headers(), timeout=20)
+    if r.status_code not in (204, 404):
+        r.raise_for_status()
+
+
+def github_pause_sync_workflow() -> Optional[str]:
+    if not github_pause_enabled():
+        return None
+    previous = github_get_repo_variable(GITHUB_ACTIONS_PAUSE_VAR)
+    if previous != "1":
+        github_set_repo_variable(GITHUB_ACTIONS_PAUSE_VAR, "1")
+        print(f"  GitHub Action pausada via variable {GITHUB_ACTIONS_PAUSE_VAR}=1")
+    else:
+        print(f"  GitHub Action ya estaba pausada ({GITHUB_ACTIONS_PAUSE_VAR}=1)")
+    return previous
+
+
+def github_restore_sync_workflow(previous: Optional[str]) -> None:
+    if not github_pause_enabled():
+        return
+    if previous is None:
+        github_delete_repo_variable(GITHUB_ACTIONS_PAUSE_VAR)
+        print(f"  GitHub Action reactivada borrando variable {GITHUB_ACTIONS_PAUSE_VAR}")
+        return
+    github_set_repo_variable(GITHUB_ACTIONS_PAUSE_VAR, previous)
+    print(f"  GitHub Action restaurada: {GITHUB_ACTIONS_PAUSE_VAR}={previous}")
 
 
 # =========================
@@ -1503,6 +1577,20 @@ def main() -> None:
         cache_clear()
         print(f"OK: cache borrado -> {CACHE_DIR}")
         return
+
+    if github_pause_enabled():
+        try:
+            github_pause_previous = github_pause_sync_workflow()
+
+            def _restore_github_actions_pause() -> None:
+                try:
+                    github_restore_sync_workflow(github_pause_previous)
+                except Exception as exc:
+                    print(f"  WARN: no se pudo restaurar la GitHub Action: {exc}")
+
+            atexit.register(_restore_github_actions_pause)
+        except Exception as exc:
+            print(f"  WARN: no se pudo pausar la GitHub Action: {exc}")
 
     use_cache = not args.no_cache
 
