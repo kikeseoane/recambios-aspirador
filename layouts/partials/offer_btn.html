@@ -49,15 +49,35 @@
 {{ $newOffer := cond (and $modelNewSku (isset $offers $modelNewSku)) (index $offers $modelNewSku) (dict) }}
 {{ $newURL := (index $newOffer "url") | default "" }}
 {{ $newLabel := "Ver producto nuevo" }}
+{{ $newImageURL := (index $newOffer "image_url") | default "" }}
+{{ $newSalePrice := (index $newOffer "sale_price") | default "" }}
+{{ $newOriginalPrice := (index $newOffer "original_price") | default "" }}
+{{ $newDiscount := (index $newOffer "discount") | default "" }}
+{{ $newCurrency := (index $newOffer "sale_price_currency") | default "EUR" }}
 {{ $vd := site.Data.vertical_defaults }}
 {{ $vEntry := cond (and $vd (isset $vd $verticalKey)) (index $vd $verticalKey) (dict) }}
 {{ $verticalNewURL := (index $vEntry "buy_new_url") | default "" }}
 {{ $verticalNewLabel := (index $vEntry "buy_new_label") | default "Ver producto nuevo" }}
+{{ $verticalNewImageURL := (index $vEntry "buy_new_image_url") | default "" }}
+{{ $verticalNewSalePrice := (index $vEntry "buy_new_sale_price") | default "" }}
+{{ $verticalNewOriginalPrice := (index $vEntry "buy_new_original_price") | default "" }}
+{{ $verticalNewDiscount := (index $vEntry "buy_new_discount") | default "" }}
+{{ $verticalNewCurrency := (index $vEntry "buy_new_sale_price_currency") | default "EUR" }}
 {{ $buyNewURL := $newURL }}
 {{ $buyNewLabel := $newLabel }}
+{{ $buyNewImageURL := $newImageURL }}
+{{ $buyNewSalePrice := $newSalePrice }}
+{{ $buyNewOriginalPrice := $newOriginalPrice }}
+{{ $buyNewDiscount := $newDiscount }}
+{{ $buyNewCurrency := $newCurrency }}
 {{ if and (not $buyNewURL) $verticalNewURL }}
   {{ $buyNewURL = $verticalNewURL }}
   {{ $buyNewLabel = $verticalNewLabel }}
+  {{ $buyNewImageURL = $verticalNewImageURL }}
+  {{ $buyNewSalePrice = $verticalNewSalePrice }}
+  {{ $buyNewOriginalPrice = $verticalNewOriginalPrice }}
+  {{ $buyNewDiscount = $verticalNewDiscount }}
+  {{ $buyNewCurrency = $verticalNewCurrency }}
 {{ end }}
 
 {{ if $searchQuery }}
@@ -129,6 +149,20 @@
 {{ else if $sku }}
   {{ if and $buyNewURL (or $needs (eq $matchType "fallback_search") (eq $matchType "fallback_buy_new")) }}
     <div class="offer-action">
+      {{ if $buyNewImageURL }}
+        <div class="offer-image">
+          <img src="{{ $buyNewImageURL }}" alt="{{ $buyNewLabel }}" loading="lazy" width="120" height="120">
+        </div>
+      {{ end }}
+      {{ if $buyNewSalePrice }}
+        <div class="offer-price">
+          <span class="offer-price__sale">{{ $buyNewSalePrice }} {{ $buyNewCurrency }}</span>
+          {{ if and $buyNewOriginalPrice (ne $buyNewOriginalPrice $buyNewSalePrice) }}
+            <span class="offer-price__original">{{ $buyNewOriginalPrice }} {{ $buyNewCurrency }}</span>
+          {{ end }}
+          {{ if $buyNewDiscount }}<span class="offer-price__discount">-{{ $buyNewDiscount }}%</span>{{ end }}
+        </div>
+      {{ end }}
       {{ if not $hideTrust }}
         <div class="offer-trust">
           <span class="offer-trust__icon" aria-hidden="true">↗</span>
