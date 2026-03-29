@@ -335,25 +335,25 @@ sku_packs:
       sku_suffix: acc-espumador
       intent: "compra"
       title_tpl: "Espumador de leche compatible para {model}"
-      must_include_tpl: ["{model_token}", "frother", "milk", "coffee"]
+      must_include_tpl: ["{model_token}", "frother", "milk", "coffee", "machine"]
       must_not_include: ["filter", "gasket", "tank", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: accesorios
       sku_suffix: acc-bandeja
       intent: "compra"
       title_tpl: "Bandeja recogetazas compatible para {model}"
-      must_include_tpl: ["{model_token}", "drip", "tray", "coffee"]
+      must_include_tpl: ["{model_token}", "drip", "tray", "coffee", "machine"]
       must_not_include: ["filter", "gasket", "tank", "frother", "humidifier", "air", "purifier", "vacuum"]
     - catKey: accesorios
       sku_suffix: acc-kit-mant
       intent: "compra"
       title_tpl: "Kit mantenimiento compatible para {model}"
-      must_include_tpl: ["{model_token}", "maintenance", "kit", "coffee"]
+      must_include_tpl: ["{model_token}", "maintenance", "kit", "coffee", "machine"]
       must_not_include: ["filter", "gasket", "tank", "tray", "humidifier", "air", "purifier", "vacuum"]
     - catKey: accesorios
       sku_suffix: acc-descalc
       intent: "compra"
       title_tpl: "Descalcificador compatible para {model}"
-      must_include_tpl: ["{model_token}", "descaler", "descaling", "coffee"]
+      must_include_tpl: ["{model_token}", "descaler", "descaling", "coffee", "machine"]
       must_not_include: ["filter", "gasket", "tank", "tray", "humidifier", "air", "purifier", "vacuum"]
 
   # Herramientas batería: 2 bateria + 2 cargador + 5 accesorios + 1 soporte = 10

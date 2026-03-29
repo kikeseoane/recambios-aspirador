@@ -125,6 +125,10 @@ def nrm(s: str) -> str:
     return " ".join((s or "").lower().split())
 
 
+def folded_nrm(s: str) -> str:
+    return nrm(fold_query_text(s))
+
+
 def available_verticals() -> List[str]:
     verticals_doc = load_yaml(VERTICALS_YAML)
     verticals_obj = verticals_doc.get("verticals")
@@ -634,6 +638,10 @@ RELAXED_ANCHOR_STOPWORDS = {
 }
 SPECIFIC_ITEM_STOPWORDS = RELAXED_ANCHOR_STOPWORDS | {
     "group", "oring", "o-ring",
+    # Familias de producto demasiado genéricas para decidir compatibilidad.
+    "shaver", "razor", "coffee", "machine", "espresso", "maker",
+    # Modificadores comerciales o de gama que no describen la pieza.
+    "series", "pro", "plus", "one",
 }
 
 STRICT_RELAXED_CATEGORIES = {"accesorios", "soporte", "deposito", "cesta", "junta", "bolsa"}
@@ -641,6 +649,10 @@ STRICT_EXACT_MATCH_CATEGORIES = {
     "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal",
     "accesorios", "soporte", "deposito", "cesta", "junta", "bolsa",
     "bomba", "resistencia", "rodamiento", "escobillas", "correa", "rueda", "freno",
+}
+RELAXED_FALLBACK_ALLOWED_CATEGORIES = {
+    # Para un sistema de alta precisión, el fallback relajado solo debe vivir
+    # en categorías donde el riesgo de confundir pieza/modelo es bajo.
 }
 LOW_QUALITY_NEW_TITLE_TERMS = {
     "oem", "odm", "wholesale", "factory direct", "factory price", "supplier",
@@ -731,6 +743,27 @@ def title_has_required_model(title: str, required: List[str]) -> bool:
     return any(tok in tt for tok in required)
 
 
+def title_has_required_brand(title: str, brand_hint: str) -> bool:
+    folded_title = folded_nrm(title)
+    folded_brand = folded_nrm(brand_hint)
+    if not folded_brand:
+        return True
+    if folded_brand in folded_title:
+        return True
+    brand_tokens = [tok for tok in query_tokens(folded_brand) if len(tok) >= 3]
+    if not brand_tokens:
+        return True
+    return any(tok in query_tokens(folded_title) for tok in brand_tokens)
+
+
+def title_matches_vertical(title: str, vertical: str) -> bool:
+    required_terms = VERTICAL_REQUIRED_TERMS.get(vertical, [])
+    if not required_terms:
+        return True
+    tt = nrm(fold_query_text(title))
+    return any(nrm(fold_query_text(term)) in tt for term in required_terms)
+
+
 def count_distinct_models_in_title(title: str) -> int:
     tt = nrm(title)
     toks = set(m.group(1).lower() for m in MODEL_TOKEN_RE.finditer(tt))
@@ -776,16 +809,26 @@ def get_price_value(p: Dict[str, Any]) -> float:
 
 
 def contains_all(title: str, must: List[str]) -> bool:
-    tt = nrm(title)
+    tt = nrm(fold_query_text(title))
     for m in must:
-        if nrm(m) not in tt:
+        mm = nrm(fold_query_text(m))
+        if mm and mm not in tt:
             return False
     return True
 
 
 def contains_any(title: str, bad: List[str]) -> bool:
-    tt = nrm(title)
-    return any(nrm(b) in tt for b in bad)
+    tt = nrm(fold_query_text(title))
+    return any((bb := nrm(fold_query_text(b))) and bb in tt for b in bad)
+
+
+def min_specific_item_hits(category: str, specific_item_terms: List[str]) -> int:
+    cat = nrm(category)
+    if cat == "accesorios":
+        # Accesorios es una cubeta amplia y peligrosa: si no tenemos al menos
+        # una seÃ±al especÃ­fica real, preferimos caer a fallback_buy_new.
+        return 1 if len(specific_item_terms) >= 2 else 2
+    return 1 if specific_item_terms else 0
 
 
 def score_product(
@@ -965,14 +1008,26 @@ def extract_strict_anchor_terms(
 
 def extract_specific_item_terms(
     ctx: Dict[str, Any],
+    must_include: List[str],
     model_tokens: List[str],
     limit: int = 4,
 ) -> List[str]:
     parts = [
+        *must_include,
         str(ctx.get("item_title") or ""),
         str(ctx.get("query") or ""),
     ]
     blocked = {nrm(fold_query_text(tok)) for tok in model_tokens if tok}
+    blocked.update(
+        tok
+        for tok in query_tokens(str(ctx.get("brand") or ""))
+        if len(tok) >= 3
+    )
+    blocked.update(
+        tok
+        for tok in query_tokens(str(ctx.get("model") or ""))
+        if len(tok) >= 3
+    )
     out: List[str] = []
     seen: set[str] = set()
     for part in parts:
@@ -1220,6 +1275,7 @@ def merge_overrides(
 def pick_relaxed_link(
     brand: str,
     category: str,
+    vertical: str,
     part_terms: List[str],
     must_not_include: List[str],
     anchor_terms: List[str],
@@ -1234,6 +1290,7 @@ def pick_relaxed_link(
     category_key = nrm(category)
     require_anchor = category_key in STRICT_RELAXED_CATEGORIES
     min_anchor_hits = 2 if require_anchor else 1
+    min_specific_hits = min_specific_item_hits(category, specific_item_terms)
     if require_anchor and len(anchor_terms) < min_anchor_hits:
         return None
 
@@ -1263,13 +1320,21 @@ def pick_relaxed_link(
                     continue
                 if is_deceptive_title(title, category):
                     continue
-                if not any(pt in tt for pt in part_terms):
+                if vertical and not title_matches_vertical(title, vertical):
                     continue
+                if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                    continue
+                if brand and not title_has_required_brand(title, brand):
+                    continue
+                has_part_term = any(pt in tt for pt in part_terms)
+                if not has_part_term:
+                    if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
+                        continue
                 if must_not_include and contains_any(tt, must_not_include):
                     continue
                 if anchor_terms and count_anchor_hits(title, anchor_terms) < min_anchor_hits:
                     continue
-                if specific_item_terms and count_anchor_hits(title, specific_item_terms) < 1:
+                if min_specific_hits and count_anchor_hits(title, specific_item_terms) < min_specific_hits:
                     continue
                 candidates.append(p)
 
@@ -1317,6 +1382,7 @@ def pick_best_promotion_link(
     req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
     strict_category = nrm(category) in STRICT_EXACT_MATCH_CATEGORIES
     min_anchor_hits = 2 if strict_category else 1
+    min_specific_hits = min_specific_item_hits(category, specific_item_terms)
 
     for lang in ("EN", "ES"):
         for page_no in (1,):
@@ -1340,14 +1406,24 @@ def pick_best_promotion_link(
                     continue
                 if is_deceptive_title(title, category):
                     continue
+                if vertical and not title_matches_vertical(title, vertical):
+                    continue
+                if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                    continue
                 if category == "nuevo" and is_low_quality_new_title(title):
+                    continue
+
+                if category != "nuevo" and must_brand and not title_has_required_brand(title, must_brand):
                     continue
 
                 if req_models and not title_has_required_model(tt, req_models):
                     continue
 
-                if part_terms and not any(pt in tt for pt in part_terms):
-                    continue
+                if part_terms:
+                    has_part_term = any(pt in tt for pt in part_terms)
+                    if not has_part_term:
+                        if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
+                            continue
 
                 if must_include and not contains_all(tt, must_include):
                     continue
@@ -1357,7 +1433,7 @@ def pick_best_promotion_link(
 
                 if strict_anchor_terms and count_anchor_hits(title, strict_anchor_terms) < min_anchor_hits:
                     continue
-                if specific_item_terms and count_anchor_hits(title, specific_item_terms) < 1:
+                if min_specific_hits and count_anchor_hits(title, specific_item_terms) < min_specific_hits:
                     continue
 
                 candidates.append(p)
@@ -1711,11 +1787,12 @@ def main() -> None:
             must_not_combined = [*must_not_default, *must_not_override]
             effective_model_tokens = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model)
             strict_anchor_terms = extract_strict_anchor_terms(ctx, must_include, effective_model_tokens)
-            specific_item_terms = extract_specific_item_terms(ctx, effective_model_tokens)
+            specific_item_terms = extract_specific_item_terms(ctx, must_include, effective_model_tokens)
 
             kws = build_search_keywords(ctx, query, must_include)
             fallback_search_query = kws[0] if kws else choose_fallback_search_query(ctx, query)
             fallback_search_label = choose_fallback_search_label(ctx, fallback_search_query)
+            relaxed_allowed = nrm(category) in RELAXED_FALLBACK_ALLOWED_CATEGORIES
 
             found = None
             matched_kw = ""
@@ -1760,19 +1837,32 @@ def main() -> None:
                 obj["compatibility_status"] = derive_compatibility_status(obj)
                 obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
                 obj["updated_at"] = today
+                for debug_key in (
+                    "debug_last_query",
+                    "debug_model_tokens",
+                    "debug_must_include",
+                    "debug_must_not_include",
+                    "debug_specific_item_terms",
+                    "debug_relaxed_allowed",
+                    "debug_failure_stage",
+                ):
+                    obj.pop(debug_key, None)
                 filled_from_aliexpress += 1
             else:
                 # Fallback relajado: busca en API solo marca + categoría
                 anchor_terms = extract_relaxed_anchor_terms(ctx, must_include)
-                relaxed = pick_relaxed_link(
-                    brand=brand,
-                    category=category,
-                    part_terms=part_terms,
-                    must_not_include=must_not_combined,
-                    anchor_terms=anchor_terms,
-                    specific_item_terms=specific_item_terms,
-                    use_cache=use_cache,
-                )
+                relaxed = None
+                if relaxed_allowed:
+                    relaxed = pick_relaxed_link(
+                        brand=brand,
+                        category=category,
+                        vertical=str(ctx.get("vertical") or ""),
+                        part_terms=part_terms,
+                        must_not_include=must_not_combined,
+                        anchor_terms=anchor_terms,
+                        specific_item_terms=specific_item_terms,
+                        use_cache=use_cache,
+                    )
                 if relaxed:
                     obj["url"] = relaxed["url"]
                     obj["match_type"] = "relaxed_fallback"
@@ -1794,22 +1884,49 @@ def main() -> None:
                     obj["compatibility_status"] = derive_compatibility_status(obj)
                     obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
                     obj["updated_at"] = today
+                    for debug_key in (
+                        "debug_last_query",
+                        "debug_model_tokens",
+                        "debug_must_include",
+                        "debug_must_not_include",
+                        "debug_specific_item_terms",
+                        "debug_relaxed_allowed",
+                        "debug_failure_stage",
+                    ):
+                        obj.pop(debug_key, None)
                     filled_from_aliexpress += 1
                 else:
                     # Sin producto encontrado: limpia la URL para que el template
                     # muestre un botón de búsqueda construido desde fallback_search_query.
                     # Nunca usamos DEFAULT_URL genérico (era un link de aspiradoras para todos los verticals).
-                    if obj.get("url") in ("", DEFAULT_URL, None) or obj.get("needs_url"):
-                        obj["url"] = ""
+                    if str(obj.get("url") or "").strip():
                         changed_urls_to_default += 1
+                    obj["url"] = ""
+                    for stale_key in (
+                        "image_url",
+                        "sale_price",
+                        "sale_price_currency",
+                        "original_price",
+                        "discount",
+                        "product_title",
+                        "matched_query",
+                    ):
+                        obj.pop(stale_key, None)
 
                     obj["needs_url"] = True
                     obj["match_type"] = "fallback_buy_new"
                     obj["fallback_search_query"] = fallback_search_query
                     obj["fallback_search_label"] = fallback_search_label
-                    obj.pop("matched_query", None)
                     obj["compatibility_status"] = derive_compatibility_status(obj)
                     obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
+                    obj["updated_at"] = today
+                    obj["debug_last_query"] = fallback_search_query
+                    obj["debug_model_tokens"] = effective_model_tokens
+                    obj["debug_must_include"] = must_include
+                    obj["debug_must_not_include"] = must_not_combined
+                    obj["debug_specific_item_terms"] = specific_item_terms
+                    obj["debug_relaxed_allowed"] = relaxed_allowed
+                    obj["debug_failure_stage"] = "relaxed_disabled" if not relaxed_allowed else "no_candidate_after_exact_and_relaxed"
 
         else:
             obj.pop("needs_url", None)

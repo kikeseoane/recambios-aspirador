@@ -182,14 +182,40 @@ def ensure_list_str(x: Any) -> List[str]:
     return out
 
 
-def first_model_token(model_tokens: List[str], model_name: str) -> str:
-    # Preferimos tokens cortos tipo v11 / s7 / 3090, si existen
+def is_strong_model_token(token: str) -> bool:
+    tt = compact_spaces(str(token or "").lower())
+    if not tt:
+        return False
+    if not re.search(r"\d", tt):
+        return False
+    if re.fullmatch(r"(series?|serie)\s*\d+", tt):
+        return False
+    return True
+
+
+def fallback_model_phrase(model_name: str, brand_name: str) -> str:
+    brand_tokens = set(query_tokens(brand_name))
+    kept = [tok for tok in query_tokens(model_name) if tok not in brand_tokens]
+    if kept:
+        return compact_spaces(" ".join(kept[:4]))
+    return compact_spaces(model_name)
+
+
+def first_model_token(model_tokens: List[str], model_name: str, brand_name: str) -> str:
+    # Preferimos tokens compactos tipo v11 / s7 / 3090, si existen
     for t in model_tokens:
         tt = t.strip().lower()
-        if re.fullmatch(r"[a-z]*\d[\w\.\-]*", tt):
+        if re.fullmatch(r"[a-z]*\d[\w\.\-]*", tt) and is_strong_model_token(tt):
             return tt
-    # Fallback: primera palabra del modelo
-    return (model_name.split()[:1] or ["model"])[0].lower()
+
+    # Si no hay identificador fuerte, usamos la frase de modelo sin la marca.
+    # Evita queries pobres como "bosch battery" para familias tipo
+    # "Bosch Unlimited Serie 6".
+    phrase = fallback_model_phrase(model_name, brand_name)
+    if phrase:
+        return phrase.lower()
+
+    return compact_spaces(model_name).lower() or "model"
 
 
 def category_query_terms(cat_key: str) -> List[str]:
@@ -199,6 +225,7 @@ def category_query_terms(cat_key: str) -> List[str]:
 def build_search_query(
     brand_name: str,
     model_name: str,
+    model_query_token: str,
     cat_key: str,
     must_include: List[str],
     title: str,
@@ -207,13 +234,15 @@ def build_search_query(
     if query_hint:
         return compact_spaces(query_hint)[:120]
 
-    seed_terms = [x.strip() for x in must_include[:4] if x.strip()]
-    if not seed_terms:
-        seed_terms = category_query_terms(cat_key)
+    seed_terms = [x.strip() for x in must_include[:6] if x.strip()]
+    extra_terms = seed_terms if seed_terms else category_query_terms(cat_key)
 
+    # El tÃ­tulo editorial introduce demasiado ruido traducido ("compatible",
+    # "bandeja recogetazas", etc.). Para buscar en AliExpress priorizamos
+    # modelo + seÃ±ales tÃ©cnicas de la pieza.
     return compose_search_query(
-        base_parts=[brand_name, model_name],
-        extra_parts=[*seed_terms, *category_query_terms(cat_key), title],
+        base_parts=[brand_name, model_query_token or model_name],
+        extra_parts=extra_terms,
     )
 
 
@@ -356,7 +385,7 @@ def compile_catalog(vertical: str = "aspiradores") -> dict:
                 raise SystemExit(f"ERROR: sku_pack '{sku_pack}' no existe en {PARTS_YAML}")
 
             model_tokens = ensure_list_str(m.get("model_tokens"))
-            model_token = first_model_token(model_tokens, model_name)
+            model_token = first_model_token(model_tokens, model_name, brand_name)
 
             # Derivar packs de contenido editorial (explícito en YAML > defecto por sku_pack)
             pack_defaults = SKU_PACK_DEFAULTS.get(sku_pack, {})
@@ -395,7 +424,7 @@ def compile_catalog(vertical: str = "aspiradores") -> dict:
                 query_hint = nrm(str(mo.get("query_hint") or ""))
 
                 effective_model_tokens = list(dict.fromkeys([*model_tokens, *extra_model_tokens]))
-                effective_model_token = first_model_token(effective_model_tokens, model_name)
+                effective_model_token = first_model_token(effective_model_tokens, model_name, brand_name)
 
                 for p in pack_items:
                     if not isinstance(p, dict):
@@ -427,6 +456,7 @@ def compile_catalog(vertical: str = "aspiradores") -> dict:
                     query = build_search_query(
                         brand_name=brand_name,
                         model_name=model_name,
+                        model_query_token=effective_model_token,
                         cat_key=cat_key,
                         must_include=must_include,
                         title=title,
