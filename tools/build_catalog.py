@@ -83,19 +83,19 @@ SKU_PACK_DEFAULTS: Dict[str, Dict[str, str]] = {
 }
 
 CATEGORY_QUERY_TERMS: Dict[str, List[str]] = {
-    "bateria": ["battery", "replacement"],
-    "filtro": ["filter", "replacement"],
-    "cargador": ["charger", "adapter"],
-    "cepillo": ["brush", "roller"],
-    "soporte": ["dock", "wall mount"],
-    "accesorios": ["accessory", "kit"],
-    "laminas": ["foil", "replacement"],
-    "cabezal": ["head", "replacement"],
-    "junta": ["gasket", "seal"],
-    "deposito": ["tank", "container"],
+    "bateria": ["battery pack", "replacement battery"],
+    "filtro": ["hepa filter", "replacement filter"],
+    "cargador": ["charger", "charging dock"],
+    "cepillo": ["roller brush", "main brush"],
+    "soporte": ["wall mount", "charging dock"],
+    "accesorios": ["attachment", "nozzle"],
+    "laminas": ["shaver foil", "replacement foil"],
+    "cabezal": ["replacement head", "shaver head"],
+    "junta": ["gasket", "o-ring"],
+    "deposito": ["water tank", "dust cup"],
     "cesta": ["basket", "tray"],
     "rueda": ["tire", "wheel"],
-    "freno": ["brake", "pad"],
+    "freno": ["brake pad", "brake disc"],
 }
 
 QUERY_TOKEN_RE = re.compile(r"[^\W_]+(?:[.+/-][^\W_]+)*", re.IGNORECASE | re.UNICODE)

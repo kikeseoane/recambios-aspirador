@@ -522,16 +522,16 @@ CATEGORY_PART_TERMS = {
 }
 
 CATEGORY_QUERY_TERMS = {
-    "bateria": ["battery", "replacement"],
-    "filtro": ["filter", "replacement"],
-    "cargador": ["charger", "adapter"],
-    "cepillo": ["brush", "roller"],
-    "soporte": ["dock", "wall mount"],
-    "accesorios": ["accessory", "kit"],
-    "laminas": ["foil", "replacement"],
-    "cabezal": ["head", "replacement"],
-    "junta": ["gasket", "seal"],
-    "deposito": ["tank", "container"],
+    "bateria": ["battery pack", "replacement battery"],
+    "filtro": ["hepa filter", "replacement filter"],
+    "cargador": ["charger", "charging dock"],
+    "cepillo": ["roller brush", "main brush"],
+    "soporte": ["wall mount", "charging dock"],
+    "accesorios": ["attachment", "nozzle"],
+    "laminas": ["shaver foil", "replacement foil"],
+    "cabezal": ["replacement head", "shaver head"],
+    "junta": ["gasket", "o-ring"],
+    "deposito": ["water tank", "dust cup"],
     "cesta": ["basket", "tray"],
     # Categorías de lavadora y electrodomésticos
     "bomba": ["drain pump", "pump"],
@@ -542,6 +542,50 @@ CATEGORY_QUERY_TERMS = {
     "bolsa": ["dust bag", "bag"],
     "rueda": ["tire", "wheel"],
     "freno": ["brake", "pad"],
+}
+
+CATEGORY_REQUIRED_SIGNALS = {
+    "bateria": ["battery", "battery pack", "bateria", "rechargeable", "li-ion", "li ion", "akku"],
+    "filtro": ["filter", "hepa", "filtro", "cartridge", "membrane", "prefilter", "pre filter", "post filter"],
+    "cargador": ["charger", "charging dock", "charging base", "ac adapter", "usb charger", "cargador"],
+    "cepillo": ["brush", "roller brush", "main brush", "side brush", "rodillo", "cepillo"],
+    "soporte": ["wall mount", "mount", "holder", "dock", "stand", "bracket", "base"],
+    "accesorios": ["attachment", "tool", "nozzle", "boquilla", "hose", "wand", "crevice", "accessory"],
+    "laminas": ["foil", "shaving foil", "cutting foil", "blade", "cuchilla"],
+    "cabezal": ["replacement head", "shaver head", "brush head", "rotary head", "cabezal", "head"],
+    "junta": ["gasket", "seal", "o-ring", "oring", "junta"],
+    "deposito": ["tank", "reservoir", "dust cup", "water tank", "deposito", "container"],
+    "cesta": ["basket", "tray", "bin", "bucket", "bandeja"],
+    "bolsa": ["dust bag", "vacuum bag", "paper bag", "filter bag", "bolsa"],
+    "bomba": ["pump", "drain pump", "drain", "impeller", "bomba"],
+    "resistencia": ["heating element", "heater", "heating", "thermostat", "resistencia"],
+    "rodamiento": ["bearing", "ball bearing", "drum bearing", "cojinete", "rodamiento"],
+    "escobillas": ["carbon brush", "motor brush", "brush holder", "escobilla"],
+    "correa": ["belt", "drive belt", "poly-v", "poly v", "v-belt", "correa"],
+    "rueda": ["tire", "tyre", "wheel", "inner tube", "tubeless", "rueda"],
+    "freno": ["brake", "brake pad", "brake disc", "caliper", "freno"],
+}
+
+CATEGORY_MIN_SIGNAL_HITS = {
+    "accesorios": 1,
+    "soporte": 1,
+    "bateria": 1,
+    "filtro": 1,
+    "cargador": 1,
+    "cepillo": 1,
+    "laminas": 1,
+    "cabezal": 1,
+    "junta": 1,
+    "deposito": 1,
+    "cesta": 1,
+    "bolsa": 1,
+    "bomba": 1,
+    "resistencia": 1,
+    "rodamiento": 1,
+    "escobillas": 1,
+    "correa": 1,
+    "rueda": 1,
+    "freno": 1,
 }
 
 CATEGORY_NEGATIVE_TERMS = {
@@ -706,6 +750,22 @@ def cat_query_terms(cat: str) -> List[str]:
         if k in c:
             return terms
     return cat_part_terms(cat)[:2]
+
+
+def category_signal_terms(cat: str) -> List[str]:
+    c = nrm(cat)
+    for k, terms in CATEGORY_REQUIRED_SIGNALS.items():
+        if k in c:
+            return terms
+    return []
+
+
+def min_category_signal_hits(cat: str) -> int:
+    c = nrm(cat)
+    for k, min_hits in CATEGORY_MIN_SIGNAL_HITS.items():
+        if k in c:
+            return min_hits
+    return 0
 
 
 def extract_identifier_tokens(text: str) -> List[str]:
@@ -1060,6 +1120,25 @@ def count_anchor_hits(title: str, terms: List[str]) -> int:
     return hits
 
 
+def title_matches_category_signals(title: str, category: str, specific_item_terms: List[str]) -> bool:
+    if nrm(category) == "nuevo":
+        return True
+    signal_terms = category_signal_terms(category)
+    min_hits = min_category_signal_hits(category)
+    if not signal_terms or min_hits <= 0:
+        return True
+    signal_hits = count_anchor_hits(title, signal_terms)
+    if signal_hits >= min_hits:
+        return True
+
+    # En accesorios y cubetas amplias dejamos que el item_title específico
+    # rescate el match si el anuncio no usa la taxonomía exacta.
+    if nrm(category) == "accesorios" and specific_item_terms:
+        return count_anchor_hits(title, specific_item_terms) >= 1
+
+    return False
+
+
 def is_deceptive_title(title: str, category: str) -> bool:
     tt = nrm(title)
     if SUSPICIOUS_TITLE_RE.search(title):
@@ -1332,6 +1411,8 @@ def pick_relaxed_link(
                         continue
                 if must_not_include and contains_any(tt, must_not_include):
                     continue
+                if not title_matches_category_signals(title, category, specific_item_terms):
+                    continue
                 if anchor_terms and count_anchor_hits(title, anchor_terms) < min_anchor_hits:
                     continue
                 if min_specific_hits and count_anchor_hits(title, specific_item_terms) < min_specific_hits:
@@ -1429,6 +1510,8 @@ def pick_best_promotion_link(
                     continue
 
                 if must_not_include and contains_any(tt, must_not_include):
+                    continue
+                if not title_matches_category_signals(title, category, specific_item_terms):
                     continue
 
                 if strict_anchor_terms and count_anchor_hits(title, strict_anchor_terms) < min_anchor_hits:
