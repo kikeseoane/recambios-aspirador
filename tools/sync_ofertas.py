@@ -830,14 +830,59 @@ def count_distinct_models_in_title(title: str) -> int:
     return len(toks)
 
 
-def model_mismatch_penalty(title: str, required: List[str]) -> float:
+def is_shared_compatibility_title(title: str) -> bool:
+    tt = folded_nrm(title)
+    return any(
+        marker in tt
+        for marker in (
+            "compatible",
+            "replacement",
+            "spare",
+            "for ",
+            " for",
+            "para ",
+            "fit ",
+            "fits ",
+        )
+    )
+
+
+def model_mismatch_penalty(title: str, required: List[str], category: str = "") -> float:
     tt = nrm(title)
     toks = set(m.group(1).lower() for m in MODEL_TOKEN_RE.finditer(tt))
     if not toks:
         return 0.0
     if required and not any(r in toks for r in required):
         return 999.0
+
     extra = [t for t in toks if t not in required]
+    if not extra:
+        return 0.0
+
+    cat = nrm(category)
+    shared_ok = cat in {
+        "bateria",
+        "cargador",
+        "filtro",
+        "cepillo",
+        "cabezal",
+        "laminas",
+        "deposito",
+        "bolsa",
+        "junta",
+        "rueda",
+        "rodamiento",
+        "escobillas",
+        "correa",
+        "soporte",
+        "accesorios",
+    }
+
+    if shared_ok and is_shared_compatibility_title(title):
+        # Muchos recambios reales se venden como compatibles con una familia
+        # corta de modelos. Seguimos penalizando, pero mucho menos.
+        return min(float(len(extra)) * 1.1, 3.3)
+
     return float(len(extra)) * 3.5
 
 
@@ -897,6 +942,7 @@ def score_product(
     must_brand: str,
     part_terms: List[str],
     req_models: List[str],
+    category: str = "",
 ) -> float:
     t = nrm(title)
     s = 0.0
@@ -907,7 +953,7 @@ def score_product(
     if req_models:
         if not title_has_required_model(t, req_models):
             return -1e9
-        s -= model_mismatch_penalty(t, req_models)
+        s -= model_mismatch_penalty(t, req_models, category)
 
     matches = 0
     for pt in part_terms:
@@ -921,7 +967,7 @@ def score_product(
         s += 1.2
 
     n_models = count_distinct_models_in_title(t)
-    if n_models >= 4:
+    if n_models >= 4 and not (is_shared_compatibility_title(title) and nrm(category) != "nuevo"):
         s -= 5.0
 
     s += get_orders(p) * 0.015
@@ -1543,6 +1589,7 @@ def pick_best_promotion_link(
                         must_brand=nrm(must_brand),
                         part_terms=part_terms,
                         req_models=req_models,
+                        category=category,
                     ),
                     reverse=True,
                 )
