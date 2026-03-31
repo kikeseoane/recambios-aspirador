@@ -144,7 +144,7 @@ jobs:
               break
             fi
             git add $CHANGED_FILES
-            git commit -m "chore: sync horario catalogos y ofertas AliExpress [skip ci]"
+            git commit -m "chore: sync horario catalogos y ofertas AliExpress"
             if git push; then
               echo "changed=true" >> $GITHUB_OUTPUT
               DONE=true
