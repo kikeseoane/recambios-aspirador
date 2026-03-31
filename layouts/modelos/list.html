@@ -259,9 +259,9 @@
         {{ if $hasGuias }}{{ $guideCount = len $guias }}{{ end }}
         {{ $priorityCats := slice "bateria" "cargador" "filtro" "cepillo" "cabezal" "laminas" "deposito" "soporte" "accesorios" }}
         {{ $quickLinks := slice }}
-        {{ with $rec }}
+        {{ if and $rec (reflect.IsMap $rec) }}
           {{ range $catKey := $priorityCats }}
-            {{ $items := index . $catKey }}
+            {{ $items := index $rec $catKey }}
             {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
               {{ $catLabel := $catKey }}
               {{ with site.Data.globals.categorias_recambios }}
