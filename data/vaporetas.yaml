@@ -605,6 +605,506 @@ brands:
       - q: ¿Por qué la cafetera pierde presión después de años de uso?
         a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
           regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Vaporetto Smart 120
+      slug: polti-smart-120
+      sku_pack: steamer10
+      model_tokens:
+      - smart 120
+      - polti smart 120
+      - vaporetto smart 120
+      year_range: 2021-2026
+      series: Vaporetto Smart
+      recambios:
+        deposito:
+        - sku: polti-steam-polti-smart-120-deposito-tank-water
+          title: Deposito de agua compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 water tank steam
+          must_include:
+          - vaporetto smart 120
+          - water
+          - tank
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id003
+          - smart 120
+          - polti smart 120
+          - vaporetto smart 120
+        - sku: polti-steam-polti-smart-120-deposito-tank-cap
+          title: Tapon o deposito auxiliar compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 tank cap steam
+          must_include:
+          - vaporetto smart 120
+          - tank
+          - cap
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        junta:
+        - sku: polti-steam-polti-smart-120-junta-seal-o-ring
+          title: Junta o o-ring compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 o-ring seal steam
+          must_include:
+          - vaporetto smart 120
+          - o-ring
+          - seal
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: polti-steam-polti-smart-120-junta-seal-valve
+          title: Junta de valvula compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 valve gasket steam
+          must_include:
+          - vaporetto smart 120
+          - valve
+          - gasket
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        accesorios:
+        - sku: polti-steam-polti-smart-120-accesorios-acc-floor-cloth
+          title: Mopa o pano de suelo compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 cloth steam
+          must_include:
+          - vaporetto smart 120
+          - cloth
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: polti-steam-polti-smart-120-accesorios-acc-nozzle-jet
+          title: Boquilla jet compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 jet nozzle steam
+          must_include:
+          - vaporetto smart 120
+          - jet
+          - nozzle
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: polti-steam-polti-smart-120-accesorios-acc-round-brush
+          title: Cepillo redondo compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 round brush steam
+          must_include:
+          - vaporetto smart 120
+          - round
+          - brush
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: polti-steam-polti-smart-120-accesorios-acc-hose
+          title: Manguera de vapor compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 steam hose
+          must_include:
+          - vaporetto smart 120
+          - steam
+          - hose
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: polti-steam-polti-smart-120-accesorios-acc-lance
+          title: Lanza o extension compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 lance steam
+          must_include:
+          - vaporetto smart 120
+          - lance
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: polti-steam-polti-smart-120-accesorios-acc-kit
+          title: Kit de accesorios compatible para Vaporetto Smart 120
+          intent: compra
+          query: Polti vaporetto smart 120 kit accessory steam
+          must_include:
+          - vaporetto smart 120
+          - kit
+          - accessory
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+      compatibilidad:
+      - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
+        completo el tipo de pieza.'
+      - Las juntas y tapones son muy sensibles a diametro y rosca; una diferencia
+        minima puede provocar fugas.
+      - 'En mopas y panos, confirma el sistema de sujecion: velcro, goma, clip o bolsillo.'
+      - Las boquillas y cepillos redondos suelen variar entre gamas domesticas y profesionales.
+      - Si compras manguera o lanza, compara anclajes, longitud y tipo de gatillo.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si hay agua pero no presion, la causa mas frecuente es una obstruccion
+          en boquilla o una junta fatigada.
+        title: Vaporetto Smart 120 no saca vapor
+        symptoms:
+        - Enciende pero no emite vapor
+        - Sale muy poco vapor aunque el deposito esta lleno
+        - El piloto indica listo pero la boquilla no responde
+        causes:
+        - Deposito mal colocado o vacio
+        - Conducto o boquilla obstruidos por cal
+        - Junta deteriorada con perdida de presion
+        checks:
+        - Rellenar y recolocar el deposito
+        - Desmontar y limpiar la boquilla
+        - Revisar juntas y tapas por fugas
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Cuando la perdida aparece alrededor del cierre, la junta suele ser
+          la primera pieza a sustituir.
+        title: Vaporetto Smart 120 pierde agua o gotea
+        symptoms:
+        - Sale agua en vez de vapor seco
+        - Gotea por la tapa o la manguera
+        - Deja charcos en el suelo
+        causes:
+        - Junta de tapa deteriorada
+        - Deposito mal cerrado
+        - Exceso de condensacion en la manguera
+        checks:
+        - Revisar el estado de la junta principal
+        - Comprobar el cierre del tapon y el deposito
+        - Purgar unos segundos antes de usar
+      - key: accesorio-no-funciona
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En vaporetas, un accesorio que ajusta mal suele empeorar tanto la
+          limpieza como la presion percibida.
+        title: 'Vaporetto Smart 120: el accesorio o cepillo no funciona bien'
+        symptoms:
+        - El cepillo no limpia como antes
+        - La mopa no arrastra bien la suciedad
+        - La lanza sale despedida o se afloja
+        causes:
+        - Accesorio desgastado o deformado
+        - Sistema de fijacion flojo
+        - Pieza no especifica para la version exacta
+        checks:
+        - Comparar encajes con el accesorio original
+        - Revisar clips y pestanas de fijacion
+        - Probar otro accesorio del mismo equipo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Vaporetto Smart 30_S
+      slug: polti-smart-30s
+      sku_pack: steamer10
+      model_tokens:
+      - smart 30_s
+      - smart 30s
+      - polti smart 30s
+      year_range: 2020-2026
+      series: Vaporetto Smart
+      recambios:
+        deposito:
+        - sku: polti-steam-polti-smart-30s-deposito-tank-water
+          title: Deposito de agua compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s water tank steam
+          must_include:
+          - vaporetto smart 30 s
+          - water
+          - tank
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id004
+          - smart 30_s
+          - smart 30s
+          - polti smart 30s
+        - sku: polti-steam-polti-smart-30s-deposito-tank-cap
+          title: Tapon o deposito auxiliar compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s tank cap steam
+          must_include:
+          - vaporetto smart 30 s
+          - tank
+          - cap
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        junta:
+        - sku: polti-steam-polti-smart-30s-junta-seal-o-ring
+          title: Junta o o-ring compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s o-ring seal steam
+          must_include:
+          - vaporetto smart 30 s
+          - o-ring
+          - seal
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: polti-steam-polti-smart-30s-junta-seal-valve
+          title: Junta de valvula compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s valve gasket steam
+          must_include:
+          - vaporetto smart 30 s
+          - valve
+          - gasket
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        accesorios:
+        - sku: polti-steam-polti-smart-30s-accesorios-acc-floor-cloth
+          title: Mopa o pano de suelo compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s cloth steam
+          must_include:
+          - vaporetto smart 30 s
+          - cloth
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: polti-steam-polti-smart-30s-accesorios-acc-nozzle-jet
+          title: Boquilla jet compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s jet nozzle steam
+          must_include:
+          - vaporetto smart 30 s
+          - jet
+          - nozzle
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: polti-steam-polti-smart-30s-accesorios-acc-round-brush
+          title: Cepillo redondo compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s round brush steam
+          must_include:
+          - vaporetto smart 30 s
+          - round
+          - brush
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: polti-steam-polti-smart-30s-accesorios-acc-hose
+          title: Manguera de vapor compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s steam hose
+          must_include:
+          - vaporetto smart 30 s
+          - steam
+          - hose
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: polti-steam-polti-smart-30s-accesorios-acc-lance
+          title: Lanza o extension compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s lance steam
+          must_include:
+          - vaporetto smart 30 s
+          - lance
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: polti-steam-polti-smart-30s-accesorios-acc-kit
+          title: Kit de accesorios compatible para Vaporetto Smart 30_S
+          intent: compra
+          query: Polti vaporetto smart 30 s kit accessory steam
+          must_include:
+          - vaporetto smart 30 s
+          - kit
+          - accessory
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+      compatibilidad:
+      - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
+        completo el tipo de pieza.'
+      - Las juntas y tapones son muy sensibles a diametro y rosca; una diferencia
+        minima puede provocar fugas.
+      - 'En mopas y panos, confirma el sistema de sujecion: velcro, goma, clip o bolsillo.'
+      - Las boquillas y cepillos redondos suelen variar entre gamas domesticas y profesionales.
+      - Si compras manguera o lanza, compara anclajes, longitud y tipo de gatillo.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si hay agua pero no presion, la causa mas frecuente es una obstruccion
+          en boquilla o una junta fatigada.
+        title: Vaporetto Smart 30_S no saca vapor
+        symptoms:
+        - Enciende pero no emite vapor
+        - Sale muy poco vapor aunque el deposito esta lleno
+        - El piloto indica listo pero la boquilla no responde
+        causes:
+        - Deposito mal colocado o vacio
+        - Conducto o boquilla obstruidos por cal
+        - Junta deteriorada con perdida de presion
+        checks:
+        - Rellenar y recolocar el deposito
+        - Desmontar y limpiar la boquilla
+        - Revisar juntas y tapas por fugas
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Cuando la perdida aparece alrededor del cierre, la junta suele ser
+          la primera pieza a sustituir.
+        title: Vaporetto Smart 30_S pierde agua o gotea
+        symptoms:
+        - Sale agua en vez de vapor seco
+        - Gotea por la tapa o la manguera
+        - Deja charcos en el suelo
+        causes:
+        - Junta de tapa deteriorada
+        - Deposito mal cerrado
+        - Exceso de condensacion en la manguera
+        checks:
+        - Revisar el estado de la junta principal
+        - Comprobar el cierre del tapon y el deposito
+        - Purgar unos segundos antes de usar
+      - key: accesorio-no-funciona
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En vaporetas, un accesorio que ajusta mal suele empeorar tanto la
+          limpieza como la presion percibida.
+        title: 'Vaporetto Smart 30_S: el accesorio o cepillo no funciona bien'
+        symptoms:
+        - El cepillo no limpia como antes
+        - La mopa no arrastra bien la suciedad
+        - La lanza sale despedida o se afloja
+        causes:
+        - Accesorio desgastado o deformado
+        - Sistema de fijacion flojo
+        - Pieza no especifica para la version exacta
+        checks:
+        - Comparar encajes con el accesorio original
+        - Revisar clips y pestanas de fijacion
+        - Probar otro accesorio del mismo equipo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
   karcher-steam:
     name: Karcher
     models:
@@ -634,7 +1134,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: &id003
+          model_tokens: &id005
           - sc3 easyfix
           - sc 3 easyfix
           - karcher sc3 easyfix
@@ -653,7 +1153,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         junta:
         - sku: karcher-steam-karcher-sc3-easyfix-junta-seal-o-ring
           title: Junta o o-ring compatible para SC 3 EasyFix
@@ -670,7 +1170,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: karcher-steam-karcher-sc3-easyfix-junta-seal-valve
           title: Junta de valvula compatible para SC 3 EasyFix
           intent: compra
@@ -686,7 +1186,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         accesorios:
         - sku: karcher-steam-karcher-sc3-easyfix-accesorios-acc-floor-cloth
           title: Mopa o pano de suelo compatible para SC 3 EasyFix
@@ -702,7 +1202,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: karcher-steam-karcher-sc3-easyfix-accesorios-acc-nozzle-jet
           title: Boquilla jet compatible para SC 3 EasyFix
           intent: compra
@@ -718,7 +1218,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: karcher-steam-karcher-sc3-easyfix-accesorios-acc-round-brush
           title: Cepillo redondo compatible para SC 3 EasyFix
           intent: compra
@@ -734,7 +1234,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: karcher-steam-karcher-sc3-easyfix-accesorios-acc-hose
           title: Manguera de vapor compatible para SC 3 EasyFix
           intent: compra
@@ -749,7 +1249,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: karcher-steam-karcher-sc3-easyfix-accesorios-acc-lance
           title: Lanza o extension compatible para SC 3 EasyFix
           intent: compra
@@ -764,7 +1264,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: karcher-steam-karcher-sc3-easyfix-accesorios-acc-kit
           title: Kit de accesorios compatible para SC 3 EasyFix
           intent: compra
@@ -780,7 +1280,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id003
+          model_tokens: *id005
       compatibilidad:
       - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
         completo el tipo de pieza.'
@@ -884,7 +1384,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: &id004
+          model_tokens: &id006
           - sc4 easyfix
           - sc 4 easyfix
           - karcher sc4 easyfix
@@ -903,7 +1403,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         junta:
         - sku: karcher-steam-karcher-sc4-easyfix-junta-seal-o-ring
           title: Junta o o-ring compatible para SC 4 EasyFix
@@ -920,7 +1420,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: karcher-steam-karcher-sc4-easyfix-junta-seal-valve
           title: Junta de valvula compatible para SC 4 EasyFix
           intent: compra
@@ -936,7 +1436,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         accesorios:
         - sku: karcher-steam-karcher-sc4-easyfix-accesorios-acc-floor-cloth
           title: Mopa o pano de suelo compatible para SC 4 EasyFix
@@ -952,7 +1452,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: karcher-steam-karcher-sc4-easyfix-accesorios-acc-nozzle-jet
           title: Boquilla jet compatible para SC 4 EasyFix
           intent: compra
@@ -968,7 +1468,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: karcher-steam-karcher-sc4-easyfix-accesorios-acc-round-brush
           title: Cepillo redondo compatible para SC 4 EasyFix
           intent: compra
@@ -984,7 +1484,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: karcher-steam-karcher-sc4-easyfix-accesorios-acc-hose
           title: Manguera de vapor compatible para SC 4 EasyFix
           intent: compra
@@ -999,7 +1499,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: karcher-steam-karcher-sc4-easyfix-accesorios-acc-lance
           title: Lanza o extension compatible para SC 4 EasyFix
           intent: compra
@@ -1014,7 +1514,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: karcher-steam-karcher-sc4-easyfix-accesorios-acc-kit
           title: Kit de accesorios compatible para SC 4 EasyFix
           intent: compra
@@ -1030,7 +1530,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id004
+          model_tokens: *id006
       compatibilidad:
       - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
         completo el tipo de pieza.'
@@ -1108,6 +1608,506 @@ brands:
       - q: ¿Por qué la cafetera pierde presión después de años de uso?
         a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
           regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: SC 2 EasyFix
+      slug: karcher-sc2-easyfix
+      sku_pack: steamer10
+      model_tokens:
+      - sc2 easyfix
+      - sc 2 easyfix
+      - karcher sc2 easyfix
+      year_range: 2020-2026
+      series: SC
+      recambios:
+        deposito:
+        - sku: karcher-steam-karcher-sc2-easyfix-deposito-tank-water
+          title: Deposito de agua compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix water tank steam
+          must_include:
+          - sc 2 easyfix
+          - water
+          - tank
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id007
+          - sc2 easyfix
+          - sc 2 easyfix
+          - karcher sc2 easyfix
+        - sku: karcher-steam-karcher-sc2-easyfix-deposito-tank-cap
+          title: Tapon o deposito auxiliar compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix tank cap steam
+          must_include:
+          - sc 2 easyfix
+          - tank
+          - cap
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        junta:
+        - sku: karcher-steam-karcher-sc2-easyfix-junta-seal-o-ring
+          title: Junta o o-ring compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix o-ring seal steam
+          must_include:
+          - sc 2 easyfix
+          - o-ring
+          - seal
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        - sku: karcher-steam-karcher-sc2-easyfix-junta-seal-valve
+          title: Junta de valvula compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix valve gasket steam
+          must_include:
+          - sc 2 easyfix
+          - valve
+          - gasket
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        accesorios:
+        - sku: karcher-steam-karcher-sc2-easyfix-accesorios-acc-floor-cloth
+          title: Mopa o pano de suelo compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix cloth steam
+          must_include:
+          - sc 2 easyfix
+          - cloth
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        - sku: karcher-steam-karcher-sc2-easyfix-accesorios-acc-nozzle-jet
+          title: Boquilla jet compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix jet nozzle steam
+          must_include:
+          - sc 2 easyfix
+          - jet
+          - nozzle
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        - sku: karcher-steam-karcher-sc2-easyfix-accesorios-acc-round-brush
+          title: Cepillo redondo compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix round brush steam
+          must_include:
+          - sc 2 easyfix
+          - round
+          - brush
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        - sku: karcher-steam-karcher-sc2-easyfix-accesorios-acc-hose
+          title: Manguera de vapor compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix steam hose
+          must_include:
+          - sc 2 easyfix
+          - steam
+          - hose
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        - sku: karcher-steam-karcher-sc2-easyfix-accesorios-acc-lance
+          title: Lanza o extension compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix lance steam
+          must_include:
+          - sc 2 easyfix
+          - lance
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+        - sku: karcher-steam-karcher-sc2-easyfix-accesorios-acc-kit
+          title: Kit de accesorios compatible para SC 2 EasyFix
+          intent: compra
+          query: Karcher sc 2 easyfix kit accessory steam
+          must_include:
+          - sc 2 easyfix
+          - kit
+          - accessory
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id007
+      compatibilidad:
+      - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
+        completo el tipo de pieza.'
+      - Las juntas y tapones son muy sensibles a diametro y rosca; una diferencia
+        minima puede provocar fugas.
+      - 'En mopas y panos, confirma el sistema de sujecion: velcro, goma, clip o bolsillo.'
+      - Las boquillas y cepillos redondos suelen variar entre gamas domesticas y profesionales.
+      - Si compras manguera o lanza, compara anclajes, longitud y tipo de gatillo.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si hay agua pero no presion, la causa mas frecuente es una obstruccion
+          en boquilla o una junta fatigada.
+        title: SC 2 EasyFix no saca vapor
+        symptoms:
+        - Enciende pero no emite vapor
+        - Sale muy poco vapor aunque el deposito esta lleno
+        - El piloto indica listo pero la boquilla no responde
+        causes:
+        - Deposito mal colocado o vacio
+        - Conducto o boquilla obstruidos por cal
+        - Junta deteriorada con perdida de presion
+        checks:
+        - Rellenar y recolocar el deposito
+        - Desmontar y limpiar la boquilla
+        - Revisar juntas y tapas por fugas
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Cuando la perdida aparece alrededor del cierre, la junta suele ser
+          la primera pieza a sustituir.
+        title: SC 2 EasyFix pierde agua o gotea
+        symptoms:
+        - Sale agua en vez de vapor seco
+        - Gotea por la tapa o la manguera
+        - Deja charcos en el suelo
+        causes:
+        - Junta de tapa deteriorada
+        - Deposito mal cerrado
+        - Exceso de condensacion en la manguera
+        checks:
+        - Revisar el estado de la junta principal
+        - Comprobar el cierre del tapon y el deposito
+        - Purgar unos segundos antes de usar
+      - key: accesorio-no-funciona
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En vaporetas, un accesorio que ajusta mal suele empeorar tanto la
+          limpieza como la presion percibida.
+        title: 'SC 2 EasyFix: el accesorio o cepillo no funciona bien'
+        symptoms:
+        - El cepillo no limpia como antes
+        - La mopa no arrastra bien la suciedad
+        - La lanza sale despedida o se afloja
+        causes:
+        - Accesorio desgastado o deformado
+        - Sistema de fijacion flojo
+        - Pieza no especifica para la version exacta
+        checks:
+        - Comparar encajes con el accesorio original
+        - Revisar clips y pestanas de fijacion
+        - Probar otro accesorio del mismo equipo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: SC 5 EasyFix
+      slug: karcher-sc5-easyfix
+      sku_pack: steamer10
+      model_tokens:
+      - sc5 easyfix
+      - sc 5 easyfix
+      - karcher sc5 easyfix
+      year_range: 2021-2026
+      series: SC
+      recambios:
+        deposito:
+        - sku: karcher-steam-karcher-sc5-easyfix-deposito-tank-water
+          title: Deposito de agua compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix water tank steam
+          must_include:
+          - sc 5 easyfix
+          - water
+          - tank
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id008
+          - sc5 easyfix
+          - sc 5 easyfix
+          - karcher sc5 easyfix
+        - sku: karcher-steam-karcher-sc5-easyfix-deposito-tank-cap
+          title: Tapon o deposito auxiliar compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix tank cap steam
+          must_include:
+          - sc 5 easyfix
+          - tank
+          - cap
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        junta:
+        - sku: karcher-steam-karcher-sc5-easyfix-junta-seal-o-ring
+          title: Junta o o-ring compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix o-ring seal steam
+          must_include:
+          - sc 5 easyfix
+          - o-ring
+          - seal
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        - sku: karcher-steam-karcher-sc5-easyfix-junta-seal-valve
+          title: Junta de valvula compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix valve gasket steam
+          must_include:
+          - sc 5 easyfix
+          - valve
+          - gasket
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        accesorios:
+        - sku: karcher-steam-karcher-sc5-easyfix-accesorios-acc-floor-cloth
+          title: Mopa o pano de suelo compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix cloth steam
+          must_include:
+          - sc 5 easyfix
+          - cloth
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        - sku: karcher-steam-karcher-sc5-easyfix-accesorios-acc-nozzle-jet
+          title: Boquilla jet compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix jet nozzle steam
+          must_include:
+          - sc 5 easyfix
+          - jet
+          - nozzle
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        - sku: karcher-steam-karcher-sc5-easyfix-accesorios-acc-round-brush
+          title: Cepillo redondo compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix round brush steam
+          must_include:
+          - sc 5 easyfix
+          - round
+          - brush
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        - sku: karcher-steam-karcher-sc5-easyfix-accesorios-acc-hose
+          title: Manguera de vapor compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix steam hose
+          must_include:
+          - sc 5 easyfix
+          - steam
+          - hose
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        - sku: karcher-steam-karcher-sc5-easyfix-accesorios-acc-lance
+          title: Lanza o extension compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix lance steam
+          must_include:
+          - sc 5 easyfix
+          - lance
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+        - sku: karcher-steam-karcher-sc5-easyfix-accesorios-acc-kit
+          title: Kit de accesorios compatible para SC 5 EasyFix
+          intent: compra
+          query: Karcher sc 5 easyfix kit accessory steam
+          must_include:
+          - sc 5 easyfix
+          - kit
+          - accessory
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id008
+      compatibilidad:
+      - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
+        completo el tipo de pieza.'
+      - Las juntas y tapones son muy sensibles a diametro y rosca; una diferencia
+        minima puede provocar fugas.
+      - 'En mopas y panos, confirma el sistema de sujecion: velcro, goma, clip o bolsillo.'
+      - Las boquillas y cepillos redondos suelen variar entre gamas domesticas y profesionales.
+      - Si compras manguera o lanza, compara anclajes, longitud y tipo de gatillo.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si hay agua pero no presion, la causa mas frecuente es una obstruccion
+          en boquilla o una junta fatigada.
+        title: SC 5 EasyFix no saca vapor
+        symptoms:
+        - Enciende pero no emite vapor
+        - Sale muy poco vapor aunque el deposito esta lleno
+        - El piloto indica listo pero la boquilla no responde
+        causes:
+        - Deposito mal colocado o vacio
+        - Conducto o boquilla obstruidos por cal
+        - Junta deteriorada con perdida de presion
+        checks:
+        - Rellenar y recolocar el deposito
+        - Desmontar y limpiar la boquilla
+        - Revisar juntas y tapas por fugas
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Cuando la perdida aparece alrededor del cierre, la junta suele ser
+          la primera pieza a sustituir.
+        title: SC 5 EasyFix pierde agua o gotea
+        symptoms:
+        - Sale agua en vez de vapor seco
+        - Gotea por la tapa o la manguera
+        - Deja charcos en el suelo
+        causes:
+        - Junta de tapa deteriorada
+        - Deposito mal cerrado
+        - Exceso de condensacion en la manguera
+        checks:
+        - Revisar el estado de la junta principal
+        - Comprobar el cierre del tapon y el deposito
+        - Purgar unos segundos antes de usar
+      - key: accesorio-no-funciona
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En vaporetas, un accesorio que ajusta mal suele empeorar tanto la
+          limpieza como la presion percibida.
+        title: 'SC 5 EasyFix: el accesorio o cepillo no funciona bien'
+        symptoms:
+        - El cepillo no limpia como antes
+        - La mopa no arrastra bien la suciedad
+        - La lanza sale despedida o se afloja
+        causes:
+        - Accesorio desgastado o deformado
+        - Sistema de fijacion flojo
+        - Pieza no especifica para la version exacta
+        checks:
+        - Comparar encajes con el accesorio original
+        - Revisar clips y pestanas de fijacion
+        - Probar otro accesorio del mismo equipo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
   bissell-steam:
     name: Bissell
     models:
@@ -1137,7 +2137,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: &id005
+          model_tokens: &id009
           - 2635j
           - bissell 2635j
           - steamshot 2635j
@@ -1156,7 +2156,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         junta:
         - sku: bissell-steam-bissell-steamshot-2635j-junta-seal-o-ring
           title: Junta o o-ring compatible para SteamShot 2635J
@@ -1173,7 +2173,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bissell-steam-bissell-steamshot-2635j-junta-seal-valve
           title: Junta de valvula compatible para SteamShot 2635J
           intent: compra
@@ -1189,7 +2189,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         accesorios:
         - sku: bissell-steam-bissell-steamshot-2635j-accesorios-acc-floor-cloth
           title: Mopa o pano de suelo compatible para SteamShot 2635J
@@ -1205,7 +2205,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bissell-steam-bissell-steamshot-2635j-accesorios-acc-nozzle-jet
           title: Boquilla jet compatible para SteamShot 2635J
           intent: compra
@@ -1221,7 +2221,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bissell-steam-bissell-steamshot-2635j-accesorios-acc-round-brush
           title: Cepillo redondo compatible para SteamShot 2635J
           intent: compra
@@ -1237,7 +2237,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bissell-steam-bissell-steamshot-2635j-accesorios-acc-hose
           title: Manguera de vapor compatible para SteamShot 2635J
           intent: compra
@@ -1252,7 +2252,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bissell-steam-bissell-steamshot-2635j-accesorios-acc-lance
           title: Lanza o extension compatible para SteamShot 2635J
           intent: compra
@@ -1267,7 +2267,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bissell-steam-bissell-steamshot-2635j-accesorios-acc-kit
           title: Kit de accesorios compatible para SteamShot 2635J
           intent: compra
@@ -1283,7 +2283,7 @@ brands:
           - humidifier
           - air
           - purifier
-          model_tokens: *id005
+          model_tokens: *id009
       compatibilidad:
       - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
         completo el tipo de pieza.'
@@ -1335,6 +2335,506 @@ brands:
         fix_hint: En vaporetas, un accesorio que ajusta mal suele empeorar tanto la
           limpieza como la presion percibida.
         title: 'SteamShot 2635J: el accesorio o cepillo no funciona bien'
+        symptoms:
+        - El cepillo no limpia como antes
+        - La mopa no arrastra bien la suciedad
+        - La lanza sale despedida o se afloja
+        causes:
+        - Accesorio desgastado o deformado
+        - Sistema de fijacion flojo
+        - Pieza no especifica para la version exacta
+        checks:
+        - Comparar encajes con el accesorio original
+        - Revisar clips y pestanas de fijacion
+        - Probar otro accesorio del mismo equipo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: PowerFresh Slim 2234N
+      slug: bissell-powerfresh-slim-2234n
+      sku_pack: steamer10
+      model_tokens:
+      - 2234n
+      - bissell 2234n
+      - powerfresh slim 2234n
+      year_range: 2021-2026
+      series: PowerFresh Slim
+      recambios:
+        deposito:
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-deposito-tank-water
+          title: Deposito de agua compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n water tank steam
+          must_include:
+          - 2234n
+          - water
+          - tank
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id010
+          - 2234n
+          - bissell 2234n
+          - powerfresh slim 2234n
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-deposito-tank-cap
+          title: Tapon o deposito auxiliar compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n tank cap steam
+          must_include:
+          - 2234n
+          - tank
+          - cap
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        junta:
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-junta-seal-o-ring
+          title: Junta o o-ring compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n o-ring seal steam
+          must_include:
+          - 2234n
+          - o-ring
+          - seal
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-junta-seal-valve
+          title: Junta de valvula compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n valve gasket steam
+          must_include:
+          - 2234n
+          - valve
+          - gasket
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        accesorios:
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-accesorios-acc-floor-cloth
+          title: Mopa o pano de suelo compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n cloth steam
+          must_include:
+          - 2234n
+          - cloth
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-accesorios-acc-nozzle-jet
+          title: Boquilla jet compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n jet nozzle steam
+          must_include:
+          - 2234n
+          - jet
+          - nozzle
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-accesorios-acc-round-brush
+          title: Cepillo redondo compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n round brush steam
+          must_include:
+          - 2234n
+          - round
+          - brush
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-accesorios-acc-hose
+          title: Manguera de vapor compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n steam hose
+          must_include:
+          - 2234n
+          - steam
+          - hose
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-accesorios-acc-lance
+          title: Lanza o extension compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n lance steam
+          must_include:
+          - 2234n
+          - lance
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+        - sku: bissell-steam-bissell-powerfresh-slim-2234n-accesorios-acc-kit
+          title: Kit de accesorios compatible para PowerFresh Slim 2234N
+          intent: compra
+          query: Bissell 2234n kit accessory steam
+          must_include:
+          - 2234n
+          - kit
+          - accessory
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id010
+      compatibilidad:
+      - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
+        completo el tipo de pieza.'
+      - Las juntas y tapones son muy sensibles a diametro y rosca; una diferencia
+        minima puede provocar fugas.
+      - 'En mopas y panos, confirma el sistema de sujecion: velcro, goma, clip o bolsillo.'
+      - Las boquillas y cepillos redondos suelen variar entre gamas domesticas y profesionales.
+      - Si compras manguera o lanza, compara anclajes, longitud y tipo de gatillo.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si hay agua pero no presion, la causa mas frecuente es una obstruccion
+          en boquilla o una junta fatigada.
+        title: PowerFresh Slim 2234N no saca vapor
+        symptoms:
+        - Enciende pero no emite vapor
+        - Sale muy poco vapor aunque el deposito esta lleno
+        - El piloto indica listo pero la boquilla no responde
+        causes:
+        - Deposito mal colocado o vacio
+        - Conducto o boquilla obstruidos por cal
+        - Junta deteriorada con perdida de presion
+        checks:
+        - Rellenar y recolocar el deposito
+        - Desmontar y limpiar la boquilla
+        - Revisar juntas y tapas por fugas
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Cuando la perdida aparece alrededor del cierre, la junta suele ser
+          la primera pieza a sustituir.
+        title: PowerFresh Slim 2234N pierde agua o gotea
+        symptoms:
+        - Sale agua en vez de vapor seco
+        - Gotea por la tapa o la manguera
+        - Deja charcos en el suelo
+        causes:
+        - Junta de tapa deteriorada
+        - Deposito mal cerrado
+        - Exceso de condensacion en la manguera
+        checks:
+        - Revisar el estado de la junta principal
+        - Comprobar el cierre del tapon y el deposito
+        - Purgar unos segundos antes de usar
+      - key: accesorio-no-funciona
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En vaporetas, un accesorio que ajusta mal suele empeorar tanto la
+          limpieza como la presion percibida.
+        title: 'PowerFresh Slim 2234N: el accesorio o cepillo no funciona bien'
+        symptoms:
+        - El cepillo no limpia como antes
+        - La mopa no arrastra bien la suciedad
+        - La lanza sale despedida o se afloja
+        causes:
+        - Accesorio desgastado o deformado
+        - Sistema de fijacion flojo
+        - Pieza no especifica para la version exacta
+        checks:
+        - Comparar encajes con el accesorio original
+        - Revisar clips y pestanas de fijacion
+        - Probar otro accesorio del mismo equipo
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: PowerFresh Lift-Off 1897N
+      slug: bissell-powerfresh-liftoff-1897n
+      sku_pack: steamer10
+      model_tokens:
+      - 1897n
+      - bissell 1897n
+      - powerfresh lift-off 1897n
+      year_range: 2020-2026
+      series: PowerFresh Lift-Off
+      recambios:
+        deposito:
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-deposito-tank-water
+          title: Deposito de agua compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n water tank steam
+          must_include:
+          - 1897n
+          - water
+          - tank
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id011
+          - 1897n
+          - bissell 1897n
+          - powerfresh lift-off 1897n
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-deposito-tank-cap
+          title: Tapon o deposito auxiliar compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n tank cap steam
+          must_include:
+          - 1897n
+          - tank
+          - cap
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        junta:
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-junta-seal-o-ring
+          title: Junta o o-ring compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n o-ring seal steam
+          must_include:
+          - 1897n
+          - o-ring
+          - seal
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-junta-seal-valve
+          title: Junta de valvula compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n valve gasket steam
+          must_include:
+          - 1897n
+          - valve
+          - gasket
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        accesorios:
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-accesorios-acc-floor-cloth
+          title: Mopa o pano de suelo compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n cloth steam
+          must_include:
+          - 1897n
+          - cloth
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-accesorios-acc-nozzle-jet
+          title: Boquilla jet compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n jet nozzle steam
+          must_include:
+          - 1897n
+          - jet
+          - nozzle
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-accesorios-acc-round-brush
+          title: Cepillo redondo compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n round brush steam
+          must_include:
+          - 1897n
+          - round
+          - brush
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-accesorios-acc-hose
+          title: Manguera de vapor compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n steam hose
+          must_include:
+          - 1897n
+          - steam
+          - hose
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-accesorios-acc-lance
+          title: Lanza o extension compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n lance steam
+          must_include:
+          - 1897n
+          - lance
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+        - sku: bissell-steam-bissell-powerfresh-liftoff-1897n-accesorios-acc-kit
+          title: Kit de accesorios compatible para PowerFresh Lift-Off 1897N
+          intent: compra
+          query: Bissell 1897n kit accessory steam
+          must_include:
+          - 1897n
+          - kit
+          - accessory
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id011
+      compatibilidad:
+      - 'Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por
+        completo el tipo de pieza.'
+      - Las juntas y tapones son muy sensibles a diametro y rosca; una diferencia
+        minima puede provocar fugas.
+      - 'En mopas y panos, confirma el sistema de sujecion: velcro, goma, clip o bolsillo.'
+      - Las boquillas y cepillos redondos suelen variar entre gamas domesticas y profesionales.
+      - Si compras manguera o lanza, compara anclajes, longitud y tipo de gatillo.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si hay agua pero no presion, la causa mas frecuente es una obstruccion
+          en boquilla o una junta fatigada.
+        title: PowerFresh Lift-Off 1897N no saca vapor
+        symptoms:
+        - Enciende pero no emite vapor
+        - Sale muy poco vapor aunque el deposito esta lleno
+        - El piloto indica listo pero la boquilla no responde
+        causes:
+        - Deposito mal colocado o vacio
+        - Conducto o boquilla obstruidos por cal
+        - Junta deteriorada con perdida de presion
+        checks:
+        - Rellenar y recolocar el deposito
+        - Desmontar y limpiar la boquilla
+        - Revisar juntas y tapas por fugas
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Cuando la perdida aparece alrededor del cierre, la junta suele ser
+          la primera pieza a sustituir.
+        title: PowerFresh Lift-Off 1897N pierde agua o gotea
+        symptoms:
+        - Sale agua en vez de vapor seco
+        - Gotea por la tapa o la manguera
+        - Deja charcos en el suelo
+        causes:
+        - Junta de tapa deteriorada
+        - Deposito mal cerrado
+        - Exceso de condensacion en la manguera
+        checks:
+        - Revisar el estado de la junta principal
+        - Comprobar el cierre del tapon y el deposito
+        - Purgar unos segundos antes de usar
+      - key: accesorio-no-funciona
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En vaporetas, un accesorio que ajusta mal suele empeorar tanto la
+          limpieza como la presion percibida.
+        title: 'PowerFresh Lift-Off 1897N: el accesorio o cepillo no funciona bien'
         symptoms:
         - El cepillo no limpia como antes
         - La mopa no arrastra bien la suciedad
