@@ -84,7 +84,7 @@
 {{ end }}
 {{ $showBuyNewPrice := and $buyNewSalePrice (eq (upper (string $buyNewCurrency)) "EUR") }}
 
-{{ $trustIcon := "✓" }}
+{{ $trustIcon := "âœ“" }}
 {{ $trustText := "Compatibilidad probable: revisa modelo y encaje" }}
 {{ if eq $compatStatus "compatible_alto" }}
   {{ $trustText = cond $modelName (printf "Compatibilidad alta para %s" $modelName) "Compatibilidad alta" }}
@@ -94,7 +94,7 @@
   {{ $trustIcon = "!" }}
   {{ $trustText = $compatNote | default "Coincidencia heuristica: valida compatibilidad antes de comprar" }}
 {{ else if eq $compatStatus "fallback_buy_new" }}
-  {{ $trustIcon = "↗" }}
+  {{ $trustIcon = "â†—" }}
   {{ $trustText = "No hemos encontrado un recambio fiable para este modelo. Mejor ver producto nuevo." }}
 {{ else if eq $compatStatus "sin_cobertura" }}
   {{ $trustIcon = "!" }}
@@ -141,11 +141,7 @@
       </div>
     {{ else }}
       <div class="offer-action__note">
-        {{ if and $salePrice (not $showOfferPrice) }}
-          <small class="muted">Precio no mostrado: AliExpress no devuelve esta oferta en EUR</small>
-        {{ else }}
-          <small class="muted">Enlace externo: abre en pestaña nueva</small>
-        {{ end }}
+        <small class="muted">Enlace externo: abre en pestaÃ±a nueva</small>
       </div>
     {{ end }}
   </div>
@@ -169,7 +165,7 @@
       {{ end }}
       {{ if not $hideTrust }}
         <div class="offer-trust">
-          <span class="offer-trust__icon" aria-hidden="true">↗</span>
+          <span class="offer-trust__icon" aria-hidden="true">â†—</span>
           <span class="offer-trust__text">No encontramos un recambio fiable. Te sugerimos ver el producto nuevo.</span>
         </div>
       {{ end }}
@@ -177,18 +173,14 @@
         Cansado de buscar recambios? Comprate uno nuevo
       </a>
       <div class="offer-action__note">
-        {{ if and $buyNewSalePrice (not $showBuyNewPrice) }}
-          <small class="muted">No existe un recambio fiable y AliExpress no devuelve este precio en EUR</small>
-        {{ else }}
-          <small class="muted">No existe un recambio fiable. Por eso te sugerimos un producto nuevo.</small>
-        {{ end }}
+        <small class="muted">No existe un recambio fiable. Por eso te sugerimos un producto nuevo.</small>
       </div>
     </div>
   {{ else if $searchURL }}
     <div class="offer-action">
       {{ if not $hideTrust }}
         <div class="offer-trust">
-          <span class="offer-trust__icon" aria-hidden="true">✓</span>
+          <span class="offer-trust__icon" aria-hidden="true">âœ“</span>
           <span class="offer-trust__text">Busqueda guiada por compatibilidad</span>
         </div>
       {{ end }}
