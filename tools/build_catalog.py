@@ -80,6 +80,26 @@ SKU_PACK_DEFAULTS: Dict[str, Dict[str, str]] = {
         "problem_pack": "cordless_base",
         "faq_pack": "recambio_base",
     },
+    "dryer10": {
+        "compatibility_pack": "dryer_base",
+        "problem_pack": "dryer_base",
+        "faq_pack": "recambio_base",
+    },
+    "straightener10": {
+        "compatibility_pack": "straightener_base",
+        "problem_pack": "straightener_base",
+        "faq_pack": "recambio_base",
+    },
+    "steamer10": {
+        "compatibility_pack": "steamer_base",
+        "problem_pack": "steamer_base",
+        "faq_pack": "cafetera_base",
+    },
+    "ironstation10": {
+        "compatibility_pack": "ironstation_base",
+        "problem_pack": "ironstation_base",
+        "faq_pack": "cafetera_base",
+    },
 }
 
 CATEGORY_QUERY_TERMS: Dict[str, List[str]] = {

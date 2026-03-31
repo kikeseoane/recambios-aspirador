@@ -1,1 +1,45 @@
-brands: {}
+brands:
+  dyson-dry:
+    name: Dyson
+    vertical: secadores-pelo
+    models:
+      - model: Supersonic HD07
+        slug: dyson-supersonic-hd07
+        sku_pack: dryer10
+        model_tokens: ["hd07", "dyson hd07", "supersonic hd07"]
+        year_range: "2022-2026"
+        series: "Supersonic"
+      - model: Supersonic Nural HD16
+        slug: dyson-supersonic-hd16
+        sku_pack: dryer10
+        model_tokens: ["hd16", "dyson hd16", "supersonic nural hd16"]
+        year_range: "2024-2026"
+        series: "Supersonic Nural"
+
+  ghd-dry:
+    name: ghd
+    vertical: secadores-pelo
+    models:
+      - model: Helios
+        slug: ghd-helios
+        sku_pack: dryer10
+        model_tokens: ["ghd helios", "helios hair dryer", "helios"]
+        year_range: "2020-2026"
+        series: "Helios"
+      - model: Air
+        slug: ghd-air
+        sku_pack: dryer10
+        model_tokens: ["ghd air", "air hair dryer", "ghd air dryer"]
+        year_range: "2019-2026"
+        series: "Air"
+
+  rowenta-dry:
+    name: Rowenta
+    vertical: secadores-pelo
+    models:
+      - model: Ultimate Experience CV9920
+        slug: rowenta-cv9920
+        sku_pack: dryer10
+        model_tokens: ["cv9920", "rowenta cv9920", "ultimate experience cv9920"]
+        year_range: "2021-2026"
+        series: "Ultimate Experience"

@@ -1,1 +1,45 @@
-brands: {}
+brands:
+  philips-iron:
+    name: Philips
+    vertical: centros-planchado
+    models:
+      - model: PerfectCare 8000 PSG8140
+        slug: philips-psg8140
+        sku_pack: ironstation10
+        model_tokens: ["psg8140", "philips psg8140", "perfectcare 8000 psg8140"]
+        year_range: "2022-2026"
+        series: "PerfectCare 8000"
+      - model: PerfectCare Compact GC7840
+        slug: philips-gc7840
+        sku_pack: ironstation10
+        model_tokens: ["gc7840", "philips gc7840", "perfectcare compact gc7840"]
+        year_range: "2020-2026"
+        series: "PerfectCare Compact"
+
+  rowenta-iron:
+    name: Rowenta
+    vertical: centros-planchado
+    models:
+      - model: Silence Steam Pro DG9248
+        slug: rowenta-dg9248
+        sku_pack: ironstation10
+        model_tokens: ["dg9248", "rowenta dg9248", "silence steam pro dg9248"]
+        year_range: "2021-2026"
+        series: "Silence Steam Pro"
+      - model: Compact Steam Pro DG7623
+        slug: rowenta-dg7623
+        sku_pack: ironstation10
+        model_tokens: ["dg7623", "rowenta dg7623", "compact steam pro dg7623"]
+        year_range: "2020-2026"
+        series: "Compact Steam Pro"
+
+  tefal-iron:
+    name: Tefal
+    vertical: centros-planchado
+    models:
+      - model: Pro Express Vision GV9820
+        slug: tefal-gv9820
+        sku_pack: ironstation10
+        model_tokens: ["gv9820", "tefal gv9820", "pro express vision gv9820"]
+        year_range: "2022-2026"
+        series: "Pro Express Vision"

@@ -1,0 +1,9 @@
+---
+title: Remington Pearl S9500
+draft: false
+generated: true
+type: modelos
+brandKey: remington-straight
+modelSlug: remington-s9500
+vertical: planchas-pelo
+---

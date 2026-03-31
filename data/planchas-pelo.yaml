@@ -101,4 +101,1278 @@ globals:
       mixto.'
     - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
       para abaratar mantenimiento.
-brands: {}
+brands:
+  ghd-straight:
+    name: ghd
+    models:
+    - model: Platinum+
+      slug: ghd-platinum-plus
+      sku_pack: straightener10
+      model_tokens:
+      - ghd platinum plus
+      - platinum+
+      - ghd platinum+
+      year_range: 2020-2026
+      series: Platinum+
+      recambios:
+        soporte:
+        - sku: ghd-straight-ghd-platinum-plus-soporte-stand-heat-mat
+          title: Base o alfombrilla termica compatible para Platinum+
+          intent: compra
+          query: ghd platinum heat mat straightener
+          must_include:
+          - platinum
+          - heat
+          - mat
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: &id001
+          - ghd platinum plus
+          - platinum+
+          - ghd platinum+
+        - sku: ghd-straight-ghd-platinum-plus-soporte-stand-holder
+          title: Soporte o holder compatible para Platinum+
+          intent: compra
+          query: ghd platinum holder stand straightener
+          must_include:
+          - platinum
+          - holder
+          - stand
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        accesorios:
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-plate-guard
+          title: Protector de placas compatible para Platinum+
+          intent: compra
+          query: ghd platinum plate guard straightener
+          must_include:
+          - platinum
+          - plate
+          - guard
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-travel-case
+          title: Estuche de viaje compatible para Platinum+
+          intent: compra
+          query: ghd platinum travel case straightener
+          must_include:
+          - platinum
+          - travel
+          - case
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-pouch
+          title: Funda termica compatible para Platinum+
+          intent: compra
+          query: ghd platinum heat pouch straightener
+          must_include:
+          - platinum
+          - heat
+          - pouch
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-comb
+          title: Peine guia compatible para Platinum+
+          intent: compra
+          query: ghd platinum comb straightener
+          must_include:
+          - platinum
+          - comb
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-cable
+          title: Cable giratorio compatible para Platinum+
+          intent: compra
+          query: ghd platinum swivel cable straightener
+          must_include:
+          - platinum
+          - swivel
+          - cable
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-clips
+          title: Clips o pinzas de seccion compatibles para Platinum+
+          intent: compra
+          query: ghd platinum clip straightener
+          must_include:
+          - platinum
+          - clip
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-hinge-lock
+          title: Cierre o hinge lock compatible para Platinum+
+          intent: compra
+          query: ghd platinum lock straightener
+          must_include:
+          - platinum
+          - lock
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+        - sku: ghd-straight-ghd-platinum-plus-accesorios-acc-brush
+          title: Cepillo o peine preparador compatible para Platinum+
+          intent: compra
+          query: ghd platinum brush straightener
+          must_include:
+          - platinum
+          - brush
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id001
+      compatibilidad:
+      - Comprueba el modelo exacto y el ano de tu plancha antes de pedir funda, base
+        o cierre.
+      - Muchas fundas y bases termicas son universales, pero el ajuste perfecto depende
+        del largo y ancho de la plancha.
+      - En cables giratorios, revisa longitud, tipo de union y salida del mango.
+      - Los cierres, bisagras y topes cambian mucho entre revisiones aunque la carcasa
+        parezca igual.
+      - Si el accesorio toca directamente las placas, confirma siempre medidas y resistencia
+        al calor.
+      problemas:
+      - key: no-calienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el rendimiento cambia al mover el cable, suele haber fatiga en
+          el cable giratorio o en la entrada al mango.
+        title: Platinum+ no calienta o tarda demasiado
+        symptoms:
+        - Las placas apenas suben de temperatura
+        - Tarda mucho en estar lista
+        - El resultado dura menos que antes
+        causes:
+        - Cable o conexion interna fatigada
+        - Sensor termico impreciso
+        - Placas desgastadas o sucias
+        checks:
+        - Revisar si el cable falla al moverlo
+        - Limpiar suavemente las placas en frio
+        - Probar varios niveles de temperatura
+      - key: tira-del-pelo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Cuando la presion entre placas no es uniforme, el pelo se engancha
+          con facilidad en la bisagra o en el borde.
+        title: Platinum+ tira del pelo o lo engancha
+        symptoms:
+        - Arranca mechones al deslizar
+        - Se nota un tiron en el cierre
+        - Deja marcas o dobleces
+        causes:
+        - Bordes de placa desgastados
+        - Hinge lock o bisagra con holgura
+        - Restos de producto acumulados en las placas
+        checks:
+        - Limpiar restos de laca o protector termico
+        - Revisar si la plancha cierra de forma uniforme
+        - Comprobar el estado del cierre y los topes
+      - key: olor-quemado
+        intent: info
+        cta_cat: soporte
+        fix_hint: Muchos olores a quemado vienen del apoyo inadecuado en caliente
+          o de residuos de producto sobre las placas.
+        title: Platinum+ huele a quemado
+        symptoms:
+        - Olor fuerte al poco de encender
+        - Humo ligero o residuo en la superficie
+        - La carcasa se calienta mas de lo normal
+        causes:
+        - Restos de producto capilar en las placas
+        - Cable danado o sobrecalentado
+        - Apoyo incorrecto en una superficie no resistente al calor
+        checks:
+        - Limpiar placas y carcasa en frio
+        - Revisar si el olor viene de la zona del cable
+        - Usar base o funda termica adecuada
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Gold
+      slug: ghd-gold
+      sku_pack: straightener10
+      model_tokens:
+      - ghd gold
+      - gold styler
+      - ghd gold styler
+      year_range: 2019-2026
+      series: Gold
+      recambios:
+        soporte:
+        - sku: ghd-straight-ghd-gold-soporte-stand-heat-mat
+          title: Base o alfombrilla termica compatible para Gold
+          intent: compra
+          query: ghd gold heat mat straightener
+          must_include:
+          - gold
+          - heat
+          - mat
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: &id002
+          - ghd gold
+          - gold styler
+          - ghd gold styler
+        - sku: ghd-straight-ghd-gold-soporte-stand-holder
+          title: Soporte o holder compatible para Gold
+          intent: compra
+          query: ghd gold holder stand straightener
+          must_include:
+          - gold
+          - holder
+          - stand
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        accesorios:
+        - sku: ghd-straight-ghd-gold-accesorios-acc-plate-guard
+          title: Protector de placas compatible para Gold
+          intent: compra
+          query: ghd gold plate guard straightener
+          must_include:
+          - gold
+          - plate
+          - guard
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        - sku: ghd-straight-ghd-gold-accesorios-acc-travel-case
+          title: Estuche de viaje compatible para Gold
+          intent: compra
+          query: ghd gold travel case straightener
+          must_include:
+          - gold
+          - travel
+          - case
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        - sku: ghd-straight-ghd-gold-accesorios-acc-pouch
+          title: Funda termica compatible para Gold
+          intent: compra
+          query: ghd gold heat pouch straightener
+          must_include:
+          - gold
+          - heat
+          - pouch
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        - sku: ghd-straight-ghd-gold-accesorios-acc-comb
+          title: Peine guia compatible para Gold
+          intent: compra
+          query: ghd gold comb straightener
+          must_include:
+          - gold
+          - comb
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        - sku: ghd-straight-ghd-gold-accesorios-acc-cable
+          title: Cable giratorio compatible para Gold
+          intent: compra
+          query: ghd gold swivel cable straightener
+          must_include:
+          - gold
+          - swivel
+          - cable
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        - sku: ghd-straight-ghd-gold-accesorios-acc-clips
+          title: Clips o pinzas de seccion compatibles para Gold
+          intent: compra
+          query: ghd gold clip straightener
+          must_include:
+          - gold
+          - clip
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        - sku: ghd-straight-ghd-gold-accesorios-acc-hinge-lock
+          title: Cierre o hinge lock compatible para Gold
+          intent: compra
+          query: ghd gold lock straightener
+          must_include:
+          - gold
+          - lock
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+        - sku: ghd-straight-ghd-gold-accesorios-acc-brush
+          title: Cepillo o peine preparador compatible para Gold
+          intent: compra
+          query: ghd gold brush straightener
+          must_include:
+          - gold
+          - brush
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id002
+      compatibilidad:
+      - Comprueba el modelo exacto y el ano de tu plancha antes de pedir funda, base
+        o cierre.
+      - Muchas fundas y bases termicas son universales, pero el ajuste perfecto depende
+        del largo y ancho de la plancha.
+      - En cables giratorios, revisa longitud, tipo de union y salida del mango.
+      - Los cierres, bisagras y topes cambian mucho entre revisiones aunque la carcasa
+        parezca igual.
+      - Si el accesorio toca directamente las placas, confirma siempre medidas y resistencia
+        al calor.
+      problemas:
+      - key: no-calienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el rendimiento cambia al mover el cable, suele haber fatiga en
+          el cable giratorio o en la entrada al mango.
+        title: Gold no calienta o tarda demasiado
+        symptoms:
+        - Las placas apenas suben de temperatura
+        - Tarda mucho en estar lista
+        - El resultado dura menos que antes
+        causes:
+        - Cable o conexion interna fatigada
+        - Sensor termico impreciso
+        - Placas desgastadas o sucias
+        checks:
+        - Revisar si el cable falla al moverlo
+        - Limpiar suavemente las placas en frio
+        - Probar varios niveles de temperatura
+      - key: tira-del-pelo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Cuando la presion entre placas no es uniforme, el pelo se engancha
+          con facilidad en la bisagra o en el borde.
+        title: Gold tira del pelo o lo engancha
+        symptoms:
+        - Arranca mechones al deslizar
+        - Se nota un tiron en el cierre
+        - Deja marcas o dobleces
+        causes:
+        - Bordes de placa desgastados
+        - Hinge lock o bisagra con holgura
+        - Restos de producto acumulados en las placas
+        checks:
+        - Limpiar restos de laca o protector termico
+        - Revisar si la plancha cierra de forma uniforme
+        - Comprobar el estado del cierre y los topes
+      - key: olor-quemado
+        intent: info
+        cta_cat: soporte
+        fix_hint: Muchos olores a quemado vienen del apoyo inadecuado en caliente
+          o de residuos de producto sobre las placas.
+        title: Gold huele a quemado
+        symptoms:
+        - Olor fuerte al poco de encender
+        - Humo ligero o residuo en la superficie
+        - La carcasa se calienta mas de lo normal
+        causes:
+        - Restos de producto capilar en las placas
+        - Cable danado o sobrecalentado
+        - Apoyo incorrecto en una superficie no resistente al calor
+        checks:
+        - Limpiar placas y carcasa en frio
+        - Revisar si el olor viene de la zona del cable
+        - Usar base o funda termica adecuada
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  remington-straight:
+    name: Remington
+    models:
+    - model: Pearl S9500
+      slug: remington-s9500
+      sku_pack: straightener10
+      model_tokens:
+      - s9500
+      - remington s9500
+      - pearl s9500
+      year_range: 2019-2026
+      series: Pearl
+      recambios:
+        soporte:
+        - sku: remington-straight-remington-s9500-soporte-stand-heat-mat
+          title: Base o alfombrilla termica compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 heat mat straightener
+          must_include:
+          - s9500
+          - heat
+          - mat
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: &id003
+          - s9500
+          - remington s9500
+          - pearl s9500
+        - sku: remington-straight-remington-s9500-soporte-stand-holder
+          title: Soporte o holder compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 holder stand straightener
+          must_include:
+          - s9500
+          - holder
+          - stand
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        accesorios:
+        - sku: remington-straight-remington-s9500-accesorios-acc-plate-guard
+          title: Protector de placas compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 plate guard straightener
+          must_include:
+          - s9500
+          - plate
+          - guard
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        - sku: remington-straight-remington-s9500-accesorios-acc-travel-case
+          title: Estuche de viaje compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 travel case straightener
+          must_include:
+          - s9500
+          - travel
+          - case
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        - sku: remington-straight-remington-s9500-accesorios-acc-pouch
+          title: Funda termica compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 heat pouch straightener
+          must_include:
+          - s9500
+          - heat
+          - pouch
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        - sku: remington-straight-remington-s9500-accesorios-acc-comb
+          title: Peine guia compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 comb straightener
+          must_include:
+          - s9500
+          - comb
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        - sku: remington-straight-remington-s9500-accesorios-acc-cable
+          title: Cable giratorio compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 swivel cable straightener
+          must_include:
+          - s9500
+          - swivel
+          - cable
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        - sku: remington-straight-remington-s9500-accesorios-acc-clips
+          title: Clips o pinzas de seccion compatibles para Pearl S9500
+          intent: compra
+          query: Remington s9500 clip straightener
+          must_include:
+          - s9500
+          - clip
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        - sku: remington-straight-remington-s9500-accesorios-acc-hinge-lock
+          title: Cierre o hinge lock compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 lock straightener
+          must_include:
+          - s9500
+          - lock
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+        - sku: remington-straight-remington-s9500-accesorios-acc-brush
+          title: Cepillo o peine preparador compatible para Pearl S9500
+          intent: compra
+          query: Remington s9500 brush straightener
+          must_include:
+          - s9500
+          - brush
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id003
+      compatibilidad:
+      - Comprueba el modelo exacto y el ano de tu plancha antes de pedir funda, base
+        o cierre.
+      - Muchas fundas y bases termicas son universales, pero el ajuste perfecto depende
+        del largo y ancho de la plancha.
+      - En cables giratorios, revisa longitud, tipo de union y salida del mango.
+      - Los cierres, bisagras y topes cambian mucho entre revisiones aunque la carcasa
+        parezca igual.
+      - Si el accesorio toca directamente las placas, confirma siempre medidas y resistencia
+        al calor.
+      problemas:
+      - key: no-calienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el rendimiento cambia al mover el cable, suele haber fatiga en
+          el cable giratorio o en la entrada al mango.
+        title: Pearl S9500 no calienta o tarda demasiado
+        symptoms:
+        - Las placas apenas suben de temperatura
+        - Tarda mucho en estar lista
+        - El resultado dura menos que antes
+        causes:
+        - Cable o conexion interna fatigada
+        - Sensor termico impreciso
+        - Placas desgastadas o sucias
+        checks:
+        - Revisar si el cable falla al moverlo
+        - Limpiar suavemente las placas en frio
+        - Probar varios niveles de temperatura
+      - key: tira-del-pelo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Cuando la presion entre placas no es uniforme, el pelo se engancha
+          con facilidad en la bisagra o en el borde.
+        title: Pearl S9500 tira del pelo o lo engancha
+        symptoms:
+        - Arranca mechones al deslizar
+        - Se nota un tiron en el cierre
+        - Deja marcas o dobleces
+        causes:
+        - Bordes de placa desgastados
+        - Hinge lock o bisagra con holgura
+        - Restos de producto acumulados en las placas
+        checks:
+        - Limpiar restos de laca o protector termico
+        - Revisar si la plancha cierra de forma uniforme
+        - Comprobar el estado del cierre y los topes
+      - key: olor-quemado
+        intent: info
+        cta_cat: soporte
+        fix_hint: Muchos olores a quemado vienen del apoyo inadecuado en caliente
+          o de residuos de producto sobre las placas.
+        title: Pearl S9500 huele a quemado
+        symptoms:
+        - Olor fuerte al poco de encender
+        - Humo ligero o residuo en la superficie
+        - La carcasa se calienta mas de lo normal
+        causes:
+        - Restos de producto capilar en las placas
+        - Cable danado o sobrecalentado
+        - Apoyo incorrecto en una superficie no resistente al calor
+        checks:
+        - Limpiar placas y carcasa en frio
+        - Revisar si el olor viene de la zona del cable
+        - Usar base o funda termica adecuada
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Keratin Protect S8540
+      slug: remington-s8540
+      sku_pack: straightener10
+      model_tokens:
+      - s8540
+      - remington s8540
+      - keratin protect s8540
+      year_range: 2020-2026
+      series: Keratin Protect
+      recambios:
+        soporte:
+        - sku: remington-straight-remington-s8540-soporte-stand-heat-mat
+          title: Base o alfombrilla termica compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 heat mat straightener
+          must_include:
+          - s8540
+          - heat
+          - mat
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: &id004
+          - s8540
+          - remington s8540
+          - keratin protect s8540
+        - sku: remington-straight-remington-s8540-soporte-stand-holder
+          title: Soporte o holder compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 holder stand straightener
+          must_include:
+          - s8540
+          - holder
+          - stand
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        accesorios:
+        - sku: remington-straight-remington-s8540-accesorios-acc-plate-guard
+          title: Protector de placas compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 plate guard straightener
+          must_include:
+          - s8540
+          - plate
+          - guard
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        - sku: remington-straight-remington-s8540-accesorios-acc-travel-case
+          title: Estuche de viaje compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 travel case straightener
+          must_include:
+          - s8540
+          - travel
+          - case
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        - sku: remington-straight-remington-s8540-accesorios-acc-pouch
+          title: Funda termica compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 heat pouch straightener
+          must_include:
+          - s8540
+          - heat
+          - pouch
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        - sku: remington-straight-remington-s8540-accesorios-acc-comb
+          title: Peine guia compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 comb straightener
+          must_include:
+          - s8540
+          - comb
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        - sku: remington-straight-remington-s8540-accesorios-acc-cable
+          title: Cable giratorio compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 swivel cable straightener
+          must_include:
+          - s8540
+          - swivel
+          - cable
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        - sku: remington-straight-remington-s8540-accesorios-acc-clips
+          title: Clips o pinzas de seccion compatibles para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 clip straightener
+          must_include:
+          - s8540
+          - clip
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        - sku: remington-straight-remington-s8540-accesorios-acc-hinge-lock
+          title: Cierre o hinge lock compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 lock straightener
+          must_include:
+          - s8540
+          - lock
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+        - sku: remington-straight-remington-s8540-accesorios-acc-brush
+          title: Cepillo o peine preparador compatible para Keratin Protect S8540
+          intent: compra
+          query: Remington s8540 brush straightener
+          must_include:
+          - s8540
+          - brush
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id004
+      compatibilidad:
+      - Comprueba el modelo exacto y el ano de tu plancha antes de pedir funda, base
+        o cierre.
+      - Muchas fundas y bases termicas son universales, pero el ajuste perfecto depende
+        del largo y ancho de la plancha.
+      - En cables giratorios, revisa longitud, tipo de union y salida del mango.
+      - Los cierres, bisagras y topes cambian mucho entre revisiones aunque la carcasa
+        parezca igual.
+      - Si el accesorio toca directamente las placas, confirma siempre medidas y resistencia
+        al calor.
+      problemas:
+      - key: no-calienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el rendimiento cambia al mover el cable, suele haber fatiga en
+          el cable giratorio o en la entrada al mango.
+        title: Keratin Protect S8540 no calienta o tarda demasiado
+        symptoms:
+        - Las placas apenas suben de temperatura
+        - Tarda mucho en estar lista
+        - El resultado dura menos que antes
+        causes:
+        - Cable o conexion interna fatigada
+        - Sensor termico impreciso
+        - Placas desgastadas o sucias
+        checks:
+        - Revisar si el cable falla al moverlo
+        - Limpiar suavemente las placas en frio
+        - Probar varios niveles de temperatura
+      - key: tira-del-pelo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Cuando la presion entre placas no es uniforme, el pelo se engancha
+          con facilidad en la bisagra o en el borde.
+        title: Keratin Protect S8540 tira del pelo o lo engancha
+        symptoms:
+        - Arranca mechones al deslizar
+        - Se nota un tiron en el cierre
+        - Deja marcas o dobleces
+        causes:
+        - Bordes de placa desgastados
+        - Hinge lock o bisagra con holgura
+        - Restos de producto acumulados en las placas
+        checks:
+        - Limpiar restos de laca o protector termico
+        - Revisar si la plancha cierra de forma uniforme
+        - Comprobar el estado del cierre y los topes
+      - key: olor-quemado
+        intent: info
+        cta_cat: soporte
+        fix_hint: Muchos olores a quemado vienen del apoyo inadecuado en caliente
+          o de residuos de producto sobre las placas.
+        title: Keratin Protect S8540 huele a quemado
+        symptoms:
+        - Olor fuerte al poco de encender
+        - Humo ligero o residuo en la superficie
+        - La carcasa se calienta mas de lo normal
+        causes:
+        - Restos de producto capilar en las placas
+        - Cable danado o sobrecalentado
+        - Apoyo incorrecto en una superficie no resistente al calor
+        checks:
+        - Limpiar placas y carcasa en frio
+        - Revisar si el olor viene de la zona del cable
+        - Usar base o funda termica adecuada
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  dyson-straight:
+    name: Dyson
+    models:
+    - model: Corrale HS03
+      slug: dyson-corrale-hs03
+      sku_pack: straightener10
+      model_tokens:
+      - hs03
+      - dyson hs03
+      - corrale hs03
+      year_range: 2021-2026
+      series: Corrale
+      recambios:
+        soporte:
+        - sku: dyson-straight-dyson-corrale-hs03-soporte-stand-heat-mat
+          title: Base o alfombrilla termica compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 heat mat straightener
+          must_include:
+          - hs03
+          - heat
+          - mat
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: &id005
+          - hs03
+          - dyson hs03
+          - corrale hs03
+        - sku: dyson-straight-dyson-corrale-hs03-soporte-stand-holder
+          title: Soporte o holder compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 holder stand straightener
+          must_include:
+          - hs03
+          - holder
+          - stand
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        accesorios:
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-plate-guard
+          title: Protector de placas compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 plate guard straightener
+          must_include:
+          - hs03
+          - plate
+          - guard
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-travel-case
+          title: Estuche de viaje compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 travel case straightener
+          must_include:
+          - hs03
+          - travel
+          - case
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-pouch
+          title: Funda termica compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 heat pouch straightener
+          must_include:
+          - hs03
+          - heat
+          - pouch
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-comb
+          title: Peine guia compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 comb straightener
+          must_include:
+          - hs03
+          - comb
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-cable
+          title: Cable giratorio compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 swivel cable straightener
+          must_include:
+          - hs03
+          - swivel
+          - cable
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-clips
+          title: Clips o pinzas de seccion compatibles para Corrale HS03
+          intent: compra
+          query: Dyson hs03 clip straightener
+          must_include:
+          - hs03
+          - clip
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-hinge-lock
+          title: Cierre o hinge lock compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 lock straightener
+          must_include:
+          - hs03
+          - lock
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+        - sku: dyson-straight-dyson-corrale-hs03-accesorios-acc-brush
+          title: Cepillo o peine preparador compatible para Corrale HS03
+          intent: compra
+          query: Dyson hs03 brush straightener
+          must_include:
+          - hs03
+          - brush
+          - straightener
+          must_not_include:
+          - battery
+          - charger
+          - vacuum
+          - purifier
+          - dryer
+          model_tokens: *id005
+      compatibilidad:
+      - Comprueba el modelo exacto y el ano de tu plancha antes de pedir funda, base
+        o cierre.
+      - Muchas fundas y bases termicas son universales, pero el ajuste perfecto depende
+        del largo y ancho de la plancha.
+      - En cables giratorios, revisa longitud, tipo de union y salida del mango.
+      - Los cierres, bisagras y topes cambian mucho entre revisiones aunque la carcasa
+        parezca igual.
+      - Si el accesorio toca directamente las placas, confirma siempre medidas y resistencia
+        al calor.
+      problemas:
+      - key: no-calienta
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Si el rendimiento cambia al mover el cable, suele haber fatiga en
+          el cable giratorio o en la entrada al mango.
+        title: Corrale HS03 no calienta o tarda demasiado
+        symptoms:
+        - Las placas apenas suben de temperatura
+        - Tarda mucho en estar lista
+        - El resultado dura menos que antes
+        causes:
+        - Cable o conexion interna fatigada
+        - Sensor termico impreciso
+        - Placas desgastadas o sucias
+        checks:
+        - Revisar si el cable falla al moverlo
+        - Limpiar suavemente las placas en frio
+        - Probar varios niveles de temperatura
+      - key: tira-del-pelo
+        intent: info
+        cta_cat: accesorios
+        fix_hint: Cuando la presion entre placas no es uniforme, el pelo se engancha
+          con facilidad en la bisagra o en el borde.
+        title: Corrale HS03 tira del pelo o lo engancha
+        symptoms:
+        - Arranca mechones al deslizar
+        - Se nota un tiron en el cierre
+        - Deja marcas o dobleces
+        causes:
+        - Bordes de placa desgastados
+        - Hinge lock o bisagra con holgura
+        - Restos de producto acumulados en las placas
+        checks:
+        - Limpiar restos de laca o protector termico
+        - Revisar si la plancha cierra de forma uniforme
+        - Comprobar el estado del cierre y los topes
+      - key: olor-quemado
+        intent: info
+        cta_cat: soporte
+        fix_hint: Muchos olores a quemado vienen del apoyo inadecuado en caliente
+          o de residuos de producto sobre las placas.
+        title: Corrale HS03 huele a quemado
+        symptoms:
+        - Olor fuerte al poco de encender
+        - Humo ligero o residuo en la superficie
+        - La carcasa se calienta mas de lo normal
+        causes:
+        - Restos de producto capilar en las placas
+        - Cable danado o sobrecalentado
+        - Apoyo incorrecto en una superficie no resistente al calor
+        checks:
+        - Limpiar placas y carcasa en frio
+        - Revisar si el olor viene de la zona del cable
+        - Usar base o funda termica adecuada
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.

@@ -1,1 +1,45 @@
-brands: {}
+brands:
+  polti-steam:
+    name: Polti
+    vertical: vaporetas
+    models:
+      - model: Vaporetto Smart 100_T
+        slug: polti-smart-100t
+        sku_pack: steamer10
+        model_tokens: ["smart 100_t", "smart 100t", "polti smart 100t"]
+        year_range: "2020-2026"
+        series: "Vaporetto Smart"
+      - model: Vaporetto SV440
+        slug: polti-sv440
+        sku_pack: steamer10
+        model_tokens: ["sv440", "polti sv440", "vaporetto sv440"]
+        year_range: "2019-2026"
+        series: "Vaporetto"
+
+  karcher-steam:
+    name: Karcher
+    vertical: vaporetas
+    models:
+      - model: SC 3 EasyFix
+        slug: karcher-sc3-easyfix
+        sku_pack: steamer10
+        model_tokens: ["sc3 easyfix", "sc 3 easyfix", "karcher sc3 easyfix"]
+        year_range: "2020-2026"
+        series: "SC"
+      - model: SC 4 EasyFix
+        slug: karcher-sc4-easyfix
+        sku_pack: steamer10
+        model_tokens: ["sc4 easyfix", "sc 4 easyfix", "karcher sc4 easyfix"]
+        year_range: "2020-2026"
+        series: "SC"
+
+  bissell-steam:
+    name: Bissell
+    vertical: vaporetas
+    models:
+      - model: SteamShot 2635J
+        slug: bissell-steamshot-2635j
+        sku_pack: steamer10
+        model_tokens: ["2635j", "bissell 2635j", "steamshot 2635j"]
+        year_range: "2021-2026"
+        series: "SteamShot"

@@ -101,4 +101,1278 @@ globals:
       mixto.'
     - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
       para abaratar mantenimiento.
-brands: {}
+brands:
+  dyson-dry:
+    name: Dyson
+    models:
+    - model: Supersonic HD07
+      slug: dyson-supersonic-hd07
+      sku_pack: dryer10
+      model_tokens:
+      - hd07
+      - dyson hd07
+      - supersonic hd07
+      year_range: 2022-2026
+      series: Supersonic
+      recambios:
+        filtro:
+        - sku: dyson-dry-dyson-supersonic-hd07-filtro-filter-rear
+          title: Filtro trasero compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 filter dryer
+          must_include:
+          - hd07
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id001
+          - hd07
+          - dyson hd07
+          - supersonic hd07
+        - sku: dyson-dry-dyson-supersonic-hd07-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 mesh filter dryer
+          must_include:
+          - hd07
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id001
+        soporte:
+        - sku: dyson-dry-dyson-supersonic-hd07-soporte-stand-holder
+          title: Soporte o base compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 holder stand dryer
+          must_include:
+          - hd07
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+        accesorios:
+        - sku: dyson-dry-dyson-supersonic-hd07-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 nozzle dryer
+          must_include:
+          - hd07
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+        - sku: dyson-dry-dyson-supersonic-hd07-accesorios-acc-diffuser
+          title: Difusor compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 diffuser dryer
+          must_include:
+          - hd07
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+        - sku: dyson-dry-dyson-supersonic-hd07-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 comb dryer
+          must_include:
+          - hd07
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+        - sku: dyson-dry-dyson-supersonic-hd07-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 flyaway dryer
+          must_include:
+          - hd07
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+        - sku: dyson-dry-dyson-supersonic-hd07-accesorios-acc-case
+          title: Funda o estuche compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 case dryer
+          must_include:
+          - hd07
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+        - sku: dyson-dry-dyson-supersonic-hd07-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 power cable dryer
+          must_include:
+          - hd07
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+        - sku: dyson-dry-dyson-supersonic-hd07-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Supersonic HD07
+          intent: compra
+          query: Dyson hd07 rear cover dryer
+          must_include:
+          - hd07
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id001
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Supersonic HD07 ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Supersonic HD07 se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Supersonic HD07: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Supersonic Nural HD16
+      slug: dyson-supersonic-hd16
+      sku_pack: dryer10
+      model_tokens:
+      - hd16
+      - dyson hd16
+      - supersonic nural hd16
+      year_range: 2024-2026
+      series: Supersonic Nural
+      recambios:
+        filtro:
+        - sku: dyson-dry-dyson-supersonic-hd16-filtro-filter-rear
+          title: Filtro trasero compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 filter dryer
+          must_include:
+          - hd16
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id002
+          - hd16
+          - dyson hd16
+          - supersonic nural hd16
+        - sku: dyson-dry-dyson-supersonic-hd16-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 mesh filter dryer
+          must_include:
+          - hd16
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id002
+        soporte:
+        - sku: dyson-dry-dyson-supersonic-hd16-soporte-stand-holder
+          title: Soporte o base compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 holder stand dryer
+          must_include:
+          - hd16
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+        accesorios:
+        - sku: dyson-dry-dyson-supersonic-hd16-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 nozzle dryer
+          must_include:
+          - hd16
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+        - sku: dyson-dry-dyson-supersonic-hd16-accesorios-acc-diffuser
+          title: Difusor compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 diffuser dryer
+          must_include:
+          - hd16
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+        - sku: dyson-dry-dyson-supersonic-hd16-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 comb dryer
+          must_include:
+          - hd16
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+        - sku: dyson-dry-dyson-supersonic-hd16-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 flyaway dryer
+          must_include:
+          - hd16
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+        - sku: dyson-dry-dyson-supersonic-hd16-accesorios-acc-case
+          title: Funda o estuche compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 case dryer
+          must_include:
+          - hd16
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+        - sku: dyson-dry-dyson-supersonic-hd16-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 power cable dryer
+          must_include:
+          - hd16
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+        - sku: dyson-dry-dyson-supersonic-hd16-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Supersonic Nural HD16
+          intent: compra
+          query: Dyson hd16 rear cover dryer
+          must_include:
+          - hd16
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id002
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Supersonic Nural HD16 ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Supersonic Nural HD16 se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Supersonic Nural HD16: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  ghd-dry:
+    name: ghd
+    models:
+    - model: Helios
+      slug: ghd-helios
+      sku_pack: dryer10
+      model_tokens:
+      - ghd helios
+      - helios hair dryer
+      - helios
+      year_range: 2020-2026
+      series: Helios
+      recambios:
+        filtro:
+        - sku: ghd-dry-ghd-helios-filtro-filter-rear
+          title: Filtro trasero compatible para Helios
+          intent: compra
+          query: ghd helios filter dryer
+          must_include:
+          - helios
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id003
+          - ghd helios
+          - helios hair dryer
+          - helios
+        - sku: ghd-dry-ghd-helios-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Helios
+          intent: compra
+          query: ghd helios mesh filter dryer
+          must_include:
+          - helios
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id003
+        soporte:
+        - sku: ghd-dry-ghd-helios-soporte-stand-holder
+          title: Soporte o base compatible para Helios
+          intent: compra
+          query: ghd helios holder stand dryer
+          must_include:
+          - helios
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+        accesorios:
+        - sku: ghd-dry-ghd-helios-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Helios
+          intent: compra
+          query: ghd helios nozzle dryer
+          must_include:
+          - helios
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+        - sku: ghd-dry-ghd-helios-accesorios-acc-diffuser
+          title: Difusor compatible para Helios
+          intent: compra
+          query: ghd helios diffuser dryer
+          must_include:
+          - helios
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+        - sku: ghd-dry-ghd-helios-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Helios
+          intent: compra
+          query: ghd helios comb dryer
+          must_include:
+          - helios
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+        - sku: ghd-dry-ghd-helios-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Helios
+          intent: compra
+          query: ghd helios flyaway dryer
+          must_include:
+          - helios
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+        - sku: ghd-dry-ghd-helios-accesorios-acc-case
+          title: Funda o estuche compatible para Helios
+          intent: compra
+          query: ghd helios case dryer
+          must_include:
+          - helios
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+        - sku: ghd-dry-ghd-helios-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Helios
+          intent: compra
+          query: ghd helios power cable dryer
+          must_include:
+          - helios
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+        - sku: ghd-dry-ghd-helios-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Helios
+          intent: compra
+          query: ghd helios rear cover dryer
+          must_include:
+          - helios
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id003
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Helios ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Helios se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Helios: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Air
+      slug: ghd-air
+      sku_pack: dryer10
+      model_tokens:
+      - ghd air
+      - air hair dryer
+      - ghd air dryer
+      year_range: 2019-2026
+      series: Air
+      recambios:
+        filtro:
+        - sku: ghd-dry-ghd-air-filtro-filter-rear
+          title: Filtro trasero compatible para Air
+          intent: compra
+          query: ghd air filter dryer
+          must_include:
+          - air
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id004
+          - ghd air
+          - air hair dryer
+          - ghd air dryer
+        - sku: ghd-dry-ghd-air-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Air
+          intent: compra
+          query: ghd air mesh filter dryer
+          must_include:
+          - air
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id004
+        soporte:
+        - sku: ghd-dry-ghd-air-soporte-stand-holder
+          title: Soporte o base compatible para Air
+          intent: compra
+          query: ghd air holder stand dryer
+          must_include:
+          - air
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+        accesorios:
+        - sku: ghd-dry-ghd-air-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Air
+          intent: compra
+          query: ghd air nozzle dryer
+          must_include:
+          - air
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+        - sku: ghd-dry-ghd-air-accesorios-acc-diffuser
+          title: Difusor compatible para Air
+          intent: compra
+          query: ghd air diffuser dryer
+          must_include:
+          - air
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+        - sku: ghd-dry-ghd-air-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Air
+          intent: compra
+          query: ghd air comb dryer
+          must_include:
+          - air
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+        - sku: ghd-dry-ghd-air-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Air
+          intent: compra
+          query: ghd air flyaway dryer
+          must_include:
+          - air
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+        - sku: ghd-dry-ghd-air-accesorios-acc-case
+          title: Funda o estuche compatible para Air
+          intent: compra
+          query: ghd air case dryer
+          must_include:
+          - air
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+        - sku: ghd-dry-ghd-air-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Air
+          intent: compra
+          query: ghd air power cable dryer
+          must_include:
+          - air
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+        - sku: ghd-dry-ghd-air-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Air
+          intent: compra
+          query: ghd air rear cover dryer
+          must_include:
+          - air
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id004
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Air ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Air se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Air: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  rowenta-dry:
+    name: Rowenta
+    models:
+    - model: Ultimate Experience CV9920
+      slug: rowenta-cv9920
+      sku_pack: dryer10
+      model_tokens:
+      - cv9920
+      - rowenta cv9920
+      - ultimate experience cv9920
+      year_range: 2021-2026
+      series: Ultimate Experience
+      recambios:
+        filtro:
+        - sku: rowenta-dry-rowenta-cv9920-filtro-filter-rear
+          title: Filtro trasero compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 filter dryer
+          must_include:
+          - cv9920
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id005
+          - cv9920
+          - rowenta cv9920
+          - ultimate experience cv9920
+        - sku: rowenta-dry-rowenta-cv9920-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 mesh filter dryer
+          must_include:
+          - cv9920
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id005
+        soporte:
+        - sku: rowenta-dry-rowenta-cv9920-soporte-stand-holder
+          title: Soporte o base compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 holder stand dryer
+          must_include:
+          - cv9920
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+        accesorios:
+        - sku: rowenta-dry-rowenta-cv9920-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 nozzle dryer
+          must_include:
+          - cv9920
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+        - sku: rowenta-dry-rowenta-cv9920-accesorios-acc-diffuser
+          title: Difusor compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 diffuser dryer
+          must_include:
+          - cv9920
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+        - sku: rowenta-dry-rowenta-cv9920-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 comb dryer
+          must_include:
+          - cv9920
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+        - sku: rowenta-dry-rowenta-cv9920-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 flyaway dryer
+          must_include:
+          - cv9920
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+        - sku: rowenta-dry-rowenta-cv9920-accesorios-acc-case
+          title: Funda o estuche compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 case dryer
+          must_include:
+          - cv9920
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+        - sku: rowenta-dry-rowenta-cv9920-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 power cable dryer
+          must_include:
+          - cv9920
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+        - sku: rowenta-dry-rowenta-cv9920-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Ultimate Experience CV9920
+          intent: compra
+          query: Rowenta cv9920 rear cover dryer
+          must_include:
+          - cv9920
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id005
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Ultimate Experience CV9920 ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Ultimate Experience CV9920 se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Ultimate Experience CV9920: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.

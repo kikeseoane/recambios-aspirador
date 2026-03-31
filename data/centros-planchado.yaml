@@ -101,4 +101,1333 @@ globals:
       mixto.'
     - Si tu aspirador es robot, compra packs (filtros + cepillos laterales + mopas)
       para abaratar mantenimiento.
-brands: {}
+brands:
+  philips-iron:
+    name: Philips
+    models:
+    - model: PerfectCare 8000 PSG8140
+      slug: philips-psg8140
+      sku_pack: ironstation10
+      model_tokens:
+      - psg8140
+      - philips psg8140
+      - perfectcare 8000 psg8140
+      year_range: 2022-2026
+      series: PerfectCare 8000
+      recambios:
+        deposito:
+        - sku: philips-iron-philips-psg8140-deposito-tank-water
+          title: Deposito de agua compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 water tank steam iron
+          must_include:
+          - psg8140
+          - water
+          - tank
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id001
+          - psg8140
+          - philips psg8140
+          - perfectcare 8000 psg8140
+        - sku: philips-iron-philips-psg8140-deposito-tank-calc
+          title: Colector antical o deposito compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 calc collector steam iron
+          must_include:
+          - psg8140
+          - calc
+          - collector
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        junta:
+        - sku: philips-iron-philips-psg8140-junta-seal-boiler
+          title: Junta de caldera compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 boiler gasket steam iron
+          must_include:
+          - psg8140
+          - boiler
+          - gasket
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        - sku: philips-iron-philips-psg8140-junta-seal-cap
+          title: Junta de tapon compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 cap seal steam iron
+          must_include:
+          - psg8140
+          - cap
+          - seal
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        resistencia:
+        - sku: philips-iron-philips-psg8140-resistencia-heater-boiler
+          title: Resistencia de caldera compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 boiler heater steam iron
+          must_include:
+          - psg8140
+          - boiler
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        - sku: philips-iron-philips-psg8140-resistencia-heater-soleplate
+          title: Resistencia de suela compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 soleplate heater steam iron
+          must_include:
+          - psg8140
+          - soleplate
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        accesorios:
+        - sku: philips-iron-philips-psg8140-accesorios-acc-sole-cover
+          title: Protector de suela compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 sole cover steam iron
+          must_include:
+          - psg8140
+          - sole
+          - cover
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        - sku: philips-iron-philips-psg8140-accesorios-acc-hose
+          title: Manguera de vapor compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 steam hose iron
+          must_include:
+          - psg8140
+          - steam
+          - hose
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        - sku: philips-iron-philips-psg8140-accesorios-acc-calc-cartridge
+          title: Cartucho antical compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 calc cartridge steam iron
+          must_include:
+          - psg8140
+          - calc
+          - cartridge
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+        - sku: philips-iron-philips-psg8140-accesorios-acc-rest
+          title: Base o apoyo de plancha compatible para PerfectCare 8000 PSG8140
+          intent: compra
+          query: Philips psg8140 iron rest steam
+          must_include:
+          - psg8140
+          - iron
+          - rest
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id001
+      compatibilidad:
+      - Confirma el modelo exacto y la serie antes de comprar deposito, cartucho antical
+        o manguera.
+      - Los depositos y colectores antical suelen ser especificos por familia aunque
+        visualmente parezcan iguales.
+      - En juntas y tapones, revisa diametro, grosor y tipo de cierre.
+      - 'Las resistencias y piezas internas no son universales: busca siempre referencia
+        exacta de servicio.'
+      - Si compras un protector de suela, mide la base de la plancha y revisa el sistema
+        de fijacion.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si el equipo calienta pero no mantiene vapor, empieza revisando
+          deposito, cartucho antical y circuito.
+        title: PerfectCare 8000 PSG8140 no saca vapor o saca muy poco
+        symptoms:
+        - La plancha calienta pero no vaporiza
+        - Sale vapor intermitente
+        - Tarda demasiado en recuperar presion
+        causes:
+        - Deposito vacio o mal encajado
+        - Cal en la caldera o circuito
+        - Cartucho antical agotado
+        checks:
+        - Rellenar y recolocar el deposito
+        - Revisar el sistema antical
+        - Purgar vapor unos segundos antes de planchar
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Si el goteo persiste en caliente, suele haber desgaste en juntas
+          o problemas de condensacion en el circuito.
+        title: PerfectCare 8000 PSG8140 gotea o pierde agua por la suela
+        symptoms:
+        - Moja la ropa en lugar de vaporizar
+        - Gotea al empezar a usarla
+        - Deja marcas de agua sobre tejidos delicados
+        causes:
+        - Junta fatigada en deposito o tapon
+        - Temperatura insuficiente para vapor seco
+        - Condensacion acumulada en la manguera
+        checks:
+        - Revisar juntas y cierres
+        - Esperar a que alcance temperatura completa
+        - Purgar vapor antes de planchar prendas delicadas
+      - key: no-calienta-bien
+        intent: info
+        cta_cat: resistencia
+        fix_hint: Una perdida clara de temperatura sostenida suele apuntar a resistencia
+          o acumulacion severa de cal.
+        title: PerfectCare 8000 PSG8140 no calienta bien
+        symptoms:
+        - La suela no alcanza temperatura
+        - Hay que pasar varias veces sobre la prenda
+        - El vapor sale tibio y poco efectivo
+        causes:
+        - Resistencia de suela o caldera fatigada
+        - Acumulacion de cal
+        - Sensor termico desajustado
+        checks:
+        - Probar varios niveles de calor
+        - Realizar limpieza antical si el fabricante lo permite
+        - Observar si el problema aparece en todos los tejidos
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: PerfectCare Compact GC7840
+      slug: philips-gc7840
+      sku_pack: ironstation10
+      model_tokens:
+      - gc7840
+      - philips gc7840
+      - perfectcare compact gc7840
+      year_range: 2020-2026
+      series: PerfectCare Compact
+      recambios:
+        deposito:
+        - sku: philips-iron-philips-gc7840-deposito-tank-water
+          title: Deposito de agua compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 water tank steam iron
+          must_include:
+          - gc7840
+          - water
+          - tank
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id002
+          - gc7840
+          - philips gc7840
+          - perfectcare compact gc7840
+        - sku: philips-iron-philips-gc7840-deposito-tank-calc
+          title: Colector antical o deposito compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 calc collector steam iron
+          must_include:
+          - gc7840
+          - calc
+          - collector
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        junta:
+        - sku: philips-iron-philips-gc7840-junta-seal-boiler
+          title: Junta de caldera compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 boiler gasket steam iron
+          must_include:
+          - gc7840
+          - boiler
+          - gasket
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        - sku: philips-iron-philips-gc7840-junta-seal-cap
+          title: Junta de tapon compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 cap seal steam iron
+          must_include:
+          - gc7840
+          - cap
+          - seal
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        resistencia:
+        - sku: philips-iron-philips-gc7840-resistencia-heater-boiler
+          title: Resistencia de caldera compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 boiler heater steam iron
+          must_include:
+          - gc7840
+          - boiler
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        - sku: philips-iron-philips-gc7840-resistencia-heater-soleplate
+          title: Resistencia de suela compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 soleplate heater steam iron
+          must_include:
+          - gc7840
+          - soleplate
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        accesorios:
+        - sku: philips-iron-philips-gc7840-accesorios-acc-sole-cover
+          title: Protector de suela compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 sole cover steam iron
+          must_include:
+          - gc7840
+          - sole
+          - cover
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        - sku: philips-iron-philips-gc7840-accesorios-acc-hose
+          title: Manguera de vapor compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 steam hose iron
+          must_include:
+          - gc7840
+          - steam
+          - hose
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        - sku: philips-iron-philips-gc7840-accesorios-acc-calc-cartridge
+          title: Cartucho antical compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 calc cartridge steam iron
+          must_include:
+          - gc7840
+          - calc
+          - cartridge
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+        - sku: philips-iron-philips-gc7840-accesorios-acc-rest
+          title: Base o apoyo de plancha compatible para PerfectCare Compact GC7840
+          intent: compra
+          query: Philips gc7840 iron rest steam
+          must_include:
+          - gc7840
+          - iron
+          - rest
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id002
+      compatibilidad:
+      - Confirma el modelo exacto y la serie antes de comprar deposito, cartucho antical
+        o manguera.
+      - Los depositos y colectores antical suelen ser especificos por familia aunque
+        visualmente parezcan iguales.
+      - En juntas y tapones, revisa diametro, grosor y tipo de cierre.
+      - 'Las resistencias y piezas internas no son universales: busca siempre referencia
+        exacta de servicio.'
+      - Si compras un protector de suela, mide la base de la plancha y revisa el sistema
+        de fijacion.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si el equipo calienta pero no mantiene vapor, empieza revisando
+          deposito, cartucho antical y circuito.
+        title: PerfectCare Compact GC7840 no saca vapor o saca muy poco
+        symptoms:
+        - La plancha calienta pero no vaporiza
+        - Sale vapor intermitente
+        - Tarda demasiado en recuperar presion
+        causes:
+        - Deposito vacio o mal encajado
+        - Cal en la caldera o circuito
+        - Cartucho antical agotado
+        checks:
+        - Rellenar y recolocar el deposito
+        - Revisar el sistema antical
+        - Purgar vapor unos segundos antes de planchar
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Si el goteo persiste en caliente, suele haber desgaste en juntas
+          o problemas de condensacion en el circuito.
+        title: PerfectCare Compact GC7840 gotea o pierde agua por la suela
+        symptoms:
+        - Moja la ropa en lugar de vaporizar
+        - Gotea al empezar a usarla
+        - Deja marcas de agua sobre tejidos delicados
+        causes:
+        - Junta fatigada en deposito o tapon
+        - Temperatura insuficiente para vapor seco
+        - Condensacion acumulada en la manguera
+        checks:
+        - Revisar juntas y cierres
+        - Esperar a que alcance temperatura completa
+        - Purgar vapor antes de planchar prendas delicadas
+      - key: no-calienta-bien
+        intent: info
+        cta_cat: resistencia
+        fix_hint: Una perdida clara de temperatura sostenida suele apuntar a resistencia
+          o acumulacion severa de cal.
+        title: PerfectCare Compact GC7840 no calienta bien
+        symptoms:
+        - La suela no alcanza temperatura
+        - Hay que pasar varias veces sobre la prenda
+        - El vapor sale tibio y poco efectivo
+        causes:
+        - Resistencia de suela o caldera fatigada
+        - Acumulacion de cal
+        - Sensor termico desajustado
+        checks:
+        - Probar varios niveles de calor
+        - Realizar limpieza antical si el fabricante lo permite
+        - Observar si el problema aparece en todos los tejidos
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+  rowenta-iron:
+    name: Rowenta
+    models:
+    - model: Silence Steam Pro DG9248
+      slug: rowenta-dg9248
+      sku_pack: ironstation10
+      model_tokens:
+      - dg9248
+      - rowenta dg9248
+      - silence steam pro dg9248
+      year_range: 2021-2026
+      series: Silence Steam Pro
+      recambios:
+        deposito:
+        - sku: rowenta-iron-rowenta-dg9248-deposito-tank-water
+          title: Deposito de agua compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 water tank steam iron
+          must_include:
+          - dg9248
+          - water
+          - tank
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id003
+          - dg9248
+          - rowenta dg9248
+          - silence steam pro dg9248
+        - sku: rowenta-iron-rowenta-dg9248-deposito-tank-calc
+          title: Colector antical o deposito compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 calc collector steam iron
+          must_include:
+          - dg9248
+          - calc
+          - collector
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        junta:
+        - sku: rowenta-iron-rowenta-dg9248-junta-seal-boiler
+          title: Junta de caldera compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 boiler gasket steam iron
+          must_include:
+          - dg9248
+          - boiler
+          - gasket
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: rowenta-iron-rowenta-dg9248-junta-seal-cap
+          title: Junta de tapon compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 cap seal steam iron
+          must_include:
+          - dg9248
+          - cap
+          - seal
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        resistencia:
+        - sku: rowenta-iron-rowenta-dg9248-resistencia-heater-boiler
+          title: Resistencia de caldera compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 boiler heater steam iron
+          must_include:
+          - dg9248
+          - boiler
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: rowenta-iron-rowenta-dg9248-resistencia-heater-soleplate
+          title: Resistencia de suela compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 soleplate heater steam iron
+          must_include:
+          - dg9248
+          - soleplate
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        accesorios:
+        - sku: rowenta-iron-rowenta-dg9248-accesorios-acc-sole-cover
+          title: Protector de suela compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 sole cover steam iron
+          must_include:
+          - dg9248
+          - sole
+          - cover
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: rowenta-iron-rowenta-dg9248-accesorios-acc-hose
+          title: Manguera de vapor compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 steam hose iron
+          must_include:
+          - dg9248
+          - steam
+          - hose
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: rowenta-iron-rowenta-dg9248-accesorios-acc-calc-cartridge
+          title: Cartucho antical compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 calc cartridge steam iron
+          must_include:
+          - dg9248
+          - calc
+          - cartridge
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+        - sku: rowenta-iron-rowenta-dg9248-accesorios-acc-rest
+          title: Base o apoyo de plancha compatible para Silence Steam Pro DG9248
+          intent: compra
+          query: Rowenta dg9248 iron rest steam
+          must_include:
+          - dg9248
+          - iron
+          - rest
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id003
+      compatibilidad:
+      - Confirma el modelo exacto y la serie antes de comprar deposito, cartucho antical
+        o manguera.
+      - Los depositos y colectores antical suelen ser especificos por familia aunque
+        visualmente parezcan iguales.
+      - En juntas y tapones, revisa diametro, grosor y tipo de cierre.
+      - 'Las resistencias y piezas internas no son universales: busca siempre referencia
+        exacta de servicio.'
+      - Si compras un protector de suela, mide la base de la plancha y revisa el sistema
+        de fijacion.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si el equipo calienta pero no mantiene vapor, empieza revisando
+          deposito, cartucho antical y circuito.
+        title: Silence Steam Pro DG9248 no saca vapor o saca muy poco
+        symptoms:
+        - La plancha calienta pero no vaporiza
+        - Sale vapor intermitente
+        - Tarda demasiado en recuperar presion
+        causes:
+        - Deposito vacio o mal encajado
+        - Cal en la caldera o circuito
+        - Cartucho antical agotado
+        checks:
+        - Rellenar y recolocar el deposito
+        - Revisar el sistema antical
+        - Purgar vapor unos segundos antes de planchar
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Si el goteo persiste en caliente, suele haber desgaste en juntas
+          o problemas de condensacion en el circuito.
+        title: Silence Steam Pro DG9248 gotea o pierde agua por la suela
+        symptoms:
+        - Moja la ropa en lugar de vaporizar
+        - Gotea al empezar a usarla
+        - Deja marcas de agua sobre tejidos delicados
+        causes:
+        - Junta fatigada en deposito o tapon
+        - Temperatura insuficiente para vapor seco
+        - Condensacion acumulada en la manguera
+        checks:
+        - Revisar juntas y cierres
+        - Esperar a que alcance temperatura completa
+        - Purgar vapor antes de planchar prendas delicadas
+      - key: no-calienta-bien
+        intent: info
+        cta_cat: resistencia
+        fix_hint: Una perdida clara de temperatura sostenida suele apuntar a resistencia
+          o acumulacion severa de cal.
+        title: Silence Steam Pro DG9248 no calienta bien
+        symptoms:
+        - La suela no alcanza temperatura
+        - Hay que pasar varias veces sobre la prenda
+        - El vapor sale tibio y poco efectivo
+        causes:
+        - Resistencia de suela o caldera fatigada
+        - Acumulacion de cal
+        - Sensor termico desajustado
+        checks:
+        - Probar varios niveles de calor
+        - Realizar limpieza antical si el fabricante lo permite
+        - Observar si el problema aparece en todos los tejidos
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+    - model: Compact Steam Pro DG7623
+      slug: rowenta-dg7623
+      sku_pack: ironstation10
+      model_tokens:
+      - dg7623
+      - rowenta dg7623
+      - compact steam pro dg7623
+      year_range: 2020-2026
+      series: Compact Steam Pro
+      recambios:
+        deposito:
+        - sku: rowenta-iron-rowenta-dg7623-deposito-tank-water
+          title: Deposito de agua compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 water tank steam iron
+          must_include:
+          - dg7623
+          - water
+          - tank
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id004
+          - dg7623
+          - rowenta dg7623
+          - compact steam pro dg7623
+        - sku: rowenta-iron-rowenta-dg7623-deposito-tank-calc
+          title: Colector antical o deposito compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 calc collector steam iron
+          must_include:
+          - dg7623
+          - calc
+          - collector
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        junta:
+        - sku: rowenta-iron-rowenta-dg7623-junta-seal-boiler
+          title: Junta de caldera compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 boiler gasket steam iron
+          must_include:
+          - dg7623
+          - boiler
+          - gasket
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: rowenta-iron-rowenta-dg7623-junta-seal-cap
+          title: Junta de tapon compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 cap seal steam iron
+          must_include:
+          - dg7623
+          - cap
+          - seal
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        resistencia:
+        - sku: rowenta-iron-rowenta-dg7623-resistencia-heater-boiler
+          title: Resistencia de caldera compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 boiler heater steam iron
+          must_include:
+          - dg7623
+          - boiler
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: rowenta-iron-rowenta-dg7623-resistencia-heater-soleplate
+          title: Resistencia de suela compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 soleplate heater steam iron
+          must_include:
+          - dg7623
+          - soleplate
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        accesorios:
+        - sku: rowenta-iron-rowenta-dg7623-accesorios-acc-sole-cover
+          title: Protector de suela compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 sole cover steam iron
+          must_include:
+          - dg7623
+          - sole
+          - cover
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: rowenta-iron-rowenta-dg7623-accesorios-acc-hose
+          title: Manguera de vapor compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 steam hose iron
+          must_include:
+          - dg7623
+          - steam
+          - hose
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: rowenta-iron-rowenta-dg7623-accesorios-acc-calc-cartridge
+          title: Cartucho antical compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 calc cartridge steam iron
+          must_include:
+          - dg7623
+          - calc
+          - cartridge
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+        - sku: rowenta-iron-rowenta-dg7623-accesorios-acc-rest
+          title: Base o apoyo de plancha compatible para Compact Steam Pro DG7623
+          intent: compra
+          query: Rowenta dg7623 iron rest steam
+          must_include:
+          - dg7623
+          - iron
+          - rest
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id004
+      compatibilidad:
+      - Confirma el modelo exacto y la serie antes de comprar deposito, cartucho antical
+        o manguera.
+      - Los depositos y colectores antical suelen ser especificos por familia aunque
+        visualmente parezcan iguales.
+      - En juntas y tapones, revisa diametro, grosor y tipo de cierre.
+      - 'Las resistencias y piezas internas no son universales: busca siempre referencia
+        exacta de servicio.'
+      - Si compras un protector de suela, mide la base de la plancha y revisa el sistema
+        de fijacion.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si el equipo calienta pero no mantiene vapor, empieza revisando
+          deposito, cartucho antical y circuito.
+        title: Compact Steam Pro DG7623 no saca vapor o saca muy poco
+        symptoms:
+        - La plancha calienta pero no vaporiza
+        - Sale vapor intermitente
+        - Tarda demasiado en recuperar presion
+        causes:
+        - Deposito vacio o mal encajado
+        - Cal en la caldera o circuito
+        - Cartucho antical agotado
+        checks:
+        - Rellenar y recolocar el deposito
+        - Revisar el sistema antical
+        - Purgar vapor unos segundos antes de planchar
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Si el goteo persiste en caliente, suele haber desgaste en juntas
+          o problemas de condensacion en el circuito.
+        title: Compact Steam Pro DG7623 gotea o pierde agua por la suela
+        symptoms:
+        - Moja la ropa en lugar de vaporizar
+        - Gotea al empezar a usarla
+        - Deja marcas de agua sobre tejidos delicados
+        causes:
+        - Junta fatigada en deposito o tapon
+        - Temperatura insuficiente para vapor seco
+        - Condensacion acumulada en la manguera
+        checks:
+        - Revisar juntas y cierres
+        - Esperar a que alcance temperatura completa
+        - Purgar vapor antes de planchar prendas delicadas
+      - key: no-calienta-bien
+        intent: info
+        cta_cat: resistencia
+        fix_hint: Una perdida clara de temperatura sostenida suele apuntar a resistencia
+          o acumulacion severa de cal.
+        title: Compact Steam Pro DG7623 no calienta bien
+        symptoms:
+        - La suela no alcanza temperatura
+        - Hay que pasar varias veces sobre la prenda
+        - El vapor sale tibio y poco efectivo
+        causes:
+        - Resistencia de suela o caldera fatigada
+        - Acumulacion de cal
+        - Sensor termico desajustado
+        checks:
+        - Probar varios niveles de calor
+        - Realizar limpieza antical si el fabricante lo permite
+        - Observar si el problema aparece en todos los tejidos
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.
+  tefal-iron:
+    name: Tefal
+    models:
+    - model: Pro Express Vision GV9820
+      slug: tefal-gv9820
+      sku_pack: ironstation10
+      model_tokens:
+      - gv9820
+      - tefal gv9820
+      - pro express vision gv9820
+      year_range: 2022-2026
+      series: Pro Express Vision
+      recambios:
+        deposito:
+        - sku: tefal-iron-tefal-gv9820-deposito-tank-water
+          title: Deposito de agua compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 water tank steam iron
+          must_include:
+          - gv9820
+          - water
+          - tank
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: &id005
+          - gv9820
+          - tefal gv9820
+          - pro express vision gv9820
+        - sku: tefal-iron-tefal-gv9820-deposito-tank-calc
+          title: Colector antical o deposito compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 calc collector steam iron
+          must_include:
+          - gv9820
+          - calc
+          - collector
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        junta:
+        - sku: tefal-iron-tefal-gv9820-junta-seal-boiler
+          title: Junta de caldera compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 boiler gasket steam iron
+          must_include:
+          - gv9820
+          - boiler
+          - gasket
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        - sku: tefal-iron-tefal-gv9820-junta-seal-cap
+          title: Junta de tapon compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 cap seal steam iron
+          must_include:
+          - gv9820
+          - cap
+          - seal
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        resistencia:
+        - sku: tefal-iron-tefal-gv9820-resistencia-heater-boiler
+          title: Resistencia de caldera compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 boiler heater steam iron
+          must_include:
+          - gv9820
+          - boiler
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        - sku: tefal-iron-tefal-gv9820-resistencia-heater-soleplate
+          title: Resistencia de suela compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 soleplate heater steam iron
+          must_include:
+          - gv9820
+          - soleplate
+          - heater
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        accesorios:
+        - sku: tefal-iron-tefal-gv9820-accesorios-acc-sole-cover
+          title: Protector de suela compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 sole cover steam iron
+          must_include:
+          - gv9820
+          - sole
+          - cover
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        - sku: tefal-iron-tefal-gv9820-accesorios-acc-hose
+          title: Manguera de vapor compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 steam hose iron
+          must_include:
+          - gv9820
+          - steam
+          - hose
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        - sku: tefal-iron-tefal-gv9820-accesorios-acc-calc-cartridge
+          title: Cartucho antical compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 calc cartridge steam iron
+          must_include:
+          - gv9820
+          - calc
+          - cartridge
+          - steam
+          - iron
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+        - sku: tefal-iron-tefal-gv9820-accesorios-acc-rest
+          title: Base o apoyo de plancha compatible para Pro Express Vision GV9820
+          intent: compra
+          query: Tefal gv9820 iron rest steam
+          must_include:
+          - gv9820
+          - iron
+          - rest
+          - steam
+          must_not_include:
+          - vacuum
+          - coffee
+          - humidifier
+          - air
+          - purifier
+          model_tokens: *id005
+      compatibilidad:
+      - Confirma el modelo exacto y la serie antes de comprar deposito, cartucho antical
+        o manguera.
+      - Los depositos y colectores antical suelen ser especificos por familia aunque
+        visualmente parezcan iguales.
+      - En juntas y tapones, revisa diametro, grosor y tipo de cierre.
+      - 'Las resistencias y piezas internas no son universales: busca siempre referencia
+        exacta de servicio.'
+      - Si compras un protector de suela, mide la base de la plancha y revisa el sistema
+        de fijacion.
+      problemas:
+      - key: no-sale-vapor
+        intent: info
+        cta_cat: deposito
+        fix_hint: Si el equipo calienta pero no mantiene vapor, empieza revisando
+          deposito, cartucho antical y circuito.
+        title: Pro Express Vision GV9820 no saca vapor o saca muy poco
+        symptoms:
+        - La plancha calienta pero no vaporiza
+        - Sale vapor intermitente
+        - Tarda demasiado en recuperar presion
+        causes:
+        - Deposito vacio o mal encajado
+        - Cal en la caldera o circuito
+        - Cartucho antical agotado
+        checks:
+        - Rellenar y recolocar el deposito
+        - Revisar el sistema antical
+        - Purgar vapor unos segundos antes de planchar
+      - key: pierde-agua
+        intent: info
+        cta_cat: junta
+        fix_hint: Si el goteo persiste en caliente, suele haber desgaste en juntas
+          o problemas de condensacion en el circuito.
+        title: Pro Express Vision GV9820 gotea o pierde agua por la suela
+        symptoms:
+        - Moja la ropa en lugar de vaporizar
+        - Gotea al empezar a usarla
+        - Deja marcas de agua sobre tejidos delicados
+        causes:
+        - Junta fatigada en deposito o tapon
+        - Temperatura insuficiente para vapor seco
+        - Condensacion acumulada en la manguera
+        checks:
+        - Revisar juntas y cierres
+        - Esperar a que alcance temperatura completa
+        - Purgar vapor antes de planchar prendas delicadas
+      - key: no-calienta-bien
+        intent: info
+        cta_cat: resistencia
+        fix_hint: Una perdida clara de temperatura sostenida suele apuntar a resistencia
+          o acumulacion severa de cal.
+        title: Pro Express Vision GV9820 no calienta bien
+        symptoms:
+        - La suela no alcanza temperatura
+        - Hay que pasar varias veces sobre la prenda
+        - El vapor sale tibio y poco efectivo
+        causes:
+        - Resistencia de suela o caldera fatigada
+        - Acumulacion de cal
+        - Sensor termico desajustado
+        checks:
+        - Probar varios niveles de calor
+        - Realizar limpieza antical si el fabricante lo permite
+        - Observar si el problema aparece en todos los tejidos
+      faqs:
+      - q: ¿Cada cuánto debo descalcificar mi cafetera?
+        a: Cada 2-3 meses con agua dura, o cuando el programa de la máquina lo indique.
+          La cal es la causa principal de averías en cafeteras de presión.
+      - q: ¿Los filtros de agua de cafetera son universales?
+        a: No. Cada fabricante tiene su sistema de filtrado. Comprueba el número de
+          referencia de tu modelo antes de comprar.
+      - q: ¿Puedo cambiar la junta de mi cafetera yo mismo?
+        a: Sí, en la mayoría de modelos es una operación sencilla. Solo necesitas
+          la junta correcta (verifica las medidas en mm) y seguir un tutorial del
+          modelo específico.
+      - q: ¿Por qué la cafetera pierde presión después de años de uso?
+        a: La acumulación de cal deteriora las juntas y obstruye la bomba. Un descalcificado
+          regular y la sustitución de juntas cada 2-3 años suelen resolver el problema.

@@ -1,1 +1,45 @@
-brands: {}
+brands:
+  ghd-straight:
+    name: ghd
+    vertical: planchas-pelo
+    models:
+      - model: Platinum+
+        slug: ghd-platinum-plus
+        sku_pack: straightener10
+        model_tokens: ["ghd platinum plus", "platinum+", "ghd platinum+"]
+        year_range: "2020-2026"
+        series: "Platinum+"
+      - model: Gold
+        slug: ghd-gold
+        sku_pack: straightener10
+        model_tokens: ["ghd gold", "gold styler", "ghd gold styler"]
+        year_range: "2019-2026"
+        series: "Gold"
+
+  remington-straight:
+    name: Remington
+    vertical: planchas-pelo
+    models:
+      - model: Pearl S9500
+        slug: remington-s9500
+        sku_pack: straightener10
+        model_tokens: ["s9500", "remington s9500", "pearl s9500"]
+        year_range: "2019-2026"
+        series: "Pearl"
+      - model: Keratin Protect S8540
+        slug: remington-s8540
+        sku_pack: straightener10
+        model_tokens: ["s8540", "remington s8540", "keratin protect s8540"]
+        year_range: "2020-2026"
+        series: "Keratin Protect"
+
+  dyson-straight:
+    name: Dyson
+    vertical: planchas-pelo
+    models:
+      - model: Corrale HS03
+        slug: dyson-corrale-hs03
+        sku_pack: straightener10
+        model_tokens: ["hs03", "dyson hs03", "corrale hs03"]
+        year_range: "2021-2026"
+        series: "Corrale"

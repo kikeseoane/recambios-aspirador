@@ -1147,6 +1147,266 @@ sku_packs:
       must_include_tpl: ["{model_token}", "folding", "hook"]
       must_not_include: ["battery", "charger", "tire", "tyre", "wheel", "brake", "disc", "fender"]
 
+  # Secador de pelo: 2 filtro + 1 soporte + 7 accesorios = 10
+  dryer10:
+    - catKey: filtro
+      sku_suffix: filter-rear
+      intent: "compra"
+      title_tpl: "Filtro trasero compatible para {model}"
+      must_include_tpl: ["{model_token}", "filter", "dryer"]
+      must_not_include: ["charger", "battery", "vacuum", "purifier", "humidifier"]
+    - catKey: filtro
+      sku_suffix: filter-mesh
+      intent: "compra"
+      title_tpl: "Malla / filtro interior compatible para {model}"
+      must_include_tpl: ["{model_token}", "mesh", "filter", "dryer"]
+      must_not_include: ["charger", "battery", "vacuum", "purifier", "humidifier"]
+
+    - catKey: soporte
+      sku_suffix: stand-holder
+      intent: "compra"
+      title_tpl: "Soporte o base compatible para {model}"
+      must_include_tpl: ["{model_token}", "holder", "stand", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+
+    - catKey: accesorios
+      sku_suffix: acc-nozzle
+      intent: "compra"
+      title_tpl: "Boquilla concentradora compatible para {model}"
+      must_include_tpl: ["{model_token}", "nozzle", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-diffuser
+      intent: "compra"
+      title_tpl: "Difusor compatible para {model}"
+      must_include_tpl: ["{model_token}", "diffuser", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-comb
+      intent: "compra"
+      title_tpl: "Peine o accesorio alisador compatible para {model}"
+      must_include_tpl: ["{model_token}", "comb", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-flyaway
+      intent: "compra"
+      title_tpl: "Accesorio flyaway compatible para {model}"
+      must_include_tpl: ["{model_token}", "flyaway", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-case
+      intent: "compra"
+      title_tpl: "Funda o estuche compatible para {model}"
+      must_include_tpl: ["{model_token}", "case", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-cable
+      intent: "compra"
+      title_tpl: "Cable de alimentacion compatible para {model}"
+      must_include_tpl: ["{model_token}", "power", "cable", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-rear-cover
+      intent: "compra"
+      title_tpl: "Tapa trasera o cubierta compatible para {model}"
+      must_include_tpl: ["{model_token}", "rear", "cover", "dryer"]
+      must_not_include: ["battery", "charger", "filter", "vacuum", "purifier"]
+
+  # Plancha de pelo: 2 soporte + 8 accesorios = 10
+  straightener10:
+    - catKey: soporte
+      sku_suffix: stand-heat-mat
+      intent: "compra"
+      title_tpl: "Base o alfombrilla termica compatible para {model}"
+      must_include_tpl: ["{model_token}", "heat", "mat", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: soporte
+      sku_suffix: stand-holder
+      intent: "compra"
+      title_tpl: "Soporte o holder compatible para {model}"
+      must_include_tpl: ["{model_token}", "holder", "stand", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+
+    - catKey: accesorios
+      sku_suffix: acc-plate-guard
+      intent: "compra"
+      title_tpl: "Protector de placas compatible para {model}"
+      must_include_tpl: ["{model_token}", "plate", "guard", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: accesorios
+      sku_suffix: acc-travel-case
+      intent: "compra"
+      title_tpl: "Estuche de viaje compatible para {model}"
+      must_include_tpl: ["{model_token}", "travel", "case", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: accesorios
+      sku_suffix: acc-pouch
+      intent: "compra"
+      title_tpl: "Funda termica compatible para {model}"
+      must_include_tpl: ["{model_token}", "heat", "pouch", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: accesorios
+      sku_suffix: acc-comb
+      intent: "compra"
+      title_tpl: "Peine guia compatible para {model}"
+      must_include_tpl: ["{model_token}", "comb", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: accesorios
+      sku_suffix: acc-cable
+      intent: "compra"
+      title_tpl: "Cable giratorio compatible para {model}"
+      must_include_tpl: ["{model_token}", "swivel", "cable", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: accesorios
+      sku_suffix: acc-clips
+      intent: "compra"
+      title_tpl: "Clips o pinzas de seccion compatibles para {model}"
+      must_include_tpl: ["{model_token}", "clip", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: accesorios
+      sku_suffix: acc-hinge-lock
+      intent: "compra"
+      title_tpl: "Cierre o hinge lock compatible para {model}"
+      must_include_tpl: ["{model_token}", "lock", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+    - catKey: accesorios
+      sku_suffix: acc-brush
+      intent: "compra"
+      title_tpl: "Cepillo o peine preparador compatible para {model}"
+      must_include_tpl: ["{model_token}", "brush", "straightener"]
+      must_not_include: ["battery", "charger", "vacuum", "purifier", "dryer"]
+
+  # Vaporeta: 2 deposito + 2 junta + 6 accesorios = 10
+  steamer10:
+    - catKey: deposito
+      sku_suffix: tank-water
+      intent: "compra"
+      title_tpl: "Deposito de agua compatible para {model}"
+      must_include_tpl: ["{model_token}", "water", "tank", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: deposito
+      sku_suffix: tank-cap
+      intent: "compra"
+      title_tpl: "Tapon o deposito auxiliar compatible para {model}"
+      must_include_tpl: ["{model_token}", "tank", "cap", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+
+    - catKey: junta
+      sku_suffix: seal-o-ring
+      intent: "compra"
+      title_tpl: "Junta o o-ring compatible para {model}"
+      must_include_tpl: ["{model_token}", "o-ring", "seal", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: junta
+      sku_suffix: seal-valve
+      intent: "compra"
+      title_tpl: "Junta de valvula compatible para {model}"
+      must_include_tpl: ["{model_token}", "valve", "gasket", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+
+    - catKey: accesorios
+      sku_suffix: acc-floor-cloth
+      intent: "compra"
+      title_tpl: "Mopa o pano de suelo compatible para {model}"
+      must_include_tpl: ["{model_token}", "cloth", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-nozzle-jet
+      intent: "compra"
+      title_tpl: "Boquilla jet compatible para {model}"
+      must_include_tpl: ["{model_token}", "jet", "nozzle", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-round-brush
+      intent: "compra"
+      title_tpl: "Cepillo redondo compatible para {model}"
+      must_include_tpl: ["{model_token}", "round", "brush", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-hose
+      intent: "compra"
+      title_tpl: "Manguera de vapor compatible para {model}"
+      must_include_tpl: ["{model_token}", "steam", "hose"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-lance
+      intent: "compra"
+      title_tpl: "Lanza o extension compatible para {model}"
+      must_include_tpl: ["{model_token}", "lance", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-kit
+      intent: "compra"
+      title_tpl: "Kit de accesorios compatible para {model}"
+      must_include_tpl: ["{model_token}", "kit", "accessory", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+
+  # Centro de planchado: 2 deposito + 2 junta + 2 resistencia + 4 accesorios = 10
+  ironstation10:
+    - catKey: deposito
+      sku_suffix: tank-water
+      intent: "compra"
+      title_tpl: "Deposito de agua compatible para {model}"
+      must_include_tpl: ["{model_token}", "water", "tank", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: deposito
+      sku_suffix: tank-calc
+      intent: "compra"
+      title_tpl: "Colector antical o deposito compatible para {model}"
+      must_include_tpl: ["{model_token}", "calc", "collector", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+
+    - catKey: junta
+      sku_suffix: seal-boiler
+      intent: "compra"
+      title_tpl: "Junta de caldera compatible para {model}"
+      must_include_tpl: ["{model_token}", "boiler", "gasket", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: junta
+      sku_suffix: seal-cap
+      intent: "compra"
+      title_tpl: "Junta de tapon compatible para {model}"
+      must_include_tpl: ["{model_token}", "cap", "seal", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+
+    - catKey: resistencia
+      sku_suffix: heater-boiler
+      intent: "compra"
+      title_tpl: "Resistencia de caldera compatible para {model}"
+      must_include_tpl: ["{model_token}", "boiler", "heater", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: resistencia
+      sku_suffix: heater-soleplate
+      intent: "compra"
+      title_tpl: "Resistencia de suela compatible para {model}"
+      must_include_tpl: ["{model_token}", "soleplate", "heater", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+
+    - catKey: accesorios
+      sku_suffix: acc-sole-cover
+      intent: "compra"
+      title_tpl: "Protector de suela compatible para {model}"
+      must_include_tpl: ["{model_token}", "sole", "cover", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-hose
+      intent: "compra"
+      title_tpl: "Manguera de vapor compatible para {model}"
+      must_include_tpl: ["{model_token}", "steam", "hose", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-calc-cartridge
+      intent: "compra"
+      title_tpl: "Cartucho antical compatible para {model}"
+      must_include_tpl: ["{model_token}", "calc", "cartridge", "steam", "iron"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+    - catKey: accesorios
+      sku_suffix: acc-rest
+      intent: "compra"
+      title_tpl: "Base o apoyo de plancha compatible para {model}"
+      must_include_tpl: ["{model_token}", "iron", "rest", "steam"]
+      must_not_include: ["vacuum", "coffee", "humidifier", "air", "purifier"]
+
 # =========================================================
 # PROBLEM PACKS
 # REGLA: {model} y {model_token} se sustituyen en compilación
@@ -1754,6 +2014,226 @@ problem_packs:
         - Sustituir el filtro de carbono si lleva más de 3 meses
       fix_hint: "En el primer uso es normal un leve olor. Si persiste después de varios usos, limpia a fondo la resistencia o sustituye el filtro."
 
+  dryer_base:
+    - key: pierde-potencia-aire
+      title: "{model} ha perdido potencia de aire"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+      causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+      checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      fix_hint: "La mayoria de perdidas de potencia en secadores vienen de un filtro trasero sucio o parcialmente bloqueado."
+
+    - key: se-calienta-mucho
+      title: "{model} se calienta demasiado"
+      intent: info
+      cta_cat: filtro
+      symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+      causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+      checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      fix_hint: "Si baja el rendimiento justo antes de calentarse, revisa primero el filtro y la entrada de aire."
+
+    - key: accesorio-no-encaja
+      title: "{model}: la boquilla o accesorio no encaja bien"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+      causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+      checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      fix_hint: "En secadores premium, una pequena diferencia de version basta para que las boquillas no fijen correctamente."
+
+  straightener_base:
+    - key: no-calienta
+      title: "{model} no calienta o tarda demasiado"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - Las placas apenas suben de temperatura
+        - Tarda mucho en estar lista
+        - El resultado dura menos que antes
+      causes:
+        - Cable o conexion interna fatigada
+        - Sensor termico impreciso
+        - Placas desgastadas o sucias
+      checks:
+        - Revisar si el cable falla al moverlo
+        - Limpiar suavemente las placas en frio
+        - Probar varios niveles de temperatura
+      fix_hint: "Si el rendimiento cambia al mover el cable, suele haber fatiga en el cable giratorio o en la entrada al mango."
+
+    - key: tira-del-pelo
+      title: "{model} tira del pelo o lo engancha"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - Arranca mechones al deslizar
+        - Se nota un tiron en el cierre
+        - Deja marcas o dobleces
+      causes:
+        - Bordes de placa desgastados
+        - Hinge lock o bisagra con holgura
+        - Restos de producto acumulados en las placas
+      checks:
+        - Limpiar restos de laca o protector termico
+        - Revisar si la plancha cierra de forma uniforme
+        - Comprobar el estado del cierre y los topes
+      fix_hint: "Cuando la presion entre placas no es uniforme, el pelo se engancha con facilidad en la bisagra o en el borde."
+
+    - key: olor-quemado
+      title: "{model} huele a quemado"
+      intent: info
+      cta_cat: soporte
+      symptoms:
+        - Olor fuerte al poco de encender
+        - Humo ligero o residuo en la superficie
+        - La carcasa se calienta mas de lo normal
+      causes:
+        - Restos de producto capilar en las placas
+        - Cable danado o sobrecalentado
+        - Apoyo incorrecto en una superficie no resistente al calor
+      checks:
+        - Limpiar placas y carcasa en frio
+        - Revisar si el olor viene de la zona del cable
+        - Usar base o funda termica adecuada
+      fix_hint: "Muchos olores a quemado vienen del apoyo inadecuado en caliente o de residuos de producto sobre las placas."
+
+  steamer_base:
+    - key: no-sale-vapor
+      title: "{model} no saca vapor"
+      intent: info
+      cta_cat: deposito
+      symptoms:
+        - Enciende pero no emite vapor
+        - Sale muy poco vapor aunque el deposito esta lleno
+        - El piloto indica listo pero la boquilla no responde
+      causes:
+        - Deposito mal colocado o vacio
+        - Conducto o boquilla obstruidos por cal
+        - Junta deteriorada con perdida de presion
+      checks:
+        - Rellenar y recolocar el deposito
+        - Desmontar y limpiar la boquilla
+        - Revisar juntas y tapas por fugas
+      fix_hint: "Si hay agua pero no presion, la causa mas frecuente es una obstruccion en boquilla o una junta fatigada."
+
+    - key: pierde-agua
+      title: "{model} pierde agua o gotea"
+      intent: info
+      cta_cat: junta
+      symptoms:
+        - Sale agua en vez de vapor seco
+        - Gotea por la tapa o la manguera
+        - Deja charcos en el suelo
+      causes:
+        - Junta de tapa deteriorada
+        - Deposito mal cerrado
+        - Exceso de condensacion en la manguera
+      checks:
+        - Revisar el estado de la junta principal
+        - Comprobar el cierre del tapon y el deposito
+        - Purgar unos segundos antes de usar
+      fix_hint: "Cuando la perdida aparece alrededor del cierre, la junta suele ser la primera pieza a sustituir."
+
+    - key: accesorio-no-funciona
+      title: "{model}: el accesorio o cepillo no funciona bien"
+      intent: info
+      cta_cat: accesorios
+      symptoms:
+        - El cepillo no limpia como antes
+        - La mopa no arrastra bien la suciedad
+        - La lanza sale despedida o se afloja
+      causes:
+        - Accesorio desgastado o deformado
+        - Sistema de fijacion flojo
+        - Pieza no especifica para la version exacta
+      checks:
+        - Comparar encajes con el accesorio original
+        - Revisar clips y pestanas de fijacion
+        - Probar otro accesorio del mismo equipo
+      fix_hint: "En vaporetas, un accesorio que ajusta mal suele empeorar tanto la limpieza como la presion percibida."
+
+  ironstation_base:
+    - key: no-sale-vapor
+      title: "{model} no saca vapor o saca muy poco"
+      intent: info
+      cta_cat: deposito
+      symptoms:
+        - La plancha calienta pero no vaporiza
+        - Sale vapor intermitente
+        - Tarda demasiado en recuperar presion
+      causes:
+        - Deposito vacio o mal encajado
+        - Cal en la caldera o circuito
+        - Cartucho antical agotado
+      checks:
+        - Rellenar y recolocar el deposito
+        - Revisar el sistema antical
+        - Purgar vapor unos segundos antes de planchar
+      fix_hint: "Si el equipo calienta pero no mantiene vapor, empieza revisando deposito, cartucho antical y circuito."
+
+    - key: pierde-agua
+      title: "{model} gotea o pierde agua por la suela"
+      intent: info
+      cta_cat: junta
+      symptoms:
+        - Moja la ropa en lugar de vaporizar
+        - Gotea al empezar a usarla
+        - Deja marcas de agua sobre tejidos delicados
+      causes:
+        - Junta fatigada en deposito o tapon
+        - Temperatura insuficiente para vapor seco
+        - Condensacion acumulada en la manguera
+      checks:
+        - Revisar juntas y cierres
+        - Esperar a que alcance temperatura completa
+        - Purgar vapor antes de planchar prendas delicadas
+      fix_hint: "Si el goteo persiste en caliente, suele haber desgaste en juntas o problemas de condensacion en el circuito."
+
+    - key: no-calienta-bien
+      title: "{model} no calienta bien"
+      intent: info
+      cta_cat: resistencia
+      symptoms:
+        - La suela no alcanza temperatura
+        - Hay que pasar varias veces sobre la prenda
+        - El vapor sale tibio y poco efectivo
+      causes:
+        - Resistencia de suela o caldera fatigada
+        - Acumulacion de cal
+        - Sensor termico desajustado
+      checks:
+        - Probar varios niveles de calor
+        - Realizar limpieza antical si el fabricante lo permite
+        - Observar si el problema aparece en todos los tejidos
+      fix_hint: "Una perdida clara de temperatura sostenida suele apuntar a resistencia o acumulacion severa de cal."
+
 # =========================================================
 # COMPATIBILITY PACKS
 # =========================================================
@@ -1813,6 +2293,34 @@ compatibility_packs:
     - "Los accesorios de silicona (moldes, liner) son genéricos por tamaño: mide el diámetro interior de tu cesta."
     - "El papel perforado debe ser del tamaño correcto para no bloquear la circulación de aire."
     - "Los filtros de carbono son específicos por modelo: comprueba la referencia antes de comprar."
+
+  dryer_base:
+    - "Confirma la version exacta del secador antes de comprar boquillas, difusor o filtro trasero."
+    - "Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones aunque se parezcan mucho."
+    - "En filtros y tapas traseras, compara diametro, pestanas y fotos reales con la pieza original."
+    - "En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir un recambio."
+    - "Los accesorios termicos universales suelen ajustar peor que los especificos de serie."
+
+  straightener_base:
+    - "Comprueba el modelo exacto y el ano de tu plancha antes de pedir funda, base o cierre."
+    - "Muchas fundas y bases termicas son universales, pero el ajuste perfecto depende del largo y ancho de la plancha."
+    - "En cables giratorios, revisa longitud, tipo de union y salida del mango."
+    - "Los cierres, bisagras y topes cambian mucho entre revisiones aunque la carcasa parezca igual."
+    - "Si el accesorio toca directamente las placas, confirma siempre medidas y resistencia al calor."
+
+  steamer_base:
+    - "Comprueba si tu vaporeta usa deposito extraible o caldera fija: cambia por completo el tipo de pieza."
+    - "Las juntas y tapones son muy sensibles a diametro y rosca; una diferencia minima puede provocar fugas."
+    - "En mopas y panos, confirma el sistema de sujecion: velcro, goma, clip o bolsillo."
+    - "Las boquillas y cepillos redondos suelen variar entre gamas domesticas y profesionales."
+    - "Si compras manguera o lanza, compara anclajes, longitud y tipo de gatillo."
+
+  ironstation_base:
+    - "Confirma el modelo exacto y la serie antes de comprar deposito, cartucho antical o manguera."
+    - "Los depositos y colectores antical suelen ser especificos por familia aunque visualmente parezcan iguales."
+    - "En juntas y tapones, revisa diametro, grosor y tipo de cierre."
+    - "Las resistencias y piezas internas no son universales: busca siempre referencia exacta de servicio."
+    - "Si compras un protector de suela, mide la base de la plancha y revisa el sistema de fijacion."
 
 # =========================================================
 # FAQ PACKS

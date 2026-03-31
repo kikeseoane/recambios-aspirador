@@ -1,1 +1,45 @@
-brands: {}
+brands:
+  blackdecker-hand:
+    name: Black+Decker
+    vertical: aspiradores-mano
+    models:
+      - model: Dustbuster BHHV315
+        slug: blackdecker-bhhv315
+        sku_pack: stick10
+        model_tokens: ["bhhv315", "black decker bhhv315", "dustbuster bhhv315"]
+        year_range: "2020-2026"
+        series: "Dustbuster"
+      - model: Dustbuster HLVC315B11
+        slug: blackdecker-hlvc315b11
+        sku_pack: stick10
+        model_tokens: ["hlvc315b11", "black decker hlvc315b11", "dustbuster hlvc315b11"]
+        year_range: "2021-2026"
+        series: "Dustbuster"
+
+  shark-hand:
+    name: Shark
+    vertical: aspiradores-mano
+    models:
+      - model: WandVac WV200EU
+        slug: shark-wv200eu
+        sku_pack: stick10
+        model_tokens: ["wv200eu", "shark wv200eu", "wandvac wv200eu"]
+        year_range: "2020-2026"
+        series: "WandVac"
+      - model: WandVac WV361EU
+        slug: shark-wv361eu
+        sku_pack: stick10
+        model_tokens: ["wv361eu", "shark wv361eu", "wandvac wv361eu"]
+        year_range: "2021-2026"
+        series: "WandVac"
+
+  bosch-hand:
+    name: Bosch
+    vertical: aspiradores-mano
+    models:
+      - model: Move Lithium 20Vmax
+        slug: bosch-move-lithium-20vmax
+        sku_pack: stick10
+        model_tokens: ["move lithium 20vmax", "bosch move lithium", "20vmax handvac"]
+        year_range: "2020-2026"
+        series: "Move Lithium"
