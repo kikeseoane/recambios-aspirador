@@ -670,6 +670,24 @@ VERTICAL_NEW_NEGATIVE_TERMS = {
     "robots-piscina":       ["filter bag", "filter cartridge", "brush", "cable", "impeller", "caddy", "charger"],
 }
 
+VERTICAL_NEW_MIN_PRICE = {
+    "aspiradores": 65.0,
+    "afeitadoras": 40.0,
+    "aspiradoras-normales": 80.0,
+    "auriculares": 25.0,
+    "cafeteras": 70.0,
+    "cepillos": 20.0,
+    "freidoras": 45.0,
+    "herramientas": 45.0,
+    "lavadoras": 180.0,
+    "mascotas": 35.0,
+    "osmosis": 70.0,
+    "patinetes-electricos": 140.0,
+    "robots-cristales": 90.0,
+    "robots-fregar": 120.0,
+    "robots-piscina": 180.0,
+}
+
 MODEL_TOKEN_RE = re.compile(r"\b(v\d{1,2}|sv\d{2}|dc\d{2,3})\b", re.IGNORECASE)
 GENERIC_MODEL_WORD_RE = re.compile(r"[a-z0-9][a-z0-9+.-]{1,}", re.IGNORECASE)
 QUERY_NOISE_RE = re.compile(
@@ -1003,6 +1021,10 @@ def is_complete_new_product(title: str, vertical: str) -> bool:
     return True
 
 
+def min_new_product_price(vertical: str) -> float:
+    return float(VERTICAL_NEW_MIN_PRICE.get(str(vertical or "").strip(), 35.0))
+
+
 def score_new_product(
     title: str,
     p: Dict[str, Any],
@@ -1011,9 +1033,12 @@ def score_new_product(
     vertical: str,
 ) -> float:
     t = nrm(title)
+    price = get_price_value(p)
     if is_low_quality_new_title(title):
         return -1e9
     if not is_complete_new_product(t, vertical):
+        return -1e9
+    if price < min_new_product_price(vertical):
         return -1e9
 
     s = 0.0
@@ -1025,9 +1050,10 @@ def score_new_product(
             return -1e9
         s -= model_mismatch_penalty(t, req_models)
 
-    s += min(get_price_value(p), 2500.0) * 0.06
-    s += get_orders(p) * 0.01
-    s += get_commission_rate(p) * 0.2
+    # Para "nuevo" preferimos producto completo y precio creíble antes que comisión.
+    s += min(price, 3000.0) * 0.14
+    s += get_orders(p) * 0.003
+    s += get_commission_rate(p) * 0.05
     return s
 
 
