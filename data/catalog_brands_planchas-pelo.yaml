@@ -15,6 +15,18 @@ brands:
         model_tokens: ["ghd gold", "gold styler", "ghd gold styler"]
         year_range: "2019-2026"
         series: "Gold"
+      - model: Max
+        slug: ghd-max
+        sku_pack: straightener10
+        model_tokens: ["ghd max", "max styler", "ghd max styler"]
+        year_range: "2021-2026"
+        series: "Max"
+      - model: Chronos
+        slug: ghd-chronos
+        sku_pack: straightener10
+        model_tokens: ["ghd chronos", "chronos styler", "ghd chronos styler"]
+        year_range: "2024-2026"
+        series: "Chronos"
 
   remington-straight:
     name: Remington
@@ -32,6 +44,18 @@ brands:
         model_tokens: ["s8540", "remington s8540", "keratin protect s8540"]
         year_range: "2020-2026"
         series: "Keratin Protect"
+      - model: Shine Therapy S8500
+        slug: remington-s8500
+        sku_pack: straightener10
+        model_tokens: ["s8500", "remington s8500", "shine therapy s8500"]
+        year_range: "2020-2026"
+        series: "Shine Therapy"
+      - model: Pro-Ceramic Extra S5525
+        slug: remington-s5525
+        sku_pack: straightener10
+        model_tokens: ["s5525", "remington s5525", "pro-ceramic extra s5525"]
+        year_range: "2019-2026"
+        series: "Pro-Ceramic Extra"
 
   dyson-straight:
     name: Dyson
@@ -43,3 +67,20 @@ brands:
         model_tokens: ["hs03", "dyson hs03", "corrale hs03"]
         year_range: "2021-2026"
         series: "Corrale"
+
+  babyliss-straight:
+    name: BaByliss
+    vertical: planchas-pelo
+    models:
+      - model: ST481E
+        slug: babyliss-st481e
+        sku_pack: straightener10
+        model_tokens: ["st481e", "babyliss st481e", "st 481e"]
+        year_range: "2020-2026"
+        series: "Steam Straight"
+      - model: ST495E
+        slug: babyliss-st495e
+        sku_pack: straightener10
+        model_tokens: ["st495e", "babyliss st495e", "st 495e"]
+        year_range: "2021-2026"
+        series: "Super Smooth"
