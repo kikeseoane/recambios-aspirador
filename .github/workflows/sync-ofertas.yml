@@ -93,6 +93,16 @@ jobs:
               )
           PY
 
+      - name: Resolver refresco diario de vertical defaults
+        if: env.SYNC_SHOULD_RUN == '1'
+        run: |
+          HOUR_UTC=$(date -u '+%H')
+          if [ "$HOUR_UTC" = "04" ]; then
+            echo "RUN_VERTICAL_DEFAULTS=1" >> $GITHUB_ENV
+          else
+            echo "RUN_VERTICAL_DEFAULTS=0" >> $GITHUB_ENV
+          fi
+
       - name: Run sync_ofertas (batch horario)
         if: env.SYNC_SHOULD_RUN == '1'
         id: sync
@@ -101,12 +111,16 @@ jobs:
           ALI_APP_SECRET: ${{ secrets.ALI_APP_SECRET }}
           ALI_TRACKING_ID: recambiosaspiradora
         run: |
+          SKIP_VERTICALS="--skip-vertical-defaults"
+          if [ "${RUN_VERTICAL_DEFAULTS}" = "1" ]; then
+            SKIP_VERTICALS=""
+          fi
           python tools/sync_ofertas.py \
-            --only-stale 30 \
+            --only-stale 7 \
             --max-minutes 28 \
             --force \
             --no-cache \
-            --skip-vertical-defaults | tee /tmp/sync_output.txt
+            ${SKIP_VERTICALS} | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt || echo "STATS: n/a")
           MISSING_NEW_LINE=$(grep "^MISSING_NEW:" /tmp/sync_output.txt || echo "MISSING_NEW: n/a")
           COMPAT_STATUS_LINE=$(grep "^COMPAT_STATUS:" /tmp/sync_output.txt || echo "COMPAT_STATUS: n/a")
