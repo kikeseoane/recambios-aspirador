@@ -15,6 +15,18 @@ brands:
         model_tokens: ["gc7840", "philips gc7840", "perfectcare compact gc7840"]
         year_range: "2020-2026"
         series: "PerfectCare Compact"
+      - model: PerfectCare 9000 PSG9050
+        slug: philips-psg9050
+        sku_pack: ironstation10
+        model_tokens: ["psg9050", "philips psg9050", "perfectcare 9000 psg9050"]
+        year_range: "2023-2026"
+        series: "PerfectCare 9000"
+      - model: PerfectCare Elite GC9650
+        slug: philips-gc9650
+        sku_pack: ironstation10
+        model_tokens: ["gc9650", "philips gc9650", "perfectcare elite gc9650"]
+        year_range: "2020-2026"
+        series: "PerfectCare Elite"
 
   rowenta-iron:
     name: Rowenta
@@ -32,6 +44,18 @@ brands:
         model_tokens: ["dg7623", "rowenta dg7623", "compact steam pro dg7623"]
         year_range: "2020-2026"
         series: "Compact Steam Pro"
+      - model: Silence Steam Pro DG9226
+        slug: rowenta-dg9226
+        sku_pack: ironstation10
+        model_tokens: ["dg9226", "rowenta dg9226", "silence steam pro dg9226"]
+        year_range: "2021-2026"
+        series: "Silence Steam Pro"
+      - model: Express Steam VR8322
+        slug: rowenta-vr8322
+        sku_pack: ironstation10
+        model_tokens: ["vr8322", "rowenta vr8322", "express steam vr8322"]
+        year_range: "2020-2026"
+        series: "Express Steam"
 
   tefal-iron:
     name: Tefal
@@ -43,3 +67,32 @@ brands:
         model_tokens: ["gv9820", "tefal gv9820", "pro express vision gv9820"]
         year_range: "2022-2026"
         series: "Pro Express Vision"
+      - model: Pro Express Ultimate GV9563
+        slug: tefal-gv9563
+        sku_pack: ironstation10
+        model_tokens: ["gv9563", "tefal gv9563", "pro express ultimate gv9563"]
+        year_range: "2021-2026"
+        series: "Pro Express Ultimate"
+      - model: Express Protect SV9202
+        slug: tefal-sv9202
+        sku_pack: ironstation10
+        model_tokens: ["sv9202", "tefal sv9202", "express protect sv9202"]
+        year_range: "2021-2026"
+        series: "Express Protect"
+
+  polti-iron:
+    name: Polti
+    vertical: centros-planchado
+    models:
+      - model: Vaporella XT100C
+        slug: polti-xt100c
+        sku_pack: ironstation10
+        model_tokens: ["xt100c", "polti xt100c", "vaporella xt100c"]
+        year_range: "2021-2026"
+        series: "Vaporella"
+      - model: Vaporella 535 Eco Pro
+        slug: polti-535-eco-pro
+        sku_pack: ironstation10
+        model_tokens: ["535 eco pro", "polti 535 eco pro", "vaporella 535 eco pro"]
+        year_range: "2020-2026"
+        series: "Vaporella"
