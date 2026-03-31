@@ -766,6 +766,666 @@ brands:
         a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
           de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
           la compatibilidad de voltaje.
+    - model: Dustbuster PD1820L
+      slug: blackdecker-pd1820l
+      sku_pack: stick10
+      model_tokens:
+      - pd1820l
+      - black decker pd1820l
+      - dustbuster pd1820l
+      year_range: 2020-2026
+      series: Dustbuster
+      recambios:
+        bateria:
+        - sku: blackdecker-hand-blackdecker-pd1820l-bateria-bat-std
+          title: Batería compatible para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l battery
+          must_include:
+          - pd1820l
+          - battery
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: &id003
+          - pd1820l
+          - black decker pd1820l
+          - dustbuster pd1820l
+        - sku: blackdecker-hand-blackdecker-pd1820l-bateria-bat-high
+          title: Batería compatible alta capacidad para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l battery capacity
+          must_include:
+          - pd1820l
+          - battery
+          - capacity
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: *id003
+        filtro:
+        - sku: blackdecker-hand-blackdecker-pd1820l-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l filter hepa
+          must_include:
+          - pd1820l
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id003
+        - sku: blackdecker-hand-blackdecker-pd1820l-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l filter pre
+          must_include:
+          - pd1820l
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id003
+        cepillo:
+        - sku: blackdecker-hand-blackdecker-pd1820l-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l roller
+          must_include:
+          - pd1820l
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id003
+        - sku: blackdecker-hand-blackdecker-pd1820l-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l roller fluffy
+          must_include:
+          - pd1820l
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id003
+        cargador:
+        - sku: blackdecker-hand-blackdecker-pd1820l-cargador-charger-eu
+          title: Cargador compatible EU para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l charger
+          must_include:
+          - pd1820l
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id003
+        soporte:
+        - sku: blackdecker-hand-blackdecker-pd1820l-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Dustbuster PD1820L
+          intent: compra
+          query: Black+Decker pd1820l dock wall
+          must_include:
+          - pd1820l
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id003
+        accesorios:
+        - sku: blackdecker-hand-blackdecker-pd1820l-accesorios-acc-kit-accessory
+          title: Kit accessory compatible para Dustbuster PD1820L (boquillas y cepillos)
+          intent: compra
+          query: Black+Decker pd1820l accessory kit
+          must_include:
+          - pd1820l
+          - accessory
+          - kit
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id003
+        - sku: blackdecker-hand-blackdecker-pd1820l-accesorios-acc-pet
+          title: Kit pet accessory compatible para Dustbuster PD1820L (mini cepillo)
+          intent: compra
+          query: Black+Decker pd1820l pet accessory
+          must_include:
+          - pd1820l
+          - pet
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id003
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el cargador funciona correctamente, lo más probable es que necesites
+          sustituir la batería.
+        title: Dustbuster PD1820L no carga
+        symptoms:
+        - No enciende tras cargar
+        - La luz de carga parpadea pero no mantiene carga
+        - La batería se descarga muy rápido
+        causes:
+        - Batería degradada o agotada
+        - Cargador defectuoso o mal contacto
+        - Contactos de carga oxidados
+        checks:
+        - Probar con otro enchufe o base de carga
+        - Revisar que los contactos estén limpios y sin óxido
+        - Comprobar si el cargador original calienta o hace ruido
+      - key: pierde-potencia
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si tras limpiar el filtro y eliminar obstrucciones no mejora, considera
+          sustituir el filtro por uno nuevo.
+        title: Dustbuster PD1820L ha perdido potencia de aspiración
+        symptoms:
+        - Aspira menos que antes
+        - Se obstruye con facilidad
+        - El motor suena más fuerte de lo normal
+        causes:
+        - Filtro saturado o sucio
+        - Conductos o tubo obstruidos
+        - Rodillo con pelo o hilos enredados
+        checks:
+        - Limpiar o sustituir el filtro
+        - Revisar el tubo y la boquilla por obstrucciones
+        - Limpiar el rodillo de pelo y suciedad
+      - key: cepillo-no-gira
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Si el rodillo gira libre a mano pero no con el motor, puede que
+          el módulo de transmisión esté dañado.
+        title: 'Dustbuster PD1820L: el cepillo o rodillo no gira'
+        symptoms:
+        - El rodillo no gira al encender
+        - Se escucha el motor pero el cepillo está parado
+        - La aspiración es muy débil sobre alfombras
+        causes:
+        - Pelo o hilos enredados bloqueando el rodillo
+        - Rodillo desgastado o roto
+        - Fallo en el módulo de tracción del cepillo
+        checks:
+        - Retirar manualmente pelo e hilos del rodillo
+        - Verificar que el rodillo encaja y gira libremente a mano
+        - Comprobar que no hay objetos atrapados en el eje
+      - key: se-apaga-solo
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el problema ocurre desde el principio del uso y no tras uso prolongado,
+          la batería suele ser la causa raíz.
+        title: Dustbuster PD1820L se apaga solo sin avisar
+        symptoms:
+        - El aspirador se apaga a mitad del uso
+        - Se reinicia o corta la alimentación de repente
+        - La luz de batería parpadea justo antes de apagarse
+        causes:
+        - Batería con celdas degradadas que no aguantan la carga de pico
+        - Sobrecalentamiento del motor por filtro saturado o rodillo bloqueado
+        - Protección térmica activada por uso prolongado
+        checks:
+        - Limpiar el filtro y el rodillo antes de volver a encender
+        - Dejar reposar 10 minutos si se ha usado mucho rato seguido
+        - Comprobar si la autonomía mejora después de un ciclo de carga completo
+      - key: hace-ruido
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Un raspado rítmico suele indicar objeto en el rodillo. Un silbido
+          agudo suele indicar obstrucción en el conducto.
+        title: Dustbuster PD1820L hace ruido extraño o fuerte
+        symptoms:
+        - Sonido nuevo o más fuerte de lo normal al aspirar
+        - Vibración inusual en el mango o cabezal
+        - Ruido de raspado o clic al pasar por suelos
+        causes:
+        - Pelo, hilo o pequeño objeto atrapado en el rodillo o eje
+        - Rodillo desgastado que roza la carcasa
+        - Obstrucción parcial en el tubo o boquilla
+        checks:
+        - Apagar y retirar el rodillo para inspeccionarlo manualmente
+        - Revisar el tubo y la boquilla por objetos que puedan vibrar
+        - Comprobar si el ruido desaparece sin la boquilla conectada
+      - key: mal-olor
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si el mal olor persiste con filtro limpio y rodillo limpio, puede
+          que el motor haya absorbido partículas. Revisa el filtro post-motor.
+        title: Dustbuster PD1820L desprende mal olor al aspirar
+        symptoms:
+        - Olor a quemado, polvo o a sucio al encender
+        - El olor aumenta al aspirar alfombras o pelo de mascotas
+        - El ambiente queda con mal olor después de aspirar
+        causes:
+        - Filtro saturado que recircula el polvo por el aire
+        - Rodillo con pelo acumulado que se calienta con el motor
+        - Depósito o contenedor sin limpiar durante mucho tiempo
+        checks:
+        - Limpiar o sustituir el filtro
+        - Limpiar el rodillo y retirar todo el pelo acumulado
+        - Vaciar y lavar el depósito o contenedor de polvo
+      - key: no-arranca
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si tras carga completa sigue sin arrancar, el problema puede ser
+          la batería o el controlador. La batería es la pieza más fácil de sustituir
+          primero.
+        title: Dustbuster PD1820L no enciende o no arranca
+        symptoms:
+        - No responde al pulsar el botón de encendido
+        - El LED no parpadea ni se enciende
+        - Arranca un segundo y se vuelve a apagar
+        causes:
+        - Batería completamente descargada o dañada
+        - Cargador sin alimentación o con conector suelto
+        - Bloqueo de seguridad por rodillo bloqueado o sobrecalentamiento previo
+        checks:
+        - Conectar el cargador y esperar 30 minutos antes de volver a intentar
+        - Verificar que el cargador está conectado a la corriente y la luz está encendida
+        - Comprobar que el rodillo gira libre y no hay obstrucciones
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Dustbuster NVC215W
+      slug: blackdecker-nvc215w
+      sku_pack: stick10
+      model_tokens:
+      - nvc215w
+      - black decker nvc215w
+      - dustbuster nvc215w
+      year_range: 2019-2026
+      series: Dustbuster
+      recambios:
+        bateria:
+        - sku: blackdecker-hand-blackdecker-nvc215w-bateria-bat-std
+          title: Batería compatible para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w battery
+          must_include:
+          - nvc215w
+          - battery
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: &id004
+          - nvc215w
+          - black decker nvc215w
+          - dustbuster nvc215w
+        - sku: blackdecker-hand-blackdecker-nvc215w-bateria-bat-high
+          title: Batería compatible alta capacidad para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w battery capacity
+          must_include:
+          - nvc215w
+          - battery
+          - capacity
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: *id004
+        filtro:
+        - sku: blackdecker-hand-blackdecker-nvc215w-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w filter hepa
+          must_include:
+          - nvc215w
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        - sku: blackdecker-hand-blackdecker-nvc215w-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w filter pre
+          must_include:
+          - nvc215w
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        cepillo:
+        - sku: blackdecker-hand-blackdecker-nvc215w-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w roller
+          must_include:
+          - nvc215w
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        - sku: blackdecker-hand-blackdecker-nvc215w-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w roller fluffy
+          must_include:
+          - nvc215w
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id004
+        cargador:
+        - sku: blackdecker-hand-blackdecker-nvc215w-cargador-charger-eu
+          title: Cargador compatible EU para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w charger
+          must_include:
+          - nvc215w
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id004
+        soporte:
+        - sku: blackdecker-hand-blackdecker-nvc215w-soporte-dock-wall
+          title: Soporte de pared / dock compatible para Dustbuster NVC215W
+          intent: compra
+          query: Black+Decker nvc215w dock wall
+          must_include:
+          - nvc215w
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id004
+        accesorios:
+        - sku: blackdecker-hand-blackdecker-nvc215w-accesorios-acc-kit-accessory
+          title: Kit accessory compatible para Dustbuster NVC215W (boquillas y cepillos)
+          intent: compra
+          query: Black+Decker nvc215w accessory kit
+          must_include:
+          - nvc215w
+          - accessory
+          - kit
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id004
+        - sku: blackdecker-hand-blackdecker-nvc215w-accesorios-acc-pet
+          title: Kit pet accessory compatible para Dustbuster NVC215W (mini cepillo)
+          intent: compra
+          query: Black+Decker nvc215w pet accessory
+          must_include:
+          - nvc215w
+          - pet
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id004
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el cargador funciona correctamente, lo más probable es que necesites
+          sustituir la batería.
+        title: Dustbuster NVC215W no carga
+        symptoms:
+        - No enciende tras cargar
+        - La luz de carga parpadea pero no mantiene carga
+        - La batería se descarga muy rápido
+        causes:
+        - Batería degradada o agotada
+        - Cargador defectuoso o mal contacto
+        - Contactos de carga oxidados
+        checks:
+        - Probar con otro enchufe o base de carga
+        - Revisar que los contactos estén limpios y sin óxido
+        - Comprobar si el cargador original calienta o hace ruido
+      - key: pierde-potencia
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si tras limpiar el filtro y eliminar obstrucciones no mejora, considera
+          sustituir el filtro por uno nuevo.
+        title: Dustbuster NVC215W ha perdido potencia de aspiración
+        symptoms:
+        - Aspira menos que antes
+        - Se obstruye con facilidad
+        - El motor suena más fuerte de lo normal
+        causes:
+        - Filtro saturado o sucio
+        - Conductos o tubo obstruidos
+        - Rodillo con pelo o hilos enredados
+        checks:
+        - Limpiar o sustituir el filtro
+        - Revisar el tubo y la boquilla por obstrucciones
+        - Limpiar el rodillo de pelo y suciedad
+      - key: cepillo-no-gira
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Si el rodillo gira libre a mano pero no con el motor, puede que
+          el módulo de transmisión esté dañado.
+        title: 'Dustbuster NVC215W: el cepillo o rodillo no gira'
+        symptoms:
+        - El rodillo no gira al encender
+        - Se escucha el motor pero el cepillo está parado
+        - La aspiración es muy débil sobre alfombras
+        causes:
+        - Pelo o hilos enredados bloqueando el rodillo
+        - Rodillo desgastado o roto
+        - Fallo en el módulo de tracción del cepillo
+        checks:
+        - Retirar manualmente pelo e hilos del rodillo
+        - Verificar que el rodillo encaja y gira libremente a mano
+        - Comprobar que no hay objetos atrapados en el eje
+      - key: se-apaga-solo
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el problema ocurre desde el principio del uso y no tras uso prolongado,
+          la batería suele ser la causa raíz.
+        title: Dustbuster NVC215W se apaga solo sin avisar
+        symptoms:
+        - El aspirador se apaga a mitad del uso
+        - Se reinicia o corta la alimentación de repente
+        - La luz de batería parpadea justo antes de apagarse
+        causes:
+        - Batería con celdas degradadas que no aguantan la carga de pico
+        - Sobrecalentamiento del motor por filtro saturado o rodillo bloqueado
+        - Protección térmica activada por uso prolongado
+        checks:
+        - Limpiar el filtro y el rodillo antes de volver a encender
+        - Dejar reposar 10 minutos si se ha usado mucho rato seguido
+        - Comprobar si la autonomía mejora después de un ciclo de carga completo
+      - key: hace-ruido
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Un raspado rítmico suele indicar objeto en el rodillo. Un silbido
+          agudo suele indicar obstrucción en el conducto.
+        title: Dustbuster NVC215W hace ruido extraño o fuerte
+        symptoms:
+        - Sonido nuevo o más fuerte de lo normal al aspirar
+        - Vibración inusual en el mango o cabezal
+        - Ruido de raspado o clic al pasar por suelos
+        causes:
+        - Pelo, hilo o pequeño objeto atrapado en el rodillo o eje
+        - Rodillo desgastado que roza la carcasa
+        - Obstrucción parcial en el tubo o boquilla
+        checks:
+        - Apagar y retirar el rodillo para inspeccionarlo manualmente
+        - Revisar el tubo y la boquilla por objetos que puedan vibrar
+        - Comprobar si el ruido desaparece sin la boquilla conectada
+      - key: mal-olor
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si el mal olor persiste con filtro limpio y rodillo limpio, puede
+          que el motor haya absorbido partículas. Revisa el filtro post-motor.
+        title: Dustbuster NVC215W desprende mal olor al aspirar
+        symptoms:
+        - Olor a quemado, polvo o a sucio al encender
+        - El olor aumenta al aspirar alfombras o pelo de mascotas
+        - El ambiente queda con mal olor después de aspirar
+        causes:
+        - Filtro saturado que recircula el polvo por el aire
+        - Rodillo con pelo acumulado que se calienta con el motor
+        - Depósito o contenedor sin limpiar durante mucho tiempo
+        checks:
+        - Limpiar o sustituir el filtro
+        - Limpiar el rodillo y retirar todo el pelo acumulado
+        - Vaciar y lavar el depósito o contenedor de polvo
+      - key: no-arranca
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si tras carga completa sigue sin arrancar, el problema puede ser
+          la batería o el controlador. La batería es la pieza más fácil de sustituir
+          primero.
+        title: Dustbuster NVC215W no enciende o no arranca
+        symptoms:
+        - No responde al pulsar el botón de encendido
+        - El LED no parpadea ni se enciende
+        - Arranca un segundo y se vuelve a apagar
+        causes:
+        - Batería completamente descargada o dañada
+        - Cargador sin alimentación o con conector suelto
+        - Bloqueo de seguridad por rodillo bloqueado o sobrecalentamiento previo
+        checks:
+        - Conectar el cargador y esperar 30 minutos antes de volver a intentar
+        - Verificar que el cargador está conectado a la corriente y la luz está encendida
+        - Comprobar que el rodillo gira libre y no hay obstrucciones
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
   shark-hand:
     name: Shark
     models:
@@ -795,7 +1455,7 @@ brands:
           - charger
           - dock
           - wall mount
-          model_tokens: &id003
+          model_tokens: &id005
           - wv200eu
           - shark wv200eu
           - wandvac wv200eu
@@ -815,7 +1475,7 @@ brands:
           - charger
           - dock
           - wall mount
-          model_tokens: *id003
+          model_tokens: *id005
         filtro:
         - sku: shark-hand-shark-wv200eu-filtro-filt-post-hepa
           title: Filtro HEPA post-motor compatible para WandVac WV200EU
@@ -831,7 +1491,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: shark-hand-shark-wv200eu-filtro-filt-pre-pack2
           title: Filtro pre-motor compatible (pack 2) para WandVac WV200EU
           intent: compra
@@ -846,7 +1506,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id003
+          model_tokens: *id005
         cepillo:
         - sku: shark-hand-shark-wv200eu-cepillo-brush-roller-main
           title: Rodillo/cepillo principal compatible para WandVac WV200EU
@@ -862,7 +1522,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: shark-hand-shark-wv200eu-cepillo-brush-soft-fluffy
           title: Rodillo Soft/Fluffy compatible para WandVac WV200EU
           intent: compra
@@ -878,7 +1538,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id003
+          model_tokens: *id005
         cargador:
         - sku: shark-hand-shark-wv200eu-cargador-charger-eu
           title: Cargador compatible EU para WandVac WV200EU
@@ -895,7 +1555,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id003
+          model_tokens: *id005
         soporte:
         - sku: shark-hand-shark-wv200eu-soporte-dock-wall
           title: Soporte de pared / dock compatible para WandVac WV200EU
@@ -913,7 +1573,7 @@ brands:
           - board
           - handle
           - motor
-          model_tokens: *id003
+          model_tokens: *id005
         accesorios:
         - sku: shark-hand-shark-wv200eu-accesorios-acc-kit-accessory
           title: Kit accessory compatible para WandVac WV200EU (boquillas y cepillos)
@@ -929,7 +1589,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id003
+          model_tokens: *id005
         - sku: shark-hand-shark-wv200eu-accesorios-acc-pet
           title: Kit pet accessory compatible para WandVac WV200EU (mini cepillo)
           intent: compra
@@ -944,7 +1604,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id003
+          model_tokens: *id005
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
         cualquier recambio.
@@ -1125,7 +1785,7 @@ brands:
           - charger
           - dock
           - wall mount
-          model_tokens: &id004
+          model_tokens: &id006
           - wv361eu
           - shark wv361eu
           - wandvac wv361eu
@@ -1145,7 +1805,7 @@ brands:
           - charger
           - dock
           - wall mount
-          model_tokens: *id004
+          model_tokens: *id006
         filtro:
         - sku: shark-hand-shark-wv361eu-filtro-filt-post-hepa
           title: Filtro HEPA post-motor compatible para WandVac WV361EU
@@ -1161,7 +1821,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: shark-hand-shark-wv361eu-filtro-filt-pre-pack2
           title: Filtro pre-motor compatible (pack 2) para WandVac WV361EU
           intent: compra
@@ -1176,7 +1836,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id004
+          model_tokens: *id006
         cepillo:
         - sku: shark-hand-shark-wv361eu-cepillo-brush-roller-main
           title: Rodillo/cepillo principal compatible para WandVac WV361EU
@@ -1192,7 +1852,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: shark-hand-shark-wv361eu-cepillo-brush-soft-fluffy
           title: Rodillo Soft/Fluffy compatible para WandVac WV361EU
           intent: compra
@@ -1208,7 +1868,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id004
+          model_tokens: *id006
         cargador:
         - sku: shark-hand-shark-wv361eu-cargador-charger-eu
           title: Cargador compatible EU para WandVac WV361EU
@@ -1225,7 +1885,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id004
+          model_tokens: *id006
         soporte:
         - sku: shark-hand-shark-wv361eu-soporte-dock-wall
           title: Soporte de pared / dock compatible para WandVac WV361EU
@@ -1243,7 +1903,7 @@ brands:
           - board
           - handle
           - motor
-          model_tokens: *id004
+          model_tokens: *id006
         accesorios:
         - sku: shark-hand-shark-wv361eu-accesorios-acc-kit-accessory
           title: Kit accessory compatible para WandVac WV361EU (boquillas y cepillos)
@@ -1259,7 +1919,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id004
+          model_tokens: *id006
         - sku: shark-hand-shark-wv361eu-accesorios-acc-pet
           title: Kit pet accessory compatible para WandVac WV361EU (mini cepillo)
           intent: compra
@@ -1274,7 +1934,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id004
+          model_tokens: *id006
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
         cualquier recambio.
@@ -1429,6 +2089,667 @@ brands:
         a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
           de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
           la compatibilidad de voltaje.
+    - model: WandVac WV270EU
+      slug: shark-wv270eu
+      sku_pack: stick10
+      model_tokens:
+      - wv270eu
+      - shark wv270eu
+      - wandvac wv270eu
+      year_range: 2021-2026
+      series: WandVac
+      recambios:
+        bateria:
+        - sku: shark-hand-shark-wv270eu-bateria-bat-std
+          title: Batería compatible para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu battery
+          must_include:
+          - wv270eu
+          - battery
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: &id007
+          - wv270eu
+          - shark wv270eu
+          - wandvac wv270eu
+        - sku: shark-hand-shark-wv270eu-bateria-bat-high
+          title: Batería compatible alta capacidad para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu battery capacity
+          must_include:
+          - wv270eu
+          - battery
+          - capacity
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: *id007
+        filtro:
+        - sku: shark-hand-shark-wv270eu-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu filter hepa
+          must_include:
+          - wv270eu
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        - sku: shark-hand-shark-wv270eu-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu filter pre
+          must_include:
+          - wv270eu
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        cepillo:
+        - sku: shark-hand-shark-wv270eu-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu roller
+          must_include:
+          - wv270eu
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        - sku: shark-hand-shark-wv270eu-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu roller fluffy
+          must_include:
+          - wv270eu
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id007
+        cargador:
+        - sku: shark-hand-shark-wv270eu-cargador-charger-eu
+          title: Cargador compatible EU para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu charger
+          must_include:
+          - wv270eu
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id007
+        soporte:
+        - sku: shark-hand-shark-wv270eu-soporte-dock-wall
+          title: Soporte de pared / dock compatible para WandVac WV270EU
+          intent: compra
+          query: Shark wv270eu dock wall
+          must_include:
+          - wv270eu
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id007
+        accesorios:
+        - sku: shark-hand-shark-wv270eu-accesorios-acc-kit-accessory
+          title: Kit accessory compatible para WandVac WV270EU (boquillas y cepillos)
+          intent: compra
+          query: Shark wv270eu accessory kit
+          must_include:
+          - wv270eu
+          - accessory
+          - kit
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id007
+        - sku: shark-hand-shark-wv270eu-accesorios-acc-pet
+          title: Kit pet accessory compatible para WandVac WV270EU (mini cepillo)
+          intent: compra
+          query: Shark wv270eu pet accessory
+          must_include:
+          - wv270eu
+          - pet
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id007
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el cargador funciona correctamente, lo más probable es que necesites
+          sustituir la batería.
+        title: WandVac WV270EU no carga
+        symptoms:
+        - No enciende tras cargar
+        - La luz de carga parpadea pero no mantiene carga
+        - La batería se descarga muy rápido
+        causes:
+        - Batería degradada o agotada
+        - Cargador defectuoso o mal contacto
+        - Contactos de carga oxidados
+        checks:
+        - Probar con otro enchufe o base de carga
+        - Revisar que los contactos estén limpios y sin óxido
+        - Comprobar si el cargador original calienta o hace ruido
+      - key: pierde-potencia
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si tras limpiar el filtro y eliminar obstrucciones no mejora, considera
+          sustituir el filtro por uno nuevo.
+        title: WandVac WV270EU ha perdido potencia de aspiración
+        symptoms:
+        - Aspira menos que antes
+        - Se obstruye con facilidad
+        - El motor suena más fuerte de lo normal
+        causes:
+        - Filtro saturado o sucio
+        - Conductos o tubo obstruidos
+        - Rodillo con pelo o hilos enredados
+        checks:
+        - Limpiar o sustituir el filtro
+        - Revisar el tubo y la boquilla por obstrucciones
+        - Limpiar el rodillo de pelo y suciedad
+      - key: cepillo-no-gira
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Si el rodillo gira libre a mano pero no con el motor, puede que
+          el módulo de transmisión esté dañado.
+        title: 'WandVac WV270EU: el cepillo o rodillo no gira'
+        symptoms:
+        - El rodillo no gira al encender
+        - Se escucha el motor pero el cepillo está parado
+        - La aspiración es muy débil sobre alfombras
+        causes:
+        - Pelo o hilos enredados bloqueando el rodillo
+        - Rodillo desgastado o roto
+        - Fallo en el módulo de tracción del cepillo
+        checks:
+        - Retirar manualmente pelo e hilos del rodillo
+        - Verificar que el rodillo encaja y gira libremente a mano
+        - Comprobar que no hay objetos atrapados en el eje
+      - key: se-apaga-solo
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el problema ocurre desde el principio del uso y no tras uso prolongado,
+          la batería suele ser la causa raíz.
+        title: WandVac WV270EU se apaga solo sin avisar
+        symptoms:
+        - El aspirador se apaga a mitad del uso
+        - Se reinicia o corta la alimentación de repente
+        - La luz de batería parpadea justo antes de apagarse
+        causes:
+        - Batería con celdas degradadas que no aguantan la carga de pico
+        - Sobrecalentamiento del motor por filtro saturado o rodillo bloqueado
+        - Protección térmica activada por uso prolongado
+        checks:
+        - Limpiar el filtro y el rodillo antes de volver a encender
+        - Dejar reposar 10 minutos si se ha usado mucho rato seguido
+        - Comprobar si la autonomía mejora después de un ciclo de carga completo
+      - key: hace-ruido
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Un raspado rítmico suele indicar objeto en el rodillo. Un silbido
+          agudo suele indicar obstrucción en el conducto.
+        title: WandVac WV270EU hace ruido extraño o fuerte
+        symptoms:
+        - Sonido nuevo o más fuerte de lo normal al aspirar
+        - Vibración inusual en el mango o cabezal
+        - Ruido de raspado o clic al pasar por suelos
+        causes:
+        - Pelo, hilo o pequeño objeto atrapado en el rodillo o eje
+        - Rodillo desgastado que roza la carcasa
+        - Obstrucción parcial en el tubo o boquilla
+        checks:
+        - Apagar y retirar el rodillo para inspeccionarlo manualmente
+        - Revisar el tubo y la boquilla por objetos que puedan vibrar
+        - Comprobar si el ruido desaparece sin la boquilla conectada
+      - key: mal-olor
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si el mal olor persiste con filtro limpio y rodillo limpio, puede
+          que el motor haya absorbido partículas. Revisa el filtro post-motor.
+        title: WandVac WV270EU desprende mal olor al aspirar
+        symptoms:
+        - Olor a quemado, polvo o a sucio al encender
+        - El olor aumenta al aspirar alfombras o pelo de mascotas
+        - El ambiente queda con mal olor después de aspirar
+        causes:
+        - Filtro saturado que recircula el polvo por el aire
+        - Rodillo con pelo acumulado que se calienta con el motor
+        - Depósito o contenedor sin limpiar durante mucho tiempo
+        checks:
+        - Limpiar o sustituir el filtro
+        - Limpiar el rodillo y retirar todo el pelo acumulado
+        - Vaciar y lavar el depósito o contenedor de polvo
+      - key: no-arranca
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si tras carga completa sigue sin arrancar, el problema puede ser
+          la batería o el controlador. La batería es la pieza más fácil de sustituir
+          primero.
+        title: WandVac WV270EU no enciende o no arranca
+        symptoms:
+        - No responde al pulsar el botón de encendido
+        - El LED no parpadea ni se enciende
+        - Arranca un segundo y se vuelve a apagar
+        causes:
+        - Batería completamente descargada o dañada
+        - Cargador sin alimentación o con conector suelto
+        - Bloqueo de seguridad por rodillo bloqueado o sobrecalentamiento previo
+        checks:
+        - Conectar el cargador y esperar 30 minutos antes de volver a intentar
+        - Verificar que el cargador está conectado a la corriente y la luz está encendida
+        - Comprobar que el rodillo gira libre y no hay obstrucciones
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: UltraCyclone CH950EUT
+      slug: shark-ch950eut
+      sku_pack: stick10
+      model_tokens:
+      - ch950eut
+      - shark ch950eut
+      - ultracyclone ch950eut
+      year_range: 2020-2026
+      series: UltraCyclone
+      recambios:
+        bateria:
+        - sku: shark-hand-shark-ch950eut-bateria-bat-std
+          title: Batería compatible para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut battery
+          must_include:
+          - ch950eut
+          - battery
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: &id008
+          - ch950eut
+          - shark ch950eut
+          - ultracyclone ch950eut
+        - sku: shark-hand-shark-ch950eut-bateria-bat-high
+          title: Batería compatible alta capacidad para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut battery capacity
+          must_include:
+          - ch950eut
+          - battery
+          - capacity
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: *id008
+        filtro:
+        - sku: shark-hand-shark-ch950eut-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut filter hepa
+          must_include:
+          - ch950eut
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        - sku: shark-hand-shark-ch950eut-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut filter pre
+          must_include:
+          - ch950eut
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        cepillo:
+        - sku: shark-hand-shark-ch950eut-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut roller
+          must_include:
+          - ch950eut
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        - sku: shark-hand-shark-ch950eut-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut roller fluffy
+          must_include:
+          - ch950eut
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id008
+        cargador:
+        - sku: shark-hand-shark-ch950eut-cargador-charger-eu
+          title: Cargador compatible EU para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut charger
+          must_include:
+          - ch950eut
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id008
+        soporte:
+        - sku: shark-hand-shark-ch950eut-soporte-dock-wall
+          title: Soporte de pared / dock compatible para UltraCyclone CH950EUT
+          intent: compra
+          query: Shark ch950eut dock wall
+          must_include:
+          - ch950eut
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id008
+        accesorios:
+        - sku: shark-hand-shark-ch950eut-accesorios-acc-kit-accessory
+          title: Kit accessory compatible para UltraCyclone CH950EUT (boquillas y
+            cepillos)
+          intent: compra
+          query: Shark ch950eut accessory kit
+          must_include:
+          - ch950eut
+          - accessory
+          - kit
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id008
+        - sku: shark-hand-shark-ch950eut-accesorios-acc-pet
+          title: Kit pet accessory compatible para UltraCyclone CH950EUT (mini cepillo)
+          intent: compra
+          query: Shark ch950eut pet accessory
+          must_include:
+          - ch950eut
+          - pet
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id008
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el cargador funciona correctamente, lo más probable es que necesites
+          sustituir la batería.
+        title: UltraCyclone CH950EUT no carga
+        symptoms:
+        - No enciende tras cargar
+        - La luz de carga parpadea pero no mantiene carga
+        - La batería se descarga muy rápido
+        causes:
+        - Batería degradada o agotada
+        - Cargador defectuoso o mal contacto
+        - Contactos de carga oxidados
+        checks:
+        - Probar con otro enchufe o base de carga
+        - Revisar que los contactos estén limpios y sin óxido
+        - Comprobar si el cargador original calienta o hace ruido
+      - key: pierde-potencia
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si tras limpiar el filtro y eliminar obstrucciones no mejora, considera
+          sustituir el filtro por uno nuevo.
+        title: UltraCyclone CH950EUT ha perdido potencia de aspiración
+        symptoms:
+        - Aspira menos que antes
+        - Se obstruye con facilidad
+        - El motor suena más fuerte de lo normal
+        causes:
+        - Filtro saturado o sucio
+        - Conductos o tubo obstruidos
+        - Rodillo con pelo o hilos enredados
+        checks:
+        - Limpiar o sustituir el filtro
+        - Revisar el tubo y la boquilla por obstrucciones
+        - Limpiar el rodillo de pelo y suciedad
+      - key: cepillo-no-gira
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Si el rodillo gira libre a mano pero no con el motor, puede que
+          el módulo de transmisión esté dañado.
+        title: 'UltraCyclone CH950EUT: el cepillo o rodillo no gira'
+        symptoms:
+        - El rodillo no gira al encender
+        - Se escucha el motor pero el cepillo está parado
+        - La aspiración es muy débil sobre alfombras
+        causes:
+        - Pelo o hilos enredados bloqueando el rodillo
+        - Rodillo desgastado o roto
+        - Fallo en el módulo de tracción del cepillo
+        checks:
+        - Retirar manualmente pelo e hilos del rodillo
+        - Verificar que el rodillo encaja y gira libremente a mano
+        - Comprobar que no hay objetos atrapados en el eje
+      - key: se-apaga-solo
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el problema ocurre desde el principio del uso y no tras uso prolongado,
+          la batería suele ser la causa raíz.
+        title: UltraCyclone CH950EUT se apaga solo sin avisar
+        symptoms:
+        - El aspirador se apaga a mitad del uso
+        - Se reinicia o corta la alimentación de repente
+        - La luz de batería parpadea justo antes de apagarse
+        causes:
+        - Batería con celdas degradadas que no aguantan la carga de pico
+        - Sobrecalentamiento del motor por filtro saturado o rodillo bloqueado
+        - Protección térmica activada por uso prolongado
+        checks:
+        - Limpiar el filtro y el rodillo antes de volver a encender
+        - Dejar reposar 10 minutos si se ha usado mucho rato seguido
+        - Comprobar si la autonomía mejora después de un ciclo de carga completo
+      - key: hace-ruido
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Un raspado rítmico suele indicar objeto en el rodillo. Un silbido
+          agudo suele indicar obstrucción en el conducto.
+        title: UltraCyclone CH950EUT hace ruido extraño o fuerte
+        symptoms:
+        - Sonido nuevo o más fuerte de lo normal al aspirar
+        - Vibración inusual en el mango o cabezal
+        - Ruido de raspado o clic al pasar por suelos
+        causes:
+        - Pelo, hilo o pequeño objeto atrapado en el rodillo o eje
+        - Rodillo desgastado que roza la carcasa
+        - Obstrucción parcial en el tubo o boquilla
+        checks:
+        - Apagar y retirar el rodillo para inspeccionarlo manualmente
+        - Revisar el tubo y la boquilla por objetos que puedan vibrar
+        - Comprobar si el ruido desaparece sin la boquilla conectada
+      - key: mal-olor
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si el mal olor persiste con filtro limpio y rodillo limpio, puede
+          que el motor haya absorbido partículas. Revisa el filtro post-motor.
+        title: UltraCyclone CH950EUT desprende mal olor al aspirar
+        symptoms:
+        - Olor a quemado, polvo o a sucio al encender
+        - El olor aumenta al aspirar alfombras o pelo de mascotas
+        - El ambiente queda con mal olor después de aspirar
+        causes:
+        - Filtro saturado que recircula el polvo por el aire
+        - Rodillo con pelo acumulado que se calienta con el motor
+        - Depósito o contenedor sin limpiar durante mucho tiempo
+        checks:
+        - Limpiar o sustituir el filtro
+        - Limpiar el rodillo y retirar todo el pelo acumulado
+        - Vaciar y lavar el depósito o contenedor de polvo
+      - key: no-arranca
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si tras carga completa sigue sin arrancar, el problema puede ser
+          la batería o el controlador. La batería es la pieza más fácil de sustituir
+          primero.
+        title: UltraCyclone CH950EUT no enciende o no arranca
+        symptoms:
+        - No responde al pulsar el botón de encendido
+        - El LED no parpadea ni se enciende
+        - Arranca un segundo y se vuelve a apagar
+        causes:
+        - Batería completamente descargada o dañada
+        - Cargador sin alimentación o con conector suelto
+        - Bloqueo de seguridad por rodillo bloqueado o sobrecalentamiento previo
+        checks:
+        - Conectar el cargador y esperar 30 minutos antes de volver a intentar
+        - Verificar que el cargador está conectado a la corriente y la luz está encendida
+        - Comprobar que el rodillo gira libre y no hay obstrucciones
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
   bosch-hand:
     name: Bosch
     models:
@@ -1458,7 +2779,7 @@ brands:
           - charger
           - dock
           - wall mount
-          model_tokens: &id005
+          model_tokens: &id009
           - move lithium 20vmax
           - bosch move lithium
           - 20vmax handvac
@@ -1478,7 +2799,7 @@ brands:
           - charger
           - dock
           - wall mount
-          model_tokens: *id005
+          model_tokens: *id009
         filtro:
         - sku: bosch-hand-bosch-move-lithium-20vmax-filtro-filt-post-hepa
           title: Filtro HEPA post-motor compatible para Move Lithium 20Vmax
@@ -1494,7 +2815,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-hand-bosch-move-lithium-20vmax-filtro-filt-pre-pack2
           title: Filtro pre-motor compatible (pack 2) para Move Lithium 20Vmax
           intent: compra
@@ -1509,7 +2830,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id005
+          model_tokens: *id009
         cepillo:
         - sku: bosch-hand-bosch-move-lithium-20vmax-cepillo-brush-roller-main
           title: Rodillo/cepillo principal compatible para Move Lithium 20Vmax
@@ -1525,7 +2846,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-hand-bosch-move-lithium-20vmax-cepillo-brush-soft-fluffy
           title: Rodillo Soft/Fluffy compatible para Move Lithium 20Vmax
           intent: compra
@@ -1541,7 +2862,7 @@ brands:
           - trigger
           - switch
           - button
-          model_tokens: *id005
+          model_tokens: *id009
         cargador:
         - sku: bosch-hand-bosch-move-lithium-20vmax-cargador-charger-eu
           title: Cargador compatible EU para Move Lithium 20Vmax
@@ -1558,7 +2879,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id005
+          model_tokens: *id009
         soporte:
         - sku: bosch-hand-bosch-move-lithium-20vmax-soporte-dock-wall
           title: Soporte de pared / dock compatible para Move Lithium 20Vmax
@@ -1576,7 +2897,7 @@ brands:
           - board
           - handle
           - motor
-          model_tokens: *id005
+          model_tokens: *id009
         accesorios:
         - sku: bosch-hand-bosch-move-lithium-20vmax-accesorios-acc-kit-accessory
           title: Kit accessory compatible para Move Lithium 20Vmax (boquillas y cepillos)
@@ -1592,7 +2913,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id005
+          model_tokens: *id009
         - sku: bosch-hand-bosch-move-lithium-20vmax-accesorios-acc-pet
           title: Kit pet accessory compatible para Move Lithium 20Vmax (mini cepillo)
           intent: compra
@@ -1607,7 +2928,7 @@ brands:
           - button
           - pcb
           - board
-          model_tokens: *id005
+          model_tokens: *id009
       compatibilidad:
       - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
         cualquier recambio.
@@ -1733,6 +3054,666 @@ brands:
           la batería o el controlador. La batería es la pieza más fácil de sustituir
           primero.
         title: Move Lithium 20Vmax no enciende o no arranca
+        symptoms:
+        - No responde al pulsar el botón de encendido
+        - El LED no parpadea ni se enciende
+        - Arranca un segundo y se vuelve a apagar
+        causes:
+        - Batería completamente descargada o dañada
+        - Cargador sin alimentación o con conector suelto
+        - Bloqueo de seguridad por rodillo bloqueado o sobrecalentamiento previo
+        checks:
+        - Conectar el cargador y esperar 30 minutos antes de volver a intentar
+        - Verificar que el cargador está conectado a la corriente y la luz está encendida
+        - Comprobar que el rodillo gira libre y no hay obstrucciones
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: BHN24L
+      slug: bosch-bhn24l
+      sku_pack: stick10
+      model_tokens:
+      - bhn24l
+      - bosch bhn24l
+      - move lithium bhn24l
+      year_range: 2020-2026
+      series: Move Lithium
+      recambios:
+        bateria:
+        - sku: bosch-hand-bosch-bhn24l-bateria-bat-std
+          title: Batería compatible para BHN24L
+          intent: compra
+          query: Bosch bhn24l battery
+          must_include:
+          - bhn24l
+          - battery
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: &id010
+          - bhn24l
+          - bosch bhn24l
+          - move lithium bhn24l
+        - sku: bosch-hand-bosch-bhn24l-bateria-bat-high
+          title: Batería compatible alta capacidad para BHN24L
+          intent: compra
+          query: Bosch bhn24l battery capacity
+          must_include:
+          - bhn24l
+          - battery
+          - capacity
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: *id010
+        filtro:
+        - sku: bosch-hand-bosch-bhn24l-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para BHN24L
+          intent: compra
+          query: Bosch bhn24l filter hepa
+          must_include:
+          - bhn24l
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        - sku: bosch-hand-bosch-bhn24l-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para BHN24L
+          intent: compra
+          query: Bosch bhn24l filter pre
+          must_include:
+          - bhn24l
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        cepillo:
+        - sku: bosch-hand-bosch-bhn24l-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para BHN24L
+          intent: compra
+          query: Bosch bhn24l roller
+          must_include:
+          - bhn24l
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        - sku: bosch-hand-bosch-bhn24l-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para BHN24L
+          intent: compra
+          query: Bosch bhn24l roller fluffy
+          must_include:
+          - bhn24l
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id010
+        cargador:
+        - sku: bosch-hand-bosch-bhn24l-cargador-charger-eu
+          title: Cargador compatible EU para BHN24L
+          intent: compra
+          query: Bosch bhn24l charger
+          must_include:
+          - bhn24l
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id010
+        soporte:
+        - sku: bosch-hand-bosch-bhn24l-soporte-dock-wall
+          title: Soporte de pared / dock compatible para BHN24L
+          intent: compra
+          query: Bosch bhn24l dock wall
+          must_include:
+          - bhn24l
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id010
+        accesorios:
+        - sku: bosch-hand-bosch-bhn24l-accesorios-acc-kit-accessory
+          title: Kit accessory compatible para BHN24L (boquillas y cepillos)
+          intent: compra
+          query: Bosch bhn24l accessory kit
+          must_include:
+          - bhn24l
+          - accessory
+          - kit
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id010
+        - sku: bosch-hand-bosch-bhn24l-accesorios-acc-pet
+          title: Kit pet accessory compatible para BHN24L (mini cepillo)
+          intent: compra
+          query: Bosch bhn24l pet accessory
+          must_include:
+          - bhn24l
+          - pet
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id010
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el cargador funciona correctamente, lo más probable es que necesites
+          sustituir la batería.
+        title: BHN24L no carga
+        symptoms:
+        - No enciende tras cargar
+        - La luz de carga parpadea pero no mantiene carga
+        - La batería se descarga muy rápido
+        causes:
+        - Batería degradada o agotada
+        - Cargador defectuoso o mal contacto
+        - Contactos de carga oxidados
+        checks:
+        - Probar con otro enchufe o base de carga
+        - Revisar que los contactos estén limpios y sin óxido
+        - Comprobar si el cargador original calienta o hace ruido
+      - key: pierde-potencia
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si tras limpiar el filtro y eliminar obstrucciones no mejora, considera
+          sustituir el filtro por uno nuevo.
+        title: BHN24L ha perdido potencia de aspiración
+        symptoms:
+        - Aspira menos que antes
+        - Se obstruye con facilidad
+        - El motor suena más fuerte de lo normal
+        causes:
+        - Filtro saturado o sucio
+        - Conductos o tubo obstruidos
+        - Rodillo con pelo o hilos enredados
+        checks:
+        - Limpiar o sustituir el filtro
+        - Revisar el tubo y la boquilla por obstrucciones
+        - Limpiar el rodillo de pelo y suciedad
+      - key: cepillo-no-gira
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Si el rodillo gira libre a mano pero no con el motor, puede que
+          el módulo de transmisión esté dañado.
+        title: 'BHN24L: el cepillo o rodillo no gira'
+        symptoms:
+        - El rodillo no gira al encender
+        - Se escucha el motor pero el cepillo está parado
+        - La aspiración es muy débil sobre alfombras
+        causes:
+        - Pelo o hilos enredados bloqueando el rodillo
+        - Rodillo desgastado o roto
+        - Fallo en el módulo de tracción del cepillo
+        checks:
+        - Retirar manualmente pelo e hilos del rodillo
+        - Verificar que el rodillo encaja y gira libremente a mano
+        - Comprobar que no hay objetos atrapados en el eje
+      - key: se-apaga-solo
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el problema ocurre desde el principio del uso y no tras uso prolongado,
+          la batería suele ser la causa raíz.
+        title: BHN24L se apaga solo sin avisar
+        symptoms:
+        - El aspirador se apaga a mitad del uso
+        - Se reinicia o corta la alimentación de repente
+        - La luz de batería parpadea justo antes de apagarse
+        causes:
+        - Batería con celdas degradadas que no aguantan la carga de pico
+        - Sobrecalentamiento del motor por filtro saturado o rodillo bloqueado
+        - Protección térmica activada por uso prolongado
+        checks:
+        - Limpiar el filtro y el rodillo antes de volver a encender
+        - Dejar reposar 10 minutos si se ha usado mucho rato seguido
+        - Comprobar si la autonomía mejora después de un ciclo de carga completo
+      - key: hace-ruido
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Un raspado rítmico suele indicar objeto en el rodillo. Un silbido
+          agudo suele indicar obstrucción en el conducto.
+        title: BHN24L hace ruido extraño o fuerte
+        symptoms:
+        - Sonido nuevo o más fuerte de lo normal al aspirar
+        - Vibración inusual en el mango o cabezal
+        - Ruido de raspado o clic al pasar por suelos
+        causes:
+        - Pelo, hilo o pequeño objeto atrapado en el rodillo o eje
+        - Rodillo desgastado que roza la carcasa
+        - Obstrucción parcial en el tubo o boquilla
+        checks:
+        - Apagar y retirar el rodillo para inspeccionarlo manualmente
+        - Revisar el tubo y la boquilla por objetos que puedan vibrar
+        - Comprobar si el ruido desaparece sin la boquilla conectada
+      - key: mal-olor
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si el mal olor persiste con filtro limpio y rodillo limpio, puede
+          que el motor haya absorbido partículas. Revisa el filtro post-motor.
+        title: BHN24L desprende mal olor al aspirar
+        symptoms:
+        - Olor a quemado, polvo o a sucio al encender
+        - El olor aumenta al aspirar alfombras o pelo de mascotas
+        - El ambiente queda con mal olor después de aspirar
+        causes:
+        - Filtro saturado que recircula el polvo por el aire
+        - Rodillo con pelo acumulado que se calienta con el motor
+        - Depósito o contenedor sin limpiar durante mucho tiempo
+        checks:
+        - Limpiar o sustituir el filtro
+        - Limpiar el rodillo y retirar todo el pelo acumulado
+        - Vaciar y lavar el depósito o contenedor de polvo
+      - key: no-arranca
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si tras carga completa sigue sin arrancar, el problema puede ser
+          la batería o el controlador. La batería es la pieza más fácil de sustituir
+          primero.
+        title: BHN24L no enciende o no arranca
+        symptoms:
+        - No responde al pulsar el botón de encendido
+        - El LED no parpadea ni se enciende
+        - Arranca un segundo y se vuelve a apagar
+        causes:
+        - Batería completamente descargada o dañada
+        - Cargador sin alimentación o con conector suelto
+        - Bloqueo de seguridad por rodillo bloqueado o sobrecalentamiento previo
+        checks:
+        - Conectar el cargador y esperar 30 minutos antes de volver a intentar
+        - Verificar que el cargador está conectado a la corriente y la luz está encendida
+        - Comprobar que el rodillo gira libre y no hay obstrucciones
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: BHN20L
+      slug: bosch-bhn20l
+      sku_pack: stick10
+      model_tokens:
+      - bhn20l
+      - bosch bhn20l
+      - move lithium bhn20l
+      year_range: 2019-2026
+      series: Move Lithium
+      recambios:
+        bateria:
+        - sku: bosch-hand-bosch-bhn20l-bateria-bat-std
+          title: Batería compatible para BHN20L
+          intent: compra
+          query: Bosch bhn20l battery
+          must_include:
+          - bhn20l
+          - battery
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: &id011
+          - bhn20l
+          - bosch bhn20l
+          - move lithium bhn20l
+        - sku: bosch-hand-bosch-bhn20l-bateria-bat-high
+          title: Batería compatible alta capacidad para BHN20L
+          intent: compra
+          query: Bosch bhn20l battery capacity
+          must_include:
+          - bhn20l
+          - battery
+          - capacity
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - filter
+          - charger
+          - dock
+          - wall mount
+          model_tokens: *id011
+        filtro:
+        - sku: bosch-hand-bosch-bhn20l-filtro-filt-post-hepa
+          title: Filtro HEPA post-motor compatible para BHN20L
+          intent: compra
+          query: Bosch bhn20l filter hepa
+          must_include:
+          - bhn20l
+          - filter
+          - hepa
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        - sku: bosch-hand-bosch-bhn20l-filtro-filt-pre-pack2
+          title: Filtro pre-motor compatible (pack 2) para BHN20L
+          intent: compra
+          query: Bosch bhn20l filter pre
+          must_include:
+          - bhn20l
+          - filter
+          - pre
+          must_not_include:
+          - battery
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        cepillo:
+        - sku: bosch-hand-bosch-bhn20l-cepillo-brush-roller-main
+          title: Rodillo/cepillo principal compatible para BHN20L
+          intent: compra
+          query: Bosch bhn20l roller
+          must_include:
+          - bhn20l
+          - roller
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        - sku: bosch-hand-bosch-bhn20l-cepillo-brush-soft-fluffy
+          title: Rodillo Soft/Fluffy compatible para BHN20L
+          intent: compra
+          query: Bosch bhn20l roller fluffy
+          must_include:
+          - bhn20l
+          - roller
+          - fluffy
+          must_not_include:
+          - battery
+          - filter
+          - charger
+          - trigger
+          - switch
+          - button
+          model_tokens: *id011
+        cargador:
+        - sku: bosch-hand-bosch-bhn20l-cargador-charger-eu
+          title: Cargador compatible EU para BHN20L
+          intent: compra
+          query: Bosch bhn20l charger
+          must_include:
+          - bhn20l
+          - charger
+          must_not_include:
+          - battery
+          - filter
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id011
+        soporte:
+        - sku: bosch-hand-bosch-bhn20l-soporte-dock-wall
+          title: Soporte de pared / dock compatible para BHN20L
+          intent: compra
+          query: Bosch bhn20l dock wall
+          must_include:
+          - bhn20l
+          - dock
+          - wall
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          - handle
+          - motor
+          model_tokens: *id011
+        accesorios:
+        - sku: bosch-hand-bosch-bhn20l-accesorios-acc-kit-accessory
+          title: Kit accessory compatible para BHN20L (boquillas y cepillos)
+          intent: compra
+          query: Bosch bhn20l accessory kit
+          must_include:
+          - bhn20l
+          - accessory
+          - kit
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id011
+        - sku: bosch-hand-bosch-bhn20l-accesorios-acc-pet
+          title: Kit pet accessory compatible para BHN20L (mini cepillo)
+          intent: compra
+          query: Bosch bhn20l pet accessory
+          must_include:
+          - bhn20l
+          - pet
+          - accessory
+          must_not_include:
+          - trigger
+          - switch
+          - button
+          - pcb
+          - board
+          model_tokens: *id011
+      compatibilidad:
+      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
+        cualquier recambio.
+      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
+        (click-in vs. tornillos).'
+      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
+      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
+        según tu caso.'
+      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      problemas:
+      - key: no-carga
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el cargador funciona correctamente, lo más probable es que necesites
+          sustituir la batería.
+        title: BHN20L no carga
+        symptoms:
+        - No enciende tras cargar
+        - La luz de carga parpadea pero no mantiene carga
+        - La batería se descarga muy rápido
+        causes:
+        - Batería degradada o agotada
+        - Cargador defectuoso o mal contacto
+        - Contactos de carga oxidados
+        checks:
+        - Probar con otro enchufe o base de carga
+        - Revisar que los contactos estén limpios y sin óxido
+        - Comprobar si el cargador original calienta o hace ruido
+      - key: pierde-potencia
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si tras limpiar el filtro y eliminar obstrucciones no mejora, considera
+          sustituir el filtro por uno nuevo.
+        title: BHN20L ha perdido potencia de aspiración
+        symptoms:
+        - Aspira menos que antes
+        - Se obstruye con facilidad
+        - El motor suena más fuerte de lo normal
+        causes:
+        - Filtro saturado o sucio
+        - Conductos o tubo obstruidos
+        - Rodillo con pelo o hilos enredados
+        checks:
+        - Limpiar o sustituir el filtro
+        - Revisar el tubo y la boquilla por obstrucciones
+        - Limpiar el rodillo de pelo y suciedad
+      - key: cepillo-no-gira
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Si el rodillo gira libre a mano pero no con el motor, puede que
+          el módulo de transmisión esté dañado.
+        title: 'BHN20L: el cepillo o rodillo no gira'
+        symptoms:
+        - El rodillo no gira al encender
+        - Se escucha el motor pero el cepillo está parado
+        - La aspiración es muy débil sobre alfombras
+        causes:
+        - Pelo o hilos enredados bloqueando el rodillo
+        - Rodillo desgastado o roto
+        - Fallo en el módulo de tracción del cepillo
+        checks:
+        - Retirar manualmente pelo e hilos del rodillo
+        - Verificar que el rodillo encaja y gira libremente a mano
+        - Comprobar que no hay objetos atrapados en el eje
+      - key: se-apaga-solo
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si el problema ocurre desde el principio del uso y no tras uso prolongado,
+          la batería suele ser la causa raíz.
+        title: BHN20L se apaga solo sin avisar
+        symptoms:
+        - El aspirador se apaga a mitad del uso
+        - Se reinicia o corta la alimentación de repente
+        - La luz de batería parpadea justo antes de apagarse
+        causes:
+        - Batería con celdas degradadas que no aguantan la carga de pico
+        - Sobrecalentamiento del motor por filtro saturado o rodillo bloqueado
+        - Protección térmica activada por uso prolongado
+        checks:
+        - Limpiar el filtro y el rodillo antes de volver a encender
+        - Dejar reposar 10 minutos si se ha usado mucho rato seguido
+        - Comprobar si la autonomía mejora después de un ciclo de carga completo
+      - key: hace-ruido
+        intent: info
+        cta_cat: cepillo
+        fix_hint: Un raspado rítmico suele indicar objeto en el rodillo. Un silbido
+          agudo suele indicar obstrucción en el conducto.
+        title: BHN20L hace ruido extraño o fuerte
+        symptoms:
+        - Sonido nuevo o más fuerte de lo normal al aspirar
+        - Vibración inusual en el mango o cabezal
+        - Ruido de raspado o clic al pasar por suelos
+        causes:
+        - Pelo, hilo o pequeño objeto atrapado en el rodillo o eje
+        - Rodillo desgastado que roza la carcasa
+        - Obstrucción parcial en el tubo o boquilla
+        checks:
+        - Apagar y retirar el rodillo para inspeccionarlo manualmente
+        - Revisar el tubo y la boquilla por objetos que puedan vibrar
+        - Comprobar si el ruido desaparece sin la boquilla conectada
+      - key: mal-olor
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si el mal olor persiste con filtro limpio y rodillo limpio, puede
+          que el motor haya absorbido partículas. Revisa el filtro post-motor.
+        title: BHN20L desprende mal olor al aspirar
+        symptoms:
+        - Olor a quemado, polvo o a sucio al encender
+        - El olor aumenta al aspirar alfombras o pelo de mascotas
+        - El ambiente queda con mal olor después de aspirar
+        causes:
+        - Filtro saturado que recircula el polvo por el aire
+        - Rodillo con pelo acumulado que se calienta con el motor
+        - Depósito o contenedor sin limpiar durante mucho tiempo
+        checks:
+        - Limpiar o sustituir el filtro
+        - Limpiar el rodillo y retirar todo el pelo acumulado
+        - Vaciar y lavar el depósito o contenedor de polvo
+      - key: no-arranca
+        intent: info
+        cta_cat: bateria
+        fix_hint: Si tras carga completa sigue sin arrancar, el problema puede ser
+          la batería o el controlador. La batería es la pieza más fácil de sustituir
+          primero.
+        title: BHN20L no enciende o no arranca
         symptoms:
         - No responde al pulsar el botón de encendido
         - El LED no parpadea ni se enciende
