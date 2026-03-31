@@ -56,6 +56,7 @@
     <div class="buy-new-topbar">
       {{ if $imageURL }}
         <div class="buy-new-topbar__media">
+          <span class="buy-new-badge">{{ if $showPrice }}OFERTA / NUEVO{{ else }}NUEVO{{ end }}</span>
           <img src="{{ $imageURL }}" alt="{{ $btnLabel }}" loading="lazy" width="96" height="96">
         </div>
       {{ end }}
@@ -84,6 +85,7 @@
       <div class="offer-action">
         {{ if $imageURL }}
           <div class="offer-image">
+            <span class="buy-new-badge">{{ if $showPrice }}OFERTA / NUEVO{{ else }}NUEVO{{ end }}</span>
             <img src="{{ $imageURL }}" alt="{{ $btnLabel }}" loading="lazy" width="120" height="120">
           </div>
         {{ end }}
@@ -97,7 +99,7 @@
           </div>
         {{ end }}
         <div class="offer-trust">
-          <span class="offer-trust__icon" aria-hidden="true">→</span>
+          <span class="offer-trust__icon" aria-hidden="true">Ir</span>
           <span class="offer-trust__text">No existe un recambio fiable: te sugerimos producto nuevo</span>
         </div>
         <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">

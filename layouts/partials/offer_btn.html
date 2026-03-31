@@ -84,7 +84,7 @@
 {{ end }}
 {{ $showBuyNewPrice := and $buyNewSalePrice (eq (upper (string $buyNewCurrency)) "EUR") }}
 
-{{ $trustIcon := "âœ“" }}
+{{ $trustIcon := "OK" }}
 {{ $trustText := "Compatibilidad probable: revisa modelo y encaje" }}
 {{ if eq $compatStatus "compatible_alto" }}
   {{ $trustText = cond $modelName (printf "Compatibilidad alta para %s" $modelName) "Compatibilidad alta" }}
@@ -94,7 +94,7 @@
   {{ $trustIcon = "!" }}
   {{ $trustText = $compatNote | default "Coincidencia heuristica: valida compatibilidad antes de comprar" }}
 {{ else if eq $compatStatus "fallback_buy_new" }}
-  {{ $trustIcon = "â†—" }}
+  {{ $trustIcon = "Ir" }}
   {{ $trustText = "No hemos encontrado un recambio fiable para este modelo. Mejor ver producto nuevo." }}
 {{ else if eq $compatStatus "sin_cobertura" }}
   {{ $trustIcon = "!" }}
@@ -141,7 +141,7 @@
       </div>
     {{ else }}
       <div class="offer-action__note">
-        <small class="muted">Enlace externo: abre en pestaÃ±a nueva</small>
+        <small class="muted">Enlace externo: abre en pestana nueva</small>
       </div>
     {{ end }}
   </div>
@@ -165,7 +165,7 @@
       {{ end }}
       {{ if not $hideTrust }}
         <div class="offer-trust">
-          <span class="offer-trust__icon" aria-hidden="true">â†—</span>
+          <span class="offer-trust__icon" aria-hidden="true">Ir</span>
           <span class="offer-trust__text">No encontramos un recambio fiable. Te sugerimos ver el producto nuevo.</span>
         </div>
       {{ end }}
@@ -180,7 +180,7 @@
     <div class="offer-action">
       {{ if not $hideTrust }}
         <div class="offer-trust">
-          <span class="offer-trust__icon" aria-hidden="true">âœ“</span>
+          <span class="offer-trust__icon" aria-hidden="true">OK</span>
           <span class="offer-trust__text">Busqueda guiada por compatibilidad</span>
         </div>
       {{ end }}
