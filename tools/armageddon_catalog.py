@@ -47,7 +47,8 @@ import yaml
 # =========================
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "data" / "aspiradores.yaml"
-OFFERS = ROOT / "data" / "ofertas.yaml"
+OFFERS = ROOT / "data" / "ofertas.json"
+LEGACY_OFFERS_YAML = ROOT / "data" / "ofertas.yaml"
 CONTENT = ROOT / "content"
 
 DEFAULT_URL = "https://s.click.aliexpress.com/e/_c3VfQRLt"
@@ -85,6 +86,20 @@ def load_yaml(path: Path) -> dict:
 def dump_yaml(path: Path, data: dict) -> None:
     text = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip() + "\n"
     path.write_text(text, encoding="utf-8")
+
+
+def load_offers(path: Path) -> dict:
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8") or "{}")
+    if LEGACY_OFFERS_YAML.exists():
+        return load_yaml(LEGACY_OFFERS_YAML)
+    raise SystemExit(f"No existe {path} ni {LEGACY_OFFERS_YAML}")
+
+
+def dump_offers(path: Path, data: dict) -> None:
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if LEGACY_OFFERS_YAML.exists():
+        LEGACY_OFFERS_YAML.unlink()
 
 
 def normalize(s: str) -> str:
@@ -803,8 +818,8 @@ def sync_offers(db: dict, no_cache: bool, force_lookup: bool, only_sku: List[str
     want = set(sku_ctx.keys())
 
     offers_doc = {}
-    if OFFERS.exists():
-        offers_doc = yaml.safe_load(OFFERS.read_text(encoding="utf-8")) or {}
+    if OFFERS.exists() or LEGACY_OFFERS_YAML.exists():
+        offers_doc = load_offers(OFFERS)
     offers = offers_doc.get("offers")
     if not isinstance(offers, dict):
         offers = {}
@@ -904,7 +919,7 @@ def sync_offers(db: dict, no_cache: bool, force_lookup: bool, only_sku: List[str
                     offers[sku] = o
                     orphaned += 1
 
-    dump_yaml(OFFERS, {"offers": offers})
+    dump_offers(OFFERS, {"offers": offers})
 
     print("OK: sync_ofertas (armageddon unified)")
     print(f"  Cache:                 {'ON' if use_cache else 'OFF'} (TTL={CACHE_TTL_SECONDS}s)")

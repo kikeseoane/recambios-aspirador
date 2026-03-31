@@ -37,7 +37,8 @@ except Exception:
 # Paths / constants
 # =========================
 ROOT = Path(__file__).resolve().parents[1]
-OFFERS = ROOT / "data" / "ofertas.yaml"
+OFFERS = ROOT / "data" / "ofertas.json"
+LEGACY_OFFERS_YAML = ROOT / "data" / "ofertas.yaml"
 VERTICALS_YAML = ROOT / "data" / "verticals.yaml"
 VERTICAL_DEFAULTS_YAML = ROOT / "data" / "vertical_defaults.yaml"
 
@@ -88,6 +89,20 @@ def load_yaml(path: Path) -> dict:
 def dump_yaml(path: Path, data: dict) -> None:
     text = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip() + "\n"
     path.write_text(text, encoding="utf-8")
+
+
+def load_offers_doc() -> dict:
+    if OFFERS.exists():
+        return json.loads(OFFERS.read_text(encoding="utf-8") or "{}")
+    if LEGACY_OFFERS_YAML.exists():
+        return load_yaml(LEGACY_OFFERS_YAML)
+    return {}
+
+
+def dump_offers_doc(data: dict) -> None:
+    OFFERS.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if LEGACY_OFFERS_YAML.exists():
+        LEGACY_OFFERS_YAML.unlink()
 
 
 def is_empty(value: object | None) -> bool:
@@ -1382,7 +1397,7 @@ def merge_overrides(
     Devuelve: (query, must_include, must_not_include, model_tokens_override)
     Prioridad:
       1) overrides en aspiradores.yaml (ctx)
-      2) overrides en ofertas.yaml (offers_obj)
+      2) overrides en ofertas.json / legado ofertas.yaml (offers_obj)
       3) defaults por categoría (solo para must_not)
     """
     query = normalize(str(ctx.get("query") or ""))
@@ -1765,7 +1780,7 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
 # CLI
 # =========================
 def parse_args() -> argparse.Namespace:
-    ap = argparse.ArgumentParser(description="Sincroniza data/ofertas.yaml desde data/<vertical>.yaml + AliExpress API")
+    ap = argparse.ArgumentParser(description="Sincroniza data/ofertas.json desde data/<vertical>.yaml + AliExpress API")
     ap.add_argument("--clear-cache", action="store_true", help="Borra el cache y termina")
     ap.add_argument("--no-cache", action="store_true", help="Ignora cache (hace llamadas frescas)")
     ap.add_argument("--only-sku", action="append", default=[], help="Solo procesa este SKU (puedes repetir)")
@@ -1813,7 +1828,7 @@ def main() -> None:
     sku_ctx = sku_records_from_verticals(selected_verticals)
     want = set(sku_ctx.keys())
 
-    offers_doc = load_yaml(OFFERS)
+    offers_doc = load_offers_doc()
     offers = offers_doc.get("offers")
     if not isinstance(offers, dict):
         offers = {}
@@ -2082,7 +2097,7 @@ def main() -> None:
         _status = "OK" if obj.get("url") and obj.get("url") != DEFAULT_URL else "~"
         print(f"  [{_processed:4d}/{_total_want}] {_status} {sku[:55]:<55} | elapsed {int(_elapsed//60):02d}m{int(_elapsed%60):02d}s ETA {_eta_str}", flush=True)
         if _processed % SAVE_EVERY == 0:
-            dump_yaml(OFFERS, {"offers": offers})
+            dump_offers_doc({"offers": offers})
             print(f"  --- checkpoint guardado ({filled_from_aliexpress} AliExpress, {added} nuevos, {updated} actualizados) ---", flush=True)
 
     if not only and set(selected_verticals) == set(available_verticals()):
@@ -2094,7 +2109,7 @@ def main() -> None:
                     offers[sku] = o
                     orphaned += 1
 
-    dump_yaml(OFFERS, {"offers": offers})
+    dump_offers_doc({"offers": offers})
 
     # Sincronizar URLs de fallback por vertical (buy-new genérico)
     if args.skip_vertical_defaults:
