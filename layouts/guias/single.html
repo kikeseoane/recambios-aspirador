@@ -3,6 +3,7 @@
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
   {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+  {{ $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
   {{ partial "hero.html" . }}
 
   <div class="container section">
@@ -20,6 +21,27 @@
         <div class="chips" style="margin-top:12px;">
           <a class="chip" href="{{ (print $modBase "/") | relURL }}">Buscar por modelo</a>
           <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
+          <a class="chip" href="{{ (print $guiasBase "/") | relURL }}">Mas guias</a>
+        </div>
+
+        <div class="antes-de-comprar mt-12" style="padding:18px;">
+          <div class="antes-de-comprar__title">Usa esta guia asi</div>
+          <div class="antes-de-comprar__grid" style="grid-template-columns:1fr;">
+            <article class="antes-de-comprar__item">
+              <div class="antes-de-comprar__num">1</div>
+              <div class="antes-de-comprar__body">
+                <h3>Comprueba la condicion tecnica</h3>
+                <p class="muted">Valida encaje, voltaje, medida o mantenimiento antes de decidir una categoria concreta.</p>
+              </div>
+            </article>
+            <article class="antes-de-comprar__item">
+              <div class="antes-de-comprar__num">2</div>
+              <div class="antes-de-comprar__body">
+                <h3>Baja al modelo exacto</h3>
+                <p class="muted">La compatibilidad final debe confirmarse siempre dentro de la ficha del modelo o de la marca.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </aside>
     </div>

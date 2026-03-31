@@ -8,7 +8,16 @@
 {{- with .Params.canonical -}}
   {{- $u = strings.TrimSpace . -}}
 {{- else -}}
-  {{- $u = printf "%s%s" $base .RelPermalink -}}
+  {{- if and (eq .Type "guia") (.Params.vertical) (ne (.Params.vertical | default "") "aspiradores") -}}
+    {{- $slug := .Slug | default (path.Base .RelPermalink) -}}
+    {{- if or (eq $slug "") (eq $slug "guias") -}}
+      {{- $u = printf "%s/guias/" $base -}}
+    {{- else -}}
+      {{- $u = printf "%s/guias/%s/" $base $slug -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $u = printf "%s%s" $base .RelPermalink -}}
+  {{- end -}}
 {{- end -}}
 
 {{- if and (not (strings.HasPrefix $u "http://")) (not (strings.HasPrefix $u "https://")) -}}

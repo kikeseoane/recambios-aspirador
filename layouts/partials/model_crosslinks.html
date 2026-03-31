@@ -39,6 +39,7 @@ Input: dict
 {{ $rec := index $model "recambios" }}
 {{ $cats := $db.globals.categorias_recambios }}
 {{ $probs := index $model "problemas" }}
+{{ $priorityCats := slice "bateria" "cargador" "filtro" "cepillo" "cabezal" "laminas" "deposito" "soporte" "accesorios" }}
 
 {{ if $wrap }}<div class="panel panel--crosslinks" style="margin-top:18px;">{{ end }}
   <div class="crosslink-head">
@@ -52,14 +53,31 @@ Input: dict
   <div class="crosslink-grid">
     {{ if and $cats (reflect.IsSlice $cats) $rec (reflect.IsMap $rec) }}
       <section class="crosslink-card">
-        <div class="kicker">Recambios por categoria</div>
-        <p class="muted small">Ve directo a la pieza correcta segun tipo de recambio.</p>
+        <div class="kicker">Recambios con mas demanda</div>
+        <p class="muted small">Atajos a categorias que suelen concentrar mas busquedas y clicks en este modelo.</p>
+        <div class="chips" style="margin-top:10px;">
+          {{ range $wanted := $priorityCats }}
+            {{ range $cat := $cats }}
+              {{ $ck := (index $cat "key") | urlize }}
+              {{ $label := index $cat "label" }}
+              {{ $items := index $rec $ck }}
+              {{ if and (eq $ck $wanted) $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+                {{ if ne $ck $currentCat }}
+                  <a class="chip" href="{{ (printf "%s%s/%s/%s/" $marcBase ($brandKey | urlize) ($modelSlug | urlize) $ck) | relURL }}">{{ $label }}</a>
+                {{ else }}
+                  <span class="chip active">{{ $label }}</span>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
         <div class="chips" style="margin-top:10px;">
           {{ range $cat := $cats }}
             {{ $ck := (index $cat "key") | urlize }}
             {{ $label := index $cat "label" }}
             {{ $items := index $rec $ck }}
             {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+              {{ if in $priorityCats $ck }}{{ continue }}{{ end }}
               {{ if ne $ck $currentCat }}
                 <a class="chip" href="{{ (printf "%s%s/%s/%s/" $marcBase ($brandKey | urlize) ($modelSlug | urlize) $ck) | relURL }}">{{ $label }}</a>
               {{ else }}
@@ -73,8 +91,8 @@ Input: dict
 
     {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
       <section class="crosslink-card">
-        <div class="kicker">Problemas frecuentes</div>
-        <p class="muted small">Salta al sintoma que mejor describe el fallo antes de cambiar piezas.</p>
+        <div class="kicker">Problemas que mas arrastran trafico</div>
+        <p class="muted small">Entra por sintoma cuando aun no tienes clara la pieza correcta.</p>
         <div class="chips" style="margin-top:10px;">
           {{ range $p := $probs }}
             {{ $pk := (index $p "key" | urlize) }}

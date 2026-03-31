@@ -1,25 +1,42 @@
+{{ $vertKey := .Params.vertical | default "aspiradores" }}
+{{ $allVerts := site.Data.verticals.verticals | default dict }}
+{{ $vconf := index $allVerts $vertKey }}
+{{ $isRoot := $vconf.root | default true }}
+{{ $homeURL := cond $isRoot "/" (printf "/%s/" $vconf.slug) | relURL }}
+{{ $marcasURL := cond $isRoot "/marcas/" (printf "/%s/marcas/" $vconf.slug) | relURL }}
+{{ $modelosURL := cond $isRoot "/modelos/" (printf "/%s/modelos/" $vconf.slug) | relURL }}
+{{ $guiasURL := cond $isRoot "/guias/" (printf "/%s/guias/" $vconf.slug) | relURL }}
+{{ $db := index site.Data $vertKey }}
+{{ $modelCount := 0 }}
+{{ if and $db $db.brands }}
+  {{ range $db.brands }}{{ $modelCount = add $modelCount (len .models) }}{{ end }}
+{{ end }}
+
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <p class="footer-kicker">{{ .Site.Title }}</p>
+      <p class="footer-kicker"><a href="{{ $homeURL }}">{{ .Site.Title }}</a></p>
       <p class="footer-tagline">Compatibilidad verificada por modelo</p>
       <p class="footer-desc">
-        Informacion tecnica sobre recambios compatibles para aspiradoras: filtros, baterias,
-        cepillos, cargadores y accesorios organizados por marca y modelo exacto.
+        Informacion tecnica sobre recambios compatibles por marca y modelo: filtros, baterias,
+        cepillos, cargadores, accesorios y rutas de diagnostico para elegir mejor antes de comprar.
       </p>
       <p class="footer-scale muted small">
         Mas de
-        {{ $db := site.Data.aspiradores }}
-        {{ $modelCount := 0 }}
-        {{ range $db.brands }}{{ $modelCount = add $modelCount (len .models) }}{{ end }}
         {{ $modelCount }} modelos catalogados.
       </p>
     </div>
 
     <nav class="legal" aria-label="Navegacion del pie">
+      <p class="footer-nav-title">Explorar</p>
+      <a href="{{ $marcasURL }}">Marcas</a>
+      <a href="{{ $modelosURL }}">Modelos</a>
+      <a href="{{ $guiasURL }}">Guias</a>
+      <a href="{{ $marcasURL }}">Buscar por modelo</a>
+    </nav>
+
+    <nav class="legal" aria-label="Informacion legal">
       <p class="footer-nav-title">Informacion</p>
-      <a href="/marcas/">Marcas</a>
-      <a href="/guias/">Guias</a>
       <a href="/sobre/">Sobre esta web</a>
       <a href="/afiliados/">Politica de afiliados</a>
       <a href="/privacidad/">Privacidad</a>

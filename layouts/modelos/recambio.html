@@ -137,6 +137,8 @@
     {{ end }}
   {{ end }}
   {{ $itemsOrdenados := $itemsConUrl | append $itemsSinUrl }}
+  {{ $directCount := len $itemsConUrl }}
+  {{ $pendingCount := len $itemsSinUrl }}
 
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
@@ -174,6 +176,9 @@
   {{ $check2Body  := "La categoria correcta no garantiza compatibilidad total. Valida voltaje, amperaje, diametro o tipo de conector segun la pieza." }}
   {{ $check3Title := "Compara fotos del anclaje" }}
   {{ $check3Body  := "Si falta una referencia exacta, compara fotos del anclaje real con el anuncio antes de confirmar la compra." }}
+  {{ $decisionFit := printf "El anuncio cita %s o una variante clara, y coincide en encaje, conector o medidas." $mtitle }}
+  {{ $decisionAvoid := "Evita anuncios universales o genéricos que solo mencionan la marca sin detallar serie o pieza." }}
+  {{ $decisionConfirm := "Antes de abrir una oferta, confirma submodelo, serie y una señal técnica real de la pieza." }}
 
   {{ if eq $catKey "filtro" }}
     {{ $check1Title = "Tipo de filtro: HEPA, prefiltro o trasero" }}
@@ -182,6 +187,9 @@
     {{ $check2Body  = "Muchos filtros son similares en aspecto pero distintos en medidas o sistema de encaje. Compara dimensiones exactas y pestanas de fijacion." }}
     {{ $check3Title = "Frecuencia de cambio recomendada" }}
     {{ $check3Body  = "Un filtro HEPA deteriorado reduce la succion aunque parezca limpio. Cambialo cada 6-12 meses segun el uso." }}
+    {{ $decisionFit = "Te sirve si el filtro coincide en tipo, forma y puntos de anclaje con el original." }}
+    {{ $decisionAvoid = "No lo compres si solo pone HEPA compatible y no muestra medidas o carcasa equivalente." }}
+    {{ $decisionConfirm = "Confirma si buscas prefiltro, HEPA o filtro trasero antes de comparar precios." }}
   {{ else if eq $catKey "bateria" }}
     {{ $check1Title = "Voltaje y capacidad exactos" }}
     {{ $check1Body  = "El voltaje debe coincidir exactamente con el original. Un voltaje incorrecto puede danar el aspirador o no funcionar. Revisa la etiqueta de la bateria actual." }}
@@ -189,6 +197,9 @@
     {{ $check2Body  = "El conector debe encajar fisicamente y con la polaridad correcta. Una bateria identica en voltaje puede no conectar si el conector es distinto." }}
     {{ $check3Title = "Capacidad en mAh: mayor no siempre es compatible" }}
     {{ $check3Body  = "Una mayor capacidad puede alargar la autonomia, pero algunos aspiradores tienen limitaciones fisicas o electricas. Confirma con la documentacion del modelo." }}
+    {{ $decisionFit = "Te sirve si coincide en voltaje, conector y formato fisico de la bateria original." }}
+    {{ $decisionAvoid = "No la compres si solo promete mas autonomia y no detalla conector o serie exacta." }}
+    {{ $decisionConfirm = "Confirma primero voltaje, capacidad y referencia visible en la bateria actual." }}
   {{ else if eq $catKey "cargador" }}
     {{ $check1Title = "Voltaje de salida y amperaje" }}
     {{ $check1Body  = "Un cargador con voltaje o amperaje incorrecto puede danar la bateria o no cargar el aspirador. Revisa siempre los datos del cargador original." }}
@@ -196,6 +207,9 @@
     {{ $check2Body  = "El conector del cargador debe encajar fisicamente en el puerto del aspirador. Compara fotos del conector antes de comprar." }}
     {{ $check3Title = "Compatibilidad con la version exacta del modelo" }}
     {{ $check3Body  = "Algunos modelos tienen varias revisiones con conectores distintos. Confirma que el cargador cita explicitamente tu version o serie." }}
+    {{ $decisionFit = "Te sirve si el cargador coincide en salida, conector y polaridad con el original." }}
+    {{ $decisionAvoid = "No lo compres si el anuncio omite voltaje de salida o enseña un conector distinto." }}
+    {{ $decisionConfirm = "Confirma datos de la etiqueta del cargador original antes de abrir ofertas." }}
   {{ else if eq $catKey "cepillo" }}
     {{ $check1Title = "Cepillo principal o cepillo motorizado" }}
     {{ $check1Body  = "Son piezas distintas con funciones diferentes. El cepillo motorizado requiere conexion electrica al cabezal. Confirma que tipo de cepillo tiene tu modelo." }}
@@ -203,6 +217,9 @@
     {{ $check2Body  = "Las medidas del rodillo y el sistema de fijacion al cabezal deben coincidir exactamente. Un cepillo de longitud incorrecta no encajara." }}
     {{ $check3Title = "Compatibilidad con alfombra vs suelo duro" }}
     {{ $check3Body  = "Algunos cepillos son especificos para suelo duro, otros para alfombra o multisuelo. Elige segun el uso principal del aspirador." }}
+    {{ $decisionFit = "Te sirve si coincide en acople, tipo de cabezal y longitud del rodillo o cepillo." }}
+    {{ $decisionAvoid = "No lo compres si el anuncio mezcla muchos modelos sin foto clara del anclaje." }}
+    {{ $decisionConfirm = "Confirma si buscas cepillo principal, motorizado, lateral o solo el rodillo." }}
   {{ else if eq $catKey "soporte" }}
     {{ $check1Title = "Puntos de anclaje y tipo de montaje" }}
     {{ $check1Body  = "El soporte debe coincidir con los puntos de anclaje del aspirador y el tipo de montaje (pared, base, vertical). Confirma que cita tu modelo exacto." }}
@@ -210,6 +227,9 @@
     {{ $check2Body  = "Algunos soportes integran cargador y otros solo son de almacenamiento. Comprueba si necesitas carga integrada o solo almacenaje." }}
     {{ $check3Title = "Material y carga maxima" }}
     {{ $check3Body  = "Verifica que el soporte aguanta el peso del aspirador con todos sus accesorios. Los soportes de pared baratos pueden ceder con el tiempo." }}
+    {{ $decisionFit = "Te sirve si coincide en puntos de anclaje y deja claro si integra o no el cargador." }}
+    {{ $decisionAvoid = "No lo compres si parece un soporte universal sin foto del encaje trasero." }}
+    {{ $decisionConfirm = "Confirma pared o base, tornilleria y compatibilidad con accesorios colgantes." }}
   {{ else if eq $catKey "accesorios" }}
     {{ $check1Title = "Tipo de acople: sistema propio o universal" }}
     {{ $check1Body  = "Muchos accesorios usan acoplamientos propietarios que solo encajan con modelos de la misma marca o serie. Un accesorio universal puede no encajar correctamente." }}
@@ -217,6 +237,9 @@
     {{ $check2Body  = "El diametro de conexion al tubo o directamente al cuerpo del aspirador debe coincidir. Compara fotos del punto de union antes de comprar." }}
     {{ $check3Title = "Variante del modelo: mismo nombre, distintos conectores" }}
     {{ $check3Body  = "Algunos modelos tienen versiones con conectores distintos segun el mercado o el ano. Confirma que el accesorio cita tu variante exacta." }}
+    {{ $decisionFit = "Te sirve si el accesorio describe el mismo sistema de acople y el uso exacto que buscas." }}
+    {{ $decisionAvoid = "No lo compres si es un kit generico con muchas referencias y sin detalle del conector." }}
+    {{ $decisionConfirm = "Confirma diametro, boquilla y si tu serie usa enganche propio o adaptador." }}
   {{ else if eq $catKey "laminas" }}
     {{ $check1Title = "Forma y serie de la lamina" }}
     {{ $check1Body  = "Las laminas tienen formas muy especificas para cada cabezal. Una lamina de aspecto similar puede no encajar o dañar el mecanismo interno. Confirma la referencia exacta." }}
@@ -224,6 +247,9 @@
     {{ $check2Body  = "Lo habitual es cambiar lamina y cuchillo juntos. Comprar solo la lamina cuando el cuchillo esta desgastado puede reducir el rendimiento del corte." }}
     {{ $check3Title = "Original o compatible: diferencias de calidad" }}
     {{ $check3Body  = "Las laminas compatibles pueden ser mas economicas pero variar en durabilidad y suavidad de corte. Elige marcas con buena valoracion si no optas por el original." }}
+    {{ $decisionFit = "Te sirve si la lamina coincide en forma, fijacion y serie exacta del cabezal." }}
+    {{ $decisionAvoid = "No la compres si el anuncio solo agrupa varias series sin foto clara del marco o rejilla." }}
+    {{ $decisionConfirm = "Confirma referencia del cabezal y valora cambiar cuchilla y lamina juntas." }}
   {{ else if eq $catKey "cabezal" }}
     {{ $check1Title = "Sistema de acople y angulo de giro" }}
     {{ $check1Body  = "El cabezal debe encajar con el tubo o cuerpo del aspirador. Algunos modelos usan acoplamientos de giro o articulados que son exclusivos de la marca." }}
@@ -231,6 +257,9 @@
     {{ $check2Body  = "Un cabezal mas ancho puede parecer mejor pero no encajar en todos los espacios. Comprueba la anchura, la altura libre y el sistema de ruedas." }}
     {{ $check3Title = "Compatibilidad con los cepillos originales" }}
     {{ $check3Body  = "Si cambias el cabezal, confirma que admite los mismos cepillos intercambiables que usas habitualmente con tu modelo." }}
+    {{ $decisionFit = "Te sirve si coincide en acople, ancho y tipo de cabezal que monta tu equipo." }}
+    {{ $decisionAvoid = "No lo compres si el encaje parece parecido pero el anuncio no cita tu serie exacta." }}
+    {{ $decisionConfirm = "Confirma anchura, giro, ruedas y si admite los mismos cepillos o accesorios." }}
   {{ else if eq $catKey "junta" }}
     {{ $check1Title = "Medidas exactas: diametro interior y exterior" }}
     {{ $check1Body  = "Una junta de medidas incorrectas no sellara correctamente aunque parezca similar. Mide el diametro interior y exterior del asiento original antes de comprar." }}
@@ -238,6 +267,9 @@
     {{ $check2Body  = "El material afecta la durabilidad y el sellado. Sustituye con el mismo tipo de material que el original o uno equivalente certificado para la temperatura y la presion del equipo." }}
     {{ $check3Title = "Posicion de la junta en el circuito de aire" }}
     {{ $check3Body  = "Algunas juntas sellan el deposito, otras el filtro o la union del tubo. Identifica la posicion exacta antes de buscar el recambio para no comprar la pieza equivocada." }}
+    {{ $decisionFit = "Te sirve si coincide en diametro, grosor y posicion exacta de la junta original." }}
+    {{ $decisionAvoid = "No la compres si el anuncio no detalla medidas o material del sello." }}
+    {{ $decisionConfirm = "Confirma interior, exterior y grosor antes de abrir la oferta." }}
   {{ else if eq $catKey "deposito" }}
     {{ $check1Title = "Volumen y forma del deposito" }}
     {{ $check1Body  = "El deposito debe tener el mismo volumen y forma que el original para encajar en el cuerpo del equipo. Un deposito mas grande puede no entrar fisicamente." }}
@@ -245,6 +277,9 @@
     {{ $check2Body  = "Algunos depositos tienen cierre de bayoneta, otros de presion o de clip. Confirma que el sistema de vaciado coincide con el de tu modelo." }}
     {{ $check3Title = "Juntas y filtros incluidos o por separado" }}
     {{ $check3Body  = "Algunos depositos incluyen junta de sellado o prefiltro. Comprueba si el recambio los incluye o si tienes que adquirirlos por separado." }}
+    {{ $decisionFit = "Te sirve si coincide en volumen, forma del cuerpo y sistema de vaciado del deposito." }}
+    {{ $decisionAvoid = "No lo compres si la foto no deja claro el encaje o el cierre respecto al original." }}
+    {{ $decisionConfirm = "Confirma si incluye tapa, junta o filtro o si van por separado." }}
   {{ else if eq $catKey "cesta" }}
     {{ $check1Title = "Diametro y altura de la cesta" }}
     {{ $check1Body  = "La cesta debe ajustarse exactamente a la camara de ciclón del aspirador. Comprueba diametro externo, altura y forma del borde de encaje." }}
@@ -252,7 +287,49 @@
     {{ $check2Body  = "Algunas cestas se extraen hacia abajo, otras hacia arriba o lateralmente. Confirma el sistema de extraccion especifico de tu modelo antes de comprar." }}
     {{ $check3Title = "Material y permeabilidad" }}
     {{ $check3Body  = "La malla de la cesta debe tener la densidad adecuada para retener particulas sin reducir la succion. Evita cestas con malla demasiado fina o demasiado gruesa para tu equipo." }}
+    {{ $decisionFit = "Te sirve si coincide en diametro, altura y borde de encaje de la cesta original." }}
+    {{ $decisionAvoid = "No la compres si el anuncio no muestra la malla o el sistema de extraccion." }}
+    {{ $decisionConfirm = "Confirma medidas reales y si corresponde a cesta, cubeta o filtro ciclónico." }}
   {{ end }}
+
+  <section class="decision-strip mt-10" aria-label="Decision rapida de compatibilidad">
+    <article class="decision-card decision-card--fit">
+      <div class="decision-card__eyebrow">Te sirve si...</div>
+      <p>{{ $decisionFit }}</p>
+    </article>
+    <article class="decision-card decision-card--avoid">
+      <div class="decision-card__eyebrow">No lo compres si...</div>
+      <p>{{ $decisionAvoid }}</p>
+    </article>
+    <article class="decision-card decision-card--confirm">
+      <div class="decision-card__eyebrow">Confirma antes...</div>
+      <p>{{ $decisionConfirm }}</p>
+    </article>
+  </section>
+
+  <section class="recambio-proof mt-10">
+    <div class="recambio-proof__head">
+      <div>
+        <span class="badge blue">Decision rapida</span>
+        <h2>Compra con menos error para {{ $catLabel | lower }} de {{ $mtitle }}</h2>
+      </div>
+      <a class="chip" href="#checklist-compra">Ir al checklist completo</a>
+    </div>
+    <div class="recambio-proof__grid">
+      <article class="recambio-proof__item">
+        <strong>{{ $directCount }}</strong>
+        <span>opciones con acceso directo para comparar ahora</span>
+      </article>
+      <article class="recambio-proof__item">
+        <strong>{{ len $items }}</strong>
+        <span>referencias revisadas dentro de esta categoria</span>
+      </article>
+      <article class="recambio-proof__item">
+        <strong>{{ $pendingCount }}</strong>
+        <span>{{ if gt $pendingCount 0 }}opciones siguen en preparacion o sin enlace fiable{{ else }}sin pendientes ahora mismo{{ end }}</span>
+      </article>
+    </div>
+  </section>
 
   <div id="opciones-populares" class="panel panel--commerce mt-10">
     <h2 class="title-reset">Opciones populares</h2>

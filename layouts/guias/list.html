@@ -2,6 +2,8 @@
   {{ $verticalKey := .Params.vertical | default "aspiradores" }}
   {{ $vurls := partial "vertical_urls.html" $verticalKey }}
   {{ $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
+  {{ $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+  {{ $guideCount := len .Pages }}
   {{ partial "hero.html" . }}
 
   <div class="container section">
@@ -18,6 +20,19 @@
       </p>
     </div>
 
+    <section class="problem-hub-summary" aria-label="Resumen de guias">
+      <article class="problem-hub-summary__card">
+        <span class="problem-hub-summary__eyebrow">Cobertura</span>
+        <strong>{{ $guideCount }} guias activas</strong>
+        <p class="muted small">Compatibilidad, mantenimiento y seguridad para reducir errores antes de abrir una ficha de recambio.</p>
+      </article>
+      <article class="problem-hub-summary__card">
+        <span class="problem-hub-summary__eyebrow">Ruta recomendada</span>
+        <strong>Guia primero, modelo despues</strong>
+        <p class="muted small">Revisa encaje, voltaje o mantenimiento aqui y luego baja al modelo exacto para elegir categoria y oferta.</p>
+      </article>
+    </section>
+
     <div class="grid cards">
       {{ range .Pages.ByWeight }}
         <a class="card card--with-icon" href="{{ .RelPermalink }}">
@@ -29,10 +44,26 @@
             {{ else }}
               <p class="muted">Checklist y consejos aplicables a tu modelo.</p>
             {{ end }}
-            <div class="badges"><span class="badge blue">Guia</span></div>
+            <div class="badges">
+              <span class="badge blue">Guia</span>
+              {{ with .Params.intent }}<span class="badge">{{ . }}</span>{{ end }}
+            </div>
           </div>
         </a>
       {{ end }}
+    </div>
+
+    <div class="panel" style="margin-top:16px;">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Siguiente paso</div>
+          <h2 style="margin:4px 0 0;">Vuelve a una ruta con modelo exacto</h2>
+        </div>
+      </div>
+      <div class="chips" style="margin-top:12px;">
+        <a class="chip" href="{{ (print $modBase "/") | relURL }}">Buscar por modelo</a>
+        <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Explorar marcas</a>
+      </div>
     </div>
   </div>
 {{ end }}

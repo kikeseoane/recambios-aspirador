@@ -34,9 +34,29 @@
     {{ $kicker = "Catalogo" }}
     {{ $title = "Marcas" }}
     {{ $copy = "Explora las marcas activas y entra en sus modelos para revisar compatibilidad y piezas frecuentes con mas claridad." }}
+    {{ $brandCount := len ((index site.Data $vk).brands | default dict) }}
+    {{ $modelTotal := 0 }}
+    {{ $problemTotal := 0 }}
+    {{ range $bk, $bv := ((index site.Data $vk).brands | default dict) }}
+      {{ $models := $bv.models | default slice }}
+      {{ if reflect.IsSlice $models }}
+        {{ $modelTotal = add $modelTotal (len $models) }}
+        {{ range $models }}
+          {{ $probs := index . "problemas" }}
+          {{ if and $probs (reflect.IsSlice $probs) }}
+            {{ $problemTotal = add $problemTotal (len $probs) }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
     {{ $links = slice
       (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--ghost")
       (dict "label" "Ver guias" "href" ((print $guiasBase "/") | relURL) "class" "btn btn--link")
+    }}
+    {{ $metrics = slice
+      (dict "value" $brandCount "label" "marcas activas")
+      (dict "value" $modelTotal "label" "modelos enlazados")
+      (dict "value" $problemTotal "label" "diagnosticos disponibles")
     }}
   {{ end }}
 
@@ -44,13 +64,15 @@
   {{ $kicker = "Guias" }}
   {{ $title = "Guias rapidas" }}
   {{ $copy = "Consulta guias de compatibilidad, mantenimiento y seguridad para revisar conector, voltaje o encaje antes de intervenir." }}
+  {{ $guideCount := len .Pages }}
   {{ $links = slice
     (dict "label" "Ver marcas" "href" ((print $marcBase "/") | relURL) "class" "btn btn--ghost")
     (dict "label" "Ver modelos" "href" ((print $modBase "/") | relURL) "class" "btn btn--link")
   }}
   {{ $metrics = slice
-    (dict "value" "3 pasos" "label" "para revisar compatibilidad")
+    (dict "value" $guideCount "label" "guias activas")
     (dict "value" "Encaje y voltaje" "label" "como criterios de validacion")
+    (dict "value" "Modelo exacto" "label" "como paso final de compra")
   }}
 
 {{ else if eq $section "modelos" }}

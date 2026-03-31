@@ -1,8 +1,8 @@
 {{ define "main" }}
-  {{/* Hub de problemas por modelo: no aporta valor editorial propio, el valor
-       esta en las paginas individuales de problema. Noindex para limpiar crawl
-       budget y concentrar senales en las paginas de diagnostico reales. */}}
-  {{ .Scratch.Set "noindex" true }}
+  {{/* Hub de problemas por modelo: indexable solo cuando ya tiene suficiente
+       masa critica de diagnosticos utiles. La decision final vive en
+       partials/is_noindex.html y sitemap.xml para mantener la estrategia
+       centralizada. */}}
 
   {{ $verticalKey := .Params.vertical | default "aspiradores" }}
   {{ $db := index site.Data $verticalKey }}
@@ -25,6 +25,29 @@
   {{ $mtitle := "Modelo" }}
   {{ if and $brand $model }}
     {{ $mtitle = partial "model_title.html" (dict "brandName" $brand.name "modelName" (index $model "model")) }}
+  {{ end }}
+
+  {{ $probs := index $model "problemas" }}
+  {{ $problemCount := 0 }}
+  {{ $problemCatCount := 0 }}
+  {{ $problemCats := slice }}
+  {{ $problemCatLabels := slice }}
+  {{ if and $probs (reflect.IsSlice $probs) }}
+    {{ $problemCount = len $probs }}
+    {{ range $p := $probs }}
+      {{ $pCat := ((index $p "cta_cat") | default "" | urlize) }}
+      {{ if and $pCat (not (in $problemCats $pCat)) }}
+        {{ $problemCats = $problemCats | append $pCat }}
+        {{ $pCatLabel := $pCat }}
+        {{ with site.Data.globals.categorias_recambios }}
+          {{ with index . $pCat }}
+            {{ $pCatLabel = index . "label" | default $pCat }}
+          {{ end }}
+        {{ end }}
+        {{ $problemCatLabels = $problemCatLabels | append $pCatLabel }}
+      {{ end }}
+    {{ end }}
+    {{ $problemCatCount = len $problemCats }}
   {{ end }}
 
   <div class="breadcrumbs">
@@ -55,6 +78,10 @@
           <strong>Problema y pieza probable</strong>
           <span>la pieza se plantea solo despues de confirmar el fallo y la compatibilidad</span>
         </div>
+        <div class="hero-mini-stat">
+          <strong>{{ $problemCount }} diagnosticos revisados</strong>
+          <span>{{ if gt $problemCatCount 0 }}cubren {{ $problemCatCount }} categorias de recambio o mantenimiento frecuente{{ else }}con comprobaciones y pasos previos antes de sustituir piezas{{ end }}</span>
+        </div>
       </div>
     </div>
   </section>
@@ -70,12 +97,34 @@
     )
   ) }}
 
-  {{ $probs := index $model "problemas" }}
   {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+    <section class="problem-hub-summary mt-14" aria-label="Resumen de averias y piezas">
+      <article class="problem-hub-summary__card">
+        <span class="problem-hub-summary__eyebrow">Que vas a encontrar</span>
+        <strong>{{ $problemCount }} fallos habituales de {{ $mtitle }}</strong>
+        <p class="muted small">Cada ruta baja desde el sintoma visible a comprobaciones concretas y, solo si encaja, a la pieza o mantenimiento relacionado.</p>
+      </article>
+      <article class="problem-hub-summary__card">
+        <span class="problem-hub-summary__eyebrow">Piezas implicadas</span>
+        <strong>{{ if gt $problemCatCount 0 }}{{ delimit $problemCatLabels ", " }}{{ else }}Mantenimiento y desgaste general{{ end }}</strong>
+        <p class="muted small">Las categorias se muestran para ayudarte a distinguir entre diagnostico real y cambio innecesario de recambio.</p>
+      </article>
+    </section>
+
     <div id="problemas-listado" class="grid cards">
       {{ range $p := $probs }}
         {{ $pkey := (index $p "key") | urlize }}
         {{ $ptitle := (index $p "title") | default $pkey }}
+        {{ $ctaLabel := "" }}
+        {{ with (index $p "cta_cat") }}
+          {{ $ctaKey := . | urlize }}
+          {{ with site.Data.globals.categorias_recambios }}
+            {{ with index . $ctaKey }}
+              {{ $ctaLabel = index . "label" | default $ctaKey }}
+            {{ end }}
+          {{ end }}
+          {{ if not $ctaLabel }}{{ $ctaLabel = $ctaKey }}{{ end }}
+        {{ end }}
         <a class="card" href="{{ (printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $pkey) | relURL }}">
           <div class="kicker">Problema frecuente</div>
           <h3>{{ $ptitle }}</h3>
@@ -83,8 +132,14 @@
           {{ with (index $p "symptoms") }}
             {{ if reflect.IsSlice . }}<p class="muted" style="margin-top:8px;">Sintoma tipico: {{ index . 0 }}</p>{{ end }}
           {{ end }}
+          {{ with (index $p "checks") }}
+            {{ if reflect.IsSlice . }}<p class="muted small" style="margin-top:8px;">Primera comprobacion: {{ index . 0 }}</p>{{ end }}
+          {{ end }}
           {{ with (index $p "cta_cat") }}
-            <div class="badges"><span class="badge hot">Ver recambio relacionado</span></div>
+            <div class="badges">
+              <span class="badge hot">Ver recambio relacionado</span>
+              <span class="badge">{{ $ctaLabel }}</span>
+            </div>
           {{ end }}
         </a>
       {{ end }}

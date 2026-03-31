@@ -113,6 +113,50 @@
     {{ end }}
   {{ end }}
 
+  {{ $catLabel := "" }}
+  {{ with site.Data.globals.categorias_recambios }}
+    {{ with index . $catKey }}
+      {{ $catLabel = index . "label" | default "" }}
+    {{ end }}
+  {{ end }}
+  {{ if not $catLabel }}{{ $catLabel = $catKey }}{{ end }}
+
+  {{ $firstSymptom := "" }}
+  {{ if $hasSym }}{{ $firstSymptom = index $sym 0 }}{{ end }}
+  {{ $firstCause := "" }}
+  {{ if $hasCauses }}{{ $firstCause = index $causes 0 }}{{ end }}
+  {{ $firstCheck := "" }}
+  {{ if $hasChecks }}{{ $firstCheck = index $checks 0 }}{{ end }}
+  {{ $introText := (index $p "intro") | default "" }}
+  {{ if not $introText }}
+    {{ if and $firstSymptom $catLabel }}
+      {{ $introText = printf "Si tu %s presenta %s, revisa primero las comprobaciones habituales y confirma si el fallo apunta a %s compatibles antes de comprar." $mtitle $firstSymptom $catLabel }}
+    {{ else if $firstSymptom }}
+      {{ $introText = printf "Si tu %s presenta %s, revisa primero las comprobaciones habituales y las causas mas probables antes de sustituir piezas." $mtitle $firstSymptom }}
+    {{ else if and $firstCause $catLabel }}
+      {{ $introText = printf "Esta guia para %s resume las causas mas probables del fallo y cuando merece la pena revisar o sustituir %s." $mtitle $catLabel }}
+    {{ else }}
+      {{ $introText = printf "Guia de diagnostico para %s con causas probables, comprobaciones utiles y pasos previos antes de cambiar recambios." $mtitle }}
+    {{ end }}
+  {{ end }}
+
+  {{ $relatedProblems := slice }}
+  {{ if and $plist (reflect.IsSlice $plist) }}
+    {{ range $it := $plist }}
+      {{ $k := (index $it "key") | default "" | urlize }}
+      {{ if and $k (ne $k $problemKey) }}
+        {{ $sameCat := and $catKey (eq (((index $it "cta_cat") | default "" | urlize)) $catKey) }}
+        {{ $entry := dict
+          "key" $k
+          "title" ((index $it "title") | default $k)
+          "cta_cat" (((index $it "cta_cat") | default "" | urlize))
+          "sameCat" $sameCat
+        }}
+        {{ $relatedProblems = $relatedProblems | append $entry }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
   <div class="breadcrumbs">
     <a href="{{ "/" | relURL }}">Inicio</a><span class="sep">></span>
     <a href="{{ (print $marcBase "/") | relURL }}">Marcas</a><span class="sep">></span>
@@ -125,7 +169,7 @@
     <div class="hero__inner">
       <div class="hero__kicker">Diagnostico — {{ $mtitle }}</div>
       <h1>{{ $ptitle }}</h1>
-      {{ with (index $p "intro") }}<p class="muted hero__copy">{{ . }}</p>{{ end }}
+      {{ with $introText }}<p class="muted hero__copy">{{ . }}</p>{{ end }}
 
       {{/* Chips de sintomas en el hero — identificacion rapida */}}
       {{ if $hasSym }}
@@ -143,6 +187,30 @@
       <img class="hero__photo" src="{{ index $heroImage "src" }}" alt="{{ index $heroImage "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
     </div>
   </div>
+
+  <section class="problem-signal-strip mt-10" aria-label="Resumen rapido del problema">
+    <article class="problem-signal-card">
+      <span class="problem-signal-card__eyebrow">Sintoma base</span>
+      <strong>{{ if $firstSymptom }}{{ $firstSymptom }}{{ else }}Fallo detectado en {{ $mtitle }}{{ end }}</strong>
+      <p class="muted small">Prioriza una comprobacion visual y una prueba corta antes de desmontar o comprar piezas.</p>
+    </article>
+    <article class="problem-signal-card">
+      <span class="problem-signal-card__eyebrow">Causa probable</span>
+      <strong>{{ if $firstCause }}{{ $firstCause }}{{ else }}Descarta primero obstrucciones, suciedad o desgaste visible{{ end }}</strong>
+      <p class="muted small">{{ if $firstCheck }}{{ $firstCheck }}{{ else }}Sigue las comprobaciones del diagnostico en orden para no cambiar recambios sin necesidad.{{ end }}</p>
+    </article>
+    <article class="problem-signal-card">
+      <span class="problem-signal-card__eyebrow">Pieza relacionada</span>
+      <strong>{{ if $catLabel }}{{ $catLabel }}{{ else }}Recambio relacionado{{ end }}</strong>
+      <p class="muted small">
+        {{ if $catKey }}
+          Si el fallo persiste tras las pruebas basicas, compara {{ lower $catLabel }} compatibles antes de decidir la sustitucion.
+        {{ else }}
+          Solo pasa a sustitucion cuando las comprobaciones confirmen desgaste, rotura o perdida de rendimiento real.
+        {{ end }}
+      </p>
+    </article>
+  </section>
 
   {{/* --- CTA prominente de recambio ANTES del contenido de diagnostico --- */}}
   {{ if and $catKey (gt (len $recItems) 0) }}
@@ -256,6 +324,35 @@
               <summary><strong>{{ index $fa "q" }}</strong></summary>
               <div class="muted mt-8">{{ index $fa "a" }}</div>
             </details>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ if gt (len $relatedProblems) 0 }}
+        <hr>
+        <h2>Otros fallos habituales de {{ $mtitle }}</h2>
+        <div class="problem-related-grid mt-10">
+          {{ $sameCatShown := 0 }}
+          {{ range $it := $relatedProblems }}
+            {{ if and (index $it "sameCat") (lt $sameCatShown 2) }}
+              <a class="problem-related-card" href="{{ (printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug (index $it "key")) | relURL }}">
+                <span class="problem-related-card__eyebrow">Relacionado con {{ lower $catLabel }}</span>
+                <strong>{{ index $it "title" }}</strong>
+                <span class="problem-related-card__cta">Ver diagnostico</span>
+              </a>
+              {{ $sameCatShown = add $sameCatShown 1 }}
+            {{ end }}
+          {{ end }}
+          {{ $otherShown := 0 }}
+          {{ range $it := $relatedProblems }}
+            {{ if and (not (index $it "sameCat")) (lt $otherShown 2) }}
+              <a class="problem-related-card" href="{{ (printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug (index $it "key")) | relURL }}">
+                <span class="problem-related-card__eyebrow">Diagnostico del modelo</span>
+                <strong>{{ index $it "title" }}</strong>
+                <span class="problem-related-card__cta">Ver comprobaciones</span>
+              </a>
+              {{ $otherShown = add $otherShown 1 }}
+            {{ end }}
           {{ end }}
         </div>
       {{ end }}

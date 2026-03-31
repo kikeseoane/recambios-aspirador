@@ -22,6 +22,24 @@
   ) }}
 
   {{ if not $brandKey }}
+    {{ $brandCount := 0 }}
+    {{ $modelTotal := 0 }}
+    {{ $problemTotal := 0 }}
+    {{ if $brands }}
+      {{ $brandCount = len $brands }}
+      {{ range $bk, $bv := $brands }}
+        {{ $brandModels := $bv.models | default slice }}
+        {{ if reflect.IsSlice $brandModels }}
+          {{ $modelTotal = add $modelTotal (len $brandModels) }}
+          {{ range $brandModels }}
+            {{ $probs := index . "problemas" }}
+            {{ if and $probs (reflect.IsSlice $probs) }}
+              {{ $problemTotal = add $problemTotal (len $probs) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
 
     <section class="hero hero--bg hero--compact hero--editorial hero--photo-right">
       <div class="hero__inner">
@@ -41,12 +59,16 @@
 
         <div class="hero-mini-stats">
           <div class="hero-mini-stat">
-            <strong>Ruta central</strong>
-            <span>modelo exacto antes que categoria suelta</span>
+            <strong>{{ $brandCount }} marcas</strong>
+            <span>con acceso ordenado por ficha y compatibilidad</span>
           </div>
           <div class="hero-mini-stat">
-            <strong>Mas control</strong>
-            <span>filtros, baterias y cepillos separados por ficha</span>
+            <strong>{{ $modelTotal }} modelos</strong>
+            <span>con piezas separadas por categoria y modelo exacto</span>
+          </div>
+          <div class="hero-mini-stat">
+            <strong>{{ $problemTotal }} diagnosticos</strong>
+            <span>para empujar hacia problemas y recambios con contexto</span>
           </div>
         </div>
       </div>
@@ -65,6 +87,12 @@
         {{ range $k, $b := $brands }}
           {{ $brandSlug := ($k | urlize) }}
           {{ $models := $b.models }}
+          {{ $modelCount := 0 }}
+          {{ $problemCount := 0 }}
+          {{ $catsUsed := slice }}
+          {{ with $models }}
+            {{ if reflect.IsSlice . }}{{ $modelCount = len . }}{{ end }}
+          {{ end }}
 
           <div class="card">
             <h2 class="title-compact">{{ $b.name }}</h2>
@@ -75,6 +103,18 @@
               {{ $pack := index . "sku_pack" | default "" }}
               {{ if eq $pack "robot10" }}{{ $hasRobot = true }}{{ end }}
               {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
+              {{ $probs := index . "problemas" }}
+              {{ if and $probs (reflect.IsSlice $probs) }}
+                {{ $problemCount = add $problemCount (len $probs) }}
+              {{ end }}
+              {{ $rec := index . "recambios" }}
+              {{ if and $rec (reflect.IsMap $rec) }}
+                {{ range $rk, $rv := $rec }}
+                  {{ if and $rv (reflect.IsSlice $rv) (gt (len $rv) 0) (not (in $catsUsed $rk)) }}
+                    {{ $catsUsed = $catsUsed | append $rk }}
+                  {{ end }}
+                {{ end }}
+              {{ end }}
             {{ end }}
             {{ $typeText := "aspiradores" }}
             {{ if and $hasRobot $hasStick }}
@@ -85,9 +125,14 @@
               {{ $typeText = "aspiradores sin cable" }}
             {{ end }}
             <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterias, cepillos y accesorios.</p>
+            <div class="badges">
+              <span class="badge hot">{{ $modelCount }} modelos</span>
+              {{ if gt (len $catsUsed) 0 }}<span class="badge">{{ len $catsUsed }} categorias</span>{{ end }}
+              {{ if gt $problemCount 0 }}<span class="badge blue">{{ $problemCount }} problemas</span>{{ end }}
+            </div>
 
             {{ if and $models (reflect.IsSlice $models) (gt (len $models) 0) }}
-              <p class="muted small text-compact">{{ len $models }} modelos</p>
+              <p class="muted small text-compact">Entra por marca o salta a una de las fichas destacadas para ver recambios y problemas mapeados.</p>
 
               <div class="chips chips-wrap">
                 {{ range $i, $m := $models }}
@@ -104,6 +149,7 @@
                   Ver todos los modelos
                 </a>
               </div>
+              <a class="section-link section-link--inline mt-10" href="{{ (printf "%s/%s/" $marcBase $brandSlug) | relURL }}">Abrir pagina de marca</a>
             {{ else }}
               <p class="muted">Aun no hay modelos cargados para esta marca.</p>
               <div class="chips">
@@ -211,6 +257,22 @@
         {{ if $hasProblemas }}{{ $problemCount = len $probs }}{{ end }}
         {{ $guideCount := 0 }}
         {{ if $hasGuias }}{{ $guideCount = len $guias }}{{ end }}
+        {{ $priorityCats := slice "bateria" "cargador" "filtro" "cepillo" "cabezal" "laminas" "deposito" "soporte" "accesorios" }}
+        {{ $quickLinks := slice }}
+        {{ with $rec }}
+          {{ range $catKey := $priorityCats }}
+            {{ $items := index . $catKey }}
+            {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+              {{ $catLabel := $catKey }}
+              {{ with site.Data.globals.categorias_recambios }}
+                {{ with index . $catKey }}
+                  {{ $catLabel = index . "label" | default $catKey }}
+                {{ end }}
+              {{ end }}
+              {{ $quickLinks = $quickLinks | append (dict "key" $catKey "label" $catLabel "count" (len $items)) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
 
         {{ $introLen := 0 }}
         {{ with (index $model "intro") }}
@@ -293,6 +355,25 @@
         </section>
 
         {{ partial "buy_new.html" (dict "model" $model "modelName" $mtitle "brandName" $brand.name "brandKey" $brandKey "modelSlug" $modelSlug "verticalKey" $verticalKey "topBar" true) }}
+
+        {{ if or (gt (len $quickLinks) 0) $hasProblemas }}
+          <section class="model-quick-access mt-14" aria-label="Accesos rapidos del modelo">
+            {{ range first 4 $quickLinks }}
+              <a class="model-quick-access__card" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug (index . "key")) | relURL }}">
+                <span class="model-quick-access__eyebrow">Recambio prioritario</span>
+                <strong>{{ index . "label" }}</strong>
+                <span class="model-quick-access__meta">{{ index . "count" }} opciones o referencias directas</span>
+              </a>
+            {{ end }}
+            {{ if $hasProblemas }}
+              <a class="model-quick-access__card model-quick-access__card--problem" href="#problemas-frecuentes">
+                <span class="model-quick-access__eyebrow">Diagnostico guiado</span>
+                <strong>{{ $problemCount }} problemas frecuentes</strong>
+                <span class="model-quick-access__meta">Accede a sintomas, checks y piezas relacionadas</span>
+              </a>
+            {{ end }}
+          </section>
+        {{ end }}
 
         <div class="model-anchor-bar">
           <a class="chip active" href="#compatibilidad">Compatibilidad</a>

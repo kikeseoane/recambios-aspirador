@@ -27,22 +27,59 @@
           {{ range $m := $group.items }}
             {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
             {{ $slug := or $m.slug $m.canonical_slug }}
-            <a class="card card--model" href="{{ (printf "%s/%s/%s/" $marcBase $brandKey $slug) | relURL }}">
+            {{ $rec := index $m "recambios" }}
+            {{ $probs := index $m "problemas" }}
+            {{ $priorityLinks := slice }}
+            {{ $priorityCats := slice "bateria" "cargador" "filtro" "cepillo" }}
+            {{ $catsWithItems := 0 }}
+            {{ if and $rec (reflect.IsMap $rec) }}
+              {{ range $k, $v := $rec }}
+                {{ if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
+                  {{ $catsWithItems = add $catsWithItems 1 }}
+                {{ end }}
+              {{ end }}
+              {{ range $ck := $priorityCats }}
+                {{ $items := index $rec $ck }}
+                {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+                  {{ $pretty := $ck }}
+                  {{ with site.Data.globals.categorias_recambios }}
+                    {{ with index . $ck }}
+                      {{ $pretty = index . "label" | default $ck }}
+                    {{ end }}
+                  {{ end }}
+                  {{ $priorityLinks = $priorityLinks | append (dict "label" $pretty "url" (printf "%s/%s/%s/%s/" $marcBase $brandKey $slug $ck | relURL) "count" (len $items)) }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+            <div class="card card--model">
               <div class="card-eyebrow">Modelo</div>
-              <h3>{{ $title }}</h3>
+              <h3><a href="{{ (printf "%s/%s/%s/" $marcBase $brandKey $slug) | relURL }}">{{ $title }}</a></h3>
 
               <div class="badges">
                 <span class="badge">Serie {{ $group.name }}</span>
                 {{ with $m.year_range }}<span class="badge">{{ . }}</span>{{ end }}
               </div>
 
-              {{ $probs := index $m "problemas" }}
               {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
-                <p class="muted small" style="margin-top:10px;">{{ len $probs }} problemas frecuentes mapeados</p>
+                <p class="muted small" style="margin-top:10px;">{{ $catsWithItems }} categorias con recambio y {{ len $probs }} problemas frecuentes mapeados</p>
               {{ else }}
-                <p class="muted small" style="margin-top:10px;">Compatibilidad y recambios por categoria</p>
+                <p class="muted small" style="margin-top:10px;">{{ $catsWithItems }} categorias con recambio y compatibilidad por modelo</p>
               {{ end }}
-            </a>
+
+              <div class="brand-model-card__quicklinks" style="margin-top:10px;">
+                {{ range first 3 $priorityLinks }}
+                  <a class="chip" href="{{ .url }}">{{ .label }}{{ if gt .count 0 }} ({{ .count }}){{ end }}</a>
+                {{ end }}
+                {{ if and $probs (reflect.IsSlice $probs) (gt (len $probs) 0) }}
+                  {{ $firstProblem := index $probs 0 }}
+                  {{ $pk := (index $firstProblem "key") | urlize }}
+                  {{ if $pk }}
+                    <a class="chip active" href="{{ (printf "%s/%s/%s/problemas/%s/" $marcBase $brandKey $slug $pk) | relURL }}">Ver problema</a>
+                  {{ end }}
+                {{ end }}
+              </div>
+              <a class="section-link section-link--inline mt-10" href="{{ (printf "%s/%s/%s/" $marcBase $brandKey $slug) | relURL }}">Abrir ficha completa</a>
+            </div>
           {{ end }}
         </div>
       </section>

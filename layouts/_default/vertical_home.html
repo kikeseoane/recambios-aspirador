@@ -10,13 +10,22 @@
   {{- $brands := $db.brands | default dict }}
   {{- $allVerts := site.Data.verticals.verticals | default dict }}
   {{- $vconf := index $allVerts $vertKey }}
+  {{- $vurls := partial "vertical_urls.html" $vertKey }}
+  {{- $marcBase := $vurls.marcBase | strings.TrimSuffix "/" }}
+  {{- $modBase := $vurls.modBase | strings.TrimSuffix "/" }}
+  {{- $guiasBase := $vurls.guiasBase | strings.TrimSuffix "/" }}
 
   {{- $totalMarcas := len $brands }}
   {{- $totalModelos := 0 }}
   {{- $totalSkus := 0 }}
+  {{- $totalProblemas := 0 }}
   {{- range $brands }}
     {{- $totalModelos = add $totalModelos (len .models) }}
     {{- range .models }}
+      {{- $probs := index . "problemas" }}
+      {{- if and $probs (reflect.IsSlice $probs) }}
+        {{- $totalProblemas = add $totalProblemas (len $probs) }}
+      {{- end }}
       {{- $rec := index . "recambios" }}
       {{- if and $rec (reflect.IsMap $rec) }}
         {{- range $rec }}
@@ -36,8 +45,9 @@
       <p class="muted hero__copy">{{ $heroCopy }}</p>
 
       <div class="hero__links">
-        <a class="btn btn--primary" href="{{ (printf "/%s/marcas/" $slug) | relURL }}">Ver marcas</a>
-        <a class="btn btn--ghost" href="{{ (printf "/%s/modelos/" $slug) | relURL }}">Ver modelos</a>
+        <a class="btn btn--primary" href="{{ (print $marcBase "/") | relURL }}">Ver marcas</a>
+        <a class="btn btn--ghost" href="{{ (print $modBase "/") | relURL }}">Buscar modelo</a>
+        <a class="btn btn--link" href="{{ (print $guiasBase "/") | relURL }}">Ver guias</a>
       </div>
 
       <div class="hero-stats hero-stats--compact">
@@ -52,6 +62,10 @@
         <div class="hero-stat">
           <span class="hero-stat__value">{{ $totalSkus }}</span>
           <span class="hero-stat__label">recambios mapeados</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat__value">{{ $totalProblemas }}</span>
+          <span class="hero-stat__label">diagnosticos</span>
         </div>
       </div>
     </div>
@@ -82,6 +96,22 @@
         {{- $k := .key }}
         {{- $b := .brand }}
         {{- $bslug := $k | urlize }}
+        {{- $problemCount := 0 }}
+        {{- $catsUsed := slice }}
+        {{- range $b.models }}
+          {{- $probs := index . "problemas" }}
+          {{- if and $probs (reflect.IsSlice $probs) }}
+            {{- $problemCount = add $problemCount (len $probs) }}
+          {{- end }}
+          {{- $rec := index . "recambios" }}
+          {{- if and $rec (reflect.IsMap $rec) }}
+            {{- range $rk, $rv := $rec }}
+              {{- if and $rv (reflect.IsSlice $rv) (gt (len $rv) 0) (not (in $catsUsed $rk)) }}
+                {{- $catsUsed = $catsUsed | append $rk }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
+        {{- end }}
         <a class="card card--with-icon" href="{{ (printf "/%s/marcas/%s/" $slug $bslug) | relURL }}">
           {{ partial "card_icon.html" (dict "kind" "brand") }}
           <div class="card-body">
@@ -89,8 +119,17 @@
             <p class="muted">{{ with $b.notes_brand }}{{ . }}{{ else }}Recambios compatibles para {{ $b.name }}.{{ end }}</p>
             <div class="badges">
               <span class="badge hot">{{ len $b.models }} modelos</span>
+              {{ if gt (len $catsUsed) 0 }}<span class="badge">{{ len $catsUsed }} categorias</span>{{ end }}
+              {{ if gt $problemCount 0 }}<span class="badge blue">{{ $problemCount }} problemas</span>{{ end }}
               {{ with $b.country_hint }}<span class="badge">{{ . }}</span>{{ end }}
             </div>
+            <p class="muted small" style="margin-top:10px;">
+              {{ if gt $problemCount 0 }}
+                Entra por marca para bajar a modelos con recambios y diagnosticos ya agrupados.
+              {{ else }}
+                Accede por marca para filtrar modelos y revisar compatibilidad antes de elegir pieza.
+              {{ end }}
+            </p>
           </div>
         </a>
       {{- end }}
@@ -129,12 +168,12 @@
     </div>
     <div class="grid cards">
       {{- range $filteredCats }}
-        <div class="card">
+        <a class="card" href="{{ (print $modBase "/") | relURL }}">
           <div class="card-body">
             <h3>{{ .label }}</h3>
             <p class="muted">Encuentra {{ .label | lower }} compatibles con verificacion de modelo.</p>
           </div>
-        </div>
+        </a>
       {{- end }}
     </div>
   {{- end }}

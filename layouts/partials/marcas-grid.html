@@ -85,6 +85,8 @@
       {{ $b := .brand }}
       {{ $slug := $k | urlize }}
       {{ $modelCount := 0 }}
+      {{ $problemCount := 0 }}
+      {{ $catsUsed := slice }}
       {{ with $b.models }}
         {{ if reflect.IsSlice . }}{{ $modelCount = len . }}{{ end }}
       {{ end }}
@@ -96,6 +98,18 @@
         {{ $pack := index . "sku_pack" | default "" }}
         {{ if eq $pack "robot10" }}{{ $hasRobot = true }}{{ end }}
         {{ if eq $pack "stick10" }}{{ $hasStick = true }}{{ end }}
+        {{ $probs := index . "problemas" }}
+        {{ if and $probs (reflect.IsSlice $probs) }}
+          {{ $problemCount = add $problemCount (len $probs) }}
+        {{ end }}
+        {{ $rec := index . "recambios" }}
+        {{ if and $rec (reflect.IsMap $rec) }}
+          {{ range $rk, $rv := $rec }}
+            {{ if and $rv (reflect.IsSlice $rv) (gt (len $rv) 0) (not (in $catsUsed $rk)) }}
+              {{ $catsUsed = $catsUsed | append $rk }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
       {{ end }}
       {{ $typeText := "aspiradores" }}
       {{ if and $hasRobot $hasStick }}{{ $typeText = "robots y aspiradores sin cable" }}
@@ -110,7 +124,16 @@
           <p class="muted">Recambios compatibles para {{ $typeText }} {{ $b.name }}: filtros, baterias, cepillos y accesorios.</p>
           <div class="badges">
             <span class="badge hot">{{ $modelCount }} modelos</span>
+            {{ if gt (len $catsUsed) 0 }}<span class="badge">{{ len $catsUsed }} categorias</span>{{ end }}
+            {{ if gt $problemCount 0 }}<span class="badge blue">{{ $problemCount }} problemas</span>{{ end }}
           </div>
+          <p class="muted small" style="margin-top:10px;">
+            {{ if gt $problemCount 0 }}
+              Modelos con piezas habituales y diagnosticos guiados para recambios frecuentes.
+            {{ else }}
+              Acceso por modelo para revisar compatibilidad y piezas habituales sin salir de la marca.
+            {{ end }}
+          </p>
         </div>
       </a>
     {{ end }}
