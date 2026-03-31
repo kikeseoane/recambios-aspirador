@@ -151,6 +151,7 @@
     <div class="offer-action">
       {{ if $buyNewImageURL }}
         <div class="offer-image">
+          <span class="buy-new-badge">{{ if $showBuyNewPrice }}OFERTA / NUEVO{{ else }}NUEVO{{ end }}</span>
           <img src="{{ $buyNewImageURL }}" alt="{{ $buyNewLabel }}" loading="lazy" width="120" height="120">
         </div>
       {{ end }}
