@@ -1,15 +1,3 @@
-{{/* partials/buy_new.html
-     Bloque "Mejor comprar nuevo?" con enlace de afiliado generado por sync_ofertas.
-     Parametros:
-       .model
-       .modelName
-       .brandName
-       .brandKey
-       .modelSlug
-       .verticalKey
-       .topBar
-*/}}
-
 {{ $model := .model }}
 {{ $modelName := .modelName | default "este modelo" }}
 {{ $brandKey := .brandKey | default "" }}
@@ -35,8 +23,8 @@
 {{ $currency := (index $offer "sale_price_currency") | default "EUR" }}
 
 {{ $btnLabel := printf "Ver %s nuevo en AliExpress" $modelName }}
-
 {{ $isFallback := false }}
+
 {{ if not $url }}
   {{ $vd := site.Data.vertical_defaults }}
   {{ if $vd }}
@@ -58,48 +46,71 @@
   {{ end }}
 {{ end }}
 
+{{ if not $imageURL }}
+  {{ $imageURL = (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}
+{{ end }}
+{{ $showPrice := and $salePrice (eq (upper (string $currency)) "EUR") }}
+
 {{ if $url }}
   {{ if $topBar }}
-<div class="buy-new-topbar">
-  <div class="buy-new-topbar__text">
-    <span class="buy-new-topbar__label">Mejor comprar nuevo?</span>
-    <span class="muted small">{{ $note }}</span>
-  </div>
-  <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-    {{ $btnLabel }} ->
-  </a>
-</div>
-  {{ else }}
-<div class="buy-new-block">
-  <div class="kicker">Merece la pena reparar?</div>
-  <h3 class="title-compact">{{ if $isFallback }}Ver modelos similares nuevos{{ else }}Comprar {{ $modelName }} nuevo{{ end }}</h3>
-  <p class="muted small">{{ $note }}</p>
-  <div class="offer-action">
-    {{ if $imageURL }}
-      <div class="offer-image">
-        <img src="{{ $imageURL }}" alt="{{ $btnLabel }}" loading="lazy" width="120" height="120">
-      </div>
-    {{ end }}
-    {{ if $salePrice }}
-      <div class="offer-price">
-        <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
-        {{ if and $originalPrice (ne $originalPrice $salePrice) }}
-          <span class="offer-price__original">{{ $originalPrice }} {{ $currency }}</span>
+    <div class="buy-new-topbar">
+      {{ if $imageURL }}
+        <div class="buy-new-topbar__media">
+          <img src="{{ $imageURL }}" alt="{{ $btnLabel }}" loading="lazy" width="96" height="96">
+        </div>
+      {{ end }}
+      <div class="buy-new-topbar__text">
+        <span class="buy-new-topbar__label">Cansado de buscar recambios? Comprate uno nuevo.</span>
+        <span class="muted small">No hemos encontrado un recambio fiable para este caso. Por eso te sugerimos ver el producto nuevo.</span>
+        {{ if $showPrice }}
+          <span class="offer-price offer-price--inline">
+            <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
+            {{ if and $originalPrice (ne $originalPrice $salePrice) }}
+              <span class="offer-price__original">{{ $originalPrice }} {{ $currency }}</span>
+            {{ end }}
+            {{ if $discount }}<span class="offer-price__discount">-{{ $discount }}%</span>{{ end }}
+          </span>
         {{ end }}
-        {{ if $discount }}<span class="offer-price__discount">-{{ $discount }}%</span>{{ end }}
       </div>
-    {{ end }}
-    <div class="offer-trust">
-      <span class="offer-trust__icon" aria-hidden="true">-></span>
-      <span class="offer-trust__text">Enlace de afiliado - abre AliExpress</span>
+      <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
+        Ver producto nuevo
+      </a>
     </div>
-    <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-      {{ $btnLabel }}
-    </a>
-    <div class="offer-action__note">
-      <small class="muted">Precio y disponibilidad segun vendedor externo</small>
+  {{ else }}
+    <div class="buy-new-block">
+      <div class="kicker">Merece la pena reparar?</div>
+      <h3 class="title-compact">{{ if $isFallback }}Ver modelos similares nuevos{{ else }}Comprar {{ $modelName }} nuevo{{ end }}</h3>
+      <p class="muted small">No hemos encontrado un recambio fiable para este caso. Por eso te sugerimos ver el producto nuevo.</p>
+      <div class="offer-action">
+        {{ if $imageURL }}
+          <div class="offer-image">
+            <img src="{{ $imageURL }}" alt="{{ $btnLabel }}" loading="lazy" width="120" height="120">
+          </div>
+        {{ end }}
+        {{ if $showPrice }}
+          <div class="offer-price">
+            <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
+            {{ if and $originalPrice (ne $originalPrice $salePrice) }}
+              <span class="offer-price__original">{{ $originalPrice }} {{ $currency }}</span>
+            {{ end }}
+            {{ if $discount }}<span class="offer-price__discount">-{{ $discount }}%</span>{{ end }}
+          </div>
+        {{ end }}
+        <div class="offer-trust">
+          <span class="offer-trust__icon" aria-hidden="true">→</span>
+          <span class="offer-trust__text">No existe un recambio fiable: te sugerimos producto nuevo</span>
+        </div>
+        <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
+          Cansado de buscar recambios? Comprate uno nuevo
+        </a>
+        <div class="offer-action__note">
+          {{ if and $salePrice (not $showPrice) }}
+            <small class="muted">Precio no mostrado: AliExpress no lo devuelve en EUR para este producto</small>
+          {{ else }}
+            <small class="muted">Precio y disponibilidad segun vendedor externo</small>
+          {{ end }}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   {{ end }}
 {{ end }}

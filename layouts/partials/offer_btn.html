@@ -1,13 +1,4 @@
-{{/* partials/offer_btn.html
-     Parametros:
-       .sku        — SKU del producto (requerido)
-       .label      — texto del boton (opcional; si se omite se genera por catKey)
-       .catKey     — categoria (filtro|bateria|cargador|cepillo|soporte|accesorios)
-                     se usa para generar label contextual automatico
-       .class      — clase CSS del boton (default: btn-buy)
-       .modelName  — nombre del modelo, incluido en el trust badge si se pasa
-       .hideTrust  — true para suprimir el badge de compatibilidad verificada
-*/}}
+{{/* partials/offer_btn.html */}}
 
 {{ $sku := .sku | default "" }}
 {{ $catKey := .catKey | default "" }}
@@ -15,13 +6,12 @@
 {{ $modelName := .modelName | default "" }}
 {{ $hideTrust := .hideTrust | default false }}
 
-{{/* Labels contextuales por categoria cuando no se pasa label explicito */}}
 {{ $catLabels := dict
-  "filtro"     "Ver filtros compatibles"
-  "bateria"    "Ver baterias compatibles"
-  "cargador"   "Ver cargadores compatibles"
-  "cepillo"    "Ver cepillos compatibles"
-  "soporte"    "Ver soportes compatibles"
+  "filtro" "Ver filtros compatibles"
+  "bateria" "Ver baterias compatibles"
+  "cargador" "Ver cargadores compatibles"
+  "cepillo" "Ver cepillos compatibles"
+  "soporte" "Ver soportes compatibles"
   "accesorios" "Ver accesorios compatibles"
 }}
 {{ $autoLabel := index $catLabels $catKey | default "Ver opciones compatibles" }}
@@ -29,8 +19,8 @@
 
 {{ $offersDoc := site.Data.ofertas }}
 {{ $offers := cond (and $offersDoc $offersDoc.offers) $offersDoc.offers (dict) }}
-
 {{ $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) }}
+
 {{ $url := (index $offer "url") | default "" }}
 {{ $needs := (index $offer "needs_url") | default false }}
 {{ $matchType := (index $offer "match_type") | default "" }}
@@ -43,7 +33,13 @@
 {{ $originalPrice := (index $offer "original_price") | default "" }}
 {{ $discount := (index $offer "discount") | default "" }}
 {{ $currency := (index $offer "sale_price_currency") | default "EUR" }}
+{{ $showOfferPrice := and $salePrice (eq (upper (string $currency)) "EUR") }}
+
 {{ $searchURL := "" }}
+{{ if $searchQuery }}
+  {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
+{{ end }}
+
 {{ $modelNewSku := .modelNewSku | default "" }}
 {{ $verticalKey := .verticalKey | default "aspiradores" }}
 {{ $newOffer := cond (and $modelNewSku (isset $offers $modelNewSku)) (index $offers $modelNewSku) (dict) }}
@@ -54,6 +50,7 @@
 {{ $newOriginalPrice := (index $newOffer "original_price") | default "" }}
 {{ $newDiscount := (index $newOffer "discount") | default "" }}
 {{ $newCurrency := (index $newOffer "sale_price_currency") | default "EUR" }}
+
 {{ $vd := site.Data.vertical_defaults }}
 {{ $vEntry := cond (and $vd (isset $vd $verticalKey)) (index $vd $verticalKey) (dict) }}
 {{ $verticalNewURL := (index $vEntry "buy_new_url") | default "" }}
@@ -63,6 +60,7 @@
 {{ $verticalNewOriginalPrice := (index $vEntry "buy_new_original_price") | default "" }}
 {{ $verticalNewDiscount := (index $vEntry "buy_new_discount") | default "" }}
 {{ $verticalNewCurrency := (index $vEntry "buy_new_sale_price_currency") | default "EUR" }}
+
 {{ $buyNewURL := $newURL }}
 {{ $buyNewLabel := $newLabel }}
 {{ $buyNewImageURL := $newImageURL }}
@@ -70,6 +68,7 @@
 {{ $buyNewOriginalPrice := $newOriginalPrice }}
 {{ $buyNewDiscount := $newDiscount }}
 {{ $buyNewCurrency := $newCurrency }}
+
 {{ if and (not $buyNewURL) $verticalNewURL }}
   {{ $buyNewURL = $verticalNewURL }}
   {{ $buyNewLabel = $verticalNewLabel }}
@@ -80,9 +79,10 @@
   {{ $buyNewCurrency = $verticalNewCurrency }}
 {{ end }}
 
-{{ if $searchQuery }}
-  {{ $searchURL = printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($searchQuery | urlquery) }}
+{{ if not $buyNewImageURL }}
+  {{ $buyNewImageURL = (printf "/img/verticals/%s.webp" $verticalKey) | relURL }}
 {{ end }}
+{{ $showBuyNewPrice := and $buyNewSalePrice (eq (upper (string $buyNewCurrency)) "EUR") }}
 
 {{ $trustIcon := "✓" }}
 {{ $trustText := "Compatibilidad probable: revisa modelo y encaje" }}
@@ -95,7 +95,7 @@
   {{ $trustText = $compatNote | default "Coincidencia heuristica: valida compatibilidad antes de comprar" }}
 {{ else if eq $compatStatus "fallback_buy_new" }}
   {{ $trustIcon = "↗" }}
-  {{ $trustText = "No hay recambio fiable: mejor ver producto nuevo" }}
+  {{ $trustText = "No hemos encontrado un recambio fiable para este modelo. Mejor ver producto nuevo." }}
 {{ else if eq $compatStatus "sin_cobertura" }}
   {{ $trustIcon = "!" }}
   {{ $trustText = "Sin cobertura fiable de recambio" }}
@@ -117,7 +117,7 @@
         <img src="{{ $imageURL }}" alt="{{ $label }}" loading="lazy" width="120" height="120">
       </div>
     {{ end }}
-    {{ if and $salePrice (eq $currency "EUR") }}
+    {{ if $showOfferPrice }}
       <div class="offer-price">
         <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
         {{ if and $originalPrice (ne $originalPrice $salePrice) }}
@@ -137,11 +137,15 @@
     </a>
     {{ if $needs }}
       <div class="offer-action__note">
-        <small class="muted">Resultado orientativo — confirma encaje antes de comprar</small>
+        <small class="muted">Resultado orientativo: confirma encaje antes de comprar</small>
       </div>
     {{ else }}
       <div class="offer-action__note">
-        <small class="muted">Enlace externo — abre en pestaña nueva</small>
+        {{ if and $salePrice (not $showOfferPrice) }}
+          <small class="muted">Precio no mostrado: AliExpress no devuelve esta oferta en EUR</small>
+        {{ else }}
+          <small class="muted">Enlace externo: abre en pestaña nueva</small>
+        {{ end }}
       </div>
     {{ end }}
   </div>
@@ -154,7 +158,7 @@
           <img src="{{ $buyNewImageURL }}" alt="{{ $buyNewLabel }}" loading="lazy" width="120" height="120">
         </div>
       {{ end }}
-      {{ if $buyNewSalePrice }}
+      {{ if $showBuyNewPrice }}
         <div class="offer-price">
           <span class="offer-price__sale">{{ $buyNewSalePrice }} {{ $buyNewCurrency }}</span>
           {{ if and $buyNewOriginalPrice (ne $buyNewOriginalPrice $buyNewSalePrice) }}
@@ -166,14 +170,18 @@
       {{ if not $hideTrust }}
         <div class="offer-trust">
           <span class="offer-trust__icon" aria-hidden="true">↗</span>
-          <span class="offer-trust__text">{{ $compatNote | default "No hay recambio claro: mejor ver el producto nuevo" }}</span>
+          <span class="offer-trust__text">No encontramos un recambio fiable. Te sugerimos ver el producto nuevo.</span>
         </div>
       {{ end }}
       <a class="{{ $class }}" href="{{ $buyNewURL }}" rel="nofollow sponsored noopener" target="_blank">
-        {{ $buyNewLabel }}
+        Cansado de buscar recambios? Comprate uno nuevo
       </a>
       <div class="offer-action__note">
-        <small class="muted">Alternativa recomendada cuando no aparece un recambio fiable</small>
+        {{ if and $buyNewSalePrice (not $showBuyNewPrice) }}
+          <small class="muted">No existe un recambio fiable y AliExpress no devuelve este precio en EUR</small>
+        {{ else }}
+          <small class="muted">No existe un recambio fiable. Por eso te sugerimos un producto nuevo.</small>
+        {{ end }}
       </div>
     </div>
   {{ else if $searchURL }}
