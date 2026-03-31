@@ -1376,3 +1376,1783 @@ brands:
         a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
           de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
           la compatibilidad de voltaje.
+    - model: Studio Dry CV5830
+      slug: rowenta-cv5830
+      sku_pack: dryer10
+      model_tokens:
+      - cv5830
+      - rowenta cv5830
+      - studio dry cv5830
+      year_range: 2020-2026
+      series: Studio Dry
+      recambios:
+        filtro:
+        - sku: rowenta-dry-rowenta-cv5830-filtro-filter-rear
+          title: Filtro trasero compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 filter dryer
+          must_include:
+          - cv5830
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id006
+          - cv5830
+          - rowenta cv5830
+          - studio dry cv5830
+        - sku: rowenta-dry-rowenta-cv5830-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 mesh filter dryer
+          must_include:
+          - cv5830
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id006
+        soporte:
+        - sku: rowenta-dry-rowenta-cv5830-soporte-stand-holder
+          title: Soporte o base compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 holder stand dryer
+          must_include:
+          - cv5830
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+        accesorios:
+        - sku: rowenta-dry-rowenta-cv5830-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 nozzle dryer
+          must_include:
+          - cv5830
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+        - sku: rowenta-dry-rowenta-cv5830-accesorios-acc-diffuser
+          title: Difusor compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 diffuser dryer
+          must_include:
+          - cv5830
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+        - sku: rowenta-dry-rowenta-cv5830-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 comb dryer
+          must_include:
+          - cv5830
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+        - sku: rowenta-dry-rowenta-cv5830-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 flyaway dryer
+          must_include:
+          - cv5830
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+        - sku: rowenta-dry-rowenta-cv5830-accesorios-acc-case
+          title: Funda o estuche compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 case dryer
+          must_include:
+          - cv5830
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+        - sku: rowenta-dry-rowenta-cv5830-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 power cable dryer
+          must_include:
+          - cv5830
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+        - sku: rowenta-dry-rowenta-cv5830-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Studio Dry CV5830
+          intent: compra
+          query: Rowenta cv5830 rear cover dryer
+          must_include:
+          - cv5830
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id006
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Studio Dry CV5830 ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Studio Dry CV5830 se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Studio Dry CV5830: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  babyliss-dry:
+    name: BaByliss
+    models:
+    - model: Air Pro 2200 6714E
+      slug: babyliss-6714e
+      sku_pack: dryer10
+      model_tokens:
+      - 6714e
+      - babyliss 6714e
+      - air pro 2200 6714e
+      year_range: 2020-2026
+      series: Air Pro 2200
+      recambios:
+        filtro:
+        - sku: babyliss-dry-babyliss-6714e-filtro-filter-rear
+          title: Filtro trasero compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e filter dryer
+          must_include:
+          - 6714e
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id007
+          - 6714e
+          - babyliss 6714e
+          - air pro 2200 6714e
+        - sku: babyliss-dry-babyliss-6714e-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e mesh filter dryer
+          must_include:
+          - 6714e
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id007
+        soporte:
+        - sku: babyliss-dry-babyliss-6714e-soporte-stand-holder
+          title: Soporte o base compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e holder stand dryer
+          must_include:
+          - 6714e
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+        accesorios:
+        - sku: babyliss-dry-babyliss-6714e-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e nozzle dryer
+          must_include:
+          - 6714e
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+        - sku: babyliss-dry-babyliss-6714e-accesorios-acc-diffuser
+          title: Difusor compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e diffuser dryer
+          must_include:
+          - 6714e
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+        - sku: babyliss-dry-babyliss-6714e-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e comb dryer
+          must_include:
+          - 6714e
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+        - sku: babyliss-dry-babyliss-6714e-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e flyaway dryer
+          must_include:
+          - 6714e
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+        - sku: babyliss-dry-babyliss-6714e-accesorios-acc-case
+          title: Funda o estuche compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e case dryer
+          must_include:
+          - 6714e
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+        - sku: babyliss-dry-babyliss-6714e-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e power cable dryer
+          must_include:
+          - 6714e
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+        - sku: babyliss-dry-babyliss-6714e-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Air Pro 2200 6714E
+          intent: compra
+          query: BaByliss 6714e rear cover dryer
+          must_include:
+          - 6714e
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id007
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Air Pro 2200 6714E ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Air Pro 2200 6714E se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Air Pro 2200 6714E: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Hydro Fusion D773DE
+      slug: babyliss-d773de
+      sku_pack: dryer10
+      model_tokens:
+      - d773de
+      - babyliss d773de
+      - hydro fusion d773de
+      year_range: 2021-2026
+      series: Hydro Fusion
+      recambios:
+        filtro:
+        - sku: babyliss-dry-babyliss-d773de-filtro-filter-rear
+          title: Filtro trasero compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de filter dryer
+          must_include:
+          - d773de
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id008
+          - d773de
+          - babyliss d773de
+          - hydro fusion d773de
+        - sku: babyliss-dry-babyliss-d773de-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de mesh filter dryer
+          must_include:
+          - d773de
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id008
+        soporte:
+        - sku: babyliss-dry-babyliss-d773de-soporte-stand-holder
+          title: Soporte o base compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de holder stand dryer
+          must_include:
+          - d773de
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+        accesorios:
+        - sku: babyliss-dry-babyliss-d773de-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de nozzle dryer
+          must_include:
+          - d773de
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+        - sku: babyliss-dry-babyliss-d773de-accesorios-acc-diffuser
+          title: Difusor compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de diffuser dryer
+          must_include:
+          - d773de
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+        - sku: babyliss-dry-babyliss-d773de-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de comb dryer
+          must_include:
+          - d773de
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+        - sku: babyliss-dry-babyliss-d773de-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de flyaway dryer
+          must_include:
+          - d773de
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+        - sku: babyliss-dry-babyliss-d773de-accesorios-acc-case
+          title: Funda o estuche compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de case dryer
+          must_include:
+          - d773de
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+        - sku: babyliss-dry-babyliss-d773de-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de power cable dryer
+          must_include:
+          - d773de
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+        - sku: babyliss-dry-babyliss-d773de-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Hydro Fusion D773DE
+          intent: compra
+          query: BaByliss d773de rear cover dryer
+          must_include:
+          - d773de
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id008
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Hydro Fusion D773DE ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Hydro Fusion D773DE se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Hydro Fusion D773DE: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  remington-dry:
+    name: Remington
+    models:
+    - model: Proluxe AC9140
+      slug: remington-ac9140
+      sku_pack: dryer10
+      model_tokens:
+      - ac9140
+      - remington ac9140
+      - proluxe ac9140
+      year_range: 2020-2026
+      series: Proluxe
+      recambios:
+        filtro:
+        - sku: remington-dry-remington-ac9140-filtro-filter-rear
+          title: Filtro trasero compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 filter dryer
+          must_include:
+          - ac9140
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id009
+          - ac9140
+          - remington ac9140
+          - proluxe ac9140
+        - sku: remington-dry-remington-ac9140-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 mesh filter dryer
+          must_include:
+          - ac9140
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id009
+        soporte:
+        - sku: remington-dry-remington-ac9140-soporte-stand-holder
+          title: Soporte o base compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 holder stand dryer
+          must_include:
+          - ac9140
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+        accesorios:
+        - sku: remington-dry-remington-ac9140-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 nozzle dryer
+          must_include:
+          - ac9140
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+        - sku: remington-dry-remington-ac9140-accesorios-acc-diffuser
+          title: Difusor compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 diffuser dryer
+          must_include:
+          - ac9140
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+        - sku: remington-dry-remington-ac9140-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 comb dryer
+          must_include:
+          - ac9140
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+        - sku: remington-dry-remington-ac9140-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 flyaway dryer
+          must_include:
+          - ac9140
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+        - sku: remington-dry-remington-ac9140-accesorios-acc-case
+          title: Funda o estuche compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 case dryer
+          must_include:
+          - ac9140
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+        - sku: remington-dry-remington-ac9140-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 power cable dryer
+          must_include:
+          - ac9140
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+        - sku: remington-dry-remington-ac9140-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Proluxe AC9140
+          intent: compra
+          query: Remington ac9140 rear cover dryer
+          must_include:
+          - ac9140
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id009
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Proluxe AC9140 ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Proluxe AC9140 se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Proluxe AC9140: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Keratin Protect AC8820
+      slug: remington-ac8820
+      sku_pack: dryer10
+      model_tokens:
+      - ac8820
+      - remington ac8820
+      - keratin protect ac8820
+      year_range: 2020-2026
+      series: Keratin Protect
+      recambios:
+        filtro:
+        - sku: remington-dry-remington-ac8820-filtro-filter-rear
+          title: Filtro trasero compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 filter dryer
+          must_include:
+          - ac8820
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id010
+          - ac8820
+          - remington ac8820
+          - keratin protect ac8820
+        - sku: remington-dry-remington-ac8820-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 mesh filter dryer
+          must_include:
+          - ac8820
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id010
+        soporte:
+        - sku: remington-dry-remington-ac8820-soporte-stand-holder
+          title: Soporte o base compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 holder stand dryer
+          must_include:
+          - ac8820
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+        accesorios:
+        - sku: remington-dry-remington-ac8820-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 nozzle dryer
+          must_include:
+          - ac8820
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+        - sku: remington-dry-remington-ac8820-accesorios-acc-diffuser
+          title: Difusor compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 diffuser dryer
+          must_include:
+          - ac8820
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+        - sku: remington-dry-remington-ac8820-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 comb dryer
+          must_include:
+          - ac8820
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+        - sku: remington-dry-remington-ac8820-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 flyaway dryer
+          must_include:
+          - ac8820
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+        - sku: remington-dry-remington-ac8820-accesorios-acc-case
+          title: Funda o estuche compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 case dryer
+          must_include:
+          - ac8820
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+        - sku: remington-dry-remington-ac8820-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 power cable dryer
+          must_include:
+          - ac8820
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+        - sku: remington-dry-remington-ac8820-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Keratin Protect AC8820
+          intent: compra
+          query: Remington ac8820 rear cover dryer
+          must_include:
+          - ac8820
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id010
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Keratin Protect AC8820 ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Keratin Protect AC8820 se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Keratin Protect AC8820: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+  parlux-dry:
+    name: Parlux
+    models:
+    - model: Alyon
+      slug: parlux-alyon
+      sku_pack: dryer10
+      model_tokens:
+      - parlux alyon
+      - alyon hair dryer
+      - alyon
+      year_range: 2020-2026
+      series: Alyon
+      recambios:
+        filtro:
+        - sku: parlux-dry-parlux-alyon-filtro-filter-rear
+          title: Filtro trasero compatible para Alyon
+          intent: compra
+          query: Parlux alyon filter dryer
+          must_include:
+          - alyon
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id011
+          - parlux alyon
+          - alyon hair dryer
+          - alyon
+        - sku: parlux-dry-parlux-alyon-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Alyon
+          intent: compra
+          query: Parlux alyon mesh filter dryer
+          must_include:
+          - alyon
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id011
+        soporte:
+        - sku: parlux-dry-parlux-alyon-soporte-stand-holder
+          title: Soporte o base compatible para Alyon
+          intent: compra
+          query: Parlux alyon holder stand dryer
+          must_include:
+          - alyon
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+        accesorios:
+        - sku: parlux-dry-parlux-alyon-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Alyon
+          intent: compra
+          query: Parlux alyon nozzle dryer
+          must_include:
+          - alyon
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+        - sku: parlux-dry-parlux-alyon-accesorios-acc-diffuser
+          title: Difusor compatible para Alyon
+          intent: compra
+          query: Parlux alyon diffuser dryer
+          must_include:
+          - alyon
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+        - sku: parlux-dry-parlux-alyon-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Alyon
+          intent: compra
+          query: Parlux alyon comb dryer
+          must_include:
+          - alyon
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+        - sku: parlux-dry-parlux-alyon-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Alyon
+          intent: compra
+          query: Parlux alyon flyaway dryer
+          must_include:
+          - alyon
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+        - sku: parlux-dry-parlux-alyon-accesorios-acc-case
+          title: Funda o estuche compatible para Alyon
+          intent: compra
+          query: Parlux alyon case dryer
+          must_include:
+          - alyon
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+        - sku: parlux-dry-parlux-alyon-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Alyon
+          intent: compra
+          query: Parlux alyon power cable dryer
+          must_include:
+          - alyon
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+        - sku: parlux-dry-parlux-alyon-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Alyon
+          intent: compra
+          query: Parlux alyon rear cover dryer
+          must_include:
+          - alyon
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id011
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Alyon ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Alyon se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Alyon: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
+    - model: Advance Light
+      slug: parlux-advance-light
+      sku_pack: dryer10
+      model_tokens:
+      - parlux advance light
+      - advance light dryer
+      - advance light
+      year_range: 2019-2026
+      series: Advance
+      recambios:
+        filtro:
+        - sku: parlux-dry-parlux-advance-light-filtro-filter-rear
+          title: Filtro trasero compatible para Advance Light
+          intent: compra
+          query: Parlux advance light filter dryer
+          must_include:
+          - advance light
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: &id012
+          - parlux advance light
+          - advance light dryer
+          - advance light
+        - sku: parlux-dry-parlux-advance-light-filtro-filter-mesh
+          title: Malla / filtro interior compatible para Advance Light
+          intent: compra
+          query: Parlux advance light mesh filter dryer
+          must_include:
+          - advance light
+          - mesh
+          - filter
+          - dryer
+          must_not_include:
+          - charger
+          - battery
+          - vacuum
+          - purifier
+          - humidifier
+          model_tokens: *id012
+        soporte:
+        - sku: parlux-dry-parlux-advance-light-soporte-stand-holder
+          title: Soporte o base compatible para Advance Light
+          intent: compra
+          query: Parlux advance light holder stand dryer
+          must_include:
+          - advance light
+          - holder
+          - stand
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+        accesorios:
+        - sku: parlux-dry-parlux-advance-light-accesorios-acc-nozzle
+          title: Boquilla concentradora compatible para Advance Light
+          intent: compra
+          query: Parlux advance light nozzle dryer
+          must_include:
+          - advance light
+          - nozzle
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+        - sku: parlux-dry-parlux-advance-light-accesorios-acc-diffuser
+          title: Difusor compatible para Advance Light
+          intent: compra
+          query: Parlux advance light diffuser dryer
+          must_include:
+          - advance light
+          - diffuser
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+        - sku: parlux-dry-parlux-advance-light-accesorios-acc-comb
+          title: Peine o accesorio alisador compatible para Advance Light
+          intent: compra
+          query: Parlux advance light comb dryer
+          must_include:
+          - advance light
+          - comb
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+        - sku: parlux-dry-parlux-advance-light-accesorios-acc-flyaway
+          title: Accesorio flyaway compatible para Advance Light
+          intent: compra
+          query: Parlux advance light flyaway dryer
+          must_include:
+          - advance light
+          - flyaway
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+        - sku: parlux-dry-parlux-advance-light-accesorios-acc-case
+          title: Funda o estuche compatible para Advance Light
+          intent: compra
+          query: Parlux advance light case dryer
+          must_include:
+          - advance light
+          - case
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+        - sku: parlux-dry-parlux-advance-light-accesorios-acc-cable
+          title: Cable de alimentacion compatible para Advance Light
+          intent: compra
+          query: Parlux advance light power cable dryer
+          must_include:
+          - advance light
+          - power
+          - cable
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+        - sku: parlux-dry-parlux-advance-light-accesorios-acc-rear-cover
+          title: Tapa trasera o cubierta compatible para Advance Light
+          intent: compra
+          query: Parlux advance light rear cover dryer
+          must_include:
+          - advance light
+          - rear
+          - cover
+          - dryer
+          must_not_include:
+          - battery
+          - charger
+          - filter
+          - vacuum
+          - purifier
+          model_tokens: *id012
+      compatibilidad:
+      - Confirma la version exacta del secador antes de comprar boquillas, difusor
+        o filtro trasero.
+      - Algunas gamas premium cambian el sistema magnetico o de fijacion entre generaciones
+        aunque se parezcan mucho.
+      - En filtros y tapas traseras, compara diametro, pestanas y fotos reales con
+        la pieza original.
+      - En cables y fuentes, revisa voltaje, clavija y salida exacta antes de pedir
+        un recambio.
+      - Los accesorios termicos universales suelen ajustar peor que los especificos
+        de serie.
+      problemas:
+      - key: pierde-potencia-aire
+        intent: info
+        cta_cat: filtro
+        fix_hint: La mayoria de perdidas de potencia en secadores vienen de un filtro
+          trasero sucio o parcialmente bloqueado.
+        title: Advance Light ha perdido potencia de aire
+        symptoms:
+        - El caudal es menor que antes
+        - Tarda mas en secar el pelo
+        - El motor suena ahogado
+        causes:
+        - Filtro trasero saturado por polvo o pelo
+        - Rejillas obstruidas
+        - Accesorio mal colocado o deformado
+        checks:
+        - Limpiar el filtro y la rejilla de entrada
+        - Probar sin accesorio para comparar el caudal
+        - Revisar que no haya pelo atrapado en las entradas de aire
+      - key: se-calienta-mucho
+        intent: info
+        cta_cat: filtro
+        fix_hint: Si baja el rendimiento justo antes de calentarse, revisa primero
+          el filtro y la entrada de aire.
+        title: Advance Light se calienta demasiado
+        symptoms:
+        - La carcasa quema al tacto
+        - Reduce automaticamente la potencia
+        - Huele a caliente al poco de usarlo
+        causes:
+        - Filtro sucio que fuerza el motor
+        - Entrada o salida de aire bloqueada
+        - Uso prolongado a maxima temperatura
+        checks:
+        - Limpiar el filtro antes de volver a usarlo
+        - Revisar que la salida de aire no esta tapada
+        - Probar con un nivel de calor inferior
+      - key: accesorio-no-encaja
+        intent: info
+        cta_cat: accesorios
+        fix_hint: En secadores premium, una pequena diferencia de version basta para
+          que las boquillas no fijen correctamente.
+        title: 'Advance Light: la boquilla o accesorio no encaja bien'
+        symptoms:
+        - La boquilla se cae o gira sola
+        - El difusor vibra al usarlo
+        - El accesorio queda suelto desde el primer dia
+        causes:
+        - Accesorio de otra version o generacion
+        - Anillo de fijacion desgastado
+        - Tolerancias pobres en un compatible generico
+        checks:
+        - Comparar el accesorio con la pieza original
+        - Verificar la version exacta del modelo
+        - Revisar que no falte ningun aro o iman de fijacion
+      faqs:
+      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
+        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
+          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
+          la pieza original.
+      - q: ¿Los recambios compatibles son igual de buenos que los originales?
+        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
+          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
+          explícita con tu modelo.
+      - q: ¿Con qué frecuencia debo cambiar el filtro?
+        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
+          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
+          anualmente.
+      - q: ¿Puedo usar una batería de mayor capacidad que la original?
+        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
+          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
+          la compatibilidad de voltaje.
