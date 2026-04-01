@@ -78,6 +78,11 @@ PAGE_SIZE = int((os.getenv("ALI_PAGE_SIZE") or "50").strip() or "50")
 CACHE_DIR = ROOT / "data" / ".cache_aliexpress"
 CACHE_TTL_SECONDS = int((os.getenv("ALI_CACHE_TTL") or str(7 * 24 * 3600)).strip() or str(7 * 24 * 3600))
 RATE_SLEEP_SECONDS = float((os.getenv("ALI_RATE_SLEEP") or "0.35").strip() or "0.35")
+MAX_EXACT_KEYWORDS = int((os.getenv("SYNC_MAX_EXACT_KEYWORDS") or "2").strip() or "2")
+MAX_RESCUE_KEYWORDS = int((os.getenv("SYNC_MAX_RESCUE_KEYWORDS") or "2").strip() or "2")
+MAX_SHORTLIST_CANDIDATES = int((os.getenv("SYNC_MAX_SHORTLIST_CANDIDATES") or "3").strip() or "3")
+EXACT_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_EXACT_LANGS") or "EN,ES").split(",") if x.strip())
+RESCUE_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_RESCUE_LANGS") or "EN").split(",") if x.strip())
 
 # Contadores globales de llamadas reales a la API (excluye cache hits)
 _api_calls_real: int = 0
@@ -1724,7 +1729,7 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
         compose_search_query([brand], [category_terms, "replacement"]),
         compose_search_query([brand, model], []),
     ]
-    return unique_keywords(candidates)
+    return unique_keywords(candidates)[:max(1, MAX_EXACT_KEYWORDS)]
 
 
 def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_include: List[str]) -> List[str]:
@@ -1747,7 +1752,7 @@ def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_incl
         compose_search_query([brand, category], [item_title]),
         compose_search_query([], [query_override, "replacement"]),
     ]
-    return unique_keywords(candidates)
+    return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
 
 
 def choose_fallback_search_query(ctx: Dict[str, Any], query_override: str) -> str:
@@ -1947,8 +1952,8 @@ def collect_relaxed_candidates(
 
     ranked: List[Tuple[float, Dict[str, str]]] = []
     seen_urls: set[str] = set()
-    for keyword in unique_keywords(keywords):
-        for lang in ("EN", "ES"):
+    for keyword in unique_keywords(keywords)[:max(1, MAX_RESCUE_KEYWORDS)]:
+        for lang in (RESCUE_LANGS or ("EN",)):
             for page_no in (1,):
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
@@ -2014,7 +2019,7 @@ def collect_relaxed_candidates(
                     ))
 
     ranked.sort(key=lambda item: item[0], reverse=True)
-    return [cand for _, cand in ranked[:limit]]
+    return [cand for _, cand in ranked[:max(1, min(limit, MAX_SHORTLIST_CANDIDATES))]]
 
 
 def pick_best_promotion_link(
@@ -2162,8 +2167,8 @@ def collect_exact_candidates(
     ranked: List[Tuple[float, Dict[str, str]]] = []
     seen_urls: set[str] = set()
 
-    for keyword in keywords:
-        for lang in ("EN", "ES"):
+    for keyword in keywords[:max(1, MAX_EXACT_KEYWORDS)]:
+        for lang in (EXACT_LANGS or ("EN", "ES")):
             for page_no in (1,):
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
@@ -2238,7 +2243,7 @@ def collect_exact_candidates(
                     ))
 
     ranked.sort(key=lambda item: item[0], reverse=True)
-    return [cand for _, cand in ranked[:limit]]
+    return [cand for _, cand in ranked[:max(1, min(limit, MAX_SHORTLIST_CANDIDATES))]]
 
 
 # =========================
