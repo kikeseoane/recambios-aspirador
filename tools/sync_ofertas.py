@@ -1480,6 +1480,32 @@ def stage_candidate_for_ai(
     offer_obj["updated_at"] = today
 
 
+def shortlist_ai_payload(ctx: Dict[str, Any], candidates: List[Dict[str, Any]]) -> str:
+    data = {
+        "brand": ctx.get("brand") or "",
+        "model": ctx.get("model") or "",
+        "vertical": ctx.get("vertical") or "",
+        "category": ctx.get("category") or "",
+        "item_title": ctx.get("item_title") or "",
+        "must_include": ensure_list_str(ctx.get("must_include")),
+        "must_not_include": ensure_list_str(ctx.get("must_not_include")),
+        "model_tokens": ensure_list_str(ctx.get("model_tokens")),
+        "candidates": [
+            {
+                "id": idx + 1,
+                "title": cand.get("product_title") or "",
+                "url": cand.get("url") or "",
+                "price": cand.get("sale_price") or "",
+                "currency": cand.get("sale_price_currency") or "",
+                "query": cand.get("matched_query") or "",
+                "tier": cand.get("candidate_tier") or "",
+            }
+            for idx, cand in enumerate(candidates)
+        ],
+    }
+    return json.dumps(data, ensure_ascii=False, indent=2)
+
+
 def ai_prompt_payload(ctx: Dict[str, Any], candidate: Dict[str, Any]) -> str:
     data = {
         "brand": ctx.get("brand") or "",
@@ -1515,7 +1541,7 @@ def parse_ai_json(text: str) -> Dict[str, Any]:
         return {}
 
 
-def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -> Dict[str, str]:
+def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
     global _ai_validation_calls
 
     if not ai_validation_enabled():
@@ -1523,17 +1549,6 @@ def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -
     if ai_budget_limit() > 0 and ai_budget_used() >= ai_budget_limit():
         return {"status": "pending", "reason": "daily_ai_budget_exhausted"}
 
-    system_prompt = (
-        "You validate whether an ecommerce product listing really matches a spare part request. "
-        "Be conservative. Reply only as JSON with keys verdict and reason. "
-        "verdict must be one of: valid, doubtful, invalid."
-    )
-    user_prompt = (
-        "Decide if the candidate listing is a correct match for the requested spare part. "
-        "Return invalid if the title suggests another product type, another ecosystem, or lacks enough evidence. "
-        "Return doubtful if evidence is mixed. Return valid only if the candidate clearly fits.\n\n"
-        f"{ai_prompt_payload(ctx, candidate)}"
-    )
     headers = {
         "Authorization": f"Bearer {AI_VALIDATION_API_KEY}",
         "Content-Type": "application/json",
@@ -1567,6 +1582,27 @@ def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -
     message = choices[0].get("message", {}) if choices and isinstance(choices[0], dict) else {}
     content = message.get("content") or ""
     parsed = parse_ai_json(content)
+    if not parsed:
+        return {"status": "pending", "reason": "ai_unparseable_response"}
+    return {"status": "ok", "reason": "", "content": parsed}
+
+
+def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -> Dict[str, str]:
+    system_prompt = (
+        "You validate whether an ecommerce product listing really matches a spare part request. "
+        "Be conservative. Reply only as JSON with keys verdict and reason. "
+        "verdict must be one of: valid, doubtful, invalid."
+    )
+    user_prompt = (
+        "Decide if the candidate listing is a correct match for the requested spare part. "
+        "Return invalid if the title suggests another product type, another ecosystem, or lacks enough evidence. "
+        "Return doubtful if evidence is mixed. Return valid only if the candidate clearly fits.\n\n"
+        f"{ai_prompt_payload(ctx, candidate)}"
+    )
+    raw = call_ai_json(system_prompt, user_prompt)
+    if raw.get("status") != "ok":
+        return {"status": raw.get("status") or "pending", "reason": raw.get("reason") or "ai_unknown_error"}
+    parsed = raw.get("content") or {}
     verdict = str(parsed.get("verdict") or parsed.get("status") or "").strip().lower()
     reason = normalize(str(parsed.get("reason") or "")) or "ai_no_reason"
     if verdict in {"valid", "approved", "approve", "match"}:
@@ -1574,6 +1610,42 @@ def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -
     if verdict in {"invalid", "reject", "rejected", "wrong"}:
         return {"status": "rejected", "reason": reason}
     if verdict in {"doubtful", "uncertain", "unsure"}:
+        return {"status": "rejected", "reason": reason}
+    return {"status": "pending", "reason": "ai_unparseable_response"}
+
+
+def choose_best_candidate_with_ai(ctx: Dict[str, Any], candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
+    if not candidates:
+        return {"status": "none", "reason": "no_candidates"}
+
+    system_prompt = (
+        "You choose the best ecommerce listing for a spare part request. "
+        "Be conservative. Reply only as JSON with keys verdict, best_id and reason. "
+        "verdict must be one of: valid, invalid, doubtful. "
+        "best_id must be an integer candidate id when verdict is valid, otherwise 0."
+    )
+    user_prompt = (
+        "From the candidate list, choose the single best match for the requested spare part. "
+        "Return invalid if none clearly fit. Return doubtful if evidence is mixed. "
+        "Prefer exact ecosystem, exact part type, and clear compatibility.\n\n"
+        f"{shortlist_ai_payload(ctx, candidates)}"
+    )
+    raw = call_ai_json(system_prompt, user_prompt)
+    if raw.get("status") != "ok":
+        return {"status": raw.get("status") or "pending", "reason": raw.get("reason") or "ai_unknown_error"}
+
+    parsed = raw.get("content") or {}
+    verdict = str(parsed.get("verdict") or parsed.get("status") or "").strip().lower()
+    reason = normalize(str(parsed.get("reason") or "")) or "ai_no_reason"
+    try:
+        best_id = int(parsed.get("best_id") or 0)
+    except Exception:
+        best_id = 0
+
+    if verdict in {"valid", "approved", "approve", "match"} and 1 <= best_id <= len(candidates):
+        chosen = dict(candidates[best_id - 1])
+        return {"status": "validated", "reason": reason, "candidate": chosen}
+    if verdict in {"invalid", "reject", "rejected", "wrong", "doubtful", "uncertain", "unsure"}:
         return {"status": "rejected", "reason": reason}
     return {"status": "pending", "reason": "ai_unparseable_response"}
 
@@ -1852,6 +1924,99 @@ def pick_relaxed_link(
     return None
 
 
+def collect_relaxed_candidates(
+    keywords: List[str],
+    *,
+    brand: str,
+    category: str,
+    vertical: str,
+    part_terms: List[str],
+    must_not_include: List[str],
+    anchor_terms: List[str],
+    specific_item_terms: List[str],
+    rejected_fingerprints: set[str],
+    use_cache: bool,
+    limit: int = 5,
+) -> List[Dict[str, str]]:
+    category_key = nrm(category)
+    require_anchor = category_key in STRICT_RELAXED_CATEGORIES
+    min_anchor_hits = 2 if require_anchor else 1
+    min_specific_hits = min_specific_item_hits(category, specific_item_terms)
+    if require_anchor and len(anchor_terms) < min_anchor_hits:
+        return []
+
+    ranked: List[Tuple[float, Dict[str, str]]] = []
+    seen_urls: set[str] = set()
+    for keyword in unique_keywords(keywords):
+        for lang in ("EN", "ES"):
+            for page_no in (1,):
+                try:
+                    resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+                except Exception as exc:
+                    print(f"  [relaxed-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
+                    continue
+                prods = extract_products(resp)
+                if not prods:
+                    continue
+
+                for p in prods:
+                    title = p.get("product_title") or ""
+                    if not title:
+                        continue
+                    if product_fingerprint(p) in rejected_fingerprints:
+                        continue
+                    tt = nrm(title)
+                    if looks_bad(tt):
+                        continue
+                    if is_deceptive_title(title, category):
+                        continue
+                    if vertical and not title_matches_vertical(title, vertical):
+                        continue
+                    if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                        continue
+                    if brand and not title_has_required_brand(title, brand):
+                        continue
+                    has_part_term = any(pt in tt for pt in part_terms)
+                    if not has_part_term:
+                        if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
+                            continue
+                    if must_not_include and contains_any(tt, must_not_include):
+                        continue
+                    if not title_matches_category_signals(title, category, specific_item_terms):
+                        continue
+                    if anchor_terms and count_anchor_hits(title, anchor_terms) < min_anchor_hits:
+                        continue
+                    if min_specific_hits and count_anchor_hits(title, specific_item_terms) < min_specific_hits:
+                        continue
+
+                    url = str(p.get("promotion_link") or p.get("product_detail_url") or "").strip()
+                    if not url or url in seen_urls:
+                        continue
+                    seen_urls.add(url)
+                    score = (
+                        sum(1 for anchor in anchor_terms if anchor in nrm(str(title))) * 4.0
+                        + get_orders(p) * 0.015
+                        + get_commission_rate(p) * 0.4
+                    )
+                    ranked.append((
+                        score,
+                        {
+                            "url": url,
+                            "image_url": str(p.get("product_main_image_url") or "").strip(),
+                            "sale_price": str(p.get("sale_price") or "").strip(),
+                            "sale_price_currency": str(p.get("sale_price_currency") or "").strip(),
+                            "original_price": str(p.get("original_price") or "").strip(),
+                            "discount": str(p.get("discount") or "").strip(),
+                            "product_title": str(title).strip(),
+                            "matched_query": keyword,
+                            "candidate_tier": "rescue",
+                        },
+                    ))
+
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return [cand for _, cand in ranked[:limit]]
+
+
 def pick_best_promotion_link(
     keyword: str,
     must_brand: str,
@@ -1971,6 +2136,109 @@ def pick_best_promotion_link(
                 }
 
     return None
+
+
+def collect_exact_candidates(
+    keywords: List[str],
+    *,
+    must_brand: str,
+    model_hint: str,
+    part_terms: List[str],
+    must_include: List[str],
+    must_not_include: List[str],
+    model_tokens_override: List[str],
+    vertical: str,
+    category: str,
+    strict_anchor_terms: List[str],
+    specific_item_terms: List[str],
+    rejected_fingerprints: set[str],
+    use_cache: bool,
+    limit: int = 5,
+) -> List[Dict[str, str]]:
+    req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
+    strict_category = nrm(category) in STRICT_EXACT_MATCH_CATEGORIES
+    min_anchor_hits = 2 if strict_category else 1
+    min_specific_hits = min_specific_item_hits(category, specific_item_terms)
+    ranked: List[Tuple[float, Dict[str, str]]] = []
+    seen_urls: set[str] = set()
+
+    for keyword in keywords:
+        for lang in ("EN", "ES"):
+            for page_no in (1,):
+                try:
+                    resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+                except Exception as exc:
+                    print(f"  [query-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
+                    continue
+                prods = extract_products(resp)
+                if not prods:
+                    continue
+
+                for p in prods:
+                    title = p.get("product_title") or ""
+                    if not title:
+                        continue
+                    if product_fingerprint(p) in rejected_fingerprints:
+                        continue
+                    tt = nrm(title)
+                    if looks_bad(tt):
+                        continue
+                    if is_deceptive_title(title, category):
+                        continue
+                    if vertical and not title_matches_vertical(title, vertical):
+                        continue
+                    if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                        continue
+                    if category == "nuevo" and is_low_quality_new_title(title):
+                        continue
+                    if category != "nuevo" and must_brand and not title_has_required_brand(title, must_brand):
+                        continue
+                    if req_models and not title_has_required_model(tt, req_models):
+                        continue
+                    if part_terms:
+                        has_part_term = any(pt in tt for pt in part_terms)
+                        if not has_part_term:
+                            if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
+                                continue
+                    if must_include and not contains_all(tt, must_include):
+                        continue
+                    if must_not_include and contains_any(tt, must_not_include):
+                        continue
+                    if not title_matches_category_signals(title, category, specific_item_terms):
+                        continue
+                    if strict_anchor_terms and count_anchor_hits(title, strict_anchor_terms) < min_anchor_hits:
+                        continue
+                    if min_specific_hits and count_anchor_hits(title, specific_item_terms) < min_specific_hits:
+                        continue
+
+                    url = str(p.get("promotion_link") or p.get("product_detail_url") or "").strip()
+                    if not url or url in seen_urls:
+                        continue
+                    seen_urls.add(url)
+                    score = (
+                        score_new_product(title, p, must_brand=nrm(must_brand), req_models=req_models, vertical=vertical)
+                        if category == "nuevo"
+                        else score_product(title, p, must_brand=nrm(must_brand), part_terms=part_terms, req_models=req_models, category=category)
+                    )
+                    if score <= -1e8:
+                        continue
+                    ranked.append((
+                        score,
+                        {
+                            "url": url,
+                            "image_url": str(p.get("product_main_image_url") or "").strip(),
+                            "sale_price": str(p.get("sale_price") or "").strip(),
+                            "sale_price_currency": str(p.get("sale_price_currency") or "").strip(),
+                            "original_price": str(p.get("original_price") or "").strip(),
+                            "discount": str(p.get("discount") or "").strip(),
+                            "product_title": str(title).strip(),
+                            "matched_query": keyword,
+                            "candidate_tier": "exact",
+                        },
+                    ))
+
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return [cand for _, cand in ranked[:limit]]
 
 
 # =========================
@@ -2322,9 +2590,55 @@ def main() -> None:
             ai_pending = False
             ai_rejected = False
 
-            while True:
-                found = None
-                matched_kw = ""
+            if require_ai_validation:
+                exact_candidates = collect_exact_candidates(
+                    kws,
+                    must_brand=brand,
+                    model_hint=model,
+                    part_terms=part_terms,
+                    must_include=must_include,
+                    must_not_include=must_not_combined,
+                    model_tokens_override=model_tokens_override,
+                    vertical=str(ctx.get("vertical") or ""),
+                    category=category,
+                    strict_anchor_terms=strict_anchor_terms,
+                    specific_item_terms=specific_item_terms,
+                    rejected_fingerprints=rejected_fps,
+                    use_cache=use_cache,
+                    limit=5,
+                )
+                ai_exact_candidates += len(exact_candidates)
+                if exact_candidates:
+                    ai_result = choose_best_candidate_with_ai(ctx, exact_candidates)
+                    ai_status = ai_result.get("status") or ""
+                    ai_reason = ai_result.get("reason") or ""
+                    if ai_status == "validated":
+                        found = dict(ai_result.get("candidate") or {})
+                        matched_kw = str(found.get("matched_query") or "")
+                        obj["ai_validation_status"] = "validated"
+                        obj["ai_validation_reason"] = ai_reason
+                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_at"] = today
+                        obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
+                        obj.pop("ai_pending_candidate", None)
+                    elif ai_status == "rejected":
+                        for candidate in exact_candidates:
+                            fp = candidate_fingerprint(candidate)
+                            append_rejected_candidate_fingerprint(obj, fp)
+                            rejected_fps.add(fp)
+                        obj["ai_validation_status"] = "rejected"
+                        obj["ai_validation_reason"] = ai_reason
+                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_at"] = today
+                        obj["ai_validation_candidate_fingerprint"] = ""
+                        obj.pop("ai_pending_candidate", None)
+                        ai_rejected = True
+                    else:
+                        stage_candidate_for_ai(obj, exact_candidates[0], reason=ai_reason, today=today)
+                        ai_pending = True
+                else:
+                    found = None
+            else:
                 for kw in kws:
                     found = pick_best_promotion_link(
                         keyword=kw,
@@ -2344,37 +2658,6 @@ def main() -> None:
                     if found:
                         matched_kw = kw
                         break
-                if not found or not require_ai_validation:
-                    break
-                ai_exact_candidates += 1
-                ai_result = validate_candidate_with_ai(ctx, found)
-                ai_status = ai_result.get("status") or ""
-                ai_reason = ai_result.get("reason") or ""
-                if ai_status == "validated":
-                    obj["ai_validation_status"] = "validated"
-                    obj["ai_validation_reason"] = ai_reason
-                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
-                    obj["ai_validation_at"] = today
-                    obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
-                    obj.pop("ai_pending_candidate", None)
-                    break
-                if ai_status == "rejected":
-                    fp = candidate_fingerprint(found)
-                    append_rejected_candidate_fingerprint(obj, fp)
-                    rejected_fps.add(fp)
-                    obj["ai_validation_status"] = "rejected"
-                    obj["ai_validation_reason"] = ai_reason
-                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
-                    obj["ai_validation_at"] = today
-                    obj["ai_validation_candidate_fingerprint"] = fp
-                    obj.pop("ai_pending_candidate", None)
-                    found = None
-                    ai_rejected = True
-                    continue
-                stage_candidate_for_ai(obj, found, reason=ai_reason, today=today)
-                ai_pending = True
-                found = None
-                break
 
             if found:
                 apply_offer_candidate(
@@ -2391,50 +2674,47 @@ def main() -> None:
                 anchor_terms = extract_relaxed_anchor_terms(ctx, must_include)
                 relaxed = None
                 if relaxed_allowed:
-                    while True:
-                        relaxed = pick_relaxed_link(
-                            brand=brand,
-                            category=category,
-                            vertical=str(ctx.get("vertical") or ""),
-                            part_terms=part_terms,
-                            must_not_include=must_not_combined,
-                            anchor_terms=anchor_terms,
-                            specific_item_terms=specific_item_terms,
-                            rejected_fingerprints=rejected_fps,
-                            use_cache=use_cache,
-                            keywords=rescue_kws,
-                        )
-                        if not relaxed or not require_ai_validation:
-                            break
-                        ai_relaxed_candidates += 1
-                        ai_result = validate_candidate_with_ai(ctx, relaxed)
+                    rescue_candidates = collect_relaxed_candidates(
+                        rescue_kws,
+                        brand=brand,
+                        category=category,
+                        vertical=str(ctx.get("vertical") or ""),
+                        part_terms=part_terms,
+                        must_not_include=must_not_combined,
+                        anchor_terms=anchor_terms,
+                        specific_item_terms=specific_item_terms,
+                        rejected_fingerprints=rejected_fps,
+                        use_cache=use_cache,
+                        limit=5,
+                    )
+                    ai_relaxed_candidates += len(rescue_candidates)
+                    if rescue_candidates:
+                        ai_result = choose_best_candidate_with_ai(ctx, rescue_candidates)
                         ai_status = ai_result.get("status") or ""
                         ai_reason = ai_result.get("reason") or ""
                         if ai_status == "validated":
+                            relaxed = dict(ai_result.get("candidate") or {})
                             obj["ai_validation_status"] = "validated"
                             obj["ai_validation_reason"] = ai_reason
                             obj["ai_validation_model"] = AI_VALIDATION_MODEL
                             obj["ai_validation_at"] = today
                             obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
                             obj.pop("ai_pending_candidate", None)
-                            break
-                        if ai_status == "rejected":
-                            fp = candidate_fingerprint(relaxed)
-                            append_rejected_candidate_fingerprint(obj, fp)
-                            rejected_fps.add(fp)
+                        elif ai_status == "rejected":
+                            for candidate in rescue_candidates:
+                                fp = candidate_fingerprint(candidate)
+                                append_rejected_candidate_fingerprint(obj, fp)
+                                rejected_fps.add(fp)
                             obj["ai_validation_status"] = "rejected"
                             obj["ai_validation_reason"] = ai_reason
                             obj["ai_validation_model"] = AI_VALIDATION_MODEL
                             obj["ai_validation_at"] = today
-                            obj["ai_validation_candidate_fingerprint"] = fp
+                            obj["ai_validation_candidate_fingerprint"] = ""
                             obj.pop("ai_pending_candidate", None)
-                            relaxed = None
                             ai_rejected = True
-                            continue
-                        stage_candidate_for_ai(obj, relaxed, reason=ai_reason, today=today)
-                        ai_pending = True
-                        relaxed = None
-                        break
+                        else:
+                            stage_candidate_for_ai(obj, rescue_candidates[0], reason=ai_reason, today=today)
+                            ai_pending = True
                 if relaxed:
                     apply_offer_candidate(
                         obj,
