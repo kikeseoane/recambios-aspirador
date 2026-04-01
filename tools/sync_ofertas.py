@@ -2233,8 +2233,15 @@ def main() -> None:
             kws = build_search_keywords(ctx, query, must_include)
             fallback_search_query = kws[0] if kws else choose_fallback_search_query(ctx, query)
             fallback_search_label = choose_fallback_search_label(ctx, fallback_search_query)
-            relaxed_allowed = nrm(category) in RELAXED_FALLBACK_ALLOWED_CATEGORIES
-            require_ai_validation = ai_validation_enabled() and nrm(category) != "nuevo"
+            require_ai_validation = ai_validation_enabled()
+            # Politica de seguridad:
+            # - sin IA: solo matching duro, nada de tiers relajados
+            # - con IA: se puede relajar, pero cualquier candidato seleccionado
+            #   debe pasar validacion final antes de consolidarse
+            relaxed_allowed = (
+                nrm(category) in RELAXED_FALLBACK_ALLOWED_CATEGORIES
+                and require_ai_validation
+            )
             rejected_fps = rejected_candidate_fingerprints(obj)
             found = None
             matched_kw = ""
