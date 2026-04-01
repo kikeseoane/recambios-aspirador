@@ -60,6 +60,16 @@ GITHUB_REPO = (os.getenv("GITHUB_REPO") or os.getenv("GITHUB_REPOSITORY") or "")
 GITHUB_ACTIONS_PAUSE_TOKEN = (os.getenv("GITHUB_ACTIONS_PAUSE_TOKEN") or os.getenv("GITHUB_TOKEN") or "").strip()
 GITHUB_ACTIONS_PAUSE_VAR = (os.getenv("GITHUB_ACTIONS_PAUSE_VAR") or "SYNC_OFERTAS_PAUSED").strip()
 GITHUB_ACTIONS_PAUSE_AT_VAR = (os.getenv("GITHUB_ACTIONS_PAUSE_AT_VAR") or f"{GITHUB_ACTIONS_PAUSE_VAR}_AT").strip()
+AI_VALIDATION_PROVIDER = (os.getenv("AI_VALIDATION_PROVIDER") or "").strip().lower()
+AI_VALIDATION_MODEL = (os.getenv("AI_VALIDATION_MODEL") or "").strip()
+AI_VALIDATION_API_KEY = (
+    os.getenv("AI_VALIDATION_API_KEY")
+    or os.getenv("OPENROUTER_API_KEY")
+    or ""
+).strip()
+AI_VALIDATION_URL = (os.getenv("AI_VALIDATION_URL") or "https://openrouter.ai/api/v1/chat/completions").strip()
+AI_VALIDATION_MAX_CHECKS = int((os.getenv("AI_VALIDATION_MAX_CHECKS") or "0").strip() or "0")
+AI_VALIDATION_TIMEOUT = float((os.getenv("AI_VALIDATION_TIMEOUT") or "20").strip() or "20")
 
 SHIP_TO = (os.getenv("ALI_SHIP_TO") or "ES").strip()
 CURRENCY = (os.getenv("ALI_CURRENCY") or "EUR").strip()
@@ -72,6 +82,7 @@ RATE_SLEEP_SECONDS = float((os.getenv("ALI_RATE_SLEEP") or "0.35").strip() or "0
 # Contadores globales de llamadas reales a la API (excluye cache hits)
 _api_calls_real: int = 0
 _api_time_real: float = 0.0
+_ai_validation_calls: int = 0
 
 if not APP_KEY or not APP_SECRET:
     raise SystemExit("Faltan variables de entorno: ALI_APP_KEY y/o ALI_APP_SECRET")
@@ -1267,9 +1278,12 @@ def derive_compatibility_status(offer_obj: Dict[str, Any]) -> str:
     needs_url = bool(offer_obj.get("needs_url"))
     orphaned = bool(offer_obj.get("orphaned"))
     url_now = str(offer_obj.get("url") or "").strip()
+    ai_status = str(offer_obj.get("ai_validation_status") or "").strip()
 
     if orphaned:
         return "sin_cobertura"
+    if ai_status == "pending":
+        return "pending_ai_validation"
     if match_type == "exact_or_best_match":
         return "compatible_alto"
     if match_type == "relaxed_fallback":
@@ -1286,6 +1300,8 @@ def derive_compatibility_status(offer_obj: Dict[str, Any]) -> str:
 
 
 def derive_compatibility_note(status: str) -> str:
+    if status == "pending_ai_validation":
+        return "Pendiente de validacion final por IA"
     if status == "compatible_alto":
         return "Compatibilidad alta por modelo y tipo de pieza"
     if status == "compatible_probable":
@@ -1299,6 +1315,7 @@ def derive_compatibility_note(status: str) -> str:
 
 def compatibility_priority(status: str) -> int:
     priorities = {
+        "pending_ai_validation": -1,
         "sin_cobertura": 0,
         "dudoso": 1,
         "fallback_buy_new": 2,
@@ -1306,6 +1323,217 @@ def compatibility_priority(status: str) -> int:
         "compatible_alto": 4,
     }
     return priorities.get(str(status or "").strip(), 5)
+
+
+def ai_validation_enabled() -> bool:
+    return bool(AI_VALIDATION_PROVIDER and AI_VALIDATION_MODEL and AI_VALIDATION_API_KEY)
+
+
+def candidate_fingerprint(candidate: Dict[str, Any]) -> str:
+    payload = {
+        "url": str(candidate.get("url") or "").strip(),
+        "product_title": str(candidate.get("product_title") or "").strip(),
+        "sale_price": str(candidate.get("sale_price") or "").strip(),
+        "sale_price_currency": str(candidate.get("sale_price_currency") or "").strip(),
+        "original_price": str(candidate.get("original_price") or "").strip(),
+    }
+    return hashlib.sha1(json.dumps(payload, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()[:16]
+
+
+def product_fingerprint(product: Dict[str, Any]) -> str:
+    return candidate_fingerprint({
+        "url": str(product.get("promotion_link") or product.get("product_detail_url") or "").strip(),
+        "product_title": str(product.get("product_title") or "").strip(),
+        "sale_price": str(product.get("sale_price") or "").strip(),
+        "sale_price_currency": str(product.get("sale_price_currency") or "").strip(),
+        "original_price": str(product.get("original_price") or "").strip(),
+    })
+
+
+def rejected_candidate_fingerprints(offer_obj: Dict[str, Any]) -> set[str]:
+    vals = ensure_list_str(offer_obj.get("ai_rejected_candidate_fingerprints"))
+    return {str(v).strip() for v in vals if str(v).strip()}
+
+
+def append_rejected_candidate_fingerprint(offer_obj: Dict[str, Any], fingerprint: str) -> None:
+    if not fingerprint:
+        return
+    vals = rejected_candidate_fingerprints(offer_obj)
+    vals.add(fingerprint)
+    offer_obj["ai_rejected_candidate_fingerprints"] = sorted(vals)
+
+
+def clear_ai_pending_candidate(offer_obj: Dict[str, Any]) -> None:
+    for key in (
+        "ai_pending_candidate",
+        "ai_validation_reason",
+        "ai_validation_model",
+        "ai_validation_at",
+        "ai_validation_candidate_fingerprint",
+    ):
+        offer_obj.pop(key, None)
+
+
+def apply_offer_candidate(
+    offer_obj: Dict[str, Any],
+    candidate: Dict[str, Any],
+    *,
+    match_type: str,
+    matched_query: str,
+    fallback_search_query: str,
+    fallback_search_label: str,
+    today: str,
+) -> None:
+    current_ai_status = str(offer_obj.get("ai_validation_status") or "").strip()
+    if current_ai_status != "validated":
+        offer_obj.pop("ai_validation_status", None)
+        clear_ai_pending_candidate(offer_obj)
+    offer_obj["url"] = str(candidate.get("url") or "").strip()
+    offer_obj["match_type"] = match_type
+    if matched_query:
+        offer_obj["matched_query"] = matched_query
+    else:
+        offer_obj.pop("matched_query", None)
+    offer_obj["fallback_search_query"] = fallback_search_query
+    offer_obj["fallback_search_label"] = fallback_search_label
+    for key in ("image_url", "sale_price", "sale_price_currency", "original_price", "discount", "product_title"):
+        val = str(candidate.get(key) or "").strip()
+        if val:
+            offer_obj[key] = val
+        else:
+            offer_obj.pop(key, None)
+    offer_obj.pop("needs_url", None)
+    offer_obj["compatibility_status"] = derive_compatibility_status(offer_obj)
+    offer_obj["compatibility_note"] = derive_compatibility_note(offer_obj["compatibility_status"])
+    offer_obj["updated_at"] = today
+    for debug_key in (
+        "debug_last_query",
+        "debug_model_tokens",
+        "debug_must_include",
+        "debug_must_not_include",
+        "debug_specific_item_terms",
+        "debug_relaxed_allowed",
+        "debug_failure_stage",
+    ):
+        offer_obj.pop(debug_key, None)
+
+
+def stage_candidate_for_ai(
+    offer_obj: Dict[str, Any],
+    candidate: Dict[str, Any],
+    *,
+    reason: str,
+    today: str,
+) -> None:
+    fp = candidate_fingerprint(candidate)
+    offer_obj["url"] = ""
+    offer_obj["needs_url"] = True
+    offer_obj["match_type"] = ""
+    offer_obj["ai_validation_status"] = "pending"
+    offer_obj["ai_validation_reason"] = reason
+    offer_obj["ai_validation_model"] = AI_VALIDATION_MODEL
+    offer_obj["ai_validation_at"] = today
+    offer_obj["ai_validation_candidate_fingerprint"] = fp
+    offer_obj["ai_pending_candidate"] = dict(candidate)
+    offer_obj["compatibility_status"] = derive_compatibility_status(offer_obj)
+    offer_obj["compatibility_note"] = derive_compatibility_note(offer_obj["compatibility_status"])
+    offer_obj["updated_at"] = today
+
+
+def ai_prompt_payload(ctx: Dict[str, Any], candidate: Dict[str, Any]) -> str:
+    data = {
+        "brand": ctx.get("brand") or "",
+        "model": ctx.get("model") or "",
+        "vertical": ctx.get("vertical") or "",
+        "category": ctx.get("category") or "",
+        "item_title": ctx.get("item_title") or "",
+        "must_include": ensure_list_str(ctx.get("must_include")),
+        "must_not_include": ensure_list_str(ctx.get("must_not_include")),
+        "model_tokens": ensure_list_str(ctx.get("model_tokens")),
+        "candidate_title": candidate.get("product_title") or "",
+        "candidate_url": candidate.get("url") or "",
+        "candidate_price": candidate.get("sale_price") or "",
+        "candidate_price_currency": candidate.get("sale_price_currency") or "",
+    }
+    return json.dumps(data, ensure_ascii=False, indent=2)
+
+
+def parse_ai_json(text: str) -> Dict[str, Any]:
+    text = str(text or "").strip()
+    if not text:
+        return {}
+    try:
+        return json.loads(text)
+    except Exception:
+        pass
+    m = re.search(r"\{.*\}", text, re.DOTALL)
+    if not m:
+        return {}
+    try:
+        return json.loads(m.group(0))
+    except Exception:
+        return {}
+
+
+def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -> Dict[str, str]:
+    global _ai_validation_calls
+
+    if not ai_validation_enabled():
+        return {"status": "disabled", "reason": "ai_validation_disabled"}
+    if AI_VALIDATION_MAX_CHECKS > 0 and _ai_validation_calls >= AI_VALIDATION_MAX_CHECKS:
+        return {"status": "pending", "reason": "daily_ai_budget_exhausted"}
+
+    system_prompt = (
+        "You validate whether an ecommerce product listing really matches a spare part request. "
+        "Be conservative. Reply only as JSON with keys verdict and reason. "
+        "verdict must be one of: valid, doubtful, invalid."
+    )
+    user_prompt = (
+        "Decide if the candidate listing is a correct match for the requested spare part. "
+        "Return invalid if the title suggests another product type, another ecosystem, or lacks enough evidence. "
+        "Return doubtful if evidence is mixed. Return valid only if the candidate clearly fits.\n\n"
+        f"{ai_prompt_payload(ctx, candidate)}"
+    )
+    headers = {
+        "Authorization": f"Bearer {AI_VALIDATION_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": AI_VALIDATION_MODEL,
+        "temperature": 0,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+    }
+
+    try:
+        r = requests.post(AI_VALIDATION_URL, headers=headers, json=payload, timeout=AI_VALIDATION_TIMEOUT)
+        _ai_validation_calls += 1
+    except Exception:
+        return {"status": "pending", "reason": "ai_validation_request_failed"}
+
+    if r.status_code == 429:
+        return {"status": "pending", "reason": "ai_rate_limited"}
+    if r.status_code >= 500:
+        return {"status": "pending", "reason": f"ai_server_error_{r.status_code}"}
+    if r.status_code >= 400:
+        return {"status": "error", "reason": f"ai_http_{r.status_code}"}
+
+    data = r.json() or {}
+    choices = data.get("choices") or []
+    message = choices[0].get("message", {}) if choices and isinstance(choices[0], dict) else {}
+    content = message.get("content") or ""
+    parsed = parse_ai_json(content)
+    verdict = str(parsed.get("verdict") or parsed.get("status") or "").strip().lower()
+    reason = normalize(str(parsed.get("reason") or "")) or "ai_no_reason"
+    if verdict in {"valid", "approved", "approve", "match"}:
+        return {"status": "validated", "reason": reason}
+    if verdict in {"invalid", "reject", "rejected", "wrong"}:
+        return {"status": "rejected", "reason": reason}
+    if verdict in {"doubtful", "uncertain", "unsure"}:
+        return {"status": "rejected", "reason": reason}
+    return {"status": "pending", "reason": "ai_unparseable_response"}
 
 
 def compose_search_query(base_parts: List[str], extra_parts: List[str]) -> str:
@@ -1466,6 +1694,7 @@ def pick_relaxed_link(
     must_not_include: List[str],
     anchor_terms: List[str],
     specific_item_terms: List[str],
+    rejected_fingerprints: set[str],
     use_cache: bool,
 ) -> Optional[Dict[str, str]]:
     """
@@ -1500,6 +1729,8 @@ def pick_relaxed_link(
             for p in prods:
                 title = p.get("product_title") or ""
                 if not title:
+                    continue
+                if product_fingerprint(p) in rejected_fingerprints:
                     continue
                 tt = nrm(title)
                 if looks_bad(tt):
@@ -1565,8 +1796,9 @@ def pick_best_promotion_link(
     category: str,
     strict_anchor_terms: List[str],
     specific_item_terms: List[str],
+    rejected_fingerprints: set[str],
     use_cache: bool,
-) -> Optional[str]:
+) -> Optional[Dict[str, str]]:
     req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
     strict_category = nrm(category) in STRICT_EXACT_MATCH_CATEGORIES
     min_anchor_hits = 2 if strict_category else 1
@@ -1587,6 +1819,8 @@ def pick_best_promotion_link(
             for p in prods:
                 title = p.get("product_title") or ""
                 if not title:
+                    continue
+                if product_fingerprint(p) in rejected_fingerprints:
                     continue
 
                 tt = nrm(title)
@@ -1904,7 +2138,13 @@ def main() -> None:
     # --only-stale: filtra SKUs cuyo updated_at supera N días
     if not only and args.only_stale > 0:
         cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat()
-        stale = {sku for sku in want if str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "").strip() < cutoff}
+        stale = {
+            sku for sku in want
+            if (
+                str(ensure_offer_obj(offers.get(sku)).get("ai_validation_status") or "").strip() == "pending"
+                or str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "").strip() < cutoff
+            )
+        }
         print(f"  --only-stale {args.only_stale}d: {len(stale)}/{len(want)} SKUs sin actualizar desde {cutoff}")
         if stale:
             want = stale
@@ -1994,112 +2234,135 @@ def main() -> None:
             fallback_search_query = kws[0] if kws else choose_fallback_search_query(ctx, query)
             fallback_search_label = choose_fallback_search_label(ctx, fallback_search_query)
             relaxed_allowed = nrm(category) in RELAXED_FALLBACK_ALLOWED_CATEGORIES
-
+            require_ai_validation = ai_validation_enabled() and nrm(category) != "nuevo"
+            rejected_fps = rejected_candidate_fingerprints(obj)
             found = None
             matched_kw = ""
+            ai_pending = False
+            ai_rejected = False
 
-            for kw in kws:
-                found = pick_best_promotion_link(
-                    keyword=kw,
-                    must_brand=brand,
-                    model_hint=model,
-                    part_terms=part_terms,
-                    must_include=must_include,
-                    must_not_include=must_not_combined,
-                    model_tokens_override=model_tokens_override,
-                    vertical=str(ctx.get("vertical") or ""),
-                    category=category,
-                    strict_anchor_terms=strict_anchor_terms,
-                    specific_item_terms=specific_item_terms,
-                    use_cache=use_cache,
-                )
-                if found:
-                    matched_kw = kw
+            while True:
+                found = None
+                matched_kw = ""
+                for kw in kws:
+                    found = pick_best_promotion_link(
+                        keyword=kw,
+                        must_brand=brand,
+                        model_hint=model,
+                        part_terms=part_terms,
+                        must_include=must_include,
+                        must_not_include=must_not_combined,
+                        model_tokens_override=model_tokens_override,
+                        vertical=str(ctx.get("vertical") or ""),
+                        category=category,
+                        strict_anchor_terms=strict_anchor_terms,
+                        specific_item_terms=specific_item_terms,
+                        rejected_fingerprints=rejected_fps,
+                        use_cache=use_cache,
+                    )
+                    if found:
+                        matched_kw = kw
+                        break
+                if not found or not require_ai_validation:
                     break
+                ai_result = validate_candidate_with_ai(ctx, found)
+                ai_status = ai_result.get("status") or ""
+                ai_reason = ai_result.get("reason") or ""
+                if ai_status == "validated":
+                    obj["ai_validation_status"] = "validated"
+                    obj["ai_validation_reason"] = ai_reason
+                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                    obj["ai_validation_at"] = today
+                    obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
+                    obj.pop("ai_pending_candidate", None)
+                    break
+                if ai_status == "rejected":
+                    fp = candidate_fingerprint(found)
+                    append_rejected_candidate_fingerprint(obj, fp)
+                    rejected_fps.add(fp)
+                    obj["ai_validation_status"] = "rejected"
+                    obj["ai_validation_reason"] = ai_reason
+                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                    obj["ai_validation_at"] = today
+                    obj["ai_validation_candidate_fingerprint"] = fp
+                    obj.pop("ai_pending_candidate", None)
+                    found = None
+                    ai_rejected = True
+                    continue
+                stage_candidate_for_ai(obj, found, reason=ai_reason, today=today)
+                ai_pending = True
+                found = None
+                break
 
             if found:
-                obj["url"] = found["url"]
-                obj["match_type"] = "exact_or_best_match"
-                obj["matched_query"] = matched_kw or fallback_search_query
-                obj["fallback_search_query"] = fallback_search_query
-                obj["fallback_search_label"] = fallback_search_label
-                if found.get("image_url"):
-                    obj["image_url"] = found["image_url"]
-                if found.get("sale_price"):
-                    obj["sale_price"] = found["sale_price"]
-                    obj["sale_price_currency"] = found.get("sale_price_currency", "EUR")
-                if found.get("original_price"):
-                    obj["original_price"] = found["original_price"]
-                if found.get("discount"):
-                    obj["discount"] = found["discount"]
-                if found.get("product_title"):
-                    obj["product_title"] = found["product_title"]
-                obj.pop("needs_url", None)
-                obj["compatibility_status"] = derive_compatibility_status(obj)
-                obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
-                obj["updated_at"] = today
-                for debug_key in (
-                    "debug_last_query",
-                    "debug_model_tokens",
-                    "debug_must_include",
-                    "debug_must_not_include",
-                    "debug_specific_item_terms",
-                    "debug_relaxed_allowed",
-                    "debug_failure_stage",
-                ):
-                    obj.pop(debug_key, None)
+                apply_offer_candidate(
+                    obj,
+                    found,
+                    match_type="exact_or_best_match",
+                    matched_query=matched_kw or fallback_search_query,
+                    fallback_search_query=fallback_search_query,
+                    fallback_search_label=fallback_search_label,
+                    today=today,
+                )
                 filled_from_aliexpress += 1
-            else:
-                # Fallback relajado: busca en API solo marca + categoría
+            elif not ai_pending:
                 anchor_terms = extract_relaxed_anchor_terms(ctx, must_include)
                 relaxed = None
                 if relaxed_allowed:
-                    relaxed = pick_relaxed_link(
-                        brand=brand,
-                        category=category,
-                        vertical=str(ctx.get("vertical") or ""),
-                        part_terms=part_terms,
-                        must_not_include=must_not_combined,
-                        anchor_terms=anchor_terms,
-                        specific_item_terms=specific_item_terms,
-                        use_cache=use_cache,
-                    )
+                    while True:
+                        relaxed = pick_relaxed_link(
+                            brand=brand,
+                            category=category,
+                            vertical=str(ctx.get("vertical") or ""),
+                            part_terms=part_terms,
+                            must_not_include=must_not_combined,
+                            anchor_terms=anchor_terms,
+                            specific_item_terms=specific_item_terms,
+                            rejected_fingerprints=rejected_fps,
+                            use_cache=use_cache,
+                        )
+                        if not relaxed or not require_ai_validation:
+                            break
+                        ai_result = validate_candidate_with_ai(ctx, relaxed)
+                        ai_status = ai_result.get("status") or ""
+                        ai_reason = ai_result.get("reason") or ""
+                        if ai_status == "validated":
+                            obj["ai_validation_status"] = "validated"
+                            obj["ai_validation_reason"] = ai_reason
+                            obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                            obj["ai_validation_at"] = today
+                            obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
+                            obj.pop("ai_pending_candidate", None)
+                            break
+                        if ai_status == "rejected":
+                            fp = candidate_fingerprint(relaxed)
+                            append_rejected_candidate_fingerprint(obj, fp)
+                            rejected_fps.add(fp)
+                            obj["ai_validation_status"] = "rejected"
+                            obj["ai_validation_reason"] = ai_reason
+                            obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                            obj["ai_validation_at"] = today
+                            obj["ai_validation_candidate_fingerprint"] = fp
+                            obj.pop("ai_pending_candidate", None)
+                            relaxed = None
+                            ai_rejected = True
+                            continue
+                        stage_candidate_for_ai(obj, relaxed, reason=ai_reason, today=today)
+                        ai_pending = True
+                        relaxed = None
+                        break
                 if relaxed:
-                    obj["url"] = relaxed["url"]
-                    obj["match_type"] = "relaxed_fallback"
-                    obj["fallback_search_query"] = fallback_search_query
-                    obj["fallback_search_label"] = fallback_search_label
-                    if relaxed.get("image_url"):
-                        obj["image_url"] = relaxed["image_url"]
-                    if relaxed.get("sale_price"):
-                        obj["sale_price"] = relaxed["sale_price"]
-                        obj["sale_price_currency"] = relaxed.get("sale_price_currency", "EUR")
-                    if relaxed.get("original_price"):
-                        obj["original_price"] = relaxed["original_price"]
-                    if relaxed.get("discount"):
-                        obj["discount"] = relaxed["discount"]
-                    if relaxed.get("product_title"):
-                        obj["product_title"] = relaxed["product_title"]
-                    obj.pop("needs_url", None)
-                    obj.pop("matched_query", None)
-                    obj["compatibility_status"] = derive_compatibility_status(obj)
-                    obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
-                    obj["updated_at"] = today
-                    for debug_key in (
-                        "debug_last_query",
-                        "debug_model_tokens",
-                        "debug_must_include",
-                        "debug_must_not_include",
-                        "debug_specific_item_terms",
-                        "debug_relaxed_allowed",
-                        "debug_failure_stage",
-                    ):
-                        obj.pop(debug_key, None)
+                    apply_offer_candidate(
+                        obj,
+                        relaxed,
+                        match_type="relaxed_fallback",
+                        matched_query="",
+                        fallback_search_query=fallback_search_query,
+                        fallback_search_label=fallback_search_label,
+                        today=today,
+                    )
                     filled_from_aliexpress += 1
-                else:
-                    # Sin producto encontrado: limpia la URL para que el template
-                    # muestre un botón de búsqueda construido desde fallback_search_query.
-                    # Nunca usamos DEFAULT_URL genérico (era un link de aspiradoras para todos los verticals).
+                elif not ai_pending:
                     if str(obj.get("url") or "").strip():
                         changed_urls_to_default += 1
                     obj["url"] = ""
@@ -2114,6 +2377,7 @@ def main() -> None:
                     ):
                         obj.pop(stale_key, None)
 
+                    obj.pop("ai_pending_candidate", None)
                     obj["needs_url"] = True
                     obj["match_type"] = "fallback_buy_new"
                     obj["fallback_search_query"] = fallback_search_query
@@ -2127,7 +2391,7 @@ def main() -> None:
                     obj["debug_must_not_include"] = must_not_combined
                     obj["debug_specific_item_terms"] = specific_item_terms
                     obj["debug_relaxed_allowed"] = relaxed_allowed
-                    obj["debug_failure_stage"] = "relaxed_disabled" if not relaxed_allowed else "no_candidate_after_exact_and_relaxed"
+                    obj["debug_failure_stage"] = "ai_rejected_all_candidates" if ai_rejected else ("relaxed_disabled" if not relaxed_allowed else "no_candidate_after_exact_and_relaxed")
 
         else:
             obj.pop("needs_url", None)
