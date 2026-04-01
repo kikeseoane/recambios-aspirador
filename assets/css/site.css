@@ -2526,6 +2526,40 @@ hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
   color: #166534;
 }
 
+.offer-ai-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.offer-ai-status__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(2, 132, 199, .10);
+  border: 1px solid rgba(2, 132, 199, .24);
+  color: #075985;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.offer-ai-status__text {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.offer-ai-status--pending .offer-ai-status__badge {
+  background: rgba(180, 83, 9, .10);
+  border-color: rgba(180, 83, 9, .22);
+  color: #92400e;
+}
+
 /* ----------------------------------------------------------------
    Footer — nuevos elementos del footer enriquecido
    ---------------------------------------------------------------- */

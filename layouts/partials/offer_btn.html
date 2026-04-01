@@ -28,6 +28,8 @@
 {{ $searchQuery := (index $offer "fallback_search_query") | default "" }}
 {{ $compatStatus := (index $offer "compatibility_status") | default "" }}
 {{ $compatNote := (index $offer "compatibility_note") | default "" }}
+{{ $aiValidationStatus := (index $offer "ai_validation_status") | default "" }}
+{{ $aiValidationReason := (index $offer "ai_validation_reason") | default "" }}
 {{ $imageURL := (index $offer "image_url") | default "" }}
 {{ $salePrice := (index $offer "sale_price") | default "" }}
 {{ $originalPrice := (index $offer "original_price") | default "" }}
@@ -88,11 +90,20 @@
 {{ $trustText := "Compatibilidad probable: revisa modelo y encaje" }}
 {{ if eq $compatStatus "compatible_alto" }}
   {{ $trustText = cond $modelName (printf "Compatibilidad alta para %s" $modelName) "Compatibilidad alta" }}
+  {{ if eq $aiValidationStatus "validated" }}
+    {{ $trustText = "Compatibilidad alta y validado por IA" }}
+  {{ end }}
 {{ else if eq $compatStatus "compatible_probable" }}
   {{ $trustText = cond $modelName (printf "Compatibilidad probable para %s" $modelName) "Compatibilidad probable" }}
+  {{ if eq $aiValidationStatus "validated" }}
+    {{ $trustText = "Compatibilidad probable y validado por IA" }}
+  {{ end }}
 {{ else if eq $compatStatus "dudoso" }}
   {{ $trustIcon = "!" }}
   {{ $trustText = $compatNote | default "Coincidencia heuristica: valida compatibilidad antes de comprar" }}
+{{ else if eq $compatStatus "pending_ai_validation" }}
+  {{ $trustIcon = "IA" }}
+  {{ $trustText = "Candidato pendiente de validacion por IA" }}
 {{ else if eq $compatStatus "fallback_buy_new" }}
   {{ $trustIcon = "Ir" }}
   {{ $trustText = "No hemos encontrado un recambio fiable para este modelo. Mejor ver producto nuevo." }}
@@ -131,6 +142,16 @@
         <span class="offer-trust__icon" aria-hidden="true">{{ $trustIcon }}</span>
         <span class="offer-trust__text">{{ $trustText }}</span>
       </div>
+      {{ if eq $aiValidationStatus "validated" }}
+        <div class="offer-ai-status">
+          <span class="offer-ai-status__badge">Validado por IA</span>
+        </div>
+      {{ else if eq $aiValidationStatus "pending" }}
+        <div class="offer-ai-status offer-ai-status--pending">
+          <span class="offer-ai-status__badge">Pendiente IA</span>
+          {{ if $aiValidationReason }}<span class="offer-ai-status__text">{{ $aiValidationReason }}</span>{{ end }}
+        </div>
+      {{ end }}
     {{ end }}
     <a class="{{ $class }}" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
       {{ $btnText }}

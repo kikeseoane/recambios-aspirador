@@ -110,6 +110,11 @@ jobs:
           ALI_APP_KEY: ${{ secrets.ALI_APP_KEY }}
           ALI_APP_SECRET: ${{ secrets.ALI_APP_SECRET }}
           ALI_TRACKING_ID: recambiosaspiradora
+          AI_VALIDATION_PROVIDER: ${{ vars.AI_VALIDATION_PROVIDER }}
+          AI_VALIDATION_MODEL: ${{ vars.AI_VALIDATION_MODEL }}
+          AI_VALIDATION_MAX_CHECKS: ${{ vars.AI_VALIDATION_MAX_CHECKS }}
+          AI_VALIDATION_TIMEOUT: ${{ vars.AI_VALIDATION_TIMEOUT }}
+          AI_VALIDATION_API_KEY: ${{ secrets.AI_VALIDATION_API_KEY }}
         run: |
           SKIP_VERTICALS="--skip-vertical-defaults"
           if [ "${RUN_VERTICAL_DEFAULTS}" = "1" ]; then
