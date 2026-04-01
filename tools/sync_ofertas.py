@@ -2509,6 +2509,9 @@ def main() -> None:
     ai_exact_candidates = 0
     ai_relaxed_candidates = 0
     ai_buy_new_direct = 0
+    ai_validated_run = 0
+    ai_rejected_run = 0
+    ai_pending_run = 0
     _processed = 0
     SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
@@ -2620,6 +2623,7 @@ def main() -> None:
                     if ai_status == "validated":
                         found = dict(ai_result.get("candidate") or {})
                         matched_kw = str(found.get("matched_query") or "")
+                        ai_validated_run += 1
                         obj["ai_validation_status"] = "validated"
                         obj["ai_validation_reason"] = ai_reason
                         obj["ai_validation_model"] = AI_VALIDATION_MODEL
@@ -2627,6 +2631,7 @@ def main() -> None:
                         obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
                         obj.pop("ai_pending_candidate", None)
                     elif ai_status == "rejected":
+                        ai_rejected_run += 1
                         for candidate in exact_candidates:
                             fp = candidate_fingerprint(candidate)
                             append_rejected_candidate_fingerprint(obj, fp)
@@ -2639,6 +2644,7 @@ def main() -> None:
                         obj.pop("ai_pending_candidate", None)
                         ai_rejected = True
                     else:
+                        ai_pending_run += 1
                         stage_candidate_for_ai(obj, exact_candidates[0], reason=ai_reason, today=today)
                         ai_pending = True
                 else:
@@ -2699,6 +2705,7 @@ def main() -> None:
                         ai_reason = ai_result.get("reason") or ""
                         if ai_status == "validated":
                             relaxed = dict(ai_result.get("candidate") or {})
+                            ai_validated_run += 1
                             obj["ai_validation_status"] = "validated"
                             obj["ai_validation_reason"] = ai_reason
                             obj["ai_validation_model"] = AI_VALIDATION_MODEL
@@ -2706,6 +2713,7 @@ def main() -> None:
                             obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
                             obj.pop("ai_pending_candidate", None)
                         elif ai_status == "rejected":
+                            ai_rejected_run += 1
                             for candidate in rescue_candidates:
                                 fp = candidate_fingerprint(candidate)
                                 append_rejected_candidate_fingerprint(obj, fp)
@@ -2718,6 +2726,7 @@ def main() -> None:
                             obj.pop("ai_pending_candidate", None)
                             ai_rejected = True
                         else:
+                            ai_pending_run += 1
                             stage_candidate_for_ai(obj, rescue_candidates[0], reason=ai_reason, today=today)
                             ai_pending = True
                 if relaxed:
@@ -2905,6 +2914,7 @@ def main() -> None:
         f"updated={updated} "
         f"filled={filled_from_aliexpress} "
         f"ai_candidates={ai_exact_candidates + ai_relaxed_candidates} "
+        f"ai_validated_run={ai_validated_run} "
         f"to_buy_new={_status_counts.get('fallback_buy_new', 0)} "
         f"buy_new_direct={ai_buy_new_direct} "
         f"pending_ai={_status_counts.get('pending_ai_validation', 0)} "
@@ -2925,9 +2935,12 @@ def main() -> None:
         f"calls={_ai_validation_calls} "
         f"exact_candidates={ai_exact_candidates} "
         f"rescue_candidates={ai_relaxed_candidates} "
-        f"validated={_validated_ai} "
-        f"pending={_pending_ai} "
-        f"rejected={_rejected_ai} "
+        f"validated_run={ai_validated_run} "
+        f"pending_run={ai_pending_run} "
+        f"rejected_run={ai_rejected_run} "
+        f"validated_total={_validated_ai} "
+        f"pending_total={_pending_ai} "
+        f"rejected_total={_rejected_ai} "
         f"verified_links={_validated_links}/{_links_total} "
         f"budget={_ai_budget}"
     )
