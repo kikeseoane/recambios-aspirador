@@ -1317,9 +1317,9 @@ def derive_compatibility_note(status: str) -> str:
 def compatibility_priority(status: str) -> int:
     priorities = {
         "pending_ai_validation": -1,
-        "sin_cobertura": 0,
-        "dudoso": 1,
-        "fallback_buy_new": 2,
+        "fallback_buy_new": 0,
+        "sin_cobertura": 1,
+        "dudoso": 2,
         "compatible_probable": 3,
         "compatible_alto": 4,
     }
@@ -1655,6 +1655,29 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
     return unique_keywords(candidates)
 
 
+def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_include: List[str]) -> List[str]:
+    brand = compact_spaces(str(ctx.get("brand") or ""))
+    model = compact_spaces(str(ctx.get("model") or ""))
+    item_title = clean_query_fragment(str(ctx.get("item_title") or ""))
+    category = compact_spaces(str(ctx.get("category") or ""))
+    category_terms = " ".join(cat_query_terms(category)[:2])
+    include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
+    model_tokens_list = model_tokens_from_ctx(model)
+    model_family = " ".join(model_tokens_list[:2])
+
+    candidates = [
+        compose_search_query([brand, model], [include_terms, "compatible"]),
+        compose_search_query([brand, model], [item_title, "replacement"]),
+        compose_search_query([brand, model_family], [category_terms, "compatible"]),
+        compose_search_query([brand, model_family], [item_title, "replacement"]),
+        compose_search_query([brand], [model_family, category_terms, "replacement"]),
+        compose_search_query([brand], [item_title, "compatible"]),
+        compose_search_query([brand, category], [item_title]),
+        compose_search_query([], [query_override, "replacement"]),
+    ]
+    return unique_keywords(candidates)
+
+
 def choose_fallback_search_query(ctx: Dict[str, Any], query_override: str) -> str:
     """
     Prioridad:
@@ -1738,6 +1761,7 @@ def pick_relaxed_link(
     specific_item_terms: List[str],
     rejected_fingerprints: set[str],
     use_cache: bool,
+    keywords: Optional[List[str]] = None,
 ) -> Optional[Dict[str, str]]:
     """
     Búsqueda relajada sin filtro de modelo: solo marca + categoría.
@@ -1752,76 +1776,78 @@ def pick_relaxed_link(
         return None
 
     anchor_text = " ".join(anchor_terms[:2])
-    keyword = compact_spaces(f"{brand} {anchor_text} {relaxed_terms} replacement")[:120]
-    if not keyword.strip():
+    fallback_keyword = compact_spaces(f"{brand} {anchor_text} {relaxed_terms} replacement")[:120]
+    query_list = unique_keywords([*(keywords or []), fallback_keyword])
+    if not query_list:
         return None
 
-    for lang in ("EN", "ES"):
-        for page_no in (1,):
-            try:
-                resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
-            except Exception as exc:
-                print(f"  [relaxed-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
-                continue
-            prods = extract_products(resp)
-            if not prods:
-                continue
+    for keyword in query_list:
+        for lang in ("EN", "ES"):
+            for page_no in (1,):
+                try:
+                    resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+                except Exception as exc:
+                    print(f"  [relaxed-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
+                    continue
+                prods = extract_products(resp)
+                if not prods:
+                    continue
 
-            candidates = []
-            for p in prods:
-                title = p.get("product_title") or ""
-                if not title:
-                    continue
-                if product_fingerprint(p) in rejected_fingerprints:
-                    continue
-                tt = nrm(title)
-                if looks_bad(tt):
-                    continue
-                if is_deceptive_title(title, category):
-                    continue
-                if vertical and not title_matches_vertical(title, vertical):
-                    continue
-                if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
-                    continue
-                if brand and not title_has_required_brand(title, brand):
-                    continue
-                has_part_term = any(pt in tt for pt in part_terms)
-                if not has_part_term:
-                    if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
+                candidates = []
+                for p in prods:
+                    title = p.get("product_title") or ""
+                    if not title:
                         continue
-                if must_not_include and contains_any(tt, must_not_include):
-                    continue
-                if not title_matches_category_signals(title, category, specific_item_terms):
-                    continue
-                if anchor_terms and count_anchor_hits(title, anchor_terms) < min_anchor_hits:
-                    continue
-                if min_specific_hits and count_anchor_hits(title, specific_item_terms) < min_specific_hits:
-                    continue
-                candidates.append(p)
+                    if product_fingerprint(p) in rejected_fingerprints:
+                        continue
+                    tt = nrm(title)
+                    if looks_bad(tt):
+                        continue
+                    if is_deceptive_title(title, category):
+                        continue
+                    if vertical and not title_matches_vertical(title, vertical):
+                        continue
+                    if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                        continue
+                    if brand and not title_has_required_brand(title, brand):
+                        continue
+                    has_part_term = any(pt in tt for pt in part_terms)
+                    if not has_part_term:
+                        if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
+                            continue
+                    if must_not_include and contains_any(tt, must_not_include):
+                        continue
+                    if not title_matches_category_signals(title, category, specific_item_terms):
+                        continue
+                    if anchor_terms and count_anchor_hits(title, anchor_terms) < min_anchor_hits:
+                        continue
+                    if min_specific_hits and count_anchor_hits(title, specific_item_terms) < min_specific_hits:
+                        continue
+                    candidates.append(p)
 
-            if not candidates:
-                continue
+                if not candidates:
+                    continue
 
-            candidates.sort(
-                key=lambda p: (
-                    sum(1 for anchor in anchor_terms if anchor in nrm(str(p.get("product_title") or ""))) * 4.0
-                    + get_orders(p) * 0.015
-                    + get_commission_rate(p) * 0.4
-                ),
-                reverse=True,
-            )
-            best = candidates[0]
-            url = best.get("promotion_link") or best.get("product_detail_url")
-            if url:
-                return {
-                    "url": str(url).strip(),
-                    "image_url": str(best.get("product_main_image_url") or "").strip(),
-                    "sale_price": str(best.get("sale_price") or "").strip(),
-                    "sale_price_currency": str(best.get("sale_price_currency") or "").strip(),
-                    "original_price": str(best.get("original_price") or "").strip(),
-                    "discount": str(best.get("discount") or "").strip(),
-                    "product_title": str(best.get("product_title") or "").strip(),
-                }
+                candidates.sort(
+                    key=lambda p: (
+                        sum(1 for anchor in anchor_terms if anchor in nrm(str(p.get("product_title") or ""))) * 4.0
+                        + get_orders(p) * 0.015
+                        + get_commission_rate(p) * 0.4
+                    ),
+                    reverse=True,
+                )
+                best = candidates[0]
+                url = best.get("promotion_link") or best.get("product_detail_url")
+                if url:
+                    return {
+                        "url": str(url).strip(),
+                        "image_url": str(best.get("product_main_image_url") or "").strip(),
+                        "sale_price": str(best.get("sale_price") or "").strip(),
+                        "sale_price_currency": str(best.get("sale_price_currency") or "").strip(),
+                        "original_price": str(best.get("original_price") or "").strip(),
+                        "discount": str(best.get("discount") or "").strip(),
+                        "product_title": str(best.get("product_title") or "").strip(),
+                    }
 
     return None
 
@@ -2207,6 +2233,9 @@ def main() -> None:
     changed_urls_to_default = 0
     filled_from_aliexpress = 0
     failed_skus = 0
+    ai_exact_candidates = 0
+    ai_relaxed_candidates = 0
+    ai_buy_new_direct = 0
     _processed = 0
     SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
@@ -2275,6 +2304,7 @@ def main() -> None:
             specific_item_terms = extract_specific_item_terms(ctx, must_include, effective_model_tokens)
 
             kws = build_search_keywords(ctx, query, must_include)
+            rescue_kws = build_ai_rescue_keywords(ctx, query, must_include)
             fallback_search_query = kws[0] if kws else choose_fallback_search_query(ctx, query)
             fallback_search_label = choose_fallback_search_label(ctx, fallback_search_query)
             require_ai_validation = ai_validation_enabled()
@@ -2283,8 +2313,8 @@ def main() -> None:
             # - con IA: se puede relajar, pero cualquier candidato seleccionado
             #   debe pasar validacion final antes de consolidarse
             relaxed_allowed = (
-                nrm(category) in RELAXED_FALLBACK_ALLOWED_CATEGORIES
-                and require_ai_validation
+                require_ai_validation
+                and nrm(category) != "nuevo"
             )
             rejected_fps = rejected_candidate_fingerprints(obj)
             found = None
@@ -2316,6 +2346,7 @@ def main() -> None:
                         break
                 if not found or not require_ai_validation:
                     break
+                ai_exact_candidates += 1
                 ai_result = validate_candidate_with_ai(ctx, found)
                 ai_status = ai_result.get("status") or ""
                 ai_reason = ai_result.get("reason") or ""
@@ -2371,9 +2402,11 @@ def main() -> None:
                             specific_item_terms=specific_item_terms,
                             rejected_fingerprints=rejected_fps,
                             use_cache=use_cache,
+                            keywords=rescue_kws,
                         )
                         if not relaxed or not require_ai_validation:
                             break
+                        ai_relaxed_candidates += 1
                         ai_result = validate_candidate_with_ai(ctx, relaxed)
                         ai_status = ai_result.get("status") or ""
                         ai_reason = ai_result.get("reason") or ""
@@ -2414,6 +2447,7 @@ def main() -> None:
                     )
                     filled_from_aliexpress += 1
                 elif not ai_pending:
+                    ai_buy_new_direct += 1
                     if str(obj.get("url") or "").strip():
                         changed_urls_to_default += 1
                     obj["url"] = ""
@@ -2571,6 +2605,9 @@ def main() -> None:
     print(f"  --- Validacion IA ---")
     print(f"  Checks esta ejecucion:  {_ai_validation_calls}")
     print(f"  Presupuesto diario:     {_ai_budget}")
+    print(f"  Candidatos exactos IA:  {ai_exact_candidates}")
+    print(f"  Candidatos rescue IA:   {ai_relaxed_candidates}")
+    print(f"  Buy-new directos:       {ai_buy_new_direct}")
     print(f"  Enlaces IA validados:   {_validated_links}/{_links_total}")
     print(f"  SKUs IA validados:      {_validated_ai}")
     print(f"  SKUs IA pendientes:     {_pending_ai}")
@@ -2582,7 +2619,9 @@ def main() -> None:
         f"added={added} "
         f"updated={updated} "
         f"filled={filled_from_aliexpress} "
+        f"ai_candidates={ai_exact_candidates + ai_relaxed_candidates} "
         f"to_buy_new={_status_counts.get('fallback_buy_new', 0)} "
+        f"buy_new_direct={ai_buy_new_direct} "
         f"pending_ai={_status_counts.get('pending_ai_validation', 0)} "
         f"needs_url={_needs_url}"
     )
@@ -2599,6 +2638,8 @@ def main() -> None:
     print(
         "AI_STATUS: "
         f"calls={_ai_validation_calls} "
+        f"exact_candidates={ai_exact_candidates} "
+        f"rescue_candidates={ai_relaxed_candidates} "
         f"validated={_validated_ai} "
         f"pending={_pending_ai} "
         f"rejected={_rejected_ai} "
