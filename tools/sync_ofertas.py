@@ -1,4 +1,4 @@
-# tools/sync_ofertas.py
+﻿# tools/sync_ofertas.py
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
@@ -183,7 +183,7 @@ def resolve_verticals(raw_vertical: str) -> List[str]:
     resolved = [v for v in wanted if v in all_verticals]
     missing = [v for v in wanted if v not in all_verticals]
     if missing:
-        raise SystemExit(f"Vertical(es) no válidas: {', '.join(missing)}. Disponibles: {', '.join(all_verticals)}")
+        raise SystemExit(f"Vertical(es) no vÃ¡lidas: {', '.join(missing)}. Disponibles: {', '.join(all_verticals)}")
     return resolved
 
 
@@ -266,7 +266,7 @@ def github_restore_sync_workflow(previous: Dict[str, Optional[str]]) -> None:
 
 
 # =========================
-# Catalog parsing: SKU → context (+ overrides)
+# Catalog parsing: SKU â†’ context (+ overrides)
 # =========================
 def guess_brand_name(brand_key: str, brand_obj: dict) -> str:
     return normalize(str(brand_obj.get("name") or brand_obj.get("title") or brand_key))
@@ -327,14 +327,14 @@ def sku_records_from_catalog(catalog: dict) -> Dict[str, Dict[str, Any]]:
                         "model": model_name,
                         "category": normalize(str(cat)),
                         "item_title": guess_item_title(it),
-                        # overrides opcionales en el catálogo:
+                        # overrides opcionales en el catÃ¡logo:
                         "query": normalize(str(it.get("query") or "")),
                         "must_include": ensure_list_str(it.get("must_include")),
                         "must_not_include": ensure_list_str(it.get("must_not_include")),
                         "model_tokens": [nrm(x) for x in ensure_list_str(it.get("model_tokens"))],
                     }
 
-            # Pseudo-SKU "nuevo": uno por modelo para el botón "comprar nuevo"
+            # Pseudo-SKU "nuevo": uno por modelo para el botÃ³n "comprar nuevo"
             if model_slug:
                 nuevo_sku = f"{brand_key}-{model_slug}-nuevo"
                 comprar_nuevo = m.get("comprar_nuevo") or {}
@@ -496,20 +496,20 @@ BANNED_TITLE = [
     "vitroceramic", "induction hob", "induction cooker", "ceramic hob",
     "led strip", "led lamp", "fairy light", "phone case", "phone cover",
     "dog collar", "cat collar", "pet collar", "pet toy",
-    # Automoción — se cuelan por comisión alta
+    # AutomociÃ³n â€” se cuelan por comisiÃ³n alta
     "common rail", "fuel injector", "injector valve", "diesel injector",
     "car valve", "auto valve", "automotive", "bosch f00", "denso",
     "oil filter car", "car filter", "truck filter", "engine oil",
     "brake pad", "brake disc", "shock absorber", "suspension",
     "car seat", "steering wheel", "gear shift", "clutch",
     "obd", "ecu", "alternator", "radiator hose", "timing belt car",
-    # Electrónica genérica
+    # ElectrÃ³nica genÃ©rica
     "arduino", "raspberry", "pcb board", "motherboard", "gpu", "cpu cooler",
     # Ropa / calzado
     "sneakers", "shoes", "boots", "jacket", "hoodie", "pants", "jeans",
 ]
 
-# Términos mínimos que debe contener el título para ser válido en cada vertical
+# TÃ©rminos mÃ­nimos que debe contener el tÃ­tulo para ser vÃ¡lido en cada vertical
 VERTICAL_REQUIRED_TERMS = {
     "aspiradores":          ["vacuum", "aspirador", "robot", "cleaner", "mop"],
     "afeitadoras":          ["shaver", "razor", "foil", "afeitadora", "electric shav"],
@@ -540,18 +540,18 @@ CATEGORY_PART_TERMS = {
     "cepillo": ["brush", "cepillo", "head", "roller", "rodillo", "torque", "drive"],
     "soporte": ["wall", "mount", "holder", "dock", "stand", "bracket", "storage", "rack", "base"],
     "accesorios": ["accessory", "accessories", "kit", "crevice", "tool", "brush", "nozzle", "boquilla"],
-    # Categorías de lavadora y electrodomésticos
+    # CategorÃ­as de lavadora y electrodomÃ©sticos
     "bomba": ["pump", "drain pump", "drain", "impeller"],
     "resistencia": ["heating element", "heater", "heating", "resistencia", "thermostat"],
     "rodamiento": ["bearing", "drum bearing", "ball bearing"],
     "escobillas": ["carbon brush", "motor brush", "brush holder"],
     "correa": ["belt", "drive belt", "poly v", "poly-v", "v-belt"],
     "bolsa": ["dust bag", "vacuum bag", "paper bag"],
-    # Categorías de ósmosis, cafeteras, freidoras, etc.
+    # CategorÃ­as de Ã³smosis, cafeteras, freidoras, etc.
     "junta": ["seal", "gasket", "door seal", "o-ring", "rubber seal", "boot seal"],
     "deposito": ["tank", "container", "reservoir", "water tank", "dust cup"],
     "cesta": ["basket", "tray", "bin", "dust cup", "cup"],
-    # Categorías de afeitadoras y cepillos eléctricos
+    # CategorÃ­as de afeitadoras y cepillos elÃ©ctricos
     "rueda": ["tire", "tyre", "wheel", "inner tube", "tubeless"],
     "freno": ["brake", "brake pad", "disc brake", "brake disc", "caliper"],
     "laminas": ["foil", "shaving foil", "cutting foil", "blade", "foil replacement"],
@@ -570,7 +570,7 @@ CATEGORY_QUERY_TERMS = {
     "junta": ["gasket", "o-ring"],
     "deposito": ["water tank", "dust cup"],
     "cesta": ["basket", "tray"],
-    # Categorías de lavadora y electrodomésticos
+    # CategorÃ­as de lavadora y electrodomÃ©sticos
     "bomba": ["drain pump", "pump"],
     "resistencia": ["heating element", "heater"],
     "rodamiento": ["bearing", "drum"],
@@ -626,7 +626,7 @@ CATEGORY_MIN_SIGNAL_HITS = {
 }
 
 CATEGORY_NEGATIVE_TERMS = {
-    # Para SKUs -nuevo: excluir recambios, filtros y accesorios — queremos el producto completo
+    # Para SKUs -nuevo: excluir recambios, filtros y accesorios â€” queremos el producto completo
     "nuevo": [
         "replacement filter", "filter replacement", "hepa filter", "pre filter", "post filter",
         "filtro de agua", "water filter replacement", "descal", "descaling", "limescale",
@@ -752,7 +752,7 @@ RELAXED_ANCHOR_STOPWORDS = {
 }
 SPECIFIC_ITEM_STOPWORDS = RELAXED_ANCHOR_STOPWORDS | {
     "group", "oring", "o-ring",
-    # Familias de producto demasiado genéricas para decidir compatibilidad.
+    # Familias de producto demasiado genÃ©ricas para decidir compatibilidad.
     "shaver", "razor", "coffee", "machine", "espresso", "maker",
     # Modificadores comerciales o de gama que no describen la pieza.
     "series", "pro", "plus", "one",
@@ -763,14 +763,17 @@ AI_RESCUE_CATEGORIES = {
     "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal",
     "accesorios", "soporte", "deposito", "bolsa",
 }
+EXACT_SHARED_COMPAT_CATEGORIES = {
+    "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal", "soporte",
+}
 STRICT_EXACT_MATCH_CATEGORIES = {
     "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal",
     "accesorios", "soporte", "deposito", "cesta", "junta", "bolsa",
     "bomba", "resistencia", "rodamiento", "escobillas", "correa", "rueda", "freno",
 }
 RELAXED_FALLBACK_ALLOWED_CATEGORIES = {
-    # Para un sistema de alta precisión, el fallback relajado solo debe vivir
-    # en categorías donde el riesgo de confundir pieza/modelo es bajo.
+    # Para un sistema de alta precisiÃ³n, el fallback relajado solo debe vivir
+    # en categorÃ­as donde el riesgo de confundir pieza/modelo es bajo.
 }
 LOW_QUALITY_NEW_TITLE_TERMS = {
     "oem", "odm", "wholesale", "factory direct", "factory price", "supplier",
@@ -787,7 +790,7 @@ def looks_bad(title: str) -> bool:
 def cat_part_terms(cat: str) -> List[str]:
     c = nrm(cat)
     if c == "nuevo":
-        # Búsqueda de producto completo: no exigir términos de recambio.
+        # BÃºsqueda de producto completo: no exigir tÃ©rminos de recambio.
         # El filtrado se hace con CATEGORY_NEGATIVE_TERMS["nuevo"].
         return []
     for k, terms in CATEGORY_PART_TERMS.items():
@@ -803,8 +806,8 @@ def cat_part_terms(cat: str) -> List[str]:
         return CATEGORY_PART_TERMS["cepillo"]
     if "soport" in c or "mount" in c or "dock" in c:
         return CATEGORY_PART_TERMS["soporte"]
-    # Fallback: usa el nombre de categoría como término de ancla — mucho más específico
-    # que "replacement/spare" que pasaría cualquier producto del mundo.
+    # Fallback: usa el nombre de categorÃ­a como tÃ©rmino de ancla â€” mucho mÃ¡s especÃ­fico
+    # que "replacement/spare" que pasarÃ­a cualquier producto del mundo.
     return [c, "replacement"] if c else ["replacement"]
 
 
@@ -1010,7 +1013,7 @@ def min_specific_item_hits(category: str, specific_item_terms: List[str]) -> int
     cat = nrm(category)
     if cat == "accesorios":
         # Accesorios es una cubeta amplia y peligrosa: si no tenemos al menos
-        # una seÃ±al especÃ­fica real, preferimos caer a fallback_buy_new.
+        # una seÃƒÂ±al especÃƒÂ­fica real, preferimos caer a fallback_buy_new.
         return 1 if len(specific_item_terms) >= 2 else 2
     return 1 if specific_item_terms else 0
 
@@ -1096,7 +1099,7 @@ def score_new_product(
             return -1e9
         s -= model_mismatch_penalty(t, req_models)
 
-    # Para "nuevo" preferimos producto completo y precio creíble antes que comisión.
+    # Para "nuevo" preferimos producto completo y precio creÃ­ble antes que comisiÃ³n.
     s += min(price, 3000.0) * 0.14
     s += get_orders(p) * 0.003
     s += get_commission_rate(p) * 0.05
@@ -1264,8 +1267,8 @@ def title_matches_category_signals(title: str, category: str, specific_item_term
     if signal_hits >= min_hits:
         return True
 
-    # En accesorios y cubetas amplias dejamos que el item_title específico
-    # rescate el match si el anuncio no usa la taxonomía exacta.
+    # En accesorios y cubetas amplias dejamos que el item_title especÃ­fico
+    # rescate el match si el anuncio no usa la taxonomÃ­a exacta.
     if nrm(category) == "accesorios" and specific_item_terms:
         return count_anchor_hits(title, specific_item_terms) >= 1
 
@@ -1719,14 +1722,14 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
     include_terms = " ".join([compact_spaces(x) for x in must_include[:4] if compact_spaces(x)])
     model_tokens = " ".join(model_tokens_from_ctx(model)[:3])
 
-    # Cascada de mayor a menor precisión:
-    # 1. Query override explícito
-    # 2. Marca + modelo completo + términos must_include + tipo recambio
+    # Cascada de mayor a menor precisiÃ³n:
+    # 1. Query override explÃ­cito
+    # 2. Marca + modelo completo + tÃ©rminos must_include + tipo recambio
     # 3. Marca + modelo completo + tipo recambio
     # 4. Marca + tokens de modelo + tipo recambio
-    # 5. Marca + modelo + título del item
-    # 6. Marca + modelo + nombre categoría + título
-    # 7. Marca + tipo recambio (sin modelo — cubre listings genéricos de marca)
+    # 5. Marca + modelo + tÃ­tulo del item
+    # 6. Marca + modelo + nombre categorÃ­a + tÃ­tulo
+    # 7. Marca + tipo recambio (sin modelo â€” cubre listings genÃ©ricos de marca)
     # 8. Marca + modelo solo
     candidates = [
         compose_search_query([], [query_override]),
@@ -1824,7 +1827,7 @@ def merge_overrides(
     Prioridad:
       1) overrides en aspiradores.yaml (ctx)
       2) overrides en ofertas.json / legado ofertas.yaml (offers_obj)
-      3) defaults por categoría (solo para must_not)
+      3) defaults por categorÃ­a (solo para must_not)
     """
     query = normalize(str(ctx.get("query") or ""))
     if not query:
@@ -1851,8 +1854,8 @@ def pick_relaxed_link(
     keywords: Optional[List[str]] = None,
 ) -> Optional[Dict[str, str]]:
     """
-    Búsqueda relajada sin filtro de modelo: solo marca + categoría.
-    Aplica must_not_include para evitar contaminar con categorías cruzadas.
+    BÃºsqueda relajada sin filtro de modelo: solo marca + categorÃ­a.
+    Aplica must_not_include para evitar contaminar con categorÃ­as cruzadas.
     """
     relaxed_terms = " ".join(cat_query_terms(category)[:2])
     category_key = nrm(category)
@@ -2173,6 +2176,8 @@ def collect_exact_candidates(
     req_models = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model_hint)
     strict_category = nrm(category) in STRICT_EXACT_MATCH_CATEGORIES
     min_anchor_hits = 2 if strict_category else 1
+    if nrm(category) in EXACT_SHARED_COMPAT_CATEGORIES:
+        min_anchor_hits = 1
     min_specific_hits = min_specific_item_hits(category, specific_item_terms)
     ranked: List[Tuple[float, Dict[str, str]]] = []
     seen_urls: set[str] = set()
@@ -2257,7 +2262,7 @@ def collect_exact_candidates(
 
 
 # =========================
-# Vertical fallback (buy-new genérico por vertical)
+# Vertical fallback (buy-new genÃ©rico por vertical)
 # =========================
 VERTICAL_FALLBACK_QUERIES = {
     "aspiradores":          "cordless stick vacuum cleaner household",
@@ -2288,7 +2293,7 @@ VERTICAL_FALLBACK_LABELS = {
     "aspiradoras-normales": "Ver aspiradoras en AliExpress",
     "auriculares":          "Ver auriculares en AliExpress",
     "cafeteras":            "Ver cafeteras en AliExpress",
-    "cepillos":             "Ver cepillos eléctricos en AliExpress",
+    "cepillos":             "Ver cepillos elÃ©ctricos en AliExpress",
     "secadores-pelo":       "Ver secadores en AliExpress",
     "planchas-pelo":        "Ver planchas de pelo en AliExpress",
     "aspiradores-mano":     "Ver aspiradores de mano en AliExpress",
@@ -2299,7 +2304,7 @@ VERTICAL_FALLBACK_LABELS = {
     "lavadoras":            "Ver lavadoras en AliExpress",
     "mascotas":             "Ver productos mascotas en AliExpress",
     "osmosis":              "Ver sistemas osmosis en AliExpress",
-    "patinetes-electricos": "Ver patinetes eléctricos en AliExpress",
+    "patinetes-electricos": "Ver patinetes elÃ©ctricos en AliExpress",
     "robots-cristales":     "Ver robots limpiacristales en AliExpress",
     "robots-fregar":        "Ver robots friegasuelos en AliExpress",
     "robots-piscina":       "Ver robots limpiapiscinas en AliExpress",
@@ -2307,9 +2312,9 @@ VERTICAL_FALLBACK_LABELS = {
 
 
 def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional[Dict[str, str]]:
-    """Busca el producto con mejor comisión para un keyword genérico de vertical.
-    Exige que el título contenga al menos un término del vertical para evitar
-    productos de automoción u otras categorías que se cuelan por comisión alta.
+    """Busca el producto con mejor comisiÃ³n para un keyword genÃ©rico de vertical.
+    Exige que el tÃ­tulo contenga al menos un tÃ©rmino del vertical para evitar
+    productos de automociÃ³n u otras categorÃ­as que se cuelan por comisiÃ³n alta.
     Devuelve dict con url y product_title, o None si no encuentra nada."""
     required_terms = VERTICAL_REQUIRED_TERMS.get(vertical, [])
 
@@ -2330,7 +2335,7 @@ def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional
                 continue
             if is_low_quality_new_title(title):
                 continue
-            # Exigir al menos un término del vertical en el título
+            # Exigir al menos un tÃ©rmino del vertical en el tÃ­tulo
             if required_terms and not any(nrm(t) in tt for t in required_terms):
                 continue
             if not is_complete_new_product(tt, vertical):
@@ -2338,7 +2343,7 @@ def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional
             candidates.append(p)
         if not candidates:
             continue
-        # Prioridad: comisión absoluta estimada (precio * %comisión), ventas como desempate
+        # Prioridad: comisiÃ³n absoluta estimada (precio * %comisiÃ³n), ventas como desempate
         candidates.sort(
             key=lambda p: score_new_product(
                 p.get("product_title") or "",
@@ -2366,8 +2371,8 @@ def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional
 
 def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -> None:
     """
-    Para cada vertical, si buy_new_url está vacío (o --force), busca en AliExpress
-    el producto con mejor comisión y actualiza data/vertical_defaults.yaml.
+    Para cada vertical, si buy_new_url estÃ¡ vacÃ­o (o --force), busca en AliExpress
+    el producto con mejor comisiÃ³n y actualiza data/vertical_defaults.yaml.
     """
     vd = load_yaml(VERTICAL_DEFAULTS_YAML)
     changed = False
@@ -2388,7 +2393,7 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
             print(f"  [vertical-default] {vertical}: sin query definida, saltando")
             continue
 
-        print(f"  [vertical-default] {vertical}: buscando → '{query}'")
+        print(f"  [vertical-default] {vertical}: buscando â†’ '{query}'")
         result = pick_vertical_best(query, vertical=vertical, use_cache=use_cache)
         if result:
             entry["buy_new_url"] = result["url"]
@@ -2406,9 +2411,9 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
             entry["updated_at"] = datetime.now().date().isoformat()
             vd[vertical] = entry
             changed = True
-            print(f"  [vertical-default] {vertical}: OK → {result['url'][:80]}")
+            print(f"  [vertical-default] {vertical}: OK â†’ {result['url'][:80]}")
             if result["product_title"]:
-                print(f"  [vertical-default] {vertical}: título → {result['product_title'][:80]}")
+                print(f"  [vertical-default] {vertical}: tÃ­tulo â†’ {result['product_title'][:80]}")
         else:
             print(f"  [vertical-default] {vertical}: sin resultado en AliExpress")
 
@@ -2428,13 +2433,13 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--force", action="store_true", help="Fuerza lookup incluso si ya hay URL no-default")
     ap.add_argument("--vertical", default="all", help="Vertical a sincronizar: una, varias separadas por comas, o 'all' (default)")
     ap.add_argument("--only-stale", type=int, default=0, metavar="DAYS",
-                    help="Solo procesa SKUs cuyo updated_at tiene más de DAYS días (0 = ignorar). Útil para refrescar enlaces sin relanzar todo.")
+                    help="Solo procesa SKUs cuyo updated_at tiene mÃ¡s de DAYS dÃ­as (0 = ignorar). Ãštil para refrescar enlaces sin relanzar todo.")
     ap.add_argument("--batch-size", type=int, default=0, metavar="N",
-                    help="Procesa como máximo N SKUs por ejecución, los más antiguos primero (0 = todos). Combina con --only-stale para repartir en días.")
+                    help="Procesa como mÃ¡ximo N SKUs por ejecuciÃ³n, los mÃ¡s antiguos primero (0 = todos). Combina con --only-stale para repartir en dÃ­as.")
     ap.add_argument("--max-minutes", type=float, default=0, metavar="MIN",
-                    help="Detiene el procesado cuando se acerca a MIN minutos de ejecución, guarda y sale limpiamente (0 = sin límite).")
+                    help="Detiene el procesado cuando se acerca a MIN minutos de ejecuciÃ³n, guarda y sale limpiamente (0 = sin lÃ­mite).")
     ap.add_argument("--skip-vertical-defaults", action="store_true",
-                    help="No actualiza vertical_defaults.yaml al final. Útil para la Action horaria o pruebas puntuales.")
+                    help="No actualiza vertical_defaults.yaml al final. Ãštil para la Action horaria o pruebas puntuales.")
     return ap.parse_args()
 
 
@@ -2487,7 +2492,7 @@ def main() -> None:
         status = str(offer_obj.get("compatibility_status") or derive_compatibility_status(offer_obj)).strip()
         return (compatibility_priority(status), sku_updated_at(sku))
 
-    # --only-stale: filtra SKUs cuyo updated_at supera N días
+    # --only-stale: filtra SKUs cuyo updated_at supera N dÃ­as
     if not only and args.only_stale > 0:
         cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat()
         stale = {
@@ -2501,13 +2506,13 @@ def main() -> None:
         if stale:
             want = stale
         else:
-            print("  --only-stale: no hay SKUs vencidos; se renuevan enlaces existentes por antigüedad")
+            print("  --only-stale: no hay SKUs vencidos; se renuevan enlaces existentes por antigÃ¼edad")
 
-    # --batch-size: toma los N más antiguos para no saturar la API en una sola pasada
+    # --batch-size: toma los N mÃ¡s antiguos para no saturar la API en una sola pasada
     if not only and args.batch_size > 0 and len(want) > args.batch_size:
         sorted_want = sorted(want, key=sku_refresh_priority)
         want = set(sorted_want[:args.batch_size])
-        print(f"  --batch-size {args.batch_size}: procesando {args.batch_size} SKUs con peor cobertura y mayor antigüedad")
+        print(f"  --batch-size {args.batch_size}: procesando {args.batch_size} SKUs con peor cobertura y mayor antigÃ¼edad")
 
     added = 0
     updated = 0
@@ -2570,7 +2575,7 @@ def main() -> None:
             part_terms = cat_part_terms(category)
 
             # Para SKUs -nuevo: usar required_terms del vertical como filtro de tipo de producto.
-            # Así "Philips EP3221" busca cafeteras, no válvulas de Bosch.
+            # AsÃ­ "Philips EP3221" busca cafeteras, no vÃ¡lvulas de Bosch.
             if category == "nuevo":
                 vertical = ctx.get("vertical") or ""
                 vert_terms = VERTICAL_REQUIRED_TERMS.get(vertical, [])
@@ -2823,7 +2828,7 @@ def main() -> None:
     offers_doc["offers"] = offers
     dump_offers_doc(offers_doc)
 
-    # Sincronizar URLs de fallback por vertical (buy-new genérico)
+    # Sincronizar URLs de fallback por vertical (buy-new genÃ©rico)
     if args.skip_vertical_defaults:
         print("\n  --- Saltando vertical_defaults (--skip-vertical-defaults) ---")
     else:
@@ -2882,15 +2887,15 @@ def main() -> None:
     print("OK: sync_ofertas (AliExpress autolinks + catalog overrides + cache flags)")
     print(f"  Verticales:            {', '.join(selected_verticals)}")
     print(f"  Cache:                 {'ON' if use_cache else 'OFF'} (TTL={CACHE_TTL_SECONDS}s)")
-    print(f"  SKUs en catálogo:       {len(set(sku_ctx.keys()))}")
+    print(f"  SKUs en catÃ¡logo:       {len(set(sku_ctx.keys()))}")
     print(f"  Procesados ahora:       {len(want)}")
     print(f"  Offers total:           {len(offers)}")
-    print(f"  Añadidos:               {added}")
+    print(f"  AÃ±adidos:               {added}")
     print(f"  Actualizados:           {updated}")
     print(f"  Rellenados AliExpress:  {filled_from_aliexpress}")
     print(f"  URLs a DEFAULT:         {changed_urls_to_default}")
     print(f"  Rehabilitados:          {un_orphaned}")
-    print(f"  Marcados huérfano:      {orphaned}")
+    print(f"  Marcados huÃ©rfano:      {orphaned}")
     print(f"  Cache dir:              {CACHE_DIR}")
     print(f"  --- Rendimiento API ---")
     print(f"  Llamadas reales API:    {_api_calls_real}")
@@ -2959,3 +2964,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
