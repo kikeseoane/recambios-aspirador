@@ -759,6 +759,10 @@ SPECIFIC_ITEM_STOPWORDS = RELAXED_ANCHOR_STOPWORDS | {
 }
 
 STRICT_RELAXED_CATEGORIES = {"accesorios", "soporte", "deposito", "cesta", "junta", "bolsa"}
+AI_RESCUE_CATEGORIES = {
+    "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal",
+    "accesorios", "soporte", "deposito", "bolsa",
+}
 STRICT_EXACT_MATCH_CATEGORIES = {
     "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal",
     "accesorios", "soporte", "deposito", "cesta", "junta", "bolsa",
@@ -820,6 +824,11 @@ def cat_query_terms(cat: str) -> List[str]:
         if k in c:
             return terms
     return cat_part_terms(cat)[:2]
+
+
+def rescue_category_enabled(cat: str) -> bool:
+    c = nrm(cat)
+    return any(key in c for key in AI_RESCUE_CATEGORIES)
 
 
 def category_signal_terms(cat: str) -> List[str]:
@@ -1738,19 +1747,20 @@ def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_incl
     item_title = clean_query_fragment(str(ctx.get("item_title") or ""))
     category = compact_spaces(str(ctx.get("category") or ""))
     category_terms = " ".join(cat_query_terms(category)[:2])
+    part_terms = " ".join(cat_part_terms(category)[:2])
     include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
     model_tokens_list = model_tokens_from_ctx(model)
     model_family = " ".join(model_tokens_list[:2])
 
     candidates = [
+        compose_search_query([brand, model], [item_title, part_terms]),
+        compose_search_query([brand, model], [category_terms, part_terms]),
         compose_search_query([brand, model], [include_terms, "compatible"]),
-        compose_search_query([brand, model], [item_title, "replacement"]),
+        compose_search_query([brand, model_family], [item_title, part_terms]),
         compose_search_query([brand, model_family], [category_terms, "compatible"]),
-        compose_search_query([brand, model_family], [item_title, "replacement"]),
-        compose_search_query([brand], [model_family, category_terms, "replacement"]),
-        compose_search_query([brand], [item_title, "compatible"]),
-        compose_search_query([brand, category], [item_title]),
-        compose_search_query([], [query_override, "replacement"]),
+        compose_search_query([brand], [model_family, item_title, part_terms]),
+        compose_search_query([brand], [item_title, part_terms, "replacement"]),
+        compose_search_query([], [query_override, item_title]),
     ]
     return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
 
@@ -2591,6 +2601,7 @@ def main() -> None:
             relaxed_allowed = (
                 require_ai_validation
                 and nrm(category) != "nuevo"
+                and rescue_category_enabled(category)
             )
             rejected_fps = rejected_candidate_fingerprints(obj)
             found = None
