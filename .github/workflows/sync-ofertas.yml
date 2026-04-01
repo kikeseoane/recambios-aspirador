@@ -127,11 +127,15 @@ jobs:
             --no-cache \
             ${SKIP_VERTICALS} | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt || echo "STATS: n/a")
+          EXEC_SUMMARY_LINE=$(grep "^EXEC_SUMMARY:" /tmp/sync_output.txt || echo "EXEC_SUMMARY: n/a")
           MISSING_NEW_LINE=$(grep "^MISSING_NEW:" /tmp/sync_output.txt || echo "MISSING_NEW: n/a")
           COMPAT_STATUS_LINE=$(grep "^COMPAT_STATUS:" /tmp/sync_output.txt || echo "COMPAT_STATUS: n/a")
+          AI_STATUS_LINE=$(grep "^AI_STATUS:" /tmp/sync_output.txt || echo "AI_STATUS: n/a")
           echo "stats=$STATS_LINE" >> $GITHUB_OUTPUT
+          echo "exec_summary=$EXEC_SUMMARY_LINE" >> $GITHUB_OUTPUT
           echo "missing_new=$MISSING_NEW_LINE" >> $GITHUB_OUTPUT
           echo "compat_status=$COMPAT_STATUS_LINE" >> $GITHUB_OUTPUT
+          echo "ai_status=$AI_STATUS_LINE" >> $GITHUB_OUTPUT
 
       - name: Commit y push si hay cambios generados
         if: env.SYNC_SHOULD_RUN == '1'
@@ -139,7 +143,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          CHANGED_FILES=$(git status --porcelain -- data/*.yaml | awk '{print $2}')
+          CHANGED_FILES=$(git status --porcelain -- data/*.yaml data/*.json | awk '{print $2}')
           if [ -z "$CHANGED_FILES" ]; then
             echo "changed=false" >> $GITHUB_OUTPUT
             exit 0
@@ -181,14 +185,16 @@ jobs:
           MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))
           CHANGED="${{ steps.commit.outputs.changed }}"
           STATS="${{ steps.sync.outputs.stats }}"
+          EXEC_SUMMARY="${{ steps.sync.outputs.exec_summary }}"
           MISSING_NEW="${{ steps.sync.outputs.missing_new }}"
           COMPAT_STATUS="${{ steps.sync.outputs.compat_status }}"
+          AI_STATUS="${{ steps.sync.outputs.ai_status }}"
           if [ "$CHANGED" = "true" ]; then
             MSG="Sync completado en ${MINS}m${SECS}s, actualizado. ${STATS}"
           else
             MSG="Sync completado en ${MINS}m${SECS}s, sin cambios. ${STATS}"
           fi
-          printf -v MSG '%s\n%s\n%s' "$MSG" "$MISSING_NEW" "$COMPAT_STATUS"
+          printf -v MSG '%s\n%s\n%s\n%s\n%s' "$MSG" "$EXEC_SUMMARY" "$AI_STATUS" "$MISSING_NEW" "$COMPAT_STATUS"
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
             -d text="$MSG"

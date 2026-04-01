@@ -83,6 +83,7 @@ RATE_SLEEP_SECONDS = float((os.getenv("ALI_RATE_SLEEP") or "0.35").strip() or "0
 _api_calls_real: int = 0
 _api_time_real: float = 0.0
 _ai_validation_calls: int = 0
+_ai_budget_state: Dict[str, Any] = {}
 
 if not APP_KEY or not APP_SECRET:
     raise SystemExit("Faltan variables de entorno: ALI_APP_KEY y/o ALI_APP_SECRET")
@@ -1329,6 +1330,45 @@ def ai_validation_enabled() -> bool:
     return bool(AI_VALIDATION_PROVIDER and AI_VALIDATION_MODEL and AI_VALIDATION_API_KEY)
 
 
+def init_ai_budget_state(offers_doc: Dict[str, Any], today: str) -> None:
+    global _ai_budget_state
+    state = offers_doc.get("ai_validation_budget")
+    if not isinstance(state, dict):
+        state = {}
+    if str(state.get("date") or "") != today:
+        state = {"date": today, "used": 0, "limit": AI_VALIDATION_MAX_CHECKS}
+    else:
+        state["limit"] = AI_VALIDATION_MAX_CHECKS
+        state["used"] = int(state.get("used") or 0)
+    offers_doc["ai_validation_budget"] = state
+    _ai_budget_state = state
+
+
+def ai_budget_used() -> int:
+    return int(_ai_budget_state.get("used") or 0)
+
+
+def ai_budget_limit() -> int:
+    return int(_ai_budget_state.get("limit") or 0)
+
+
+def consume_ai_budget(count: int = 1) -> None:
+    _ai_budget_state["used"] = max(0, ai_budget_used() + max(0, int(count)))
+
+
+def exhaust_ai_budget() -> None:
+    if ai_budget_limit() > 0:
+        _ai_budget_state["used"] = ai_budget_limit()
+
+
+def format_ai_budget_status() -> str:
+    limit = ai_budget_limit()
+    used = ai_budget_used()
+    if limit > 0:
+        return f"{used}/{limit}"
+    return f"{used}/unlimited"
+
+
 def candidate_fingerprint(candidate: Dict[str, Any]) -> str:
     payload = {
         "url": str(candidate.get("url") or "").strip(),
@@ -1480,7 +1520,7 @@ def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -
 
     if not ai_validation_enabled():
         return {"status": "disabled", "reason": "ai_validation_disabled"}
-    if AI_VALIDATION_MAX_CHECKS > 0 and _ai_validation_calls >= AI_VALIDATION_MAX_CHECKS:
+    if ai_budget_limit() > 0 and ai_budget_used() >= ai_budget_limit():
         return {"status": "pending", "reason": "daily_ai_budget_exhausted"}
 
     system_prompt = (
@@ -1510,10 +1550,12 @@ def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -
     try:
         r = requests.post(AI_VALIDATION_URL, headers=headers, json=payload, timeout=AI_VALIDATION_TIMEOUT)
         _ai_validation_calls += 1
+        consume_ai_budget(1)
     except Exception:
         return {"status": "pending", "reason": "ai_validation_request_failed"}
 
     if r.status_code == 429:
+        exhaust_ai_budget()
         return {"status": "pending", "reason": "ai_rate_limited"}
     if r.status_code >= 500:
         return {"status": "pending", "reason": f"ai_server_error_{r.status_code}"}
@@ -2122,6 +2164,7 @@ def main() -> None:
     offers = offers_doc.get("offers")
     if not isinstance(offers, dict):
         offers = {}
+    offers_doc["offers"] = offers
 
     only = [str(x).strip() for x in args.only_sku if str(x).strip()]
     if only:
@@ -2168,6 +2211,7 @@ def main() -> None:
     SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
     today = datetime.now().date().isoformat()
+    init_ai_budget_state(offers_doc, today)
     _t0 = time.time()
     _total_want = len(want)
     _time_budget_s = args.max_minutes * 60 if args.max_minutes > 0 else 0
@@ -2424,7 +2468,8 @@ def main() -> None:
         _status = "OK" if obj.get("url") and obj.get("url") != DEFAULT_URL else "~"
         print(f"  [{_processed:4d}/{_total_want}] {_status} {sku[:55]:<55} | elapsed {int(_elapsed//60):02d}m{int(_elapsed%60):02d}s ETA {_eta_str}", flush=True)
         if _processed % SAVE_EVERY == 0:
-            dump_offers_doc({"offers": offers})
+            offers_doc["offers"] = offers
+            dump_offers_doc(offers_doc)
             print(f"  --- checkpoint guardado ({filled_from_aliexpress} AliExpress, {added} nuevos, {updated} actualizados) ---", flush=True)
 
     if not only and set(selected_verticals) == set(available_verticals()):
@@ -2436,7 +2481,8 @@ def main() -> None:
                     offers[sku] = o
                     orphaned += 1
 
-    dump_offers_doc({"offers": offers})
+    offers_doc["offers"] = offers
+    dump_offers_doc(offers_doc)
 
     # Sincronizar URLs de fallback por vertical (buy-new genérico)
     if args.skip_vertical_defaults:
@@ -2453,10 +2499,23 @@ def main() -> None:
     _needs_url = sum(1 for s, o in offers.items() if ensure_offer_obj(o).get("needs_url") and not ensure_offer_obj(o).get("orphaned"))
     _still_stale = sum(1 for s in sku_ctx if _cutoff and str(ensure_offer_obj(offers.get(s)).get("updated_at") or "").strip() < _cutoff) if _cutoff else 0
     _status_counts: Dict[str, int] = {}
+    _ai_status_counts: Dict[str, int] = {}
+    _validated_links = 0
+    _links_total = 0
     for s in sku_ctx.keys():
         offer_obj = ensure_offer_obj(offers.get(s))
         status = str(offer_obj.get("compatibility_status") or derive_compatibility_status(offer_obj)).strip() or "sin_cobertura"
         _status_counts[status] = _status_counts.get(status, 0) + 1
+        ai_status = str(offer_obj.get("ai_validation_status") or "").strip() or "none"
+        _ai_status_counts[ai_status] = _ai_status_counts.get(ai_status, 0) + 1
+        if str(offer_obj.get("url") or "").strip():
+            _links_total += 1
+            if ai_status == "validated":
+                _validated_links += 1
+    _pending_ai = _ai_status_counts.get("pending", 0)
+    _rejected_ai = _ai_status_counts.get("rejected", 0)
+    _validated_ai = _ai_status_counts.get("validated", 0)
+    _ai_budget = format_ai_budget_status()
     _missing_new: List[str] = []
     for s in sorted(sku_ctx.keys()):
         ctx = sku_ctx.get(s) or {}
@@ -2505,18 +2564,46 @@ def main() -> None:
     print(f"  Compat alto:            {_status_counts.get('compatible_alto', 0)}")
     print(f"  Compat probable:        {_status_counts.get('compatible_probable', 0)}")
     print(f"  Dudosos:                {_status_counts.get('dudoso', 0)}")
+    print(f"  Pendiente IA:           {_status_counts.get('pending_ai_validation', 0)}")
     print(f"  Fallback buy-new:       {_status_counts.get('fallback_buy_new', 0)}")
     print(f"  Sin cobertura:          {_status_counts.get('sin_cobertura', 0)}")
     print(f"  Stale >{args.only_stale}d:            {_still_stale}")
+    print(f"  --- Validacion IA ---")
+    print(f"  Checks esta ejecucion:  {_ai_validation_calls}")
+    print(f"  Presupuesto diario:     {_ai_budget}")
+    print(f"  Enlaces IA validados:   {_validated_links}/{_links_total}")
+    print(f"  SKUs IA validados:      {_validated_ai}")
+    print(f"  SKUs IA pendientes:     {_pending_ai}")
+    print(f"  SKUs IA rechazados:     {_rejected_ai}")
     print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)} needs_url={_needs_url} stale={_still_stale}")
+    print(
+        "EXEC_SUMMARY: "
+        f"processed={_processed} "
+        f"added={added} "
+        f"updated={updated} "
+        f"filled={filled_from_aliexpress} "
+        f"to_buy_new={_status_counts.get('fallback_buy_new', 0)} "
+        f"pending_ai={_status_counts.get('pending_ai_validation', 0)} "
+        f"needs_url={_needs_url}"
+    )
     print(f"MISSING_NEW: count={len(_missing_new)} sample={_missing_new_sample}")
     print(
         "COMPAT_STATUS: "
         f"alto={_status_counts.get('compatible_alto', 0)} "
         f"probable={_status_counts.get('compatible_probable', 0)} "
         f"dudoso={_status_counts.get('dudoso', 0)} "
+        f"pending_ai={_status_counts.get('pending_ai_validation', 0)} "
         f"buy_new={_status_counts.get('fallback_buy_new', 0)} "
         f"sin_cobertura={_status_counts.get('sin_cobertura', 0)}"
+    )
+    print(
+        "AI_STATUS: "
+        f"calls={_ai_validation_calls} "
+        f"validated={_validated_ai} "
+        f"pending={_pending_ai} "
+        f"rejected={_rejected_ai} "
+        f"verified_links={_validated_links}/{_links_total} "
+        f"budget={_ai_budget}"
     )
 
 
