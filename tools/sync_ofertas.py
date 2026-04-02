@@ -642,7 +642,7 @@ CATEGORY_NEGATIVE_TERMS = {
     "soporte": ["trigger", "switch", "button", "pcb", "board", "handle", "motor"],
     "bateria": ["trigger", "switch", "button", "filter", "charger", "dock", "wall mount"],
     "filtro": ["battery", "charger", "trigger", "switch", "button"],
-    "cargador": ["battery", "filter", "trigger", "switch", "button"],
+    "cargador": ["battery", "filter", "trigger", "switch", "button", "dock", "holder", "bracket", "hanger", "wall mount", "storage rack"],
     "cepillo": ["battery", "filter", "charger", "trigger", "switch", "button"],
     # Lavadora: exclusiones cruzadas entre recambios incompatibles
     "bomba": ["belt", "bearing", "heating element", "heater", "seal", "gasket", "carbon brush", "filter"],
@@ -1009,12 +1009,30 @@ def contains_any(title: str, bad: List[str]) -> bool:
     return any((bb := nrm(fold_query_text(b))) and bb in tt for b in bad)
 
 
+def is_model_like_token(token: str) -> bool:
+    tok = nrm(fold_query_text(token))
+    if not tok:
+        return False
+    if MODEL_TOKEN_RE.search(tok):
+        return True
+    return any(ch.isdigit() for ch in tok) and len(tok) <= 8
+
+
+def effective_must_not_terms(title: str, category: str, req_models: List[str], must_not_include: List[str]) -> List[str]:
+    cat = nrm(category)
+    if cat in EXACT_SHARED_COMPAT_CATEGORIES and req_models and title_has_required_model(nrm(title), req_models) and is_shared_compatibility_title(title):
+        return [term for term in must_not_include if not is_model_like_token(term)]
+    return must_not_include
+
+
 def min_specific_item_hits(category: str, specific_item_terms: List[str]) -> int:
     cat = nrm(category)
     if cat == "accesorios":
         # Accesorios es una cubeta amplia y peligrosa: si no tenemos al menos
         # una seÃƒÂ±al especÃƒÂ­fica real, preferimos caer a fallback_buy_new.
         return 1 if len(specific_item_terms) >= 2 else 2
+    if cat in EXACT_SHARED_COMPAT_CATEGORIES:
+        return 0 if len(specific_item_terms) <= 1 else 1
     return 1 if specific_item_terms else 0
 
 
@@ -1066,6 +1084,17 @@ def is_complete_new_product(title: str, vertical: str) -> bool:
     if positives and not any(nrm(term) in tt for term in positives):
         return False
     if negatives and any(nrm(term) in tt for term in negatives):
+        return False
+    return True
+
+
+def looks_like_complete_product_for_category(title: str, vertical: str, category: str, part_terms: List[str]) -> bool:
+    if not is_complete_new_product(title, vertical):
+        return False
+    if nrm(category) == "nuevo":
+        return True
+    tt = nrm(title)
+    if any(pt in tt for pt in part_terms):
         return False
     return True
 
@@ -1277,7 +1306,7 @@ def title_matches_category_signals(title: str, category: str, specific_item_term
 
 def is_deceptive_title(title: str, category: str) -> bool:
     tt = nrm(title)
-    if SUSPICIOUS_TITLE_RE.search(title):
+    if SUSPICIOUS_TITLE_RE.search(title) and not is_shared_compatibility_title(title):
         return True
     if category != "nuevo" and ("universal" in tt or "all model" in tt or "all models" in tt):
         return True
@@ -1897,7 +1926,7 @@ def pick_relaxed_link(
                         continue
                     if vertical and not title_matches_vertical(title, vertical):
                         continue
-                    if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                    if category != "nuevo" and vertical and looks_like_complete_product_for_category(title, vertical, category, part_terms):
                         continue
                     if brand and not title_has_required_brand(title, brand):
                         continue
@@ -1905,7 +1934,8 @@ def pick_relaxed_link(
                     if not has_part_term:
                         if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
                             continue
-                    if must_not_include and contains_any(tt, must_not_include):
+                    active_must_not = effective_must_not_terms(title, category, [], must_not_include)
+                    if active_must_not and contains_any(tt, active_must_not):
                         continue
                     if not title_matches_category_signals(title, category, specific_item_terms):
                         continue
@@ -1990,7 +2020,7 @@ def collect_relaxed_candidates(
                         continue
                     if vertical and not title_matches_vertical(title, vertical):
                         continue
-                    if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                    if category != "nuevo" and vertical and looks_like_complete_product_for_category(title, vertical, category, part_terms):
                         continue
                     if brand and not title_has_required_brand(title, brand):
                         continue
@@ -1998,7 +2028,8 @@ def collect_relaxed_candidates(
                     if not has_part_term:
                         if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
                             continue
-                    if must_not_include and contains_any(tt, must_not_include):
+                    active_must_not = effective_must_not_terms(title, category, [], must_not_include)
+                    if active_must_not and contains_any(tt, active_must_not):
                         continue
                     if not title_matches_category_signals(title, category, specific_item_terms):
                         continue
@@ -2081,7 +2112,7 @@ def pick_best_promotion_link(
                     continue
                 if vertical and not title_matches_vertical(title, vertical):
                     continue
-                if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                if category != "nuevo" and vertical and looks_like_complete_product_for_category(title, vertical, category, part_terms):
                     continue
                 if category == "nuevo" and is_low_quality_new_title(title):
                     continue
@@ -2207,7 +2238,7 @@ def collect_exact_candidates(
                         continue
                     if vertical and not title_matches_vertical(title, vertical):
                         continue
-                    if category != "nuevo" and vertical and is_complete_new_product(title, vertical):
+                    if category != "nuevo" and vertical and looks_like_complete_product_for_category(title, vertical, category, part_terms):
                         continue
                     if category == "nuevo" and is_low_quality_new_title(title):
                         continue
@@ -2222,7 +2253,8 @@ def collect_exact_candidates(
                                 continue
                     if must_include and not contains_all(tt, must_include):
                         continue
-                    if must_not_include and contains_any(tt, must_not_include):
+                    active_must_not = effective_must_not_terms(title, category, req_models, must_not_include)
+                    if active_must_not and contains_any(tt, active_must_not):
                         continue
                     if not title_matches_category_signals(title, category, specific_item_terms):
                         continue
@@ -2964,4 +2996,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

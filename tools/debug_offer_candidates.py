@@ -23,7 +23,7 @@ def main() -> None:
     if not ctx:
         raise SystemExit(f"SKU no encontrado: {args.sku}")
 
-    offers_doc = so.load_yaml(so.OFFERS)
+    offers_doc = so.load_offers_doc()
     offers = offers_doc.get("offers") if isinstance(offers_doc.get("offers"), dict) else {}
     obj = so.ensure_offer_obj(offers.get(args.sku))
 
@@ -48,6 +48,7 @@ def main() -> None:
     strict_anchor_terms = so.extract_strict_anchor_terms(ctx, must_include, effective_model_tokens)
     specific_item_terms = so.extract_specific_item_terms(ctx, must_include, effective_model_tokens)
     kws = so.build_search_keywords(ctx, query, must_include)
+    rescue_kws = so.build_ai_rescue_keywords(ctx, query, must_include)
 
     print("SKU:", args.sku)
     print("QUERY:", kws[0] if kws else query)
@@ -58,6 +59,7 @@ def main() -> None:
     print("MUST NOT:", must_not_combined)
     print("STRICT ANCHORS:", strict_anchor_terms)
     print("SPECIFIC TERMS:", specific_item_terms)
+    print("RESCUE KWS:", rescue_kws)
 
     keyword = kws[0] if kws else query
     resp = so.product_query(keyword, lang=args.lang, page_no=1, use_cache=False)
@@ -82,6 +84,43 @@ def main() -> None:
             f"include={has_include} must_not={has_not} "
             f"strict_hits={has_strict} specific_hits={has_specific}"
         )
+
+    exact = so.collect_exact_candidates(
+        kws,
+        must_brand=brand,
+        model_hint=model,
+        part_terms=part_terms,
+        must_include=must_include,
+        must_not_include=must_not_combined,
+        model_tokens_override=model_tokens_override,
+        vertical=str(ctx.get("vertical") or ""),
+        category=category,
+        strict_anchor_terms=strict_anchor_terms,
+        specific_item_terms=specific_item_terms,
+        rejected_fingerprints=set(),
+        use_cache=False,
+        limit=5,
+    )
+    print("\nEXACT CANDIDATES:", len(exact))
+    for cand in exact:
+        print("  -", cand.get("product_title"))
+
+    rescue = so.collect_relaxed_candidates(
+        rescue_kws,
+        brand=brand,
+        category=category,
+        vertical=str(ctx.get("vertical") or ""),
+        part_terms=part_terms,
+        must_not_include=must_not_combined,
+        anchor_terms=so.extract_relaxed_anchor_terms(ctx, must_include),
+        specific_item_terms=specific_item_terms,
+        rejected_fingerprints=set(),
+        use_cache=False,
+        limit=5,
+    )
+    print("\nRESCUE CANDIDATES:", len(rescue))
+    for cand in rescue:
+        print("  -", cand.get("product_title"))
 
 
 if __name__ == "__main__":
