@@ -766,6 +766,9 @@ AI_RESCUE_CATEGORIES = {
 EXACT_SHARED_COMPAT_CATEGORIES = {
     "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal", "soporte",
 }
+EXACT_LOW_SPECIFICITY_CATEGORIES = {
+    "cepillo", "soporte",
+}
 STRICT_EXACT_MATCH_CATEGORIES = {
     "bateria", "filtro", "cargador", "cepillo", "laminas", "cabezal",
     "accesorios", "soporte", "deposito", "cesta", "junta", "bolsa",
@@ -1031,6 +1034,8 @@ def min_specific_item_hits(category: str, specific_item_terms: List[str]) -> int
         # Accesorios es una cubeta amplia y peligrosa: si no tenemos al menos
         # una seÃƒÂ±al especÃƒÂ­fica real, preferimos caer a fallback_buy_new.
         return 1 if len(specific_item_terms) >= 2 else 2
+    if cat in EXACT_LOW_SPECIFICITY_CATEGORIES:
+        return 0
     if cat in EXACT_SHARED_COMPAT_CATEGORIES:
         return 0 if len(specific_item_terms) <= 1 else 1
     return 1 if specific_item_terms else 0
@@ -1272,6 +1277,25 @@ def extract_specific_item_terms(
             out.append(norm_tok)
             if len(out) >= limit:
                 return out
+    return out
+
+
+def expand_specific_item_terms(terms: List[str]) -> List[str]:
+    out: List[str] = []
+    seen: set[str] = set()
+    for term in terms:
+        raw = compact_spaces(str(term or ""))
+        if not raw:
+            continue
+        variants = [raw]
+        if "/" in raw:
+            variants.extend([compact_spaces(part) for part in raw.split("/") if compact_spaces(part)])
+        for variant in variants:
+            norm_variant = nrm(fold_query_text(variant))
+            if not norm_variant or norm_variant in seen:
+                continue
+            seen.add(norm_variant)
+            out.append(norm_variant)
     return out
 
 
@@ -1783,6 +1807,14 @@ def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_incl
     include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
     model_tokens_list = model_tokens_from_ctx(model)
     model_family = " ".join(model_tokens_list[:2])
+    if nrm(category) == "soporte":
+        candidates = [
+            compose_search_query([brand, model], ["wall mount", "holder"]),
+            compose_search_query([brand, model], ["bracket", "storage rack"]),
+            compose_search_query([brand], [model_family, "wall mount", "holder"]),
+            compose_search_query([brand], [model_family, "bracket"]),
+        ]
+        return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
 
     candidates = [
         compose_search_query([brand, model], [item_title, part_terms]),
@@ -2624,7 +2656,9 @@ def main() -> None:
             must_not_combined = [*must_not_default, *must_not_override]
             effective_model_tokens = model_tokens_override[:] if model_tokens_override else model_tokens_from_ctx(model)
             strict_anchor_terms = extract_strict_anchor_terms(ctx, must_include, effective_model_tokens)
-            specific_item_terms = extract_specific_item_terms(ctx, must_include, effective_model_tokens)
+            specific_item_terms = expand_specific_item_terms(
+                extract_specific_item_terms(ctx, must_include, effective_model_tokens)
+            )
 
             kws = build_search_keywords(ctx, query, must_include)
             rescue_kws = build_ai_rescue_keywords(ctx, query, must_include)
