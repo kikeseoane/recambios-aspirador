@@ -757,6 +757,23 @@ SPECIFIC_ITEM_STOPWORDS = RELAXED_ANCHOR_STOPWORDS | {
     # Modificadores comerciales o de gama que no describen la pieza.
     "series", "pro", "plus", "one",
 }
+SPECIFIC_TERM_ALIASES = {
+    "boquilla": ["nozzle", "crevice"],
+    "boquillas": ["nozzle", "crevice"],
+    "cepillo": ["brush"],
+    "cepillos": ["brush"],
+    "rodillo": ["roller"],
+    "principal": ["main"],
+    "soporte": ["holder", "mount"],
+    "pared": ["wall", "wall mount"],
+    "funda": ["case", "travel case"],
+    "limpiador": ["cleaner", "cleaning"],
+    "perfilador": ["trimmer"],
+    "barbero": ["trimmer"],
+    "laminas": ["foil"],
+    "cabezal": ["head"],
+    "deposito": ["tank", "reservoir"],
+}
 
 STRICT_RELAXED_CATEGORIES = {"accesorios", "soporte", "deposito", "cesta", "junta", "bolsa"}
 AI_RESCUE_CATEGORIES = {
@@ -1290,6 +1307,10 @@ def expand_specific_item_terms(terms: List[str]) -> List[str]:
         variants = [raw]
         if "/" in raw:
             variants.extend([compact_spaces(part) for part in raw.split("/") if compact_spaces(part)])
+        alias_variants: List[str] = []
+        for variant in variants:
+            alias_variants.extend(SPECIFIC_TERM_ALIASES.get(nrm(fold_query_text(variant)), []))
+        variants.extend(alias_variants)
         for variant in variants:
             norm_variant = nrm(fold_query_text(variant))
             if not norm_variant or norm_variant in seen:
@@ -1771,9 +1792,23 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
     brand = compact_spaces(str(ctx.get("brand") or ""))
     model = compact_spaces(str(ctx.get("model") or ""))
     item_title = clean_query_fragment(str(ctx.get("item_title") or ""))
-    category_terms = " ".join(cat_query_terms(str(ctx.get("category") or ""))[:2])
+    category = str(ctx.get("category") or "")
+    category_terms = " ".join(cat_query_terms(category)[:2])
     include_terms = " ".join([compact_spaces(x) for x in must_include[:4] if compact_spaces(x)])
     model_tokens = " ".join(model_tokens_from_ctx(model)[:3])
+    if nrm(category) == "accesorios":
+        specific_terms = " ".join(
+            expand_specific_item_terms(
+                extract_specific_item_terms(ctx, must_include, model_tokens_from_ctx(model))
+            )[:3]
+        )
+        candidates = [
+            compose_search_query([brand, model], [specific_terms, "accessory kit"]),
+            compose_search_query([brand, model], [specific_terms, "tool kit"]),
+            compose_search_query([brand, model], [include_terms]),
+            compose_search_query([brand], [model, specific_terms, "accessory"]),
+        ]
+        return unique_keywords(candidates)[:max(1, MAX_EXACT_KEYWORDS)]
 
     # Cascada de mayor a menor precisiÃ³n:
     # 1. Query override explÃ­cito
@@ -1807,12 +1842,25 @@ def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_incl
     include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
     model_tokens_list = model_tokens_from_ctx(model)
     model_family = " ".join(model_tokens_list[:2])
+    specific_terms = " ".join(
+        expand_specific_item_terms(
+            extract_specific_item_terms(ctx, must_include, model_tokens_list)
+        )[:3]
+    )
     if nrm(category) == "soporte":
         candidates = [
             compose_search_query([brand, model], ["wall mount", "holder"]),
             compose_search_query([brand, model], ["bracket", "storage rack"]),
             compose_search_query([brand], [model_family, "wall mount", "holder"]),
             compose_search_query([brand], [model_family, "bracket"]),
+        ]
+        return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
+    if nrm(category) == "accesorios":
+        candidates = [
+            compose_search_query([brand, model], [specific_terms, "accessory kit"]),
+            compose_search_query([brand, model], [specific_terms, "tool kit"]),
+            compose_search_query([brand], [model_family, specific_terms, "accessory"]),
+            compose_search_query([brand], [specific_terms, "attachment"]),
         ]
         return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
 
