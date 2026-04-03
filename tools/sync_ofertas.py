@@ -78,11 +78,11 @@ PAGE_SIZE = int((os.getenv("ALI_PAGE_SIZE") or "50").strip() or "50")
 CACHE_DIR = ROOT / "data" / ".cache_aliexpress"
 CACHE_TTL_SECONDS = int((os.getenv("ALI_CACHE_TTL") or str(7 * 24 * 3600)).strip() or str(7 * 24 * 3600))
 RATE_SLEEP_SECONDS = float((os.getenv("ALI_RATE_SLEEP") or "0.35").strip() or "0.35")
-MAX_EXACT_KEYWORDS = int((os.getenv("SYNC_MAX_EXACT_KEYWORDS") or "2").strip() or "2")
-MAX_RESCUE_KEYWORDS = int((os.getenv("SYNC_MAX_RESCUE_KEYWORDS") or "2").strip() or "2")
-MAX_SHORTLIST_CANDIDATES = int((os.getenv("SYNC_MAX_SHORTLIST_CANDIDATES") or "3").strip() or "3")
+MAX_EXACT_KEYWORDS = int((os.getenv("SYNC_MAX_EXACT_KEYWORDS") or "3").strip() or "3")
+MAX_RESCUE_KEYWORDS = int((os.getenv("SYNC_MAX_RESCUE_KEYWORDS") or "3").strip() or "3")
+MAX_SHORTLIST_CANDIDATES = int((os.getenv("SYNC_MAX_SHORTLIST_CANDIDATES") or "5").strip() or "5")
 EXACT_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_EXACT_LANGS") or "EN,ES").split(",") if x.strip())
-RESCUE_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_RESCUE_LANGS") or "EN").split(",") if x.strip())
+RESCUE_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_RESCUE_LANGS") or "EN,ES").split(",") if x.strip())
 
 # Contadores globales de llamadas reales a la API (excluye cache hits)
 _api_calls_real: int = 0
@@ -885,6 +885,13 @@ def cat_query_terms(cat: str) -> List[str]:
 def rescue_category_enabled(cat: str) -> bool:
     c = nrm(cat)
     return any(key in c for key in AI_RESCUE_CATEGORIES)
+
+
+def candidate_pages_for_category(category: str) -> Tuple[int, ...]:
+    cat = nrm(category)
+    if cat in {"accesorios", "soporte", "cargador", "deposito", "bolsa"}:
+        return (1, 2)
+    return (1,)
 
 
 def category_signal_terms(cat: str) -> List[str]:
@@ -2213,9 +2220,10 @@ def collect_relaxed_candidates(
 
     ranked: List[Tuple[float, Dict[str, str]]] = []
     seen_urls: set[str] = set()
+    page_numbers = candidate_pages_for_category(category)
     for keyword in unique_keywords(keywords)[:max(1, MAX_RESCUE_KEYWORDS)]:
         for lang in (RESCUE_LANGS or ("EN",)):
-            for page_no in (1,):
+            for page_no in page_numbers:
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
                 except Exception as exc:
@@ -2304,8 +2312,9 @@ def pick_best_promotion_link(
     min_anchor_hits = 2 if strict_category else 1
     min_specific_hits = min_specific_item_hits(category, specific_item_terms)
 
+    page_numbers = candidate_pages_for_category(category)
     for lang in ("EN", "ES"):
-        for page_no in (1,):
+        for page_no in page_numbers:
             try:
                 resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
             except Exception as exc:
@@ -2431,9 +2440,10 @@ def collect_exact_candidates(
     ranked: List[Tuple[float, Dict[str, str]]] = []
     seen_urls: set[str] = set()
 
+    page_numbers = candidate_pages_for_category(category)
     for keyword in keywords[:max(1, MAX_EXACT_KEYWORDS)]:
         for lang in (EXACT_LANGS or ("EN", "ES")):
-            for page_no in (1,):
+            for page_no in page_numbers:
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
                 except Exception as exc:
@@ -2888,7 +2898,7 @@ def main() -> None:
                     specific_item_terms=specific_item_terms,
                     rejected_fingerprints=rejected_fps,
                     use_cache=use_cache,
-                    limit=5,
+                    limit=7,
                 )
                 ai_exact_candidates += len(exact_candidates)
                 if exact_candidates:
@@ -2971,7 +2981,7 @@ def main() -> None:
                         specific_item_terms=specific_item_terms,
                         rejected_fingerprints=rejected_fps,
                         use_cache=use_cache,
-                        limit=5,
+                        limit=7,
                     )
                     ai_relaxed_candidates += len(rescue_candidates)
                     if rescue_candidates:
