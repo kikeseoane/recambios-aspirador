@@ -774,6 +774,39 @@ SPECIFIC_TERM_ALIASES = {
     "cabezal": ["head"],
     "deposito": ["tank", "reservoir"],
 }
+REQUIRED_TERM_ALIASES = {
+    "accessory": ["attachment", "tool", "kit", "set"],
+    "accessories": ["attachment", "tool", "kit", "set"],
+    "accesorio": ["attachment", "tool", "kit"],
+    "accesorios": ["attachment", "tool", "kit", "set"],
+    "holder": ["stand", "bracket", "hanger", "dock", "base", "mount"],
+    "stand": ["holder", "bracket", "dock", "base"],
+    "bracket": ["holder", "stand", "mount", "hanger"],
+    "mount": ["holder", "stand", "bracket", "dock"],
+    "dock": ["holder", "stand", "base", "mount"],
+    "charger": ["charging dock", "charging base", "power adapter", "ac adapter", "adapter"],
+    "cargador": ["charging dock", "charging base", "power adapter", "ac adapter", "adapter"],
+    "filter": ["hepa", "prefilter", "pre filter", "post filter", "mesh filter", "rear filter"],
+    "filtro": ["hepa", "prefilter", "pre filter", "post filter", "mesh filter", "rear filter"],
+    "brush": ["roller", "roller brush", "main brush", "side brush"],
+    "cepillo": ["roller", "roller brush", "main brush", "side brush"],
+    "roller": ["brush", "roller brush", "main brush", "soft roller", "fluffy roller"],
+    "rodillo": ["brush", "roller brush", "main brush", "soft roller", "fluffy roller"],
+    "trimmer": ["detail trimmer", "precision trimmer"],
+    "foil": ["foil head", "shaving foil"],
+}
+QUERY_TERM_ALIASES = {
+    "accessory": ["attachment", "attachments", "tool", "tools", "kit", "set"],
+    "kit": ["set", "tool kit", "attachment kit"],
+    "pet": ["pet groom", "pet tool", "mini motorized", "mini brush"],
+    "holder": ["stand", "bracket", "hanger", "mount", "base"],
+    "dock": ["charging dock", "charging base", "stand", "base", "holder"],
+    "wall": ["wall mount", "wall holder", "wall bracket"],
+    "charger": ["adapter", "power adapter", "ac adapter", "charger dock"],
+    "adapter": ["charger", "power adapter", "ac adapter"],
+    "filter": ["hepa", "prefilter", "post filter", "rear filter"],
+    "roller": ["brush", "roller brush", "main brush", "soft roller"],
+}
 
 STRICT_RELAXED_CATEGORIES = {"accesorios", "soporte", "deposito", "cesta", "junta", "bolsa"}
 AI_RESCUE_CATEGORIES = {
@@ -1016,12 +1049,17 @@ def get_price_value(p: Dict[str, Any]) -> float:
 
 
 def contains_all(title: str, must: List[str]) -> bool:
+    return required_term_match_count(title, must) >= len([m for m in must if required_term_variants(m)])
+
+
+def required_term_match_count(title: str, must: List[str]) -> int:
     tt = nrm(fold_query_text(title))
+    hits = 0
     for m in must:
-        mm = nrm(fold_query_text(m))
-        if mm and mm not in tt:
-            return False
-    return True
+        variants = required_term_variants(m)
+        if variants and any(variant in tt for variant in variants):
+            hits += 1
+    return hits
 
 
 def contains_any(title: str, bad: List[str]) -> bool:
@@ -1048,14 +1086,61 @@ def effective_must_not_terms(title: str, category: str, req_models: List[str], m
 def min_specific_item_hits(category: str, specific_item_terms: List[str]) -> int:
     cat = nrm(category)
     if cat == "accesorios":
-        # Accesorios es una cubeta amplia y peligrosa: si no tenemos al menos
-        # una seÃƒÂ±al especÃƒÂ­fica real, preferimos caer a fallback_buy_new.
-        return 1 if len(specific_item_terms) >= 2 else 2
+        # En accesorios seguimos exigiendo una seÃ±al especÃ­fica real, pero no
+        # pedimos dos hits cuando solo hemos podido derivar un tÃ©rmino Ãºtil.
+        return 1 if specific_item_terms else 0
     if cat in EXACT_LOW_SPECIFICITY_CATEGORIES:
         return 0
     if cat in EXACT_SHARED_COMPAT_CATEGORIES:
         return 0 if len(specific_item_terms) <= 1 else 1
     return 1 if specific_item_terms else 0
+
+
+def required_term_variants(term: str) -> List[str]:
+    raw = compact_spaces(str(term or ""))
+    if not raw:
+        return []
+    base = nrm(fold_query_text(raw))
+    variants = [base]
+    variants.extend(REQUIRED_TERM_ALIASES.get(base, []))
+    return list(dict.fromkeys(nrm(fold_query_text(variant)) for variant in variants if variant))
+
+
+def must_include_satisfied(title: str, must_include: List[str], category: str) -> bool:
+    active_terms = [term for term in must_include if required_term_variants(term)]
+    if not active_terms:
+        return True
+    hits = required_term_match_count(title, active_terms)
+    cat = nrm(category)
+    if cat in {"soporte", "cargador", "accesorios"} and len(active_terms) >= 3:
+        return hits >= (len(active_terms) - 1)
+    return hits >= len(active_terms)
+
+
+def query_term_variants(term: str) -> List[str]:
+    raw = compact_spaces(str(term or ""))
+    if not raw:
+        return []
+    base = nrm(fold_query_text(raw))
+    variants = [raw]
+    for alias in QUERY_TERM_ALIASES.get(base, []):
+        variants.append(alias)
+    return unique_keywords([compact_spaces(variant) for variant in variants if compact_spaces(variant)])
+
+
+def expand_query_parts(parts: List[str], limit: int = 3) -> List[str]:
+    out: List[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        for variant in query_term_variants(part):
+            key = variant.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(variant)
+            if len(out) >= limit:
+                return out
+    return out
 
 
 def score_product(
@@ -1460,6 +1545,9 @@ def format_ai_budget_status() -> str:
     return f"{used}/unlimited"
 
 
+UNRESOLVED_UPDATED_AT = "0000-00-00"
+
+
 def candidate_fingerprint(candidate: Dict[str, Any]) -> str:
     payload = {
         "url": str(candidate.get("url") or "").strip(),
@@ -1537,6 +1625,7 @@ def apply_offer_candidate(
     offer_obj["compatibility_status"] = derive_compatibility_status(offer_obj)
     offer_obj["compatibility_note"] = derive_compatibility_note(offer_obj["compatibility_status"])
     offer_obj["updated_at"] = today
+    offer_obj["last_attempted_at"] = today
     for debug_key in (
         "debug_last_query",
         "debug_model_tokens",
@@ -1568,7 +1657,8 @@ def stage_candidate_for_ai(
     offer_obj["ai_pending_candidate"] = dict(candidate)
     offer_obj["compatibility_status"] = derive_compatibility_status(offer_obj)
     offer_obj["compatibility_note"] = derive_compatibility_note(offer_obj["compatibility_status"])
-    offer_obj["updated_at"] = today
+    offer_obj["updated_at"] = UNRESOLVED_UPDATED_AT
+    offer_obj["last_attempted_at"] = today
 
 
 def shortlist_ai_payload(ctx: Dict[str, Any], candidates: List[Dict[str, Any]]) -> str:
@@ -1796,15 +1886,40 @@ def build_search_keywords(ctx: Dict[str, Any], query_override: str, must_include
     category_terms = " ".join(cat_query_terms(category)[:2])
     include_terms = " ".join([compact_spaces(x) for x in must_include[:4] if compact_spaces(x)])
     model_tokens = " ".join(model_tokens_from_ctx(model)[:3])
+    include_variants = expand_query_parts(must_include, limit=4)
+    if nrm(category) == "soporte":
+        support_terms = " ".join(expand_query_parts(["dock", "wall", "holder"], limit=4))
+        candidates = [
+            compose_search_query([], [query_override]),
+            compose_search_query([brand, model], [support_terms]),
+            compose_search_query([brand, model], ["wall mount", "holder"]),
+            compose_search_query([brand, model], ["charging dock", "stand"]),
+            compose_search_query([brand, model], [include_terms, category_terms]),
+        ]
+        return unique_keywords(candidates)[:max(1, MAX_EXACT_KEYWORDS)]
+    if nrm(category) == "cargador":
+        charger_terms = " ".join(expand_query_parts(["charger", "adapter"], limit=4))
+        candidates = [
+            compose_search_query([], [query_override]),
+            compose_search_query([brand, model], [charger_terms]),
+            compose_search_query([brand, model], ["charger", "adapter"]),
+            compose_search_query([brand, model], ["power adapter", "ac adapter"]),
+            compose_search_query([brand, model], [include_terms, category_terms]),
+        ]
+        return unique_keywords(candidates)[:max(1, MAX_EXACT_KEYWORDS)]
     if nrm(category) == "accesorios":
         specific_terms = " ".join(
             expand_specific_item_terms(
                 extract_specific_item_terms(ctx, must_include, model_tokens_from_ctx(model))
             )[:3]
         )
+        accessory_terms = " ".join(include_variants[:3])
         candidates = [
+            compose_search_query([], [query_override]),
+            compose_search_query([brand, model], [accessory_terms]),
             compose_search_query([brand, model], [specific_terms, "accessory kit"]),
             compose_search_query([brand, model], [specific_terms, "tool kit"]),
+            compose_search_query([brand, model], [specific_terms, "attachment set"]),
             compose_search_query([brand, model], [include_terms]),
             compose_search_query([brand], [model, specific_terms, "accessory"]),
         ]
@@ -1842,23 +1957,42 @@ def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_incl
     include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
     model_tokens_list = model_tokens_from_ctx(model)
     model_family = " ".join(model_tokens_list[:2])
+    include_variants = expand_query_parts(must_include, limit=4)
     specific_terms = " ".join(
         expand_specific_item_terms(
             extract_specific_item_terms(ctx, must_include, model_tokens_list)
         )[:3]
     )
     if nrm(category) == "soporte":
+        support_terms = " ".join(expand_query_parts(["dock", "wall", "holder"], limit=4))
         candidates = [
+            compose_search_query([], [query_override]),
+            compose_search_query([brand, model], [support_terms]),
             compose_search_query([brand, model], ["wall mount", "holder"]),
+            compose_search_query([brand, model], ["charging dock", "stand"]),
             compose_search_query([brand, model], ["bracket", "storage rack"]),
             compose_search_query([brand], [model_family, "wall mount", "holder"]),
             compose_search_query([brand], [model_family, "bracket"]),
         ]
         return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
-    if nrm(category) == "accesorios":
+    if nrm(category) == "cargador":
+        charger_terms = " ".join(expand_query_parts(["charger", "adapter"], limit=4))
         candidates = [
+            compose_search_query([], [query_override]),
+            compose_search_query([brand, model], [charger_terms]),
+            compose_search_query([brand, model], ["charger", "adapter"]),
+            compose_search_query([brand, model], ["power adapter", "ac adapter"]),
+            compose_search_query([brand], [model_family, "charger", "adapter"]),
+        ]
+        return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
+    if nrm(category) == "accesorios":
+        accessory_terms = " ".join(include_variants[:3])
+        candidates = [
+            compose_search_query([], [query_override]),
+            compose_search_query([brand, model], [accessory_terms]),
             compose_search_query([brand, model], [specific_terms, "accessory kit"]),
             compose_search_query([brand, model], [specific_terms, "tool kit"]),
+            compose_search_query([brand, model], [specific_terms, "attachment set"]),
             compose_search_query([brand], [model_family, specific_terms, "accessory"]),
             compose_search_query([brand], [specific_terms, "attachment"]),
         ]
@@ -1970,6 +2104,8 @@ def pick_relaxed_link(
     category_key = nrm(category)
     require_anchor = category_key in STRICT_RELAXED_CATEGORIES
     min_anchor_hits = 2 if require_anchor else 1
+    if require_anchor and anchor_terms:
+        min_anchor_hits = min(min_anchor_hits, len(anchor_terms))
     min_specific_hits = min_specific_item_hits(category, specific_item_terms)
     if require_anchor and len(anchor_terms) < min_anchor_hits:
         return None
@@ -2069,6 +2205,8 @@ def collect_relaxed_candidates(
     category_key = nrm(category)
     require_anchor = category_key in STRICT_RELAXED_CATEGORIES
     min_anchor_hits = 2 if require_anchor else 1
+    if require_anchor and anchor_terms:
+        min_anchor_hits = min(min_anchor_hits, len(anchor_terms))
     min_specific_hits = min_specific_item_hits(category, specific_item_terms)
     if require_anchor and len(anchor_terms) < min_anchor_hits:
         return []
@@ -2209,7 +2347,7 @@ def pick_best_promotion_link(
                         if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
                             continue
 
-                if must_include and not contains_all(tt, must_include):
+                if must_include and not must_include_satisfied(title, must_include, category):
                     continue
 
                 if must_not_include and contains_any(tt, must_not_include):
@@ -2331,7 +2469,7 @@ def collect_exact_candidates(
                         if not has_part_term:
                             if not (category == "accesorios" and specific_item_terms and count_anchor_hits(title, specific_item_terms) >= 1):
                                 continue
-                    if must_include and not contains_all(tt, must_include):
+                    if must_include and not must_include_satisfied(title, must_include, category):
                         continue
                     active_must_not = effective_must_not_terms(title, category, req_models, must_not_include)
                     if active_must_not and contains_any(tt, active_must_not):
@@ -2599,9 +2737,14 @@ def main() -> None:
     def sku_updated_at(sku: str) -> str:
         return str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "0000-00-00")
 
+    def sku_last_attempted_at(sku: str) -> str:
+        return str(ensure_offer_obj(offers.get(sku)).get("last_attempted_at") or "0000-00-00")
+
     def sku_refresh_priority(sku: str) -> Tuple[int, str]:
         offer_obj = ensure_offer_obj(offers.get(sku))
         status = str(offer_obj.get("compatibility_status") or derive_compatibility_status(offer_obj)).strip()
+        if status in {"fallback_buy_new", "pending_ai_validation"} or offer_obj.get("needs_url") is True:
+            return (compatibility_priority(status), sku_last_attempted_at(sku))
         return (compatibility_priority(status), sku_updated_at(sku))
 
     # --only-stale: filtra SKUs cuyo updated_at supera N dÃ­as
@@ -2611,6 +2754,8 @@ def main() -> None:
             sku for sku in want
             if (
                 str(ensure_offer_obj(offers.get(sku)).get("ai_validation_status") or "").strip() == "pending"
+                or ensure_offer_obj(offers.get(sku)).get("needs_url") is True
+                or str(ensure_offer_obj(offers.get(sku)).get("compatibility_status") or "").strip() == "fallback_buy_new"
                 or str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "").strip() < cutoff
             )
         }
@@ -2893,7 +3038,8 @@ def main() -> None:
                     obj["fallback_search_label"] = fallback_search_label
                     obj["compatibility_status"] = derive_compatibility_status(obj)
                     obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
-                    obj["updated_at"] = today
+                    obj["updated_at"] = UNRESOLVED_UPDATED_AT
+                    obj["last_attempted_at"] = today
                     obj["debug_last_query"] = fallback_search_query
                     obj["debug_model_tokens"] = effective_model_tokens
                     obj["debug_must_include"] = must_include
@@ -2916,6 +3062,9 @@ def main() -> None:
             offers[sku] = obj
             if before != obj:
                 updated += 1
+
+        if needs_lookup and obj.get("updated_at") != today:
+            obj["last_attempted_at"] = today
 
         _processed += 1
         _elapsed = time.time() - _t0
