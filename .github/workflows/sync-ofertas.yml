@@ -45,6 +45,15 @@ jobs:
         run: |
           echo "Sync pausado, omitiendo ejecución. Motivo: ${SYNC_PAUSE_REASON}"
 
+      - name: Notificar Telegram (omitido)
+        if: env.SYNC_SHOULD_RUN != '1'
+        continue-on-error: true
+        run: |
+          RESP=$(curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "text=Sync AliExpress omitido. Motivo: ${SYNC_PAUSE_REASON}")
+          echo "Telegram omitido: $RESP"
+
       - name: Notificar Telegram (inicio)
         if: env.SYNC_SHOULD_RUN == '1'
         continue-on-error: true
