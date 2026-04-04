@@ -2862,6 +2862,10 @@ def main() -> None:
             specific_item_terms = expand_specific_item_terms(
                 extract_specific_item_terms(ctx, must_include, effective_model_tokens)
             )
+            ai_ctx = dict(ctx)
+            ai_ctx["must_include"] = must_include
+            ai_ctx["must_not_include"] = must_not_combined
+            ai_ctx["model_tokens"] = effective_model_tokens
 
             kws = build_search_keywords(ctx, query, must_include)
             rescue_kws = build_ai_rescue_keywords(ctx, query, must_include)
@@ -2883,7 +2887,42 @@ def main() -> None:
             ai_pending = False
             ai_rejected = False
 
-            if require_ai_validation:
+            pending_candidate = obj.get("ai_pending_candidate")
+            pending_status = str(obj.get("ai_validation_status") or "").strip()
+            if require_ai_validation and pending_status == "pending" and isinstance(pending_candidate, dict) and pending_candidate:
+                pending_result = validate_candidate_with_ai(ai_ctx, pending_candidate)
+                pending_reason = pending_result.get("reason") or ""
+                if pending_result.get("status") == "validated":
+                    found = dict(pending_candidate)
+                    matched_kw = str(found.get("matched_query") or "")
+                    ai_validated_run += 1
+                    obj["ai_validation_status"] = "validated"
+                    obj["ai_validation_reason"] = pending_reason
+                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                    obj["ai_validation_at"] = today
+                    obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
+                    obj.pop("ai_pending_candidate", None)
+                elif pending_result.get("status") == "rejected":
+                    ai_rejected_run += 1
+                    append_rejected_candidate_fingerprint(obj, candidate_fingerprint(pending_candidate))
+                    obj["ai_validation_status"] = "rejected"
+                    obj["ai_validation_reason"] = pending_reason
+                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                    obj["ai_validation_at"] = today
+                    obj["ai_validation_candidate_fingerprint"] = ""
+                    obj.pop("ai_pending_candidate", None)
+                    ai_rejected = True
+                else:
+                    ai_pending_run += 1
+                    obj["ai_validation_status"] = "pending"
+                    obj["ai_validation_reason"] = pending_reason or str(obj.get("ai_validation_reason") or "ai_pending_retry")
+                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                    obj["ai_validation_at"] = today
+                    obj["updated_at"] = UNRESOLVED_UPDATED_AT
+                    obj["last_attempted_at"] = today
+                    ai_pending = True
+
+            if require_ai_validation and not found and not ai_pending:
                 exact_candidates = collect_exact_candidates(
                     kws,
                     must_brand=brand,
@@ -2902,7 +2941,7 @@ def main() -> None:
                 )
                 ai_exact_candidates += len(exact_candidates)
                 if exact_candidates:
-                    ai_result = choose_best_candidate_with_ai(ctx, exact_candidates)
+                    ai_result = choose_best_candidate_with_ai(ai_ctx, exact_candidates)
                     ai_status = ai_result.get("status") or ""
                     ai_reason = ai_result.get("reason") or ""
                     if ai_status == "validated":
@@ -2985,7 +3024,7 @@ def main() -> None:
                     )
                     ai_relaxed_candidates += len(rescue_candidates)
                     if rescue_candidates:
-                        ai_result = choose_best_candidate_with_ai(ctx, rescue_candidates)
+                        ai_result = choose_best_candidate_with_ai(ai_ctx, rescue_candidates)
                         ai_status = ai_result.get("status") or ""
                         ai_reason = ai_result.get("reason") or ""
                         if ai_status == "validated":
