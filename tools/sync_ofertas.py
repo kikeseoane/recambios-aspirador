@@ -1592,6 +1592,8 @@ def append_rejected_candidate_fingerprint(offer_obj: Dict[str, Any], fingerprint
 def clear_ai_pending_candidate(offer_obj: Dict[str, Any]) -> None:
     for key in (
         "ai_pending_candidate",
+        "ai_pending_reason",
+        "ai_pending_attempts",
         "ai_validation_reason",
         "ai_validation_model",
         "ai_validation_at",
@@ -1653,11 +1655,17 @@ def stage_candidate_for_ai(
     today: str,
 ) -> None:
     fp = candidate_fingerprint(candidate)
+    current_fp = str(offer_obj.get("ai_validation_candidate_fingerprint") or "").strip()
+    attempts = int(offer_obj.get("ai_pending_attempts") or 0)
+    if current_fp != fp:
+        attempts = 0
     offer_obj["url"] = ""
     offer_obj["needs_url"] = True
     offer_obj["match_type"] = ""
     offer_obj["ai_validation_status"] = "pending"
     offer_obj["ai_validation_reason"] = reason
+    offer_obj["ai_pending_reason"] = reason
+    offer_obj["ai_pending_attempts"] = attempts + 1
     offer_obj["ai_validation_model"] = AI_VALIDATION_MODEL
     offer_obj["ai_validation_at"] = today
     offer_obj["ai_validation_candidate_fingerprint"] = fp
@@ -2794,6 +2802,7 @@ def main() -> None:
     ai_validated_run = 0
     ai_rejected_run = 0
     ai_pending_run = 0
+    ai_pending_retries_exhausted = 0
     _processed = 0
     SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
@@ -2892,6 +2901,7 @@ def main() -> None:
             if require_ai_validation and pending_status == "pending" and isinstance(pending_candidate, dict) and pending_candidate:
                 pending_result = validate_candidate_with_ai(ai_ctx, pending_candidate)
                 pending_reason = pending_result.get("reason") or ""
+                pending_attempts = int(obj.get("ai_pending_attempts") or 0)
                 if pending_result.get("status") == "validated":
                     found = dict(pending_candidate)
                     matched_kw = str(found.get("matched_query") or "")
@@ -2913,14 +2923,28 @@ def main() -> None:
                     obj.pop("ai_pending_candidate", None)
                     ai_rejected = True
                 else:
-                    ai_pending_run += 1
-                    obj["ai_validation_status"] = "pending"
-                    obj["ai_validation_reason"] = pending_reason or str(obj.get("ai_validation_reason") or "ai_pending_retry")
-                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
-                    obj["ai_validation_at"] = today
-                    obj["updated_at"] = UNRESOLVED_UPDATED_AT
-                    obj["last_attempted_at"] = today
-                    ai_pending = True
+                    if pending_attempts >= 3:
+                        ai_rejected_run += 1
+                        ai_pending_retries_exhausted += 1
+                        append_rejected_candidate_fingerprint(obj, candidate_fingerprint(pending_candidate))
+                        obj["ai_validation_status"] = "rejected"
+                        obj["ai_validation_reason"] = pending_reason or "ai_pending_retries_exhausted"
+                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_at"] = today
+                        obj["ai_validation_candidate_fingerprint"] = ""
+                        clear_ai_pending_candidate(obj)
+                        ai_rejected = True
+                    else:
+                        ai_pending_run += 1
+                        obj["ai_validation_status"] = "pending"
+                        obj["ai_validation_reason"] = pending_reason or str(obj.get("ai_validation_reason") or "ai_pending_retry")
+                        obj["ai_pending_reason"] = pending_reason or "ai_pending_retry"
+                        obj["ai_pending_attempts"] = pending_attempts + 1
+                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_at"] = today
+                        obj["updated_at"] = UNRESOLVED_UPDATED_AT
+                        obj["last_attempted_at"] = today
+                        ai_pending = True
 
             if require_ai_validation and not found and not ai_pending:
                 exact_candidates = collect_exact_candidates(
@@ -3234,6 +3258,7 @@ def main() -> None:
     print(f"  SKUs IA validados:      {_validated_ai}")
     print(f"  SKUs IA pendientes:     {_pending_ai}")
     print(f"  SKUs IA rechazados:     {_rejected_ai}")
+    print(f"  Reintentos IA agotados: {ai_pending_retries_exhausted}")
     print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)} needs_url={_needs_url} stale={_still_stale}")
     print(
         "EXEC_SUMMARY: "
@@ -3266,6 +3291,7 @@ def main() -> None:
         f"validated_run={ai_validated_run} "
         f"pending_run={ai_pending_run} "
         f"rejected_run={ai_rejected_run} "
+        f"pending_retry_exhausted={ai_pending_retries_exhausted} "
         f"validated_total={_validated_ai} "
         f"pending_total={_pending_ai} "
         f"rejected_total={_rejected_ai} "
