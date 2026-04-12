@@ -1785,6 +1785,7 @@ def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
     payload = {
         "model": AI_VALIDATION_MODEL,
         "temperature": 0,
+        "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
@@ -1804,7 +1805,17 @@ def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
     if r.status_code >= 500:
         return {"status": "pending", "reason": f"ai_server_error_{r.status_code}"}
     if r.status_code >= 400:
-        return {"status": "error", "reason": f"ai_http_{r.status_code}"}
+        reason = f"ai_http_{r.status_code}"
+        try:
+            err = r.json() or {}
+            msg = err.get("error", {}).get("message") if isinstance(err.get("error"), dict) else ""
+            if msg:
+                reason = f"{reason}_{normalize(str(msg))[:80]}"
+        except Exception:
+            body = normalize(r.text or "")
+            if body:
+                reason = f"{reason}_{body[:80]}"
+        return {"status": "error", "reason": reason}
 
     data = r.json() or {}
     choices = data.get("choices") or []
@@ -2844,6 +2855,7 @@ def main() -> None:
     ai_doubtful_run = 0
     ai_pending_run = 0
     ai_pending_retries_exhausted = 0
+    ai_pending_reasons_run: Dict[str, int] = {}
     _processed = 0
     SAVE_EVERY = 25  # guarda progreso cada N SKUs
 
@@ -2855,6 +2867,10 @@ def main() -> None:
     ordered_want = sorted(want, key=sku_refresh_priority)
 
     print(f"  Iniciando procesado de {_total_want} SKUs...")
+
+    def note_ai_pending_reason(reason: str) -> None:
+        key = normalize(str(reason or "ai_pending_unknown")).replace(" ", "_")[:90]
+        ai_pending_reasons_run[key] = ai_pending_reasons_run.get(key, 0) + 1
 
     for sku in ordered_want:
         if _time_budget_s and (time.time() - _t0) >= _time_budget_s:
@@ -2978,6 +2994,7 @@ def main() -> None:
                     obj.pop("ai_pending_candidate", None)
                     ai_rejected = True
                 else:
+                    note_ai_pending_reason(pending_reason)
                     if pending_attempts >= 3:
                         ai_rejected_run += 1
                         ai_pending_retries_exhausted += 1
@@ -3058,6 +3075,7 @@ def main() -> None:
                         ai_rejected = True
                     else:
                         ai_pending_run += 1
+                        note_ai_pending_reason(ai_reason)
                         stage_candidate_for_ai(obj, exact_candidates[0], reason=ai_reason, today=today)
                         ai_pending = True
                 else:
@@ -3160,6 +3178,7 @@ def main() -> None:
                             ai_rejected = True
                         else:
                             ai_pending_run += 1
+                            note_ai_pending_reason(ai_reason)
                             stage_candidate_for_ai(obj, rescue_candidates[0], reason=ai_reason, today=today)
                             ai_pending = True
                 if relaxed:
@@ -3293,6 +3312,13 @@ def main() -> None:
     _validated_ai = _ai_status_counts.get("validated", 0)
     _doubtful_ai = _ai_status_counts.get("doubtful", 0)
     _ai_budget = format_ai_budget_status()
+    if ai_pending_reasons_run:
+        _pending_reasons_summary = ",".join(
+            f"{reason}:{count}"
+            for reason, count in sorted(ai_pending_reasons_run.items(), key=lambda item: item[1], reverse=True)[:3]
+        )
+    else:
+        _pending_reasons_summary = "none"
     _missing_new: List[str] = []
     for s in sorted(sku_ctx.keys()):
         ctx = sku_ctx.get(s) or {}
@@ -3357,6 +3383,7 @@ def main() -> None:
     print(f"  SKUs IA pendientes:     {_pending_ai}")
     print(f"  SKUs IA rechazados:     {_rejected_ai}")
     print(f"  Reintentos IA agotados: {ai_pending_retries_exhausted}")
+    print(f"  Razones pending IA:     {_pending_reasons_summary}")
     print(f"STATS: api_calls={_api_calls_real} avg_call={_avg_api:.2f}s total={_total_elapsed:.0f}s skus={len(want)} needs_url={_needs_url} stale={_still_stale}")
     print(
         "EXEC_SUMMARY: "
@@ -3391,6 +3418,7 @@ def main() -> None:
         f"pending_run={ai_pending_run} "
         f"rejected_run={ai_rejected_run} "
         f"pending_retry_exhausted={ai_pending_retries_exhausted} "
+        f"pending_reasons={_pending_reasons_summary} "
         f"validated_total={_validated_ai} "
         f"doubtful_total={_doubtful_ai} "
         f"pending_total={_pending_ai} "
