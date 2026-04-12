@@ -1647,6 +1647,39 @@ def apply_offer_candidate(
         offer_obj.pop(debug_key, None)
 
 
+def apply_doubtful_candidate(
+    offer_obj: Dict[str, Any],
+    candidate: Dict[str, Any],
+    *,
+    matched_query: str,
+    fallback_search_query: str,
+    fallback_search_label: str,
+    reason: str,
+    today: str,
+) -> None:
+    offer_obj["ai_validation_status"] = "doubtful"
+    offer_obj["ai_validation_reason"] = reason
+    offer_obj["ai_validation_model"] = AI_VALIDATION_MODEL
+    offer_obj["ai_validation_at"] = today
+    offer_obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(candidate)
+    apply_offer_candidate(
+        offer_obj,
+        candidate,
+        match_type="relaxed_fallback",
+        matched_query=matched_query,
+        fallback_search_query=fallback_search_query,
+        fallback_search_label=fallback_search_label,
+        today=today,
+    )
+    offer_obj["ai_validation_status"] = "doubtful"
+    offer_obj["ai_validation_reason"] = reason
+    offer_obj["ai_validation_model"] = AI_VALIDATION_MODEL
+    offer_obj["ai_validation_at"] = today
+    offer_obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(candidate)
+    offer_obj["compatibility_status"] = derive_compatibility_status(offer_obj)
+    offer_obj["compatibility_note"] = derive_compatibility_note(offer_obj["compatibility_status"])
+
+
 def stage_candidate_for_ai(
     offer_obj: Dict[str, Any],
     candidate: Dict[str, Any],
@@ -1786,13 +1819,15 @@ def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
 def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -> Dict[str, str]:
     system_prompt = (
         "You validate whether an ecommerce product listing really matches a spare part request. "
-        "Be conservative. Reply only as JSON with keys verdict and reason. "
+        "Reply only as JSON with keys verdict and reason. "
         "verdict must be one of: valid, doubtful, invalid."
     )
     user_prompt = (
         "Decide if the candidate listing is a correct match for the requested spare part. "
         "Return invalid if the title suggests another product type, another ecosystem, or lacks enough evidence. "
-        "Return doubtful if evidence is mixed. Return valid only if the candidate clearly fits.\n\n"
+        "Return valid when brand/model or compatible family and part type clearly fit. "
+        "Return doubtful when it is the right ecosystem and part family but title evidence is incomplete. "
+        "Return invalid only when it is clearly wrong or unrelated.\n\n"
         f"{ai_prompt_payload(ctx, candidate)}"
     )
     raw = call_ai_json(system_prompt, user_prompt)
@@ -1806,7 +1841,7 @@ def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -
     if verdict in {"invalid", "reject", "rejected", "wrong"}:
         return {"status": "rejected", "reason": reason}
     if verdict in {"doubtful", "uncertain", "unsure"}:
-        return {"status": "rejected", "reason": reason}
+        return {"status": "doubtful", "reason": reason}
     return {"status": "pending", "reason": "ai_unparseable_response"}
 
 
@@ -1816,13 +1851,15 @@ def choose_best_candidate_with_ai(ctx: Dict[str, Any], candidates: List[Dict[str
 
     system_prompt = (
         "You choose the best ecommerce listing for a spare part request. "
-        "Be conservative. Reply only as JSON with keys verdict, best_id and reason. "
+        "Reply only as JSON with keys verdict, best_id and reason. "
         "verdict must be one of: valid, invalid, doubtful. "
-        "best_id must be an integer candidate id when verdict is valid, otherwise 0."
+        "best_id must be an integer candidate id when verdict is valid or doubtful, otherwise 0."
     )
     user_prompt = (
         "From the candidate list, choose the single best match for the requested spare part. "
-        "Return invalid if none clearly fit. Return doubtful if evidence is mixed. "
+        "Return valid when brand/model or compatible family and part type clearly fit. "
+        "Return doubtful when the best candidate fits the ecosystem and part family but compatibility evidence is incomplete. "
+        "Return invalid only if none are plausibly related. "
         "Prefer exact ecosystem, exact part type, and clear compatibility.\n\n"
         f"{shortlist_ai_payload(ctx, candidates)}"
     )
@@ -1841,7 +1878,10 @@ def choose_best_candidate_with_ai(ctx: Dict[str, Any], candidates: List[Dict[str
     if verdict in {"valid", "approved", "approve", "match"} and 1 <= best_id <= len(candidates):
         chosen = dict(candidates[best_id - 1])
         return {"status": "validated", "reason": reason, "candidate": chosen}
-    if verdict in {"invalid", "reject", "rejected", "wrong", "doubtful", "uncertain", "unsure"}:
+    if verdict in {"doubtful", "uncertain", "unsure"} and 1 <= best_id <= len(candidates):
+        chosen = dict(candidates[best_id - 1])
+        return {"status": "doubtful", "reason": reason, "candidate": chosen}
+    if verdict in {"invalid", "reject", "rejected", "wrong"}:
         return {"status": "rejected", "reason": reason}
     return {"status": "pending", "reason": "ai_unparseable_response"}
 
@@ -2801,6 +2841,7 @@ def main() -> None:
     ai_buy_new_direct = 0
     ai_validated_run = 0
     ai_rejected_run = 0
+    ai_doubtful_run = 0
     ai_pending_run = 0
     ai_pending_retries_exhausted = 0
     _processed = 0
@@ -2912,6 +2953,20 @@ def main() -> None:
                     obj["ai_validation_at"] = today
                     obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
                     obj.pop("ai_pending_candidate", None)
+                elif pending_result.get("status") == "doubtful":
+                    found = dict(pending_candidate)
+                    matched_kw = str(found.get("matched_query") or "")
+                    ai_doubtful_run += 1
+                    apply_doubtful_candidate(
+                        obj,
+                        found,
+                        matched_query=matched_kw or fallback_search_query,
+                        fallback_search_query=fallback_search_query,
+                        fallback_search_label=fallback_search_label,
+                        reason=pending_reason,
+                        today=today,
+                    )
+                    obj.pop("ai_pending_candidate", None)
                 elif pending_result.get("status") == "rejected":
                     ai_rejected_run += 1
                     append_rejected_candidate_fingerprint(obj, candidate_fingerprint(pending_candidate))
@@ -2978,6 +3033,16 @@ def main() -> None:
                         obj["ai_validation_at"] = today
                         obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
                         obj.pop("ai_pending_candidate", None)
+                    elif ai_status == "doubtful":
+                        found = dict(ai_result.get("candidate") or {})
+                        matched_kw = str(found.get("matched_query") or "")
+                        ai_doubtful_run += 1
+                        obj["ai_validation_status"] = "doubtful"
+                        obj["ai_validation_reason"] = ai_reason
+                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_at"] = today
+                        obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
+                        obj.pop("ai_pending_candidate", None)
                     elif ai_status == "rejected":
                         ai_rejected_run += 1
                         for candidate in exact_candidates:
@@ -3019,15 +3084,26 @@ def main() -> None:
                         break
 
             if found:
-                apply_offer_candidate(
-                    obj,
-                    found,
-                    match_type="exact_or_best_match",
-                    matched_query=matched_kw or fallback_search_query,
-                    fallback_search_query=fallback_search_query,
-                    fallback_search_label=fallback_search_label,
-                    today=today,
-                )
+                if str(obj.get("ai_validation_status") or "").strip() == "doubtful":
+                    apply_doubtful_candidate(
+                        obj,
+                        found,
+                        matched_query=matched_kw or fallback_search_query,
+                        fallback_search_query=fallback_search_query,
+                        fallback_search_label=fallback_search_label,
+                        reason=str(obj.get("ai_validation_reason") or "ai_doubtful_match"),
+                        today=today,
+                    )
+                else:
+                    apply_offer_candidate(
+                        obj,
+                        found,
+                        match_type="exact_or_best_match",
+                        matched_query=matched_kw or fallback_search_query,
+                        fallback_search_query=fallback_search_query,
+                        fallback_search_label=fallback_search_label,
+                        today=today,
+                    )
                 filled_from_aliexpress += 1
             elif not ai_pending:
                 anchor_terms = extract_relaxed_anchor_terms(ctx, must_include)
@@ -3060,6 +3136,15 @@ def main() -> None:
                             obj["ai_validation_at"] = today
                             obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
                             obj.pop("ai_pending_candidate", None)
+                        elif ai_status == "doubtful":
+                            relaxed = dict(ai_result.get("candidate") or {})
+                            ai_doubtful_run += 1
+                            obj["ai_validation_status"] = "doubtful"
+                            obj["ai_validation_reason"] = ai_reason
+                            obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                            obj["ai_validation_at"] = today
+                            obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
+                            obj.pop("ai_pending_candidate", None)
                         elif ai_status == "rejected":
                             ai_rejected_run += 1
                             for candidate in rescue_candidates:
@@ -3078,15 +3163,26 @@ def main() -> None:
                             stage_candidate_for_ai(obj, rescue_candidates[0], reason=ai_reason, today=today)
                             ai_pending = True
                 if relaxed:
-                    apply_offer_candidate(
-                        obj,
-                        relaxed,
-                        match_type="relaxed_fallback",
-                        matched_query="",
-                        fallback_search_query=fallback_search_query,
-                        fallback_search_label=fallback_search_label,
-                        today=today,
-                    )
+                    if str(obj.get("ai_validation_status") or "").strip() == "doubtful":
+                        apply_doubtful_candidate(
+                            obj,
+                            relaxed,
+                            matched_query=str(relaxed.get("matched_query") or ""),
+                            fallback_search_query=fallback_search_query,
+                            fallback_search_label=fallback_search_label,
+                            reason=str(obj.get("ai_validation_reason") or "ai_doubtful_match"),
+                            today=today,
+                        )
+                    else:
+                        apply_offer_candidate(
+                            obj,
+                            relaxed,
+                            match_type="relaxed_fallback",
+                            matched_query="",
+                            fallback_search_query=fallback_search_query,
+                            fallback_search_label=fallback_search_label,
+                            today=today,
+                        )
                     filled_from_aliexpress += 1
                 elif not ai_pending:
                     ai_buy_new_direct += 1
@@ -3195,6 +3291,7 @@ def main() -> None:
     _pending_ai = _ai_status_counts.get("pending", 0)
     _rejected_ai = _ai_status_counts.get("rejected", 0)
     _validated_ai = _ai_status_counts.get("validated", 0)
+    _doubtful_ai = _ai_status_counts.get("doubtful", 0)
     _ai_budget = format_ai_budget_status()
     _missing_new: List[str] = []
     for s in sorted(sku_ctx.keys()):
@@ -3256,6 +3353,7 @@ def main() -> None:
     print(f"  Buy-new directos:       {ai_buy_new_direct}")
     print(f"  Enlaces IA validados:   {_validated_links}/{_links_total}")
     print(f"  SKUs IA validados:      {_validated_ai}")
+    print(f"  SKUs IA dudosos:        {_doubtful_ai}")
     print(f"  SKUs IA pendientes:     {_pending_ai}")
     print(f"  SKUs IA rechazados:     {_rejected_ai}")
     print(f"  Reintentos IA agotados: {ai_pending_retries_exhausted}")
@@ -3289,10 +3387,12 @@ def main() -> None:
         f"exact_candidates={ai_exact_candidates} "
         f"rescue_candidates={ai_relaxed_candidates} "
         f"validated_run={ai_validated_run} "
+        f"doubtful_run={ai_doubtful_run} "
         f"pending_run={ai_pending_run} "
         f"rejected_run={ai_rejected_run} "
         f"pending_retry_exhausted={ai_pending_retries_exhausted} "
         f"validated_total={_validated_ai} "
+        f"doubtful_total={_doubtful_ai} "
         f"pending_total={_pending_ai} "
         f"rejected_total={_rejected_ai} "
         f"verified_links={_validated_links}/{_links_total} "
