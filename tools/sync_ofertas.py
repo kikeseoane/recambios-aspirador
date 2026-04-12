@@ -70,6 +70,7 @@ AI_VALIDATION_API_KEY = (
 AI_VALIDATION_URL = (os.getenv("AI_VALIDATION_URL") or "https://openrouter.ai/api/v1/chat/completions").strip()
 AI_VALIDATION_MAX_CHECKS = int((os.getenv("AI_VALIDATION_MAX_CHECKS") or "0").strip() or "0")
 AI_VALIDATION_TIMEOUT = float((os.getenv("AI_VALIDATION_TIMEOUT") or "20").strip() or "20")
+AI_VALIDATION_RESPONSE_FORMAT = (os.getenv("AI_VALIDATION_RESPONSE_FORMAT") or "").strip().lower()
 
 SHIP_TO = (os.getenv("ALI_SHIP_TO") or "ES").strip()
 CURRENCY = (os.getenv("ALI_CURRENCY") or "EUR").strip()
@@ -431,11 +432,13 @@ def ali_call_flat(method: str, biz_params: Dict[str, Any], use_cache: bool = Tru
 
     global _api_calls_real, _api_time_real
     r: Optional[requests.Response] = None
+    data: Dict[str, Any] = {}
     _t_call = time.time()
     for _attempt in range(4):
         try:
             r = requests.post(API_URL, data=params, timeout=45)
             r.raise_for_status()
+            data = r.json()
             break
         except requests.exceptions.HTTPError:
             raise
@@ -445,11 +448,19 @@ def ali_call_flat(method: str, biz_params: Dict[str, Any], use_cache: bool = Tru
             if _attempt == 3:
                 raise
             time.sleep(wait)
+        except ValueError as exc:
+            body = normalize((r.text or "")[:200]) if r is not None else ""
+            wait = 2 ** (_attempt + 2)  # 4s, 8s, 16s, 32s
+            print(f"  [request] intento {_attempt+1}/4 - JSON/EOF invalido, reintentando en {wait}s (status={r.status_code if r is not None else 'n/a'} body={body})")
+            if _attempt == 3:
+                raise RuntimeError(
+                    f"AliExpress invalid JSON/EOF: method={method} status={r.status_code if r is not None else 'n/a'} body={body}"
+                ) from exc
+            time.sleep(wait)
     if r is None:
         raise RuntimeError(f"No se pudo obtener respuesta de AliExpress para method={method}")
     _api_calls_real += 1
     _api_time_real += time.time() - _t_call
-    data = r.json()
 
     if "error_response" in data:
         er = data["error_response"]
@@ -1770,6 +1781,15 @@ def parse_ai_json(text: str) -> Dict[str, Any]:
         return {}
 
 
+def wants_ai_response_format() -> bool:
+    if AI_VALIDATION_RESPONSE_FORMAT in {"1", "true", "yes", "on"}:
+        return True
+    if AI_VALIDATION_RESPONSE_FORMAT in {"0", "false", "no", "off"}:
+        return False
+    provider_url = f"{AI_VALIDATION_PROVIDER} {AI_VALIDATION_URL}".lower()
+    return "gemini" not in provider_url and "generativelanguage.googleapis.com" not in provider_url
+
+
 def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
     global _ai_validation_calls
 
@@ -1785,12 +1805,13 @@ def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
     payload = {
         "model": AI_VALIDATION_MODEL,
         "temperature": 0,
-        "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
     }
+    if wants_ai_response_format():
+        payload["response_format"] = {"type": "json_object"}
 
     try:
         r = requests.post(AI_VALIDATION_URL, headers=headers, json=payload, timeout=AI_VALIDATION_TIMEOUT)
@@ -1817,7 +1838,12 @@ def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
                 reason = f"{reason}_{body[:80]}"
         return {"status": "error", "reason": reason}
 
-    data = r.json() or {}
+    try:
+        data = r.json() or {}
+    except ValueError:
+        body = normalize(r.text or "")
+        suffix = f"_{body[:80]}" if body else ""
+        return {"status": "pending", "reason": f"ai_invalid_json_response_{r.status_code}{suffix}"}
     choices = data.get("choices") or []
     message = choices[0].get("message", {}) if choices and isinstance(choices[0], dict) else {}
     content = message.get("content") or ""
