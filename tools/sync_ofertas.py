@@ -71,6 +71,9 @@ AI_VALIDATION_URL = (os.getenv("AI_VALIDATION_URL") or "https://openrouter.ai/ap
 AI_VALIDATION_MAX_CHECKS = int((os.getenv("AI_VALIDATION_MAX_CHECKS") or "0").strip() or "0")
 AI_VALIDATION_TIMEOUT = float((os.getenv("AI_VALIDATION_TIMEOUT") or "20").strip() or "20")
 AI_VALIDATION_RESPONSE_FORMAT = (os.getenv("AI_VALIDATION_RESPONSE_FORMAT") or "").strip().lower()
+AI_VALIDATION_FALLBACK_MODELS = tuple(
+    x.strip() for x in (os.getenv("AI_VALIDATION_FALLBACK_MODELS") or "").split(",") if x.strip()
+)
 
 SHIP_TO = (os.getenv("ALI_SHIP_TO") or "ES").strip()
 CURRENCY = (os.getenv("ALI_CURRENCY") or "EUR").strip()
@@ -90,6 +93,7 @@ _api_calls_real: int = 0
 _api_time_real: float = 0.0
 _ai_validation_calls: int = 0
 _ai_budget_state: Dict[str, Any] = {}
+_ai_validation_active_model: str = ""
 
 if not APP_KEY or not APP_SECRET:
     raise SystemExit("Faltan variables de entorno: ALI_APP_KEY y/o ALI_APP_SECRET")
@@ -152,6 +156,12 @@ def ensure_list_str(x: Any) -> List[str]:
 
 def normalize(s: str) -> str:
     return " ".join((s or "").strip().split())
+
+
+def reason_key(s: str, max_len: int = 90) -> str:
+    text = unicodedata.normalize("NFKD", str(s or "")).encode("ascii", "ignore").decode("ascii").lower()
+    text = re.sub(r"[^a-z0-9]+", "_", text).strip("_")
+    return (text[:max_len].strip("_") or "ai_pending_unknown")
 
 
 def nrm(s: str) -> str:
@@ -1520,8 +1530,59 @@ def compatibility_priority(status: str) -> int:
     return priorities.get(str(status or "").strip(), 5)
 
 
+def ai_validation_is_gemini() -> bool:
+    provider_url = f"{AI_VALIDATION_PROVIDER} {AI_VALIDATION_URL}".lower()
+    return "gemini" in provider_url or "generativelanguage.googleapis.com" in provider_url
+
+
+def normalize_ai_model_name(model: str) -> str:
+    raw = str(model or "").strip()
+    if raw.startswith("models/"):
+        raw = raw.split("/", 1)[1].strip()
+    folded = raw.lower()
+    compact = re.sub(r"[^a-z0-9]+", "", folded)
+    aliases = {
+        # AI Studio may show newer/free-tier labels before the OpenAI-compatible
+        # endpoint exposes them. Use the stable, documented Flash-Lite id.
+        "gemini-3.1-flash-lite": "gemini-2.5-flash-lite",
+        "gemini-3-flash-lite": "gemini-2.5-flash-lite",
+    }
+    compact_aliases = {
+        "gemini31flashlite": "gemini-2.5-flash-lite",
+        "gemini3flashlite": "gemini-2.5-flash-lite",
+        "gemini25flashlite": "gemini-2.5-flash-lite",
+        "gemini25flash": "gemini-2.5-flash",
+    }
+    return aliases.get(folded) or compact_aliases.get(compact) or raw
+
+
+def ai_validation_model_candidates() -> List[str]:
+    raw_models: List[str] = []
+    if _ai_validation_active_model:
+        raw_models.append(_ai_validation_active_model)
+    raw_models.extend(x.strip() for x in str(AI_VALIDATION_MODEL or "").split(",") if x.strip())
+    raw_models.extend(AI_VALIDATION_FALLBACK_MODELS)
+    if ai_validation_is_gemini():
+        raw_models.extend(["gemini-2.5-flash-lite", "gemini-2.5-flash"])
+
+    models: List[str] = []
+    seen: set[str] = set()
+    for raw_model in raw_models:
+        model = normalize_ai_model_name(raw_model)
+        key = model.lower()
+        if model and key not in seen:
+            models.append(model)
+            seen.add(key)
+    return models
+
+
+def effective_ai_validation_model() -> str:
+    models = ai_validation_model_candidates()
+    return models[0] if models else AI_VALIDATION_MODEL
+
+
 def ai_validation_enabled() -> bool:
-    return bool(AI_VALIDATION_PROVIDER and AI_VALIDATION_MODEL and AI_VALIDATION_API_KEY)
+    return bool(AI_VALIDATION_PROVIDER and AI_VALIDATION_API_KEY and ai_validation_model_candidates())
 
 
 def init_ai_budget_state(offers_doc: Dict[str, Any], today: str) -> None:
@@ -1670,7 +1731,7 @@ def apply_doubtful_candidate(
 ) -> None:
     offer_obj["ai_validation_status"] = "doubtful"
     offer_obj["ai_validation_reason"] = reason
-    offer_obj["ai_validation_model"] = AI_VALIDATION_MODEL
+    offer_obj["ai_validation_model"] = effective_ai_validation_model()
     offer_obj["ai_validation_at"] = today
     offer_obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(candidate)
     apply_offer_candidate(
@@ -1684,7 +1745,7 @@ def apply_doubtful_candidate(
     )
     offer_obj["ai_validation_status"] = "doubtful"
     offer_obj["ai_validation_reason"] = reason
-    offer_obj["ai_validation_model"] = AI_VALIDATION_MODEL
+    offer_obj["ai_validation_model"] = effective_ai_validation_model()
     offer_obj["ai_validation_at"] = today
     offer_obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(candidate)
     offer_obj["compatibility_status"] = derive_compatibility_status(offer_obj)
@@ -1710,7 +1771,7 @@ def stage_candidate_for_ai(
     offer_obj["ai_validation_reason"] = reason
     offer_obj["ai_pending_reason"] = reason
     offer_obj["ai_pending_attempts"] = attempts + 1
-    offer_obj["ai_validation_model"] = AI_VALIDATION_MODEL
+    offer_obj["ai_validation_model"] = effective_ai_validation_model()
     offer_obj["ai_validation_at"] = today
     offer_obj["ai_validation_candidate_fingerprint"] = fp
     offer_obj["ai_pending_candidate"] = dict(candidate)
@@ -1786,12 +1847,18 @@ def wants_ai_response_format() -> bool:
         return True
     if AI_VALIDATION_RESPONSE_FORMAT in {"0", "false", "no", "off"}:
         return False
-    provider_url = f"{AI_VALIDATION_PROVIDER} {AI_VALIDATION_URL}".lower()
-    return "gemini" not in provider_url and "generativelanguage.googleapis.com" not in provider_url
+    return not ai_validation_is_gemini()
+
+
+def response_is_ai_model_not_found(response: requests.Response) -> bool:
+    if response.status_code != 404:
+        return False
+    body = nrm(response.text or "")
+    return "model" in body and ("not found" in body or "not_found" in body)
 
 
 def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
-    global _ai_validation_calls
+    global _ai_validation_calls, _ai_validation_active_model
 
     if not ai_validation_enabled():
         return {"status": "disabled", "reason": "ai_validation_disabled"}
@@ -1802,55 +1869,65 @@ def call_ai_json(system_prompt: str, user_prompt: str) -> Dict[str, str]:
         "Authorization": f"Bearer {AI_VALIDATION_API_KEY}",
         "Content-Type": "application/json",
     }
-    payload = {
-        "model": AI_VALIDATION_MODEL,
-        "temperature": 0,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-    }
-    if wants_ai_response_format():
-        payload["response_format"] = {"type": "json_object"}
+    last_model_not_found = ""
 
-    try:
-        r = requests.post(AI_VALIDATION_URL, headers=headers, json=payload, timeout=AI_VALIDATION_TIMEOUT)
-        _ai_validation_calls += 1
-        consume_ai_budget(1)
-    except Exception:
-        return {"status": "pending", "reason": "ai_validation_request_failed"}
+    for model in ai_validation_model_candidates():
+        payload = {
+            "model": model,
+            "temperature": 0,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+        }
+        if wants_ai_response_format():
+            payload["response_format"] = {"type": "json_object"}
 
-    if r.status_code == 429:
-        exhaust_ai_budget()
-        return {"status": "pending", "reason": "ai_rate_limited"}
-    if r.status_code >= 500:
-        return {"status": "pending", "reason": f"ai_server_error_{r.status_code}"}
-    if r.status_code >= 400:
-        reason = f"ai_http_{r.status_code}"
         try:
-            err = r.json() or {}
-            msg = err.get("error", {}).get("message") if isinstance(err.get("error"), dict) else ""
-            if msg:
-                reason = f"{reason}_{normalize(str(msg))[:80]}"
+            r = requests.post(AI_VALIDATION_URL, headers=headers, json=payload, timeout=AI_VALIDATION_TIMEOUT)
+            _ai_validation_calls += 1
         except Exception:
-            body = normalize(r.text or "")
-            if body:
-                reason = f"{reason}_{body[:80]}"
-        return {"status": "error", "reason": reason}
+            return {"status": "pending", "reason": "ai_validation_request_failed"}
 
-    try:
-        data = r.json() or {}
-    except ValueError:
-        body = normalize(r.text or "")
-        suffix = f"_{body[:80]}" if body else ""
-        return {"status": "pending", "reason": f"ai_invalid_json_response_{r.status_code}{suffix}"}
-    choices = data.get("choices") or []
-    message = choices[0].get("message", {}) if choices and isinstance(choices[0], dict) else {}
-    content = message.get("content") or ""
-    parsed = parse_ai_json(content)
-    if not parsed:
-        return {"status": "pending", "reason": "ai_unparseable_response"}
-    return {"status": "ok", "reason": "", "content": parsed}
+        if response_is_ai_model_not_found(r):
+            last_model_not_found = f"ai_model_not_found_{reason_key(model, 60)}"
+            continue
+
+        consume_ai_budget(1)
+        if r.status_code == 429:
+            exhaust_ai_budget()
+            return {"status": "pending", "reason": "ai_rate_limited"}
+        if r.status_code >= 500:
+            return {"status": "pending", "reason": f"ai_server_error_{r.status_code}"}
+        if r.status_code >= 400:
+            reason = f"ai_http_{r.status_code}"
+            try:
+                err = r.json() or {}
+                msg = err.get("error", {}).get("message") if isinstance(err.get("error"), dict) else ""
+                if msg:
+                    reason = f"{reason}_{reason_key(str(msg), 80)}"
+            except Exception:
+                body = normalize(r.text or "")
+                if body:
+                    reason = f"{reason}_{reason_key(body, 80)}"
+            return {"status": "error", "reason": reason}
+
+        _ai_validation_active_model = model
+        try:
+            data = r.json() or {}
+        except ValueError:
+            body = normalize(r.text or "")
+            suffix = f"_{reason_key(body, 80)}" if body else ""
+            return {"status": "pending", "reason": f"ai_invalid_json_response_{r.status_code}{suffix}"}
+        choices = data.get("choices") or []
+        message = choices[0].get("message", {}) if choices and isinstance(choices[0], dict) else {}
+        content = message.get("content") or ""
+        parsed = parse_ai_json(content)
+        if not parsed:
+            return {"status": "pending", "reason": "ai_unparseable_response"}
+        return {"status": "ok", "reason": "", "content": parsed}
+
+    return {"status": "pending", "reason": last_model_not_found or "ai_model_not_found"}
 
 
 def validate_candidate_with_ai(ctx: Dict[str, Any], candidate: Dict[str, Any]) -> Dict[str, str]:
@@ -2895,7 +2972,7 @@ def main() -> None:
     print(f"  Iniciando procesado de {_total_want} SKUs...")
 
     def note_ai_pending_reason(reason: str) -> None:
-        key = normalize(str(reason or "ai_pending_unknown")).replace(" ", "_")[:90]
+        key = reason_key(reason or "ai_pending_unknown")
         ai_pending_reasons_run[key] = ai_pending_reasons_run.get(key, 0) + 1
 
     for sku in ordered_want:
@@ -2991,7 +3068,7 @@ def main() -> None:
                     ai_validated_run += 1
                     obj["ai_validation_status"] = "validated"
                     obj["ai_validation_reason"] = pending_reason
-                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                    obj["ai_validation_model"] = effective_ai_validation_model()
                     obj["ai_validation_at"] = today
                     obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
                     obj.pop("ai_pending_candidate", None)
@@ -3014,7 +3091,7 @@ def main() -> None:
                     append_rejected_candidate_fingerprint(obj, candidate_fingerprint(pending_candidate))
                     obj["ai_validation_status"] = "rejected"
                     obj["ai_validation_reason"] = pending_reason
-                    obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                    obj["ai_validation_model"] = effective_ai_validation_model()
                     obj["ai_validation_at"] = today
                     obj["ai_validation_candidate_fingerprint"] = ""
                     obj.pop("ai_pending_candidate", None)
@@ -3027,7 +3104,7 @@ def main() -> None:
                         append_rejected_candidate_fingerprint(obj, candidate_fingerprint(pending_candidate))
                         obj["ai_validation_status"] = "rejected"
                         obj["ai_validation_reason"] = pending_reason or "ai_pending_retries_exhausted"
-                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_model"] = effective_ai_validation_model()
                         obj["ai_validation_at"] = today
                         obj["ai_validation_candidate_fingerprint"] = ""
                         clear_ai_pending_candidate(obj)
@@ -3038,7 +3115,7 @@ def main() -> None:
                         obj["ai_validation_reason"] = pending_reason or str(obj.get("ai_validation_reason") or "ai_pending_retry")
                         obj["ai_pending_reason"] = pending_reason or "ai_pending_retry"
                         obj["ai_pending_attempts"] = pending_attempts + 1
-                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_model"] = effective_ai_validation_model()
                         obj["ai_validation_at"] = today
                         obj["updated_at"] = UNRESOLVED_UPDATED_AT
                         obj["last_attempted_at"] = today
@@ -3072,7 +3149,7 @@ def main() -> None:
                         ai_validated_run += 1
                         obj["ai_validation_status"] = "validated"
                         obj["ai_validation_reason"] = ai_reason
-                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_model"] = effective_ai_validation_model()
                         obj["ai_validation_at"] = today
                         obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
                         obj.pop("ai_pending_candidate", None)
@@ -3082,7 +3159,7 @@ def main() -> None:
                         ai_doubtful_run += 1
                         obj["ai_validation_status"] = "doubtful"
                         obj["ai_validation_reason"] = ai_reason
-                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_model"] = effective_ai_validation_model()
                         obj["ai_validation_at"] = today
                         obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(found)
                         obj.pop("ai_pending_candidate", None)
@@ -3094,7 +3171,7 @@ def main() -> None:
                             rejected_fps.add(fp)
                         obj["ai_validation_status"] = "rejected"
                         obj["ai_validation_reason"] = ai_reason
-                        obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                        obj["ai_validation_model"] = effective_ai_validation_model()
                         obj["ai_validation_at"] = today
                         obj["ai_validation_candidate_fingerprint"] = ""
                         obj.pop("ai_pending_candidate", None)
@@ -3176,7 +3253,7 @@ def main() -> None:
                             ai_validated_run += 1
                             obj["ai_validation_status"] = "validated"
                             obj["ai_validation_reason"] = ai_reason
-                            obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                            obj["ai_validation_model"] = effective_ai_validation_model()
                             obj["ai_validation_at"] = today
                             obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
                             obj.pop("ai_pending_candidate", None)
@@ -3185,7 +3262,7 @@ def main() -> None:
                             ai_doubtful_run += 1
                             obj["ai_validation_status"] = "doubtful"
                             obj["ai_validation_reason"] = ai_reason
-                            obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                            obj["ai_validation_model"] = effective_ai_validation_model()
                             obj["ai_validation_at"] = today
                             obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
                             obj.pop("ai_pending_candidate", None)
@@ -3197,7 +3274,7 @@ def main() -> None:
                                 rejected_fps.add(fp)
                             obj["ai_validation_status"] = "rejected"
                             obj["ai_validation_reason"] = ai_reason
-                            obj["ai_validation_model"] = AI_VALIDATION_MODEL
+                            obj["ai_validation_model"] = effective_ai_validation_model()
                             obj["ai_validation_at"] = today
                             obj["ai_validation_candidate_fingerprint"] = ""
                             obj.pop("ai_pending_candidate", None)
