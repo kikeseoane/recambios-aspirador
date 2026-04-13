@@ -84,7 +84,8 @@ CACHE_TTL_SECONDS = int((os.getenv("ALI_CACHE_TTL") or str(7 * 24 * 3600)).strip
 RATE_SLEEP_SECONDS = float((os.getenv("ALI_RATE_SLEEP") or "0.35").strip() or "0.35")
 MAX_EXACT_KEYWORDS = int((os.getenv("SYNC_MAX_EXACT_KEYWORDS") or "3").strip() or "3")
 MAX_RESCUE_KEYWORDS = int((os.getenv("SYNC_MAX_RESCUE_KEYWORDS") or "3").strip() or "3")
-MAX_SHORTLIST_CANDIDATES = int((os.getenv("SYNC_MAX_SHORTLIST_CANDIDATES") or "5").strip() or "5")
+MAX_WIDE_KEYWORDS = int((os.getenv("SYNC_MAX_WIDE_KEYWORDS") or "2").strip() or "2")
+MAX_SHORTLIST_CANDIDATES = int((os.getenv("SYNC_MAX_SHORTLIST_CANDIDATES") or "8").strip() or "8")
 EXACT_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_EXACT_LANGS") or "EN,ES").split(",") if x.strip())
 RESCUE_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_RESCUE_LANGS") or "EN,ES").split(",") if x.strip())
 
@@ -2180,6 +2181,34 @@ def build_ai_rescue_keywords(ctx: Dict[str, Any], query_override: str, must_incl
     return unique_keywords(candidates)[:max(1, MAX_RESCUE_KEYWORDS)]
 
 
+def build_ai_wide_keywords(ctx: Dict[str, Any], query_override: str, must_include: List[str]) -> List[str]:
+    brand = compact_spaces(str(ctx.get("brand") or ""))
+    model = compact_spaces(str(ctx.get("model") or ""))
+    item_title = clean_query_fragment(str(ctx.get("item_title") or ""))
+    category = compact_spaces(str(ctx.get("category") or ""))
+    category_terms = " ".join(cat_query_terms(category)[:2])
+    part_terms = " ".join(cat_part_terms(category)[:2])
+    include_terms = " ".join([compact_spaces(x) for x in must_include[:3] if compact_spaces(x)])
+    model_tokens_list = model_tokens_from_ctx(model)
+    model_family = " ".join(model_tokens_list[:2])
+    specific_terms = " ".join(
+        expand_specific_item_terms(
+            extract_specific_item_terms(ctx, must_include, model_tokens_list)
+        )[:3]
+    )
+    broad_part = specific_terms or include_terms or item_title or category_terms or part_terms
+    candidates = [
+        compose_search_query([], [query_override]),
+        compose_search_query([brand, model], [broad_part]),
+        compose_search_query([brand, model], [category_terms]),
+        compose_search_query([brand], [model_family, broad_part]),
+        compose_search_query([model], [broad_part]),
+        compose_search_query([model], [category_terms]),
+        compose_search_query([brand], [item_title, "replacement"]),
+    ]
+    return unique_keywords(candidates)[:max(1, MAX_WIDE_KEYWORDS)]
+
+
 def choose_fallback_search_query(ctx: Dict[str, Any], query_override: str) -> str:
     """
     Prioridad:
@@ -2447,6 +2476,94 @@ def collect_relaxed_candidates(
                             "product_title": str(title).strip(),
                             "matched_query": keyword,
                             "candidate_tier": "rescue",
+                        },
+                    ))
+
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return [cand for _, cand in ranked[:max(1, min(limit, MAX_SHORTLIST_CANDIDATES))]]
+
+
+def collect_wide_ai_candidates(
+    keywords: List[str],
+    *,
+    brand: str,
+    model_hint: str,
+    category: str,
+    vertical: str,
+    part_terms: List[str],
+    must_not_include: List[str],
+    specific_item_terms: List[str],
+    rejected_fingerprints: set[str],
+    use_cache: bool,
+    limit: int = 8,
+) -> List[Dict[str, str]]:
+    req_models = model_tokens_from_ctx(model_hint)
+    ranked: List[Tuple[float, Dict[str, str]]] = []
+    seen_urls: set[str] = set()
+
+    for keyword in unique_keywords(keywords)[:max(1, MAX_WIDE_KEYWORDS)]:
+        for lang in (RESCUE_LANGS or ("EN", "ES")):
+            for page_no in candidate_pages_for_category(category):
+                try:
+                    resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+                except Exception as exc:
+                    print(f"  [wide-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
+                    continue
+                prods = extract_products(resp)
+                if not prods:
+                    continue
+
+                for p in prods:
+                    title = p.get("product_title") or ""
+                    if not title:
+                        continue
+                    if product_fingerprint(p) in rejected_fingerprints:
+                        continue
+                    tt = nrm(title)
+                    if looks_bad(tt):
+                        continue
+                    if is_deceptive_title(title, category):
+                        continue
+                    if category != "nuevo" and vertical and looks_like_complete_product_for_category(title, vertical, category, part_terms):
+                        continue
+                    active_must_not = effective_must_not_terms(title, category, req_models, must_not_include)
+                    if active_must_not and contains_any(tt, active_must_not):
+                        continue
+
+                    brand_hit = title_has_required_brand(title, brand) if brand else True
+                    model_hit = title_has_required_model(tt, req_models) if req_models else False
+                    part_hit = any(pt in tt for pt in part_terms) if part_terms else False
+                    specific_hit = count_anchor_hits(title, specific_item_terms) if specific_item_terms else 0
+                    vertical_hit = title_matches_vertical(title, vertical) if vertical else True
+                    if not vertical_hit and not (brand_hit and model_hit):
+                        continue
+                    if not (model_hit or (brand_hit and (part_hit or specific_hit))):
+                        continue
+
+                    url = str(p.get("promotion_link") or p.get("product_detail_url") or "").strip()
+                    if not url or url in seen_urls:
+                        continue
+                    seen_urls.add(url)
+                    score = (
+                        (10.0 if model_hit else 0.0)
+                        + (5.0 if brand_hit else 0.0)
+                        + (3.0 if part_hit else 0.0)
+                        + specific_hit * 2.5
+                        + get_orders(p) * 0.01
+                        + get_commission_rate(p) * 0.25
+                    )
+                    ranked.append((
+                        score,
+                        {
+                            "url": url,
+                            "image_url": str(p.get("product_main_image_url") or "").strip(),
+                            "sale_price": str(p.get("sale_price") or "").strip(),
+                            "sale_price_currency": str(p.get("sale_price_currency") or "").strip(),
+                            "original_price": str(p.get("original_price") or "").strip(),
+                            "discount": str(p.get("discount") or "").strip(),
+                            "product_title": str(title).strip(),
+                            "matched_query": keyword,
+                            "candidate_tier": "wide",
                         },
                     ))
 
@@ -2952,6 +3069,7 @@ def main() -> None:
     failed_skus = 0
     ai_exact_candidates = 0
     ai_relaxed_candidates = 0
+    ai_wide_candidates = 0
     ai_buy_new_direct = 0
     ai_validated_run = 0
     ai_rejected_run = 0
@@ -3038,6 +3156,7 @@ def main() -> None:
 
             kws = build_search_keywords(ctx, query, must_include)
             rescue_kws = build_ai_rescue_keywords(ctx, query, must_include)
+            wide_kws = build_ai_wide_keywords(ctx, query, must_include)
             fallback_search_query = kws[0] if kws else choose_fallback_search_query(ctx, query)
             fallback_search_label = choose_fallback_search_label(ctx, fallback_search_query)
             require_ai_validation = ai_validation_enabled()
@@ -3136,7 +3255,7 @@ def main() -> None:
                     specific_item_terms=specific_item_terms,
                     rejected_fingerprints=rejected_fps,
                     use_cache=use_cache,
-                    limit=7,
+                    limit=MAX_SHORTLIST_CANDIDATES,
                 )
                 ai_exact_candidates += len(exact_candidates)
                 if exact_candidates:
@@ -3241,7 +3360,7 @@ def main() -> None:
                         specific_item_terms=specific_item_terms,
                         rejected_fingerprints=rejected_fps,
                         use_cache=use_cache,
-                        limit=7,
+                        limit=MAX_SHORTLIST_CANDIDATES,
                     )
                     ai_relaxed_candidates += len(rescue_candidates)
                     if rescue_candidates:
@@ -3284,6 +3403,61 @@ def main() -> None:
                             note_ai_pending_reason(ai_reason)
                             stage_candidate_for_ai(obj, rescue_candidates[0], reason=ai_reason, today=today)
                             ai_pending = True
+                    if not relaxed and not ai_pending and not ai_rejected:
+                        wide_candidates = collect_wide_ai_candidates(
+                            wide_kws,
+                            brand=brand,
+                            model_hint=model,
+                            category=category,
+                            vertical=str(ctx.get("vertical") or ""),
+                            part_terms=part_terms,
+                            must_not_include=must_not_combined,
+                            specific_item_terms=specific_item_terms,
+                            rejected_fingerprints=rejected_fps,
+                            use_cache=use_cache,
+                            limit=MAX_SHORTLIST_CANDIDATES,
+                        )
+                        ai_wide_candidates += len(wide_candidates)
+                        if wide_candidates:
+                            ai_result = choose_best_candidate_with_ai(ai_ctx, wide_candidates)
+                            ai_status = ai_result.get("status") or ""
+                            ai_reason = ai_result.get("reason") or ""
+                            if ai_status == "validated":
+                                relaxed = dict(ai_result.get("candidate") or {})
+                                ai_validated_run += 1
+                                obj["ai_validation_status"] = "validated"
+                                obj["ai_validation_reason"] = ai_reason
+                                obj["ai_validation_model"] = effective_ai_validation_model()
+                                obj["ai_validation_at"] = today
+                                obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
+                                obj.pop("ai_pending_candidate", None)
+                            elif ai_status == "doubtful":
+                                relaxed = dict(ai_result.get("candidate") or {})
+                                ai_doubtful_run += 1
+                                obj["ai_validation_status"] = "doubtful"
+                                obj["ai_validation_reason"] = ai_reason
+                                obj["ai_validation_model"] = effective_ai_validation_model()
+                                obj["ai_validation_at"] = today
+                                obj["ai_validation_candidate_fingerprint"] = candidate_fingerprint(relaxed)
+                                obj.pop("ai_pending_candidate", None)
+                            elif ai_status == "rejected":
+                                ai_rejected_run += 1
+                                for candidate in wide_candidates:
+                                    fp = candidate_fingerprint(candidate)
+                                    append_rejected_candidate_fingerprint(obj, fp)
+                                    rejected_fps.add(fp)
+                                obj["ai_validation_status"] = "rejected"
+                                obj["ai_validation_reason"] = ai_reason
+                                obj["ai_validation_model"] = effective_ai_validation_model()
+                                obj["ai_validation_at"] = today
+                                obj["ai_validation_candidate_fingerprint"] = ""
+                                obj.pop("ai_pending_candidate", None)
+                                ai_rejected = True
+                            else:
+                                ai_pending_run += 1
+                                note_ai_pending_reason(ai_reason)
+                                stage_candidate_for_ai(obj, wide_candidates[0], reason=ai_reason, today=today)
+                                ai_pending = True
                 if relaxed:
                     if str(obj.get("ai_validation_status") or "").strip() == "doubtful":
                         apply_doubtful_candidate(
@@ -3479,6 +3653,7 @@ def main() -> None:
     print(f"  Presupuesto diario:     {_ai_budget}")
     print(f"  Candidatos exactos IA:  {ai_exact_candidates}")
     print(f"  Candidatos rescue IA:   {ai_relaxed_candidates}")
+    print(f"  Candidatos wide IA:     {ai_wide_candidates}")
     print(f"  Buy-new directos:       {ai_buy_new_direct}")
     print(f"  Enlaces IA validados:   {_validated_links}/{_links_total}")
     print(f"  SKUs IA validados:      {_validated_ai}")
@@ -3494,7 +3669,7 @@ def main() -> None:
         f"added={added} "
         f"updated={updated} "
         f"filled={filled_from_aliexpress} "
-        f"ai_candidates={ai_exact_candidates + ai_relaxed_candidates} "
+        f"ai_candidates={ai_exact_candidates + ai_relaxed_candidates + ai_wide_candidates} "
         f"ai_validated_run={ai_validated_run} "
         f"to_buy_new={_status_counts.get('fallback_buy_new', 0)} "
         f"buy_new_direct={ai_buy_new_direct} "
@@ -3516,6 +3691,7 @@ def main() -> None:
         f"calls={_ai_validation_calls} "
         f"exact_candidates={ai_exact_candidates} "
         f"rescue_candidates={ai_relaxed_candidates} "
+        f"wide_candidates={ai_wide_candidates} "
         f"validated_run={ai_validated_run} "
         f"doubtful_run={ai_doubtful_run} "
         f"pending_run={ai_pending_run} "
