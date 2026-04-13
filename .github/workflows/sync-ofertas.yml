@@ -97,11 +97,23 @@ jobs:
           MISSING_NEW_LINE=$(grep "^MISSING_NEW:" /tmp/sync_output.txt | tail -n 1 || echo "MISSING_NEW: n/a")
           COMPAT_STATUS_LINE=$(grep "^COMPAT_STATUS:" /tmp/sync_output.txt | tail -n 1 || echo "COMPAT_STATUS: n/a")
           AI_STATUS_LINE=$(grep "^AI_STATUS:" /tmp/sync_output.txt | tail -n 1 || echo "AI_STATUS: n/a")
-          echo "stats=$STATS_LINE" >> $GITHUB_OUTPUT
-          echo "exec_summary=$EXEC_SUMMARY_LINE" >> $GITHUB_OUTPUT
-          echo "missing_new=$MISSING_NEW_LINE" >> $GITHUB_OUTPUT
-          echo "compat_status=$COMPAT_STATUS_LINE" >> $GITHUB_OUTPUT
-          echo "ai_status=$AI_STATUS_LINE" >> $GITHUB_OUTPUT
+          {
+            echo "stats<<SYNC_OUTPUT_EOF"
+            echo "$STATS_LINE"
+            echo "SYNC_OUTPUT_EOF"
+            echo "exec_summary<<SYNC_OUTPUT_EOF"
+            echo "$EXEC_SUMMARY_LINE"
+            echo "SYNC_OUTPUT_EOF"
+            echo "missing_new<<SYNC_OUTPUT_EOF"
+            echo "$MISSING_NEW_LINE"
+            echo "SYNC_OUTPUT_EOF"
+            echo "compat_status<<SYNC_OUTPUT_EOF"
+            echo "$COMPAT_STATUS_LINE"
+            echo "SYNC_OUTPUT_EOF"
+            echo "ai_status<<SYNC_OUTPUT_EOF"
+            echo "$AI_STATUS_LINE"
+            echo "SYNC_OUTPUT_EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: Commit y push si hay cambios generados
         id: commit
@@ -145,15 +157,16 @@ jobs:
 
       - name: Notificar Telegram (exito)
         if: success()
+        env:
+          CHANGED: ${{ steps.commit.outputs.changed }}
+          STATS: ${{ steps.sync.outputs.stats }}
+          EXEC_SUMMARY: ${{ steps.sync.outputs.exec_summary }}
+          MISSING_NEW: ${{ steps.sync.outputs.missing_new }}
+          COMPAT_STATUS: ${{ steps.sync.outputs.compat_status }}
+          AI_STATUS: ${{ steps.sync.outputs.ai_status }}
         run: |
           ELAPSED=$(( $(date +%s) - START_TIME ))
           MINS=$(( ELAPSED / 60 )); SECS=$(( ELAPSED % 60 ))
-          CHANGED="${{ steps.commit.outputs.changed }}"
-          STATS="${{ steps.sync.outputs.stats }}"
-          EXEC_SUMMARY="${{ steps.sync.outputs.exec_summary }}"
-          MISSING_NEW="${{ steps.sync.outputs.missing_new }}"
-          COMPAT_STATUS="${{ steps.sync.outputs.compat_status }}"
-          AI_STATUS="${{ steps.sync.outputs.ai_status }}"
           if [ "$CHANGED" = "true" ]; then
             MSG="Sync completado en ${MINS}m${SECS}s, actualizado. ${STATS}"
           else
