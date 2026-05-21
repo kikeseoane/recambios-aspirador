@@ -25,6 +25,12 @@
       {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize }}
       {{- $problemCount := 0 }}
       {{- $richProblemCount := 0 }}
+      {{- $minProblemCount := 2 }}
+      {{- $minRichProblemCount := 2 }}
+      {{- if eq $verticalKey "aspiradores" }}
+        {{- $minProblemCount = 1 }}
+        {{- $minRichProblemCount = 1 }}
+      {{- end }}
       {{- if and $db $db.brands $brandKey }}
         {{- $brand := index $db.brands $brandKey }}
         {{- if $brand }}
@@ -41,7 +47,7 @@
           {{- end }}
         {{- end }}
       {{- end }}
-      {{- if or (lt $problemCount 2) (lt $richProblemCount 2) }}{{ continue }}{{ end }}
+      {{- if or (lt $problemCount $minProblemCount) (lt $richProblemCount $minRichProblemCount) }}{{ continue }}{{ end }}
     {{- end }}
 
     {{- /* ---- Excluir paginas de categoria sin piezas reales ---- */}}
