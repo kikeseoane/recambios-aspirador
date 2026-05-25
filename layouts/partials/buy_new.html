@@ -25,25 +25,32 @@
 {{ $btnLabel := printf "Ver %s nuevo en AliExpress" $modelName }}
 {{ $isFallback := false }}
 
-{{ if not $url }}
-  {{ $vd := site.Data.vertical_defaults }}
-  {{ if $vd }}
-    {{ $vEntry := index $vd $verticalKey }}
-    {{ if $vEntry }}
-      {{ $fallbackUrl := (index $vEntry "buy_new_url") | default "" }}
-      {{ if $fallbackUrl }}
-        {{ $url = $fallbackUrl }}
-        {{ $isFallback = true }}
-        {{ $imageURL = (index $vEntry "buy_new_image_url") | default "" }}
-        {{ $salePrice = (index $vEntry "buy_new_sale_price") | default "" }}
-        {{ $originalPrice = (index $vEntry "buy_new_original_price") | default "" }}
-        {{ $discount = (index $vEntry "buy_new_discount") | default "" }}
-        {{ $currency = (index $vEntry "buy_new_sale_price_currency") | default "EUR" }}
-        {{ $btnLabel = (index $vEntry "buy_new_label") | default "Ver producto nuevo en AliExpress" }}
-        {{ $note = "Si la reparacion no compensa, compara con modelos nuevos similares." }}
-      {{ end }}
+{{ $vd := site.Data.vertical_defaults }}
+{{ if $vd }}
+  {{ $vEntry := index $vd $verticalKey }}
+  {{ if $vEntry }}
+    {{ $fallbackUrl := (index $vEntry "buy_new_url") | default "" }}
+    {{ if $fallbackUrl }}
+      {{ $url = $fallbackUrl }}
+      {{ $isFallback = true }}
+      {{ $imageURL = (index $vEntry "buy_new_image_url") | default "" }}
+      {{ $salePrice = (index $vEntry "buy_new_sale_price") | default "" }}
+      {{ $originalPrice = (index $vEntry "buy_new_original_price") | default "" }}
+      {{ $discount = (index $vEntry "buy_new_discount") | default "" }}
+      {{ $currency = (index $vEntry "buy_new_sale_price_currency") | default "EUR" }}
+      {{ $btnLabel = (index $vEntry "buy_new_label") | default "Ver producto nuevo en AliExpress" }}
+      {{ $note = "Si la reparacion no compensa, compara con modelos nuevos similares." }}
     {{ end }}
   {{ end }}
+{{ end }}
+
+{{ if and (not $url) $offer }}
+  {{ $url = (index $offer "url") | default "" }}
+  {{ $imageURL = (index $offer "image_url") | default "" }}
+  {{ $salePrice = (index $offer "sale_price") | default "" }}
+  {{ $originalPrice = (index $offer "original_price") | default "" }}
+  {{ $discount = (index $offer "discount") | default "" }}
+  {{ $currency = (index $offer "sale_price_currency") | default "EUR" }}
 {{ end }}
 
 {{ if not $imageURL }}

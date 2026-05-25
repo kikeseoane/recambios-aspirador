@@ -63,16 +63,23 @@
 {{ $verticalNewDiscount := (index $vEntry "buy_new_discount") | default "" }}
 {{ $verticalNewCurrency := (index $vEntry "buy_new_sale_price_currency") | default "EUR" }}
 
-{{ $buyNewURL := $newURL }}
-{{ $buyNewLabel := $newLabel }}
-{{ $buyNewImageURL := $newImageURL }}
-{{ $buyNewSalePrice := $newSalePrice }}
-{{ $buyNewOriginalPrice := $newOriginalPrice }}
-{{ $buyNewDiscount := $newDiscount }}
-{{ $buyNewCurrency := $newCurrency }}
+{{ $buyNewURL := $verticalNewURL }}
+{{ $buyNewLabel := $verticalNewLabel }}
+{{ $buyNewImageURL := $verticalNewImageURL }}
+{{ $buyNewSalePrice := $verticalNewSalePrice }}
+{{ $buyNewOriginalPrice := $verticalNewOriginalPrice }}
+{{ $buyNewDiscount := $verticalNewDiscount }}
+{{ $buyNewCurrency := $verticalNewCurrency }}
 
-{{ if and (not $buyNewURL) $verticalNewURL }}
-  {{ $buyNewURL = $verticalNewURL }}
+{{ if not $buyNewURL }}
+  {{ $buyNewURL = $newURL }}
+  {{ $buyNewLabel = $newLabel }}
+  {{ $buyNewImageURL = $newImageURL }}
+  {{ $buyNewSalePrice = $newSalePrice }}
+  {{ $buyNewOriginalPrice = $newOriginalPrice }}
+  {{ $buyNewDiscount = $newDiscount }}
+  {{ $buyNewCurrency = $newCurrency }}
+{{ else }}
   {{ $buyNewLabel = $verticalNewLabel }}
   {{ $buyNewImageURL = $verticalNewImageURL }}
   {{ $buyNewSalePrice = $verticalNewSalePrice }}
