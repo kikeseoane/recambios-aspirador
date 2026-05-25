@@ -2857,36 +2857,47 @@ VERTICAL_FALLBACK_LABELS = {
 }
 
 
-def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional[Dict[str, str]]:
+def pick_vertical_best(
+    keyword: str,
+    vertical: str,
+    use_cache: bool,
+    exclude_urls: Optional[List[str]] = None,
+) -> Optional[Dict[str, str]]:
     """Busca el producto con mejor comisiÃ³n para un keyword genÃ©rico de vertical.
     Exige que el tÃ­tulo contenga al menos un tÃ©rmino del vertical para evitar
     productos de automociÃ³n u otras categorÃ­as que se cuelan por comisiÃ³n alta.
     Devuelve dict con url y product_title, o None si no encuentra nada."""
     required_terms = VERTICAL_REQUIRED_TERMS.get(vertical, [])
+    excluded = {str(x or "").strip() for x in (exclude_urls or []) if str(x or "").strip()}
 
     for lang in ("EN", "ES"):
-        try:
-            resp = product_query(keyword, lang=lang, page_no=1, use_cache=use_cache)
-        except Exception as exc:
-            print(f"  [vertical-error] kw='{keyword}' lang={lang} - {exc}")
-            continue
-        prods = extract_products(resp)
-        if not prods:
-            continue
         candidates = []
-        for p in prods:
-            title = p.get("product_title") or ""
-            tt = nrm(title)
-            if looks_bad(tt):
+        for page_no in (1, 2, 3):
+            try:
+                resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
+            except Exception as exc:
+                print(f"  [vertical-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
                 continue
-            if is_low_quality_new_title(title):
+            prods = extract_products(resp)
+            if not prods:
                 continue
-            # Exigir al menos un tÃ©rmino del vertical en el tÃ­tulo
-            if required_terms and not any(nrm(t) in tt for t in required_terms):
-                continue
-            if not is_complete_new_product(tt, vertical):
-                continue
-            candidates.append(p)
+            for p in prods:
+                title = p.get("product_title") or ""
+                tt = nrm(title)
+                if looks_bad(tt):
+                    continue
+                if is_low_quality_new_title(title):
+                    continue
+                # Exigir al menos un tÃ©rmino del vertical en el tÃ­tulo
+                if required_terms and not any(nrm(t) in tt for t in required_terms):
+                    continue
+                if not is_complete_new_product(tt, vertical):
+                    continue
+                detail_url = str(p.get("product_detail_url") or "").strip()
+                promotion_url = str(p.get("promotion_link") or "").strip()
+                if excluded and (detail_url in excluded or promotion_url in excluded):
+                    continue
+                candidates.append(p)
         if not candidates:
             continue
         # Prioridad: comisiÃ³n absoluta estimada (precio * %comisiÃ³n), ventas como desempate
@@ -2950,9 +2961,20 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
             print(f"  [vertical-default] {vertical}: sin query definida, saltando")
             continue
         search_url = build_aliexpress_search_url(query)
+        previous_urls = [
+            current_url,
+            str(entry.get("buy_new_product_detail_url") or "").strip(),
+            str(entry.get("buy_new_affiliate_url") or "").strip(),
+            search_url,
+        ]
 
         print(f"  [vertical-default] {vertical}: buscando â†’ '{query}'")
-        result = pick_vertical_best(query, vertical=vertical, use_cache=use_cache)
+        result = pick_vertical_best(
+            query,
+            vertical=vertical,
+            use_cache=use_cache,
+            exclude_urls=previous_urls,
+        )
         if result:
             entry["buy_new_url"] = result["url"]
             entry["buy_new_search_url"] = search_url
