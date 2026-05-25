@@ -60,15 +60,6 @@ jobs:
               )
           PY
 
-      - name: Resolver refresco diario de vertical defaults
-        run: |
-          HOUR_UTC=$(date -u '+%H')
-          if [ "$HOUR_UTC" = "04" ]; then
-            echo "RUN_VERTICAL_DEFAULTS=1" >> $GITHUB_ENV
-          else
-            echo "RUN_VERTICAL_DEFAULTS=0" >> $GITHUB_ENV
-          fi
-
       - name: Run sync_ofertas (batch horario)
         id: sync
         env:
@@ -84,16 +75,11 @@ jobs:
           AI_VALIDATION_RESPONSE_FORMAT: ${{ vars.AI_VALIDATION_RESPONSE_FORMAT }}
           AI_VALIDATION_API_KEY: ${{ secrets.AI_VALIDATION_API_KEY }}
         run: |
-          SKIP_VERTICALS="--skip-vertical-defaults"
-          if [ "${RUN_VERTICAL_DEFAULTS}" = "1" ]; then
-            SKIP_VERTICALS=""
-          fi
           python tools/sync_ofertas.py \
             --only-stale 7 \
             --max-minutes 28 \
             --force \
-            --no-cache \
-            ${SKIP_VERTICALS} | tee /tmp/sync_output.txt
+            --no-cache | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt | tail -n 1 || echo "STATS: n/a")
           EXEC_SUMMARY_LINE=$(grep "^EXEC_SUMMARY:" /tmp/sync_output.txt | tail -n 1 || echo "EXEC_SUMMARY: n/a")
           MISSING_NEW_LINE=$(grep "^MISSING_NEW:" /tmp/sync_output.txt | tail -n 1 || echo "MISSING_NEW: n/a")

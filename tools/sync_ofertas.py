@@ -173,6 +173,13 @@ def folded_nrm(s: str) -> str:
     return nrm(fold_query_text(s))
 
 
+def build_aliexpress_search_url(query: str) -> str:
+    q = normalize(query)
+    if not q:
+        return ""
+    return f"https://www.aliexpress.com/wholesale?SearchText={requests.utils.quote(q)}"
+
+
 def available_verticals() -> List[str]:
     verticals_doc = load_yaml(VERTICALS_YAML)
     verticals_obj = verticals_doc.get("verticals")
@@ -2894,10 +2901,14 @@ def pick_vertical_best(keyword: str, vertical: str, use_cache: bool) -> Optional
             reverse=True,
         )
         best = candidates[0]
-        url = best.get("promotion_link") or best.get("product_detail_url")
+        detail_url = str(best.get("product_detail_url") or "").strip()
+        promotion_url = str(best.get("promotion_link") or "").strip()
+        url = detail_url or promotion_url
         if url:
             return {
-                "url": str(url).strip(),
+                "url": url,
+                "affiliate_url": promotion_url,
+                "product_detail_url": detail_url,
                 "product_title": str(best.get("product_title") or "").strip(),
                 "image_url": str(best.get("product_main_image_url") or "").strip(),
                 "sale_price": str(best.get("sale_price") or "").strip(),
@@ -2914,7 +2925,14 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
     el producto con mejor comisiÃ³n y actualiza data/vertical_defaults.yaml.
     """
     vd = load_yaml(VERTICAL_DEFAULTS_YAML)
+    active_verticals = {v for v in available_verticals() if v in verticals}
+    stale_verticals = [k for k in list(vd.keys()) if k not in active_verticals]
     changed = False
+    if stale_verticals:
+        for stale_vertical in stale_verticals:
+            vd.pop(stale_vertical, None)
+        changed = True
+        print(f"  [vertical-default] eliminadas verticales inactivas: {', '.join(stale_verticals)}")
 
     for vertical in verticals:
         entry = vd.get(vertical)
@@ -2931,13 +2949,23 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
         if not query:
             print(f"  [vertical-default] {vertical}: sin query definida, saltando")
             continue
+        search_url = build_aliexpress_search_url(query)
 
         print(f"  [vertical-default] {vertical}: buscando â†’ '{query}'")
         result = pick_vertical_best(query, vertical=vertical, use_cache=use_cache)
         if result:
             entry["buy_new_url"] = result["url"]
+            entry["buy_new_search_url"] = search_url
             entry["buy_new_label"] = VERTICAL_FALLBACK_LABELS.get(vertical, "Ver productos en AliExpress")
             entry["buy_new_product_title"] = result["product_title"]
+            if result.get("affiliate_url"):
+                entry["buy_new_affiliate_url"] = result["affiliate_url"]
+            else:
+                entry.pop("buy_new_affiliate_url", None)
+            if result.get("product_detail_url"):
+                entry["buy_new_product_detail_url"] = result["product_detail_url"]
+            else:
+                entry.pop("buy_new_product_detail_url", None)
             if result.get("image_url"):
                 entry["buy_new_image_url"] = result["image_url"]
             if result.get("sale_price"):
@@ -2954,7 +2982,27 @@ def sync_vertical_defaults(verticals: List[str], force: bool, use_cache: bool) -
             if result["product_title"]:
                 print(f"  [vertical-default] {vertical}: tÃ­tulo â†’ {result['product_title'][:80]}")
         else:
-            print(f"  [vertical-default] {vertical}: sin resultado en AliExpress")
+            if search_url:
+                entry["buy_new_url"] = search_url
+                entry["buy_new_search_url"] = search_url
+                entry["buy_new_label"] = VERTICAL_FALLBACK_LABELS.get(vertical, "Ver productos en AliExpress")
+                entry["buy_new_product_title"] = ""
+                entry["updated_at"] = datetime.now().date().isoformat()
+                for key in (
+                    "buy_new_affiliate_url",
+                    "buy_new_product_detail_url",
+                    "buy_new_image_url",
+                    "buy_new_sale_price",
+                    "buy_new_sale_price_currency",
+                    "buy_new_original_price",
+                    "buy_new_discount",
+                ):
+                    entry.pop(key, None)
+                vd[vertical] = entry
+                changed = True
+                print(f"  [vertical-default] {vertical}: sin resultado directo, usando bÃºsqueda segura")
+            else:
+                print(f"  [vertical-default] {vertical}: sin resultado en AliExpress")
 
     if changed:
         dump_yaml(VERTICAL_DEFAULTS_YAML, vd)
