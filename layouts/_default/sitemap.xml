@@ -11,6 +11,9 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{- range site.Pages }}
 
+    {{- /* ---- Excluir taxonomias genericas de Hugo si existen ---- */}}
+    {{- if or (eq .Kind "taxonomy") (eq .Kind "term") }}{{ continue }}{{ end }}
+
     {{- /* ---- Exclusiones por robots en front matter ---- */}}
     {{- if and .Params.robots (in .Params.robots "noindex") }}{{ continue }}{{ end }}
 

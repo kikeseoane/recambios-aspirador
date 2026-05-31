@@ -14,7 +14,10 @@
 
 {{- $noindex := false -}}
 
-{{- if and .Params.robots (in .Params.robots "noindex") -}}
+{{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+  {{- $noindex = true -}}
+
+{{- else if and .Params.robots (in .Params.robots "noindex") -}}
   {{- $noindex = true -}}
 
 {{- else if and (eq .Type "guia") (.Params.vertical) (ne (.Params.vertical | default "") "aspiradores") -}}

@@ -1,0 +1,82 @@
+{{/* Schema ItemList para fichas de modelo: categorias y diagnosticos enlazados. */}}
+{{- if (partial "is_noindex.html" .) -}}{{- return -}}{{- end -}}
+{{- if not (and (eq .Type "modelos") .Params.brandKey (not .Params.catKey) (not .Params.problemKey) (ne .Layout "problemas")) -}}{{- return -}}{{- end -}}
+
+{{- $verticalKey := .Params.vertical | default "aspiradores" -}}
+{{- $db := index site.Data $verticalKey -}}
+{{- $brandKey := .Params.brandKey | default "" -}}
+{{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize -}}
+{{- if not (and $db $brandKey $modelSlug) -}}{{- return -}}{{- end -}}
+
+{{- $brand := index $db.brands $brandKey -}}
+{{- if not $brand -}}{{- return -}}{{- end -}}
+
+{{- $model := dict -}}
+{{- range $m := ($brand.models | default (slice)) -}}
+  {{- $mid := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | default "" | urlize -}}
+  {{- if eq $mid $modelSlug -}}{{- $model = $m -}}{{- end -}}
+{{- end -}}
+{{- if not (len $model) -}}{{- return -}}{{- end -}}
+
+{{- $brandName := $brand.name | default $brandKey -}}
+{{- $modelName := partial "model_title.html" (dict "brandName" $brandName "modelName" ((index $model "model") | default $modelSlug)) -}}
+{{- $vurls := partial "vertical_urls.html" $verticalKey -}}
+{{- $marcBase := $vurls.marcBase | strings.TrimSuffix "/" -}}
+{{- $entries := slice -}}
+
+{{- $rec := index $model "recambios" -}}
+{{- if and $rec (reflect.IsMap $rec) -}}
+  {{- range ($db.globals.categorias_recambios | default (slice)) -}}
+    {{- $catKey := ((index . "key") | default "") | urlize -}}
+    {{- $catLabel := (index . "label") | default $catKey -}}
+    {{- $items := index $rec $catKey -}}
+    {{- if and $catKey $items (reflect.IsSlice $items) (gt (len $items) 0) -}}
+      {{- $entries = $entries | append (dict
+        "type" "CollectionPage"
+        "name" (printf "%s para %s" $catLabel $modelName)
+        "url" ((printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | absURL)
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- range (index $model "problemas" | default (slice)) -}}
+  {{- $problemKey := ((index . "key") | default "") | urlize -}}
+  {{- if $problemKey -}}
+    {{- $entries = $entries | append (dict
+      "type" "Article"
+      "name" ((index . "title") | default $problemKey)
+      "url" ((printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $problemKey) | absURL)
+    ) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if lt (len $entries) 1 -}}{{- return -}}{{- end -}}
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":{{ $modelName | jsonify | safeJS }},
+  "brand":{"@type":"Brand","name":{{ $brandName | jsonify | safeJS }}},
+  "url":{{ .Permalink | jsonify | safeJS }},
+  "subjectOf":{
+    "@type":"ItemList",
+    "name":{{ (printf "Recambios y diagnosticos para %s" $modelName) | jsonify | safeJS }},
+    "itemListElement":[
+      {{- range $i, $entry := $entries -}}
+        {{- if $i }},{{ end -}}
+      {
+        "@type":"ListItem",
+        "position":{{ add $i 1 }},
+        "item":{
+          "@type":{{ (index $entry "type") | jsonify | safeJS }},
+          "name":{{ (index $entry "name") | jsonify | safeJS }},
+          "url":{{ (index $entry "url") | jsonify | safeJS }}
+        }
+      }
+      {{- end -}}
+    ]
+  }
+}
+</script>

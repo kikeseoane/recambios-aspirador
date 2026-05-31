@@ -104,6 +104,12 @@
   {{ if eq .Layout "problema" }}
     {{ partial "schema/faq-problema.jsonld.html" . }}
   {{ end }}
+  {{ if eq .Layout "recambio" }}
+    {{ partial "schema/recambio-products.jsonld.html" . }}
+  {{ end }}
+  {{ if and (eq .Type "modelos") .Params.brandKey (not .Params.catKey) (not .Params.problemKey) (ne .Layout "problemas") }}
+    {{ partial "schema/model-itemlist.jsonld.html" . }}
+  {{ end }}
 
   <meta property="og:site_name" content="{{ .Site.Title }}">
   {{- $ogType := "website" -}}

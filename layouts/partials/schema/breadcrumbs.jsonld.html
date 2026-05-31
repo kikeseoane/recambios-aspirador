@@ -76,7 +76,7 @@
     {{- end -}}
 
   {{/* MARCAS */}}
-  {{- else if eq .Section "marcas" -}}
+  {{- else if and (eq .Section "marcas") (ne .Type "modelos") -}}
     {{- $items = $items | append (dict "name" "Marcas" "url" ((print $marcBase "/") | absURL)) -}}
     {{- if $brandKey -}}
       {{- $items = $items | append (dict "name" ($brandName | default $brandKey) "url" ((printf "%s/%s/" $marcBase ($brandKey|urlize)) | absURL)) -}}
@@ -138,8 +138,8 @@
       {
         "@type":"ListItem",
         "position":{{ add $i 1 }},
-        "name":{{ $it.name | jsonify }},
-        "item":{{ $it.url | jsonify }}
+        "name":{{ $it.name | jsonify | safeJS }},
+        "item":{{ $it.url | jsonify | safeJS }}
       }
     {{- end -}}
   ]

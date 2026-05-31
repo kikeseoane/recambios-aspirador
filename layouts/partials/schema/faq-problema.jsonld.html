@@ -1,6 +1,6 @@
 {{/* layouts/partials/schema/faq-problema.jsonld.html */}}
 
-{{- if .Scratch.Get "noindex" -}}{{- return -}}{{- end -}}
+{{- if (partial "is_noindex.html" .) -}}{{- return -}}{{- end -}}
 {{- if ne .Layout "problema" -}}{{- return -}}{{- end -}}
 
 {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
@@ -33,36 +33,51 @@
 {{- end -}}
 {{- if not (len $prob) -}}{{- return -}}{{- end -}}
 
-{{- $sym := index $prob "symptoms" -}}
-{{- $causes := index $prob "causes" -}}
-{{- $checks := index $prob "checks" -}}
+{{- $sym := index $prob "symptoms" | default (slice) -}}
+{{- $causes := index $prob "causes" | default (slice) -}}
+{{- $checks := index $prob "checks" | default (slice) -}}
 {{- $fix := index $prob "fix_hint" -}}
+
+{{- if and (lt (len $sym) 1) (lt (len $causes) 1) (lt (len $checks) 1) (not $fix) -}}{{- return -}}{{- end -}}
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {
-      "@type":"Question",
-      "name":{{ (printf "¿Cuáles son los síntomas típicos de “%s”?" .Title) | jsonify }},
-      "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($sym | default (slice)) "<br>") | jsonify }}}
-    },
-    {
-      "@type":"Question",
-      "name":"¿Causas más probables?",
-      "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($causes | default (slice)) "<br>") | jsonify }}}
-    },
-    {
-      "@type":"Question",
-      "name":"¿Cómo comprobarlo paso a paso?",
-      "acceptedAnswer":{"@type":"Answer","text":{{ (delimit ($checks | default (slice)) "<br>") | jsonify }}}
-    }{{ if $fix }},
-    {
-      "@type":"Question",
-      "name":"¿Qué hacer si se confirma?",
-      "acceptedAnswer":{"@type":"Answer","text":{{ $fix | jsonify }}}
-    }{{ end }}
+    {{- $qpos := 0 -}}
+    {{- if gt (len $sym) 0 -}}
+      {{- if $qpos }},{{ end -}}{{- $qpos = add $qpos 1 -}}
+      {
+        "@type":"Question",
+        "name":{{ (printf "Cuales son los sintomas tipicos de %s?" .Title) | jsonify | safeJS }},
+        "acceptedAnswer":{"@type":"Answer","text":{{ (delimit $sym "; ") | jsonify | safeJS }}}
+      }
+    {{- end -}}
+    {{- if gt (len $causes) 0 -}}
+      {{- if $qpos }},{{ end -}}{{- $qpos = add $qpos 1 -}}
+      {
+        "@type":"Question",
+        "name":"Causas mas probables",
+        "acceptedAnswer":{"@type":"Answer","text":{{ (delimit $causes "; ") | jsonify | safeJS }}}
+      }
+    {{- end -}}
+    {{- if gt (len $checks) 0 -}}
+      {{- if $qpos }},{{ end -}}{{- $qpos = add $qpos 1 -}}
+      {
+        "@type":"Question",
+        "name":"Como comprobarlo paso a paso",
+        "acceptedAnswer":{"@type":"Answer","text":{{ (delimit $checks "; ") | jsonify | safeJS }}}
+      }
+    {{- end -}}
+    {{- if $fix -}}
+      {{- if $qpos }},{{ end -}}
+      {
+        "@type":"Question",
+        "name":"Que hacer si se confirma",
+        "acceptedAnswer":{"@type":"Answer","text":{{ $fix | jsonify | safeJS }}}
+      }
+    {{- end -}}
   ]
 }
 </script>
