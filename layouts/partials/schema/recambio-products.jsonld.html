@@ -34,7 +34,20 @@
 {{- $brandName := $brand.name | default $brandKey -}}
 {{- $modelName := partial "model_title.html" (dict "brandName" $brandName "modelName" ((index $model "model") | default $modelSlug)) -}}
 {{- $offers := ((site.Data.ofertas).offers) | default dict -}}
+{{- $eligibleItems := slice -}}
+{{- range $it := $items -}}
+  {{- $sku := (index $it "sku") | default "" -}}
+  {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
+  {{- $offerURL := (index $offer "url") | default "" -}}
+  {{- $needsURL := (index $offer "needs_url") | default false -}}
+  {{- $salePrice := (index $offer "sale_price") | default "" -}}
+  {{- $currency := upper (string ((index $offer "sale_price_currency") | default "EUR")) -}}
+  {{- if and $offerURL (not $needsURL) $salePrice (eq $currency "EUR") -}}
+    {{- $eligibleItems = $eligibleItems | append (dict "item" $it "offer" $offer) -}}
+  {{- end -}}
+{{- end -}}
 
+{{- if gt (len $eligibleItems) 0 -}}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -42,7 +55,7 @@
   "name":{{ (printf "%s compatibles para %s" $catLabel $modelName) | jsonify | safeJS }},
   "url":{{ .Permalink | jsonify | safeJS }},
   "about":{
-    "@type":"Product",
+    "@type":"Thing",
     "name":{{ $modelName | jsonify | safeJS }},
     "brand":{"@type":"Brand","name":{{ $brandName | jsonify | safeJS }}}
   },
@@ -50,14 +63,12 @@
     "@type":"ItemList",
     "name":{{ (printf "Opciones de %s para %s" ($catLabel | lower) $modelName) | jsonify | safeJS }},
     "itemListElement":[
-      {{- range $i, $it := $items -}}
+      {{- range $i, $entry := $eligibleItems -}}
         {{- if $i }},{{ end -}}
-        {{- $sku := (index $it "sku") | default "" -}}
-        {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
-        {{- $offerURL := (index $offer "url") | default "" -}}
-        {{- $needsURL := (index $offer "needs_url") | default false -}}
-        {{- $salePrice := (index $offer "sale_price") | default "" -}}
-        {{- $currency := (index $offer "sale_price_currency") | default "EUR" -}}
+        {{- $it := index $entry "item" -}}
+        {{- $offer := index $entry "offer" -}}
+        {{- $offerURL := index $offer "url" -}}
+        {{- $salePrice := index $offer "sale_price" -}}
         {{- $imageURL := (index $offer "image_url") | default "" -}}
         {{- $productName := (index $it "title") | default (printf "%s para %s" $catLabel $modelName) -}}
       {
@@ -69,18 +80,18 @@
           "category":{{ $catLabel | jsonify | safeJS }},
           "brand":{"@type":"Brand","name":{{ $brandName | jsonify | safeJS }}},
           "isAccessoryOrSparePartFor":{
-            "@type":"Product",
+            "@type":"Thing",
             "name":{{ $modelName | jsonify | safeJS }},
             "brand":{"@type":"Brand","name":{{ $brandName | jsonify | safeJS }}}
           }{{ if $imageURL }},
-          "image":{{ $imageURL | jsonify | safeJS }}{{ end }}{{ if and $offerURL (not $needsURL) }},
+          "image":{{ $imageURL | jsonify | safeJS }}{{ end }},
           "offers":{
             "@type":"Offer",
             "url":{{ $offerURL | jsonify | safeJS }},
-            "availability":"https://schema.org/InStock"{{ if and $salePrice (eq (upper (string $currency)) "EUR") }},
+            "availability":"https://schema.org/InStock",
             "price":{{ $salePrice | jsonify | safeJS }},
-            "priceCurrency":"EUR"{{ end }}
-          }{{ end }}
+            "priceCurrency":"EUR"
+          }
         }
       }
       {{- end -}}
@@ -88,3 +99,4 @@
   }
 }
 </script>
+{{- end -}}

@@ -1,4 +1,4 @@
-{{/* Schema ItemList para fichas de modelo: categorias y diagnosticos enlazados. */}}
+{{/* Schema CollectionPage para fichas informativas de modelo. */}}
 {{- if (partial "is_noindex.html" .) -}}{{- return -}}{{- end -}}
 {{- if not (and (eq .Type "modelos") .Params.brandKey (not .Params.catKey) (not .Params.problemKey) (ne .Layout "problemas")) -}}{{- return -}}{{- end -}}
 
@@ -56,11 +56,15 @@
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"Product",
+  "@type":"CollectionPage",
   "name":{{ $modelName | jsonify | safeJS }},
-  "brand":{"@type":"Brand","name":{{ $brandName | jsonify | safeJS }}},
   "url":{{ .Permalink | jsonify | safeJS }},
-  "subjectOf":{
+  "about":{
+    "@type":"Thing",
+    "name":{{ $modelName | jsonify | safeJS }},
+    "brand":{"@type":"Brand","name":{{ $brandName | jsonify | safeJS }}}
+  },
+  "mainEntity":{
     "@type":"ItemList",
     "name":{{ (printf "Recambios y diagnosticos para %s" $modelName) | jsonify | safeJS }},
     "itemListElement":[
