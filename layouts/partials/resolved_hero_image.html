@@ -20,7 +20,16 @@
   {{ if isset $offers $newSku }}
     {{ $offer := index $offers $newSku }}
     {{ $imageURL := index $offer "image_url" | default "" }}
-    {{ if $imageURL }}
+    {{ $productTitle := lower ((index $offer "product_title") | default "") }}
+    {{ $looksLikeSpare := or
+      (in $productTitle "adaptador de bater")
+      (in $productTitle "battery adapter")
+      (in $productTitle "convertidor a ")
+      (in $productTitle "replacement battery")
+      (in $productTitle "bateria compatible")
+      (in $productTitle "batería compatible")
+    }}
+    {{ if and $imageURL (not $looksLikeSpare) }}
       {{ $result = dict
         "src" $imageURL
         "alt" (printf "Imagen orientativa de %s nuevo" ($modelName | default $pageTitle))
@@ -39,7 +48,16 @@
       {{ if isset $offers $candidateSku }}
         {{ $candidateOffer := index $offers $candidateSku }}
         {{ $candidateImage := index $candidateOffer "image_url" | default "" }}
-        {{ if $candidateImage }}
+        {{ $candidateTitle := lower ((index $candidateOffer "product_title") | default "") }}
+        {{ $candidateLooksLikeSpare := or
+          (in $candidateTitle "adaptador de bater")
+          (in $candidateTitle "battery adapter")
+          (in $candidateTitle "convertidor a ")
+          (in $candidateTitle "replacement battery")
+          (in $candidateTitle "bateria compatible")
+          (in $candidateTitle "batería compatible")
+        }}
+        {{ if and $candidateImage (not $candidateLooksLikeSpare) }}
           {{ $candidateName := index $candidate "model" | default $brand.name | default $pageTitle }}
           {{ $result = dict
             "src" $candidateImage
