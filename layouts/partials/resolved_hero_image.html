@@ -40,48 +40,4 @@
   {{ end }}
 {{ end }}
 
-{{ if and (ne (index $result "source") "model_new") $brandKey $brand.models }}
-  {{ range $candidate := ($brand.models | default (slice)) }}
-    {{ $candidateSlug := (or (index $candidate "slug") (index $candidate "canonical_slug") (index $candidate "id")) | default "" | urlize }}
-    {{ if and $candidateSlug (ne (index $result "source") "brand_model_new") }}
-      {{ $candidateSku := printf "%s-%s-nuevo" $brandKey $candidateSlug }}
-      {{ if isset $offers $candidateSku }}
-        {{ $candidateOffer := index $offers $candidateSku }}
-        {{ $candidateImage := index $candidateOffer "image_url" | default "" }}
-        {{ $candidateTitle := lower ((index $candidateOffer "product_title") | default "") }}
-        {{ $candidateLooksLikeSpare := or
-          (in $candidateTitle "adaptador de bater")
-          (in $candidateTitle "battery adapter")
-          (in $candidateTitle "convertidor a ")
-          (in $candidateTitle "replacement battery")
-          (in $candidateTitle "bateria compatible")
-          (in $candidateTitle "batería compatible")
-        }}
-        {{ if and $candidateImage (not $candidateLooksLikeSpare) }}
-          {{ $candidateName := index $candidate "model" | default $brand.name | default $pageTitle }}
-          {{ $result = dict
-            "src" $candidateImage
-            "alt" (printf "Imagen orientativa de %s" $candidateName)
-            "source" "brand_model_new"
-            "isApproximate" true
-          }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{ if and (or (eq (index $result "source") "vertical_static") (eq (index $result "source") "")) (isset $defaults $verticalKey) }}
-  {{ $entry := index $defaults $verticalKey }}
-  {{ $fallbackImage := index $entry "buy_new_image_url" | default "" }}
-  {{ if $fallbackImage }}
-    {{ $result = dict
-      "src" $fallbackImage
-      "alt" (printf "Imagen orientativa de %s" $pageTitle)
-      "source" "vertical_buy_new"
-      "isApproximate" true
-    }}
-  {{ end }}
-{{ end }}
-
 {{ return $result }}

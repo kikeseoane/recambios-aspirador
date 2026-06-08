@@ -349,25 +349,9 @@
               </div>
             </div>
           </div>
-          {{ if index $heroImage "isApproximate" }}
-            <div class="hero__photo-wrap hero__photo-wrap--model-card" aria-hidden="true">
-              <div class="model-hero-card">
-                <span class="model-hero-card__eyebrow">Compatibilidad por modelo</span>
-                <span class="model-hero-card__monogram">{{ substr $brand.name 0 1 }}</span>
-                <strong>{{ $mtitle }}</strong>
-                <span class="model-hero-card__series">{{ with (index $model "series") }}Serie {{ . }}{{ else }}Ficha verificada{{ end }}</span>
-                <div class="model-hero-card__parts">
-                  <span title="Bateria">{{ partial "cat_icon.html" (dict "catKey" "bateria") }}</span>
-                  <span title="Filtro">{{ partial "cat_icon.html" (dict "catKey" "filtro") }}</span>
-                  <span title="Cepillo">{{ partial "cat_icon.html" (dict "catKey" "cepillo") }}</span>
-                </div>
-              </div>
-            </div>
-          {{ else }}
-            <div class="hero__photo-wrap">
-              <img class="hero__photo" src="{{ index $heroImage "src" }}" alt="{{ index $heroImage "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
-            </div>
-          {{ end }}
+          <div class="hero__photo-wrap">
+            <img class="hero__photo" src="{{ index $heroImage "src" }}" alt="{{ index $heroImage "alt" }}" loading="eager" onerror="this.closest('.hero__photo-wrap').style.display='none'">
+          </div>
         </section>
 
         {{ partial "buy_new.html" (dict "model" $model "modelName" $mtitle "brandName" $brand.name "brandKey" $brandKey "modelSlug" $modelSlug "verticalKey" $verticalKey "topBar" true) }}
