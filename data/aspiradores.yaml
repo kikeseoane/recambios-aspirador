@@ -4149,16 +4149,10 @@ brands:
           - board
           model_tokens: *id013
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,8 V, 2600 mAh (4 celdas 18650)'
+      - 'Filtro HEPA: rectangular, lavable, compartido con serie 1000'
+      - 'Cepillo central: mixto cerdas/silicona, compatible con 1190 y 1290'
+      - 'Cepillos laterales: 3 aspas, rosca universal Conga serie 1000'
       problemas:
       - key: no-aspira
         intent: info
@@ -4288,20 +4282,25 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: Que filtro usa el Conga 1090?
+        a: Usa un filtro HEPA rectangular que se coloca en la parte posterior del
+          deposito. Es lavable pero conviene cambiarlo cada 3-4 meses para mantener
+          la succion.
+      - q: El cepillo central del 1090 es igual al del 1290?
+        a: Si, los modelos Conga 1090, 1190 y 1290 comparten el mismo cepillo central
+          mixto de cerdas y silicona. Son intercambiables.
+      - q: Cuanto dura la bateria del Conga 1090?
+        a: Con bateria nueva da unos 100 minutos en modo eco. Si baja de 60 minutos,
+          las celdas estan degradadas. La bateria es de 14,8 V y 2600 mAh con conector
+          especifico Cecotec.
+      - q: El Conga 1090 es compatible con la base de carga de otros Conga?
+        a: Solo con modelos de la serie 1000 (1090, 1190, 1290). Los Conga 3090 y
+          superiores usan una base con contactos diferentes.
+      intro: El Cecotec Conga 1090 es un robot aspirador de entrada con navegacion
+        aleatoria iTech Space, 1400 Pa de succion y bateria de 14,8 V (2600 mAh).
+        Ofrece 4 modos de limpieza, deposito mixto de 600 ml para aspirado y fregado
+        basico, y cepillo central de cerdas y silicona. Fue uno de los robots mas
+        vendidos en Espana por su relacion precio-prestaciones.
     - model: Conga 1390
       slug: conga-1390
       series: Conga
@@ -5257,16 +5256,10 @@ brands:
           - board
           model_tokens: *id017
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,8 V, 2600 mAh (conector Cecotec serie 3000)'
+      - 'Filtro HEPA: rectangular con junta, compartido con 3290/3490/3690'
+      - 'Cepillo central: intercambiable jalisco/BestFriend, serie 3000'
+      - 'Cepillos laterales: 3 aspas, rosca compatible serie 3000'
       problemas:
       - key: no-aspira
         intent: info
@@ -5396,20 +5389,25 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: El filtro HEPA del Conga 3090 es igual al del 3490?
+        a: Si, los Conga 3090, 3290, 3390, 3490 y 3690 comparten el mismo filtro HEPA.
+          Es rectangular con junta gris.
+      - q: Puedo usar la mopa del 3090 en el Conga 4090?
+        a: No, el sistema de fregado cambio en la serie 4000. El deposito de agua
+          y la fijacion de la mopa son diferentes.
+      - q: Cada cuanto hay que cambiar los cepillos laterales?
+        a: Cecotec recomienda cada 3 meses. Si las aspas estan dobladas o no barren
+          bien hacia el centro, es hora de sustituirlos. Los del 3090 son de 3 aspas
+          con rosca.
+      - q: La torre laser del 3090 se puede reparar?
+        a: La torre LDS es un modulo sellado. Si el robot da error de navegacion,
+          normalmente hay que sustituir el modulo completo. Asegurate de que sea compatible
+          con el 3090 y no con modelos posteriores.
+      intro: El Cecotec Conga 3090 es un robot aspirador con navegacion laser iTech
+        Laser 360, mapeo interactivo y 2000 Pa de succion. Monta bateria de 14,8 V
+        (2600 mAh), deposito mixto de 500 ml y cepillo central intercambiable entre
+        jalisco (cerdas) y BestFriend Care (silicona para mascotas). Fue el primer
+        Conga con gestion de mapas por habitaciones desde la app.
     - model: Conga 4090
       slug: conga-4090
       series: Conga
@@ -5534,16 +5532,11 @@ brands:
           - board
           model_tokens: *id018
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V, 5200 mAh (conector serie 4000, no compatible con
+        serie 3000)'
+      - 'Filtro HEPA: especifico serie 4000, mayor tamano'
+      - 'Cepillo central: rodillo ancho, exclusivo serie 4000'
+      - 'Cepillos laterales: 3 aspas, rosca compatible con serie 3000/4000'
       problemas:
       - key: no-aspira
         intent: info
@@ -5673,20 +5666,24 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: La bateria del Conga 4090 vale para el 3090?
+        a: No. El 4090 usa una bateria de 14,4 V y 5200 mAh con un conector mas ancho
+          que la del 3090 (14,8 V, 2600 mAh). No son intercambiables.
+      - q: Que filtro usa el Conga 4090?
+        a: Usa un filtro HEPA de alta eficiencia especifico de la serie 4000. Es mas
+          grande que el de la serie 3000 y no es compatible con modelos anteriores.
+      - q: Puedo usar los cepillos del 3090 en el 4090?
+        a: 'Los cepillos laterales tienen la misma rosca, pero el cepillo central
+          es diferente: el 4090 monta un rodillo mas ancho. Verifica siempre la referencia.'
+      - q: El Conga 4090 necesita cinta magnetica?
+        a: Es opcional. Puedes crear barreras virtuales desde la app, pero la cinta
+          magnetica funciona como barrera fisica adicional. Es la misma cinta que
+          usan los modelos 3090 y superiores.
+      intro: El Cecotec Conga 4090 incorpora navegacion laser iTech Laser 360, 2700
+        Pa de succion y Room Plan 2.0 con gestion avanzada de habitaciones. Monta
+        bateria de 14,4 V (5200 mAh) de mayor capacidad que la serie 3000, doble deposito
+        mixto y sistema de fregado con tres niveles de caudal. Es compatible con mando
+        a distancia y barrera magnetica virtual.
     - model: Conga 4690
       slug: conga-4690
       series: Conga
@@ -8515,16 +8512,10 @@ brands:
           - board
           model_tokens: *id028
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V, 5200 mAh'
+      - 'Filtro HEPA: formato especifico L10s Ultra, no lavable'
+      - 'Mopas: giratorias redondas, exclusivas L10s Ultra'
+      - 'Bolsas autovaciado: packs especificos para base L10s Ultra'
       problemas:
       - key: no-aspira
         intent: info
@@ -8654,20 +8645,25 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: Las mopas del L10s Ultra sirven para el L10 Pro?
+        a: No. El L10s Ultra usa mopas giratorias redondas que se autolavany el L10
+          Pro tiene un sistema de fregado por arrastre con mopa rectangular. Son incompatibles.
+      - q: El filtro del L10s Ultra es igual al del L20 Ultra?
+        a: Son de formato similar pero el L20 Ultra incorpora un filtro con mayor
+          densidad de malla. El del L10s Ultra encaja pero ofrece menor filtracion.
+      - q: Cuanto duran las bolsas de autovaciado?
+        a: Cada bolsa dura unas 8-10 semanas de uso normal. Se venden en packs de
+          3 unidades y son especificas del L10s Ultra — no valen las de otros robots
+          Dreame de base diferente.
+      - q: El cepillo central del L10s Ultra tiene version antienredos?
+        a: Si, se vende un cepillo de goma sin cerdas que reduce enredos de pelo.
+          Es especifico del L10s Ultra y encaja directamente en la cavidad del cepillo
+          principal.
+      intro: El Dreame L10s Ultra (2023) es un robot todo-en-uno con base de autolimpieza,
+        autovaciado y secado con aire caliente. Monta navegacion LiDAR + camara 3D,
+        5300 Pa de succion y sistema de doble mopa giratoria a 180 RPM con presion
+        descendente. Bateria de 14,4 V (5200 mAh) y filtro HEPA de alta eficiencia.
+        Es el competidor directo del Roborock S8 Pro Ultra.
     - model: Dreame L20 Ultra
       slug: dreame-l20-ultra
       series: L-Series
@@ -12065,14 +12061,10 @@ brands:
           - board
           model_tokens: *id040
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 21,6 V (codigo SV09)'
+      - 'Cargador: 26,1 V DC, conector de barril (compartido con V7 y V8)'
+      - 'Filtro premotor: lavable, cilindrico'
+      - 'Filtro postmotor: HEPA no lavable, especifico V6'
       problemas:
       - key: no-carga
         intent: info
@@ -12202,22 +12194,24 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: Mi V6 ya no carga. Es la bateria o el cargador?
+        a: 'Prueba el cargador con un voltimetro: debe dar 26,1 V en vacio. Si da
+          tension correcta, el problema es la bateria SV09. Tras 3-4 anos las celdas
+          pierden capacidad.'
+      - q: Los accesorios del V6 sirven en el V7 o V8?
+        a: Si, los tres modelos comparten diametro de tubo y sistema de liberacion
+          rapida. Los cabezales motorizados y las boquillas son intercambiables.
+      - q: Que filtros lleva el V6 y cada cuanto se cambian?
+        a: Lleva un premotor lavable (lavar mensualmente) y un postmotor HEPA no lavable.
+          El HEPA se sustituye cada 6-12 meses segun uso.
+      - q: Puedo aumentar la autonomia del V6 con una bateria de mayor capacidad?
+        a: Si, hay baterias compatibles SV09 de 3000-4000 mAh frente a los 2100 mAh
+          originales. Encajan sin modificacion y alargan la autonomia a 25-30 minutos.
+      intro: El Dyson V6 (2015) fue el modelo que consolido la aspiracion sin cable
+        de Dyson, con motor digital V6 a 110.000 RPM y bateria de 21,6 V (codigo SV09).
+        Da hasta 20 minutos de autonomia y fue el primero en incluir el cabezal Motorhead
+        con cepillo motorizado. Su filtro premotor lavable y el postmotor HEPA son
+        piezas de desgaste habitual.
     - model: Dyson V7
       slug: dyson-v7
       series: V-Series
@@ -12391,14 +12385,10 @@ brands:
           - board
           model_tokens: *id041
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 21,6 V (codigo SV11)'
+      - 'Cargador: 26,1 V DC, conector de barril (compartido con V6 y V8)'
+      - 'Filtro postmotor: lavable, forma especifica V7'
+      - 'Rodillo: encaje Motorhead compatible con cabezales V7'
       problemas:
       - key: no-carga
         intent: info
@@ -12528,22 +12518,24 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: La bateria del V7 vale para el V8?
+        a: No. Aunque ambas son de 21,6 V, el conector interno cambio entre V7 (SV11)
+          y V8 (SV10). Hay adaptadores de terceros pero Dyson no los recomienda.
+      - q: Que diferencia hay entre los filtros del V7 y el V6?
+        a: El V7 usa un filtro postmotor lavable con forma ligeramente distinta al
+          V6. El premotor es similar pero no identico. Comprueba siempre la referencia
+          SV11.
+      - q: Cuanto dura la bateria del V7 nueva?
+        a: Una bateria nueva da hasta 30 minutos en modo normal y 6 minutos en potencia
+          maxima. Si la tuya dura menos de 15 minutos, esta degradada.
+      - q: El cargador del V6 sirve para el V7?
+        a: Si, ambos usan el mismo cargador de 26,1 V con conector de barril. Son
+          totalmente intercambiables.
+      intro: El Dyson V7 (2017) es el modelo de entrada de la gama con motor digital
+        V7 a 107.000 RPM y bateria de 21,6 V (codigo SV11). Ofrece hasta 30 minutos
+        de autonomia y sistema de vaciado por palanca similar al V8. Disponible en
+        variantes Motorhead, Animal y Trigger (version de mano). Su filtro postmotor
+        lavable es mas compacto que el del V8.
     - model: Dyson V8
       slug: dyson-v8
       series: V-Series
@@ -12717,14 +12709,10 @@ brands:
           - board
           model_tokens: *id042
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 21,6 V (celdas tipo SV10)'
+      - 'Cargador: 26,1 V DC, conector de barril redondo'
+      - 'Filtro postmotor: cilindrico lavable, exclusivo V8'
+      - 'Rodillo cepillo: encaje V8 Motorhead/Absolute (distinto al V10)'
       problemas:
       - key: no-carga
         intent: info
@@ -12854,22 +12842,26 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: Puedo usar una bateria del V7 en mi V8?
+        a: No. Aunque ambas son de 21,6 V, el conector y la forma del cartucho cambiaron
+          entre generaciones. Solo las baterias marcadas SV10 son compatibles con
+          el V8.
+      - q: Cada cuanto debo cambiar el filtro HEPA del V8?
+        a: Dyson recomienda lavar el filtro postmotor una vez al mes con agua fria
+          y dejarlo secar 24 horas. Si notas perdida de succion incluso despues de
+          lavarlo, es hora de sustituirlo — normalmente cada 6-12 meses.
+      - q: El V8 usa el mismo cargador que el V10?
+        a: No. El V8 utiliza un cargador de 26,1 V con conector de barril. El V10
+          paso a un conector tipo dock diferente. No son intercambiables.
+      - q: Mi V8 solo dura 5 minutos con carga completa. Que hago?
+        a: Es sintoma clasico de bateria degradada. Las celdas de litio del V8 pierden
+          capacidad tras 2-3 anos de uso. Sustituir la bateria SV10 devuelve la autonomia
+          original de 40 minutos.
+      intro: El Dyson V8 fue el aspirador de mano que popularizo la serie V en 2016,
+        con motor digital V8 a 107.000 RPM, bateria de 21,6 V y hasta 40 minutos de
+        autonomia. Su filtro postmotor es lavable y su sistema de vaciado por palanca
+        lo diferencia del V10 en adelante, que usan vaciado en linea. Aqui encontraras
+        recambios compatibles verificados para las variantes Absolute, Animal y Motorhead.
     - model: Dyson V10
       slug: dyson-v10
       series: V-Series
@@ -13043,14 +13035,10 @@ brands:
           - board
           model_tokens: *id043
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 25,2 V (7 celdas, codigo SV12)'
+      - 'Cargador: 30,45 V DC, conector especifico V10'
+      - 'Filtro: HEPA unitario lavable, cilindrico grande'
+      - 'Rodillo: compatible con cabezales V10 Absolute/Animal'
       problemas:
       - key: no-carga
         intent: info
@@ -13180,22 +13168,23 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: La bateria del V10 es compatible con el V11?
+        a: No directamente. Ambas son de 25,2 V pero el V11 usa un conector click-in
+          diferente al del V10. No encajan fisicamente.
+      - q: Que filtro usa el V10 y cuando cambiarlo?
+        a: Usa un filtro HEPA unitario que combina premotory postmotor. Es lavable,
+          pero tras un ano de uso intenso conviene sustituirlo para mantener el sellado
+          HEPA.
+      - q: Puedo usar los accesorios del V8 en el V10?
+        a: Los tubos y cabezales con conector de liberacion rapida del V8 encajan
+          en el V10. Los dos usan el mismo diametro de tubo.
+      - q: Mi V10 parpadea y se apaga al usarlo. Que puede ser?
+        a: Normalmente indica bateria defectuosa o filtro obstruido. Limpia el filtro
+          primero. Si el problema persiste, la bateria SV12 necesita sustitucion.
+      intro: El Dyson V10 (2018) fue el primer modelo en linea de la serie, con motor
+        digital V10 a 125.000 RPM y bateria de 25,2 V con 7 celdas. Ofrece hasta 60
+        minutos en modo eco y tres niveles de potencia. Su sistema de vaciado point-and-shoot
+        y el filtro HEPA sellado lo diferencian del V8. Comparte codigo interno SV12.
     - model: Dyson V11
       slug: dyson-v11
       series: V-Series
@@ -13394,14 +13383,10 @@ brands:
           - v15
           model_tokens: *id044
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 25,2 V click-in (codigo SV14)'
+      - 'Cargador: 30,45 V DC, compatible con V10 y V15'
+      - 'Filtro: HEPA lavable, cilindrico, ligeramente mas largo que V10'
+      - 'Bateria: extraible sin herramientas (sistema click-in)'
       problemas:
       - key: no-carga
         intent: info
@@ -13531,22 +13516,24 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: Puedo usar una bateria del V10 en mi V11?
+        a: No. El V11 introdujo el sistema click-in que no existia en el V10. La bateria
+          SV14 tiene un conector y forma distintos al cartucho SV12 del V10.
+      - q: El filtro del V11 es igual al del V10?
+        a: Son muy parecidos pero no identicos. El V11 usa un filtro HEPA lavable
+          ligeramente mas largo. Revisa la referencia antes de comprar.
+      - q: La pantalla LCD del V11 muestra error. Que significan los codigos?
+        a: Un parpadeo continuo suele indicar bateria agotada o defectuosa. Si muestra
+          una barra fija sin cuenta atras, el filtro puede estar bloqueado. Limpia
+          el filtro y recarga completamente antes de descartar la bateria.
+      - q: El cargador del V11 sirve para el V15?
+        a: Si, ambos usan el mismo cargador con conector de dock. Tambien es compatible
+          con el V10.
+      intro: El Dyson V11 (2019) incorpora pantalla LCD en la bateria para mostrar
+        autonomia restante, motor digital V11 a 125.000 RPM y bateria click-in de
+        25,2 V (codigo SV14). Ofrece hasta 60 minutos en eco y ajuste automatico de
+        potencia segun el tipo de suelo. Es el primer modelo Dyson con bateria extraible
+        por el usuario sin herramientas.
     - model: Dyson V12 Detect Slim
       slug: dyson-v12-detect-slim
       series: V-Series
@@ -14051,14 +14038,10 @@ brands:
           - board
           model_tokens: *id046
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 25,2 V click-in (codigo SV22, 3600 mAh)'
+      - 'Cargador: 30,45 V DC, compartido con V11 y V10'
+      - 'Filtro: HEPA cinco capas lavable, forma V11'
+      - 'Cabezales: conector liberacion rapida compatible con V11'
       problemas:
       - key: no-carga
         intent: info
@@ -14188,22 +14171,25 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: La bateria del V15 es la misma que la del V11?
+        a: Ambas son click-in de 25,2 V, pero el V15 Detect usa el codigo SV22 con
+          mayor capacidad (3600 mAh frente a 3000 mAh del SV14). La SV14 encaja fisicamente
+          pero ofrece menos autonomia.
+      - q: El laser del V15 se puede sustituir?
+        a: El modulo laser esta integrado en el cabezal Slim Fluffy. Si falla, se
+          sustituye el cabezal completo, no el laser por separado.
+      - q: Que filtro lleva el V15 Detect?
+        a: Usa un filtro HEPA de cinco capas, lavable, con la misma forma que el del
+          V11 pero con mayor densidad de malla. Los filtros V11 encajan pero no ofrecen
+          el mismo nivel de filtracion.
+      - q: Puedo usar los cepillos del V11 en el V15?
+        a: Si, los cabezales con conector de liberacion rapida son compatibles entre
+          V11 y V15. El unico exclusivo es el cabezal con laser.
+      intro: El Dyson V15 Detect (2021) es el tope de gama de la serie V, con laser
+        verde integrado en el cabezal para revelar polvo microscopico y sensor piezoelectrico
+        que cuenta particulas en tiempo real. Usa motor Hyperdymium a 125.000 RPM,
+        bateria click-in de 25,2 V (codigo SV22) y filtro HEPA de cinco capas. Comparte
+        sistema de carga con V11.
     - model: Dyson Gen5detect
       slug: dyson-gen5detect
       series: Gen
@@ -17430,16 +17416,10 @@ brands:
           - board
           model_tokens: *id057
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V, 5200 mAh'
+      - 'Filtro HEPA: formato exclusivo X2 Omni, no lavable'
+      - 'Mopas: OZMO Turbo 2.0 cuadradas, exclusivas X2'
+      - 'Cepillo central: rodillo estrecho adaptado a chasis cuadrado'
       problemas:
       - key: no-aspira
         intent: info
@@ -17569,20 +17549,24 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: Las mopas del X2 Omni son iguales a las del T20 Omni?
+        a: No. El X2 Omni tiene un sistema de mopa con forma adaptada a su cuerpo
+          cuadrado. Las del T20 Omni son redondas estandar y no encajan.
+      - q: El filtro del X2 Omni se puede lavar?
+        a: No. Ecovacs recomienda sustituir el filtro HEPA cada 2-3 meses. Se vende
+          en packs de 2 unidades. No es compatible con modelos anteriores como el
+          T10 o N10.
+      - q: Las bolsas de la base del X2 Omni valen para el T20?
+        a: Depende de la version de la base. Las bases OMNI de 2023 en adelante comparten
+          formato de bolsa, pero verifica la referencia antes de comprar.
+      - q: Puedo usar el cepillo central del T20 en el X2?
+        a: No. El X2 Omni tiene un cepillo central mas estrecho adaptado a su forma
+          cuadrada. El del T20 es mas ancho y no encaja.
+      intro: El Ecovacs Deebot X2 Omni (2023) destaca por su forma cuadrada que mejora
+        la limpieza de esquinas, 8000 Pa de succion (la mayor de su generacion) y
+        base OMNI con autovaciado, lavado de mopa con agua caliente a 55 grados y
+        secado con aire caliente. Usa navegacion LiDAR + TrueDetect 3D, bateria de
+        14,4 V (5200 mAh) y doble mopa giratoria OZMO Turbo 2.0.
     - model: DEEBOT N8 Pro+
       slug: deebot-n8-pro-plus
       series: DEEBOT
@@ -23783,16 +23767,10 @@ brands:
           - board
           model_tokens: *id079
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V litio, 1800 mAh, conector 6 pines iRobot'
+      - 'Filtro HEPA: no lavable, compartido con serie i (i3, i5, i7)'
+      - 'Cepillos: extractores de goma antienredos, compatibles con i3/i5/j7'
+      - 'Bolsas Clean Base: compatibles con i3+, i7+, j7+'
       problemas:
       - key: no-aspira
         intent: info
@@ -23922,20 +23900,23 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: Los cepillos del Roomba i7 son iguales a los del i3 o i5?
+        a: Si, los extractores de goma antienredos son los mismos en i3, i5, i7 y
+          j7. Se venden en pares y son intercambiables.
+      - q: La bateria del i7 vale para el Roomba 980?
+        a: No. El Roomba 980 usa una bateria NiMH de la serie 900 con conector diferente.
+          El i7 lleva litio 14,4 V con conector de 6 pines.
+      - q: Cada cuanto cambiar las bolsas de la Clean Base del i7?
+        a: Cada bolsa dura aproximadamente 60 dias. Se venden en packs de 3. Las bolsas
+          de la Clean Base del i7 tambien sirven para el j7+ y el i3+.
+      - q: El filtro HEPA del i7 se puede lavar?
+        a: No. iRobot no recomienda lavar los filtros HEPA del i7. Se sustituyen cada
+          2-3 meses. Golpealos suavemente para quitar polvo superficial entre cambios.
+      intro: El iRobot Roomba i7 (2018) fue el primer Roomba con mapeo inteligente
+        Imprint y vaciado automatico con la base Clean Base. Monta motor de 3 etapas,
+        10x la succion de la serie 600, cepillos de goma antienredos y filtro HEPA
+        de alta eficiencia. Bateria de litio de 14,4 V (1800 mAh) con conector de
+        6 pines propietario iRobot.
     - model: Roomba j7
       slug: roomba-j7
       series: Roomba
@@ -24060,16 +24041,10 @@ brands:
           - board
           model_tokens: *id080
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V litio, conector 6 pines (compartida con i7)'
+      - 'Filtro HEPA: no lavable, compatible con serie i y j'
+      - 'Cepillos: extractores goma antienredos, mismos que i3/i5/i7'
+      - 'Bolsas Clean Base: compatibles entre i3+, i7+, j7+'
       problemas:
       - key: no-aspira
         intent: info
@@ -24199,20 +24174,23 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: Los extractores de goma del j7 son iguales a los del i7?
+        a: Si, son exactamente los mismos. Los pares de extractores de goma antienredos
+          de la serie i y j son intercambiables.
+      - q: La Clean Base del i7 funciona con el j7+?
+        a: Si, la Clean Base de autovaciado es compatible entre i7+, j7+ e incluso
+          i3+. Usan las mismas bolsas y conexion.
+      - q: El filtro del j7 es diferente al del i7?
+        a: No, usan el mismo filtro HEPA de alta eficiencia. Son intercambiables entre
+          todos los modelos de la serie i y j.
+      - q: El j7 tiene cepillo lateral de 3 o 5 aspas?
+        a: Viene con cepillo lateral de 3 aspas. Hay usuarios que montan el de 5 aspas
+          del Roomba serie 600 pero no es oficial. El encaje es el mismo.
+      intro: El iRobot Roomba j7 (2021) incorpora la camara frontal PrecisionVision
+        que detecta y esquiva obstaculos como cables y zapatos en tiempo real. Mantiene
+        los cepillos de goma antienredos, filtro HEPA, bateria de 14,4 V litio y compatibilidad
+        con la Clean Base de autovaciado. Su diseno mas compacto y bajo (altura 87
+        mm) le permite acceder bajo mas muebles que el i7.
     - model: Roomba i5
       slug: roomba-i5
       series: Roomba
@@ -24614,16 +24592,11 @@ brands:
           - board
           model_tokens: *id082
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V litio, 3300 mAh, conector exclusivo s9'
+      - 'Filtro HEPA: formato grande adaptado a forma en D, no compatible con serie
+        i/j'
+      - 'Cepillos: extractores goma anchos, exclusivos s9 (no valen los de i7/j7)'
+      - 'Cepillo lateral: 5 aspas (en vez de 3 de la serie i/j)'
       problemas:
       - key: no-aspira
         intent: info
@@ -24753,20 +24726,23 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: Los cepillos del s9 sirven para el i7?
+        a: No. Los extractores de goma del s9 son un 30% mas anchos por su forma en
+          D. No encajan en la serie i/j y viceversa.
+      - q: La Clean Base del s9 es la misma que la del i7?
+        a: La base del s9+ tiene un diseno diferente adaptado a la forma en D. Las
+          bolsas de polvo son del mismo formato, pero la base en si no es intercambiable.
+      - q: Que bateria lleva el s9?
+        a: Bateria de litio de 14,4 V con 3300 mAh, mayor capacidad que el i7 (1800
+          mAh). El conector es diferente — solo baterias marcadas para s9 son compatibles.
+      - q: El filtro HEPA del s9 es igual al del i7?
+        a: No, el filtro del s9 es mas grande y tiene forma diferente adaptada a la
+          cavidad en D. No es compatible con la serie i/j.
+      intro: El iRobot Roomba s9 (2019) es el tope de gama con forma en D para limpieza
+        de esquinas, motor de 3 etapas con 40x la succion de la serie 600 y cepillo
+        lateral con 5 aspas. Monta bateria de litio de 14,4 V (3300 mAh), filtro HEPA
+        de alta eficiencia y base de autovaciado Clean Base con bolsa de mayor capacidad.
+        Sus extractores de goma son un 30% mas anchos que los de la serie i/j.
     - model: Roomba Combo j7+
       slug: roomba-combo-j7
       series: Roomba
@@ -34123,16 +34099,11 @@ brands:
           - board
           model_tokens: *id113
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V, 5200 mAh (celdas 18650, conector JST)'
+      - 'Filtro HEPA: lavable, rectangular blanco con marco azul, compartido con S6
+        Pure'
+      - 'Cepillo central: goma dentada, compatible con S4/S5/S6'
+      - 'Cepillo lateral: 3 aspas blancas, encaje a presion, universal serie S4-S6'
       problemas:
       - key: no-aspira
         intent: info
@@ -34262,20 +34233,24 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: El filtro del S5 Max es igual al del S6 Pure?
+        a: Si, Roborock usa el mismo filtro HEPA lavable en S5 Max, S6 Pure y S6 MaxV.
+          Es el filtro blanco rectangular con marco azul.
+      - q: Puedo usar la mopa del S5 Max en el S7?
+        a: No. El S7 introdujo el sistema de fregado vibratorio VibraRise con una
+          mopa y soporte completamente distintos. No son compatibles.
+      - q: Cuanto dura la bateria del S5 Max?
+        a: Con bateria nueva limpia hasta 150 minutos en modo silencioso. Si la autonomia
+          baja de 90 minutos, conviene sustituir la bateria. Es de 14,4 V con 5200
+          mAh y conector JST.
+      - q: Los cepillos laterales del S5 Max son los mismos que los del S4?
+        a: Si, todos los modelos Roborock de la serie S4, S5 y S6 usan el mismo cepillo
+          lateral de 3 aspas con encaje a presion.
+      intro: El Roborock S5 Max (2019) es un robot aspirador y fregasuelos con navegacion
+        LiDAR, 2000 Pa de succion y deposito de agua de 290 ml con control electronico
+        de caudal. Monta bateria de 14,4 V (5200 mAh) con celdas 18650 y filtro HEPA
+        lavable tipo E11. Destaca por su gestion avanzada de zonas de fregado desde
+        la app y su fiabilidad a largo plazo.
     - model: Roborock S6 Pure
       slug: roborock-s6-pure
       series: S-Series
@@ -34726,16 +34701,10 @@ brands:
           - s8
           model_tokens: *id115
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V, 5200 mAh (conector JST, compartida con S5 Max)'
+      - 'Filtro HEPA: rectangular con marco negro, lavable'
+      - 'Cepillo central: goma en espiral, exclusivo S7/S7 MaxV'
+      - 'Mopa VibraRise: compatible con S7, S7 MaxV y S7 MaxV Ultra'
       problemas:
       - key: no-aspira
         intent: info
@@ -34865,20 +34834,23 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: El cepillo central del S7 sirve para el S5 Max?
+        a: No. El S7 estreno un rodillo de goma con diseno en espiral diferente al
+          cepillo dentado del S5 Max. No son intercambiables.
+      - q: La mopa del S7 es compatible con el S7 MaxV Ultra?
+        a: Si, la mopa VibraRise es la misma en S7, S7 MaxV y S7 MaxV Ultra. Tambien
+          sirven las mopas de microfibra y las desechables.
+      - q: Cada cuanto cambiar el filtro del S7?
+        a: Roborock recomienda cada 6-12 meses. Si lo lavas regularmente (cada 2 semanas),
+          puede durar mas. Es el filtro HEPA rectangular con marco negro.
+      - q: La base de autovaciado del S7 sirve para el S8?
+        a: No directamente. La base Auto-Empty Dock del S7 tiene un diseno distinto
+          a la RockDock Ultra del S8. Verifica compatibilidad especifica.
+      intro: El Roborock S7 (2021) revoluciono el fregado robotico con su sistema
+        VibraRise de mopa sonica a 3000 vibraciones por minuto que se eleva automaticamente
+        sobre alfombras. Monta LiDAR, 2500 Pa de succion, bateria de 14,4 V (5200
+        mAh) y nuevo cepillo central de goma en forma de espiral. Su filtro HEPA lavable
+        es compatible con el del S7 MaxV.
     - model: Roborock S7 MaxV Ultra
       slug: roborock-s7-maxv-ultra
       series: S-Series
@@ -35566,16 +35538,10 @@ brands:
           - board
           model_tokens: *id118
       compatibilidad:
-      - 'Comprueba el número de modelo completo: pequeñas variantes pueden cambiar
-        el sistema de fijación.'
-      - 'En filtros HEPA: asegúrate de que el formato (rectangular, cilíndrico) coincide
-        con tu unidad.'
-      - 'En cepillos laterales: verifica número de brazos (2 o 3) y sentido de giro
-        (L/R).'
-      - 'En mopas y almohadillas: comprueba el sistema de sujeción (velcro, clips,
-        magnético).'
-      - 'Para docks y bases: algunos modelos tienen versiones con y sin autovaciado
-        que no son compatibles entre sí.'
+      - 'Voltaje bateria: 14,4 V, 5200 mAh (compatible con toda la serie S8)'
+      - 'Filtro HEPA: formato cuadrado, exclusivo serie S8'
+      - 'Cepillo central: DuoRoller de goma, compartido entre modelos S8'
+      - 'Bolsas autovaciado: especificas RockDock Ultra serie S8'
       problemas:
       - key: no-aspira
         intent: info
@@ -35706,20 +35672,24 @@ brands:
         - Colocar el robot manualmente sobre la base y esperar 2 horas
         - Reiniciar el robot pulsando el botón de encendido 5-10 segundos
       faqs:
-      - q: ¿Con qué frecuencia debo cambiar los consumibles del robot?
-        a: 'Filtros HEPA: cada 2-3 meses. Cepillos laterales: cada 3-6 meses. Cepillo
-          principal: cada 6-12 meses. Mopas: cada 1-2 meses con uso regular.'
-      - q: ¿Cómo sé qué cepillo lateral es el correcto para mi robot?
-        a: Comprueba el número de brazos (2 o 3) y el sentido de giro. Algunos modelos
-          llevan uno de cada lado (L+R). Busca el número de referencia en la pieza
-          original.
-      - q: ¿Los kits de accesorios incluyen todo lo que necesito?
-        a: Los kits suelen incluir filtros, cepillos laterales y principal. Verifica
-          qué contiene cada kit ya que la composición varía según fabricante y modelo.
-      - q: ¿Puedo comprar piezas de mantenimiento sueltas o solo en packs?
-        a: Ambas opciones existen. Los packs suelen ser más económicos si necesitas
-          varios consumibles a la vez. Las piezas sueltas son útiles si solo falla
-          un componente concreto.
+      - q: Los cepillos DuoRoller del S8 Pro Ultra sirven para el S8+?
+        a: Si, el S8 Pro Ultra y el S8+ comparten el mismo sistema DuoRoller. Los
+          rodillos de goma son intercambiables entre todos los modelos S8.
+      - q: Puedo usar la base RockDock Ultra con el S7?
+        a: No. La RockDock Ultra esta disenada exclusivamente para la serie S8. Los
+          conectores de carga y el sistema de vaciado son diferentes.
+      - q: El filtro del S8 Pro Ultra es igual al del S7?
+        a: No. El S8 Pro Ultra usa un filtro HEPA de formato cuadrado nuevo, mas compacto
+          que el rectangular del S7. No son compatibles.
+      - q: Cuanto cuestan las bolsas de autovaciado del S8 Pro Ultra?
+        a: Las bolsas de polvo para la RockDock Ultra vienen en packs de 3-6 unidades.
+          Duran 7-8 semanas cada una. Son especificas de la serie S8 y no valen las
+          del S7.
+      intro: El Roborock S8 Pro Ultra (2023) es el tope de gama con doble cepillo
+        central de goma DuoRoller, 6000 Pa de succion y base RockDock Ultra con autovaciado,
+        autolimpieza de mopa y autorrellenado de agua. Usa LiDAR + camara RGB, bateria
+        de 14,4 V (5200 mAh) y sistema VibraRise 2.0 con elevacion de 5 mm. Su filtro
+        HEPA es el nuevo formato cuadrado.
     - model: Roborock Q7 Max
       slug: roborock-q7-max
       series: Q-Series
@@ -38802,14 +38772,10 @@ brands:
           - board
           model_tokens: *id129
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 22 V, extraible, referencia RS-2230001828'
+      - 'Filtro HEPA: no lavable, especifico X-Force 11.60'
+      - 'Prefiltro: espuma lavable, encaje por presion'
+      - 'Tubo flexible: articulacion 180 grados, exclusivo 11.60'
       problemas:
       - key: no-carga
         intent: info
@@ -38939,22 +38905,23 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: La bateria del X-Force 11.60 sirve para el 8.60?
+        a: No. El 11.60 usa una bateria de 22 V con conector diferente al del 8.60
+          (que lleva 18 V). No son compatibles entre si.
+      - q: Que filtros lleva el X-Force 11.60?
+        a: Lleva un prefiltro de espuma lavable y un filtro HEPA no lavable. Rowenta
+          recomienda lavar la espuma mensualmente y cambiar el HEPA cada 6 meses.
+      - q: Los accesorios del X-Force 11.60 sirven en el 14.60?
+        a: Algunos como las boquillas y el tubo son compatibles, pero el cabezal motorizado
+          del 14.60 es diferente. Verifica siempre la referencia RS antes de comprar.
+      - q: El tubo flexible del 11.60 se puede sustituir si se rompe?
+        a: Si, el tubo con articulacion Flex se vende como recambio. Es especifico
+          del 11.60 — los tubos del 8.60 y 14.60 tienen diametros distintos.
+      intro: El Rowenta X-Force Flex 11.60 es un aspirador escoba sin cable con tubo
+        flexible a 180 grados que permite llegar bajo muebles sin agacharse. Monta
+        motor Flex Force de 185 AW, bateria extraible de 22 V (referencia RS-2230001828)
+        y filtro de espuma + HEPA. Ofrece hasta 45 minutos de autonomia en modo eco
+        y cabezal con luz LED. Es la alternativa europea a los Dyson V8-V10.
     - model: Rowenta X-Force Flex 12.60
       slug: rowenta-xforce-1260
       series: X-Force
@@ -44731,14 +44698,10 @@ brands:
           - board
           model_tokens: *id147
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 21,6 V, 2500 mAh, conector propietario Tineco'
+      - 'Filtro HEPA: cilindrico no lavable, especifico Floor One S5'
+      - 'Rodillo: microfibra, compartido con S5 Pro'
+      - 'Deposito de agua: 800 ml con junta, exclusivo S5'
       problemas:
       - key: no-carga
         intent: info
@@ -44868,22 +44831,24 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: El rodillo del S5 sirve para el S5 Pro?
+        a: Si, el Floor One S5 y el S5 Pro comparten el mismo rodillo de microfibra.
+          Tambien son compatibles los rodillos blandos para suelos delicados.
+      - q: Cada cuanto cambiar el filtro HEPA del S5?
+        a: Tineco recomienda cada 3-6 meses segun uso. El filtro es cilindrico y no
+          lavable. Se coloca en la parte superior del deposito de suciedad.
+      - q: Puedo usar el S5 solo para aspirar sin agua?
+        a: Si, pero no es su funcion principal. Sin agua, el rodillo recoge polvo
+          seco pero se desgasta mas rapido. Para aspirado puro en seco hay opciones
+          mejores.
+      - q: La bateria del Floor One S5 es compatible con la del S3?
+        a: No. El S5 usa 21,6 V con un conector y formato diferente al S3 (tambien
+          21,6 V pero menor capacidad y distinto encaje). No son intercambiables.
+      intro: El Tineco Floor One S5 (2022) es un aspirador de suelos humedos y secos
+        3-en-1 con sistema iLoop de ajuste automatico de succion segun la suciedad
+        detectada. Monta motor sin escobillas, bateria de 21,6 V (2500 mAh), rodillo
+        de microfibra y deposito de agua limpia de 800 ml. Su sistema de autolimpieza
+        del rodillo con centrifugado reduce el mantenimiento diario.
     - model: Tineco Pure One X
       slug: tineco-pure-one-x
       series: Pure One
@@ -47558,14 +47523,10 @@ brands:
           - board
           model_tokens: *id156
       compatibilidad:
-      - Confirma el modelo exacto (variante Animal, Absolute, etc.) antes de comprar
-        cualquier recambio.
-      - 'En baterías: verifica voltaje nominal, capacidad (Ah) y tipo de conector
-        (click-in vs. tornillos).'
-      - 'En filtros: comprueba si es HEPA lavable o cartucho seco y las medidas exactas.'
-      - 'En rodillos: elige entre soft roller (suelos duros) o multisuperficie (mixto)
-        según tu caso.'
-      - Compara fotos reales del recambio con tu pieza original antes de comprar.
+      - 'Voltaje bateria: 25,2 V, 2500 mAh (7 celdas, conector especifico G10)'
+      - 'Cargador: adaptador DC especifico G10, no compatible con G9/G11'
+      - 'Filtro HEPA: cilindrico lavable, exclusivo G10'
+      - 'Rodillo cepillo: motorizado con cerdas, encaje especifico G10'
       problemas:
       - key: no-carga
         intent: info
@@ -47695,22 +47656,24 @@ brands:
         - Verificar que el cargador está conectado a la corriente y la luz está encendida
         - Comprobar que el rodillo gira libre y no hay obstrucciones
       faqs:
-      - q: ¿Cómo compruebo si este recambio es compatible con mi aspirador?
-        a: Revisa el modelo exacto, la serie y, si hay variantes (Animal, Absolute,
-          Pro...), confirma cuál tienes. Compara encajes, conectores y medidas con
-          la pieza original.
-      - q: ¿Los recambios compatibles son igual de buenos que los originales?
-        a: Depende del fabricante. Muchos compatibles de calidad ofrecen rendimiento
-          similar a menor precio, pero revisa valoraciones y que indiquen compatibilidad
-          explícita con tu modelo.
-      - q: ¿Con qué frecuencia debo cambiar el filtro?
-        a: Lo habitual es cada 3-6 meses con uso normal, o antes si notas pérdida
-          de succión. Los filtros lavables se limpian mensualmente y se sustituyen
-          anualmente.
-      - q: ¿Puedo usar una batería de mayor capacidad que la original?
-        a: Solo si el voltaje es idéntico y el formato físico encaja. Una batería
-          de mayor Ah dará más autonomía sin dañar el motor, pero verifica siempre
-          la compatibilidad de voltaje.
+      - q: La bateria del G10 es compatible con el G9?
+        a: No. El G10 usa una bateria de 25,2 V (7 celdas) mientras que el G9 lleva
+          25,2 V pero con diferente conector y capacidad. Verifica la referencia exacta.
+      - q: Que filtro usa el Xiaomi G10?
+        a: Usa un filtro HEPA cilindrico lavable con malla exterior. Es especifico
+          del G10 y no compatible con el G9 ni el Dreame V11.
+      - q: El cargador del G10 sirve para el G11?
+        a: No directamente. Aunque ambos son de 25,2 V, el G11 cambio el diseno del
+          conector de carga. Usa solo el cargador especifico de cada modelo.
+      - q: El rodillo del G10 se puede limpiar o hay que cambiarlo?
+        a: El cepillo motorizado de cerdas se puede limpiar cortando los pelos enredados.
+          Pero cuando las cerdas estan desgastadas o el rodillo vibra, es hora de
+          sustituirlo — normalmente cada 6-12 meses.
+      intro: El Xiaomi Mi Vacuum Cleaner G10 (2021) es un aspirador de mano sin cable
+        con motor de 150.000 RPM, 150 AW de succion y bateria de 25,2 V (2500 mAh,
+        7 celdas). Incluye pantalla TFT a color que muestra modo de potencia y nivel
+        de bateria, y un sistema de filtrado ciclonico de 5 etapas con filtro HEPA
+        lavable. Ofrece hasta 65 minutos en modo eco.
     - model: Xiaomi Vacuum Cleaner G11
       slug: xiaomi-g11
       series: Vacuum Cleaner

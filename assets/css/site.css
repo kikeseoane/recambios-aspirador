@@ -2114,40 +2114,48 @@ body.search-open {
 
 .offer-action {
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .offer-action .btn-buy {
   width: 100%;
-  min-height: 44px;
+  min-height: 48px;
   justify-content: center;
   font-size: 15px;
   box-shadow: 0 8px 18px rgba(var(--primary-rgb), .22);
 }
 
-.offer-action__note {
-  min-height: 18px;
+.offer-action__fallback {
+  font-size: 12px;
 }
 
-.offer-image {
-  position: relative;
-  text-align: center;
-  margin-bottom: 4px;
-}
-.offer-image img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
+/* offer-hero: image + pricing side by side */
+.offer-hero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
   background: #fff;
-  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
-.offer-image .buy-new-badge {
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
+.offer-hero__img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
+.offer-hero__pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* trust line variants */
+.offer-trust--high .offer-trust__text { color: #166534; }
+.offer-trust--ok .offer-trust__text { color: #92400e; }
+.offer-trust--warn .offer-trust__text { color: #991b1b; }
 
 .offer-price {
   display: flex;

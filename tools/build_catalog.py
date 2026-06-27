@@ -553,6 +553,15 @@ def compile_catalog(vertical: str = "aspiradores") -> dict:
                 if compiled_faqs:
                     m_out["faqs"] = compiled_faqs
 
+            # Merge model_overrides fields: intro, faqs, compatibilidad
+            mo_all = model_overrides.get(model_slug) if isinstance(model_overrides.get(model_slug), dict) else {}
+            if mo_all.get("intro"):
+                m_out["intro"] = nrm(str(mo_all["intro"]))
+            if mo_all.get("faqs") and isinstance(mo_all["faqs"], list):
+                m_out["faqs"] = mo_all["faqs"]
+            if mo_all.get("compatibilidad") and isinstance(mo_all["compatibilidad"], list):
+                m_out["compatibilidad"] = mo_all["compatibilidad"]
+
             compiled_models.append(m_out)
 
         b_out["models"] = compiled_models

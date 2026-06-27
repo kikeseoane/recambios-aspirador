@@ -375,51 +375,8 @@
           </section>
         {{ end }}
 
-        <div class="model-anchor-bar">
-          <a class="chip active" href="#compatibilidad">Compatibilidad</a>
-          <a class="chip" href="#recambios-destacados">Recambios</a>
-          {{ if $hasProblemas }}<a class="chip" href="#problemas-frecuentes">Problemas</a>{{ end }}
-          <a class="chip" href="#antes-de-comprar">Antes de comprar</a>
-        </div>
-
-        <div class="support-guard">
-        {{ partial "compatibility_guard.html" (dict
-          "title" (printf "Compatibilidad segura para %s" $mtitle)
-          "intro" "Este bloque resume las comprobaciones que mas ayudan a validar serie, variante, encaje o voltaje antes de abrir una oferta."
-          "badge" "Compatibilidad"
-          "checks" (slice
-            "Confirma el nombre exacto del modelo y su variante"
-            "Revisa serie, ano o revision si aparecen en la ficha"
-            "Compara encaje, conector o formato de la pieza"
-          )
-        ) }}
-        </div>
-
         <div class="two-col mt-12">
           <div class="panel panel--commerce">
-            <div id="compatibilidad"></div>
-            <h2 style="margin-top:0;">Compatibilidad rapida</h2>
-            <p class="muted small">
-              Antes de comprar un recambio para {{ $mtitle }}, revisa la variante exacta del modelo,
-              el tipo de encaje y, en baterias o cargadores, el voltaje y el conector.
-            </p>
-
-            {{ $compat := index $model "compatibilidad" }}
-            {{ if $compat }}
-              {{ if reflect.IsSlice $compat }}
-                <ul class="list">
-                  {{ range $compat }}<li>{{ . }}</li>{{ end }}
-                </ul>
-              {{ else }}
-                <p class="muted">{{ $compat }}</p>
-              {{ end }}
-            {{ else }}
-              <p class="muted">Consejo: confirma variante exacta (Animal/Absolute/etc.) y compara encajes en el anuncio.</p>
-            {{ end }}
-
-            <hr>
-
-            <div id="recambios-destacados"></div>
             <h2 style="margin-top:0;">Recambios destacados</h2>
             {{ $cats := $db.globals.categorias_recambios }}
             {{ $rec := index $model "recambios" }}
@@ -450,11 +407,6 @@
                               <span class="product-flag">Salida directa</span>
                             </div>
                             <div class="title">{{ index $it "title" }}</div>
-                            <div class="product-kpis">
-                              <span>Precio y opciones</span>
-                              <span>Oferta externa</span>
-                            </div>
-
                             {{ with (index $it "note") }}
                               <div class="note muted product-note">{{ . }}</div>
                             {{ end }}
@@ -502,111 +454,30 @@
               <hr>
             {{ end }}
 
-            {{ $probs2 := index $model "problemas" }}
-            {{ $hasRichProbs := false }}
-            {{ if and $probs2 (reflect.IsSlice $probs2) }}
-              {{ range $probs2 }}
-                {{ if or (index . "symptoms") (index . "checks") (index . "causes") }}
-                  {{ $hasRichProbs = true }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-
-            {{ if and $probs2 (reflect.IsSlice $probs2) (gt (len $probs2) 0) }}
-              <h2 style="margin-top:0;">Fallos comunes y checks</h2>
-              {{ if $hasRichProbs }}
-                <div class="grid cols-2 mt-14">
-                  {{ range $probs2 }}
-                    {{ $pkey := (index . "key") | urlize }}
-                    {{ $ptitle := index . "title" | default $pkey }}
-                    <div class="panel panel--support panel--compact">
-                      <div class="badge warn mb-8">Problema frecuente</div>
-                      <h3 class="title-compact">{{ $ptitle }}</h3>
-
-                      {{ $sym := index . "symptoms" }}
-                      {{ if and $sym (reflect.IsSlice $sym) (gt (len $sym) 0) }}
-                        <div class="kicker">Sintomas</div>
-                        <ul class="list small list-compact">
-                          {{ range $sym }}<li>{{ . }}</li>{{ end }}
-                        </ul>
-                      {{ end }}
-
-                      {{ $chk := index . "checks" }}
-                      {{ if and $chk (reflect.IsSlice $chk) (gt (len $chk) 0) }}
-                        <div class="kicker">Comprobaciones</div>
-                        <ul class="list small list-compact">
-                          {{ range first 3 $chk }}<li>{{ . }}</li>{{ end }}
-                        </ul>
-                      {{ end }}
-
-                      {{ if $pkey }}
-                        <a class="section-link section-link--inline mt-8" href="{{ printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $pkey | relURL }}">Ver diagnostico</a>
-                      {{ end }}
-                    </div>
-                  {{ end }}
-                </div>
-              {{ else }}
-                <div class="chips mt-12">
-                  {{ range $probs2 }}
-                    {{ $pkey := (index . "key") | urlize }}
-                    {{ $ptitle := index . "title" | default $pkey }}
-                    <a class="section-link" href="{{ printf "%s/%s/%s/problemas/%s/" $marcBase ($brandKey | urlize) $modelSlug $pkey | relURL }}">{{ $ptitle }}</a>
-                  {{ end }}
-                </div>
-              {{ end }}
-            {{ end }}
           </div>
 
           <aside class="panel panel--support">
-            <div class="sidebar-flow">
-              <div class="kicker">Ruta recomendada</div>
-              <h2 style="margin-top:0;">Orden de revision</h2>
-              <div class="sidebar-flow__steps">
-                <div class="sidebar-flow__step"><strong>1.</strong><span>Confirma modelo, serie y variante.</span></div>
-                <div class="sidebar-flow__step"><strong>2.</strong><span>Revisa la categoria y el encaje.</span></div>
-                <div class="sidebar-flow__step"><strong>3.</strong><span>Si falla, pasa por problemas y checks.</span></div>
-              </div>
-            </div>
-
-            <hr>
-
-            <div id="antes-de-comprar"></div>
-            <h2 style="margin-top:0;">Antes de comprar</h2>
-            <p class="muted small">Checklist rapida para evitar incompatibilidades.</p>
-
-            <div class="checklist-card">
-              <div class="kicker">Verificacion express</div>
+            {{ $compat := index $model "compatibilidad" }}
+            {{ if and $compat (reflect.IsSlice $compat) (gt (len $compat) 0) }}
+              <h2 style="margin-top:0;">Compatibilidad {{ $mtitle }}</h2>
               <ul class="list small">
-                <li>Modelo exacto y variante de serie.</li>
-                <li>Conector, encaje o tipo de base.</li>
-                <li>Voltaje y capacidad si compras bateria o cargador.</li>
+                {{ range $compat }}<li>{{ . }}</li>{{ end }}
               </ul>
-            </div>
-
-            <div class="sidebar-block">
-              <div class="kicker">Atajos</div>
-              <div class="chips">
-                <a class="chip" href="{{ (print $marcBase "/") | relURL }}">Mas marcas</a>
-                <a class="chip" href="{{ (printf "%s/%s/" $marcBase ($brandKey | urlize)) | relURL }}">Mas modelos {{ $brand.name }}</a>
-                <a class="chip" href="{{ (print $modBase "/") | relURL }}">Todos los modelos</a>
-              </div>
-            </div>
+              <hr>
+            {{ end }}
 
             {{ $faqs := index $model "faqs" }}
             {{ if and $faqs (reflect.IsSlice $faqs) (gt (len $faqs) 0) }}
-              <hr>
-              <div class="kicker">Preguntas frecuentes</div>
+              <h2 style="margin-top:0;">Preguntas frecuentes</h2>
               {{ range $faqs }}
                 <details class="details-card mt-10">
                   <summary class="summary-strong">{{ index . "q" }}</summary>
                   <p class="muted small mt-8">{{ index . "a" }}</p>
                 </details>
               {{ end }}
+              <hr>
             {{ end }}
 
-            <hr>
-
-            <div class="kicker">Transparencia</div>
             <p class="muted small">Algunos enlaces pueden ser de afiliacion. Precio y disponibilidad dependen del vendedor.</p>
           </aside>
         </div>

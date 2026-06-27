@@ -65,41 +65,29 @@
   ) }}
 
   {{ $catIntro1 := printf "Encuentra %s compatibles para %s con una seleccion pensada para mantenimiento, sustitucion y reparacion habitual." ($catLabel | lower) $mtitle }}
-  {{ $catIntro2 := "Antes de comprar, revisa el modelo exacto, la serie, el encaje y las especificaciones clave del recambio." }}
 
   {{ if eq $catKey "filtro" }}
     {{ $catIntro1 = printf "Encuentra filtros compatibles para %s y elige la opcion adecuada para mantener la potencia de aspiracion y el filtrado." $mtitle }}
-    {{ $catIntro2 = "Comprueba forma, medidas, anclajes y si se trata de filtro HEPA, prefiltro o filtro trasero." }}
   {{ else if eq $catKey "bateria" }}
     {{ $catIntro1 = printf "Encuentra baterias compatibles para %s y revisa las opciones mas habituales de sustitucion cuando la autonomia baja o el equipo deja de funcionar correctamente." $mtitle }}
-    {{ $catIntro2 = "Verifica voltaje, capacidad, tipo de conector y compatibilidad exacta con la serie de tu aspirador." }}
   {{ else if eq $catKey "cargador" }}
     {{ $catIntro1 = printf "Encuentra cargadores compatibles para %s y compara opciones de reemplazo cuando el aspirador no carga o el adaptador original falla." $mtitle }}
-    {{ $catIntro2 = "Comprueba voltaje de salida, amperaje, conector y compatibilidad con tu version exacta." }}
   {{ else if eq $catKey "cepillo" }}
     {{ $catIntro1 = printf "Encuentra cepillos compatibles para %s, tanto principales como motorizados, para recuperar el rendimiento sobre suelos y alfombras." $mtitle }}
-    {{ $catIntro2 = "Revisa forma, sistema de acople, medidas del rodillo y compatibilidad con el cabezal de tu modelo." }}
   {{ else if eq $catKey "soporte" }}
     {{ $catIntro1 = printf "Encuentra soportes compatibles para %s y revisa opciones de montaje o almacenamiento para tener el aspirador siempre listo." $mtitle }}
-    {{ $catIntro2 = "Comprueba puntos de anclaje, forma del soporte y compatibilidad con accesorios o cargadores." }}
   {{ else if eq $catKey "accesorios" }}
     {{ $catIntro1 = printf "Encuentra accesorios compatibles para %s, incluyendo boquillas, herramientas auxiliares y piezas de uso frecuente." $mtitle }}
-    {{ $catIntro2 = "Revisa el tipo de acople y si el accesorio esta pensado para tu serie o para varias variantes del mismo modelo." }}
   {{ else if eq $catKey "laminas" }}
-    {{ $catIntro1 = printf "Encuentra laminas de corte compatibles para %s y mantén el rendimiento de afeitado o corte en optimas condiciones." $mtitle }}
-    {{ $catIntro2 = "Comprueba la forma, el sistema de fijacion y si la lamina es especifica para tu serie o es universal entre varios modelos." }}
+    {{ $catIntro1 = printf "Encuentra laminas de corte compatibles para %s y manten el rendimiento de afeitado o corte en optimas condiciones." $mtitle }}
   {{ else if eq $catKey "cabezal" }}
     {{ $catIntro1 = printf "Encuentra cabezales compatibles para %s y recupera la capacidad de limpieza original del equipo." $mtitle }}
-    {{ $catIntro2 = "Verifica el sistema de acople al tubo o al cuerpo, las medidas del cabezal y si admite los mismos cepillos que el original." }}
   {{ else if eq $catKey "junta" }}
     {{ $catIntro1 = printf "Encuentra juntas y sellos compatibles para %s para evitar perdidas de aspiracion o filtraciones de polvo." $mtitle }}
-    {{ $catIntro2 = "Comprueba las medidas exactas, el material y la posicion de la junta dentro del circuito de aire del equipo." }}
   {{ else if eq $catKey "deposito" }}
     {{ $catIntro1 = printf "Encuentra depositos y cubetas compatibles para %s y sustituye la pieza danada sin perder la capacidad original." $mtitle }}
-    {{ $catIntro2 = "Verifica el volumen, la forma del acople y el sistema de vaciado o extraccion especifico de tu modelo." }}
   {{ else if eq $catKey "cesta" }}
-    {{ $catIntro1 = printf "Encuentra cestas y filtros de ciclón compatibles para %s y mantén la capacidad de recogida del equipo." $mtitle }}
-    {{ $catIntro2 = "Comprueba el diametro, la altura y el sistema de encaje de la cesta con el cuerpo del aspirador." }}
+    {{ $catIntro1 = printf "Encuentra cestas y filtros de ciclon compatibles para %s y manten la capacidad de recogida del equipo." $mtitle }}
   {{ end }}
 
   {{ $rec := index $model "recambios" }}
@@ -124,7 +112,7 @@
     {{ return }}
   {{ end }}
 
-  {{/* Separar items con URL real de los que aún no tienen enlace */}}
+  {{/* Separar items con URL real de los que aun no tienen enlace */}}
   {{ $offersData := (site.Data.ofertas).offers | default dict }}
   {{ $itemsConUrl := slice }}
   {{ $itemsSinUrl := slice }}
@@ -150,10 +138,8 @@
 
   <div class="hero hero--bg hero--compact hero--editorial hero--photo-right mt-10">
     <div class="hero__inner">
-      <div class="hero__kicker">Recambios · {{ len $items }} opciones</div>
       <h1>{{ $catLabel }} compatibles para {{ $mtitle }}</h1>
       <p class="muted hero__copy">{{ $catIntro1 }}</p>
-
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}"><- Volver al modelo</a>
       </div>
@@ -163,232 +149,9 @@
     </div>
   </div>
 
-  <div class="model-anchor-bar">
-    <a class="chip active" href="#opciones-populares">Ver opciones</a>
-    <a class="chip" href="#recambios-disponibles">Todos los recambios</a>
-    <a class="chip" href="#checklist-compra">Checklist</a>
-  </div>
-
-  {{/* ---- Checks especificos por categoria ---- */}}
-  {{ $check1Title := "Confirma variante y serie" }}
-  {{ $check1Body  := "No compres solo por nombre comercial. Prioriza submodelo, revision y foto real del encaje antes de abrir ninguna oferta." }}
-  {{ $check2Title := "Verifica medidas o conector" }}
-  {{ $check2Body  := "La categoria correcta no garantiza compatibilidad total. Valida voltaje, amperaje, diametro o tipo de conector segun la pieza." }}
-  {{ $check3Title := "Compara fotos del anclaje" }}
-  {{ $check3Body  := "Si falta una referencia exacta, compara fotos del anclaje real con el anuncio antes de confirmar la compra." }}
-  {{ $decisionFit := printf "El anuncio cita %s o una variante clara, y coincide en encaje, conector o medidas." $mtitle }}
-  {{ $decisionAvoid := "Evita anuncios universales o genéricos que solo mencionan la marca sin detallar serie o pieza." }}
-  {{ $decisionConfirm := "Antes de abrir una oferta, confirma submodelo, serie y una señal técnica real de la pieza." }}
-
-  {{ if eq $catKey "filtro" }}
-    {{ $check1Title = "Tipo de filtro: HEPA, prefiltro o trasero" }}
-    {{ $check1Body  = "Los filtros no son intercambiables entre tipos. Confirma si necesitas filtro HEPA, prefiltro de espuma o filtro de salida de aire antes de buscar." }}
-    {{ $check2Title = "Forma, medidas y puntos de anclaje" }}
-    {{ $check2Body  = "Muchos filtros son similares en aspecto pero distintos en medidas o sistema de encaje. Compara dimensiones exactas y pestanas de fijacion." }}
-    {{ $check3Title = "Frecuencia de cambio recomendada" }}
-    {{ $check3Body  = "Un filtro HEPA deteriorado reduce la succion aunque parezca limpio. Cambialo cada 6-12 meses segun el uso." }}
-    {{ $decisionFit = "Te sirve si el filtro coincide en tipo, forma y puntos de anclaje con el original." }}
-    {{ $decisionAvoid = "No lo compres si solo pone HEPA compatible y no muestra medidas o carcasa equivalente." }}
-    {{ $decisionConfirm = "Confirma si buscas prefiltro, HEPA o filtro trasero antes de comparar precios." }}
-  {{ else if eq $catKey "bateria" }}
-    {{ $check1Title = "Voltaje y capacidad exactos" }}
-    {{ $check1Body  = "El voltaje debe coincidir exactamente con el original. Un voltaje incorrecto puede danar el aspirador o no funcionar. Revisa la etiqueta de la bateria actual." }}
-    {{ $check2Title = "Tipo de conector y polaridad" }}
-    {{ $check2Body  = "El conector debe encajar fisicamente y con la polaridad correcta. Una bateria identica en voltaje puede no conectar si el conector es distinto." }}
-    {{ $check3Title = "Capacidad en mAh: mayor no siempre es compatible" }}
-    {{ $check3Body  = "Una mayor capacidad puede alargar la autonomia, pero algunos aspiradores tienen limitaciones fisicas o electricas. Confirma con la documentacion del modelo." }}
-    {{ $decisionFit = "Te sirve si coincide en voltaje, conector y formato fisico de la bateria original." }}
-    {{ $decisionAvoid = "No la compres si solo promete mas autonomia y no detalla conector o serie exacta." }}
-    {{ $decisionConfirm = "Confirma primero voltaje, capacidad y referencia visible en la bateria actual." }}
-  {{ else if eq $catKey "cargador" }}
-    {{ $check1Title = "Voltaje de salida y amperaje" }}
-    {{ $check1Body  = "Un cargador con voltaje o amperaje incorrecto puede danar la bateria o no cargar el aspirador. Revisa siempre los datos del cargador original." }}
-    {{ $check2Title = "Tipo y forma del conector" }}
-    {{ $check2Body  = "El conector del cargador debe encajar fisicamente en el puerto del aspirador. Compara fotos del conector antes de comprar." }}
-    {{ $check3Title = "Compatibilidad con la version exacta del modelo" }}
-    {{ $check3Body  = "Algunos modelos tienen varias revisiones con conectores distintos. Confirma que el cargador cita explicitamente tu version o serie." }}
-    {{ $decisionFit = "Te sirve si el cargador coincide en salida, conector y polaridad con el original." }}
-    {{ $decisionAvoid = "No lo compres si el anuncio omite voltaje de salida o enseña un conector distinto." }}
-    {{ $decisionConfirm = "Confirma datos de la etiqueta del cargador original antes de abrir ofertas." }}
-  {{ else if eq $catKey "cepillo" }}
-    {{ $check1Title = "Cepillo principal o cepillo motorizado" }}
-    {{ $check1Body  = "Son piezas distintas con funciones diferentes. El cepillo motorizado requiere conexion electrica al cabezal. Confirma que tipo de cepillo tiene tu modelo." }}
-    {{ $check2Title = "Medidas del rodillo y sistema de acople" }}
-    {{ $check2Body  = "Las medidas del rodillo y el sistema de fijacion al cabezal deben coincidir exactamente. Un cepillo de longitud incorrecta no encajara." }}
-    {{ $check3Title = "Compatibilidad con alfombra vs suelo duro" }}
-    {{ $check3Body  = "Algunos cepillos son especificos para suelo duro, otros para alfombra o multisuelo. Elige segun el uso principal del aspirador." }}
-    {{ $decisionFit = "Te sirve si coincide en acople, tipo de cabezal y longitud del rodillo o cepillo." }}
-    {{ $decisionAvoid = "No lo compres si el anuncio mezcla muchos modelos sin foto clara del anclaje." }}
-    {{ $decisionConfirm = "Confirma si buscas cepillo principal, motorizado, lateral o solo el rodillo." }}
-  {{ else if eq $catKey "soporte" }}
-    {{ $check1Title = "Puntos de anclaje y tipo de montaje" }}
-    {{ $check1Body  = "El soporte debe coincidir con los puntos de anclaje del aspirador y el tipo de montaje (pared, base, vertical). Confirma que cita tu modelo exacto." }}
-    {{ $check2Title = "Compatibilidad con el cargador incluido" }}
-    {{ $check2Body  = "Algunos soportes integran cargador y otros solo son de almacenamiento. Comprueba si necesitas carga integrada o solo almacenaje." }}
-    {{ $check3Title = "Material y carga maxima" }}
-    {{ $check3Body  = "Verifica que el soporte aguanta el peso del aspirador con todos sus accesorios. Los soportes de pared baratos pueden ceder con el tiempo." }}
-    {{ $decisionFit = "Te sirve si coincide en puntos de anclaje y deja claro si integra o no el cargador." }}
-    {{ $decisionAvoid = "No lo compres si parece un soporte universal sin foto del encaje trasero." }}
-    {{ $decisionConfirm = "Confirma pared o base, tornilleria y compatibilidad con accesorios colgantes." }}
-  {{ else if eq $catKey "accesorios" }}
-    {{ $check1Title = "Tipo de acople: sistema propio o universal" }}
-    {{ $check1Body  = "Muchos accesorios usan acoplamientos propietarios que solo encajan con modelos de la misma marca o serie. Un accesorio universal puede no encajar correctamente." }}
-    {{ $check2Title = "Diametro del tubo y tipo de conexion" }}
-    {{ $check2Body  = "El diametro de conexion al tubo o directamente al cuerpo del aspirador debe coincidir. Compara fotos del punto de union antes de comprar." }}
-    {{ $check3Title = "Variante del modelo: mismo nombre, distintos conectores" }}
-    {{ $check3Body  = "Algunos modelos tienen versiones con conectores distintos segun el mercado o el ano. Confirma que el accesorio cita tu variante exacta." }}
-    {{ $decisionFit = "Te sirve si el accesorio describe el mismo sistema de acople y el uso exacto que buscas." }}
-    {{ $decisionAvoid = "No lo compres si es un kit generico con muchas referencias y sin detalle del conector." }}
-    {{ $decisionConfirm = "Confirma diametro, boquilla y si tu serie usa enganche propio o adaptador." }}
-  {{ else if eq $catKey "laminas" }}
-    {{ $check1Title = "Forma y serie de la lamina" }}
-    {{ $check1Body  = "Las laminas tienen formas muy especificas para cada cabezal. Una lamina de aspecto similar puede no encajar o dañar el mecanismo interno. Confirma la referencia exacta." }}
-    {{ $check2Title = "Cambio de lamina junto al cuchillo" }}
-    {{ $check2Body  = "Lo habitual es cambiar lamina y cuchillo juntos. Comprar solo la lamina cuando el cuchillo esta desgastado puede reducir el rendimiento del corte." }}
-    {{ $check3Title = "Original o compatible: diferencias de calidad" }}
-    {{ $check3Body  = "Las laminas compatibles pueden ser mas economicas pero variar en durabilidad y suavidad de corte. Elige marcas con buena valoracion si no optas por el original." }}
-    {{ $decisionFit = "Te sirve si la lamina coincide en forma, fijacion y serie exacta del cabezal." }}
-    {{ $decisionAvoid = "No la compres si el anuncio solo agrupa varias series sin foto clara del marco o rejilla." }}
-    {{ $decisionConfirm = "Confirma referencia del cabezal y valora cambiar cuchilla y lamina juntas." }}
-  {{ else if eq $catKey "cabezal" }}
-    {{ $check1Title = "Sistema de acople y angulo de giro" }}
-    {{ $check1Body  = "El cabezal debe encajar con el tubo o cuerpo del aspirador. Algunos modelos usan acoplamientos de giro o articulados que son exclusivos de la marca." }}
-    {{ $check2Title = "Medidas del cabezal y anchura de trabajo" }}
-    {{ $check2Body  = "Un cabezal mas ancho puede parecer mejor pero no encajar en todos los espacios. Comprueba la anchura, la altura libre y el sistema de ruedas." }}
-    {{ $check3Title = "Compatibilidad con los cepillos originales" }}
-    {{ $check3Body  = "Si cambias el cabezal, confirma que admite los mismos cepillos intercambiables que usas habitualmente con tu modelo." }}
-    {{ $decisionFit = "Te sirve si coincide en acople, ancho y tipo de cabezal que monta tu equipo." }}
-    {{ $decisionAvoid = "No lo compres si el encaje parece parecido pero el anuncio no cita tu serie exacta." }}
-    {{ $decisionConfirm = "Confirma anchura, giro, ruedas y si admite los mismos cepillos o accesorios." }}
-  {{ else if eq $catKey "junta" }}
-    {{ $check1Title = "Medidas exactas: diametro interior y exterior" }}
-    {{ $check1Body  = "Una junta de medidas incorrectas no sellara correctamente aunque parezca similar. Mide el diametro interior y exterior del asiento original antes de comprar." }}
-    {{ $check2Title = "Material: goma, silicona o espuma" }}
-    {{ $check2Body  = "El material afecta la durabilidad y el sellado. Sustituye con el mismo tipo de material que el original o uno equivalente certificado para la temperatura y la presion del equipo." }}
-    {{ $check3Title = "Posicion de la junta en el circuito de aire" }}
-    {{ $check3Body  = "Algunas juntas sellan el deposito, otras el filtro o la union del tubo. Identifica la posicion exacta antes de buscar el recambio para no comprar la pieza equivocada." }}
-    {{ $decisionFit = "Te sirve si coincide en diametro, grosor y posicion exacta de la junta original." }}
-    {{ $decisionAvoid = "No la compres si el anuncio no detalla medidas o material del sello." }}
-    {{ $decisionConfirm = "Confirma interior, exterior y grosor antes de abrir la oferta." }}
-  {{ else if eq $catKey "deposito" }}
-    {{ $check1Title = "Volumen y forma del deposito" }}
-    {{ $check1Body  = "El deposito debe tener el mismo volumen y forma que el original para encajar en el cuerpo del equipo. Un deposito mas grande puede no entrar fisicamente." }}
-    {{ $check2Title = "Sistema de vaciado y cierre" }}
-    {{ $check2Body  = "Algunos depositos tienen cierre de bayoneta, otros de presion o de clip. Confirma que el sistema de vaciado coincide con el de tu modelo." }}
-    {{ $check3Title = "Juntas y filtros incluidos o por separado" }}
-    {{ $check3Body  = "Algunos depositos incluyen junta de sellado o prefiltro. Comprueba si el recambio los incluye o si tienes que adquirirlos por separado." }}
-    {{ $decisionFit = "Te sirve si coincide en volumen, forma del cuerpo y sistema de vaciado del deposito." }}
-    {{ $decisionAvoid = "No lo compres si la foto no deja claro el encaje o el cierre respecto al original." }}
-    {{ $decisionConfirm = "Confirma si incluye tapa, junta o filtro o si van por separado." }}
-  {{ else if eq $catKey "cesta" }}
-    {{ $check1Title = "Diametro y altura de la cesta" }}
-    {{ $check1Body  = "La cesta debe ajustarse exactamente a la camara de ciclón del aspirador. Comprueba diametro externo, altura y forma del borde de encaje." }}
-    {{ $check2Title = "Sistema de extraccion y vaciado" }}
-    {{ $check2Body  = "Algunas cestas se extraen hacia abajo, otras hacia arriba o lateralmente. Confirma el sistema de extraccion especifico de tu modelo antes de comprar." }}
-    {{ $check3Title = "Material y permeabilidad" }}
-    {{ $check3Body  = "La malla de la cesta debe tener la densidad adecuada para retener particulas sin reducir la succion. Evita cestas con malla demasiado fina o demasiado gruesa para tu equipo." }}
-    {{ $decisionFit = "Te sirve si coincide en diametro, altura y borde de encaje de la cesta original." }}
-    {{ $decisionAvoid = "No la compres si el anuncio no muestra la malla o el sistema de extraccion." }}
-    {{ $decisionConfirm = "Confirma medidas reales y si corresponde a cesta, cubeta o filtro ciclónico." }}
-  {{ end }}
-
-  <section class="decision-strip mt-10" aria-label="Decision rapida de compatibilidad">
-    <article class="decision-card decision-card--fit">
-      <div class="decision-card__eyebrow">Te sirve si...</div>
-      <p>{{ $decisionFit }}</p>
-    </article>
-    <article class="decision-card decision-card--avoid">
-      <div class="decision-card__eyebrow">No lo compres si...</div>
-      <p>{{ $decisionAvoid }}</p>
-    </article>
-    <article class="decision-card decision-card--confirm">
-      <div class="decision-card__eyebrow">Confirma antes...</div>
-      <p>{{ $decisionConfirm }}</p>
-    </article>
-  </section>
-
-  <section class="recambio-proof mt-10">
-    <div class="recambio-proof__head">
-      <div>
-        <span class="badge blue">Decision rapida</span>
-        <h2>Compra con menos error para {{ $catLabel | lower }} de {{ $mtitle }}</h2>
-      </div>
-      <a class="chip" href="#checklist-compra">Ir al checklist completo</a>
-    </div>
-    <div class="recambio-proof__grid">
-      <article class="recambio-proof__item">
-        <strong>{{ $directCount }}</strong>
-        <span>opciones con acceso directo para comparar ahora</span>
-      </article>
-      <article class="recambio-proof__item">
-        <strong>{{ len $items }}</strong>
-        <span>referencias revisadas dentro de esta categoria</span>
-      </article>
-      <article class="recambio-proof__item">
-        <strong>{{ $pendingCount }}</strong>
-        <span>{{ if gt $pendingCount 0 }}opciones siguen en preparacion o sin enlace fiable{{ else }}sin pendientes ahora mismo{{ end }}</span>
-      </article>
-    </div>
-  </section>
-
-  <div id="opciones-populares" class="panel panel--commerce mt-10">
-    <h2 class="title-reset">Opciones populares</h2>
-    <div class="products mt-10">
-      {{ $shown := 0 }}
-      {{ range $idx, $it := $itemsConUrl }}
-        {{ if lt $shown 3 }}
-          <div class="product{{ if eq $shown 0 }} product--featured{{ end }}">
-            <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
-            <div class="body">
-              <div class="product-meta">
-                {{ if eq $shown 0 }}
-                  <span class="badge badge--best">Mas compatible</span>
-                {{ else }}
-                  <span class="badge blue">Opcion {{ add $shown 1 }}</span>
-                {{ end }}
-              </div>
-              <div class="title">{{ index $it "title" }}</div>
-
-              {{/* Chips de especificacion tecnica extraidos de los campos del SKU */}}
-              {{ $specs := slice }}
-              {{ with (index $it "voltage") }}{{ $specs = $specs | append (printf "%sV" .) }}{{ end }}
-              {{ with (index $it "capacity") }}{{ $specs = $specs | append (printf "%s mAh" .) }}{{ end }}
-              {{ with (index $it "connector") }}{{ $specs = $specs | append . }}{{ end }}
-              {{ with (index $it "filter_type") }}{{ $specs = $specs | append . }}{{ end }}
-              {{ with (index $it "brush_type") }}{{ $specs = $specs | append . }}{{ end }}
-              {{ with (index $it "spec") }}{{ $specs = $specs | append . }}{{ end }}
-              {{ if gt (len $specs) 0 }}
-                <div class="sku-specs">
-                  {{ range $specs }}<span class="sku-spec-chip">{{ . }}</span>{{ end }}
-                </div>
-              {{ end }}
-
-              {{ with (index $it "note") }}
-                <div class="note muted product-note">{{ . }}</div>
-              {{ end }}
-              <div class="cta">
-                {{ $sku := index $it "sku" }}
-                {{ partial "offer_btn.html" (dict
-                  "sku" $sku
-                  "catKey" $catKey
-                  "modelName" $mtitle
-                  "class" "btn-buy"
-                  "modelNewSku" (printf "%s-%s-nuevo" $brandKey $modelSlug)
-                  "verticalKey" $verticalKey
-                ) }}
-              </div>
-            </div>
-          </div>
-          {{ $shown = add $shown 1 }}
-        {{ end }}
-      {{ end }}
-    </div>
-  </div>
-
   <div class="two-col mt-12">
     <div class="panel panel--commerce">
-      <div id="recambios-disponibles"></div>
-      <h2>Recambios disponibles</h2>
+      <h2>{{ $catLabel }} disponibles <span class="muted">({{ len $items }})</span></h2>
       <div class="products">
         {{ range $idx, $it := $itemsOrdenados }}
           {{ $o := index $offersData (index $it "sku") | default dict }}
@@ -431,7 +194,6 @@
                   "catKey" $catKey
                   "modelName" $mtitle
                   "class" "btn-buy"
-                  "hideTrust" true
                   "modelNewSku" (printf "%s-%s-nuevo" $brandKey $modelSlug)
                   "verticalKey" $verticalKey
                 ) }}
@@ -444,37 +206,18 @@
 
     <aside class="panel panel--support panel--compact">
       <div class="sidebar-flow">
-        <div class="kicker">Revision final</div>
-        <h2 style="margin-top:0;">Antes de abrir una oferta</h2>
+        <h2 style="margin-top:0;">Antes de comprar</h2>
         <div class="sidebar-flow__steps">
-          <div class="sidebar-flow__step"><strong>1.</strong><span>Confirma modelo, serie y variante.</span></div>
-          <div class="sidebar-flow__step"><strong>2.</strong><span>Revisa medidas, encaje o conector.</span></div>
-          <div class="sidebar-flow__step"><strong>3.</strong><span>Si dudas, revisa problemas relacionados antes de salir.</span></div>
+          <div class="sidebar-flow__step"><strong>1.</strong><span>Confirma modelo, serie y variante exacta.</span></div>
+          <div class="sidebar-flow__step"><strong>2.</strong><span>Revisa medidas, encaje o conector en las fotos del anuncio.</span></div>
+          <div class="sidebar-flow__step"><strong>3.</strong><span>Evita anuncios genericos que no citan tu modelo.</span></div>
         </div>
       </div>
 
-      <hr>
-
-      <h2 style="margin-top:0;">Antes de salir a comprar</h2>
-      <div class="checklist-card">
-        <div class="kicker">Decision rapida</div>
-        <ul class="list small">
-          <li>Confirma si el fallo real apunta a esta pieza.</li>
-          <li>Revisa fotos del anclaje y del conector.</li>
-          <li>Evita anuncios que no citan tu modelo o serie.</li>
-        </ul>
-      </div>
-
-      <hr>
-
-      <h3 style="margin-top:0;">Si esta pieza no encaja</h3>
-      <p class="muted">
-        Si tu problema es "no funciona", "no carga", "pierde potencia" o "hace ruido", puede que el recambio correcto no sea exactamente este.
-        Revisa los sintomas y entra en el problema que mejor encaje con tu caso.
-      </p>
-
       {{ $plist := index $model "problemas" }}
       {{ if and $plist (reflect.IsSlice $plist) (gt (len $plist) 0) }}
+        <hr>
+        <h3 style="margin-top:0;">Problemas relacionados</h3>
         <div class="support-links mt-8">
           {{ $pshown := 0 }}
           {{ range $p := $plist }}
@@ -488,43 +231,13 @@
             {{ end }}
           {{ end }}
         </div>
-        <hr>
       {{ end }}
 
-      <p class="muted small mt-12">
+      <hr>
+      <p class="muted small">
         Algunos enlaces pueden ser de afiliacion. El precio y la disponibilidad dependen del vendedor y del modelo exacto.
       </p>
     </aside>
-  </div>
-
-  <div id="checklist-compra" class="antes-de-comprar mt-14">
-    <div class="antes-de-comprar__header">
-      <span class="badge badge--best">Antes de comprar</span>
-      <h2 class="antes-de-comprar__title">3 checks clave para {{ $catLabel | lower }} compatibles con {{ $mtitle }}</h2>
-    </div>
-    <div class="antes-de-comprar__grid">
-      <article class="antes-de-comprar__item">
-        <div class="antes-de-comprar__num">1</div>
-        <div class="antes-de-comprar__body">
-          <h3>{{ $check1Title }}</h3>
-          <p class="muted">{{ $check1Body }}</p>
-        </div>
-      </article>
-      <article class="antes-de-comprar__item">
-        <div class="antes-de-comprar__num">2</div>
-        <div class="antes-de-comprar__body">
-          <h3>{{ $check2Title }}</h3>
-          <p class="muted">{{ $check2Body }}</p>
-        </div>
-      </article>
-      <article class="antes-de-comprar__item">
-        <div class="antes-de-comprar__num">3</div>
-        <div class="antes-de-comprar__body">
-          <h3>{{ $check3Title }}</h3>
-          <p class="muted">{{ $check3Body }}</p>
-        </div>
-      </article>
-    </div>
   </div>
 
   {{ partial "compatibility_guard.html" (dict

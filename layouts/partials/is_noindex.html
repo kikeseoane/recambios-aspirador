@@ -25,6 +25,13 @@
         indexacion en /guias/ y evitar clusters duplicados por vertical. */ -}}
   {{- $noindex = true -}}
 
+{{- else if eq .Layout "problema" -}}
+  {{- /* Paginas individuales de problema: noindex si es generada (template repetida).
+         Solo indexamos problemas editados a mano (generated != true). */ -}}
+  {{- if .Params.generated -}}
+    {{- $noindex = true -}}
+  {{- end -}}
+
 {{- else if eq .Layout "problemas" -}}
   {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
   {{- $db := index site.Data $verticalKey -}}
@@ -59,11 +66,12 @@
 {{- else if eq .Layout "recambio" -}}
   {{- $verticalKey := .Params.vertical | default "aspiradores" -}}
   {{- $db := index site.Data $verticalKey -}}
+  {{- $offers := ((site.Data.ofertas).offers) | default dict -}}
   {{- $brandKey := .Params.brandKey | default "" -}}
   {{- $modelSlug := (or .Params.modelSlug .Params.slug "") | urlize -}}
   {{- $catKey := .Params.catKey | default "" | urlize -}}
   {{- $catItemCount := 0 -}}
-  {{- $describedItemCount := 0 -}}
+  {{- $realOfferCount := 0 -}}
   {{- $relatedProblemCount := 0 -}}
   {{- if and $db $db.brands $brandKey -}}
     {{- $brand := index $db.brands $brandKey -}}
@@ -77,8 +85,11 @@
             {{- if and $catItems (reflect.IsSlice $catItems) -}}
               {{- range $catItems -}}
                 {{- $catItemCount = add $catItemCount 1 -}}
-                {{- if or (index . "title") (index . "note") (index . "spec") (index . "voltage") (index . "connector") (index . "filter_type") (index . "brush_type") -}}
-                  {{- $describedItemCount = add $describedItemCount 1 -}}
+                {{- $sku := (index . "sku") | default "" -}}
+                {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
+                {{- $status := (index $offer "compatibility_status") | default "" -}}
+                {{- if or (eq $status "compatible_alto") (eq $status "compatible_probable") -}}
+                  {{- $realOfferCount = add $realOfferCount 1 -}}
                 {{- end -}}
               {{- end -}}
             {{- end -}}
@@ -95,9 +106,10 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
-  {{- if and (lt $catItemCount 1) (lt $relatedProblemCount 1) -}}
+  {{- /* noindex if no items, or no real offers (compatible_alto/probable) */ -}}
+  {{- if lt $catItemCount 1 -}}
     {{- $noindex = true -}}
-  {{- else if and (lt $describedItemCount 1) (lt $relatedProblemCount 1) -}}
+  {{- else if and (lt $realOfferCount 1) (lt $relatedProblemCount 1) -}}
     {{- $noindex = true -}}
   {{- end -}}
 
