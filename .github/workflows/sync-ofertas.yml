@@ -103,6 +103,10 @@ jobs:
             echo "SYNC_OUTPUT_EOF"
           } >> $GITHUB_OUTPUT
 
+      - name: Limpiar huerfanos antiguos (>60 dias)
+        run: |
+          python tools/clean_orphans.py --days 60 || true
+
       - name: Commit y push si hay cambios generados
         id: commit
         run: |
