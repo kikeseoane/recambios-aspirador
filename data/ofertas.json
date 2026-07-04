@@ -43961,6 +43961,7 @@
       "last_attempted_at": "2026-07-04",
       "ai_rejected_candidate_fingerprints": [
         "025e6423450e6755",
+        "0490af1af86fa5cb",
         "082c95570ff2a9a3",
         "098d281da8dbbe53",
         "0c51fa5cbda63e1b",
@@ -44010,6 +44011,7 @@
         "be2477a837c2bb1e",
         "bf6aca89d1732825",
         "c11ef4986ea0c8a5",
+        "c446c8183d284878",
         "c56d196e2f6131b1",
         "cf27e85afcc73c82",
         "d2a66b37c43f9a51",
@@ -44027,7 +44029,7 @@
         "f8691b10fc3c3634",
         "fae62e6b80335a11"
       ],
-      "ai_validation_reason": "The candidate title mentions 'Crevice Tool' which is not a battery. The requested spare part is a battery.",
+      "ai_validation_reason": "The requested part is a battery for a Kärcher WD 4. Candidate 1 and 2 are for a crevice tool, not a battery. Therefore, none of the candidates match the requested part.",
       "ai_validation_model": "gemini-2.5-flash-lite",
       "ai_validation_at": "2026-07-04",
       "ai_validation_candidate_fingerprint": "",
@@ -68007,7 +68009,7 @@
   },
   "ai_validation_budget": {
     "date": "2026-07-04",
-    "used": 9,
+    "used": 10,
     "limit": 450
   }
 }
