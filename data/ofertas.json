@@ -565,7 +565,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "bosch-bosch-unlimited-serie-7-cepillo-brush-soft-fluffy": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -3461,7 +3461,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "bosch-bosch-unlimited-serie-8-soporte-dock-wall": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -4024,7 +4024,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "836d81fa6b49c22a"
       ]
@@ -5457,7 +5457,7 @@
         "697edfc66df44836"
       ],
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "cecotec-rockstar-1500-filtro-filt-pre-pack2": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -6434,7 +6434,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "7c9a913c284353f8"
@@ -12296,7 +12296,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "philips-philips-speedpro-max-accesorios-acc-kit-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -12367,7 +12367,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "philips-philips-speedpro-max-bateria-bat-high": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -15111,7 +15111,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "7f80062310b5b662"
       ]
@@ -15258,7 +15258,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "1718260dded35635",
         "2b129a5a95448f21",
@@ -15735,7 +15735,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "fe3aa9ed90d2cf00"
       ]
@@ -16009,13 +16009,13 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "",
+      "match_type": "fallback_buy_new",
       "fallback_search_query": "samsung jet75 charger",
       "fallback_search_label": "Buscar cargador para Samsung Jet 75",
       "updated_at": "0000-00-00",
       "needs_url": true,
-      "compatibility_status": "pending_ai_validation",
-      "compatibility_note": "Pendiente de validacion final por IA",
+      "compatibility_status": "fallback_buy_new",
+      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "debug_last_query": "samsung jet75 charger",
       "debug_model_tokens": [
         "jet 75",
@@ -16052,7 +16052,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "ai_rejected_all_candidates",
       "last_attempted_at": "2026-07-13",
-      "ai_validation_status": "pending",
+      "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "02f6a71cf257d799",
         "0b7d387634d075f5",
@@ -16075,6 +16075,7 @@
         "69e5c2f6bb999664",
         "6a61193ce156ca04",
         "6c5ee87259b574ce",
+        "7816b3e03ab5b22c",
         "85d2786d8094039f",
         "86b0581d37e15155",
         "8cf0b8d969e00b65",
@@ -16098,23 +16099,12 @@
         "fa824d17d8337aac",
         "febe0c77952d0d8e"
       ],
-      "ai_validation_reason": "ai_server_error_503",
+      "ai_validation_reason": "The candidate title mentions 'Filtro de vacío HEPA' (HEPA vacuum filter), which is a different product type than the requested 'cargador' (charger). The candidate also includes 'DJ97-02649A' which is a filter part number, not a charger part number.",
       "ai_pending_reason": "ai_server_error_503",
       "ai_pending_attempts": 2,
       "ai_validation_model": "gemini-2.5-flash-lite",
       "ai_validation_at": "2026-07-13",
-      "ai_validation_candidate_fingerprint": "7816b3e03ab5b22c",
-      "ai_pending_candidate": {
-        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4EAlfp7HzJuioLRAthIdsTODOlletQFnzpEXbAGi0LEjbCj2SvPwLrqLrTZ2HT6dsN2uwaDaHiiJ4hoLjXtgAVoS7SQrfINISYtryDzrbXGuzueBntwYe92tGMdu0aSf9CjrLKmHKNHKBJYxqUqCdNWE5L81gY3h4Y7g3PMFYYlbnVDCSnTQQaA9BTkEABJUtuCedsMcc8isvi2ECiuaKOVo6WER8OM4nr2GXzfKpZUjo4sH0FW0CcLuXUlQ65iw4adAcc9muAoyQVBIecOWHSFRqoot86ZNdnHO9KxsO8994MJeZJKZDGcNXiDP8Samw5W05vcnh8IPtT3RficMqGIO7xwtPvH3OcJ5uZ6srRJKvWPre5IPIV03vUUvwDSr9VrLMLKxPjXNu84FiLqYJzmbVaSvW8vKWJJHPLlntbhopyycFxW3TFp5SwXSIIer6DMcAK5P4hEBNHNNOm2ZHqx23GdhtnRGajmJMr5CxPmYtaBvfWH6Gs05Elv4C0dvGP8el1NqTCYkbNwAvXhb7PfnXNRfN0bZWBYo9h6NrjPlJCtzoqRPpOvsnD39UWf3oOae09iIRl0imdcpBfIL93lwvaiC2c64ciUYW8K6tE1hJhlJHYV7jS7dKJLiHL4MtGlzSKyXcJylZTZ1F7qmAcAhntdUz4kX99Hh7M4RCbEs7Km9YVin8p6eZrrTSAZc5Vgnqg6gNaNPIt",
-        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S583855c93fb0440091c56fafe078291fi.jpg",
-        "sale_price": "28.60",
-        "sale_price_currency": "CNY",
-        "original_price": "58.34",
-        "discount": "50%",
-        "product_title": "Filtro de vacío HEPA para Samsung Jet 60/70/75/75+/90 – Pieza de repuesto Accesorios DJ97-02649A, compatible con aspiradoras Jet Series",
-        "matched_query": "samsung jet75 charger",
-        "candidate_tier": "wide"
-      }
+      "ai_validation_candidate_fingerprint": ""
     },
     "samsung-samsung-jet-75-cepillo-brush-roller-main": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -16327,7 +16317,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "32b27979e2c74336"
@@ -17066,7 +17056,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "b8ebd0800e266b2a"
       ]
@@ -19152,7 +19142,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "97799e598ad08956"
       ]
@@ -19323,7 +19313,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "bissell-bissell-iconpet-bateria-bat-std": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -19573,7 +19563,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "4185d9fd63926e2e",
         "76d5cc2db5a117a7",
@@ -23424,7 +23414,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "1ece91db42637572"
       ]
@@ -23480,7 +23470,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "4590c3b3140b7cac"
       ]
@@ -23515,7 +23505,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "1af5cb91b159c69e",
         "36f3e95fd0e89691",
@@ -24033,7 +24023,7 @@
       "updated_at": "0000-00-00",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "19a6763f644e45dc",
         "270f41bd0c288f19",
@@ -24639,7 +24629,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "lg-lg-cordzero-kompressor-bateria-bat-std": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -24759,7 +24749,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "lg-lg-cordzero-kompressor-cepillo-brush-roller-main": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -25786,7 +25776,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "b2a7d335a7222eaf"
       ]
@@ -26401,7 +26391,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "philips-philips-speedpro-aqua-soporte-dock-wall": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -26656,7 +26646,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "1288382815830e2c"
@@ -27530,7 +27520,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "d23dd879107aa1bb"
       ]
@@ -27894,7 +27884,7 @@
       "ai_validation_model": "gemini-2.5-flash-lite",
       "ai_validation_at": "2026-05-14",
       "ai_validation_candidate_fingerprint": "",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "35ac6af22a9cfa29"
       ]
@@ -29016,7 +29006,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "46100c5a940e0d9a"
       ]
@@ -30827,7 +30817,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "819ac022d1de8a5e"
       ]
@@ -31742,7 +31732,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "bosch-bosch-proanimal-soporte-dock-wall": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -34753,7 +34743,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "53bc4d414767b3ff",
         "d163f75e3cb0a4ae"
@@ -36714,7 +36704,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "112dbae9aef2aee9",
         "30e080dbfb1ae9cf",
@@ -40327,7 +40317,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "b5cf4f8c9e231164"
       ]
@@ -41439,7 +41429,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "53659232c2a921bb",
         "9a49b15272fe9f2c"
@@ -43606,7 +43596,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "karcher-karcher-wd5-bateria-bat-std": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -44561,7 +44551,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "c46f8dbf57e8f8ab"
       ]
@@ -44662,7 +44652,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "philips-philips-powercyclone-7-accesorios-acc-pet": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -44740,7 +44730,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "philips-philips-powercyclone-7-bateria-bat-std": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -45908,7 +45898,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "f3064886945e2ab0"
@@ -48129,7 +48119,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "52ea7b2d7ab1fa6e"
       ]
@@ -48393,7 +48383,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "1a4c427bb048dfcb",
         "6b052a5522d3a988"
@@ -48577,7 +48567,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "3936273c29c62899",
         "a7317270ef5570ff"
@@ -49848,7 +49838,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "tefal-tefal-air-force-flex-560-bateria-bat-std": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -51224,7 +51214,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "d2bc0ac3850ebda4"
@@ -51587,7 +51577,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "6e43a88fcf65ec67"
       ]
@@ -51930,7 +51920,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "c4d2527c210a71c4"
@@ -52041,7 +52031,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-07-12",
+      "last_attempted_at": "2026-07-13",
       "ai_rejected_candidate_fingerprints": [
         "8ba12919ec299548"
       ]
@@ -53526,7 +53516,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "xiaomi-xiaomi-g20-lite-filtro-filt-pre-pack2": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -55282,7 +55272,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "cecotec-conga-2290-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -55765,7 +55755,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "cecotec-conga-8090-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -56599,7 +56589,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "dreame-dreame-t20-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -57317,7 +57307,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "dyson-dyson-v10-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -60749,7 +60739,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "karcher-karcher-wd5-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -61721,7 +61711,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "proscenic-proscenic-m8-pro-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -63350,7 +63340,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "shark-shark-iz300-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -63910,7 +63900,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-07-12"
+      "last_attempted_at": "2026-07-13"
     },
     "tineco-tineco-ifloor3-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -65207,7 +65197,7 @@
   },
   "ai_validation_budget": {
     "date": "2026-07-13",
-    "used": 3,
+    "used": 4,
     "limit": 450
   }
 }
