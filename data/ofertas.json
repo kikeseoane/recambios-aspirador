@@ -16006,6 +16006,7 @@
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "0042ea23893797c7",
+        "0292f99a22994da0",
         "02f6a71cf257d799",
         "0633a0f0065826b8",
         "07efadeb2727b3bc",
@@ -16018,6 +16019,7 @@
         "12df128082702842",
         "1434026f6b4fa791",
         "143f56a08f8a033d",
+        "162a7b658cea1ba5",
         "173dcf33d2de0a35",
         "17b9105ffb8fccb3",
         "1885961398de23bb",
@@ -16074,6 +16076,7 @@
         "45942e753fdcb5ce",
         "464f92b00f5cf56a",
         "4698c9a795328d39",
+        "46d6df6c6eea9f6e",
         "4816c78233380235",
         "491e5c42ccaee241",
         "49242171b8d4341e",
@@ -16081,6 +16084,7 @@
         "49b7a576a7cd1316",
         "4bc1e9feb585096b",
         "4d4cdc20354d2034",
+        "4de938843ae5b1ff",
         "4f90875cb4447ddd",
         "4fa6d67136e8e3a2",
         "50c6914d31040aa9",
@@ -16127,6 +16131,7 @@
         "7e7d68ca89c80997",
         "839ba890a56747c2",
         "840d87cf3481f303",
+        "854ebc9ea4726fd8",
         "85d2786d8094039f",
         "85d6a0b81d06e825",
         "86b0581d37e15155",
@@ -16166,6 +16171,7 @@
         "abc0e52fa27180ce",
         "ad01ae070aae288b",
         "ad82b69a1e7976ac",
+        "af92ddc9524ab705",
         "afa4f168ae5cd2bb",
         "b023aa1fba064ab2",
         "b112efd98235e1e3",
@@ -16188,6 +16194,7 @@
         "cc0aa3d72d5f5a8d",
         "cc92bfbb9234b6ef",
         "ce3a8cce4e92c317",
+        "cf30be75034f6ba9",
         "d00bdfa388c0cd5f",
         "d07a6b12492bbfd1",
         "d3ef3084237faf6d",
@@ -16227,6 +16234,7 @@
         "f41942a24b6438e7",
         "f5a8d77bb9a0a576",
         "f685369fa33246b1",
+        "f6f37331489f16c0",
         "f703c373f6ab3dc4",
         "f7457c3072671181",
         "fa824d17d8337aac",
@@ -16237,7 +16245,7 @@
         "fd5eb41c1a6df0d6",
         "febe0c77952d0d8e"
       ],
-      "ai_validation_reason": "None of the candidates are for a charger. All candidates are for filters.",
+      "ai_validation_reason": "The requested item is a charger, but all candidate items are filters or filter-related accessories. None of the candidates match the requested part type.",
       "ai_pending_reason": "ai_server_error_503",
       "ai_pending_attempts": 1,
       "ai_validation_model": "gemini-2.5-flash-lite",
@@ -63662,7 +63670,7 @@
   },
   "ai_validation_budget": {
     "date": "2026-08-08",
-    "used": 7,
+    "used": 8,
     "limit": 450
   }
 }
