@@ -42,7 +42,9 @@
   {{- $needsURL := (index $offer "needs_url") | default false -}}
   {{- $salePrice := (index $offer "sale_price") | default "" -}}
   {{- $currency := upper (string ((index $offer "sale_price_currency") | default "EUR")) -}}
-  {{- if and $offerURL (not $needsURL) $salePrice (eq $currency "EUR") -}}
+  {{- /* Emitimos Offer solo para monedas con sentido para la audiencia (EUR/USD).
+         Se excluye CNY/otras para no mostrar precios raros en el SERP. */ -}}
+  {{- if and $offerURL (not $needsURL) $salePrice (or (eq $currency "EUR") (eq $currency "USD")) -}}
     {{- $eligibleItems = $eligibleItems | append (dict "item" $it "offer" $offer) -}}
   {{- end -}}
 {{- end -}}
@@ -71,6 +73,7 @@
         {{- $salePrice := index $offer "sale_price" -}}
         {{- $imageURL := (index $offer "image_url") | default "" -}}
         {{- $productName := (index $it "title") | default (printf "%s para %s" $catLabel $modelName) -}}
+        {{- $curr := upper (string ((index $offer "sale_price_currency") | default "EUR")) -}}
       {
         "@type":"ListItem",
         "position":{{ add $i 1 }},
@@ -90,7 +93,7 @@
             "url":{{ $offerURL | jsonify | safeJS }},
             "availability":"https://schema.org/InStock",
             "price":{{ $salePrice | jsonify | safeJS }},
-            "priceCurrency":"EUR"
+            "priceCurrency":{{ $curr | jsonify | safeJS }}
           }
         }
       }
