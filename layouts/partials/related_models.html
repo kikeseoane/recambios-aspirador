@@ -1,0 +1,83 @@
+{{/* layouts/partials/related_models.html
+Enlaza modelos hermanos de la misma marca (misma serie primero) para
+concentrar autoridad interna en el cluster de modelos que ya rankean.
+
+Input dict:
+  "db"          vertical db object
+  "brandKey"    .Params.brandKey
+  "modelSlug"   .Params.modelSlug
+  "verticalKey" opcional (default "aspiradores")
+  "catKey"      opcional: si el hermano tiene items en esa categoria, enlaza
+                a /marcas/<brand>/<hermano>/<catKey>/ en vez de al hub
+  "limit"       opcional (default 6)
+  "wrap"        opcional (default true)
+*/}}
+
+{{ $db := .db }}
+{{ $brandKey := .brandKey }}
+{{ $modelSlug := (.modelSlug | default "" | urlize) }}
+{{ $verticalKey := .verticalKey | default "aspiradores" }}
+{{ $catKey := (.catKey | default "" | urlize) }}
+{{ $limit := .limit | default 6 }}
+{{ $wrap := (.wrap | default true) }}
+
+{{ if not (and $db $brandKey $modelSlug) }}{{ return }}{{ end }}
+{{ $brand := index $db.brands $brandKey }}
+{{ if not $brand }}{{ return }}{{ end }}
+
+{{ $vurls := partial "vertical_urls.html" $verticalKey }}
+{{ $marcBase := $vurls.marcBase }}
+
+{{/* Modelo actual y su serie */}}
+{{ $current := dict }}
+{{ range $m := ($brand.models | default (slice)) }}
+  {{ $ms := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+  {{ if eq $ms $modelSlug }}{{ $current = $m }}{{ end }}
+{{ end }}
+{{ if not (len $current) }}{{ return }}{{ end }}
+{{ $series := (index $current "series") | default "" }}
+
+{{/* Hermanos: misma serie primero, resto de la marca despues */}}
+{{ $sameSeries := slice }}
+{{ $others := slice }}
+{{ range $m := ($brand.models | default (slice)) }}
+  {{ $ms := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+  {{ if ne $ms $modelSlug }}
+    {{ if and $series (eq ((index $m "series") | default "") $series) }}
+      {{ $sameSeries = $sameSeries | append $m }}
+    {{ else }}
+      {{ $others = $others | append $m }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $related := $sameSeries | append $others }}
+{{ if lt (len $related) 1 }}{{ return }}{{ end }}
+{{ $related = first $limit $related }}
+
+{{ $brandName := $brand.name | default $brandKey }}
+{{ if $wrap }}<div class="panel panel--crosslinks" style="margin-top:18px;">{{ end }}
+  <div class="crosslink-head">
+    <div>
+      <div class="kicker">Modelos relacionados</div>
+      <h2 style="margin:8px 0 6px;">Otros modelos {{ $brandName }} y sus recambios</h2>
+      <p class="muted small">Compara piezas compatibles entre modelos de la misma gama antes de comprar.</p>
+    </div>
+  </div>
+  <div class="chips" style="margin-top:10px;">
+    {{ range $m := $related }}
+      {{ $ms := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
+      {{ $mt := partial "model_title.html" (dict "brandName" $brandName "modelName" (index $m "model")) }}
+      {{ $url := printf "%s%s/%s/" $marcBase ($brandKey | urlize) $ms }}
+      {{ if $catKey }}
+        {{ $rec := index $m "recambios" }}
+        {{ if and $rec (reflect.IsMap $rec) }}
+          {{ $items := index $rec $catKey }}
+          {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+            {{ $url = printf "%s%s/%s/%s/" $marcBase ($brandKey | urlize) $ms $catKey }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      <a class="chip" href="{{ $url | relURL }}">{{ $mt }}</a>
+    {{ end }}
+  </div>
+{{ if $wrap }}</div>{{ end }}

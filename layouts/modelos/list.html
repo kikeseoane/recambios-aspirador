@@ -490,6 +490,14 @@
           "wrap" true
         ) }}
 
+        {{ partial "related_models.html" (dict
+          "db" $db
+          "brandKey" .Params.brandKey
+          "modelSlug" .Params.modelSlug
+          "verticalKey" $verticalKey
+          "wrap" true
+        ) }}
+
       {{ end }}
     {{ end }}
   {{ end }}

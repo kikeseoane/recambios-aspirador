@@ -260,4 +260,13 @@
     "wrap" true
   ) }}
 
+  {{ partial "related_models.html" (dict
+    "db" $db
+    "brandKey" .Params.brandKey
+    "modelSlug" .Params.modelSlug
+    "catKey" .Params.catKey
+    "verticalKey" (.Params.vertical | default "aspiradores")
+    "wrap" true
+  ) }}
+
 {{ end }}
