@@ -32,6 +32,9 @@
   {{- if eq .Layout "problema" -}}
     {{- $problemTitle = .Title -}}
   {{- end -}}
+  {{- /* Nombre de modelo limpio: .Title de categoria viene como "Modelo · Categoria";
+         nos quedamos con la parte del modelo para no duplicar la categoria en title/desc. */ -}}
+  {{- $modelDisplay := index (split .Title " · ") 0 -}}
 
   {{- if .IsHome -}}
     {{- $seoTitle = .Site.Title -}}
@@ -40,7 +43,7 @@
     {{- $seoTitle = printf "%s | causas, checks y recambio" $problemTitle -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
-    {{- $seoTitle = printf "%s %s — precio y compatibilidad (%d)" $catLabel .Title now.Year -}}
+    {{- $seoTitle = printf "%s %s — precio y compatibilidad (%d)" $catLabel $modelDisplay now.Year -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
     {{- $seoTitle = printf "Recambios %s — bateria, filtro y piezas (%d)" .Title now.Year -}}
@@ -69,7 +72,7 @@
     {{- $desc = printf "Diagnostica %s con sintomas, causas probables, comprobaciones y el recambio que suele resolver el fallo sin comprar a ciegas." $problemTitle -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
-    {{- $desc = printf "Compara %s compatibles para %s con precio, foto y enlace directo. Revisa voltaje, encaje y especificaciones antes de comprar." ($catLabel | lower) .Title -}}
+    {{- $desc = printf "Compara %s compatibles para %s con precio, foto y enlace directo. Revisa voltaje, encaje y especificaciones antes de comprar." ($catLabel | lower) $modelDisplay -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
     {{- $desc = printf "Recambios compatibles para %s: bateria, filtro, cepillo y accesorios con precio y enlace directo. Compara opciones y compra seguro." .Title -}}

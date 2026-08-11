@@ -166,14 +166,38 @@
       </a>
       <small class="muted offer-action__fallback">Sin recambio fiable — te sugerimos producto nuevo</small>
     </div>
-  {{ else if $searchURL }}
-    <div class="offer-action">
-      <a class="{{ $class }}" href="{{ $searchURL }}" rel="nofollow sponsored noopener" target="_blank">
-        {{ $searchLabel | default (printf "Buscar %s en AliExpress" ($catKey | default "recambio")) }}
-      </a>
-    </div>
   {{ else }}
-    <span class="badge">En preparacion</span>
+    {{/* Build a search URL from context when no specific search query exists */}}
+    {{ $catEN := dict
+      "filtro" "filter"
+      "bateria" "battery"
+      "cargador" "charger"
+      "cepillo" "brush roller"
+      "soporte" "wall mount holder"
+      "accesorios" "accessories"
+      "laminas" "foil"
+      "cabezal" "replacement head"
+      "junta" "gasket seal"
+      "deposito" "water tank"
+      "cesta" "dust bin"
+      "bolsa" "dust bag"
+      "correa" "drive belt"
+      "bomba" "drain pump"
+      "resistencia" "heating element"
+      "rodamiento" "bearing"
+      "escobillas" "carbon brush"
+      "rueda" "wheel tire"
+      "freno" "brake pad"
+    }}
+    {{ $catTerm := index $catEN $catKey | default $catKey }}
+    {{ $fallbackQ := printf "%s %s replacement" ($modelName | default "") $catTerm }}
+    {{ $fallbackSearchURL := printf "https://www.aliexpress.com/wholesale?SearchText=%s" ($fallbackQ | urlquery) }}
+    <div class="offer-action">
+      <a class="{{ $class }}" href="{{ $fallbackSearchURL }}" rel="nofollow sponsored noopener" target="_blank">
+        Buscar {{ $catKey | default "recambio" }} en AliExpress
+      </a>
+      <small class="muted offer-action__fallback">Enlace directo en breve — busca manualmente por ahora</small>
+    </div>
   {{ end }}
 {{ else }}
   <span class="badge">En preparacion</span>
