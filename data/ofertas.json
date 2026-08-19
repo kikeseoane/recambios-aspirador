@@ -36474,31 +36474,14 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "",
-      "match_type": "fallback_buy_new",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4mTZ1VKmDopGdeGdDFnn985XRRRxFI0t9Ba7LeMG276FscuVcBFkQeATjF50uVwzqx3h0MSOsfmPIdtU7NX67uW2HdvwXc9AbjJAs0p5w3jfgMMOd9idRzRzllhS1EcbTmtkWvifrbdcyxlt6W0oGrBnPQmgZk7MVN1U9pz5NMGPGa2rH1IsdN6qhyAasYAcYs3ArbfPQV4G9j4cFLuzIl05D0jxTFJIx7nT6n6pVsp1N7ie5ROmQGKki4LH4OlPIFVgj3SjNTfhrT8rvFbCkEAgC8xJAjZOKoqqqrUOvcQwIiVhow4lwp9KnGKXdTwOYxjSr5DfP65NfF8PwL9ZNGIuK2s9TXAJdocSbCwvOTiGeLeWPtEKap5KDN53uPR16ogYSJyvyhbabcwwrY8PUvdTVOOZ0THduA2Bt4eT4W5nKU3128LdU6gaLYZkG5frqwihQnnAz0PqKAloHVsGrHwkzcbu6I5pOZqhwjAh2O3yj3vwqrZBu6stqWfg0EVS9w3PgkRYuk3JMCY9EbRJgPUOslSBSIdFEquUInOTAO1CkdwyD3qqiLog3KzbDksnVhR5Iuysf6jyfSBdrFQpgnOILxbQNKS0RdwpAzQZolepqypoVktWkPXUGlIZajV8Gd5GZQpar8RlgNDhR5GgjfLwfyxgiNcoKRXed7kIxkkYG6kJBauaE3IECqhSK5NLYddwHb0Qpc4MjJ",
+      "match_type": "relaxed_fallback",
       "fallback_search_query": "ecovacs 500 mop accessory",
       "fallback_search_label": "Buscar accesorios para DEEBOT 500",
-      "updated_at": "0000-00-00",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "needs_url": true,
-      "debug_last_query": "ecovacs 500 mop accessory",
-      "debug_model_tokens": [
-        "500",
-        "deebot"
-      ],
-      "debug_must_include": [
-        "500",
-        "mop",
-        "accessory"
-      ],
-      "debug_must_not_include": [],
-      "debug_specific_item_terms": [
-        "mop"
-      ],
-      "debug_relaxed_allowed": true,
-      "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "ai_validation_status": "rejected",
+      "updated_at": "2026-08-19",
+      "compatibility_status": "dudoso",
+      "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
+      "ai_validation_status": "validated",
       "last_attempted_at": "2026-08-19",
       "ai_rejected_candidate_fingerprints": [
         "023181094b182126",
@@ -36516,7 +36499,17 @@
         "d9eef67860afc67c",
         "f9060c7087423edf",
         "f92aa40cef8fb931"
-      ]
+      ],
+      "ai_validation_reason": "Candidate 1 explicitly mentions 'Ecovacs Deebot 500' and 'Mop Accessory' in its title, directly matching the requested brand, model, and part type. It also includes '500', 'mop', and 'accessory' as required. Candidate 2 is a duplicate of candidate 1 in a different language.",
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-08-19",
+      "ai_validation_candidate_fingerprint": "c0395517db203af5",
+      "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sbec8040fdf2c41ca90eda10bb1070172d.jpg",
+      "sale_price": "91.46",
+      "sale_price_currency": "CNY",
+      "original_price": "190.54",
+      "discount": "52%",
+      "product_title": "[NEW!N92R】 Hepa Filter Roll Brush Primary Filter Mop Accessory Kit For Ecovacs Deebot N79S/DN620/500"
     },
     "ecovacs-deebot-500-accesorios-robot-wheel-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -63957,7 +63950,7 @@
   },
   "ai_validation_budget": {
     "date": "2026-08-19",
-    "used": 2,
+    "used": 3,
     "limit": 450
   }
 }
