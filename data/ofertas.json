@@ -42106,51 +42106,14 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "",
-      "match_type": "fallback_buy_new",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4o2MPk0BPDhTmRhwAxKzbiTavJFo4XQ3cKtQ7dTvv2wo0WCznZXq2S8ApLsUxcqJjVCw0RUPfVl6ehpxMqozCXUiOLntq8VCpbSE0nqYAsVHY4HesH4YUsL6QSUCfXBzDFiBqVOYGHqObkGe2TF9B9UL7AOdebQGkgP896oxSzYuGjE7qMnoZVCpPhrgNGa5nimnfqkmVLEmRI2uOe1gHOHhvrE8diHVtclKybUGJoa6sEhZZnfCVv7iZqg4PxphdOhrHcDFjXcTJgRtfItF3rtexrWtud7taZUryjJT1t8Om93MzQ8AvhCxQ2AqQg2EaZVwmiE29Ri7PktbQTIns85zYIPRJlX0HIxkD6Q2yPVIv9xwLtZxi6HoV7lm67KyJeuVPJ29DrmKO6Zx2JbJeyEDc9vril0CgHayPWPF0xdwr62gkU9C8kuIPYljMnZIKYF87SGIOHydG1AHYHrvwR3ACPZ3MVG7jcShC6zT8jOkEDkoUcZF5KrCKseL61QmZzQPug1fr28FpOAjPSbs1y15Jt8umWqktl8O98A40WziCPFjrjJmcuPqhBewQmkeFYWtOJkKFLOsjQXs6rna1LZyQWoEnVTRwVZbRUeXNjBfAEEz5ek1q1NB73gSKMIyJrh0ITQyAhzuKXlY1GUCYen0IdYbes5nFMRJJUXQlpUnBLRYXsHbsNxod6sv1ACQWY0903D5fcPTRF",
+      "match_type": "relaxed_fallback",
       "fallback_search_query": "karcher wd3 charger",
       "fallback_search_label": "Buscar cargador para Kärcher WD 3",
-      "updated_at": "0000-00-00",
-      "needs_url": true,
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "debug_last_query": "karcher wd3 charger",
-      "debug_model_tokens": [
-        "wd3",
-        "wd 3",
-        "karcher",
-        "kärcher"
-      ],
-      "debug_must_include": [
-        "wd3",
-        "charger"
-      ],
-      "debug_must_not_include": [
-        "battery",
-        "filter",
-        "trigger",
-        "switch",
-        "button",
-        "dock",
-        "holder",
-        "bracket",
-        "hanger",
-        "wall mount",
-        "storage rack",
-        "battery",
-        "filter",
-        "trigger",
-        "switch",
-        "button",
-        "pcb",
-        "board"
-      ],
-      "debug_specific_item_terms": [
-        "cargador"
-      ],
-      "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates",
-      "ai_validation_status": "rejected",
+      "updated_at": "2026-08-22",
+      "compatibility_status": "dudoso",
+      "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
+      "ai_validation_status": "validated",
       "last_attempted_at": "2026-08-22",
       "ai_rejected_candidate_fingerprints": [
         "00069a3296e369af",
@@ -42707,12 +42670,18 @@
         "ff793792a6f4b1b7",
         "ffa1096ba03a001f"
       ],
-      "ai_validation_reason": "None of the candidates are for a charger. All candidates are for accessories such as hoses, brushes, and adapters.",
+      "ai_validation_reason": "Candidate 1 is the only one that explicitly mentions 'charger' in its title and is compatible with the 'Karcher WD 3' model. The other candidates are for accessories like hoses and brushes, not chargers.",
       "ai_pending_reason": "ai_server_error_503",
       "ai_pending_attempts": 1,
       "ai_validation_model": "gemini-2.5-flash-lite",
       "ai_validation_at": "2026-08-22",
-      "ai_validation_candidate_fingerprint": ""
+      "ai_validation_candidate_fingerprint": "fbc440397b8321e3",
+      "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S57ae50df9b864fffbaf3ddfba81aa0aav.png",
+      "sale_price": "86.41",
+      "sale_price_currency": "CNY",
+      "original_price": "201.97",
+      "discount": "57%",
+      "product_title": "Accessories A65T Power Tool Kit for Karcher WD2 WD3 WD4 WD5 WD6 Vacuum Power Tools Flexible Suction Hose with Adapter Part"
     },
     "karcher-karcher-wd3-cepillo-brush-roller-main": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -63940,7 +63909,7 @@
   },
   "ai_validation_budget": {
     "date": "2026-08-22",
-    "used": 3,
+    "used": 4,
     "limit": 450
   }
 }
