@@ -45,6 +45,9 @@
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
     {{- $seoTitle = printf "%s %s — precio y compatibilidad (%d)" $catLabel $modelDisplay now.Year -}}
 
+  {{- else if and (eq .Type "modelos") (eq .Layout "problemas") -}}
+    {{- $seoTitle = printf "%s: soluciones y recambio (%d)" .Title now.Year -}}
+
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
     {{- $seoTitle = printf "Recambios %s — bateria, filtro y piezas (%d)" .Title now.Year -}}
 
@@ -73,6 +76,9 @@
 
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
     {{- $desc = printf "Compara %s compatibles para %s con precio, foto y enlace directo. Revisa voltaje, encaje y especificaciones antes de comprar." ($catLabel | lower) $modelDisplay -}}
+
+  {{- else if and (eq .Type "modelos") (eq .Layout "problemas") -}}
+    {{- $desc = printf "%s: sintomas, causas probables y el recambio que suele resolver cada fallo. Diagnostico paso a paso antes de gastar en piezas." .Title -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
     {{- $desc = printf "Recambios compatibles para %s: bateria, filtro, cepillo y accesorios con precio y enlace directo. Compara opciones y compra seguro." .Title -}}

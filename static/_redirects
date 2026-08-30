@@ -1,3 +1,33 @@
+# === www -> no-www (dominio canonico) ===
+# Netlify / Cloudflare Pages. Si el host es Cloudflare Pages y estas lineas no
+# surten efecto, configura el redirect de www en el panel del proveedor.
+https://www.recambios-aspirador.com/* https://recambios-aspirador.com/:splat 301!
+http://www.recambios-aspirador.com/* https://recambios-aspirador.com/:splat 301!
+
+# === Verticales archivadas (no-aspirador) -> home 301 ===
+# 19 verticales retiradas (commit 6fb1cd49) para reconcentrar la autoridad
+# tematica en aspiradores. Estas 301 evitan los 404 de URLs aun indexadas en
+# Google (ver Paginas.csv). Se pueden retirar cuando Google deje de rastrearlas.
+/afeitadoras/* / 301
+/aspiradoras-normales/* / 301
+/aspiradores-mano/* / 301
+/auriculares/* / 301
+/cafeteras/* / 301
+/centros-planchado/* / 301
+/cepillos/* / 301
+/freidoras/* / 301
+/herramientas/* / 301
+/lavadoras/* / 301
+/mascotas/* / 301
+/osmosis/* / 301
+/patinetes-electricos/* / 301
+/planchas-pelo/* / 301
+/robots-cristales/* / 301
+/robots-fregar/* / 301
+/robots-piscina/* / 301
+/secadores-pelo/* / 301
+/vaporetas/* / 301
+
 # Redirects generados por generar.py Phase 4 — /modelos/ → /marcas/<brand>/<model>/
 /modelos/ /marcas/ 301
 
