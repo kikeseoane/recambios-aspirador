@@ -60,3 +60,13 @@ El conector es el factor mas critico. Cada marca y a veces cada generacion usa u
 ## Siguiente paso
 
 Busca tu modelo exacto en el catalogo para ver baterias compatibles verificadas con precio y disponibilidad.
+
+### Fichas con bateria disponible
+
+Estas fichas ya tienen una categoria de bateria con oferta compatible registrada. Entra en la variante exacta de tu aspirador y comprueba el voltaje, el conector y la referencia antes de comprar:
+
+- [Bateria para Dyson V8](/marcas/dyson/dyson-v8/bateria/)
+- [Bateria para Dyson V11](/marcas/dyson/dyson-v11/bateria/)
+- [Bateria para Xiaomi G9](/marcas/xiaomi/xiaomi-g9/bateria/)
+
+La cobertura y la disponibilidad pueden cambiar; el enlace de compra se consulta en la ficha del modelo.
