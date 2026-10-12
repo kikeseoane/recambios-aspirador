@@ -37,6 +37,38 @@ def validate():
     check_growth_build.main()
 
 
+def improvement_message(paths, log_diff, commit_url):
+    affected = [p for p in paths if p != "docs/growth-log.md"]
+    if not affected:
+        return None
+    additions = "\n".join(line[1:] for line in log_diff.splitlines()
+                          if line.startswith("+") and not line.startswith("+++"))
+    details = additions.strip()[:1800] or "Consulta el commit para ver el detalle de la mejora."
+    files = "\n".join(f"- {p}" for p in affected[:8])[:900]
+    if len(affected) > 8:
+        files += f"\nY {len(affected) - 8} archivos mas."
+    return ("Mejora diaria publicada en GitHub\n\n"
+            f"Cambio y motivo:\n{details}\n\nPaginas/archivos afectados:\n{files}"
+            "\n\nValidacion Hugo y controles: correctos."
+            "\nDespliegue Cloudflare: pendiente de confirmacion.\n"
+            f"{commit_url}")
+
+
+def record_publication(sha):
+    output = os.environ.get("GITHUB_OUTPUT")
+    report = os.environ.get("GROWTH_NOTIFICATION_FILE")
+    if not output or not report:
+        return
+    paths = git("diff", "--name-only", f"{sha}^", sha).stdout.splitlines()
+    log_diff = git("diff", "--unified=0", f"{sha}^", sha, "--", "docs/growth-log.md").stdout
+    message = improvement_message(paths, log_diff,
+        f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/commit/{sha}")
+    if message:
+        Path(report).write_text(message, encoding="utf-8")
+        with open(output, "a", encoding="utf-8") as handle:
+            handle.write("published=true\n")
+
+
 def main():
     if os.environ.get("GITHUB_ACTIONS") != "true":
         raise RuntimeError("Publish only from the isolated GitHub Actions runner")
@@ -68,7 +100,9 @@ def main():
         validate()
         pushed = git("push", "origin", "HEAD:main", check=False)
         if pushed.returncode == 0:
-            print("Published", git("rev-parse", "HEAD").stdout.strip())
+            sha = git("rev-parse", "HEAD").stdout.strip()
+            print("Published", sha)
+            record_publication(sha)
             return
         print(f"Push rejected ({attempt + 1}/3); fetching and validating again")
     raise RuntimeError("Push failed after three attempts; never force-push")

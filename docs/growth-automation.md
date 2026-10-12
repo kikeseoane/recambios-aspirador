@@ -43,8 +43,11 @@ que GitHub publico correctamente. Si la cuota semanal sigue baja, vuelve a aplaz
 
 ## Alertas y pruebas
 
-El workflow de crecimiento usa el Telegram ya configurado solo ante fallos.
-Exito y cuota baja son silenciosos. Si el PC no responde en 27 minutos, GitHub
+El workflow de crecimiento envia Telegram ante fallos y tras publicar una mejora:
+resume el cambio y motivo del registro, archivos afectados y enlace al commit.
+No confirma el despliegue de Cloudflare, solo el push validado a main.
+Pruebas sin cambios, registros sin mejora y cuota baja son silenciosos.
+Si el PC no responde en 27 minutos, GitHub
 avisa y libera el bloqueo; vuelve a intentarlo al dia siguiente.
 Los logs y checkpoints locales estan en .growth-runtime/, excluidos de Git.
 La sincronizacion de ofertas conserva sus avisos existentes.

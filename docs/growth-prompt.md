@@ -49,5 +49,7 @@ hacer push sin forzar. No hagas git commit/push desde el agente ni despliegues H
 en el ordenador local. Cloudflare despliega desde main. No anuncies despliegue
 exitoso sin comprobarlo. No mezcles CSV privados, credenciales o archivos locales.
 
-Finaliza con un resumen breve para el registro del workflow. No envies mensajes
-de exito al propietario: las alertas de fallo las gestiona el workflow por Telegram.
+Finaliza con un resumen breve para el registro del workflow. Incluye claramente
+en docs/growth-log.md que mejoraste, por que y que paginas afecta. No envies
+mensajes directamente: el workflow envia por Telegram el resumen solo despues
+de publicar una mejora, ademas de las alertas de fallo.

@@ -37,7 +37,7 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           mkdir -p "$RUNNER_TEMP/growth-controls" "$RUNNER_TEMP/growth-request"
-          cp tools/publish_growth.py tools/check_growth_build.py tools/growth_audit.py tools/growth_bridge.py "$RUNNER_TEMP/growth-controls/"
+          cp tools/publish_growth.py tools/check_growth_build.py tools/growth_audit.py tools/growth_bridge.py tools/notify_growth.py "$RUNNER_TEMP/growth-controls/"
           python - <<'PY'
           import json, os, pathlib, subprocess
           request = dict(run_id=os.environ['GITHUB_RUN_ID'], repository=os.environ['GITHUB_REPOSITORY'], base=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), dry_run=os.environ['DRY_RUN'] == 'true')
@@ -49,12 +49,21 @@ jobs:
           path: ${{ runner.temp }}/growth-request/request.json
           retention-days: 3
       - name: Esperar Codex local, validar y publicar
+        id: publish
         env:
           GROWTH_PUBLISHER: ${{ runner.temp }}/growth-controls/publish_growth.py
+          GROWTH_NOTIFICATION_FILE: ${{ runner.temp }}/growth-notification.txt
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           python "$RUNNER_TEMP/growth-controls/growth_bridge.py"
+      - name: Resumir mejora publicada en Telegram
+        if: success() && steps.publish.outputs.published == 'true' && inputs.dry_run != true
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GROWTH_NOTIFICATION_FILE: ${{ runner.temp }}/growth-notification.txt
+        run: python "$RUNNER_TEMP/growth-controls/notify_growth.py"
       - name: Limpiar rama temporal tras exito
         if: success()
         run: |

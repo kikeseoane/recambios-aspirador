@@ -4,6 +4,23 @@ import publish_growth as growth
 
 
 class PublicationTests(unittest.TestCase):
+    def test_log_only_does_not_notify(self):
+        self.assertIsNone(growth.improvement_message(["docs/growth-log.md"], "+Sin cambios", "url"))
+
+    def test_summary_only_contains_added_log_and_real_files(self):
+        message = growth.improvement_message(["docs/growth-log.md", "content/guias/filtros.md"],
+            "+++ b/docs/growth-log.md\n-contexto anterior\n+Mejorada guia de filtros\n+Motivo: resolver dudas", "https://example.com/commit/abc")
+        self.assertIn("Mejorada guia de filtros", message)
+        self.assertIn("Motivo: resolver dudas", message)
+        self.assertIn("content/guias/filtros.md", message)
+        self.assertIn("https://example.com/commit/abc", message)
+        self.assertNotIn("contexto anterior", message)
+        self.assertNotIn("+++", message)
+
+    def test_summary_fits_telegram(self):
+        message = growth.improvement_message(["content/" + "a" * 300] * 60, "+" + "x" * 10000, "https://github.com/owner/repo/commit/" + "a" * 40)
+        self.assertLess(len(message), 4096)
+
     def test_scope(self):
         for path in ("content/guias/filtros.md", "layouts/partials/test.html",
                      "data/brands/aspiradores/xiaomi.yaml", "docs/growth-log.md"):
