@@ -109,7 +109,12 @@
     {{ $rec := index $model "recambios" }}
     {{ if and $rec (reflect.IsMap $rec) }}
       {{ $ri := index $rec $catKey }}
-      {{ if and $ri (reflect.IsSlice $ri) }}{{ $recItems = $ri }}{{ end }}
+      {{ if and $ri (reflect.IsSlice $ri) }}
+        {{ range $ri }}
+          {{ $offer := index ((site.Data.ofertas).offers | default dict) (index . "sku") | default dict }}
+          {{ if partial "offer_is_reliable.html" $offer }}{{ $recItems = $recItems | append . }}{{ end }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
@@ -180,7 +185,7 @@
 
       <div class="hero__links">
         <a class="btn btn--ghost" href="{{ (printf "%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug) | relURL }}">← Volver al modelo</a>
-        {{ if $catKey }}<a class="btn btn--primary" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | relURL }}">Ver recambio relacionado</a>{{ end }}
+        {{ if gt (len $recItems) 0 }}<a class="btn btn--primary" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug $catKey) | relURL }}">Ver recambio relacionado</a>{{ end }}
       </div>
     </div>
     <div class="hero__photo-wrap">
@@ -216,9 +221,9 @@
   {{ if and $catKey (gt (len $recItems) 0) }}
     <div class="problema-cta-box mt-14">
       <div class="problema-cta-box__info">
-        <span class="badge badge--best">Recambio mas probable</span>
+        <span class="badge badge--best">Recambio relacionado</span>
         <h2 class="problema-cta-box__title">
-          {{ if $fixHint }}{{ $fixHint }}{{ else }}La pieza que mas frecuentemente soluciona este fallo es:{{ end }}
+          {{ if $fixHint }}{{ $fixHint }}{{ else }}Si las comprobaciones apuntan a esta pieza:{{ end }}
         </h2>
         <p class="muted small">Valida modelo, encaje y especificaciones antes de abrir la oferta.</p>
       </div>
@@ -254,7 +259,7 @@
         {{ end }}
       </div>
     </div>
-  {{ else if $catKey }}
+  {{ else if gt (len $recItems) 0 }}
     <div class="problema-cta-box problema-cta-box--simple mt-14">
       <span class="badge badge--best">Recambio relacionado</span>
       {{ if $fixHint }}<p class="problema-cta-box__title">{{ $fixHint }}</p>{{ end }}
@@ -362,7 +367,7 @@
     <aside class="panel panel--support panel--compact">
 
       {{/* CTA secundario en sidebar si no hay recambios directos */}}
-      {{ if $catKey }}
+      {{ if gt (len $recItems) 0 }}
         <div class="kicker">Salida recomendada</div>
         <h3 style="margin-top:4px;">Si el diagnostico apunta a esta pieza</h3>
         <div class="offer-trust mt-6">

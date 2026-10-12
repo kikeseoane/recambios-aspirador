@@ -229,10 +229,11 @@
              Si no cumple ninguno: noindex para reducir crawl budget y ruido SEO.
         */}}
         {{ $rec := index $model "recambios" }}
+        {{ $coverage := partial "model_offer_coverage.html" (dict "model" $model) }}
         {{ $catsWithItems := 0 }}
         {{ if and $rec (reflect.IsMap $rec) }}
           {{ range $k, $v := $rec }}
-            {{ if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
+            {{ if in $coverage.categories $k }}
               {{ $catsWithItems = add $catsWithItems 1 }}
             {{ end }}
           {{ end }}
@@ -262,14 +263,14 @@
         {{ if and $rec (reflect.IsMap $rec) }}
           {{ range $catKey := $priorityCats }}
             {{ $items := index $rec $catKey }}
-            {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+            {{ if in $coverage.categories $catKey }}
               {{ $catLabel := $catKey }}
               {{ with site.Data.globals.categorias_recambios }}
                 {{ with index . $catKey }}
                   {{ $catLabel = index . "label" | default $catKey }}
                 {{ end }}
               {{ end }}
-              {{ $quickLinks = $quickLinks | append (dict "key" $catKey "label" $catLabel "count" (len $items)) }}
+              {{ $quickLinks = $quickLinks | append (dict "key" $catKey "label" $catLabel "count" (index $coverage.categoryCounts $catKey)) }}
             {{ end }}
           {{ end }}
         {{ end }}
@@ -354,8 +355,6 @@
           </div>
         </section>
 
-        {{ partial "buy_new.html" (dict "model" $model "modelName" $mtitle "brandName" $brand.name "brandKey" $brandKey "modelSlug" $modelSlug "verticalKey" $verticalKey "topBar" true) }}
-
         {{ if or (gt (len $quickLinks) 0) $hasProblemas }}
           <section class="model-quick-access mt-14" aria-label="Accesos rapidos del modelo">
             {{ range first 4 $quickLinks }}
@@ -377,7 +376,8 @@
 
         <div class="two-col mt-12">
           <div class="panel panel--commerce">
-            <h2 style="margin-top:0;">Recambios destacados</h2>
+            <h2 id="recambios-destacados" style="margin-top:0;">Recambios con enlace disponible</h2>
+            {{ if not $hasRecambios }}<p class="muted">Actualmente no tenemos ofertas compatibles confirmadas para este modelo. Consulta las comprobaciones y la referencia original antes de comprar.</p>{{ end }}
             {{ $cats := $db.globals.categorias_recambios }}
             {{ $rec := index $model "recambios" }}
 
@@ -387,7 +387,7 @@
                 {{ $catLabel := index $cat "label" }}
                 {{ $items := index $rec $catKey }}
 
-                {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+                {{ if in $coverage.categories $catKey }}
                   <div class="section-head section-head--spaced">
                     <h3 class="title-reset">{{ $catLabel }}</h3>
                     <a class="section-link" href="{{ (printf "%s/%s/%s/%s/" $marcBase ($brandKey | urlize) $modelSlug ($catKey | urlize)) | relURL }}">
@@ -398,6 +398,8 @@
                   <div class="products">
                     {{ $shown := 0 }}
                     {{ range $idx, $it := $items }}
+                      {{ $offer := index ((site.Data.ofertas).offers | default dict) (index $it "sku") | default dict }}
+                      {{ if not (partial "offer_is_reliable.html" $offer) }}{{ continue }}{{ end }}
                       {{ if lt $shown 2 }}
                         <div class="product{{ if eq $shown 0 }} product--featured{{ end }}">
                           <div class="img">{{ partial "cat_icon.html" (dict "catKey" ($catKey | urlize)) }}</div>
@@ -482,6 +484,9 @@
           </aside>
         </div>
 
+        {{ if not $hasRecambios }}
+          {{ partial "buy_new.html" (dict "model" $model "modelName" $mtitle "brandKey" $brandKey "modelSlug" $modelSlug "verticalKey" $verticalKey) }}
+        {{ end }}
         {{ partial "model_crosslinks.html" (dict
           "db" $db
           "brandKey" .Params.brandKey

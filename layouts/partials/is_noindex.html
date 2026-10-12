@@ -88,7 +88,7 @@
                 {{- $sku := (index . "sku") | default "" -}}
                 {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
                 {{- $status := (index $offer "compatibility_status") | default "" -}}
-                {{- if or (eq $status "compatible_alto") (eq $status "compatible_probable") -}}
+                {{- if partial "offer_is_reliable.html" $offer -}}
                   {{- $realOfferCount = add $realOfferCount 1 -}}
                 {{- end -}}
               {{- end -}}
@@ -109,7 +109,7 @@
   {{- /* noindex if no items, or no real offers (compatible_alto/probable) */ -}}
   {{- if lt $catItemCount 1 -}}
     {{- $noindex = true -}}
-  {{- else if and (lt $realOfferCount 1) (lt $relatedProblemCount 1) -}}
+  {{- else if lt $realOfferCount 1 -}}
     {{- $noindex = true -}}
   {{- end -}}
 
@@ -137,7 +137,7 @@
                   {{- $sku := (index . "sku") | default "" -}}
                   {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
                   {{- $status := (index $offer "compatibility_status") | default "" -}}
-                  {{- if or (eq $status "compatible_alto") (eq $status "compatible_probable") -}}
+                  {{- if partial "offer_is_reliable.html" $offer -}}
                     {{- $catHasCoverage = true -}}
                   {{- end -}}
                 {{- end -}}

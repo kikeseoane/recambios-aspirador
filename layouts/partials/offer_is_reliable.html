@@ -1,0 +1,11 @@
+{{- /*
+  Una oferta fiable es una coincidencia validada y util para una pagina
+  indexable. Las coincidencias dudosas pueden seguir mostrandose con aviso,
+  pero no cuentan para crear enlaces internos ni para abrir el indice.
+*/ -}}
+{{- $offer := . | default dict -}}
+{{- $url := (index $offer "url") | default "" -}}
+{{- $status := (index $offer "compatibility_status") | default "" -}}
+{{- $needsURL := (index $offer "needs_url") | default false -}}
+{{- $orphaned := (index $offer "orphaned") | default false -}}
+{{- return (and $url (not $needsURL) (not $orphaned) (or (eq $status "compatible_alto") (eq $status "compatible_probable"))) -}}

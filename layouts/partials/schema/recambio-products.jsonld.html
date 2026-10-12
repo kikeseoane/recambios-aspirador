@@ -44,7 +44,7 @@
   {{- $currency := upper (string ((index $offer "sale_price_currency") | default "EUR")) -}}
   {{- /* Emitimos Offer solo para monedas con sentido para la audiencia (EUR/USD).
          Se excluye CNY/otras para no mostrar precios raros en el SERP. */ -}}
-  {{- if and $offerURL (not $needsURL) $salePrice (or (eq $currency "EUR") (eq $currency "USD")) -}}
+  {{- if and (partial "offer_is_reliable.html" $offer) $salePrice (eq $currency "EUR") -}}
     {{- $eligibleItems = $eligibleItems | append (dict "item" $it "offer" $offer) -}}
   {{- end -}}
 {{- end -}}
@@ -91,7 +91,6 @@
           "offers":{
             "@type":"Offer",
             "url":{{ $offerURL | jsonify | safeJS }},
-            "availability":"https://schema.org/InStock",
             "price":{{ $salePrice | jsonify | safeJS }},
             "priceCurrency":{{ $curr | jsonify | safeJS }}
           }

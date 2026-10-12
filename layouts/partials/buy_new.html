@@ -16,6 +16,7 @@
 {{ $offers := cond (and $offersDoc $offersDoc.offers) $offersDoc.offers (dict) }}
 {{ $offer := cond (and $nuevoSku (isset $offers $nuevoSku)) (index $offers $nuevoSku) (dict) }}
 {{ $url := (index $offer "url") | default "" }}
+{{ if not (partial "offer_is_reliable.html" $offer) }}{{ $url = "" }}{{ end }}
 {{ $imageURL := (index $offer "image_url") | default "" }}
 {{ $salePrice := (index $offer "sale_price") | default "" }}
 {{ $originalPrice := (index $offer "original_price") | default "" }}
@@ -30,7 +31,7 @@
   {{ $vEntry := index $vd $verticalKey }}
   {{ if $vEntry }}
     {{ $fallbackUrl := (index $vEntry "buy_new_url") | default "" }}
-    {{ if $fallbackUrl }}
+    {{ if and (not $url) $fallbackUrl }}
       {{ $url = $fallbackUrl }}
       {{ $isFallback = true }}
       {{ $imageURL = (index $vEntry "buy_new_image_url") | default "" }}
@@ -44,7 +45,7 @@
   {{ end }}
 {{ end }}
 
-{{ if and (not $url) $offer }}
+{{ if and (not $url) (partial "offer_is_reliable.html" $offer) }}
   {{ $url = (index $offer "url") | default "" }}
   {{ $imageURL = (index $offer "image_url") | default "" }}
   {{ $salePrice = (index $offer "sale_price") | default "" }}
@@ -68,8 +69,8 @@
         </div>
       {{ end }}
       <div class="buy-new-topbar__text">
-        <span class="buy-new-topbar__label">Cansado de buscar recambios? Comprate uno nuevo.</span>
-        <span class="muted small">No hemos encontrado un recambio fiable para este caso. Por eso te sugerimos ver el producto nuevo.</span>
+        <span class="buy-new-topbar__label">Si prefieres sustituir el aspirador</span>
+        <span class="muted small">{{ $note }}</span>
         {{ if $showPrice }}
           <span class="offer-price offer-price--inline">
             <span class="offer-price__sale">{{ $salePrice }} {{ $currency }}</span>
@@ -80,7 +81,7 @@
           </span>
         {{ end }}
       </div>
-      <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
+      <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank" data-affiliate-click data-affiliate-category="nuevo" data-affiliate-model="{{ $modelName }}" data-affiliate-placement="buy-new">
         Ver producto nuevo
       </a>
     </div>
@@ -88,7 +89,7 @@
     <div class="buy-new-block">
       <div class="kicker">Merece la pena reparar?</div>
       <h3 class="title-compact">{{ if $isFallback }}Ver modelos similares nuevos{{ else }}Comprar {{ $modelName }} nuevo{{ end }}</h3>
-      <p class="muted small">No hemos encontrado un recambio fiable para este caso. Por eso te sugerimos ver el producto nuevo.</p>
+      <p class="muted small">{{ $note }}</p>
       <div class="offer-action">
         {{ if $imageURL }}
           <div class="offer-image">
@@ -107,10 +108,10 @@
         {{ end }}
         <div class="offer-trust">
           <span class="offer-trust__icon" aria-hidden="true">Ir</span>
-          <span class="offer-trust__text">No existe un recambio fiable: te sugerimos producto nuevo</span>
+          <span class="offer-trust__text">Alternativa de compra: comprueba modelo y prestaciones</span>
         </div>
-        <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank">
-          Cansado de buscar recambios? Comprate uno nuevo
+        <a class="btn-buy btn-buy--new" href="{{ $url }}" rel="nofollow sponsored noopener" target="_blank" data-affiliate-click data-affiliate-category="nuevo" data-affiliate-model="{{ $modelName }}" data-affiliate-placement="buy-new">
+          {{ $btnLabel }}
         </a>
         <div class="offer-action__note">
           <small class="muted">Precio y disponibilidad segun vendedor externo</small>

@@ -1,0 +1,16 @@
+<script>
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest("a[data-affiliate-click]");
+    if (!link || typeof window.gtag !== "function") return;
+
+    window.gtag("event", "affiliate_click", {
+      link_url: link.href,
+      affiliate_sku: link.dataset.affiliateSku || "",
+      affiliate_category: link.dataset.affiliateCategory || "",
+      affiliate_model: link.dataset.affiliateModel || "",
+      affiliate_match_type: link.dataset.affiliateMatchType || "",
+      affiliate_placement: link.dataset.affiliatePlacement || "",
+      transport_type: "beacon"
+    });
+  });
+</script>

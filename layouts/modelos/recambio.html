@@ -118,13 +118,13 @@
   {{ $itemsSinUrl := slice }}
   {{ range $items }}
     {{ $o := index $offersData (index . "sku") | default dict }}
-    {{ if and (index $o "url") (not (index $o "needs_url")) }}
+    {{ if partial "offer_is_reliable.html" $o }}
       {{ $itemsConUrl = $itemsConUrl | append . }}
     {{ else }}
       {{ $itemsSinUrl = $itemsSinUrl | append . }}
     {{ end }}
   {{ end }}
-  {{ $itemsOrdenados := $itemsConUrl | append $itemsSinUrl }}
+  {{ $itemsOrdenados := $itemsConUrl }}
   {{ $directCount := len $itemsConUrl }}
   {{ $pendingCount := len $itemsSinUrl }}
 
@@ -151,7 +151,8 @@
 
   <div class="two-col mt-12">
     <div class="panel panel--commerce">
-      <h2>{{ $catLabel }} disponibles <span class="muted">({{ len $items }})</span></h2>
+      <h2>{{ $catLabel }} con enlace disponible <span class="muted">({{ $directCount }})</span></h2>
+      {{ if eq $directCount 0 }}<p class="muted">Actualmente no tenemos una oferta compatible confirmada para esta categoria. Comprueba la referencia original de la pieza; las otras categorias del modelo pueden tener opciones.</p>{{ end }}
       <div class="products">
         {{ range $idx, $it := $itemsOrdenados }}
           {{ $o := index $offersData (index $it "sku") | default dict }}

@@ -1,0 +1,37 @@
+{{- /*
+  Resume la cobertura comercial real de un modelo.
+
+  Input: dict "model" <catalog model> ["offers" <offers map>]
+  Output: dict
+    categories: slice de catKey con al menos una oferta fiable
+    categoryCounts: mapa catKey -> numero de ofertas fiables
+    offerCount: total de ofertas fiables del modelo
+*/ -}}
+{{- $model := .model | default dict -}}
+{{- $offers := .offers | default (((site.Data.ofertas).offers) | default dict) -}}
+{{- $categories := slice -}}
+{{- $categoryCounts := dict -}}
+{{- $offerCount := 0 -}}
+{{- $rec := index $model "recambios" -}}
+
+{{- if and $rec (reflect.IsMap $rec) -}}
+  {{- range $catKey, $items := $rec -}}
+    {{- $catCount := 0 -}}
+    {{- if and $items (reflect.IsSlice $items) -}}
+      {{- range $items -}}
+        {{- $sku := (index . "sku") | default "" -}}
+        {{- $offer := cond (and $sku (isset $offers $sku)) (index $offers $sku) (dict) -}}
+        {{- if partial "offer_is_reliable.html" $offer -}}
+          {{- $catCount = add $catCount 1 -}}
+          {{- $offerCount = add $offerCount 1 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if gt $catCount 0 -}}
+      {{- $categories = $categories | append ($catKey | urlize) -}}
+      {{- $categoryCounts = merge $categoryCounts (dict ($catKey | urlize) $catCount) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return (dict "categories" $categories "categoryCounts" $categoryCounts "offerCount" $offerCount) -}}

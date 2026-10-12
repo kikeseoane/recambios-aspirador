@@ -43,6 +43,8 @@ Input dict:
 {{ range $m := ($brand.models | default (slice)) }}
   {{ $ms := (or (index $m "slug") (index $m "canonical_slug") (index $m "id")) | urlize }}
   {{ if ne $ms $modelSlug }}
+{{ $coverage := partial "model_offer_coverage.html" (dict "model" $m) }}
+{{ if eq $coverage.offerCount 0 }}{{ continue }}{{ end }}
     {{ if and $series (eq ((index $m "series") | default "") $series) }}
       {{ $sameSeries = $sameSeries | append $m }}
     {{ else }}
@@ -72,7 +74,8 @@ Input dict:
         {{ $rec := index $m "recambios" }}
         {{ if and $rec (reflect.IsMap $rec) }}
           {{ $items := index $rec $catKey }}
-          {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+          {{ $coverage := partial "model_offer_coverage.html" (dict "model" $m) }}
+{{ if in $coverage.categories $catKey }}
             {{ $url = printf "%s%s/%s/%s/" $marcBase ($brandKey | urlize) $ms $catKey }}
           {{ end }}
         {{ end }}

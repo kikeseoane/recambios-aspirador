@@ -28,26 +28,27 @@
             {{ $title := partial "model_title.html" (dict "brandName" $brand.name "modelName" $m.model) }}
             {{ $slug := or $m.slug $m.canonical_slug }}
             {{ $rec := index $m "recambios" }}
+{{ $coverage := partial "model_offer_coverage.html" (dict "model" $m) }}
             {{ $probs := index $m "problemas" }}
             {{ $priorityLinks := slice }}
             {{ $priorityCats := slice "bateria" "cargador" "filtro" "cepillo" }}
             {{ $catsWithItems := 0 }}
             {{ if and $rec (reflect.IsMap $rec) }}
               {{ range $k, $v := $rec }}
-                {{ if and $v (reflect.IsSlice $v) (gt (len $v) 0) }}
+                {{ if in $coverage.categories $k }}
                   {{ $catsWithItems = add $catsWithItems 1 }}
                 {{ end }}
               {{ end }}
               {{ range $ck := $priorityCats }}
                 {{ $items := index $rec $ck }}
-                {{ if and $items (reflect.IsSlice $items) (gt (len $items) 0) }}
+                {{ if in $coverage.categories $ck }}
                   {{ $pretty := $ck }}
                   {{ with site.Data.globals.categorias_recambios }}
                     {{ with index . $ck }}
                       {{ $pretty = index . "label" | default $ck }}
                     {{ end }}
                   {{ end }}
-                  {{ $priorityLinks = $priorityLinks | append (dict "label" $pretty "url" (printf "%s/%s/%s/%s/" $marcBase $brandKey $slug $ck | relURL) "count" (len $items)) }}
+                  {{ $priorityLinks = $priorityLinks | append (dict "label" $pretty "url" (printf "%s/%s/%s/%s/" $marcBase $brandKey $slug $ck | relURL) "count" (index $coverage.categoryCounts $ck)) }}
                 {{ end }}
               {{ end }}
             {{ end }}
