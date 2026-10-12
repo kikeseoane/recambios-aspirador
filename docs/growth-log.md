@@ -1,5 +1,15 @@
 # Growth log
 
+## 2026-10-12 - Ruta de conversion desde la guia de cargadores
+
+- **Oportunidad y evidencia:** `tools/growth_audit.py` se ejecuto, pero el runtime no pudo abrir `python.exe` por permisos (PowerShell: acceso denegado), y no hay Search Console ni exportacion comparable disponible en este checkout. No se inventan impresiones, clics ni posiciones. La revision local de `data/ofertas.json` del 2026-10-12 encontro ofertas con `compatibility_status: compatible_alto` y URL vigente para `dyson-dyson-v8-cargador-charger-eu` y `xiaomi-xiaomi-g9-cargador-charger-eu`.
+- **Fuentes actuales consultadas:** Dyson, asistencia de la aspiradora vertical sin cable V8 (https://www.dyson.es/support/vacuum-cleaners/cordless/v8/pinch-pre-filter, consultada el 2026-10-12; variante Dyson V8, indicacion de solicitar cargador de repuesto especifico); Xiaomi Espana, especificaciones Mi Vacuum Cleaner G9 (https://www.mi.com/es/product/mi-vacuum-cleaner-g9/specs/, consultada el 2026-10-12; modelo Mi Vacuum Cleaner G9, bateria nominal de 25,2 V y adaptador incluido). Se usan para identificar variantes y recomendar comprobacion de etiqueta, no como prueba de stock, precio o compatibilidad universal.
+- **Cambio:** se anadio a `content/guias/cargador-compatible.md` una seccion contextual con enlaces descriptivos a las fichas de cargador de Dyson V8 y Xiaomi G9 y referencias del fabricante. Las fichas siguen consultando las ofertas vigentes mediante los componentes existentes; no se congelaron enlaces de AliExpress ni precios en la guia.
+- **Paginas afectadas:** `/guias/cargador-compatible/`, `/marcas/dyson/dyson-v8/cargador/` y `/marcas/xiaomi/xiaomi-g9/cargador/`.
+- **Limitaciones:** no hay Search Console, GA4 ni datos de pedidos/comisiones aprobadas; no se ejecuto `sync_ofertas.py`, no se editaron `data/ofertas.json` ni otras salidas del workflow y no se ejecuto Hugo local porque la validacion corresponde a GitHub. No se simulo una prueba de producto ni se verificaron stock, entrega o precio en vivo.
+- **Pruebas:** comprobacion de las dos claves de oferta, estado `compatible_alto`, URL no vacia y rutas internas; se deja la validacion Hugo y `check_growth_build.py` al workflow.
+- **Metrica a 28 dias:** comparar entradas a las dos fichas y eventos `affiliate_click` originados en `/guias/cargador-compatible/` frente al periodo anterior equivalente; despues revisar pedidos y comision neta aprobada en AliExpress.
+
 ## 2026-10-12 — Enlazado contextual desde la guía de baterías
 
 - **Oportunidad y evidencia:** no hay conexión a Search Console ni exportación comparable de los últimos 28 días en este checkout. `tools/growth_audit.py` fue invocado, pero el runtime de Python no pudo abrir `python.exe` (PowerShell: acceso denegado; `py -3` terminó con código 103), por lo que no se inventan impresiones, clics ni posiciones. La revisión local confirmó ofertas aceptadas para `dyson-dyson-v8-bateria-bat-std`, `dyson-dyson-v11-bateria-bat-std` y `xiaomi-xiaomi-g9-bateria-bat-std`, todas con `compatibility_status: compatible_alto` y URL vigente en `data/ofertas.json` leído el 2026-10-12.

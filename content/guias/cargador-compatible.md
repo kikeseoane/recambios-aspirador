@@ -72,6 +72,15 @@ En conectores barrel jack, el centro suele ser positivo (+). Verifica el simbolo
 2. Mide el conector con un calibre si no encuentras specs
 3. Busca el part number en la etiqueta (ej: Dyson 217160-02)
 
+## Fichas con cargador compatible registrado
+
+La referencia debe coincidir con la variante exacta: Dyson indica en su asistencia que se debe solicitar un cargador de repuesto especifico para el V8, y Xiaomi identifica el Mi Vacuum Cleaner G9 como un modelo con adaptador de corriente y bateria de 25,2 V. Usa estas paginas para revisar el modelo, el conector y la oferta vigente antes de comprar:
+
+- [Cargador para Dyson V8](/marcas/dyson/dyson-v8/cargador/)
+- [Cargador para Xiaomi G9](/marcas/xiaomi/xiaomi-g9/cargador/)
+
+Fuentes del fabricante: [asistencia Dyson V8](https://www.dyson.es/support/vacuum-cleaners/cordless/v8/pinch-pre-filter) y [especificaciones Xiaomi G9](https://www.mi.com/es/product/mi-vacuum-cleaner-g9/specs/). No sustituyen la comprobacion de la etiqueta del cargador original.
+
 ## Siguiente paso
 
 Entra en la ficha de tu modelo para ver cargadores verificados con el conector correcto.
