@@ -92,7 +92,10 @@ def quota_decision(result, reserve=20):
             raise RuntimeError("Invalid quota: do not start")
         remaining.append(100 - used)
     minimum = min(remaining)
+    weekly = next((w for w in windows if w.get("windowDurationMins") == 7 * 24 * 60), {})
     return {"allowed": minimum > reserve and not bucket.get("rateLimitReachedType"),
+            "weekly_used_percent": weekly.get("usedPercent"),
+            "weekly_resets_at": weekly.get("resetsAt"),
             "remaining_percent": minimum, "reserve_percent": reserve,
             "reset_times": [w.get("resetsAt") for w in windows],
             "reason": "ready" if minimum > reserve and not bucket.get("rateLimitReachedType") else "defer_until_next_day"}

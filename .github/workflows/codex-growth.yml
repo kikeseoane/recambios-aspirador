@@ -27,6 +27,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Mantener ofertas pausadas hasta terminar la mejora
+        if: inputs.dry_run != true
+        run: python tools/growth_hold.py acquire
       - run: pip install -r requirements.txt
       - uses: peaceiris/actions-hugo@v3
         with:
@@ -37,7 +40,7 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           mkdir -p "$RUNNER_TEMP/growth-controls" "$RUNNER_TEMP/growth-request"
-          cp tools/publish_growth.py tools/check_growth_build.py tools/growth_audit.py tools/growth_bridge.py tools/notify_growth.py "$RUNNER_TEMP/growth-controls/"
+          cp tools/publish_growth.py tools/check_growth_build.py tools/growth_audit.py tools/growth_bridge.py tools/growth_hold.py tools/notify_growth.py "$RUNNER_TEMP/growth-controls/"
           python - <<'PY'
           import json, os, pathlib, subprocess
           request = dict(run_id=os.environ['GITHUB_RUN_ID'], repository=os.environ['GITHUB_REPOSITORY'], base=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), dry_run=os.environ['DRY_RUN'] == 'true')
@@ -53,6 +56,7 @@ jobs:
         env:
           GROWTH_PUBLISHER: ${{ runner.temp }}/growth-controls/publish_growth.py
           GROWTH_NOTIFICATION_FILE: ${{ runner.temp }}/growth-notification.txt
+          GROWTH_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'

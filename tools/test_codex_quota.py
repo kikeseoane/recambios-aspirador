@@ -25,6 +25,13 @@ class QuotaTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             select_model([{"model": "gpt-6-astra", "isDefault": True}])
 
+    def test_weekly_identified_by_duration_not_window_position(self):
+        result = {"rateLimits": {"primary": {"usedPercent": 15, "windowDurationMins": 10080, "resetsAt": 1800000000},
+                                 "secondary": {"usedPercent": 90, "windowDurationMins": 300}}}
+        decision = quota_decision(result)
+        self.assertEqual(decision["weekly_used_percent"], 15)
+        self.assertFalse(decision["allowed"])
+
 
 if __name__ == "__main__":
     unittest.main()

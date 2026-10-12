@@ -13,6 +13,7 @@ from contextlib import contextmanager
 
 from codex_quota import AppServer, codex_binary, preflight, quota_decision
 from publish_growth import allowed
+from growth_budget import check_budget
 
 REPO = "kikeseoane/recambios-aspirador"
 ROOT = Path(__file__).resolve().parents[1]
@@ -77,6 +78,8 @@ def invoke_codex(checkout, model):
            ("OPENAI_API_KEY", "CODEX_API_KEY", "AZURE_OPENAI_API_KEY", "GH_TOKEN", "GITHUB_TOKEN")}
     prompt = (checkout / "docs/growth-prompt.md").read_text(encoding="utf-8")
     prompt += "\nEl trabajador local delega validacion Hugo, commit final y push a main en GitHub. No ejecutes Hugo localmente.\n"
+    if (STATE / "pending.patch").exists():
+        prompt += "\nHay trabajo pendiente restaurado en el diff: continua y termina ESA mejora, no elijas otra. Revisa el diff y docs/growth-log.md antes de actuar.\n"
     with (STATE / "last-codex.log").open("w", encoding="utf-8") as log:
         process = subprocess.Popen([
             codex_binary(), "--search", "--ask-for-approval", "never", "exec",
@@ -91,12 +94,16 @@ def invoke_codex(checkout, model):
         try:
             while process.poll() is None:
                 try:
-                    process.wait(timeout=45)
+                    process.wait(timeout=30)
                 except subprocess.TimeoutExpired:
                     decision = preflight()
-                    if not decision["allowed"] or time.monotonic() >= deadline:
+                    if not check_budget(STATE / "daily-budget.json", decision) or time.monotonic() >= deadline:
                         stop_process(process)
                         return "deferred"
+            # Also account for short runs and the final in-flight request.
+            within_budget = check_budget(STATE / "daily-budget.json", preflight())
+            if not within_budget:
+                return "deferred"
             if process.returncode == 0:
                 # A conversational refusal can exit zero. Require the promised
                 # run record so blocked tool access is not reported as success.
@@ -134,7 +141,7 @@ def handle(request, run_id):
         if request.get("dry_run"):
             # No inference: still test remote Hugo validation below the reserve.
             status = "ready"
-        elif not decision["allowed"]:
+        elif not check_budget(STATE / "daily-budget.json", decision):
             status = "deferred"
         else:
             pending = STATE / "pending.patch"
@@ -142,8 +149,11 @@ def handle(request, run_id):
                 old_base = (STATE / "pending-base.txt").read_text(encoding="utf-8").strip()
                 run("git", "fetch", "origin", old_base, cwd=checkout)
                 run("git", "apply", "--3way", str(pending), cwd=checkout)
-            status = invoke_codex(checkout, decision["model"])
-            save_checkpoint(checkout, base)
+            try:
+                status = invoke_codex(checkout, decision["model"])
+            finally:
+                # Preserve edits even if quota lookup or process control fails.
+                save_checkpoint(checkout, base)
     except Exception as error:
         (STATE / "last-error.txt").write_text(str(error), encoding="utf-8")
         status = "failed"

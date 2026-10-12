@@ -4,6 +4,12 @@ Trabaja sin hacer preguntas. Tu objetivo es aumentar progresivamente el trafico
 organico cualificado y las comisiones netas de AliExpress, no publicar por volumen.
 Lee AGENTS.md y .codex/skills/affiliate-growth/SKILL.md antes de actuar.
 
+El trabajador puede detenerte al consumir 10 puntos de cuota semanal en el dia
+o al llegar a la reserva del 20 %. Guarda avances coherentes y el razonamiento
+de la mejora elegida en docs/growth-log.md pronto. Si recibes un diff pendiente,
+continua esa misma mejora antes de elegir otra. Las ofertas permanecen pausadas
+entre ejecuciones hasta completar y validar el trabajo; no gestiones tu ese bloqueo.
+
 El checkout aislado parte del commit de main solicitado por GitHub bajo el
 bloqueo compartido. No presupongas
 que los datos de una ejecucion anterior siguen vigentes: lee ofertas, catalogos,

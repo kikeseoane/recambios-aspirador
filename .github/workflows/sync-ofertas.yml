@@ -11,7 +11,26 @@ concurrency:
   queue: max
 
 jobs:
+  check-growth-hold:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      paused: ${{ steps.hold.outputs.paused }}
+    steps:
+      - name: Comprobar pausa persistente de Codex
+        id: hold
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          paused=$(gh api "repos/${GITHUB_REPOSITORY}/git/matching-refs/heads/automation/growth-hold" --jq 'any(.[]; .ref == "refs/heads/automation/growth-hold")')
+          echo "paused=$paused" >> "$GITHUB_OUTPUT"
+          if [ "$paused" = true ]; then
+            echo 'Ofertas pausadas hasta que Codex termine y valide la mejora pendiente.'
+          fi
   sync:
+    needs: check-growth-hold
+    if: needs.check-growth-hold.outputs.paused == 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 55
     permissions:

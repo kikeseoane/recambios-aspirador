@@ -43,6 +43,10 @@ def main():
         run("git", "apply", "--index", "--binary", "-", input=patch)
     # Uses original controls, not any validator supplied by the agent.
     run("python", os.environ["GROWTH_PUBLISHER"])
+    # Release only after successful validation/publication, never on deferral
+    # or failures. Dry runs must not release an earlier unfinished task's hold.
+    if os.environ.get("GROWTH_DRY_RUN") != "true":
+        run("python", str(Path(__file__).with_name("growth_hold.py")), "release")
     print("Daily cycle complete")
 
 
