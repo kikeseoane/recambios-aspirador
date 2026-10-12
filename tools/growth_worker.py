@@ -81,6 +81,7 @@ def invoke_codex(checkout, model):
         process = subprocess.Popen([
             codex_binary(), "--search", "--ask-for-approval", "never", "exec",
             "--ignore-user-config", "--ignore-rules", "--sandbox", "workspace-write",
+            "-c", 'windows.sandbox="elevated"',
             "--model", model, "-c", 'model_reasoning_effort="medium"',
             "--color", "never", "--cd", str(checkout), "-",
         ], stdin=subprocess.PIPE, stdout=log, stderr=log, env=env, text=True, encoding="utf-8")
@@ -97,6 +98,11 @@ def invoke_codex(checkout, model):
                         stop_process(process)
                         return "deferred"
             if process.returncode == 0:
+                # A conversational refusal can exit zero. Require the promised
+                # run record so blocked tool access is not reported as success.
+                changed = run("git", "status", "--porcelain", "--", "docs/growth-log.md", cwd=checkout).stdout
+                if not changed.strip():
+                    return "failed"
                 return "ready"
             # Exhaustion is a normal deferral; other failures need an alert.
             return "deferred" if not preflight()["allowed"] else "failed"
