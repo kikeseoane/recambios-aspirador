@@ -8,6 +8,7 @@ on:
 concurrency:
   group: sync-ofertas
   cancel-in-progress: false
+  queue: max
 
 jobs:
   sync:
@@ -112,40 +113,26 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          CHANGED_FILES=$(git status --porcelain -- data/*.yaml data/*.json | awk '{print $2}')
-          if [ -z "$CHANGED_FILES" ]; then
+          git add -- data/*.yaml data/*.json
+          if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
             exit 0
           fi
-          rm -rf /tmp/generated_state
-          mkdir -p /tmp/generated_state
-          for f in $CHANGED_FILES; do
-            mkdir -p "/tmp/generated_state/$(dirname "$f")"
-            cp "$f" "/tmp/generated_state/$f"
-          done
-          DONE=false
-          for i in 1 2 3 4 5; do
+          git commit -m "chore: sync horario catalogos y ofertas AliExpress"
+          for i in 1 2 3; do
             git fetch origin main
-            git reset --hard origin/main
-            for f in $CHANGED_FILES; do
-              cp "/tmp/generated_state/$f" "$f"
-            done
-            if git diff --quiet -- $CHANGED_FILES; then
-              echo "changed=false" >> $GITHUB_OUTPUT
-              DONE=true
-              break
+            if ! git rebase origin/main; then
+              git rebase --abort
+              echo "::error::Cambios concurrentes incompatibles; no se sobrescribe main."
+              exit 1
             fi
-            git add $CHANGED_FILES
-            git commit -m "chore: sync horario catalogos y ofertas AliExpress"
-            if git push; then
+            if git push origin HEAD:main; then
               echo "changed=true" >> $GITHUB_OUTPUT
-              DONE=true
-              break
+              exit 0
             fi
-            echo "Push intento $i/5 fallido, reintentando..."
             sleep 3
           done
-          if [ "$DONE" != "true" ]; then exit 1; fi
+          exit 1
 
       - name: Notificar Telegram (exito)
         if: success()

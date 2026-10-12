@@ -1,49 +1,65 @@
-# Rutina diaria
+# Crecimiento autonomo diario
 
-El workflow growth-audit.yml audita cobertura cada dia a las 06:30 UTC y guarda
-un informe como artefacto de GitHub Actions. No invoca Codex ni cambia el sitio.
+GitHub ejecuta codex-growth.yml diariamente a las 07:35 UTC (09:35 en verano,
+08:35 en invierno en Madrid). Comparte concurrency.group: sync-ofertas con
+la sincronizacion horaria, sin cancelacion y con cola. Ofertas no se ejecuta
+mientras Codex trabaja. Los pushes humanos siguen siendo posibles: el publicador
+hace fetch/rebase, valida otra vez y nunca fuerza pushes.
 
-## Codex
+La tarea Windows Recambios-Codex-Growth consulta cada cinco minutos las peticiones
+activas del workflow en main. No es un runner self-hosted: GitHub no puede mandar
+comandos arbitrarios al PC. Ejecuta tools/growth_worker.py del checkout local.
+El PC debe estar encendido, con sesion del usuario iniciada y acceso a red.
+La peticion contiene run ID, commit exacto y modo prueba, no comandos ejecutables.
 
-Esta sesion no dispone de una herramienta para registrar tareas en la app.
-La tarea Codex queda pendiente de activacion en Scheduled: cada dia a las 09:00
-Europe/Madrid, en un worktree de este proyecto, con este prompt:
+Codex trabaja en un clon separado bajo .growth-runtime/, sin tocar los cambios
+locales del usuario. Entrega una rama temporal; GitHub controla el alcance,
+compila Hugo, comprueba indexacion/CTAs y publica con commit y push a main.
+Cloudflare mantiene el despliegue existente. NO se compila ni despliega Hugo local.
 
-> Lee .codex/skills/affiliate-growth/SKILL.md y ejecuta la rutina diaria.
-> Investiga recambios nuevos y demanda con fuentes actuales. Prioriza paginas
-> con trafico y ofertas compatibles. Implementa una mejora respaldada por datos,
-> valida el sitio y entrega el diff y los resultados. No hagas commit ni push en
-> esta fase inicial. Informa de datos o accesos ausentes. No ejecutes sync_ofertas.py.
+El prompt esta en docs/growth-prompt.md. Una mejora pequena por dia: guias,
+reviews documentales sin fingir pruebas, comparativas, noticias justificadas,
+enlazado o conversion. Prioriza utilidad y enlaces afiliados compatibles.
+No hay cuota de articulos ni ingresos garantizados.
 
-El ordenador debe estar encendido y la app abierta. Tras revisar las primeras
-ejecuciones se puede ampliar el prompt con autorizacion de publicacion.
-Fuente: https://learn.chatgpt.com/docs/automations
+## Cuota y modelo
 
-## Medicion
+Usa solo la sesion ChatGPT existente, sin API de pago ni copiar credenciales.
+Consulta account/rateLimits/read antes de empezar y cada 45 segundos.
+Si cualquier ventana tiene 20 % restante o menos, aplaza. Si no puede consultar
+la cuota, se detiene y marca fallo. Es un porcentaje de uso del servicio, no un
+contador de tokens. Es un control periodico, no atomico: llamadas en curso y
+otras sesiones pueden consumir cuota entre comprobaciones.
 
-- Search Console: exportaciones recientes con periodo conocido; el acceso
-  automatico requiere conectar la propiedad con permisos de lectura.
-- GA4: evento affiliate_click con SKU, categoria, modelo y ubicacion.
-  Crear dimensiones personalizadas para esos parametros si se necesitan
-  desgloses. La recepcion real en GA4 queda pendiente de verificar en DebugView.
-- AliExpress: pedidos, comision aprobada y devoluciones. GA4 mide salidas,
-  no compras externas. La atribucion por pagina requiere identificadores
-  admitidos por afiliacion y su informe; esta conexion no esta implementada.
+Selecciona un modelo Luna disponible en model/list para la cuenta, razonamiento
+medio; no cambia silenciosamente a una familia mas cara. La comprobacion inicial
+encontro gpt-5.6-luna. Reevalua disponibilidad cada dia. Es un punto de partida
+para mejoras acotadas, no un optimo demostrado.
 
-Compara periodos de 28 dias: clics organicos, tasa de salida afiliada,
-pedidos/clics y comision neta descontando automatizacion. No hay ingresos
-garantizados. Los datos locales historicos suman 525 clics por dispositivo,
-400 desde movil. Los 531 clics por pagina no se suman a los anteriores.
+Al agotar cuota o superar 18 minutos, guarda el parche local y aplaza. El siguiente
+dia integra ese trabajo sobre main reciente con merge de tres vias. Si hay
+conflicto no publica y conserva el checkpoint. Solo lo elimina tras confirmar
+que GitHub publico correctamente. Si la cuota semanal sigue baja, vuelve a aplazar.
 
-## Prioridades iniciales
+## Alertas y pruebas
 
-Xiaomi G20/G11 y Rowenta X-Force muestran demanda en los CSV historicos.
-Investigar primero sus referencias y variantes antes de incorporar mas modelos.
-Las ofertas locales incluyen 927 compatible_alto, 296 dudosos y 559
-fallback_buy_new. Son clasificaciones automaticas, no verificaciones manuales.
+El workflow de crecimiento usa el Telegram ya configurado solo ante fallos.
+Exito y cuota baja son silenciosos. Si el PC no responde en 27 minutos, GitHub
+avisa y libera el bloqueo; vuelve a intentarlo al dia siguiente.
+Los logs y checkpoints locales estan en .growth-runtime/, excluidos de Git.
+La sincronizacion de ofertas conserva sus avisos existentes.
+La auditoria read-only growth-audit.yml puede ejecutarse en paralelo.
 
-Paginas huerfanas: pendiente de auditoria completa del grafo.
-Enlaces recomendados: marca -> modelo -> categorias con oferta aceptada;
-problema -> recambio relacionado disponible.
-Anchors sugeridos: filtro para Xiaomi G11, bateria para Xiaomi G20 Lite,
-comprobaciones si el cepillo Rowenta no gira.
+workflow_dispatch con dry_run=true prueba coordinacion y cuota sin llamar al modelo.
+Los tests de los controles son:
+- python -m unittest discover -s tools -p 'test_*growth.py'
+- python -m unittest discover -s tools -p 'test_codex_quota.py'
+
+Search Console y ventas AliExpress no estan conectados. Sin ellos, investiga
+fuentes publicas actuales y declara limitaciones. affiliate_click mide salidas,
+no compras; falta verificar recepcion en GA4. Revisar resultados a 28 dias.
+
+Referencias:
+- https://learn.chatgpt.com/docs/app-server
+- https://developers.openai.com/api/docs/guides/model-selection
+- https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax

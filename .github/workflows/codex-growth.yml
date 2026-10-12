@@ -1,0 +1,76 @@
+name: Crecimiento diario con Codex local
+on:
+  schedule:
+    - cron: '35 7 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Probar coordinacion y cuota sin consumir tokens
+        type: boolean
+        default: false
+concurrency:
+  group: sync-ofertas
+  cancel-in-progress: false
+  queue: max
+permissions:
+  contents: write
+jobs:
+  growth:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.155.2'
+          extended: true
+      - name: Preparar peticion y controles
+        env:
+          DRY_RUN: ${{ inputs.dry_run || false }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/growth-controls" "$RUNNER_TEMP/growth-request"
+          cp tools/publish_growth.py tools/check_growth_build.py tools/growth_audit.py tools/growth_bridge.py "$RUNNER_TEMP/growth-controls/"
+          python - <<'PY'
+          import json, os, pathlib, subprocess
+          request = dict(run_id=os.environ['GITHUB_RUN_ID'], repository=os.environ['GITHUB_REPOSITORY'], base=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), dry_run=os.environ['DRY_RUN'] == 'true')
+          (pathlib.Path(os.environ['RUNNER_TEMP']) / 'growth-request/request.json').write_text(json.dumps(request))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: growth-request
+          path: ${{ runner.temp }}/growth-request/request.json
+          retention-days: 3
+      - name: Esperar Codex local, validar y publicar
+        env:
+          GROWTH_PUBLISHER: ${{ runner.temp }}/growth-controls/publish_growth.py
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          python "$RUNNER_TEMP/growth-controls/growth_bridge.py"
+      - name: Limpiar rama temporal tras exito
+        if: success()
+        run: |
+          branch="automation/codex-growth-${GITHUB_RUN_ID}"
+          if [ -n "$(git ls-remote --heads origin "$branch")" ]; then
+            git push origin --delete "$branch"
+          fi
+      - name: Avisar solo si falla
+        if: failure()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          curl --fail-with-body --silent --show-error --max-time 30 \
+            "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+            --data-urlencode "text=Fallo en crecimiento Codex. Comprueba que el PC este encendido y con sesion Codex. $RUN_URL" \
+            | python -c 'import json,sys; sys.exit(0 if json.load(sys.stdin).get("ok") else 1)'
