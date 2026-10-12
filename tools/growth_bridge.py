@@ -7,7 +7,12 @@ import time
 
 
 def run(*args, check=True, **kwargs):
-    return subprocess.run(list(args), check=check, capture_output=True, **kwargs)
+    result = subprocess.run(list(args), check=False, capture_output=True, **kwargs)
+    if check and result.returncode:
+        print(result.stdout.decode(errors="replace"))
+        print(result.stderr.decode(errors="replace"))
+        result.check_returncode()
+    return result
 
 
 def main():

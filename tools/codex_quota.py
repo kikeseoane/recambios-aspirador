@@ -34,8 +34,12 @@ class AppServer:
         self.messages = queue.Queue()
         self.sequence = 0
         threading.Thread(target=self._read, daemon=True).start()
-        self.call("initialize", {"clientInfo": {"name": "affiliate_growth", "version": "1.0"}})
-        self.send({"method": "initialized"})
+        try:
+            self.call("initialize", {"clientInfo": {"name": "affiliate_growth", "version": "1.0"}})
+            self.send({"method": "initialized"})
+        except Exception:
+            self.close()
+            raise
 
     def _read(self):
         for line in self.process.stdout:

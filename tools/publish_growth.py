@@ -31,7 +31,10 @@ def changed_paths():
 def validate():
     git("diff", "--check", "HEAD")
     subprocess.run(["hugo", "--minify", "--cleanDestinationDir"], check=True)
-    subprocess.run([sys.executable, str(Path(__file__).with_name("check_growth_build.py"))], check=True)
+    # Controls can be copied to RUNNER_TEMP. Data still belongs to the checkout.
+    import check_growth_build
+    check_growth_build.ROOT = Path.cwd()
+    check_growth_build.main()
 
 
 def main():
@@ -44,6 +47,7 @@ def main():
     if len(paths) > 60:
         raise RuntimeError("Daily patch exceeds 60 files; refusing broad publication")
     if not paths:
+        validate()
         print("No changes to publish")
         return
     if "docs/growth-log.md" not in paths:

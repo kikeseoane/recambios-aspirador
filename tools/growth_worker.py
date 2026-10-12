@@ -115,9 +115,9 @@ def handle(request, run_id):
     checkout = STATE / f"run-{run_id}"
     # A separate disposable checkout leaves the user's dirty working tree alone.
     if not checkout.exists():
-        run("git", "clone", "--no-checkout", f"https://github.com/{REPO}.git", str(checkout))
-    run("git", "fetch", "origin", "main", cwd=checkout)
-    run("git", "merge-base", "--is-ancestor", base, "origin/main", cwd=checkout)
+        run("git", "clone", "--depth", "1", "--no-checkout", f"https://github.com/{REPO}.git", str(checkout))
+    # The exact base comes from our trusted main-branch workflow artifact.
+    run("git", "fetch", "--depth", "1", "origin", base, cwd=checkout)
     run("git", "checkout", "-b", branch, base, cwd=checkout)
     run("git", "config", "user.name", "Codex growth", cwd=checkout)
     run("git", "config", "user.email", "github-actions[bot]@users.noreply.github.com", cwd=checkout)
@@ -125,10 +125,11 @@ def handle(request, run_id):
     try:
         decision = preflight()
         (STATE / "last-quota.json").write_text(json.dumps(decision), encoding="utf-8")
-        if not decision["allowed"]:
-            status = "deferred"
-        elif request.get("dry_run"):
+        if request.get("dry_run"):
+            # No inference: still test remote Hugo validation below the reserve.
             status = "ready"
+        elif not decision["allowed"]:
+            status = "deferred"
         else:
             pending = STATE / "pending.patch"
             if pending.exists():
