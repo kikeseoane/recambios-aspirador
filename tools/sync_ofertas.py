@@ -1785,7 +1785,12 @@ def stage_candidate_for_ai(
     offer_obj["ai_pending_candidate"] = dict(candidate)
     offer_obj["compatibility_status"] = derive_compatibility_status(offer_obj)
     offer_obj["compatibility_note"] = derive_compatibility_note(offer_obj["compatibility_status"])
-    offer_obj["updated_at"] = UNRESOLVED_UPDATED_AT
+    # Antes se dejaba en 0000-00-00, lo que mantenia estos SKU como "los mas
+    # antiguos" para siempre y acaparaban cada tanda, matando de hambre el
+    # refresco de los enlaces buenos. Se sella la fecha del intento para que
+    # roten al final de la cola como el resto (needs_url sigue marcando que no
+    # esta resuelto).
+    offer_obj["updated_at"] = today
     offer_obj["last_attempted_at"] = today
 
 
@@ -3109,12 +3114,15 @@ def main() -> None:
     # --only-stale: filtra SKUs cuyo updated_at supera N dÃ­as
     if not only and args.only_stale > 0:
         cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat()
+        # needs_url / fallback_buy_new ya NO se re-incluyen incondicionalmente:
+        # antes volvian a la cola en cada tanda y, con prioridad por delante de
+        # los enlaces buenos, los dejaban sin turno. Ahora obedecen la fecha como
+        # el resto (pending si se reintenta antes). Un SKU sin resolver, al
+        # sellarse con la fecha del intento, espera su vuelta igual que los demas.
         stale = {
             sku for sku in want
             if (
                 str(ensure_offer_obj(offers.get(sku)).get("ai_validation_status") or "").strip() == "pending"
-                or ensure_offer_obj(offers.get(sku)).get("needs_url") is True
-                or str(ensure_offer_obj(offers.get(sku)).get("compatibility_status") or "").strip() == "fallback_buy_new"
                 or str(ensure_offer_obj(offers.get(sku)).get("updated_at") or "").strip() < cutoff
             )
         }
@@ -3306,7 +3314,7 @@ def main() -> None:
                         obj["ai_pending_attempts"] = pending_attempts + 1
                         obj["ai_validation_model"] = effective_ai_validation_model()
                         obj["ai_validation_at"] = today
-                        obj["updated_at"] = UNRESOLVED_UPDATED_AT
+                        obj["updated_at"] = today
                         obj["last_attempted_at"] = today
                         ai_pending = True
 
@@ -3573,7 +3581,7 @@ def main() -> None:
                     obj["fallback_search_label"] = fallback_search_label
                     obj["compatibility_status"] = derive_compatibility_status(obj)
                     obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
-                    obj["updated_at"] = UNRESOLVED_UPDATED_AT
+                    obj["updated_at"] = today
                     obj["last_attempted_at"] = today
                     obj["debug_last_query"] = fallback_search_query
                     obj["debug_model_tokens"] = effective_model_tokens
