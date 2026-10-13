@@ -34,8 +34,17 @@ def main():
         raise RuntimeError("Result must be a single commit based on the exact request")
     subject = run("git", "show", "-s", "--format=%s", head).stdout.decode().strip()
     patch = run("git", "diff", "--binary", base, head).stdout
+    if subject == "growth-result:deferred-pending" and not patch:
+        # An improvement is genuinely half-done: keep the offers hold so the
+        # sync does not modify catalogs/offers under the pending patch.
+        print("Unfinished improvement in progress; keeping offers hold for next run")
+        return
     if subject == "growth-result:deferred" and not patch:
-        print("Quota reserve or time limit reached; wait until next daily run")
+        # Nothing was started (e.g. no quota). Releasing the hold here prevents
+        # the sync from staying paused indefinitely when the grow never ran.
+        print("Quota reserve or time limit reached and nothing started; releasing offers hold")
+        if os.environ.get("GROWTH_DRY_RUN") != "true":
+            run("python", str(Path(__file__).with_name("growth_hold.py")), "release")
         return
     if subject != "growth-result:ready":
         raise RuntimeError("Local Codex failed; see local worker logs")

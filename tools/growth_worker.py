@@ -165,7 +165,15 @@ def handle(request, run_id):
         # created in a second worktree, retaining the original files locally.
         signal = STATE / f"signal-{run_id}"
         run("git", "worktree", "add", "--detach", str(signal), base, cwd=checkout)
-        run("git", "commit", "--allow-empty", "-m", f"growth-result:{status}", cwd=signal)
+        # Flag whether an improvement is genuinely in progress: pending.patch
+        # only exists once Codex started modifying things. GitHub keeps the
+        # offers hold only for "deferred-pending"; a plain "deferred" (e.g. no
+        # quota, nothing started) must release the hold so the sync is not
+        # paused forever.
+        result = status
+        if status == "deferred" and (STATE / "pending.patch").exists():
+            result = "deferred-pending"
+        run("git", "commit", "--allow-empty", "-m", f"growth-result:{result}", cwd=signal)
         checkout = signal
     run("git", "push", "origin", f"HEAD:refs/heads/{branch}", cwd=checkout)
     (STATE / f"handled-{run_id}").write_text(status, encoding="utf-8")
