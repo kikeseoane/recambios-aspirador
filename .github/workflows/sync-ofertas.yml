@@ -123,6 +123,10 @@ jobs:
             echo "SYNC_OUTPUT_EOF"
           } >> $GITHUB_OUTPUT
 
+      - name: Verificar enlaces vivos (liveness)
+        run: |
+          python tools/verify_offers_live.py --max-minutes 12 --stale-days 7 --delay 0.5 | tee /tmp/live_output.txt || true
+
       - name: Limpiar huerfanos antiguos (>60 dias)
         run: |
           python tools/clean_orphans.py --days 60 || true
