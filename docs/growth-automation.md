@@ -1,7 +1,12 @@
 # Crecimiento autonomo diario
 
-GitHub ejecuta codex-growth.yml diariamente a las 07:35 UTC (09:35 en verano,
-08:35 en invierno en Madrid). Comparte concurrency.group: sync-ofertas con
+Windows inicia codex-growth.yml mediante workflow_dispatch diariamente a las
+09:00 hora de Madrid (tarea Recambios-Codex-Growth-Daily, script
+tools/start_growth_daily.ps1). Recupera el inicio perdido cuando vuelve a estar
+disponible el PC; necesita sesion iniciada y red. El huso horario de Windows debe
+seguir siendo Madrid. GitHub no tiene un segundo cron para evitar duplicados.
+El marcador local daily-dispatch.txt evita repetir el lanzamiento en el mismo dia.
+GitHub comparte concurrency.group: sync-ofertas con
 la sincronizacion horaria, sin cancelacion y con cola. Ofertas no se ejecuta
 mientras Codex trabaja. Los pushes humanos siguen siendo posibles: el publicador
 hace fetch/rebase, valida otra vez y nunca fuerza pushes.
@@ -38,8 +43,9 @@ Ademas de la reserva, admite hasta 10 puntos porcentuales de consumo semanal por
 dia (70 % restante -> 60 % restante). Identifica la ventana semanal por su duracion
 de 10080 minutos; si no esta disponible, falla de forma segura sin lanzar el modelo.
 Guarda el presupuesto en .growth-runtime/daily-budget.json. Reinicios y lanzamientos
-manuales no lo reinician. El siguiente presupuesto comienza a las 07:35 UTC del dia
-siguiente, igual que el cron. Un reinicio de cuota semanal tampoco da otros 10 puntos
+manuales no lo reinician. El siguiente presupuesto comienza a las 07:00 UTC del dia
+siguiente, antes del inicio diario tanto en verano como en invierno.
+Un reinicio de cuota semanal tampoco da otros 10 puntos
 en el mismo dia. Se cuenta el consumo observado de la cuenta, incluidas otras sesiones.
 Si cualquier ventana tiene 20 % restante o menos, aplaza. Si no puede consultar
 la cuota, se detiene y marca fallo. Es un porcentaje de uso del servicio, no un

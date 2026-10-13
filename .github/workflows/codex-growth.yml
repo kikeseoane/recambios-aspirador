@@ -1,7 +1,5 @@
 name: Crecimiento diario con Codex local
 on:
-  schedule:
-    - cron: '35 7 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

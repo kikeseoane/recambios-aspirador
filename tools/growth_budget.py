@@ -6,8 +6,9 @@ import math
 
 def update_budget(previous, decision, now=None):
     now = now or datetime.now(timezone.utc)
-    # Same boundary as the workflow cron, not midnight or each manual retry.
-    day = (now.astimezone(timezone.utc) - timedelta(hours=7, minutes=35)).date().isoformat()
+    # Before the 09:00 Madrid trigger in both summer and winter.
+    # A fixed boundary avoids replenishing the budget during a normal run.
+    day = (now.astimezone(timezone.utc) - timedelta(hours=7)).date().isoformat()
     used = decision.get("weekly_used_percent")
     reset = decision.get("weekly_resets_at")
     if (isinstance(used, bool) or not isinstance(used, (int, float))

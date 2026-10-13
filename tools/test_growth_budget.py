@@ -21,8 +21,8 @@ class BudgetTests(unittest.TestCase):
     def test_next_daily_boundary_not_midnight(self):
         state, _ = update_budget(None, self.decision(30), self.now)
         state, _ = update_budget(state, self.decision(40), self.now)
-        before = datetime(2026, 10, 14, 7, 34, tzinfo=timezone.utc)
-        after = datetime(2026, 10, 14, 7, 35, tzinfo=timezone.utc)
+        before = datetime(2026, 10, 14, 6, 59, tzinfo=timezone.utc)
+        after = datetime(2026, 10, 14, 7, 0, tzinfo=timezone.utc)
         self.assertFalse(update_budget(state, self.decision(41), before)[1])
         self.assertTrue(update_budget(state, self.decision(41), after)[1])
 
