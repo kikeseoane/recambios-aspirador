@@ -48,12 +48,12 @@ powershell -ExecutionPolicy Bypass -File .\tools\dump_state.ps1 > kk.txt
 
 ### Source of Truth (hand-edited)
 - `data/catalog_parts.yaml` — global config, part categories (`globals.categorias_recambios`), and `sku_packs` (templates for generating 10 SKUs per model)
-- `data/catalog_brands.yaml` — brands and models, each model references a `sku_pack`
+- `data/brands/<vertical>/*.yaml` — brands and models, one file per brand (current source; `data/brands/aspiradores/*.yaml`). Each model references a `sku_pack`. Legacy single-file `data/catalog_brands.yaml` (and `data/catalog_brands_<vertical>.yaml`) are only fallbacks in `build_catalog.py` and are no longer present.
 - `data/catalog_skus.yaml` — `model_overrides` and `sku_overrides` for fine-tuning individual SKUs or models
 
 ### Generated (do not hand-edit)
 - `data/aspiradores.yaml` — compiled catalog (output of `build_catalog.py`)
-- `data/ofertas.yaml` — AliExpress affiliate URLs keyed by SKU (output of `sync_ofertas.py`)
+- `data/ofertas.json` — AliExpress affiliate offers keyed by SKU under a top-level `offers` map (output of `sync_ofertas.py`)
 - `content/modelos/`, `content/marcas/`, `content/guias/` — Hugo content stubs (output of `generar.py`; stubs are marked `generated: true`)
 
 ### SKU ID Format
@@ -64,7 +64,7 @@ Every model with a `sku_pack` must produce exactly 10 SKU items across all categ
 
 ## Content & Layout Architecture
 
-Hugo reads `data/aspiradores.yaml` and `data/ofertas.yaml` at build time. Layouts look up brand/model data directly from `site.Data.aspiradores`.
+Hugo reads `data/aspiradores.yaml` and `data/ofertas.json` at build time. Layouts look up brand/model data directly from `site.Data.aspiradores`.
 
 ### URL structure
 - `/marcas/<brand>/` → `content/marcas/<brand>/_index.md` (branch bundle)
@@ -88,5 +88,5 @@ Model pages without recambios, problemas, or sufficient intro text are automatic
 - All slugs must be kebab-case (`a-z0-9-`); `build_catalog.py` validates this.
 - Model `_index.md` files must be branch bundles; category `index.md` files must be leaf bundles. `generar.py` auto-migrates `index.md → _index.md` if needed.
 - Hand-edited content files (without `generated: true`) are preserved by `--clean-all` and `generar.py --force`.
-- `ofertas.yaml` entries with no real URL are set to the default fallback URL and flagged with `needs_url: true`.
-- Orphaned SKUs in `ofertas.yaml` (removed from catalog) are flagged `orphaned: true` rather than deleted.
+- `ofertas.json` entries with no real URL are set to the default fallback URL and flagged with `needs_url: true`.
+- Orphaned SKUs in `ofertas.json` (removed from catalog) are flagged `orphaned: true` rather than deleted.

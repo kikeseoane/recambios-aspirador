@@ -8,8 +8,8 @@ These rules apply to the whole repository.
 
 - This repo generates a Hugo site from YAML catalogs and templates.
 - Edit the source of truth first. Avoid patching generated output unless the user explicitly asks for it.
-- Main hand-edited sources live in `data/catalog_parts.yaml`, `data/catalog_brands.yaml`, `data/catalog_skus.yaml`, `layouts/`, `tools/`, and manually maintained content files.
-- Generated artifacts include `data/aspiradores.yaml`, `data/ofertas.yaml`, and generated stubs under `content/`.
+- Main hand-edited sources live in `data/catalog_parts.yaml`, `data/brands/<vertical>/*.yaml` (one file per brand; current path is `data/brands/aspiradores/*.yaml`), `data/catalog_skus.yaml`, `layouts/`, `tools/`, and manually maintained content files. Legacy `data/catalog_brands.yaml` is only a `build_catalog.py` fallback and is no longer present.
+- Generated artifacts include `data/aspiradores.yaml`, `data/ofertas.json`, and generated stubs under `content/`.
 
 ## Build And Generation Rules
 
@@ -23,9 +23,9 @@ These rules apply to the whole repository.
 
 ## AliExpress And Offer Rules
 
-- `data/ofertas.yaml` may be newer on remote because a GitHub Action updates it.
+- `data/ofertas.json` may be newer on remote because a GitHub Action updates it.
 - If `git push` is rejected because remote is ahead, use `git pull --rebase --autostash origin main` and then push again.
-- Do not commit accidental local churn in `data/ofertas.yaml` or `data/vertical_defaults.yaml` unless the user wants those updates included.
+- Do not commit accidental local churn in `data/ofertas.json` or `data/vertical_defaults.yaml` unless the user wants those updates included.
 - Prefer exact or strongly anchored matches over broad AliExpress searches. Avoid relaxed fallbacks that can map unrelated products to the same SKU.
 - For "buy new" fallbacks, prefer a complete product for the vertical rather than a generic spare part search.
 

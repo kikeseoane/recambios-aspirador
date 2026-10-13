@@ -1,7 +1,13 @@
 # Mantenimiento autonomo diario
 
-Trabaja sin hacer preguntas. Tu objetivo es aumentar progresivamente el trafico
+Trabaja sin hacer preguntas. Tu objetivo es aumentar de forma sostenida el trafico
 organico cualificado y las comisiones netas de AliExpress, no publicar por volumen.
+Esto es un ciclo continuo, no una lista que se agota: cada ejecucion hace
+seguimiento de como evolucionan paginas y consultas, elige una mejora que pueda
+subir visitas o clicks, y la deja medida para revisarla a los 28 dias y volver
+sobre ella. Las lineas de actuacion son renovables -mejorar CTR, ganar posiciones,
+ampliar cobertura y enlazado, captar consultas emergentes-: siempre hay un
+siguiente paso respaldado por datos.
 Lee AGENTS.md y .codex/skills/affiliate-growth/SKILL.md antes de actuar.
 
 El trabajador puede detenerte al consumir 10 puntos de cuota semanal en el dia
@@ -18,13 +24,43 @@ trabajas. No hagas reset, force-push ni sobrescribas cambios ajenos.
 
 Ejecuta tools/growth_audit.py. Usa Search Console si hay acceso y datos recientes;
 si no, usa fuentes publicas actuales y documenta la limitacion sin preguntar ni
-inventar volumen de busqueda. Revisa resultados anteriores a los 28 dias cuando
-haya metricas comparables. Prioriza una unica mejora pequena con impacto probable:
-actualizar una pagina con demanda, una guia de compra o mantenimiento, una
-comparativa documental, una noticia relevante y contrastada, una review basada
-en especificaciones verificadas, o enlaces internos y conversiones utiles.
-Puedes crear una seccion editorial si aporta valor y queda integrada en navegacion,
-pero no generes secciones vacias ni muchas paginas repetidas.
+inventar volumen de busqueda. Nunca presentes datos antiguos como actuales.
+
+Esta web se genera desde plantillas (layouts/) y datos (data/catalog_parts.yaml,
+data/catalog_skus.yaml, data/brands/aspiradores/*.yaml), y muchas paginas comparten
+plantilla. Cuando un problema es comun a muchas paginas, arreglalo en la plantilla
+o el dato y se propaga a todas a la vez, en lugar de ir pagina a pagina; cuando la
+mejora es propia de una pagina con demanda, actualiza esa pagina. Prioriza una
+unica mejora pequena, respaldada por evidencia, por este orden de palanca:
+
+1. CTR: paginas con muchas impresiones y CTR bajo en posicion 4-20. Corrige el
+   titulo o la meta-descripcion en la PLANTILLA que los genera (baseof.html,
+   model_title.html), no pagina a pagina, y no arrastres numeros de modelo
+   irrelevantes a consultas genericas.
+2. Plantilla/datos con fan-out: logica de noindex/canonical, render del CTA
+   cuando la oferta es fallback_buy_new o needs_url, y los sku_packs. Un arreglo
+   aqui mejora cientos de paginas a la vez.
+3. Cobertura comercial: paginas con trafico y sin recambio fiable (solo fallback
+   o needs_url). No crees modelos sin cobertura; al reves, cuando un modelo no
+   tiene ningun recambio real y todos sus SKU caen en "comprar nuevo", sustituyelo
+   en data/brands/aspiradores/*.yaml por un modelo con recambios verificados en
+   AliExpress (misma marca o gama cuando sea posible, con demanda documentada). Si
+   el modelo retirado tiene trafico o enlaces entrantes, conserva su URL con un 301
+   en static/_redirects; no lo elimines sin comprobar su trafico. Tras editar
+   catalogos ejecuta build_catalog.py y generar.py --force.
+4. Enlaces afiliados rotos: detecta (solo lectura) ofertas cuyo enlace devuelve 404
+   o producto retirado y registralas en docs/growth-log.md como prioridad de
+   cobertura. La re-resolucion la hace el workflow de ofertas; no edites
+   data/ofertas.json a mano.
+5. Solo si nada de lo anterior aplica: una pieza de contenido con demanda
+   documentada (guia, problema real, comparativa, enlazado interno util).
+
+Vuelve sobre una pagina para seguir subiendola cuando los datos lo justifiquen
+-una posicion con recorrido, un CTR mejorable, cobertura o enlazado ampliables-,
+pero no la toques cada dia ni reacciones a fluctuaciones de menos de 28 dias: deja
+pasar la ventana de medicion y actua sobre tendencia, no sobre ruido.
+Puedes crear una seccion editorial si aporta valor y queda integrada en
+navegacion, pero no generes secciones vacias ni muchas paginas repetidas.
 
 Investiga fuentes actuales, preferentemente fabricante y anuncios concretos.
 Documenta URLs, fecha, modelo y variante. Nunca simules haber probado un producto.
