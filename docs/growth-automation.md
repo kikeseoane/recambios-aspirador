@@ -48,6 +48,8 @@ Codex trabaja en un clon separado bajo .growth-runtime/, sin tocar los cambios
 locales del usuario. Entrega una rama temporal; GitHub controla el alcance,
 compila Hugo, comprueba indexacion/CTAs y publica con commit y push a main.
 Cloudflare mantiene el despliegue existente. NO se compila ni despliega Hugo local.
+En este Windows el sandbox elevado falla durante su preparacion; el worker usa
+el modo nativo `unelevated`, con `workspace-write` limitado al clon de trabajo.
 
 El prompt esta en docs/growth-prompt.md. Una mejora pequena por dia: guias,
 reviews documentales sin fingir pruebas, comparativas, noticias justificadas,

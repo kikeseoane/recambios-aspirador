@@ -84,7 +84,7 @@ def invoke_codex(checkout, model):
         process = subprocess.Popen([
             codex_binary(), "--search", "--ask-for-approval", "never", "exec",
             "--ignore-user-config", "--ignore-rules", "--sandbox", "workspace-write",
-            "-c", 'windows.sandbox="elevated"',
+            "-c", 'windows.sandbox="unelevated"',
             "--model", model, "-c", 'model_reasoning_effort="medium"',
             "--color", "never", "--cd", str(checkout), "-",
         ], stdin=subprocess.PIPE, stdout=log, stderr=log, env=env, text=True, encoding="utf-8")
