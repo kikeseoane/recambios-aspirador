@@ -84,3 +84,13 @@ No enciende
 ## Siguiente paso
 
 Si has identificado la pieza que falla (bateria o cargador), busca tu modelo en el catalogo para ver opciones compatibles.
+
+### Fichas con bateria o cargador disponible
+
+Estas fichas tienen una oferta compatible registrada para la pieza indicada. Comprueba el modelo exacto, el voltaje y el conector antes de comprar:
+
+- [Bateria para Dyson V8](/marcas/dyson/dyson-v8/bateria/)
+- [Cargador para Dyson V8](/marcas/dyson/dyson-v8/cargador/)
+- [Bateria para Dyson V11](/marcas/dyson/dyson-v11/bateria/)
+- [Bateria para Xiaomi G9](/marcas/xiaomi/xiaomi-g9/bateria/)
+- [Cargador para Xiaomi G9](/marcas/xiaomi/xiaomi-g9/cargador/)
