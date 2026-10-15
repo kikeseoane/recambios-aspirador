@@ -123,7 +123,7 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
             decision = legacy.preflight()
             (STATE / "last-quota.json").write_text(json.dumps(decision), encoding="utf-8")
             if not dry_run:
-                budget_ok, budget_reason = legacy.check_budget_status(STATE / "daily-budget.json", decision)
+                budget_ok, budget_reason = legacy.check_budget_status(STATE / "daily-budget.json", decision, track_usage=False)
                 if not budget_ok:
                     if schedule_five_hour_retry and budget_reason == "five_hour_reserve":
                         request_five_hour_retry(decision)
@@ -142,7 +142,7 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
             (STATE / "last-quota.json").write_text(json.dumps(decision), encoding="utf-8")
             if dry_run:
                 status = "ready"
-            elif not (budget_result := legacy.check_budget_status(STATE / "daily-budget.json", decision))[0]:
+            elif not (budget_result := legacy.check_budget_status(STATE / "daily-budget.json", decision, track_usage=False))[0]:
                 if schedule_five_hour_retry and budget_result[1] == "five_hour_reserve":
                     request_five_hour_retry(decision)
                 status = "deferred"
@@ -154,7 +154,7 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
                     legacy.save_checkpoint(checkout, base)
             if status == "deferred-five-hour" and schedule_five_hour_retry:
                 decision = legacy.preflight()
-                if legacy.check_budget_status(STATE / "daily-budget.json", decision)[1] == "five_hour_reserve":
+                if legacy.check_budget_status(STATE / "daily-budget.json", decision, track_usage=False)[1] == "five_hour_reserve":
                     request_five_hour_retry(decision)
             if status in ("deferred", "deferred-five-hour"):
                 if not pending_patch and not (STATE / "pending.patch").exists() and not dry_run:

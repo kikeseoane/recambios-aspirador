@@ -62,6 +62,17 @@ class BudgetTests(unittest.TestCase):
         self.assertFalse(ok)
         self.assertEqual(state["consumed"], 10)
 
+    def test_usage_outside_grow_is_baselined_without_spending_grow_budget(self):
+        state, _ = update_budget(None, self.decision(3), self.now)
+        state, ok = update_budget(state, self.decision(18), self.now, track_usage=False)
+        self.assertTrue(ok)
+        self.assertEqual(state["consumed"], 0)
+        self.assertEqual(state["weekly_consumed"], 0)
+        state, ok = update_budget(state, self.decision(19), self.now, track_usage=True)
+        self.assertTrue(ok)
+        self.assertEqual(state["consumed"], 1)
+        self.assertEqual(state["weekly_consumed"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

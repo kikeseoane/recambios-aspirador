@@ -62,6 +62,8 @@ No inicia ni continua con menos de 20 % restante en la ventana de cinco horas.
 Guarda en `.growth-runtime/daily-budget.json` el gasto observado mientras Grow
 esta activo: como maximo 10 puntos por dia y 70 puntos en una misma ventana
 semanal (`weekly_resets_at`). Reinicios y lanzamientos manuales no lo reinician.
+Al comenzar una ejecucion toma la cuota actual como base; el uso hecho fuera de
+Grow entre ejecuciones no consume su presupuesto diario o semanal.
 El siguiente presupuesto diario comienza a las 07:00 UTC; un reinicio semanal no
 concede una segunda asignacion diaria. Si no se puede consultar la cuota, falla
 de forma segura. Es un control periodico, no atomico: una llamada en curso u otra

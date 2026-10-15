@@ -4,7 +4,7 @@ import json
 import math
 
 
-def update_budget(previous, decision, now=None):
+def update_budget(previous, decision, now=None, track_usage=True):
     now = now or datetime.now(timezone.utc)
     # Before the 09:00 Madrid trigger in both summer and winter.
     # A fixed boundary avoids replenishing the budget during a normal run.
@@ -28,12 +28,12 @@ def update_budget(previous, decision, now=None):
         if previous["day"] != day:
             previous["day"] = day
             previous["consumed"] = 0
-        else:
+        elif track_usage:
             previous["consumed"] += used
     elif previous["day"] != day:
         previous = dict(previous, day=day, consumed=0, last_used=used)
     else:
-        delta = max(0, used - previous["last_used"])
+        delta = max(0, used - previous["last_used"]) if track_usage else 0
         previous = dict(previous, consumed=previous["consumed"] + delta,
                         weekly_consumed=previous.get("weekly_consumed", 0) + delta,
                         last_used=max(used, previous["last_used"]))
@@ -47,9 +47,9 @@ def check_budget(path, decision):
     return check_budget_status(path, decision)[0]
 
 
-def check_budget_status(path, decision):
+def check_budget_status(path, decision, track_usage=True):
     previous = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
-    state, allowed = update_budget(previous, decision)
+    state, allowed = update_budget(previous, decision, track_usage=track_usage)
     temporary = path.with_suffix(".tmp")
     temporary.write_text(json.dumps(state), encoding="utf-8")
     temporary.replace(path)
