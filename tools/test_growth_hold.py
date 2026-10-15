@@ -40,7 +40,8 @@ class HoldTests(unittest.TestCase):
             else:
                 out = b"found"
             return Mock(stdout=out)
-        env = dict(GITHUB_RUN_ID="123", GROWTH_PUBLISHER="publisher",
+        env = dict(GROWTH_RESULT_BRANCH="automation/codex-growth-123", GROWTH_BASE_SHA="a" * 40,
+                   GROWTH_PUBLISHER="publisher",
                    GROWTH_DRY_RUN="true" if dry else "false")
         with patch.dict(os.environ, env), patch.object(growth_bridge, "run", side_effect=execute) as run:
             if publish_failure or status == "failed":

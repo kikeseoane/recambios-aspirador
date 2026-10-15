@@ -1,9 +1,11 @@
-"""GitHub side: wait for a bounded result from the local worker."""
-import json
+"""GitHub side: validate and publish one result sent by the local worker."""
 import os
 from pathlib import Path
+import re
 import subprocess
-import time
+
+
+BRANCH_RE = re.compile(r"automation/codex-growth-[a-z0-9-]+$")
 
 
 def run(*args, check=True, **kwargs):
@@ -16,17 +18,15 @@ def run(*args, check=True, **kwargs):
 
 
 def main():
-    run_id = os.environ["GITHUB_RUN_ID"]
-    branch = f"automation/codex-growth-{run_id}"
+    branch = os.environ["GROWTH_RESULT_BRANCH"]
+    requested_base = os.environ["GROWTH_BASE_SHA"]
+    if not BRANCH_RE.fullmatch(branch):
+        raise RuntimeError("Invalid local result branch")
+    if not re.fullmatch(r"[0-9a-f]{40}", requested_base):
+        raise RuntimeError("Invalid expected base commit")
     base = run("git", "rev-parse", "HEAD").stdout.decode().strip()
-    deadline = time.monotonic() + 27 * 60
-    while time.monotonic() < deadline:
-        found = run("git", "ls-remote", "--heads", "origin", branch)
-        if found.stdout.strip():
-            break
-        time.sleep(20)
-    else:
-        raise RuntimeError("Local PC did not return a result within 27 minutes")
+    if base != requested_base:
+        raise RuntimeError("main changed before publication; local patch was not applied")
     run("git", "fetch", "origin", branch)
     head = run("git", "rev-parse", "FETCH_HEAD").stdout.decode().strip()
     parent = run("git", "rev-parse", f"{head}^").stdout.decode().strip()

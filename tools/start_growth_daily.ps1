@@ -8,7 +8,8 @@ $growthMarker = Join-Path $growthState 'daily-dispatch.txt'
 if ((Test-Path -LiteralPath $growthMarker) -and ((Get-Content -LiteralPath $growthMarker -Raw).Trim() -eq $growthToday)) {
     exit 0
 }
-# Windows owns the daily trigger; GitHub still validates and publishes.
-& gh workflow run codex-growth.yml --repo kikeseoane/recambios-aspirador --ref main -f dry_run=false
+# Windows owns the daily trigger. The local worker creates the bounded result
+# first; GitHub then validates and publishes it. No background polling is used.
+& python (Join-Path $PSScriptRoot 'growth_once.py')
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 Set-Content -LiteralPath $growthMarker -Value $growthToday -Encoding UTF8

@@ -1,0 +1,33 @@
+name: Reservar ejecucion local de crecimiento
+run-name: Reserva Grow ${{ inputs.request_id }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: Identificador unico de la ejecucion local
+        type: string
+        required: true
+
+# This is the atomic hand-off between GitHub's offers job and the local PC.
+# It waits for an already-running offers workflow before creating the durable
+# hold, so the local worker never starts from a moving main branch.
+concurrency:
+  group: sync-ofertas
+  cancel-in-progress: false
+  queue: max
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Crear bloqueo persistente si esta libre
+        run: python tools/growth_hold.py acquire --require-free

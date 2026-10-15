@@ -85,20 +85,33 @@ def quota_decision(result, reserve=20):
     windows = [bucket[k] for k in ("primary", "secondary") if bucket.get(k)]
     if not windows:
         raise RuntimeError("Quota unknown: do not start")
-    remaining = []
+    normalized = []
     for window in windows:
         used = window.get("usedPercent")
         if isinstance(used, bool) or not isinstance(used, (int, float)) or not math.isfinite(used) or not 0 <= used <= 100:
             raise RuntimeError("Invalid quota: do not start")
-        remaining.append(100 - used)
-    minimum = min(remaining)
-    weekly = next((w for w in windows if w.get("windowDurationMins") == 7 * 24 * 60), {})
-    return {"allowed": minimum > reserve and not bucket.get("rateLimitReachedType"),
+        normalized.append((window, 100 - used))
+    # Codex labels the short window "primary" today, but duration wins when
+    # provided so a server-side ordering change cannot swap the two budgets.
+    five_hour = next(((window, left) for window, left in normalized
+                      if window.get("windowDurationMins") == 5 * 60), None)
+    if five_hour is None:
+        five_hour = next(((window, left) for window, left in normalized if window is bucket.get("primary")), None)
+    if five_hour is None:
+        raise RuntimeError("Five-hour quota unknown: do not start")
+    weekly = next((window for window, _ in normalized
+                   if window.get("windowDurationMins") == 7 * 24 * 60), None)
+    if weekly is None and bucket.get("secondary"):
+        weekly = bucket["secondary"]
+    weekly = weekly or {}
+    five_hour_remaining = five_hour[1]
+    return {"allowed": five_hour_remaining >= reserve and not bucket.get("rateLimitReachedType"),
             "weekly_used_percent": weekly.get("usedPercent"),
             "weekly_resets_at": weekly.get("resetsAt"),
-            "remaining_percent": minimum, "reserve_percent": reserve,
+            "five_hour_remaining_percent": five_hour_remaining,
+            "remaining_percent": five_hour_remaining, "reserve_percent": reserve,
             "reset_times": [w.get("resetsAt") for w in windows],
-            "reason": "ready" if minimum > reserve and not bucket.get("rateLimitReachedType") else "defer_until_next_day"}
+            "reason": "ready" if five_hour_remaining >= reserve and not bucket.get("rateLimitReachedType") else "defer_until_next_day"}
 
 
 def select_model(models):

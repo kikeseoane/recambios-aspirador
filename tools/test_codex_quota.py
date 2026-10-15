@@ -8,12 +8,12 @@ class QuotaTests(unittest.TestCase):
                                "secondary": {"usedPercent": secondary} if secondary is not None else None}}
 
     def test_reserve(self):
-        self.assertTrue(quota_decision(self.result(79))["allowed"])
-        for used in (80, 81, 100):
+        self.assertTrue(quota_decision(self.result(80))["allowed"])
+        for used in (81, 100):
             self.assertFalse(quota_decision(self.result(used))["allowed"])
 
-    def test_weekly_limit_is_also_respected(self):
-        self.assertFalse(quota_decision(self.result(10, 90))["allowed"])
+    def test_weekly_usage_is_reported_but_not_mistaken_for_grow_budget(self):
+        self.assertTrue(quota_decision(self.result(10, 90))["allowed"])
 
     def test_unknown_never_assumed_free(self):
         for value in ({}, self.result(None), self.result(-1), self.result(float("nan"))):

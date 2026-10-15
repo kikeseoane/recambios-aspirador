@@ -2,6 +2,14 @@ name: Crecimiento diario con Codex local
 on:
   workflow_dispatch:
     inputs:
+      result_branch:
+        description: Rama temporal que genero el trabajador local
+        type: string
+        required: true
+      base_sha:
+        description: Commit exacto de main sobre el que se genero la rama
+        type: string
+        required: true
       dry_run:
         description: Probar coordinacion y cuota sin consumir tokens
         type: boolean
@@ -25,36 +33,23 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Mantener ofertas pausadas hasta terminar la mejora
-        if: inputs.dry_run != true
-        run: python tools/growth_hold.py acquire
       - run: pip install -r requirements.txt
       - uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.155.2'
           extended: true
-      - name: Preparar peticion y controles
-        env:
-          DRY_RUN: ${{ inputs.dry_run || false }}
+      - name: Preparar controles de publicacion
         run: |
-          mkdir -p "$RUNNER_TEMP/growth-controls" "$RUNNER_TEMP/growth-request"
+          mkdir -p "$RUNNER_TEMP/growth-controls"
           cp tools/publish_growth.py tools/check_growth_build.py tools/growth_audit.py tools/growth_bridge.py tools/growth_hold.py tools/notify_growth.py "$RUNNER_TEMP/growth-controls/"
-          python - <<'PY'
-          import json, os, pathlib, subprocess
-          request = dict(run_id=os.environ['GITHUB_RUN_ID'], repository=os.environ['GITHUB_REPOSITORY'], base=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), dry_run=os.environ['DRY_RUN'] == 'true')
-          (pathlib.Path(os.environ['RUNNER_TEMP']) / 'growth-request/request.json').write_text(json.dumps(request))
-          PY
-      - uses: actions/upload-artifact@v4
-        with:
-          name: growth-request
-          path: ${{ runner.temp }}/growth-request/request.json
-          retention-days: 3
-      - name: Esperar Codex local, validar y publicar
+      - name: Validar y publicar el resultado local
         id: publish
         env:
           GROWTH_PUBLISHER: ${{ runner.temp }}/growth-controls/publish_growth.py
           GROWTH_NOTIFICATION_FILE: ${{ runner.temp }}/growth-notification.txt
           GROWTH_DRY_RUN: ${{ inputs.dry_run || false }}
+          GROWTH_RESULT_BRANCH: ${{ inputs.result_branch }}
+          GROWTH_BASE_SHA: ${{ inputs.base_sha }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -68,10 +63,11 @@ jobs:
         run: python "$RUNNER_TEMP/growth-controls/notify_growth.py"
       - name: Limpiar rama temporal tras exito
         if: success()
+        env:
+          RESULT_BRANCH: ${{ inputs.result_branch }}
         run: |
-          branch="automation/codex-growth-${GITHUB_RUN_ID}"
-          if [ -n "$(git ls-remote --heads origin "$branch")" ]; then
-            git push origin --delete "$branch"
+          if [ -n "$(git ls-remote --heads origin "$RESULT_BRANCH")" ]; then
+            git push origin --delete "$RESULT_BRANCH"
           fi
       - name: Avisar solo si falla
         if: failure()

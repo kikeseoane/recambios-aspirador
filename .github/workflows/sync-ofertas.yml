@@ -6,6 +6,8 @@ on:
   workflow_dispatch:
 
 concurrency:
+  # growth-acquire.yml enters this same queue before its local worker clones
+  # main. Therefore this hold check cannot race a new growth reservation.
   group: sync-ofertas
   cancel-in-progress: false
   queue: max

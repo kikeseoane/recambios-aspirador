@@ -15,15 +15,30 @@ def update_budget(previous, decision, now=None):
             or not math.isfinite(used) or not 0 <= used <= 100
             or not isinstance(reset, (int, float)) or not math.isfinite(reset) or reset <= 0):
         raise RuntimeError("Weekly quota unknown; cannot enforce daily 10-point budget")
-    if not previous or previous["day"] != day:
-        previous = dict(day=day, consumed=0, last_used=used, reset=reset)
+    # `consumed` is the daily observed spend while Grow is running.  It is
+    # deliberately reset at the daily boundary; usage between runs belongs to
+    # another session and must not consume today's daily allowance.
+    if not previous:
+        previous = dict(day=day, consumed=0, last_used=used, reset=reset,
+                        weekly_consumed=0)
     elif reset != previous["reset"]:
-        # Reset does not grant another allowance in the same day.
-        previous = dict(previous, consumed=previous["consumed"] + used, reset=reset, last_used=used)
+        # A subscription-window reset does not create a second 10-point daily
+        # allowance. It does begin a fresh, explicitly tracked Grow week.
+        previous = dict(previous, reset=reset, last_used=used, weekly_consumed=0)
+        if previous["day"] != day:
+            previous["day"] = day
+            previous["consumed"] = 0
+    elif previous["day"] != day:
+        previous = dict(previous, day=day, consumed=0, last_used=used)
     else:
-        previous = dict(previous, consumed=previous["consumed"] + max(0, used - previous["last_used"]),
+        delta = max(0, used - previous["last_used"])
+        previous = dict(previous, consumed=previous["consumed"] + delta,
+                        weekly_consumed=previous.get("weekly_consumed", 0) + delta,
                         last_used=max(used, previous["last_used"]))
-    return previous, bool(decision["allowed"] and previous["consumed"] < 10)
+    # Check both at each quota reading. At the threshold the next model action
+    # is never started; an in-flight action can only be observed afterwards.
+    return previous, bool(decision["allowed"] and previous["consumed"] < 10
+                          and previous.get("weekly_consumed", 0) < 70)
 
 
 def check_budget(path, decision):

@@ -1,29 +1,43 @@
 # Crecimiento autonomo diario
 
-Windows inicia codex-growth.yml mediante workflow_dispatch diariamente a las
-09:00 hora de Madrid (tarea Recambios-Codex-Growth-Daily, script
-tools/start_growth_daily.ps1). Recupera el inicio perdido cuando vuelve a estar
+Windows inicia una ejecucion local diariamente a las 09:00 hora de Madrid
+(tarea Recambios-Codex-Growth-Daily, script tools/start_growth_daily.ps1).
+El trabajador prepara el cambio y solo entonces inicia `codex-growth.yml` para
+validarlo y publicarlo. Recupera el inicio perdido cuando vuelve a estar
 disponible el PC; necesita sesion iniciada y red. El huso horario de Windows debe
-seguir siendo Madrid. GitHub no tiene un segundo cron para evitar duplicados.
+seguir siendo Madrid. GitHub no tiene un segundo cron para evitar duplicados ni
+mantiene una Action esperando al equipo.
 El marcador local daily-dispatch.txt evita repetir el lanzamiento en el mismo dia.
 GitHub comparte concurrency.group: sync-ofertas con
-la sincronizacion horaria, sin cancelacion y con cola. Ofertas no se ejecuta
-mientras Codex trabaja. Los pushes humanos siguen siendo posibles: el publicador
+la sincronizacion horaria, sin cancelacion y con cola. Antes de clonar, el PC
+solicita `growth-acquire.yml`, que entra en esa misma cola y crea el hold solo
+cuando ya no hay una sincronizacion trabajando. Los siguientes sync ven el hold
+y no empiezan. Ofertas no se ejecuta mientras Codex trabaja. Los pushes humanos siguen siendo posibles: el publicador
 hace fetch/rebase, valida otra vez y nunca fuerza pushes.
 
 Ademas, la referencia Git `automation/growth-hold` mantiene las ofertas pausadas
-entre dias. La rutina real la crea antes de solicitar trabajo al PC; el workflow
+durante la mejora. El trabajador local la crea antes de empezar; el workflow
 horario solo comprueba la pausa y omite su job de sincronizacion cuando existe.
 No se dejan Actions ejecutandose durante 24 horas ni se modifica main para pausar.
 Solo se retira tras terminar y validar/publicar la mejora. Fallos, falta de cuota
 y PC apagado conservan la pausa; una prueba dry_run no la crea ni la retira.
 Si hay una averia persistente, las ofertas seguiran pausadas hasta resolverla.
 
-La tarea Windows Recambios-Codex-Growth consulta cada cinco minutos las peticiones
-activas del workflow en main. No es un runner self-hosted: GitHub no puede mandar
-comandos arbitrarios al PC. Ejecuta tools/growth_worker.py del checkout local.
+No hay tarea ni proceso que consulte GitHub cada cinco minutos. El proceso diario
+ejecuta `tools/growth_once.py` una sola vez desde el checkout local. Al acabar,
+empuja una rama temporal y solicita `workflow_dispatch` con esa rama y el commit
+base exacto. GitHub rechaza cualquier resultado cuya base ya no sea `main`, valida
+el parche permitido y lo publica. No es un runner self-hosted: GitHub no puede
+mandar comandos arbitrarios al PC.
+
+`tools/start_growth_worker.ps1 -Manual` conserva el lanzamiento manual local;
+`-DryRun` comprueba el publicador remoto sin llamar a Codex. Sin `-Manual` sale
+con código 2 deliberadamente, para que la antigua tarea de cinco minutos no
+ejecute trabajo mientras se desactiva. El proceso diario y el manual devuelven
+un código distinto de cero si Codex falla o no se puede solicitar la publicación.
 El PC debe estar encendido, con sesion del usuario iniciada y acceso a red.
-La peticion contiene run ID, commit exacto y modo prueba, no comandos ejecutables.
+La publicacion recibe una rama temporal, su commit base exacto y el modo prueba,
+no comandos ejecutables.
 
 Codex trabaja en un clon separado bajo .growth-runtime/, sin tocar los cambios
 locales del usuario. Entrega una rama temporal; GitHub controla el alcance,
@@ -39,18 +53,14 @@ No hay cuota de articulos ni ingresos garantizados.
 
 Usa solo la sesion ChatGPT existente, sin API de pago ni copiar credenciales.
 Consulta account/rateLimits/read antes de empezar, cada 30 segundos y al terminar.
-Ademas de la reserva, admite hasta 10 puntos porcentuales de consumo semanal por
-dia (70 % restante -> 60 % restante). Identifica la ventana semanal por su duracion
-de 10080 minutos; si no esta disponible, falla de forma segura sin lanzar el modelo.
-Guarda el presupuesto en .growth-runtime/daily-budget.json. Reinicios y lanzamientos
-manuales no lo reinician. El siguiente presupuesto comienza a las 07:00 UTC del dia
-siguiente, antes del inicio diario tanto en verano como en invierno.
-Un reinicio de cuota semanal tampoco da otros 10 puntos
-en el mismo dia. Se cuenta el consumo observado de la cuenta, incluidas otras sesiones.
-Si cualquier ventana tiene 20 % restante o menos, aplaza. Si no puede consultar
-la cuota, se detiene y marca fallo. Es un porcentaje de uso del servicio, no un
-contador de tokens. Es un control periodico, no atomico: llamadas en curso y
-otras sesiones pueden consumir cuota entre comprobaciones.
+No inicia ni continua con menos de 20 % restante en la ventana de cinco horas.
+Guarda en `.growth-runtime/daily-budget.json` el gasto observado mientras Grow
+esta activo: como maximo 10 puntos por dia y 70 puntos en una misma ventana
+semanal (`weekly_resets_at`). Reinicios y lanzamientos manuales no lo reinician.
+El siguiente presupuesto diario comienza a las 07:00 UTC; un reinicio semanal no
+concede una segunda asignacion diaria. Si no se puede consultar la cuota, falla
+de forma segura. Es un control periodico, no atomico: una llamada en curso u otra
+sesion puede consumir cuota entre comprobaciones.
 
 Selecciona un modelo Luna disponible en model/list para la cuenta, razonamiento
 medio; no cambia silenciosamente a una familia mas cara. La comprobacion inicial
@@ -69,13 +79,14 @@ El workflow de crecimiento envia Telegram ante fallos y tras publicar una mejora
 resume el cambio y motivo del registro, archivos afectados y enlace al commit.
 No confirma el despliegue de Cloudflare, solo el push validado a main.
 Pruebas sin cambios, registros sin mejora y cuota baja son silenciosos.
-Si el PC no responde en 27 minutos, GitHub
-avisa y termina la Action, pero conserva la pausa de ofertas; vuelve a intentarlo al dia siguiente.
-Los logs y checkpoints locales estan en .growth-runtime/, excluidos de Git.
+Si el trabajador local falla, no inicia una Action remota que espere al PC;
+guarda el error y conserva el hold cuando hay una mejora pendiente. El siguiente
+lanzamiento manual o diario reanuda ese checkpoint. Los logs y checkpoints locales estan en `.growth-runtime/`.
 La sincronizacion de ofertas conserva sus avisos existentes.
 La auditoria read-only growth-audit.yml puede ejecutarse en paralelo.
 
-workflow_dispatch con dry_run=true prueba coordinacion y cuota sin llamar al modelo.
+`tools/start_growth_worker.ps1 -Manual -DryRun` prueba coordinacion y el
+publicador sin llamar al modelo.
 Los tests de los controles son:
 - python -m unittest discover -s tools -p 'test_*growth.py'
 - python -m unittest discover -s tools -p 'test_codex_quota.py'

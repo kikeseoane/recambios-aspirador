@@ -36,6 +36,21 @@ class BudgetTests(unittest.TestCase):
     def test_twenty_percent_reserve_still_applies(self):
         self.assertFalse(update_budget(None, self.decision(80, allowed=False), self.now)[1])
 
+    def test_weekly_grow_budget_stops_at_seventy_points(self):
+        state = dict(day="2026-10-13", consumed=0, last_used=60,
+                     reset=1800000000, weekly_consumed=60)
+        state, ok = update_budget(state, self.decision(70), self.now)
+        self.assertFalse(ok)
+        self.assertEqual(state["weekly_consumed"], 70)
+
+    def test_subscription_reset_keeps_today_daily_cap_but_restarts_grow_week(self):
+        state, _ = update_budget(None, self.decision(0), self.now)
+        state, _ = update_budget(state, self.decision(10), self.now)
+        state, ok = update_budget(state, self.decision(1, reset=1800604800), self.now)
+        self.assertFalse(ok)
+        self.assertEqual(state["consumed"], 10)
+        self.assertEqual(state["weekly_consumed"], 0)
+
     def test_missing_weekly_fails_closed(self):
         with self.assertRaises(RuntimeError):
             update_budget(None, {"allowed": True}, self.now)

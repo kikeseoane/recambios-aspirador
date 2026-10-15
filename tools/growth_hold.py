@@ -13,10 +13,16 @@ def held():
     return bool(git("ls-remote", "--heads", "origin", REF))
 
 
-def main(action):
+def main(action, require_free=False):
     if action == "acquire":
-        if not held():
-            git("push", "origin", f"HEAD:{REF}")
+        if held():
+            if require_free:
+                raise RuntimeError("Growth lock is already held")
+            print("already-held")
+            return False
+        git("push", "origin", f"HEAD:{REF}")
+        print("acquired")
+        return True
     elif action == "release":
         if held():
             git("push", "origin", f":{REF}")
@@ -27,4 +33,5 @@ def main(action):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    action = sys.argv[1]
+    main(action, "--require-free" in sys.argv[2:])
