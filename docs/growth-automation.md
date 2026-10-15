@@ -12,6 +12,8 @@ Si la reserva de cinco horas baja del 20 %, Windows programa una unica tarea
 `Recambios-Codex-Growth-Retry` para un minuto despues del reset exacto comunicado
 por Codex. No marca el dia como completado; si vuelve a faltar cuota, actualiza
 esa misma tarea para el siguiente reset, sin sondeo periodico.
+Ambas tareas Windows permiten hasta dos horas para esperar la reserva de GitHub
+y terminar el trabajo local; el agente limita cada mejora a 18 minutos.
 GitHub comparte concurrency.group: sync-ofertas con
 la sincronizacion horaria, sin cancelacion y con cola. Antes de clonar, el PC
 solicita `growth-acquire.yml`, que entra en esa misma cola y crea el hold solo
