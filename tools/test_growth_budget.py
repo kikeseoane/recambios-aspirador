@@ -48,7 +48,7 @@ class BudgetTests(unittest.TestCase):
         state, _ = update_budget(state, self.decision(10), self.now)
         state, ok = update_budget(state, self.decision(1, reset=1800604800), self.now)
         self.assertFalse(ok)
-        self.assertEqual(state["consumed"], 10)
+        self.assertEqual(state["consumed"], 11)
         self.assertEqual(state["weekly_consumed"], 0)
 
     def test_missing_weekly_fails_closed(self):

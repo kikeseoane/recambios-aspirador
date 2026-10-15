@@ -28,6 +28,8 @@ def update_budget(previous, decision, now=None):
         if previous["day"] != day:
             previous["day"] = day
             previous["consumed"] = 0
+        else:
+            previous["consumed"] += used
     elif previous["day"] != day:
         previous = dict(previous, day=day, consumed=0, last_used=used)
     else:
@@ -42,9 +44,19 @@ def update_budget(previous, decision, now=None):
 
 
 def check_budget(path, decision):
+    return check_budget_status(path, decision)[0]
+
+
+def check_budget_status(path, decision):
     previous = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
     state, allowed = update_budget(previous, decision)
     temporary = path.with_suffix(".tmp")
     temporary.write_text(json.dumps(state), encoding="utf-8")
     temporary.replace(path)
-    return allowed
+    if state["consumed"] >= 10:
+        return allowed, "daily_budget"
+    if state.get("weekly_consumed", 0) >= 70:
+        return allowed, "weekly_budget"
+    if not decision["allowed"]:
+        return allowed, decision.get("reason", "quota_unavailable")
+    return allowed, "ready"

@@ -99,19 +99,26 @@ def quota_decision(result, reserve=20):
         five_hour = next(((window, left) for window, left in normalized if window is bucket.get("primary")), None)
     if five_hour is None:
         raise RuntimeError("Five-hour quota unknown: do not start")
+    five_hour_reset = five_hour[0].get("resetsAt")
+    if (isinstance(five_hour_reset, bool) or not isinstance(five_hour_reset, (int, float))
+            or not math.isfinite(five_hour_reset) or five_hour_reset <= 0):
+        raise RuntimeError("Five-hour reset unknown: do not start")
     weekly = next((window for window, _ in normalized
                    if window.get("windowDurationMins") == 7 * 24 * 60), None)
     if weekly is None and bucket.get("secondary"):
         weekly = bucket["secondary"]
     weekly = weekly or {}
     five_hour_remaining = five_hour[1]
-    return {"allowed": five_hour_remaining >= reserve and not bucket.get("rateLimitReachedType"),
+    short_reserve = five_hour_remaining < reserve
+    allowed = not short_reserve and not bucket.get("rateLimitReachedType")
+    return {"allowed": allowed,
             "weekly_used_percent": weekly.get("usedPercent"),
             "weekly_resets_at": weekly.get("resetsAt"),
             "five_hour_remaining_percent": five_hour_remaining,
+            "five_hour_resets_at": five_hour_reset,
             "remaining_percent": five_hour_remaining, "reserve_percent": reserve,
             "reset_times": [w.get("resetsAt") for w in windows],
-            "reason": "ready" if five_hour_remaining >= reserve and not bucket.get("rateLimitReachedType") else "defer_until_next_day"}
+            "reason": "ready" if allowed else ("five_hour_reserve" if short_reserve else "rate_limit_reached")}
 
 
 def select_model(models):

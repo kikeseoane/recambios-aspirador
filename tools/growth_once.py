@@ -11,6 +11,7 @@ import subprocess
 import sys
 import time
 import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 
 import growth_worker as legacy
@@ -103,12 +104,30 @@ def dispatch_publisher(branch, base, dry_run):
                "-f", f"dry_run={'true' if dry_run else 'false'}")
 
 
-def run_once(dry_run=False):
+def request_five_hour_retry(decision):
+    reset = decision.get("five_hour_resets_at")
+    if not isinstance(reset, (int, float)) or reset <= time.time():
+        raise RuntimeError("Five-hour reset unavailable for retry")
+    retry_at = datetime.fromtimestamp(reset + 60, timezone.utc)
+    (STATE / "retry-request.json").write_text(json.dumps({
+        "reason": "five_hour_reserve", "at_utc": retry_at.isoformat().replace("+00:00", "Z")
+    }), encoding="utf-8")
+
+
+def run_once(dry_run=False, schedule_five_hour_retry=False):
     with legacy.single_worker() as acquired:
         if not acquired:
             raise RuntimeError("Another growth run is already active")
         discard_confirmed_checkpoint()
         try:
+            decision = legacy.preflight()
+            (STATE / "last-quota.json").write_text(json.dumps(decision), encoding="utf-8")
+            if not dry_run:
+                budget_ok, budget_reason = legacy.check_budget_status(STATE / "daily-budget.json", decision)
+                if not budget_ok:
+                    if schedule_five_hour_retry and budget_reason == "five_hour_reserve":
+                        request_five_hour_retry(decision)
+                    return 0
             pending_patch = (STATE / "pending.patch").exists()
             pending_publication = (STATE / "pending-branch.txt").exists()
             if pending_publication and not dry_run:
@@ -118,11 +137,14 @@ def run_once(dry_run=False):
             # The lock is now held (or this is an isolated dry run), so this is
             # the newest stable main available to the local worker.
             checkout, branch, base = new_checkout()
+            # The queue may have delayed the lock; verify the short window again.
             decision = legacy.preflight()
             (STATE / "last-quota.json").write_text(json.dumps(decision), encoding="utf-8")
             if dry_run:
                 status = "ready"
-            elif not legacy.check_budget(STATE / "daily-budget.json", decision):
+            elif not (budget_result := legacy.check_budget_status(STATE / "daily-budget.json", decision))[0]:
+                if schedule_five_hour_retry and budget_result[1] == "five_hour_reserve":
+                    request_five_hour_retry(decision)
                 status = "deferred"
             else:
                 restore_checkpoint(checkout)
@@ -130,7 +152,11 @@ def run_once(dry_run=False):
                     status = legacy.invoke_codex(checkout, decision["model"])
                 finally:
                     legacy.save_checkpoint(checkout, base)
-            if status == "deferred":
+            if status == "deferred-five-hour" and schedule_five_hour_retry:
+                decision = legacy.preflight()
+                if legacy.check_budget_status(STATE / "daily-budget.json", decision)[1] == "five_hour_reserve":
+                    request_five_hour_retry(decision)
+            if status in ("deferred", "deferred-five-hour"):
                 if not pending_patch and not (STATE / "pending.patch").exists() and not dry_run:
                     release_hold(checkout)
                     (STATE / "growth-lock.txt").unlink(missing_ok=True)
@@ -164,9 +190,10 @@ def run_once(dry_run=False):
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Run one local Codex growth cycle")
     parser.add_argument("--dry-run", action="store_true", help="Validate GitHub publishing without calling Codex")
+    parser.add_argument("--schedule-five-hour-retry", action="store_true")
     args = parser.parse_args(argv)
     try:
-        return run_once(args.dry_run)
+        return run_once(args.dry_run, args.schedule_five_hour_retry)
     except Exception as error:
         print(f"growth worker failed: {error}", file=sys.stderr)
         return 1

@@ -13,7 +13,7 @@ from contextlib import contextmanager
 
 from codex_quota import AppServer, codex_binary, preflight, quota_decision
 from publish_growth import allowed
-from growth_budget import check_budget
+from growth_budget import check_budget, check_budget_status
 
 REPO = "kikeseoane/recambios-aspirador"
 ROOT = Path(__file__).resolve().parents[1]
@@ -97,13 +97,14 @@ def invoke_codex(checkout, model):
                     process.wait(timeout=30)
                 except subprocess.TimeoutExpired:
                     decision = preflight()
-                    if not check_budget(STATE / "daily-budget.json", decision) or time.monotonic() >= deadline:
+                    within_budget, reason = check_budget_status(STATE / "daily-budget.json", decision)
+                    if not within_budget or time.monotonic() >= deadline:
                         stop_process(process)
-                        return "deferred"
+                        return "deferred-five-hour" if reason == "five_hour_reserve" else "deferred"
             # Also account for short runs and the final in-flight request.
-            within_budget = check_budget(STATE / "daily-budget.json", preflight())
+            within_budget, reason = check_budget_status(STATE / "daily-budget.json", preflight())
             if not within_budget:
-                return "deferred"
+                return "deferred-five-hour" if reason == "five_hour_reserve" else "deferred"
             if process.returncode == 0:
                 # A conversational refusal can exit zero. Require the promised
                 # run record so blocked tool access is not reported as success.
@@ -112,7 +113,8 @@ def invoke_codex(checkout, model):
                     return "failed"
                 return "ready"
             # Exhaustion is a normal deferral; other failures need an alert.
-            return "deferred" if not preflight()["allowed"] else "failed"
+            decision = preflight()
+            return "deferred-five-hour" if decision.get("reason") == "five_hour_reserve" else ("deferred" if not decision["allowed"] else "failed")
         finally:
             if process.poll() is None:
                 stop_process(process)

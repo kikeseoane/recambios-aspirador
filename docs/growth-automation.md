@@ -1,13 +1,17 @@
 # Crecimiento autonomo diario
 
-Windows inicia una ejecucion local diariamente a las 09:00 hora de Madrid
+Windows inicia una ejecucion local diariamente a las 13:01 hora de Madrid
 (tarea Recambios-Codex-Growth-Daily, script tools/start_growth_daily.ps1).
 El trabajador prepara el cambio y solo entonces inicia `codex-growth.yml` para
 validarlo y publicarlo. Recupera el inicio perdido cuando vuelve a estar
 disponible el PC; necesita sesion iniciada y red. El huso horario de Windows debe
 seguir siendo Madrid. GitHub no tiene un segundo cron para evitar duplicados ni
 mantiene una Action esperando al equipo.
-El marcador local daily-dispatch.txt evita repetir el lanzamiento en el mismo dia.
+El marcador local daily-dispatch.txt evita repetir una ejecucion completada en el mismo dia.
+Si la reserva de cinco horas baja del 20 %, Windows programa una unica tarea
+`Recambios-Codex-Growth-Retry` para un minuto despues del reset exacto comunicado
+por Codex. No marca el dia como completado; si vuelve a faltar cuota, actualiza
+esa misma tarea para el siguiente reset, sin sondeo periodico.
 GitHub comparte concurrency.group: sync-ofertas con
 la sincronizacion horaria, sin cancelacion y con cola. Antes de clonar, el PC
 solicita `growth-acquire.yml`, que entra en esa misma cola y crea el hold solo
@@ -19,8 +23,9 @@ Ademas, la referencia Git `automation/growth-hold` mantiene las ofertas pausadas
 durante la mejora. El trabajador local la crea antes de empezar; el workflow
 horario solo comprueba la pausa y omite su job de sincronizacion cuando existe.
 No se dejan Actions ejecutandose durante 24 horas ni se modifica main para pausar.
-Solo se retira tras terminar y validar/publicar la mejora. Fallos, falta de cuota
-y PC apagado conservan la pausa; una prueba dry_run no la crea ni la retira.
+Solo se retira tras terminar y validar/publicar una mejora pendiente. Una espera
+por cuota o un fallo sin cambios libera la pausa; una mejora parcial la conserva.
+Una prueba dry_run no la crea ni la retira.
 Si hay una averia persistente, las ofertas seguiran pausadas hasta resolverla.
 
 No hay tarea ni proceso que consulte GitHub cada cinco minutos. El proceso diario
@@ -67,9 +72,10 @@ medio; no cambia silenciosamente a una familia mas cara. La comprobacion inicial
 encontro gpt-5.6-luna. Reevalua disponibilidad cada dia. Es un punto de partida
 para mejoras acotadas, no un optimo demostrado.
 
-Al consumir los 10 puntos, alcanzar la reserva o superar 18 minutos, guarda el parche
-local y aplaza, dejando las ofertas pausadas. El siguiente
-dia integra ese trabajo sobre main reciente con merge de tres vias. Si hay
+Al consumir los 10 puntos o superar 18 minutos, guarda el parche
+local y aplaza hasta el dia siguiente. Si alcanza la reserva de cinco horas,
+aplaza hasta un minuto despues de su reset. Una mejora parcial mantiene ofertas
+pausadas; al reanudar integra el parche sobre main reciente con merge de tres vias. Si hay
 conflicto no publica y conserva el checkpoint. Solo lo elimina tras confirmar
 que GitHub publico correctamente. Si la cuota semanal sigue baja, vuelve a aplazar.
 

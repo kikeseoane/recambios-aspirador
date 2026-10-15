@@ -28,8 +28,8 @@ class OneShotTests(unittest.TestCase):
             state = Path(directory)
             with self.common(state), \
                  patch.object(growth_once.legacy, "single_worker", return_value=nullcontext(True)), \
-                 patch.object(growth_once.legacy, "preflight", return_value={"allowed": True, "model": "luna"}), \
-                 patch.object(growth_once.legacy, "check_budget", return_value=True), \
+                 patch.object(growth_once.legacy, "preflight", return_value={"allowed": True, "model": "luna", "reason": "ready"}), \
+                 patch.object(growth_once.legacy, "check_budget_status", return_value=(True, "ready")), \
                  patch.object(growth_once.legacy, "invoke_codex", return_value="failed"), \
                  patch.object(growth_once.legacy, "save_checkpoint"), \
                  patch.object(growth_once, "release_hold") as release, \
@@ -44,13 +44,39 @@ class OneShotTests(unittest.TestCase):
             (state / "pending.patch").write_bytes(b"patch")
             with self.common(state), \
                  patch.object(growth_once.legacy, "single_worker", return_value=nullcontext(True)), \
-                 patch.object(growth_once.legacy, "preflight", return_value={"allowed": False}), \
-                 patch.object(growth_once.legacy, "check_budget", return_value=False), \
+                 patch.object(growth_once.legacy, "preflight", return_value={"allowed": False, "reason": "five_hour_reserve"}), \
+                 patch.object(growth_once.legacy, "check_budget_status", return_value=(False, "five_hour_reserve")), \
                  patch.object(growth_once, "release_hold") as release, \
                  patch.object(growth_once, "dispatch_publisher") as dispatch:
                 self.assertEqual(growth_once.main([]), 0)
             release.assert_not_called()
             dispatch.assert_not_called()
+
+    def test_five_hour_shortage_requests_one_retry_without_acquiring_lock(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            decision = {"allowed": False, "reason": "five_hour_reserve", "five_hour_resets_at": 1800000000}
+            with self.common(state), \
+                 patch.object(growth_once.legacy, "single_worker", return_value=nullcontext(True)), \
+                 patch.object(growth_once.legacy, "preflight", return_value=decision), \
+                 patch.object(growth_once.legacy, "check_budget_status", return_value=(False, "five_hour_reserve")), \
+                 patch.object(growth_once, "acquire_remote_hold") as acquire, \
+                 patch.object(growth_once, "request_five_hour_retry") as retry:
+                self.assertEqual(growth_once.main(["--schedule-five-hour-retry"]), 0)
+            acquire.assert_not_called()
+            retry.assert_called_once_with(decision)
+
+    def test_daily_budget_never_requests_five_hour_retry(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            decision = {"allowed": False, "reason": "five_hour_reserve", "five_hour_resets_at": 1800000000}
+            with self.common(state), \
+                 patch.object(growth_once.legacy, "single_worker", return_value=nullcontext(True)), \
+                 patch.object(growth_once.legacy, "preflight", return_value=decision), \
+                 patch.object(growth_once.legacy, "check_budget_status", return_value=(False, "daily_budget")), \
+                 patch.object(growth_once, "request_five_hour_retry") as retry:
+                self.assertEqual(growth_once.main(["--schedule-five-hour-retry"]), 0)
+            retry.assert_not_called()
 
 
 if __name__ == "__main__":
