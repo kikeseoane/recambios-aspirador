@@ -70,7 +70,9 @@
 
   <div class="two-col" style="margin-top:16px;">
     <div class="panel">
-      {{ if $g }}
+      {{ if .Content }}
+        {{ .Content }}
+      {{ else if $g }}
         {{ if reflect.IsSlice $g }}
           <ul class="list" style="line-height:1.8;">
             {{ range $g }}<li>{{ . }}</li>{{ end }}
