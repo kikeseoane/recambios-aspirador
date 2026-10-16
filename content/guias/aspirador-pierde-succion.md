@@ -57,6 +57,15 @@ Antes de comprar nada, revisa estos puntos en orden:
 | Se apaga a los 5 min | Bateria agotada | Bateria |
 | Mal desde el primer dia | Bloqueo en tubo | Limpiar (gratis) |
 
+## Si tienes una Dyson V8
+
+Primero limpia el filtro y revisa que no haya una obstruccion en el cabezal. Si el filtro sigue saturado o el rodillo esta desgastado despues de esas comprobaciones, consulta la categoria que corresponda a tu maquina:
+
+- [Filtro para Dyson V8](/marcas/dyson/dyson-v8/filtro/): confirma si tu V8 usa filtro de estrella o de pinza antes de elegir un recambio.
+- [Cepillo o rodillo para Dyson V8](/marcas/dyson/dyson-v8/cepillo/): comprueba el tipo de cabezal y la referencia antes de comprar.
+
+La asistencia de Dyson para V8 explica la limpieza del filtro y la retirada de obstrucciones; las fichas anteriores muestran la oferta vigente para la categoria y variante seleccionadas.
+
 ## Cuando NO comprar recambio
 
 - Si el aspirador tiene mas de 6 anos y el motor esta gastado: el coste de bateria + filtro + cepillo supera el valor del aparato.

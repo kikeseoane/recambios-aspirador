@@ -1,5 +1,18 @@
 # Growth log
 
+## 2026-10-16 - Ruta de recambio desde la guia de perdida de succion
+
+- **Oportunidad y evidencia:** la auditoria de hoy informa 162 modelos, 11 sin ofertas aceptadas, 916/1620 referencias aceptadas y 287/808 categorias sin cobertura; no hay exportacion de Search Console ni datos comparables de GA4, asi que no se atribuye demanda, impresiones ni posiciones a una URL. La revision de `data/ofertas.json` leido el 2026-10-16 confirmo cuatro referencias para Dyson V8 relacionadas con esta guia: dos filtros y dos cepillos/rodillos, todas con `compatibility_status: compatible_alto`, `match_type: exact_or_best_match` y URL no vacia. La guia no enlazaba esas categorias aunque ya recomendaba limpiar o sustituir filtro y rodillo.
+- **Fuente actual consultada:** Dyson Espana, asistencia de la aspiradora vertical sin cable V8 (https://www.dyson.es/support/vacuum-cleaners/cordless/v8/pinch-pre-filter, consultada el 2026-10-16): documenta limpieza de filtros, comprobacion de obstrucciones y que existen variantes V8 con filtro de pinza o de estrella. Se emplea para orientar la identificacion de variante, no como prueba de stock, precio o compatibilidad universal.
+- **Cambio:** `content/guias/aspirador-pierde-succion.md` incorpora dos enlaces contextuales, despues de la tabla de diagnostico, a las categorias de filtro y de cepillo/rodillo para Dyson V8. El texto mantiene el orden seguro: limpiar y comprobar obstrucciones primero; despues confirmar variante, cabezal y referencia antes de comprar. Las fichas siguen resolviendo la oferta mediante los componentes existentes, sin copiar enlaces, precios ni disponibilidad en la guia.
+- **Paginas afectadas:** `/guias/aspirador-pierde-succion/`, `/marcas/dyson/dyson-v8/filtro/` y `/marcas/dyson/dyson-v8/cepillo/`.
+- **Paginas huerfanas:** no se detectaron en esta intervencion; se corrigio una ruta ausente desde una guia de diagnostico hacia dos categorias relevantes ya accesibles desde el modelo.
+- **Enlaces recomendados:** filtro para Dyson V8 y cepillo o rodillo para Dyson V8 desde el diagnostico de perdida de succion.
+- **Anchors sugeridos:** `Filtro para Dyson V8` y `Cepillo o rodillo para Dyson V8`.
+- **Limitaciones:** no hay Search Console, GA4 ni pedidos o comisiones aprobadas. No se ejecuto `sync_ofertas.py`, no se editaron `data/ofertas.json`, `data/ofertas.yaml` ni `data/vertical_defaults.yaml`, y no se ejecuto Hugo local. No se verificaron en vivo stock, entrega o precio, ni se simulo una compra.
+- **Pruebas:** se revisaron las cuatro claves de oferta de filtro y cepillo/rodillo V8, sus estados, tipos de coincidencia y URLs no vacias; se comprobaron las rutas internas y anchors nuevos. Hugo y `python tools/check_growth_build.py` quedan para la validacion de GitHub.
+- **Metrica a 28 dias:** el 2026-11-13, comparar sesiones de `/guias/aspirador-pierde-succion/`, entradas a las dos categorias V8 y eventos `affiliate_click` originados en la guia frente al periodo anterior equivalente. Si hay fuente conectada, revisar despues pedidos y comision neta aprobada; no cambiar esta guia antes de esa medicion salvo un error.
+
 ## 2026-10-15 - Enlazado desde diagnostico de aspirador que no enciende
 
 - **Oportunidad y evidencia:** `tools/growth_audit.py` encontro 162 modelos, 12 sin ofertas aceptadas, 900/1620 referencias aceptadas y 294/808 categorias sin cobertura. No hay exportacion de Search Console ni datos comparables de GA4 en este checkout, asi que no se infieren impresiones, posiciones ni demanda. La revision local de `data/ofertas.json` confirmo cinco fichas con `compatibility_status: compatible_alto`, `match_type: exact_or_best_match` y URL no vacia: bateria y cargador de Dyson V8, bateria de Dyson V11 y bateria y cargador de Xiaomi G9.
