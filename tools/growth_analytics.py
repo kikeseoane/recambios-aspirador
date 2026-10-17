@@ -126,13 +126,15 @@ def ga4_report(token, property_id, period, session=requests):
     return result
 
 
-def windsor_rows(connector, fields, account, period, api_key, session=requests):
+def windsor_rows(connector, fields, account, period, api_key, session=requests, filters=None):
     """Read one connected Windsor account without exposing the API key in errors."""
     params = {
         "api_key": api_key, "fields": ",".join(fields),
         "select_accounts": account, "date_from": period["start_date"],
         "date_to": period["end_date"], "_max_rows": 25,
     }
+    if filters:
+        params["filter"] = json.dumps(filters)
     try:
         response = session.request("GET", WINDSOR_ENDPOINT.format(connector=connector),
                                    params=params, timeout=60)
@@ -170,6 +172,14 @@ def windsor_reports(api_key, site_url, property_id, period, session=requests):
                {"page": row.get("page_path", ""), "sessions": row.get("sessions", 0),
                 "screenPageViews": row.get("screen_page_views", 0)} for row in ga4_rows
            ]})
+    if not ga4_error:
+        click_rows, click_error = windsor_rows(
+            "googleanalytics4", ("event_name", "event_count"), property_id,
+            period, api_key, session, filters=[["event_name", "eq", "affiliate_click"]])
+        if click_error:
+            ga4["affiliate_clicks_status"] = click_error
+        else:
+            ga4["affiliate_clicks"] = sum(int(row.get("event_count", 0)) for row in click_rows)
     return gsc, ga4
 
 
