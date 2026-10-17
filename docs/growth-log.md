@@ -1,5 +1,14 @@
 # Growth log
 
+## 2026-10-17 - Oportunidad CTR en hubs Rowenta aplazada
+
+- **Oportunidad y evidencia:** `python tools/growth_audit.py` informó datos de Search Console para el periodo cerrado 2026-09-17 a 2026-10-14: `/marcas/rowenta/rowenta-xforce-1460/problemas/` obtuvo 139 impresiones, CTR 2,9 % y posición media 8,4; `/marcas/rowenta/rowenta-x-force-flex-8-60/problemas/` obtuvo 77 impresiones, CTR 2,6 % y posición media 7,9. GA4 reporta 3 sesiones para el hub 14.60 y no incluye el hub 8.60 entre sus páginas destacadas. Son páginas con margen plausible de CTR, sin concluir que la variación sea causal.
+- **Mejora candidata:** ajustar en `layouts/_default/baseof.html` el título SEO y la meta description compartidos de `layout: problemas`, para que describan el diagnóstico por síntomas y las soluciones disponibles sin la frase genérica «problemas y recambio». Afectaría a los hubs de problemas de modelos en general; la señal actual que motiva el análisis corresponde a los dos hubs Rowenta indicados. No se editó plantilla ni contenido.
+- **Páginas candidatas:** `/marcas/rowenta/rowenta-xforce-1460/problemas/` y `/marcas/rowenta/rowenta-x-force-flex-8-60/problemas/`.
+- **Limitaciones y motivo de aplazamiento:** no se pudo consultar el estado de cuota requerido por la rutina (`account/rateLimits/read` no está disponible en las herramientas de esta sesión y no existe `.growth-runtime/daily-budget.json` en este checkout). La automatización documenta que, si no puede verificarse la cuota, se debe fallar de forma segura. Por ello no se aplicó una edición. La auditoría no aporta consultas concretas para esos hubs; no se inventan términos ni volumen.
+- **Pruebas:** se ejecutó `python tools/growth_audit.py`; se inspeccionaron el bloque SEO compartido en `layouts/_default/baseof.html`, los front matter de los dos hubs y su plantilla de listado. No se ejecutó Hugo local ni se cambió el estado de ofertas.
+- **Métrica si se retoma:** comparar en Search Console, tras 28 días desde una eventual publicación, impresiones, CTR y posición de ambos hubs con el periodo de 28 días previo equivalente; revisar sesiones y `affiliate_click` en GA4 como métricas secundarias. No atribuir cambios sin evidencia suficiente.
+
 ## 2026-10-16 - Ruta de recambio desde la guia de perdida de succion
 
 - **Oportunidad y evidencia:** la auditoria de hoy informa 162 modelos, 11 sin ofertas aceptadas, 916/1620 referencias aceptadas y 287/808 categorias sin cobertura; no hay exportacion de Search Console ni datos comparables de GA4, asi que no se atribuye demanda, impresiones ni posiciones a una URL. La revision de `data/ofertas.json` leido el 2026-10-16 confirmo cuatro referencias para Dyson V8 relacionadas con esta guia: dos filtros y dos cepillos/rodillos, todas con `compatibility_status: compatible_alto`, `match_type: exact_or_best_match` y URL no vacia. La guia no enlazaba esas categorias aunque ya recomendaba limpiar o sustituir filtro y rodillo.
