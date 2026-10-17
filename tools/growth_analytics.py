@@ -20,6 +20,9 @@ SCOPES = (
 )
 GSC_ENDPOINT = "https://www.googleapis.com/webmasters/v3/sites/{site}/searchAnalytics/query"
 GA4_ENDPOINT = "https://analyticsdata.googleapis.com/v1beta/properties/{property_id}:runReport"
+WINDSOR_ENDPOINT = "https://connectors.windsor.ai/{connector}"
+DEFAULT_GSC_SITE = "sc-domain:recambios-aspirador.com"
+DEFAULT_GA4_PROPERTY_ID = "529119132"
 
 
 def completed_period(days=28, today=None):
@@ -123,8 +126,62 @@ def ga4_report(token, property_id, period, session=requests):
     return result
 
 
+def windsor_rows(connector, fields, account, period, api_key, session=requests):
+    """Read one connected Windsor account without exposing the API key in errors."""
+    params = {
+        "api_key": api_key, "fields": ",".join(fields),
+        "select_accounts": account, "date_from": period["start_date"],
+        "date_to": period["end_date"], "_max_rows": 25,
+    }
+    try:
+        response = session.request("GET", WINDSOR_ENDPOINT.format(connector=connector),
+                                   params=params, timeout=60)
+    except requests.RequestException:
+        return None, "No se pudo conectar con la API de Windsor.ai."
+    if not response.ok:
+        if response.status_code in (401, 403):
+            return None, "Windsor.ai denego el acceso; revisa la clave API y la cuenta conectada."
+        return None, f"Windsor.ai no respondio correctamente (HTTP {response.status_code})."
+    try:
+        payload = response.json()
+    except ValueError:
+        return None, "Windsor.ai devolvio una respuesta no valida."
+    rows = payload.get("data") if isinstance(payload, dict) else payload
+    if not isinstance(rows, list):
+        return None, "Windsor.ai no devolvio filas en el formato esperado."
+    return [row for row in rows if isinstance(row, dict)], None
+
+
+def windsor_reports(api_key, site_url, property_id, period, session=requests):
+    if not site_url or not property_id:
+        issue = "Falta la propiedad GSC o GA4 para consultar Windsor.ai."
+        unavailable = {"status": "unavailable", "reason": issue}
+        return unavailable, unavailable.copy()
+    gsc_rows, gsc_error = windsor_rows(
+        "searchconsole", ("page", "clicks", "impressions", "ctr", "position"),
+        site_url, period, api_key, session)
+    ga4_rows, ga4_error = windsor_rows(
+        "googleanalytics4", ("page_path", "sessions", "screen_page_views"),
+        property_id, period, api_key, session)
+    gsc = ({"status": "error", "reason": gsc_error} if gsc_error else
+           {"status": "ok", "source": "windsor", "pages": gsc_rows})
+    ga4 = ({"status": "error", "reason": ga4_error} if ga4_error else
+           {"status": "ok", "source": "windsor", "pages": [
+               {"page": row.get("page_path", ""), "sessions": row.get("sessions", 0),
+                "screenPageViews": row.get("screen_page_views", 0)} for row in ga4_rows
+           ]})
+    return gsc, ga4
+
+
 def collect(env=os.environ, session=requests, today=None):
     period = completed_period(today=today)
+    if env.get("GROWTH_WINDSOR_API_KEY"):
+        gsc, ga4 = windsor_reports(
+            env["GROWTH_WINDSOR_API_KEY"],
+            env.get("GROWTH_GSC_SITE_URL", DEFAULT_GSC_SITE),
+            env.get("GROWTH_GA4_PROPERTY_ID", DEFAULT_GA4_PROPERTY_ID),
+            period, session)
+        return {"period": period, "search_console": gsc, "ga4": ga4}
     token, issue = access_token(env)
     result = {"period": period}
     if issue:

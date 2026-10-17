@@ -77,7 +77,8 @@ def stop_process(process):
 def invoke_codex(checkout, model):
     env = {k: v for k, v in os.environ.items() if k not in
            ("OPENAI_API_KEY", "CODEX_API_KEY", "AZURE_OPENAI_API_KEY", "GH_TOKEN", "GITHUB_TOKEN",
-            "GROWTH_GOOGLE_ACCESS_TOKEN", "GOOGLE_APPLICATION_CREDENTIALS")}
+            "GROWTH_GOOGLE_ACCESS_TOKEN", "GOOGLE_APPLICATION_CREDENTIALS",
+            "GROWTH_WINDSOR_API_KEY")}
     # Keep the read-only API snapshot inside Git metadata: Codex can audit it,
     # while git status/stage_patch can never publish it with a growth change.
     analytics_path = checkout / ".git" / "growth-analytics.json"
@@ -85,8 +86,8 @@ def invoke_codex(checkout, model):
         analytics = growth_analytics.collect()
     except Exception:
         analytics = {"period": growth_analytics.completed_period(),
-                     "search_console": {"status": "error", "reason": "No se pudo consultar Google."},
-                     "ga4": {"status": "error", "reason": "No se pudo consultar Google."}}
+                     "search_console": {"status": "error", "reason": "No se pudo consultar la analitica."},
+                     "ga4": {"status": "error", "reason": "No se pudo consultar la analitica."}}
     analytics_path.write_text(json.dumps(analytics, ensure_ascii=False), encoding="utf-8")
     prompt = (checkout / "docs/growth-prompt.md").read_text(encoding="utf-8")
     prompt += "\nEl trabajador local delega validacion Hugo, commit final y push a main en GitHub. No ejecutes Hugo localmente.\n"

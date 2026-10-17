@@ -62,6 +62,28 @@ class GrowthAnalyticsTests(unittest.TestCase):
         self.assertEqual(result["status"], "error")
         self.assertIn("denego", result["reason"])
 
+    def test_collects_connected_windsor_accounts_without_exposing_key(self):
+        session = FakeSession([
+            FakeResponse(payload={"data": [{"page": "https://example.test/guia/", "clicks": 3,
+                                            "impressions": 40, "ctr": .075, "position": 8.5}]}),
+            FakeResponse(payload={"data": [{"page_path": "/guia/", "sessions": 7,
+                                            "screen_page_views": 9}]}),
+        ])
+        result = analytics.collect(env={"GROWTH_WINDSOR_API_KEY": "not-printed"},
+                                   session=session, today=date(2026, 10, 17))
+        self.assertEqual(result["search_console"]["pages"][0]["clicks"], 3)
+        self.assertEqual(result["ga4"]["pages"][0]["screenPageViews"], 9)
+        self.assertEqual(session.calls[0][1]["params"]["select_accounts"], analytics.DEFAULT_GSC_SITE)
+        self.assertEqual(session.calls[1][1]["params"]["select_accounts"], analytics.DEFAULT_GA4_PROPERTY_ID)
+        self.assertNotIn("not-printed", analytics.markdown(result))
+
+    def test_windsor_denial_does_not_echo_secret_or_server_body(self):
+        session = FakeSession([FakeResponse(403, payload={"error": "not-printed"}),
+                               FakeResponse(payload={"data": []})])
+        result = analytics.collect(env={"GROWTH_WINDSOR_API_KEY": "not-printed"}, session=session)
+        self.assertEqual(result["search_console"]["status"], "error")
+        self.assertNotIn("not-printed", str(result))
+
     def test_api_connection_failure_is_nonfatal(self):
         session = Mock()
         session.request.side_effect = requests.ConnectionError("private diagnostic")
