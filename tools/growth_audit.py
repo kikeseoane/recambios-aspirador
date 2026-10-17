@@ -11,6 +11,16 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def analytics_snapshot():
+    path = ROOT / ".git" / "growth-analytics.json"
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
 def reliable(offer):
     return bool(offer.get("url") and not offer.get("needs_url")
                 and not offer.get("orphaned")
@@ -45,8 +55,21 @@ def report(gsc_dir):
         *[f"- {name}" for name in empty_models],
         "", "## Prioridades con trafico", "",
     ]
+    analytics = analytics_snapshot()
+    gsc = (analytics or {}).get("search_console", {})
     pages_file = gsc_dir / "Páginas.csv"
-    if pages_file.exists():
+    if gsc.get("status") == "ok":
+        period = analytics["period"]
+        lines.append(f"Search Console API, periodo cerrado {period['start_date']} a {period['end_date']}.")
+        for row in gsc.get("pages", []):
+            path = urlsplit(row["page"]).path
+            count = categories.get(path)
+            flag = f"; ofertas aceptadas={count}" if count is not None else ""
+            lines.append(f"- {path}: {row['clicks']} clics; {row['impressions']} impresiones; "
+                         f"CTR {float(row['ctr']):.1%}; posicion {float(row['position']):.1f}{flag}")
+        if not gsc.get("pages"):
+            lines.append("La API no devolvio paginas en este periodo; no inferir demanda.")
+    elif pages_file.exists():
         with pages_file.open(encoding="utf-8-sig", newline="") as stream:
             rows = list(csv.DictReader(stream))
         lines.append("Exportacion historica: confirmar periodo. No sumar totales de paginas y consultas.")
@@ -56,7 +79,17 @@ def report(gsc_dir):
             flag = f"; ofertas aceptadas={count}" if count is not None else ""
             lines.append(f"- {path}: {row.get('Clics', 0)} clics; {row.get('Impresiones', 0)} impresiones{flag}")
     else:
-        lines.append("Sin exportacion de Search Console: no inferir demanda ni posiciones.")
+        reason = gsc.get("reason", "sin conexion configurada")
+        lines.append(f"Search Console no disponible ({reason}); no inferir demanda ni posiciones.")
+    ga4 = (analytics or {}).get("ga4", {})
+    lines.extend(["", "## GA4", ""])
+    if ga4.get("status") == "ok":
+        lines.append(f"GA4 API: eventos affiliate_click={ga4.get('affiliate_clicks', 'no disponibles')}.")
+        for row in ga4.get("pages", []):
+            lines.append(f"- {row['page']}: {row.get('sessions', '0')} sesiones; "
+                         f"{row.get('screenPageViews', '0')} vistas.")
+    else:
+        lines.append(f"GA4 no disponible ({ga4.get('reason', 'sin conexion configurada')}).")
     lines.extend([
         "", "## Decision siguiente", "",
         "- Verificar recambios en paginas con trafico y cero ofertas antes de ampliar catalogo.",

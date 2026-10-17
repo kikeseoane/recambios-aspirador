@@ -103,9 +103,11 @@ Los tests de los controles son:
 - python -m unittest discover -s tools -p 'test_*growth.py'
 - python -m unittest discover -s tools -p 'test_codex_quota.py'
 
-Search Console y ventas AliExpress no estan conectados. Sin ellos, investiga
-fuentes publicas actuales y declara limitaciones. affiliate_click mide salidas,
-no compras; falta verificar recepcion en GA4. Revisar resultados a 28 dias.
+Grow consulta Search Console y GA4 en modo lectura cuando se configuran los
+accesos indicados en `docs/growth-analytics.md`. Sin credenciales o permisos,
+la auditoria declara que esas fuentes no estan disponibles y usa evidencia
+publica actual. Ventas AliExpress no estan conectadas: `affiliate_click` mide
+salidas, no compras. Revisar resultados a 28 dias.
 
 Referencias:
 - https://learn.chatgpt.com/docs/app-server
