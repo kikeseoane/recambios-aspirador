@@ -51,9 +51,14 @@ def single_worker():
             msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
 
 
-def stage_patch(checkout):
+def changed_paths(checkout):
     paths = set(filter(None, run("git", "diff", "--name-only", "-z", "HEAD", cwd=checkout).stdout.decode().split("\0")))
     paths.update(filter(None, run("git", "ls-files", "--others", "--exclude-standard", "-z", cwd=checkout).stdout.decode().split("\0")))
+    return paths
+
+
+def stage_patch(checkout):
+    paths = changed_paths(checkout)
     if any(not allowed(p) for p in paths) or len(paths) > 60:
         raise RuntimeError("Out-of-scope or oversized patch; not publishing")
     if paths:
@@ -62,6 +67,8 @@ def stage_patch(checkout):
 
 
 def save_checkpoint(checkout, base):
+    if not (changed_paths(checkout) - {"docs/growth-log.md"}):
+        return
     patch = stage_patch(checkout)
     if patch:
         (STATE / "pending.patch").write_bytes(patch)
@@ -119,11 +126,9 @@ def invoke_codex(checkout, model):
             if not within_budget:
                 return "deferred-five-hour" if reason == "five_hour_reserve" else "deferred"
             if process.returncode == 0:
-                # A conversational refusal can exit zero. Require the promised
-                # run record so blocked tool access is not reported as success.
-                changed = run("git", "status", "--porcelain", "--", "docs/growth-log.md", cwd=checkout).stdout
-                if not changed.strip():
-                    return "failed"
+                # A log-only run is an observation, not a published improvement.
+                if not (changed_paths(checkout) - {"docs/growth-log.md"}):
+                    return "no-change"
                 return "ready"
             # Exhaustion is a normal deferral; other failures need an alert.
             decision = preflight()

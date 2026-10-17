@@ -15,6 +15,12 @@ o al llegar a la reserva del 20 %. Guarda avances coherentes y el razonamiento
 de la mejora elegida en docs/growth-log.md pronto. Si recibes un diff pendiente,
 continua esa misma mejora antes de elegir otra. Las ofertas permanecen pausadas
 entre ejecuciones hasta completar y validar el trabajo; no gestiones tu ese bloqueo.
+La cuota la comprueba y aplica el trabajador local antes de iniciarte, cada 30
+segundos y al terminar. Este checkout no contiene `.growth-runtime/daily-budget.json`
+ni la herramienta `account/rateLimits/read`; su ausencia aqui no es motivo para
+aplazar una mejora. Mientras el trabajador mantenga tu proceso activo, puedes
+trabajar bajo ese control de cuota. Un cambio solo en docs/growth-log.md no cuenta
+como mejora publicable.
 
 El checkout aislado parte del commit de main solicitado por GitHub bajo el
 bloqueo compartido. No presupongas

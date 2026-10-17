@@ -156,7 +156,7 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
                 decision = legacy.preflight()
                 if legacy.check_budget_status(STATE / "daily-budget.json", decision, track_usage=False)[1] == "five_hour_reserve":
                     request_five_hour_retry(decision)
-            if status in ("deferred", "deferred-five-hour"):
+            if status in ("deferred", "deferred-five-hour", "no-change"):
                 if not pending_patch and not (STATE / "pending.patch").exists() and not dry_run:
                     release_hold(checkout)
                     (STATE / "growth-lock.txt").unlink(missing_ok=True)

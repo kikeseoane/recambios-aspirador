@@ -52,6 +52,21 @@ class OneShotTests(unittest.TestCase):
             release.assert_not_called()
             dispatch.assert_not_called()
 
+    def test_log_only_run_releases_hold_without_publishing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            with self.common(state), \
+                 patch.object(growth_once.legacy, "single_worker", return_value=nullcontext(True)), \
+                 patch.object(growth_once.legacy, "preflight", return_value={"allowed": True, "model": "luna"}), \
+                 patch.object(growth_once.legacy, "check_budget_status", return_value=(True, "ready")), \
+                 patch.object(growth_once.legacy, "invoke_codex", return_value="no-change"), \
+                 patch.object(growth_once.legacy, "save_checkpoint"), \
+                 patch.object(growth_once, "release_hold") as release, \
+                 patch.object(growth_once, "dispatch_publisher") as dispatch:
+                self.assertEqual(growth_once.main([]), 0)
+            release.assert_called_once()
+            dispatch.assert_not_called()
+
     def test_five_hour_shortage_requests_one_retry_without_acquiring_lock(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)
