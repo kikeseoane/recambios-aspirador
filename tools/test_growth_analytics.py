@@ -1,6 +1,6 @@
 import unittest
 from datetime import date
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 import requests
 
@@ -79,6 +79,20 @@ class GrowthAnalyticsTests(unittest.TestCase):
         self.assertEqual(session.calls[1][1]["params"]["select_accounts"], analytics.DEFAULT_GA4_PROPERTY_ID)
         self.assertIn("affiliate_click", session.calls[2][1]["params"]["filter"])
         self.assertNotIn("not-printed", analytics.markdown(result))
+
+    def test_manual_run_uses_saved_windows_key_when_process_env_lacks_it(self):
+        session = FakeSession([
+            FakeResponse(payload={"data": []}),
+            FakeResponse(payload={"data": []}),
+            FakeResponse(payload={"data": []}),
+        ])
+        with patch.dict(analytics.os.environ, {"GROWTH_WINDSOR_API_KEY": ""}), \
+                patch.object(analytics, "windows_user_windsor_key", return_value="not-printed"):
+            result = analytics.collect(session=session, today=date(2026, 10, 17))
+        self.assertEqual(result["search_console"]["status"], "ok")
+        self.assertEqual(result["ga4"]["status"], "ok")
+        self.assertEqual(session.calls[0][1]["params"]["api_key"], "not-printed")
+        self.assertNotIn("not-printed", str(result))
 
     def test_windsor_denial_does_not_echo_secret_or_server_body(self):
         session = FakeSession([FakeResponse(403, payload={"error": "not-printed"}),

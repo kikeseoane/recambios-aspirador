@@ -183,11 +183,29 @@ def windsor_reports(api_key, site_url, property_id, period, session=requests):
     return gsc, ga4
 
 
-def collect(env=os.environ, session=requests, today=None):
+def windows_user_windsor_key():
+    """Read the user's saved key when Grow is launched outside Task Scheduler."""
+    if os.name != "nt":
+        return None
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as key:
+            value, _ = winreg.QueryValueEx(key, "GROWTH_WINDSOR_API_KEY")
+        return value or None
+    except (OSError, ImportError):
+        return None
+
+
+def collect(env=None, session=requests, today=None):
+    use_user_environment = env is None
+    if env is None:
+        env = os.environ
     period = completed_period(today=today)
-    if env.get("GROWTH_WINDSOR_API_KEY"):
+    windsor_key = env.get("GROWTH_WINDSOR_API_KEY") or (
+        windows_user_windsor_key() if use_user_environment else None)
+    if windsor_key:
         gsc, ga4 = windsor_reports(
-            env["GROWTH_WINDSOR_API_KEY"],
+            windsor_key,
             env.get("GROWTH_GSC_SITE_URL", DEFAULT_GSC_SITE),
             env.get("GROWTH_GA4_PROPERTY_ID", DEFAULT_GA4_PROPERTY_ID),
             period, session)
