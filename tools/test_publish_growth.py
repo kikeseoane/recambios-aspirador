@@ -1,9 +1,19 @@
 import unittest
 from unittest.mock import patch, Mock
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import publish_growth as growth
 
 
 class PublicationTests(unittest.TestCase):
+    def test_invalid_utf8_log_fails_before_validation(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "growth-log.md"
+            path.write_bytes(b"log\nAcento: \xed\n")
+            with patch.object(growth, "Path", return_value=path), patch.object(growth, "git"):
+                with self.assertRaises(UnicodeDecodeError):
+                    growth.validate()
+
     def test_log_only_does_not_notify(self):
         self.assertIsNone(growth.improvement_message(["docs/growth-log.md"], "+Sin cambios", "url"))
 

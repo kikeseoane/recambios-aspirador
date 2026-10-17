@@ -94,6 +94,9 @@ Registra en docs/growth-log.md: fecha, oportunidad y evidencia, cambio, paginas,
 limitaciones, pruebas y metrica de seguimiento a 28 dias. Una limitacion de datos
 no es motivo para preguntar: busca otra mejora comprobable. Si ninguna es segura,
 registra por que; no publiques contenido de relleno.
+Escribe docs/growth-log.md en UTF-8. Si usas PowerShell, especifica
+`-Encoding utf8` al llamar a Add-Content o Set-Content; el valor por defecto de
+Windows PowerShell puede corromper los acentos.
 
 La publicacion automatica esta autorizada. Deja los cambios preparados: el workflow
 se encarga de validar con Hugo EN GITHUB, hacer commit, integrar main otra vez y

@@ -19,7 +19,8 @@ def allowed(path):
 
 
 def git(*args, check=True):
-    return subprocess.run(["git", *args], check=check, text=True, capture_output=True)
+    return subprocess.run(["git", *args], check=check, text=True,
+                          encoding="utf-8", errors="replace", capture_output=True)
 
 
 def changed_paths():
@@ -29,6 +30,9 @@ def changed_paths():
 
 
 def validate():
+    # GitHub's locale may differ from the Windows worker's. Reject malformed
+    # source text before pushing, while git() stays safe for notifications.
+    Path("docs/growth-log.md").read_text(encoding="utf-8")
     git("diff", "--check", "HEAD")
     subprocess.run(["hugo", "--minify", "--cleanDestinationDir"], check=True)
     # Controls can be copied to RUNNER_TEMP. Data still belongs to the checkout.
