@@ -31,6 +31,9 @@ con `GROWTH_GSC_SITE_URL` y `GROWTH_GA4_PROPERTY_ID`. Obtén la clave en
 **Data Preview → Python/R**, e introdúcela directamente en el PC;
 no la pegues en un chat ni la guardes en Git. El trabajador consulta la API
 antes de iniciar Codex y no le pasa la clave al proceso Codex.
+En Windows puedes ejecutar `tools/guardar_clave_windsor.cmd`: abre una ventana
+que solicita la clave sin mostrarla y la guarda como variable de entorno del
+usuario para las siguientes ejecuciones de la tarea programada.
 
 La cuenta de servicio necesita acceso de lectura a la propiedad de Search
 Console y rol Viewer en GA4. El proyecto Google Cloud debe tener habilitadas
