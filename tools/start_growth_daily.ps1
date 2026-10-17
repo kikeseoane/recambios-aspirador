@@ -3,6 +3,8 @@ param([switch]$Retry)
 $ErrorActionPreference = 'Stop'
 $growthRoot = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $growthRoot
+$growthWindsorKey = [Environment]::GetEnvironmentVariable('GROWTH_WINDSOR_API_KEY', 'User')
+if ($growthWindsorKey) { $env:GROWTH_WINDSOR_API_KEY = $growthWindsorKey }
 $growthState = Join-Path $growthRoot '.growth-runtime'
 New-Item -ItemType Directory -Path $growthState -Force | Out-Null
 $growthToday = Get-Date -Format 'yyyy-MM-dd'
