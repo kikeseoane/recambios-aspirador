@@ -1,0 +1,29 @@
+name: Reenviar informe de Grow publicado
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: Commit de mejora Grow ya publicado en main
+        type: string
+        required: true
+permissions:
+  contents: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Preparar el informe del commit publicado
+        env:
+          GROWTH_NOTIFICATION_FILE: ${{ runner.temp }}/growth-notification.txt
+          GROWTH_COMMIT_SHA: ${{ inputs.commit_sha }}
+        run: python tools/replay_growth_notification.py "$GROWTH_COMMIT_SHA"
+      - name: Enviar informe por Telegram
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GROWTH_NOTIFICATION_FILE: ${{ runner.temp }}/growth-notification.txt
+        run: python tools/notify_growth.py
