@@ -25,6 +25,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 import yaml
+from offer_refresh_guard import preserve_verified_offer, refresh_due, stale_cutoff
 
 try:
     from dotenv import load_dotenv  # type: ignore
@@ -3111,9 +3112,10 @@ def main() -> None:
             return (compatibility_priority(status), sku_last_attempted_at(sku))
         return (compatibility_priority(status), sku_updated_at(sku))
 
+    refresh_cutoff = stale_cutoff(datetime.now().date().isoformat(), args.only_stale)
     # --only-stale: filtra SKUs cuyo updated_at supera N dÃ­as
     if not only and args.only_stale > 0:
-        cutoff = (datetime.now().date() - timedelta(days=args.only_stale)).isoformat()
+        cutoff = refresh_cutoff
         # needs_url / fallback_buy_new ya NO se re-incluyen incondicionalmente:
         # antes volvian a la cola en cada tanda y, con prioridad por delante de
         # los enlaces buenos, los dejaban sin turno. Ahora obedecen la fecha como
@@ -3194,6 +3196,7 @@ def main() -> None:
         url_now = str(obj.get("url") or "").strip()
         needs_lookup = (
             args.force
+            or refresh_due(obj, refresh_cutoff)
             or obj.get("needs_url") is True
             or is_placeholder(url_now, PLACEHOLDER_URL)
             or (url_now == DEFAULT_URL)
@@ -3597,6 +3600,9 @@ def main() -> None:
                 obj["match_type"] = "manual_or_existing"
             obj["compatibility_status"] = derive_compatibility_status(obj)
             obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
+
+        if needs_lookup:
+            obj = preserve_verified_offer(before, obj, today, DEFAULT_URL)
 
         if sku not in offers:
             offers[sku] = obj

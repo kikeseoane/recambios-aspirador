@@ -22,6 +22,14 @@ aplazar una mejora. Mientras el trabajador mantenga tu proceso activo, puedes
 trabajar bajo ese control de cuota. Un cambio solo en docs/growth-log.md no cuenta
 como mejora publicable.
 
+Si la primera oportunidad esta bloqueada (por ejemplo, una pagina editada hace
+menos de 28 dias o una oferta sin recambio validado), cambia de area en este mismo
+ciclo. Revisa al menos otras tres oportunidades independientes en paginas,
+plantillas, enlazado o cobertura antes de terminar sin mejora. Usa GSC y GA4 para
+elegirlas, documenta por que descartaste cada una y publica la primera mejora
+segura y comprobable. No fuerces cambios de relleno ni edites las salidas del
+sincronizador de ofertas para cumplir este objetivo.
+
 El checkout aislado parte del commit de main solicitado por GitHub bajo el
 bloqueo compartido. No presupongas
 que los datos de una ejecucion anterior siguen vigentes: lee ofertas, catalogos,
@@ -58,6 +66,9 @@ unica mejora pequena, respaldada por evidencia, por este orden de palanca:
    el modelo retirado tiene trafico o enlaces entrantes, conserva su URL con un 301
    en static/_redirects; no lo elimines sin comprobar su trafico. Tras editar
    catalogos ejecuta build_catalog.py y generar.py --force.
+   Si una oferta concreta esta pendiente por cupo de IA o fallo temporal de la
+   API, no des por agotado Grow: busca otra categoria o una mejora editorial o
+   tecnica que no dependa de esa oferta. Registra la incidencia para el sync.
 4. Enlaces afiliados rotos: detecta (solo lectura) ofertas cuyo enlace devuelve 404
    o producto retirado y registralas en docs/growth-log.md como prioridad de
    cobertura. La re-resolucion la hace el workflow de ofertas; no edites

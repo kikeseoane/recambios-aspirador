@@ -100,7 +100,6 @@ jobs:
           python tools/sync_ofertas.py \
             --only-stale 7 \
             --max-minutes 28 \
-            --force \
             --no-cache | tee /tmp/sync_output.txt
           STATS_LINE=$(grep "^STATS:" /tmp/sync_output.txt | tail -n 1 || echo "STATS: n/a")
           EXEC_SUMMARY_LINE=$(grep "^EXEC_SUMMARY:" /tmp/sync_output.txt | tail -n 1 || echo "EXEC_SUMMARY: n/a")
