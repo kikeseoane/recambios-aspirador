@@ -52,7 +52,7 @@
     {{- $seoTitle = printf "Recambios %s — bateria, filtro y piezas (%d)" .Title now.Year -}}
 
   {{- else if and (eq .Type "marcas") .Params.brandKey -}}
-    {{- $seoTitle = printf "Recambios %s | modelos y piezas compatibles" .Title -}}
+    {{- $seoTitle = printf "Aspiradores %s: modelos y recambios" .Title -}}
 
   {{- else if eq .Section "guias" -}}
     {{- $seoTitle = printf "%s | guia practica de compra y mantenimiento" .Title -}}
@@ -84,7 +84,7 @@
     {{- $desc = printf "Recambios compatibles para %s: bateria, filtro, cepillo y accesorios con precio y enlace directo. Compara opciones y compra seguro." .Title -}}
 
   {{- else if and (eq .Type "marcas") .Params.brandKey -}}
-    {{- $desc = printf "Explora modelos %s y entra en cada ficha para ver recambios, problemas reales y consejos de compatibilidad antes de comprar." .Title -}}
+    {{- $desc = printf "Explora modelos de aspirador %s y consulta sus recambios, problemas frecuentes y guias para comprobar compatibilidad antes de comprar." .Title -}}
 
   {{- else if eq .Section "guias" -}}
     {{- $desc = printf "Guia practica sobre %s para elegir mejor, evitar incompatibilidades y mantener el equipo sin errores de compra." .Title -}}
