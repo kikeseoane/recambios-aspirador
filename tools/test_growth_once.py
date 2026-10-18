@@ -2,7 +2,7 @@ from contextlib import nullcontext
 import tempfile
 from pathlib import Path
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import growth_once
 
@@ -10,6 +10,12 @@ import growth_once
 class OneShotTests(unittest.TestCase):
     branch = "automation/codex-growth-20261015-090000-deadbeef"
     base = "a" * 40
+
+    def test_no_change_reason_uses_decision_from_log(self):
+        diff = ("+++ b/docs/growth-log.md\n"
+                "+- **Cambio y decisión:** Esperar 28 días antes de tocar Rowenta.\n")
+        with patch.object(growth_once.legacy, "run", return_value=Mock(stdout=diff.encode("utf-8"))):
+            self.assertIn("Esperar 28 días", growth_once.no_change_reason(Path("checkout")))
 
     def common(self, state):
         def acquire():
@@ -62,9 +68,11 @@ class OneShotTests(unittest.TestCase):
                  patch.object(growth_once.legacy, "invoke_codex", return_value="no-change"), \
                  patch.object(growth_once.legacy, "save_checkpoint"), \
                  patch.object(growth_once, "release_hold") as release, \
+                 patch.object(growth_once, "dispatch_no_change") as status_notice, \
                  patch.object(growth_once, "dispatch_publisher") as dispatch:
                 self.assertEqual(growth_once.main([]), 0)
             release.assert_called_once()
+            status_notice.assert_called_once_with(state)
             dispatch.assert_not_called()
 
     def test_five_hour_shortage_requests_one_retry_without_acquiring_lock(self):

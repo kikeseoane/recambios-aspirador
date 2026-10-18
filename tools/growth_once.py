@@ -104,6 +104,33 @@ def dispatch_publisher(branch, base, dry_run):
                "-f", f"dry_run={'true' if dry_run else 'false'}")
 
 
+def no_change_reason(checkout):
+    result = legacy.run("git", "diff", "--unified=0", "HEAD", "--",
+                        "docs/growth-log.md", cwd=checkout, check=False)
+    diff = result.stdout.decode("utf-8", errors="replace")
+    additions = [line[1:].strip() for line in diff.splitlines()
+                 if line.startswith("+") and not line.startswith("+++")]
+    reason = next((line for line in additions
+                   if line.startswith(("- **Cambio y decisión:**", "- **Cambio:**"))), "")
+    reason = reason.replace("**", "").replace("`", "").removeprefix("- ").strip()
+    return reason[:1600] if reason else "La revisión no encontró un cambio seguro para publicar hoy."
+
+
+def dispatch_no_change(checkout):
+    report_date = datetime.now().astimezone().date().isoformat()
+    snapshot_path = checkout / ".git" / "growth-analytics.json"
+    try:
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        snapshot = {}
+    gsc = snapshot.get("search_console", {}).get("status", "unavailable")
+    ga4 = snapshot.get("ga4", {}).get("status", "unavailable")
+    legacy.run("gh", "workflow", "run", "growth-daily-status.yml", "--repo", REPO,
+               "--ref", "main", "-f", f"report_date={report_date}",
+               "-f", f"reason={no_change_reason(checkout)}",
+               "-f", f"gsc_status={gsc}", "-f", f"ga4_status={ga4}")
+
+
 def request_five_hour_retry(decision):
     reset = decision.get("five_hour_resets_at")
     if not isinstance(reset, (int, float)) or reset <= time.time():
@@ -160,6 +187,8 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
                 if not pending_patch and not (STATE / "pending.patch").exists() and not dry_run:
                     release_hold(checkout)
                     (STATE / "growth-lock.txt").unlink(missing_ok=True)
+                if status == "no-change" and not dry_run:
+                    dispatch_no_change(checkout)
                 return 0
             if status != "ready":
                 raise RuntimeError(f"Local Codex did not produce a publishable result: {status}")

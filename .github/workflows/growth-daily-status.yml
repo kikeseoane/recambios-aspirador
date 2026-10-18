@@ -1,0 +1,39 @@
+name: Aviso diario de Grow sin publicación
+on:
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: Fecha local de la revisión
+        type: string
+        required: true
+      reason:
+        description: Motivo de la decisión sin cambios
+        type: string
+        required: true
+      gsc_status:
+        description: Estado de Search Console
+        type: string
+        required: true
+      ga4_status:
+        description: Estado de GA4
+        type: string
+        required: true
+permissions:
+  contents: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Enviar resumen diario por Telegram
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GROWTH_NOTIFICATION_FILE: ${{ runner.temp }}/growth-daily-status.txt
+          GROWTH_REPORT_DATE: ${{ inputs.report_date }}
+          GROWTH_REASON: ${{ inputs.reason }}
+          GROWTH_GSC_STATUS: ${{ inputs.gsc_status }}
+          GROWTH_GA4_STATUS: ${{ inputs.ga4_status }}
+        run: python tools/notify_growth_status.py
