@@ -8,6 +8,21 @@ import growth_audit
 
 
 class GrowthAuditAnalyticsTests(unittest.TestCase):
+    def test_backlog_is_visible_without_being_counted_as_offer_coverage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "data").mkdir()
+            (root / ".git").mkdir()
+            (root / "data" / "aspiradores.yaml").write_text("brands: {}\n", encoding="utf-8")
+            (root / "data" / "ofertas.json").write_text(json.dumps({"offers": {}}), encoding="utf-8")
+            (root / "data" / "growth-model-backlog.yaml").write_text(
+                "version: 1\ncandidates:\n  - brand_key: demo\n    slug: demo-x1\n"
+                "    status: researching\n    next_step: Verificar tres anuncios.\n", encoding="utf-8")
+            with patch.object(growth_audit, "ROOT", root):
+                report = growth_audit.report(root)
+        self.assertIn("Candidatos conservados: 1; pendientes: 1", report)
+        self.assertIn("demo/demo-x1: researching; siguiente paso: Verificar tres anuncios.", report)
+
     def test_empty_model_shows_coverage_and_observed_traffic(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

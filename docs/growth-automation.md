@@ -55,8 +55,14 @@ el modo nativo `unelevated`, con `workspace-write` limitado al clon de trabajo.
 
 El prompt esta en docs/growth-prompt.md. Una mejora pequena por dia: guias,
 reviews documentales sin fingir pruebas, comparativas, noticias justificadas,
-enlazado o conversion. Prioriza utilidad y enlaces afiliados compatibles.
-No hay cuota de articulos ni ingresos garantizados.
+enlazado o conversion. Ademas mantiene una investigacion de modelos limitada:
+en cada ejecucion revisa como maximo dos candidatos y solo incorpora uno cuando
+`data/growth-model-backlog.yaml` documenta fabricante, demanda y tres anuncios
+directos de recambio de AliExpress. El backlog se conserva entre dias y un
+avance pendiente tambien se publica y se comunica por Telegram; el publicador
+rechaza mas de una alta nueva o una alta sin su ficha de evidencia. Prioriza
+utilidad y enlaces afiliados compatibles. No hay cuota de articulos ni ingresos
+garantizados.
 
 ## Cuota y modelo
 

@@ -31,9 +31,22 @@ class PublicationTests(unittest.TestCase):
         message = growth.improvement_message(["content/" + "a" * 300] * 60, "+" + "x" * 10000, "https://github.com/owner/repo/commit/" + "a" * 40)
         self.assertLess(len(message), 4096)
 
+    def test_backlog_only_notifies_pending_research(self):
+        message = growth.improvement_message(
+            ["docs/growth-log.md", "data/growth-model-backlog.yaml"],
+            "+Candidato X1 sin anuncio verificable; se revisara manana.", "url")
+        self.assertIn("pendiente de incorporacion", message)
+        self.assertIn("Candidato X1", message)
+
+    def test_model_intake_notifies_incorporation(self):
+        message = growth.improvement_message(
+            ["docs/growth-log.md", "data/growth-model-backlog.yaml", "data/brands/aspiradores/demo.yaml"],
+            "+Incorporado Demo X1.", "url")
+        self.assertIn("Modelo nuevo Grow incorporado", message)
+
     def test_scope(self):
         for path in ("content/guias/filtros.md", "layouts/partials/test.html",
-                     "data/brands/aspiradores/xiaomi.yaml", "docs/growth-log.md"):
+                     "data/brands/aspiradores/xiaomi.yaml", "data/growth-model-backlog.yaml", "docs/growth-log.md"):
             self.assertTrue(growth.allowed(path), path)
         for path in (".github/workflows/sync-ofertas.yml", "data/ofertas.json",
                      "data/vertical_defaults.yaml", "Consultas.csv", "tools/publish_growth.py",

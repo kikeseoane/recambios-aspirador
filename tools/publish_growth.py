@@ -8,8 +8,9 @@ import sys
 ALLOWED_PREFIXES = ("content/", "layouts/", "static/", "assets/", "data/brands/")
 ALLOWED_FILES = {
     "data/catalog_parts.yaml", "data/catalog_brands.yaml", "data/catalog_skus.yaml",
-    "data/aspiradores.yaml", "docs/growth-log.md",
+    "data/aspiradores.yaml", "data/growth-model-backlog.yaml", "docs/growth-log.md",
 }
+RESEARCH_BACKLOG = "data/growth-model-backlog.yaml"
 
 
 def allowed(path):
@@ -34,6 +35,10 @@ def validate():
     # source text before pushing, while git() stays safe for notifications.
     Path("docs/growth-log.md").read_text(encoding="utf-8")
     git("diff", "--check", "HEAD")
+    # The evidence registry is source data, never an offer output.  Checking it
+    # here keeps a daily candidate update persistent while refusing model adds
+    # without verifiable research or more than one new model in one cycle.
+    subprocess.run([sys.executable, "tools/model_intake.py", "--base", "HEAD"], check=True)
     subprocess.run(["hugo", "--minify", "--cleanDestinationDir"], check=True)
     # Controls can be copied to RUNNER_TEMP. Data still belongs to the checkout.
     import check_growth_build
@@ -51,7 +56,14 @@ def improvement_message(paths, log_diff, commit_url):
     files = "\n".join(f"- {p}" for p in affected[:8])[:900]
     if len(affected) > 8:
         files += f"\nY {len(affected) - 8} archivos mas."
-    return ("Mejora diaria publicada en GitHub\n\n"
+    incorporated = "incorporated" in additions.casefold() or "incorporado" in additions.casefold()
+    if any(path.startswith("data/brands/") for path in affected) and incorporated:
+        header = "Modelo nuevo Grow incorporado"
+    elif affected == [RESEARCH_BACKLOG]:
+        header = "Investigacion diaria Grow actualizada (pendiente de incorporacion)"
+    else:
+        header = "Mejora diaria publicada en GitHub"
+    return (f"{header}\n\n"
             f"Cambio y motivo:\n{details}\n\nPaginas/archivos afectados:\n{files}"
             "\n\nValidacion Hugo y controles: correctos."
             "\nDespliegue Cloudflare: pendiente de confirmacion.\n"

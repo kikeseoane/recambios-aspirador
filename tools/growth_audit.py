@@ -11,6 +11,18 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def intake_backlog():
+    """Return the versioned Grow research queue without treating it as offers."""
+    path = ROOT / "data" / "growth-model-backlog.yaml"
+    if not path.exists():
+        return []
+    try:
+        doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        return [item for item in doc.get("candidates", []) if isinstance(item, dict)]
+    except (OSError, ValueError, yaml.YAMLError):
+        return []
+
+
 def analytics_snapshot():
     path = ROOT / ".git" / "growth-analytics.json"
     if not path.exists():
@@ -73,6 +85,7 @@ def report(gsc_dir):
                 empty_models.append(model_state)
             if model_references and model_buy_new == model_references:
                 buy_new_models.append(model_state)
+    backlog = intake_backlog()
     analytics = analytics_snapshot()
     gsc = (analytics or {}).get("search_console", {})
     ga4 = (analytics or {}).get("ga4", {})
@@ -93,6 +106,14 @@ def report(gsc_dir):
         "needs_url puede ser un fallo temporal del sincronizador: no retirar solo por este recuento.",
         "",
         *[model_coverage_line(model, gsc, ga4) for model in empty_models],
+        "", "## Backlog diario de modelos", "",
+        (f"- Candidatos conservados: {len(backlog)}; "
+         f"pendientes: {sum(item.get('status') == 'researching' for item in backlog)}; "
+         f"listos: {sum(item.get('status') == 'ready_for_catalog' for item in backlog)}; "
+         f"incorporados: {sum(item.get('status') == 'incorporated' for item in backlog)}."),
+        *[f"- {item.get('brand_key', '?')}/{item.get('slug', '?')}: "
+          f"{item.get('status', 'sin estado')}; siguiente paso: {item.get('next_step', 'sin registrar')}"
+          for item in backlog[-12:]],
         "", "## Prioridades con trafico", "",
     ]
     pages_file = gsc_dir / "Páginas.csv"
@@ -131,6 +152,7 @@ def report(gsc_dir):
         "", "## Decision siguiente", "",
         "- Verificar recambios en paginas con trafico y cero ofertas antes de ampliar catalogo.",
         "- Incorporar modelos solo con demanda documentada y anuncios compatibles actuales.",
+        "- Avanzar como maximo un candidato del backlog a catalogo en esta ejecucion.",
         "- Contrastar affiliate_click en GA4 con pedidos y comision aprobada en AliExpress.",
         "- Comparar periodos de 28 dias y descontar costes de automatizacion del beneficio.",
     ])
