@@ -22,6 +22,20 @@ class OneShotTests(unittest.TestCase):
         with patch.object(growth_once.legacy, "run", return_value=Mock(stdout=diff.encode("utf-8"))):
             self.assertIn("Se investigaron sustitutos", growth_once.no_change_reason(Path("checkout")))
 
+    def test_no_change_research_is_saved_for_next_run(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "docs").mkdir()
+            (root / "docs" / "growth-log.md").write_text(
+                "## 2026-10-18 - Anterior\nViejo\n\n## 2026-10-19 - Candidatos\nDos modelos pendientes\n",
+                encoding="utf-8")
+            with patch.object(growth_once, "STATE", root), \
+                 patch.object(growth_once.legacy, "changed_paths", return_value={"docs/growth-log.md"}):
+                growth_once.save_research_note(root)
+            note = (root / "research-backlog.md").read_text(encoding="utf-8")
+            self.assertIn("Dos modelos pendientes", note)
+            self.assertNotIn("Viejo", note)
+
     def common(self, state):
         def acquire():
             (state / "growth-lock.txt").write_text("test", encoding="utf-8")
@@ -72,11 +86,13 @@ class OneShotTests(unittest.TestCase):
                  patch.object(growth_once.legacy, "check_budget_status", return_value=(True, "ready")), \
                  patch.object(growth_once.legacy, "invoke_codex", return_value="no-change"), \
                  patch.object(growth_once.legacy, "save_checkpoint"), \
+                 patch.object(growth_once, "save_research_note") as research_note, \
                  patch.object(growth_once, "release_hold") as release, \
                  patch.object(growth_once, "dispatch_no_change") as status_notice, \
                  patch.object(growth_once, "dispatch_publisher") as dispatch:
                 self.assertEqual(growth_once.main([]), 0)
             release.assert_called_once()
+            research_note.assert_called_once_with(state)
             status_notice.assert_called_once_with(state)
             dispatch.assert_not_called()
 

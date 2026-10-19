@@ -97,6 +97,11 @@ def invoke_codex(checkout, model):
                      "ga4": {"status": "error", "reason": "No se pudo consultar la analitica."}}
     analytics_path.write_text(json.dumps(analytics, ensure_ascii=False), encoding="utf-8")
     prompt = (checkout / "docs/growth-prompt.md").read_text(encoding="utf-8")
+    research_note = STATE / "research-backlog.md"
+    if research_note.exists():
+        prompt += ("\nNota de investigacion de la ejecucion previa. Es contexto, no evidencia actual: "
+                   "comprueba de nuevo datos, ofertas y fechas antes de actuar.\n"
+                   + research_note.read_text(encoding="utf-8")[-8000:] + "\n")
     prompt += "\nEl trabajador local delega validacion Hugo, commit final y push a main en GitHub. No ejecutes Hugo localmente.\n"
     if (STATE / "pending.patch").exists():
         prompt += "\nHay trabajo pendiente restaurado en el diff: continua y termina ESA mejora, no elijas otra. Revisa el diff y docs/growth-log.md antes de actuar.\n"

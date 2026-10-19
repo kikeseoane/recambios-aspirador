@@ -116,6 +116,15 @@ def no_change_reason(checkout):
     return reason[:1600] if reason else "La revisión no encontró un cambio seguro para publicar hoy."
 
 
+def save_research_note(checkout):
+    if "docs/growth-log.md" not in legacy.changed_paths(checkout):
+        return
+    log = (checkout / "docs" / "growth-log.md").read_text(encoding="utf-8")
+    entries = list(re.finditer(r"(?m)^## \d{4}-\d{2}-\d{2}\b", log))
+    if entries:
+        (STATE / "research-backlog.md").write_text(log[entries[-1].start():][-8000:], encoding="utf-8")
+
+
 def dispatch_no_change(checkout, reason=None):
     report_date = datetime.now().astimezone().date().isoformat()
     snapshot_path = checkout / ".git" / "growth-analytics.json"
@@ -190,6 +199,7 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
                     release_hold(checkout)
                     (STATE / "growth-lock.txt").unlink(missing_ok=True)
                 if status == "no-change" and not dry_run:
+                    save_research_note(checkout)
                     dispatch_no_change(checkout)
                 elif status == "deferred" and not dry_run:
                     dispatch_no_change(checkout, "Grow aplazado al alcanzar el límite de cuota o tiempo; se retomará en la próxima ejecución.")
