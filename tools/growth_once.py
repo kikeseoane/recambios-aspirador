@@ -116,7 +116,7 @@ def no_change_reason(checkout):
     return reason[:1600] if reason else "La revisión no encontró un cambio seguro para publicar hoy."
 
 
-def dispatch_no_change(checkout):
+def dispatch_no_change(checkout, reason=None):
     report_date = datetime.now().astimezone().date().isoformat()
     snapshot_path = checkout / ".git" / "growth-analytics.json"
     try:
@@ -127,7 +127,7 @@ def dispatch_no_change(checkout):
     ga4 = snapshot.get("ga4", {}).get("status", "unavailable")
     legacy.run("gh", "workflow", "run", "growth-daily-status.yml", "--repo", REPO,
                "--ref", "main", "-f", f"report_date={report_date}",
-               "-f", f"reason={no_change_reason(checkout)}",
+               "-f", f"reason={reason or no_change_reason(checkout)}",
                "-f", f"gsc_status={gsc}", "-f", f"ga4_status={ga4}")
 
 
@@ -154,6 +154,8 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
                 if not budget_ok:
                     if schedule_five_hour_retry and budget_reason == "five_hour_reserve":
                         request_five_hour_retry(decision)
+                    elif budget_reason != "five_hour_reserve" and not dry_run:
+                        dispatch_no_change(ROOT, f"Grow aplazado por el límite de cuota: {budget_reason}.")
                     return 0
             pending_patch = (STATE / "pending.patch").exists()
             pending_publication = (STATE / "pending-branch.txt").exists()
@@ -189,6 +191,8 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
                     (STATE / "growth-lock.txt").unlink(missing_ok=True)
                 if status == "no-change" and not dry_run:
                     dispatch_no_change(checkout)
+                elif status == "deferred" and not dry_run:
+                    dispatch_no_change(checkout, "Grow aplazado al alcanzar el límite de cuota o tiempo; se retomará en la próxima ejecución.")
                 return 0
             if status != "ready":
                 raise RuntimeError(f"Local Codex did not produce a publishable result: {status}")

@@ -21,7 +21,9 @@ def update_budget(previous, decision, now=None, track_usage=True):
     if not previous:
         previous = dict(day=day, consumed=0, last_used=used, reset=reset,
                         weekly_consumed=0)
-    elif reset != previous["reset"]:
+    # Rate-limit readings can move the reported reset by a few seconds.
+    # Only a substantial shift identifies a new subscription window.
+    elif abs(reset - previous["reset"]) >= 3600:
         # A subscription-window reset does not create a second 10-point daily
         # allowance. It does begin a fresh, explicitly tracked Grow week.
         previous = dict(previous, reset=reset, last_used=used, weekly_consumed=0)

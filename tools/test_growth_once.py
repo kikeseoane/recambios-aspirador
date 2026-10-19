@@ -75,6 +75,19 @@ class OneShotTests(unittest.TestCase):
             status_notice.assert_called_once_with(state)
             dispatch.assert_not_called()
 
+    def test_daily_budget_deferral_reports_status(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            with self.common(state), \
+                 patch.object(growth_once.legacy, "single_worker", return_value=nullcontext(True)), \
+                 patch.object(growth_once.legacy, "preflight", return_value={"allowed": True, "reason": "ready"}), \
+                 patch.object(growth_once.legacy, "check_budget_status", return_value=(False, "daily_budget")), \
+                 patch.object(growth_once, "acquire_remote_hold") as acquire, \
+                 patch.object(growth_once, "dispatch_no_change") as notice:
+                self.assertEqual(growth_once.main([]), 0)
+            acquire.assert_not_called()
+            notice.assert_called_once()
+
     def test_five_hour_shortage_requests_one_retry_without_acquiring_lock(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)

@@ -33,6 +33,13 @@ class BudgetTests(unittest.TestCase):
         self.assertFalse(ok)
         self.assertEqual(state["consumed"], 11)
 
+    def test_one_second_reset_jitter_does_not_spend_weekly_usage(self):
+        state, _ = update_budget(None, self.decision(30, reset=1800000000), self.now)
+        state, ok = update_budget(state, self.decision(30, reset=1800000001), self.now)
+        self.assertTrue(ok)
+        self.assertEqual(state["consumed"], 0)
+        self.assertEqual(state["weekly_consumed"], 0)
+
     def test_twenty_percent_reserve_still_applies(self):
         self.assertFalse(update_budget(None, self.decision(80, allowed=False), self.now)[1])
 
