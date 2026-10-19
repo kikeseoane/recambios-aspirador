@@ -48,7 +48,7 @@ def model_coverage_line(model, gsc, ga4):
 def report(gsc_dir):
     catalog = yaml.safe_load((ROOT / "data/aspiradores.yaml").read_text(encoding="utf-8"))
     offers = json.loads((ROOT / "data/ofertas.json").read_text(encoding="utf-8"))["offers"]
-    categories, empty_models = {}, []
+    categories, empty_models, buy_new_models = {}, [], []
     model_count = references = accepted = 0
     for brand_key, brand in catalog["brands"].items():
         for model in brand.get("models", []):
@@ -66,10 +66,13 @@ def report(gsc_dir):
                 model_buy_new += sum(offers.get(item["sku"], {}).get("compatibility_status") == "fallback_buy_new" for item in items)
                 accepted += count
                 model_accepted += count
+            model_state = {"brand": brand_key, "slug": model["slug"],
+                           "references": model_references, "pending": model_pending,
+                           "buy_new": model_buy_new}
             if not model_accepted:
-                empty_models.append({"brand": brand_key, "slug": model["slug"],
-                                     "references": model_references, "pending": model_pending,
-                                     "buy_new": model_buy_new})
+                empty_models.append(model_state)
+            if model_references and model_buy_new == model_references:
+                buy_new_models.append(model_state)
     analytics = analytics_snapshot()
     gsc = (analytics or {}).get("search_console", {})
     ga4 = (analytics or {}).get("ga4", {})
@@ -79,6 +82,12 @@ def report(gsc_dir):
         f"- Modelos: {model_count}; sin ofertas aceptadas: {len(empty_models)}.",
         f"- Referencias aceptadas: {accepted}/{references}.",
         f"- Categorias sin cobertura: {sum(n == 0 for n in categories.values())}/{len(categories)}.",
+        f"- Modelos con TODOS los recambios en buy new: {len(buy_new_models)}.",
+        "", "## Regla de retirada: todos los recambios en buy new", "",
+        "Revisar tras sync completo e historial; retirar el modelo fuente y sus paginas "
+        "generadas, con redireccion solo si existe un destino pertinente.",
+        "",
+        *[model_coverage_line(model, gsc, ga4) for model in buy_new_models],
         "", "## Modelos sin cobertura: candidatos para investigar", "",
         "Sin aparecer en las paginas destacadas de GSC/GA4 no significa cero trafico. "
         "needs_url puede ser un fallo temporal del sincronizador: no retirar solo por este recuento.",

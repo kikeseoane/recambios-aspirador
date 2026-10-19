@@ -35,6 +35,7 @@ class GrowthAuditAnalyticsTests(unittest.TestCase):
                 report = growth_audit.report(root)
         self.assertIn("aeg/aeg-rx9-2: 0/1 ofertas aceptadas", report)
         self.assertIn("fallback_buy_new=1; needs_url=1", report)
+        self.assertIn("Modelos con TODOS los recambios en buy new: 1", report)
         self.assertIn("GSC paginas listadas=1, clics=2, impresiones=30", report)
         self.assertIn("GA4 paginas listadas=1, sesiones=3", report)
 

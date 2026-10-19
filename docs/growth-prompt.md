@@ -31,20 +31,26 @@ priorizar, documenta por que descartaste cada area y publica la primera mejora
 segura y comprobable. No fuerces cambios de relleno ni edites las salidas del
 sincronizador de ofertas para cumplir este objetivo.
 
-La auditoria lista los modelos sin ofertas aceptadas y distingue fallback_buy_new
-de needs_url. En cada ciclo sin otra mejora clara, investiga al menos dos de esos
-modelos y al menos dos posibles modelos nuevos o sustitutos de la misma marca o
-gama. Busca demanda documentada y anuncios actuales de recambios especificos;
-anota URL, fecha, variante y referencia. No descartes el catalogo solo porque el
-informe no trae consultas concretas: usa la visibilidad de GSC/GA4 disponible y
-fuentes publicas actuales. La ausencia de una URL en las paginas destacadas del
-informe no demuestra trafico cero. Un needs_url, cupo de IA agotado o fallo de API
-puede ser temporal: compara el historial de ofertas y no retires por una sola
-ejecucion sin enlaces. Si el sustituto tiene demanda y recambios verificados,
-realiza la sustitucion en la fuente del catalogo en este ciclo y valida el build.
-Si el modelo antiguo recibe trafico o enlaces, conserva su URL o crea un 301
-pertinente antes de retirarlo. Si no hay sustituto verificable, busca una mejora
-segura en las otras areas y registra los candidatos concretos para el dia siguiente.
+La auditoria separa los modelos cuyos TODOS los SKU estan en
+`compatibility_status: fallback_buy_new` de los que simplemente no tienen una
+oferta aceptada. Tras un sync completo, retira del catalogo fuente los modelos
+del primer grupo: ya no ofrecemos ningun recambio para ellos. Verifica que el
+estado no procede de una ejecucion fallida o un archivo a medio actualizar.
+La retirada no depende de encontrar un sustituto nuevo. Revisa GSC, GA4 y enlaces
+antes de quitar las URL: usa 301 solo hacia una alternativa realmente pertinente;
+si no existe, elimina las paginas generadas obsoletas. `generar.py --force` no
+borra automaticamente los directorios de modelos retirados: quita solo los stubs
+del modelo con `generated: true` y conserva cualquier contenido manual.
+
+Despues, busca modelos nuevos de los que si existan recambios concretos en
+AliExpress. Investiga al menos dos candidatos de la misma marca o gama cuando
+sea posible; exige demanda documentada, anuncio actual y compatibilidad de
+modelo/variante/referencia antes de incorporarlos. Anota URL, fecha y prueba.
+No supongas que un modelo sin oferta aceptada cumple la regla de retirada:
+`needs_url`, un cupo de IA agotado o un fallo de API pueden ser temporales.
+La ausencia de una URL entre las paginas destacadas de GSC/GA4 tampoco demuestra
+trafico cero. Si no se verifica una incorporacion, registra los candidatos
+concretos para el dia siguiente y busca una mejora segura en las otras areas.
 
 El checkout aislado parte del commit de main solicitado por GitHub bajo el
 bloqueo compartido. No presupongas
@@ -74,14 +80,11 @@ unica mejora pequena, respaldada por evidencia, por este orden de palanca:
 2. Plantilla/datos con fan-out: logica de noindex/canonical, render del CTA
    cuando la oferta es fallback_buy_new o needs_url, y los sku_packs. Un arreglo
    aqui mejora cientos de paginas a la vez.
-3. Cobertura comercial: paginas con trafico y sin recambio fiable (solo fallback
-   o needs_url). No crees modelos sin cobertura; al reves, cuando un modelo no
-   tiene ningun recambio real y todos sus SKU caen en "comprar nuevo", sustituyelo
-   en data/brands/aspiradores/*.yaml por un modelo con recambios verificados en
-   AliExpress (misma marca o gama cuando sea posible, con demanda documentada). Si
-   el modelo retirado tiene trafico o enlaces entrantes, conserva su URL con un 301
-   en static/_redirects; no lo elimines sin comprobar su trafico. Tras editar
-   catalogos ejecuta build_catalog.py y generar.py --force.
+3. Cobertura comercial: retira los modelos que cumplen la regla de TODOS los
+   recambios en buy new; despues busca modelos nuevos con recambios verificados
+   en AliExpress y demanda documentada. Gestiona sus URL segun la regla anterior.
+   Tras editar catalogos ejecuta build_catalog.py y generar.py --force y comprueba
+   que no quedan stubs de los modelos retirados.
    Si una oferta concreta esta pendiente por cupo de IA o fallo temporal de la
    API, no des por agotado Grow: busca otra categoria o una mejora editorial o
    tecnica que no dependa de esa oferta. Registra la incidencia para el sync.
