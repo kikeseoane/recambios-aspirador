@@ -1,4 +1,4 @@
-name: Aviso diario de Grow sin publicación
+name: Aviso de estado de Grow
 on:
   workflow_dispatch:
     inputs:
@@ -18,6 +18,12 @@ on:
         description: Estado de GA4
         type: string
         required: true
+      result:
+        description: Resultado de la revisión
+        type: choice
+        options: [no-change, published]
+        default: no-change
+        required: false
 permissions:
   contents: read
 jobs:
@@ -36,4 +42,5 @@ jobs:
           GROWTH_REASON: ${{ inputs.reason }}
           GROWTH_GSC_STATUS: ${{ inputs.gsc_status }}
           GROWTH_GA4_STATUS: ${{ inputs.ga4_status }}
+          GROWTH_RESULT: ${{ inputs.result || 'no-change' }}
         run: python tools/notify_growth_status.py

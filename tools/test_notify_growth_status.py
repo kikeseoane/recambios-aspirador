@@ -15,6 +15,11 @@ class StatusNoticeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             message("2026-10-18", "texto\notro", "ok", "ok")
 
+    def test_published_message_reports_change(self):
+        notice = message("2026-10-19", "Retirados siete modelos buy new.", "ok", "ok", "published")
+        self.assertIn("mejora publicada en GitHub", notice)
+        self.assertNotIn("sin nueva mejora", notice)
+
 
 if __name__ == "__main__":
     unittest.main()
