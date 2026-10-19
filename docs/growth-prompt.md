@@ -24,11 +24,27 @@ como mejora publicable.
 
 Si la primera oportunidad esta bloqueada (por ejemplo, una pagina editada hace
 menos de 28 dias o una oferta sin recambio validado), cambia de area en este mismo
-ciclo. Revisa al menos otras tres oportunidades independientes en paginas,
-plantillas, enlazado o cobertura antes de terminar sin mejora. Usa GSC y GA4 para
-elegirlas, documenta por que descartaste cada una y publica la primera mejora
+ciclo. No cuentes dos paginas afectadas por la misma plantilla como dos areas
+independientes. Antes de terminar sin mejora, revisa CTR, cobertura comercial,
+catalogo de modelos y una mejora tecnica o de enlazado. Usa GSC y GA4 para
+priorizar, documenta por que descartaste cada area y publica la primera mejora
 segura y comprobable. No fuerces cambios de relleno ni edites las salidas del
 sincronizador de ofertas para cumplir este objetivo.
+
+La auditoria lista los modelos sin ofertas aceptadas y distingue fallback_buy_new
+de needs_url. En cada ciclo sin otra mejora clara, investiga al menos dos de esos
+modelos y al menos dos posibles modelos nuevos o sustitutos de la misma marca o
+gama. Busca demanda documentada y anuncios actuales de recambios especificos;
+anota URL, fecha, variante y referencia. No descartes el catalogo solo porque el
+informe no trae consultas concretas: usa la visibilidad de GSC/GA4 disponible y
+fuentes publicas actuales. La ausencia de una URL en las paginas destacadas del
+informe no demuestra trafico cero. Un needs_url, cupo de IA agotado o fallo de API
+puede ser temporal: compara el historial de ofertas y no retires por una sola
+ejecucion sin enlaces. Si el sustituto tiene demanda y recambios verificados,
+realiza la sustitucion en la fuente del catalogo en este ciclo y valida el build.
+Si el modelo antiguo recibe trafico o enlaces, conserva su URL o crea un 301
+pertinente antes de retirarlo. Si no hay sustituto verificable, busca una mejora
+segura en las otras areas y registra los candidatos concretos para el dia siguiente.
 
 El checkout aislado parte del commit de main solicitado por GitHub bajo el
 bloqueo compartido. No presupongas

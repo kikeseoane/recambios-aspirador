@@ -111,7 +111,7 @@ def no_change_reason(checkout):
     additions = [line[1:].strip() for line in diff.splitlines()
                  if line.startswith("+") and not line.startswith("+++")]
     reason = next((line for line in additions
-                   if line.startswith(("- **Cambio y decisión:**", "- **Cambio:**"))), "")
+                   if line.startswith(("- **Cambio y decisión:**", "- **Decisión y cambio:**", "- **Cambio:**"))), "")
     reason = reason.replace("**", "").replace("`", "").removeprefix("- ").strip()
     return reason[:1600] if reason else "La revisión no encontró un cambio seguro para publicar hoy."
 

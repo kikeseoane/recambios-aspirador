@@ -8,6 +8,36 @@ import growth_audit
 
 
 class GrowthAuditAnalyticsTests(unittest.TestCase):
+    def test_empty_model_shows_coverage_and_observed_traffic(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "data").mkdir()
+            (root / ".git").mkdir()
+            (root / "data" / "aspiradores.yaml").write_text(
+                "brands:\n  aeg:\n    models:\n      - slug: aeg-rx9-2\n"
+                "        recambios:\n          filtro:\n            - sku: rx9-filtro\n",
+                encoding="utf-8",
+            )
+            (root / "data" / "ofertas.json").write_text(json.dumps({"offers": {
+                "rx9-filtro": {"needs_url": True, "compatibility_status": "fallback_buy_new"}
+            }}), encoding="utf-8")
+            (root / ".git" / "growth-analytics.json").write_text(json.dumps({
+                "period": {"start_date": "2026-09-17", "end_date": "2026-10-14"},
+                "search_console": {"status": "ok", "pages": [{
+                    "page": "https://recambios-aspirador.com/marcas/aeg/aeg-rx9-2/",
+                    "clicks": 2, "impressions": 30, "ctr": .067, "position": 9
+                }]},
+                "ga4": {"status": "ok", "pages": [{
+                    "page": "/marcas/aeg/aeg-rx9-2/", "sessions": 3
+                }]}
+            }), encoding="utf-8")
+            with patch.object(growth_audit, "ROOT", root):
+                report = growth_audit.report(root)
+        self.assertIn("aeg/aeg-rx9-2: 0/1 ofertas aceptadas", report)
+        self.assertIn("fallback_buy_new=1; needs_url=1", report)
+        self.assertIn("GSC paginas listadas=1, clics=2, impresiones=30", report)
+        self.assertIn("GA4 paginas listadas=1, sesiones=3", report)
+
     def test_live_api_snapshot_replaces_missing_export_message(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

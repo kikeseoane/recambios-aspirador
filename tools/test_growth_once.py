@@ -17,6 +17,11 @@ class OneShotTests(unittest.TestCase):
         with patch.object(growth_once.legacy, "run", return_value=Mock(stdout=diff.encode("utf-8"))):
             self.assertIn("Esperar 28 días", growth_once.no_change_reason(Path("checkout")))
 
+    def test_no_change_reason_uses_alternate_decision_heading(self):
+        diff = "+++ b/docs/growth-log.md\n+- **Decisión y cambio:** Se investigaron sustitutos y ninguno tiene recambio verificado.\n"
+        with patch.object(growth_once.legacy, "run", return_value=Mock(stdout=diff.encode("utf-8"))):
+            self.assertIn("Se investigaron sustitutos", growth_once.no_change_reason(Path("checkout")))
+
     def common(self, state):
         def acquire():
             (state / "growth-lock.txt").write_text("test", encoding="utf-8")

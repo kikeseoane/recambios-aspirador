@@ -28,6 +28,23 @@ def reliable(offer):
                 ("compatible_alto", "compatible_probable"))
 
 
+def model_coverage_line(model, gsc, ga4):
+    name = f"{model['brand']}/{model['slug']}"
+    prefix = f"/marcas/{model['brand']}/{model['slug']}/"
+    parts = [f"- {name}: 0/{model['references']} ofertas aceptadas; "
+             f"fallback_buy_new={model['buy_new']}; needs_url={model['pending']}"]
+    if gsc.get("status") == "ok":
+        pages = [row for row in gsc.get("pages", [])
+                 if urlsplit(row.get("page", "")).path.startswith(prefix)]
+        parts.append(f"GSC paginas listadas={len(pages)}, clics={sum(float(row['clicks']) for row in pages):g}, "
+                     f"impresiones={sum(float(row['impressions']) for row in pages):g}")
+    if ga4.get("status") == "ok":
+        pages = [row for row in ga4.get("pages", [])
+                 if urlsplit(row.get("page", "")).path.startswith(prefix)]
+        parts.append(f"GA4 paginas listadas={len(pages)}, sesiones={sum(float(row['sessions']) for row in pages):g}")
+    return "; ".join(parts) + "."
+
+
 def report(gsc_dir):
     catalog = yaml.safe_load((ROOT / "data/aspiradores.yaml").read_text(encoding="utf-8"))
     offers = json.loads((ROOT / "data/ofertas.json").read_text(encoding="utf-8"))["offers"]
@@ -37,26 +54,38 @@ def report(gsc_dir):
         for model in brand.get("models", []):
             model_count += 1
             model_accepted = 0
+            model_references = 0
+            model_pending = 0
+            model_buy_new = 0
             for cat, items in model.get("recambios", {}).items():
                 count = sum(reliable(offers.get(item["sku"], {})) for item in items)
                 categories[f"/marcas/{brand_key}/{model['slug']}/{cat}/"] = count
                 references += len(items)
+                model_references += len(items)
+                model_pending += sum(bool(offers.get(item["sku"], {}).get("needs_url")) for item in items)
+                model_buy_new += sum(offers.get(item["sku"], {}).get("compatibility_status") == "fallback_buy_new" for item in items)
                 accepted += count
                 model_accepted += count
             if not model_accepted:
-                empty_models.append(f"{brand_key}/{model['slug']}")
+                empty_models.append({"brand": brand_key, "slug": model["slug"],
+                                     "references": model_references, "pending": model_pending,
+                                     "buy_new": model_buy_new})
+    analytics = analytics_snapshot()
+    gsc = (analytics or {}).get("search_console", {})
+    ga4 = (analytics or {}).get("ga4", {})
     lines = [
         f"# Auditoria comercial: {date.today()}",
         "", "Datos locales: no se comprueba stock ni destino en vivo.",
         f"- Modelos: {model_count}; sin ofertas aceptadas: {len(empty_models)}.",
         f"- Referencias aceptadas: {accepted}/{references}.",
         f"- Categorias sin cobertura: {sum(n == 0 for n in categories.values())}/{len(categories)}.",
-        "", "## Modelos sin cobertura", "",
-        *[f"- {name}" for name in empty_models],
+        "", "## Modelos sin cobertura: candidatos para investigar", "",
+        "Sin aparecer en las paginas destacadas de GSC/GA4 no significa cero trafico. "
+        "needs_url puede ser un fallo temporal del sincronizador: no retirar solo por este recuento.",
+        "",
+        *[model_coverage_line(model, gsc, ga4) for model in empty_models],
         "", "## Prioridades con trafico", "",
     ]
-    analytics = analytics_snapshot()
-    gsc = (analytics or {}).get("search_console", {})
     pages_file = gsc_dir / "Páginas.csv"
     if gsc.get("status") == "ok":
         period = analytics["period"]
@@ -81,7 +110,6 @@ def report(gsc_dir):
     else:
         reason = gsc.get("reason", "sin conexion configurada")
         lines.append(f"Search Console no disponible ({reason}); no inferir demanda ni posiciones.")
-    ga4 = (analytics or {}).get("ga4", {})
     lines.extend(["", "## GA4", ""])
     if ga4.get("status") == "ok":
         lines.append(f"GA4 API: eventos affiliate_click={ga4.get('affiliate_clicks', 'no disponibles')}.")
