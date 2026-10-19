@@ -33,9 +33,13 @@ sincronizador de ofertas para cumplir este objetivo.
 
 La auditoria separa los modelos cuyos TODOS los SKU estan en
 `compatibility_status: fallback_buy_new` de los que simplemente no tienen una
-oferta aceptada. Tras un sync completo, retira del catalogo fuente los modelos
-del primer grupo: ya no ofrecemos ningun recambio para ellos. Verifica que el
-estado no procede de una ejecucion fallida o un archivo a medio actualizar.
+oferta aceptada. El bloqueo compartido adquirido por el trabajador garantiza
+que el sync anterior termino antes de clonar main. Si hay candidatos en el
+primer grupo, retira al menos uno antes de cambiar titulos o plantillas SEO:
+ya no ofrecemos ningun recambio para ese modelo. `needs_url: true` no anula la
+regla cuando TODOS los SKU ya son `fallback_buy_new`. Usa
+`python tools/retire_buy_new_models.py --apply --model marca/slug` para una
+retirada acotada; despues ejecuta build_catalog.py y generar.py --force.
 La retirada no depende de encontrar un sustituto nuevo. Revisa GSC, GA4 y enlaces
 antes de quitar las URL: usa 301 solo hacia una alternativa realmente pertinente;
 si no existe, elimina las paginas generadas obsoletas. `generar.py --force` no
