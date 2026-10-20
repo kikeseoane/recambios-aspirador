@@ -69,4 +69,6 @@ Algunos rodillos encajan en varios modelos de la misma generacion:
 
 ## Siguiente paso
 
-Busca tu modelo en el catalogo para ver el cepillo exacto compatible con disponibilidad y precio.
+Si tienes un **Xiaomi Vacuum Cleaner G20**, consulta la [ficha de cepillos y rodillos del G20](/marcas/xiaomi/xiaomi-g20/cepillo/) y comprueba el cabezal y la referencia antes de elegir una pieza. Xiaomi distingue la barra eléctrica principal de los otros cabezales; esta ficha es específica del G20 y no confirma compatibilidad con el G20 Lite ni el G20 Max.
+
+Para otros modelos, busca el nombre y la referencia exacta en el catálogo antes de comprar.
