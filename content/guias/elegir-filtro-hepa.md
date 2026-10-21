@@ -68,4 +68,8 @@ Algunas marcas mantienen el mismo filtro entre modelos:
 
 ## Siguiente paso
 
+### Ejemplo de mantenimiento: Xiaomi Vacuum Cleaner G20
+
+Xiaomi indica que el prefiltro y el postfiltro del G20 se pueden enjuagar y deben secarse completamente durante al menos 24 horas; si la succión sigue bajando después de limpiarlos, recomienda sustituir el conjunto de filtros. Si tienes este modelo, consulta los [filtros para Xiaomi Vacuum Cleaner G20](/marcas/xiaomi/xiaomi-g20/filtro/) y comprueba la referencia y la forma de ambos filtros antes de elegir. Esta ficha es específica del G20 y no confirma compatibilidad con G20 Lite ni G20 Max. [Instrucciones de limpieza de Xiaomi](https://www.mi.com/es/support/faq/details/KA-313899/).
+
 Localiza tu modelo en el catalogo para ver el filtro exacto compatible con precio actualizado.
