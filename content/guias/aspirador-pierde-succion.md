@@ -66,6 +66,10 @@ Primero limpia el filtro y revisa que no haya una obstruccion en el cabezal. Si 
 
 La asistencia de Dyson para V8 explica la limpieza del filtro y la retirada de obstrucciones; las fichas anteriores muestran la oferta vigente para la categoria y variante seleccionadas.
 
+## Si tienes una Rowenta X-Force Flex 14.60
+
+Rowenta indica que la alerta de limpieza del filtro señala cuándo requiere mantenimiento y que el depósito de polvo de la variante Animal Care es lavable. Revisa primero el filtro, el depósito y las obstrucciones; si la pérdida de potencia continúa, sigue el [diagnóstico de pérdida de potencia de la X-Force Flex 14.60](/marcas/rowenta/rowenta-xforce-1460/problemas/pierde-potencia/), que detalla las comprobaciones antes de valorar un filtro. Rowenta ofrece distintas variantes 14.60, así que confirma la referencia del aparato antes de elegir una pieza ([manual y preguntas frecuentes de la variante RH9958WO](https://www.rowenta.es/instrucciones-de-uso/limpieza-del-hogar/aspiradoras-escoba-sin-cable/x-force-flex-1460-animal-care-negra/csp/2211400949); consultado el 2026-10-22).
+
 ## Cuando NO comprar recambio
 
 - Si el aspirador tiene mas de 6 anos y el motor esta gastado: el coste de bateria + filtro + cepillo supera el valor del aparato.
