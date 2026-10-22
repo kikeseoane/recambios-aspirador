@@ -1,4 +1,7 @@
-requests>=2.31
-pyyaml>=6.0
-python-dotenv>=1.0
-google-auth>=2.0
+requests>=2.34.2,<3
+pyyaml>=6.0.3,<7
+python-dotenv>=1.2.4,<2
+google-auth>=2.62.0,<3
+# Keep the HTTP/TLS dependencies above their reviewed security fixes.
+urllib3>=2.8.0,<3
+certifi>=2026.10.19
