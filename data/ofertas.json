@@ -3693,10 +3693,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bosch unlimited serie 8 charger",
       "fallback_search_label": "Buscar cargador para Bosch Unlimited Serie 8",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_validation_status": "validated",
       "ai_rejected_candidate_fingerprints": [
         "49fb0e54d97ee789"
@@ -4293,10 +4293,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "cecotec 3090 dust bag accessory",
       "fallback_search_label": "Buscar accesorios para Conga 3090",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "00238d6026dcf29e",
         "01034edbd5bb0eae",
@@ -4326,7 +4326,7 @@
         "dust"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "no_candidate_after_exact_and_relaxed"
     },
     "cecotec-conga-3090-accesorios-robot-kit-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -4972,19 +4972,19 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "cecotec 4690 wheel accessory",
       "fallback_search_label": "Buscar accesorios para Conga 4690",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "639a1d258346e7b2",
         "b795c3d1340153bd",
         "c9906df3e3ec65b9"
       ],
-      "ai_validation_status": "rejected",
+      "ai_validation_status": "pending",
       "last_verified_at": "2026-10-13",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
@@ -5004,7 +5004,24 @@
         "wheel"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "9ae6c5c19e175ad3",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kv09iARrnKQfrNJWgk6f4VRzcpTYWmRKOl1Ne1NzVoxA1YDaXPlVvd54E5waQjEDwojPpTNsjcU3P9wt8i777mu7LAuwA4gkxPOtk4089FPwnNj9OBPBsufstAnKxK5gOUA8K9ecNNw4rAIlFSX2qXPv4oUaOahNAhUKhW7xMwJWaZeimpFoKYHHIa0k2myjAa3oBTrxgOtvGj6COs3zKiPKQk8KAZ9Pm943U0czc8etklYUYBtTAPDQm7DKAbSas1Gep7iUKyNULlCWEwf1JKGNMNYHVP7HMh9isIlxpzKFoIbBAR0x9i1C91CWF4S7qJK8UwRWYNqxEzFTTwKyGB9uPBnTOYhsREZD5b62ld33J2dUpMV2rzWWNdbAGQDzQVZemFgSKxvl0ngbBtCyt7PgW2eCzoa0C8PE9RHyOiGROkFtFyiEFDUSNxkVxnB1KzZOIN1I0ZF5wW3yoimmyraGtyX3nUgujhdoqYER1FeJeOQwyz1sFGTUr4woTGlXuUMnWaOlU0Vq8EKhjy0NnPIfDPQbysaSjRaxgVN5ssEkRuwx4FCCtPxZWDDJAuRak1ReelpjEsPbDLEgUH0EDm3EpmKJzZ8PaBC6Cc98UkwYKMMfryF1cWyycbSEt9ovBPakNAsD6iJAIXyaWbVZu0rOOzcEpVxWxtukbEziu1VpsZFecPnnqkuGdNprB9SRrLH1sY7PCTk0q",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S6e746d2a5d344c738bd5c5482267d639b.jpg",
+        "sale_price": "70.94",
+        "sale_price_currency": "CNY",
+        "original_price": "70.94",
+        "discount": "0%",
+        "product_title": "Rueda delantera de repuesto para Cecotec Conga 3290 3490 3690 4090 4490 4690 5090 5490 6090 7090 Robot aspirador de barrido",
+        "matched_query": "Cecotec Conga 4690 wheel",
+        "candidate_tier": "wide"
+      }
     },
     "cecotec-conga-4690-cepillo-robot-main-brush": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -5196,10 +5213,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "cecotec 5490 dust bag accessory",
       "fallback_search_label": "Buscar accesorios para Conga 5490",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "2f4c215a7a1ec847",
         "36bc50af71666621",
@@ -5625,13 +5642,13 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "cecotec 7090 wheel accessory",
       "fallback_search_label": "Buscar accesorios para Conga 7090",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "03582a1b52bde859",
         "2fdffe758b03ad4c",
@@ -5644,7 +5661,7 @@
         "f1deab26bd87b656",
         "f5456c8fc7aced7a"
       ],
-      "ai_validation_status": "rejected",
+      "ai_validation_status": "pending",
       "last_verified_at": "2026-10-13",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
@@ -5664,7 +5681,24 @@
         "wheel"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "c3fc135e1490fa70",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4Eg72NWxh0fb5emuglvkRf2HxIpzoGfy6NV4k2E0gjGrhgXsQhNy5mSlMVZLwK5IVCuwfCBht1kkhTkdphE04Y49preyQdHj0PFe6CSp2Dw0VMnM2bqQqIxDp7RRzjQ3Qrl3BM7hzWCp77nWZBgbpGWkrtLcL2K8lQ9QexFNjpNUg4h0XFzRVjvwVOv5URCzpmOu4EZcF7OCTTXQJWgj4qOVx57DtxBEtSu3J15OmmpjbEuuk7SBiUs0H0oHN7cjnKuQGvtMq2TOdYT4AEVXBV4Ny7hJZF7uLi38MKemRdg4CYy6USDUdC2fWaVSTQBF9HK8uIij4kAqZxKne0k6HoMMX1yRzUpVXwv8w2E19JQRZ6typj5tcZqt4Ve0usVd39HFW9Ea8t1q7QEbVmGcobjaCGsaMNTFDeEEKfFInAk82cqRynsU4PM2EwHb6aV0oPFsu6JXZTk0kn0NkDalMprGUQMdv2c5VkHyk5IcbCxhWXqE0Vq2HxSMUjyUrJbQaMaSj6b49S8x1EitKiKcVidYwuA3YkDHpbFzCUJBYGhtazclgfHW0BVGRSrD5Uz3ZLO7UePXXtwSN8zVXCEm6PO3mrlr5ZaLsyLdQLWJBgIRntClZPMEcvbI2BlMhI9D84yJO6bpoQZ3CdeExafbIySVUj5Chpak3LGaWLRRbeeBENltuAyS8aJ2SQkreN1FBkfYcvXNRXkWPc",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S93432d55c8c44d8a8c8574d1df8227e9h.jpg",
+        "sale_price": "4.16",
+        "sale_price_currency": "USD",
+        "original_price": "4.16",
+        "discount": "0%",
+        "product_title": "Side/Soft Roller Brush Hepa Filter For Cecotec Conga 5490 6090 7090 Robotic Vacuum Cleaner Mop Cloth Wheels Parts Replacement",
+        "matched_query": "Cecotec Conga 7090 wheel",
+        "candidate_tier": "wide"
+      }
     },
     "cecotec-conga-7090-cepillo-robot-main-brush": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -12362,14 +12396,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "updated_at": "2026-10-16",
-      "match_type": "fallback_buy_new",
+      "updated_at": "2026-10-22",
+      "match_type": "",
       "fallback_search_query": "irobot j7 accessory",
       "fallback_search_label": "Buscar accesorios para Roomba j7",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "ai_validation_status": "pending",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "2f3c30feb0d122e4",
         "33c7e4ab6cdf25fa",
@@ -12394,7 +12428,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "0e5d2450490039a2",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4o2rLsPtgkjO0HWP4emQn3pe4Te7JDD4cHSEJUSBSRQS90tZQ21jI6aYI8k8RTjg5n8sngIh3Wj182FrfIZzAoVDvT2DezqiVsaT0HGkIYyVrKYOsmfDx6ExdU31mATmJ2jKMRF2iDLuiny1YQaF6Hjtu8zUMXRP3O7nAcDLAFaf8ESKtWZQ2FhHV3fG8dFyR8xy10ojcZw8r1xQ21Ny3BQ9JnxhLlWEgXMnLHrbe2LoZfyjrKp5Wf7aP3g4ImY11ipSsbc5EuoPtF0GaUNqM9nPNDul2ATYf8OjIqJUhxMPlNfGqzdwC1kYxpLsJ3nYeTEJNOAetxnzLjiEvqktIispXfiPGeYo9NgY06LB79lcC7o1KmIzoyIs3XyDxGIiwVL4XkyUaEdFMlrSJDPzWilDoJRPWlDV034e9Y5yJ8ZDoEyOkULdCOKGb7iwDgaHifwzwIHlUQhM8S3IFVgQPylnT389IyQmF5fqMXSxx4IiN8Qm19hPOIe4loGotUwQogG8D6n1WGnLQZmclhulzmRzjesALdjxO9GlGt3s5sD79drMb118Y1mpfX3zILaaVjNnl3x0lI5IKRspaDZoxnLZxUDiafut9BPthI6GTSml4ZNuAa8VK7JHEMMmn5dKwrvE7BugOboEbkobyqo0VdXEqPuFGORNjy40Ipre673g05RkRotUjkTrBOBjexrMMQoGE3HUkM27KV",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S65d372e629ed46ae86201f531b2148b65.jpg",
+        "sale_price": "24.81",
+        "sale_price_currency": "CNY",
+        "original_price": "49.63",
+        "discount": "0%",
+        "product_title": "Side Brushes For IRobot Roomba I & J & E Series I1+/I2+/I3+/I4+/I5+/I6+/I7+/I8+/J6+/J7+/J8+/E5/E6 Robot Vacuum Replacement Parts",
+        "matched_query": "irobot j7 accessory",
+        "candidate_tier": "wide"
+      }
     },
     "irobot-roomba-j7-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -13934,10 +13985,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "philips speedpro charger",
       "fallback_search_label": "Buscar cargador para Philips SpeedPro",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "1624b06fc5d1c6e3",
         "1a0f6c11ca9d1797",
@@ -15650,14 +15701,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "roborock q7 accessory",
       "fallback_search_label": "Buscar accesorios para Roborock Q7 Max",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "ai_validation_status": "pending",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "b7c32dcb7051db53",
         "dda8ca14d687d552"
@@ -15682,7 +15733,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "a7c3fa9b9d7797b9",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4mli51jPkD7tPjkLa0qfZ8NPtJoHsw7VpnWCaXwlzDG66D4wNb7qzm7ZLAeSzaYq4gLfn9bEp50EnzbxwN655ETIIcDKPyIurY8yh8xdnvKiytRfhALr01AHLHGCZYtTbY2UcX3nJlufd9Kg9SVRQgMk65iOOuLywjxgEgUYpQDK9yNnxto49ER1oB6q89iRbP67Oz9oNQ66Uy3r4OJVMs334KoY977oYczZxF7ooa1ywM895sXkxLo0HQkOo815O6b4sDsnHJd3ExOsCNPXmlHr2Sc7Myxtmq0qyXLqx8aDowoNKWtMwHWorkVqTAfzRQbdqTWZ963rYtbnbJE93Gpdntq4FUV0KssHSwejldHop3IWsZvUcjRe62PmlvEStIm8hlAQxTXNLrkOtNB7AActEBnuGQGYc2GsejYxcdI4cfzVFTYMEs9RiTYVNQh7Q4hOinydE9ad8oeBhboPlQa40pSgbSIBshc8l5GrnJsoMT580sgAdPCTrfU2OkXbsUxOQe994c2KkjS65ESb1wr53yhHu1OmprY7WDrXphWxy3IY8XnwS2YBUPbHJh6VI3DVunq7tsMQ62CIdKKOyK0orl9A3B8JWxOn9xczDvCtWV94e34gD258EbrCH9SOjnZzgsJEperxCWiGnpw4np9pGkz6JZc9jsPIkKuDnTHAXx6FwNGU43r5fMIJMn8inyGFs6ZHwcTznn",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S74f1fa1697484b6b9fdc7bd88f94cd93C.jpg",
+        "sale_price": "43.12",
+        "sale_price_currency": "CNY",
+        "original_price": "43.12",
+        "discount": "0%",
+        "product_title": "Roborock S8 Pro Ultra Roborock S7 Maxv Ultra Roborock Q7 Max+ Roborock Q8 Max Puls Ultra Robot Vacuum Dust Bags Accessories",
+        "matched_query": "roborock q7 accessory",
+        "candidate_tier": "wide"
+      }
     },
     "roborock-roborock-q7-max-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -17554,11 +17622,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "rowenta 12.60 roller",
       "fallback_search_label": "Buscar cepillo para Rowenta X-Force Flex 12.60",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "10776a2def84739d",
         "52615b655f286ee5",
@@ -20203,11 +20271,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco s11 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Tineco Pure One S11",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "32f9f3d7f5fb3880",
         "5c2f61b7540ca43d",
@@ -20443,14 +20511,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "ultenic t10 accessory",
       "fallback_search_label": "Buscar accesorios para Ultenic T10",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
-      "ai_validation_status": "rejected",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "last_attempted_at": "2026-10-22",
+      "ai_validation_status": "pending",
       "ai_rejected_candidate_fingerprints": [
         "27409934057186a0",
         "8c79eec504d7738c"
@@ -20474,7 +20542,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "049d995d62ce0c1a",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4mTF2yAqwLDjUoq27izsVIXhUVS3xZzIzQSThU1vHjdKqSm2xxCtXPFVxkcIkix1AJJhbgKY9bifJd4QMkgDunMrTLQHFQ324kreZuc5YJZ3tSwR00cDeP3yD3gueupljX9iz43nmT6rZB7N2wpJFPbbgyH2NLjT7Jwkd2RHbMeSHD4eEaiO5fg5uplYZ7QyzWzo7UUItSBDfHRA15AVixzibA0wV2RgCORlVowcSbPyhIpLyPM7Mslp7NTJth9aHIrhplNCAI3y6Xi6ymK8Dkn0kYiIUT4GVxNoXjeExTBzYN8PifJ5jadUIV7cijr0s0ONZVB3Z9h1TqWIPqXWYtd1s05yCuo4u0OmBAnk1q782hDTdwVwbhsryurJTA10g3CEoB4VMIwUTUMZer1VYtUaeM4QM6Txs26PSevEZNZSOKKu3C3wUDhk7YXdYZwNMeRAPCCnU1FsovbhAWMGiJEM0en2ecQVyqiSX1WNtCgQHBsVvzER8O8dXEsrpnvTrjxHfA45FnDlnN5p215ygec7bIxwBx76UK61pyQgci8jFsWtgfoGWKE8zoXiVAXzB4Y7w635juNyt1oOY2dVDmVz2OKID2CLYiklrYHvEME4gIptwn3TxBdCQHjMeef8lrzzuAQ7cnLpsyYS5ELlwlbV6ZPowUU6ymVnh91i3ZLGHwWqV4tYRCTGFRKDKa9RDbydoPKvBXZjrL",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S7726c00711a4463b887f5188a522fdd0H.jpg",
+        "sale_price": "78.26",
+        "sale_price_currency": "CNY",
+        "original_price": "156.52",
+        "discount": "0%",
+        "product_title": "Proscenic Q8 MAX Ultenic T10 Lite Main Side Brush Rag Filter For Dreame Mova E20 Plus E10 E20 S800 MONSGA MS1 MAX Vacuum Cleaner",
+        "matched_query": "ultenic t10 accessory",
+        "candidate_tier": "wide"
+      }
     },
     "ultenic-ultenic-t10-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -23157,39 +23242,32 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "",
-      "match_type": "fallback_buy_new",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4EhP7BM5nAtReG4V7m1ufkGBYPY8opMLpOzE3bfxBL7vUEEU8RVdc2KIGPipbyPPDU4RKiaGzGf8Mj9le3Ip3957i4AjfhQqO9l0sie3idLjimDztH7JuPqVntjEFBLvuTgZFILhIlYt9T79tRTIqVpIs0tSCDvH7VRxqvLPxqETdbsPue8gVsVz3SRPCj0fQuJy4KbTvAY168JPq1anGW27JS1uuMnlfxdvpiyA4RwY7rzCwGThp3WTxEdDxp1fcDcmEoCAt8pGS1XC6JzMLdkeSj7rGtEjMxUAncZKAZZPCHrazCRtUk6A09qpGtcg7YGkaAKHJh6cMA8OVSLt0KiUDIIpgb1fNN40qm7q2IUOxSrAMuySsHC356bC4IYp3MXsj8vzDf2a64r5lWwwNWEC4gQy06aJTK7vy7z73IEgNrFHTZvWawJDcDHvlzc14Vlk8ZH4uvjUEGqIC7tl2O9QujriosMthfKFgkVvdivszYrikCTYLaAJGygOSxGS47pO1BFgIiHCEe8G4PTXd5DPvtNTWxPMWt5a6TwET7xglGyuD5eq9lRWoKLGdfcAPfsFwgDqx5ASWFppaGAY00WhzZ4cRF6UED3Y441ZXedpM9AueCLwUHs2bwxXfFKcNAyk3eUT2M6fXQduEtMRBvnG63vHCZZvbAe60BTGAcU2jjWNcp3C6xziXxE2fa7Z10ss9fVWqi18sI",
+      "match_type": "relaxed_fallback",
       "fallback_search_query": "cecotec 6090 accessory",
       "fallback_search_label": "Buscar accesorios para Conga 6090",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "dudoso",
+      "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
+      "ai_validation_status": "validated",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "b377075c30de6d32",
         "f5464f6ebe7874e4"
       ],
-      "last_verified_at": "2026-10-13",
+      "last_verified_at": "2026-10-22",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
-      "needs_url": true,
-      "debug_last_query": "cecotec 6090 accessory",
-      "debug_model_tokens": [
-        "6090",
-        "conga"
-      ],
-      "debug_must_include": [
-        "6090",
-        "kit",
-        "accessory"
-      ],
-      "debug_must_not_include": [],
-      "debug_specific_item_terms": [
-        "brush+filter"
-      ],
-      "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "ai_validation_reason": "Candidate 7 explicitly mentions '6090' and 'Accessories' in its title, and the query also includes '6090' and 'accessory'. The title also lists 'Main Side Brush Hepa Filter Mop Parts' which aligns with the general category of accessories for a robot vacuum.",
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "ed204b713513c16a",
+      "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sc1b4d4d3115f4c9db1f999516b05fce8j.jpg",
+      "sale_price": "9.42",
+      "sale_price_currency": "USD",
+      "original_price": "9.42",
+      "discount": "0%",
+      "product_title": "For Cecotec Conga 1890 4090 4490 4690 5090 5490 6090 Accessories Main Side Brush Hepa Filter Mop Parts"
     },
     "cecotec-conga-6090-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -23399,14 +23477,14 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "",
-      "match_type": "fallback_buy_new",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4Eh1iruK8mfIZX8wCKvIT0ELDp2MaECvhGOBDdCSOuEaRINLfjnfQTET8N6iz4yyPvotENIKuJ5rDQ7eTkcmaiugU5tYum01UnVVXFm6oMS3FzUeQUvQuNPigX7bNChIzcDgevcUOnkiE3BPq4a0bD947FzXYu7o53HctY6Eqt48v1PwBxHP2anolcIAGVKv3fUfc7UYMVNQx4biV4XFsyeYWZ3wwiMgzv7o0ku6P9H8jS0DJWrWoUDOY9un5itSAI6mPYSgo8RR0ABk8REkadXmaMNh1fh0uKDsEOhuGqwCJ8jSvrJj3ukLVPilUmtMuAXirFdKXH0cV6dzNtmY5bhx6XbeJSSmw7zrpxkBMkM7N4jQVsYanrH0JUbHLjtFJ9NGePV6t48cNbcUExdeMxehzteqwwqqPeZ5eCmybeWh4ntqzvaXpGrjeUxv238AV2voNhlDmkTpCmEK4qwcjcog8fDLkGhTl7CGm4y30ir7s3UvCQKQf7fPsBhNyiMvML3bADVMBTySsXSqYLjgzbOBFxvENG55cIaroVkn4RlxBOopOYznWRzL55bBGW0IUWH8nMzOtJVUJeZHtGBkSEiuGmWQP8vzGG35fLSNzIPI80C7xq1I5E7itMVIDCiqxKs6aSECQ2LQq3xG6OBQ3REXfVw4tYzOdgSx57FcA5vbmYHQ3x9Ht9a0rgScNBBdovf4ACnHhUgnTl",
+      "match_type": "relaxed_fallback",
       "fallback_search_query": "cecotec 8090 cover accessory",
       "fallback_search_label": "Buscar accesorios para Conga 8090",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "dudoso",
+      "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "14dd7af0ca2cf77f",
         "17486aa6c9c4c2e3",
@@ -23421,27 +23499,21 @@
         "f10e4ac27ac9d18f",
         "f92e03ee774fe7c4"
       ],
-      "ai_validation_status": "rejected",
-      "last_verified_at": "2026-10-13",
+      "last_verified_at": "2026-10-22",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
-      "needs_url": true,
-      "debug_last_query": "cecotec 8090 cover accessory",
-      "debug_model_tokens": [
-        "8090",
-        "conga"
-      ],
-      "debug_must_include": [
-        "8090",
-        "cover",
-        "accessory"
-      ],
-      "debug_must_not_include": [],
-      "debug_specific_item_terms": [
-        "cover"
-      ],
-      "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "matched_query": "cecotec 8090 cover accessory",
+      "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sfbc617463432422789e8d4e8f65acc063.jpg",
+      "sale_price": "55.59",
+      "sale_price_currency": "CNY",
+      "original_price": "110.84",
+      "discount": "0%",
+      "product_title": "1Pcs Black Measuring Cup Small Cover For Cecotec Mambo Chef Machine Kitchen Accessories 7090 8090 9090 10070 10090 12090 Model",
+      "ai_validation_status": "doubtful",
+      "ai_validation_reason": "The requested item is a 'brush cover accessory' for a 'Conga 8090' vacuum cleaner. Candidate 1 is a 'measuring cup small cover' for 'Cecotec Mambo Chef Machine Kitchen Accessories' and lists '8090' among compatible models. While it includes 'cover' and '8090', the primary function (measuring cup cover vs. brush cover) and the device type (kitchen machine vs. vacuum cleaner) are different. However, the presence of '8090' and 'cover' makes it a potential, albeit uncertain, match. Candidate 2 is the Spanish translation of Candidate 1, offering no additional clarity.",
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "f11a0710cd774bab"
     },
     "cecotec-conga-8090-accesorios-robot-dust-bag-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -24033,7 +24105,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "cecotec 1200 roller",
       "fallback_search_label": "Buscar cepillo para Rockstar 1200",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_rejected_candidate_fingerprints": [
@@ -24070,7 +24142,7 @@
         "fdec2dbaf1716701"
       ],
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_validation_reason": "Candidate 1 is the best match because it explicitly mentions 'Rodillo/cepillo principal compatible para Rockstar 1200' in its title, directly aligning with the requested part type ('cepillo' - brush/roller) and the specific model ('Rockstar 1200'). The other candidates are either for a different model (Conga Thunderbrush) or are complete vacuum cleaners rather than spare parts.",
       "ai_pending_reason": "daily_ai_budget_exhausted",
       "ai_pending_attempts": 3,
@@ -26827,10 +26899,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "hoover hf500 pet accessory",
       "fallback_search_label": "Buscar accesorios para Hoover H-Free 500",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "19a12fc6df55d716",
         "2baeb7e750f4f13f",
@@ -28022,39 +28094,32 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "",
-      "match_type": "fallback_buy_new",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kXJiO5xVNH5mX45D4K7PoKJj6mPAxlOamLjOOnYn7WrujbSPB83M2ETUOSsuFZG4YVLIpbONNUK3z5V5JDTd5XSyErQ2XFzD8lZg6i7EpPLD6UcY2xBhmAG7gya9Xxz5FgDLyMqy5U2pCgG9eGU2a3DeXFZg9Anmz2pl5dJEAeY2hiMlbFHnHEtcIf6Qz03hMMYDvSGXuJFWoh0mF0hInxVIWiOLLqkrjCt2siILHE39i30gMfetFgBgGCI3wgbNWCMhvcnzEEPU8sHlklOhvnet96KdKTJOWOj9jwhY0mP8Vbrn2VQWbMlTCJ2VDYCiX2HrPaJ7DQ3y35tym3DuwIexXmE0xehwqrImZmhmKESM3hGIIBXO019z3eTiHdcApcG3KDRyhvCQGqPaOTJIwub36Ll6feBBHUsXO8unBvMZ1Gzse90PxU5LnVf1qMD0HaX6jp22OELezr2vHY4zpKUq2srN9x1fUmIYp0kfT15Ec0Bq2A0xQd2GA48HswExxMMw2Rk97SXXoBSpHGN1RNPIoVqJOLl5Z16e68rfuEALX6xG4hpaoHYTvNYWTX041xIK0bN44BwtT0URPRH53jFvA7qSeRlSAbwV5rchtaEbqSyysNK7TPtbIrJLR4KZXTP4cahkAXYJcGLIy3gyVunFEmfbPby2NliKN9Pwfa1tEp0wyVDtN5zwp3V8CEi8HLsi9JZrZ0ur8",
+      "match_type": "relaxed_fallback",
       "fallback_search_query": "irobot i5 accessory",
       "fallback_search_label": "Buscar accesorios para Roomba i5",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "dudoso",
+      "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
+      "ai_validation_status": "validated",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "52246976435ad545",
         "d1e40e658e7186fb"
       ],
-      "last_verified_at": "2026-10-13",
+      "last_verified_at": "2026-10-22",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
-      "needs_url": true,
-      "debug_last_query": "irobot i5 accessory",
-      "debug_model_tokens": [
-        "i5",
-        "roomba"
-      ],
-      "debug_must_include": [
-        "i5",
-        "kit",
-        "accessory"
-      ],
-      "debug_must_not_include": [],
-      "debug_specific_item_terms": [
-        "brush+filter"
-      ],
-      "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "ai_validation_reason": "Candidate 4 explicitly mentions 'i5' and 'Accessories Parts' and includes 'Main Side Brush HEPA Filter', which aligns perfectly with the user's request for an 'Accessory kit compatible para Roomba i5 (brush+filter)'.",
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "1b488fa18c858a57",
+      "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sd31a543c0af14fd6b84961959cce3258B.jpg",
+      "sale_price": "6.24",
+      "sale_price_currency": "USD",
+      "original_price": "6.24",
+      "discount": "0%",
+      "product_title": "Compatible for IRobot Roomba Combo I5 / i5+ / J5 / j5+ Robot Vacuum Cleaner Main Side Brush HEPA Filter Accessories Parts"
     },
     "irobot-roomba-i5-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -32166,11 +32231,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "shark iz201 roller",
       "fallback_search_label": "Buscar cepillo para Shark IZ201EU",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "629a91f874cb3050",
         "b18f6ea7a06dc499"
@@ -33160,10 +33225,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco s5 filter pre",
       "fallback_search_label": "Buscar filtro para Tineco Floor One S5",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "26b814f7324180d3",
         "2bc3d44ad5a182e3",
@@ -34508,10 +34573,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "aeg qx6 dock wall",
       "fallback_search_label": "Buscar soporte para AEG QX6",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_validation_status": "validated",
       "ai_validation_reason": "Candidate 1 is the best match because it explicitly mentions 'AEG QX6' in its title and includes keywords like 'dock' and 'wall mount', aligning perfectly with the user's request for a 'Soporte de pared / dock compatible para AEG QX6'. The other candidates either do not mention QX6 or are for different types of parts (e.g., battery holders, carbon brushes).",
       "ai_validation_model": "gemini-2.5-flash-lite",
@@ -37006,14 +37071,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "cecotec 1390 cover accessory",
       "fallback_search_label": "Buscar accesorios para Conga 1390",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "ai_validation_status": "pending",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "6ad5405c514ad8cc",
         "93957b086fbb927a",
@@ -37038,7 +37103,24 @@
         "cover"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "21a99310beef8b7a",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4omFWIS3LP6UtjbYwwhYJdHrXa7zBEbWMQn1Gr4qQHJbAY2TI5b9ZWcfrWt2arrcOFMTirylNmmGNaEmraZ7tBcxfZIw2Fp2MyjeL5tQ5nsvQvS6ncQB7aHv2qXZLdf0zqo9L2hd2VxagR98jhjipK353XWsV20HxAUZRs5Z6gH7IDZf7QLjaZR4i5BTmRRmKxR67F2xsIj0UOmp0uv1paFTZA5iapOminGNLnHayh5YvQMc9KIDZ3SNzDBE8zLzUcTbaJ3Oy3OUpljr6VNmmieioRmwbf8cfNY17fOXxYiM184aAHCmZzWqsPLOMWTdhegK2PnKkDkMol2CChGaorJguMdYcNcBUWIGjOHwQWirmYOT7nGsIcFTKlmBh1t7lxd1gBAUbncUSr1Tfldvc6I5yJxOZE0EYu5CF5PMVrcLQgBRIq7b3cAvETokf6GpPCsENTXyjL6DEviJiCtT1AZeytdBQNSbxbcWBEk0evjEsXwsSXcueTNAr03BpsQO0QP4aHyhwRlWvyiRCr1uDakoBXqj9GnfmlXBxVf26AEJ5i4UMXVsG3kAwj7mMAWa66cJNdrrZPXgd7OakDxDKSc7CztXAmEEqikOcucLngssnqf5I4zrC0exS5VWJ3hHetCGU02afUsBPH8axgLzXTZVCkRQL5YdHiQetep7zoiKjluJbLQXsjkUXIv8ViwmBEv8dUvedKHzzF",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S39d63eb317ca42ff806c85650696029ah.png",
+        "sale_price": "178.55",
+        "sale_price_currency": "CNY",
+        "original_price": "482.58",
+        "discount": "0%",
+        "product_title": "Motor Belt Rear Cover Case For Cecotec Conga 1290 1390 1490 1590 Robot Vacuum Cleaner Maintenance Tools Brush Replacement",
+        "matched_query": "Cecotec Conga 1390 cover",
+        "candidate_tier": "wide"
+      }
     },
     "cecotec-conga-1390-accesorios-robot-dust-bag-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -37071,14 +37153,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "cecotec 1390 accessory",
       "fallback_search_label": "Buscar accesorios para Conga 1390",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "ai_validation_status": "pending",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "088d819996703b1c",
         "c5769acdb0c0f196"
@@ -37102,7 +37184,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "355531f85a811a3e",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4mXNWdlTNATBNj4JzrGbjqpkNcnvem8ZcBZUX8ELWihataOAWo0mMeCxm0OlCEsbok29G5zapGDxCu0WQzWzcXbiz3wq5P3WnfTfpTkegzj2VF4fP2Nb9tdjJZigKWlRnyv4JG2lZLkzcv0Hzy45v9CLmlXd04rFPLHw6sxPauF47mrMWV238asocOFsME4wPobKuuQBPmThnsR2WUt7YJtr0lWBVIyaXm1pucSB0iNF7pEOZV6inzacYov28h9OVxG1hwySZbCxDtI4714Erh5tJa9HoLzILIFC0840IvswwKe6cK5mi5mNlTue06JFPyC7lEuIoeeOmCR2fuh3M85e329PGCriWI2WfsCE8UWwpsgUw0ii8nPuL9F7y00WpEd0QWZTokDdDJyMlfgHD65NDsc9U7YMJOSW0JsFYNuKy6oYlrat52Om4Y4H33pGmjGoipers7u1jfiqgoPyu7lrKOrD9NA4MDiYetONNGpInsJ9El1k0JSxZR1rR3nFJbPJu7drXmNuAfuaUmx8HbO0HyA0c6VbeNQpSpnAxp0F92crwtyH1swh6GsKCmfiM2t7ICDm3HRiIqaSA0URCd39kjNvcPu2R3SMAITM8nZWeg9tbzMhRXns2ry2FcjsXJGsFw2p9wxmueZDBq5PhvWCqsTrXCHGtnBUIbMcAUxcTxsZvkzTejpuOephQTN535Z7IpGS1zDO8e",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sf774c5f3f3a74f54b46d968798824255Z.jpg",
+        "sale_price": "77.54",
+        "sale_price_currency": "CNY",
+        "original_price": "77.61",
+        "discount": "1%",
+        "product_title": "Conga 1290 Cecotec 1390 1490 1590 Cecotec Conga 1390 Main Roller Brush Motors Robot Vacuum Cleaner Parts Accessories Replacement",
+        "matched_query": "cecotec 1390 accessory",
+        "candidate_tier": "wide"
+      }
     },
     "cecotec-conga-1390-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -38084,14 +38183,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "dreame l10pro dock base",
       "fallback_search_label": "Buscar soporte para Dreame L10 Pro",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "ai_validation_status": "pending",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "1742b6d3ef2977ff",
         "24a0b04546ba7096",
@@ -38104,12 +38203,12 @@
         "ba312c69ae919df5",
         "c8936dc887c8a5ab"
       ],
-      "ai_validation_reason": "The candidate title explicitly mentions 'Dreame L10pro' and 'Base', matching the requested brand, model, and part type. The 'must_include' keywords are also present.",
-      "ai_pending_reason": "daily_ai_budget_exhausted",
-      "ai_pending_attempts": 3,
+      "ai_validation_reason": "ai_rate_limited",
+      "ai_pending_reason": "ai_rate_limited",
+      "ai_pending_attempts": 1,
       "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-05-27",
-      "ai_validation_candidate_fingerprint": "02d14e7046603c69",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "28b3a3fdbc52bda6",
       "last_verified_at": "2026-10-13",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
@@ -38143,7 +38242,18 @@
         "base"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "no_candidate_after_exact_and_relaxed"
+      "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4Eu29EpoQO1KngEgRV84Ty9pprixyomFMGKgg2ZfGmBOGzuUXrSiYiLK8XJQctG4vQVrHRv54kDrrL979LBk6dmHdi05wcse1393WIwTLhghYN7x60UoOXJp63AdC1xpB8P4NUg9syanTn2SgISQ5ZHPrC1ALoOOXhXsxtEfssNb1PYVkEJepUMHsi6zURz8Ilg9uPUTZI5cvaH3LcNjCPt1VS1kcw6LI2VzbQge3Rv5ShKS8O3Ni5ByDtuaehxqtkRUClaGRjQATc3jB9IKcgV4zA03TCJ6qWVCVkBks6GwsEslwIF4ScHrlZgbKyS0P4135c71ECQlL9UXCB4MRqOivTFOQuDkZZh10yZ1oI03NkLQpHM2KeSK3EaFdqVrsjASX30Z6ZUY16TylV5benKHcivjeZBU4gOwjF5ucw2d0JltvB31z8Rq3oY0bz2D2vHsd2YXm5TnMlIeGQlHkCBGrWw6w4xkxlMcWydoSsagItXj9wlQWrkcCG5GjJhWaGwG1zDZcXx7TSdxw9cv5h2JUHYGhJfgRboQs3HmS9oDp1KsuPcElXg5Mhjhkyoi1ovdkgGrh84NzqYiggakRxRchwJGU0jpc1Lt7DOjHXuctugNmdbYLdLX1rTJa6azAM5gbVhsf7d5k76EIcxwRDMZfaA1sb0GGBeTHYvddmaICaIoJEiEgT8lojXPCowTp8Kna9JrRDNsjR",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sea7b588ea7464d9885b4bdda817ebbb6R.jpeg",
+        "sale_price": "250.29",
+        "sale_price_currency": "CNY",
+        "original_price": "455.05",
+        "discount": "0%",
+        "product_title": "Base de Carga para Aspiradora Dreame L10pro D10 Plus D9 Plus, Estación de Carga, Repuesto para el Hogar",
+        "matched_query": "Dreame Dreame L10 Pro l10pro base",
+        "candidate_tier": "wide"
+      }
     },
     "dreame-dreame-l20-ultra-complete-accesorios-robot-cover-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -38541,11 +38651,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dreame l20complete hepa filter",
       "fallback_search_label": "Buscar filtro para Dreame Bot L20 Ultra Complete",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "008bafeaa9da1efb",
         "0c64616356221a7b",
@@ -39626,11 +39736,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson ball animal 3 extra filter pre",
       "fallback_search_label": "Buscar filtro para Dyson Ball Animal 3 Extra",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "0c52a5166af1bf4a",
         "1395b4783826b91b",
@@ -40085,10 +40195,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson 1.5kg roller fluffy",
       "fallback_search_label": "Buscar cepillo para Dyson Micro 1.5kg",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "189e1ec17b9c1da8",
         "1beb330004f9c37a",
@@ -40234,7 +40344,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson 1.5kg filter pre",
       "fallback_search_label": "Buscar filtro para Dyson Micro 1.5kg",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
@@ -40244,7 +40354,7 @@
       "ai_validation_model": "gemini-2.5-flash-lite",
       "ai_validation_at": "2026-05-22",
       "ai_validation_candidate_fingerprint": "33e7fcce0012a176",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "7d54f24307f77caa"
       ],
@@ -40666,10 +40776,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson omni-glide filter pre",
       "fallback_search_label": "Buscar filtro para Dyson Omni-glide",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_validation_status": "validated",
       "ai_rejected_candidate_fingerprints": [
         "1157758ead0d3ef9",
@@ -41030,7 +41140,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson outsize roller fluffy",
       "fallback_search_label": "Buscar cepillo para Dyson Outsize",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_rejected_candidate_fingerprints": [
@@ -41055,7 +41165,7 @@
         "f68685ad65524b2d",
         "feee5e38fd9711cd"
       ],
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_validation_status": "doubtful",
       "ai_validation_reason": "The best match is candidate 1. It explicitly mentions 'Dyson Outsize' and 'roller', and the term 'fluffy' is present in the title. However, the title also lists compatibility with other Dyson models (V6, V7, V8, V10, V11, V15), which makes the compatibility for 'Outsize' less certain without further verification. The other candidates are either too general or list the same broader compatibility.",
       "ai_validation_model": "gemini-2.5-flash-lite",
@@ -41476,10 +41586,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson v20 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Dyson V20 Origin",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "0b3f2f5648078860",
         "0e4662451deb0964",
@@ -43370,14 +43480,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "eufy g30 accessory",
       "fallback_search_label": "Buscar accesorios para Eufy RoboVac G30",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
-      "ai_validation_status": "rejected",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "last_attempted_at": "2026-10-22",
+      "ai_validation_status": "pending",
       "ai_rejected_candidate_fingerprints": [
         "80acb1e7a5e060af",
         "ced7104f10f2c6d9"
@@ -43402,7 +43512,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "b06eeca3a0912dd1",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kAR4AltkKZ86wnu3icKKYPFVr1airdH5XrMraVxDR3X2YvEJfOKkU4nQBvUlLiFifp5IcfBIU57N31CLxOBUVVpV41Mc8lq0HtJBgCadT8O8PC7mRYmHl4VswYIGvxeULj02umNZ1nspO6FQp0QPlRwlkI9QFtHeig8fpjS3UH6wv7VwnMtjhRfe1qbKhWzgGIlwt3IWoqHEFPPn9ueUcKqzhrBYRm8LkFFFR4RUxzTrTNUhSteYC0TajjbO5bZSKXyecVth7h0hFNkdlmmsS2SOhRB5zSsbA6e75dVlREPfLk6vWLxAEFVfSaszScXs4OD4V5tJzK3jdfXDCBs6LiqNBhQVc4xeErTBh4zlgpGIFTezF8u4sXJ2qMIAnSsxF61hx7H2AGzgU7XE0aW5Vj3OWxypjIiY5XTQkwgIFDnvlywavsX26Z9V2NK9cqUQMdtGOFfoRR9RDaaGryrkbmP7DK343Vx2LNt3E2gpuySNTyjPXVJLqoDv2hKgCvACOxElWQnhDweSXQVyI5ee1DWYBVXeaY9lA7VaLVk4UR720cMDnvlwjxyjVtcB83DLDuK9lWj5fLZHRt0RLnQZU9MG43xRJv1tbVIRL67LfTsZ5sGajBZevKz32dqiNQpprNbElrOTV4lzhv2HpQFxamCSERu2SgHTivibdDHX2tbaP523s0x5yZ8TBOhla2xKxBHNGvKuNKLYh",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S4ef96bf1ecd5423bb34e4e04f1f2cb3ed.jpg",
+        "sale_price": "16.65",
+        "sale_price_currency": "CNY",
+        "original_price": "16.66",
+        "discount": "1%",
+        "product_title": "For Eufy RoboVac 11S Max, 15C Max, 25C Max, 30C Max, G10, G20, G30 Edge Hybrid, G32 Pro Vacuum Cleaner Part  Filter Accessories",
+        "matched_query": "eufy g30 accessory",
+        "candidate_tier": "wide"
+      }
     },
     "eufy-eufy-robovac-g30-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -43692,14 +43819,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "eufy x8 accessory",
       "fallback_search_label": "Buscar accesorios para Eufy X8 Pro",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "ai_validation_status": "pending",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "260e15d7218b7610",
         "64583b8dede18ff1"
@@ -43724,7 +43851,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "a0bc274d76ba29be",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4FmGpuajc48Fi06IwIaZ6bTxGXoeUOO6ENzLtIQu5WS8dy0PTXi7GSZlvzSYoaQvbvkannqsZyzbMfQgMvrECUdfO1Ya56zt78fAzkqLkXUoePczlfuIJlQXPrDfSrwAMUVjGbtfbbpAXii62VxhwJsvKcfGK8sLbB0c2uXeLVwgjPXGbfsrTznAIxCOxG5QFXTnn0D6m4bwv6K0adPbkBxMnW2E5SPGupVLCk3raGv9QTi8bdaE1mMKt0sSJCNGwLMNkeY1c6u6X1xTZNs6kEmpZb76o6kaX9rbSrLLFvCm8bXXxwkXSXwuXMqgcpciM9ze1LRNv6zqgsiva8kK50NLrWNnsqD1ZvXklrKoRWePyuE490iD5L6giV8GVB9rnccVtgvvocXrs0HRrGfq9jFhVgylz61FaHpisDbcxdIZ725OZ8IJwg6e7WaHs0Etve2gvZRguh2QlFFz9bkB8Dt1FEvhSFBDV6zoh4BASzXhxCyWiDcuSvXa3BEPyEr0wFXSj0K1Kog3BnTEdbWqAsCDjSO9HAA9j8ev6O1dAoAWifZ6SzFFigLjc2oILiAT2QT8c1rSv5lJ1Ng9OXI2CCGbtY9RUW3Lw5Vw24hvP465UsBc4IeATTMgO02wCEe4hXuQaI3cbODgIS5WBFSFQCF6XRycXS4xheb2dRVVbdjcHzZpdthVZFlXijWvUSPoclK9E0V2dwYo1K",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S07dff674a07145b8927db3224618761fa.jpg",
+        "sale_price": "9.86",
+        "sale_price_currency": "USD",
+        "original_price": "9.86",
+        "discount": "0%",
+        "product_title": "Compatible con el kit de repuestos y accesorios para el Eufy RoboVac X8 Hybrid, cepillo lateral principal, filtro Hepa, paños de limpieza y trapo de limpieza.",
+        "matched_query": "eufy x8 accessory",
+        "candidate_tier": "wide"
+      }
     },
     "eufy-eufy-x8-pro-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -48120,10 +48264,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "karcher rcv5 dust bag accessory",
       "fallback_search_label": "Buscar accesorios para Kärcher RCV 5",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "ad9411f1fd46aa29"
       ],
@@ -48162,14 +48306,14 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "karcher rcv5 accessory",
       "fallback_search_label": "Buscar accesorios para Kärcher RCV 5",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "ai_validation_status": "pending",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "b27ac56bc4d69114",
         "b706e48fbda5d11b"
@@ -48195,7 +48339,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "2e873172ed319a14",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kwsvBHsw6SlvGILDp08q0IJYlaLeyrBbvPWf8pgPXOiBNXQhdrEwZpkpOEN6T6zUNwvzIBnz9lU6nciqhiEwNFyAgLwlMA0GqgnvfqOZCgxik6yZ9kzSE9pFrHy6xa4EricPx3T8mfuazIB96rtk1GrvsLChQrCJlVI0WHhKm1ggPAsOpX4iIrywB3Qqtoe9RjttweEDxZsU9iVMs6NBNtEHiy8AorM0JIkWYnyfykGXOZ4IRWhJt9KcKHyLpyr3fEnMXPuZWoMQpg8eIjHucmSU0vZcyQI3kiyzVyVzabAfz0E5DD2SAGnHQ7NLQ0NoMPXhJrOqbTaKLEUIHD5IL3TXSEuU9q18Kh9FNEUMbImiRxXbU2lakog0hk5eoOeYZPBO5iUtxT2G4UOeNcEw2duU4NVlufK9t89goG60JYLSr5JjEirVrnl912AIoyYE1lEka1SNkfMpLGCtRbS5rq8lqxe8MXPY1blfaM0Gce8BpKJli1sacXlzaAmfx1qlnJHFHM3oiC0fRbpTa0zeUgtceG4wC5k9vosDd7EbXQFzZVeWj9XTq28xabR9r4gbAFM6TaptaOkJjVBTC8ibLV5ReeqkPrRLQYrcwFp3AxVc9GKcNUO7UMhrTEmxgUAgfcpaaovtISqwWrB9UUOkvKSn6Cy1bXE7KCFgwYXDeZ3qsIIrrFvwzVrt752rHr2yW32B5r7JoFUea",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Se25263cb46f64302a9eeec384156807d0.jpeg",
+        "sale_price": "31.41",
+        "sale_price_currency": "CNY",
+        "original_price": "95.17",
+        "discount": "0%",
+        "product_title": "Roller Main Brush For Karcher RCV3 RCV5 Plus Robot Vacuum Cleaner Replacement Part Nylon Plastic Floor Cleaning Accessory",
+        "matched_query": "karcher rcv5 accessory",
+        "candidate_tier": "wide"
+      }
     },
     "karcher-karcher-rcv5-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -50596,16 +50757,18 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "philips 3000 battery",
       "fallback_search_label": "Buscar bateria para Philips 3000 Series",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
+        "01998a98c5b9cbc0",
         "03ce843d782d02bf",
         "04838972b4cb4d2d",
         "146873f685901c70",
         "17857e36077193fc",
+        "3220d25c0dfa70b4",
         "3b9b0639504fcae1",
         "3e48fde1f2aad633",
         "4050047c7a2a2f14",
@@ -50613,12 +50776,18 @@
         "54a62de49d056697",
         "651c01e71b20c3c0",
         "67659bfb1041a0a4",
+        "834a074c0b59bfca",
+        "985c897a27d854c6",
         "99d88b7aac2ee80e",
         "a057eb5ed74916ca",
+        "a1528b9e5bb7ff92",
         "c127da1472dc9cca",
         "c19d70025aef48f8",
         "c1e2aaceaa69cd60",
-        "c224ecabedf81853"
+        "c224ecabedf81853",
+        "d2aa9e9cde61baa5",
+        "e970fac3ab619dd1",
+        "eec57bbb9298de39"
       ],
       "last_verified_at": "2026-10-13",
       "live_check_last": "alive:item_page",
@@ -50654,7 +50823,11 @@
         "bateria"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "The requested part is a battery for a Philips 3000 series vacuum cleaner. All candidate parts are chargers or blades for Philips shavers, not vacuum cleaner batteries.",
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": ""
     },
     "philips-philips-3000-series-cargador-charger-eu": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -50756,10 +50929,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "philips 3000 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Philips 3000 Series",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "2854c9aec3062c36",
         "38f9cf6c5ff7983d",
@@ -51541,18 +51714,18 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "proscenic 850t accessory",
       "fallback_search_label": "Buscar accesorios para Proscenic 850T",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "5c06f91a207829d5",
         "69e9abeab32b2f0c"
       ],
-      "ai_validation_status": "rejected",
+      "ai_validation_status": "pending",
       "last_verified_at": "2026-10-14",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
@@ -51572,7 +51745,24 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "40324687f2075eb6",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4k7W6LECoVm65XzJFlr3Y5akcoVk5EVuDI4sOYmjUcWrge9FacRgfcicNdhL37q6ZqlQHBqV80qTzW5qA61byUMjsJkeFOekeKJbaaDsRuGSfB1IJcrG1cxftFQgD9ORd1Tl6ITa5EtSh8queK0KfBDL4TOXUuaxIvjBKHkmHBygDdK6hgGieWU2KPLbRZktMvPclK758NIc6Stst7vroip5O4lS5IIwuvlMrIWSV8vXCBPnhhMTVJewI9RrW1MAKYzWguguVChPFkg6bS6IdomZ8qp3C16F68VUJnoFmFvr9jp9mIzhR8RXrEcmRAOCOcCJqPXRqcM7FviQx3HB9pOWFHSS6T2lvFAvO616d3BJysljyYL1T6Hhm4nTOEFL77c8ks3KM7WNJcXZaYrd7UFmYzRDgHqdJ45DC092xoDbGYW9OOIsBq8XWNa3Lcvxu80OWrR7QYdA1CxC3VDFuWM827Mj6YLODK7KDPH6qGrrtmFYnRD4uVlghHsP7kE5rbcI2tYYE38S6ORXf6zEbTPmoremOTKwgJvvnA2iQOkpAUOy5qVc44ty9NaRzPlpGCivjtkjBaQoTvyKu0EP5h3I7cq55lFVe5A8ETZuwAbGcm1SzpoOOcE48ujkrHk3WSXO0DBSBYyszt97WQ2PnVWfuJtOCMZdylftaIq3hpZLVdXo2K5OPugFCq9EiSRkiXztnnrTiMYqDC",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa12ccc230bfd4357b2ba551c8a3e70f0v.jpg",
+        "sale_price": "4.70",
+        "sale_price_currency": "USD",
+        "original_price": "4.70",
+        "discount": "0%",
+        "product_title": "Compatible For Proscenic 850T / Pioneer VC704R / Ultenic D5, D5s, D5s Pro Replacement Parts Accessory Main Side Brush Filter Mop",
+        "matched_query": "proscenic 850t accessory",
+        "candidate_tier": "wide"
+      }
     },
     "proscenic-proscenic-850t-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -52313,10 +52503,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "proscenic p10 filter pre",
       "fallback_search_label": "Buscar filtro para Proscenic P10",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "1ec3a04a36902647",
         "2c6034cbc2e33dd8",
@@ -54957,10 +55147,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "shark iz400 charger",
       "fallback_search_label": "Buscar cargador para Shark IZ400EU",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "1bc4ea523e478e66",
         "7a73ee5cd5ae6b66",
@@ -58645,12 +58835,12 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "fallback_buy_new",
+      "match_type": "",
       "fallback_search_query": "tineco ifloor3 battery",
       "fallback_search_label": "Buscar bateria para Tineco IFLOOR3",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "pending_ai_validation",
+      "compatibility_note": "Pendiente de validacion final por IA",
       "ai_rejected_candidate_fingerprints": [
         "10081a2c25d11797",
         "140a749c320d1bb6",
@@ -58707,8 +58897,8 @@
         "f14d91f2e1932b6d",
         "fbfe13f5e8653402"
       ],
-      "last_attempted_at": "2026-10-16",
-      "ai_validation_status": "rejected",
+      "last_attempted_at": "2026-10-22",
+      "ai_validation_status": "pending",
       "last_verified_at": "2026-10-14",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
@@ -58743,7 +58933,24 @@
         "bateria"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "debug_failure_stage": "ai_rejected_all_candidates",
+      "ai_validation_reason": "daily_ai_budget_exhausted",
+      "ai_pending_reason": "daily_ai_budget_exhausted",
+      "ai_pending_attempts": 1,
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "1296543b80dd875c",
+      "ai_pending_candidate": {
+        "url": "https://s.click.aliexpress.com/s/Ab3OrgM3v6R6NN0EoHucCSUeynqZAFtTZOEu7IPxrR4SLwZPLacc8DYNvZfALYHLsNM3TYez9oN3P1K9znMiq456CqQ4bMlqxnHyEiYYk22p7an8e0eu99eBBNhA077oXYZNNv7Ng1SIXynsFuB4b7vEuspqHsdvKgS5L2u7110GdQI3uzPvOsQuzYX3ez2yDAwBC8dbIGCiEOooUz3EIgs95ouUnCt8mlEdyj0IZdYBbsDD9zONrhJoAbSkj2tGTOtBKIzFNWlrbLbvJ78ghx3jBYdOvVRoFDD4ixUw3v5w2MyL9n42dsvXQjoRAxNg2QfDwPqAHJxD2yLU8dLBx7C85JS0MMWx1MrMmySPW3fcRlotg9lDnXuo52qt2Unyi5r34by3neEZxH0392fysxg8yRq8JUSgC3MifwUXDCwqp58jJHtoQ5rEr6mP0D78moKzxOnylNyUOUyNI1Mm3LjoaykhLhTEffBB0lQ9ONMVqZ2baLKDaqjCPGASQQF98m9hyMVuFgGzVW8h5DDH7fp8BfmV7jzolnI4a0FdkOHGjwSGyAOQrQ2H5c3ymfaV4TkwZI9kaMnBXuBdYKaJT6UA5GuFgAGEGbwRlmKvCtjgiQKk8S5O1kMPYWmKqYUh2wnJKzXp5PovOydb3mZuxcJiQvB8fPkmTndcBqHegu8pRhZfDfcmYbAa5sdz5iFPAC44vYFRDChFi0gzcQEnb7FHlObOUYA64XMJyO308vwCXe82tc7P8j2hYBRnkI2nb7P1BU84EOUkSWgHOtfa8WffdveZThiPGwaym8YkcLty4BsMo49Ml5dKy5r9QpfbwoWYOeSjfzaLqPYJr6Fsm5KAPqkSFGr4d151QPBX1inL86MCCGmZT0f82KZ4C3NrSNgBjooTE8asnJdme1TllzLs9X9xmcQYOXLykLLecyz6Y62Nt1lqgg6xssBk8KDpMPuPUQtfoLM6lbkJa41LAgGqUhrgdT65Z0lbg7vlYTQQJtcnM0jRh7r5eQIFCqolu6M4ijdSjHcR4uJW1E3rgT2aQyNXagFBKv7jEKMT",
+        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S1d8fda7bfc084fa4b688da52aac5fd7aT.jpg",
+        "sale_price": "488.22",
+        "sale_price_currency": "CNY",
+        "original_price": "887.63",
+        "discount": "0%",
+        "product_title": "21.6V Battery Replacement for Tineco iFloor 3,Floor One S3,Floor One S3 Breeze Cordless Wet Dry Vacuum Cleaner,Li-Ion Battery",
+        "matched_query": "tineco ifloor3 battery",
+        "candidate_tier": "wide"
+      }
     },
     "tineco-tineco-ifloor3-cargador-charger-eu": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -58950,10 +59157,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco ifloor3 filter pre",
       "fallback_search_label": "Buscar filtro para Tineco IFLOOR3",
-      "updated_at": "2026-10-16",
+      "updated_at": "2026-10-22",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-16",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "41b5b42b0e49424f",
         "86b6ee496139575d",
@@ -60000,39 +60207,32 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "",
-      "match_type": "fallback_buy_new",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4EvyqMpSkRTRhvVB5LqAnDpRZB4FEK6JDaMjPqae1UkuZ1LfTsmx1yjTK4pBx26oLpUtujzISJPqxTcmxlVqttRmvPI2E7wfegaQn4sD3Z71Ha1AEO9UFmJxkQ3II4hCqoOZylNcbaD079ScbS5MhRpbjKoe3Af2GzRiWkEK8Lo4zgyXLgcqSMIBz3Ou0vrHgDHGnA5XiZFTofNaNdIK4FPM6VLEhoi13KORA3q3ON5tlLjRvfer20rF6TbkG6b18tklZUZcEFZ4jLzNiWF5nIpJXFG7GNpC22H8FJwLqEGyh72fFiTGeIJlTAAT7MhXW6TVQkNrAltdkfewYEbPpogL9y9cXrncOQYweGwYibuNDhrkU4yt3Zz1qyordAazb6poSCUINGmcCHGHcVpX7vD9HGVaGLPmOi8U9pdAVcQZbcsAGrmBDvhdl7nME8p8CLANfpCjxgULo33iYpahQ0Tkps5XmBYZHKrh5K32lS9d7mXnkZrCendHsuNEtAttkN00i14VT3PsXXuJZoNOXac5hA69NS6Qgy7EcYrRpShOeYqEyHsgBQfG7ishl8En7FH8Ybbkfv25O4oJdZ2h2ekTHYvpMAE4v83PMOPGCjh0oQjgULyYEiXAP2483TZDvJ7jorewwuxkywhdwMXyXxPeHfgxBY8OEiHy2FbkwnsBa4FvuHfhRmZV1UQ9tz7gZtkenpCoIbqmp7",
+      "match_type": "relaxed_fallback",
       "fallback_search_query": "xiaomi e10 accessory",
       "fallback_search_label": "Buscar accesorios para Xiaomi Robot Vacuum E10",
-      "updated_at": "2026-10-16",
-      "compatibility_status": "fallback_buy_new",
-      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-16",
+      "updated_at": "2026-10-22",
+      "compatibility_status": "dudoso",
+      "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
+      "ai_validation_status": "validated",
+      "last_attempted_at": "2026-10-22",
       "ai_rejected_candidate_fingerprints": [
         "588183d5cbaef81e",
         "f94d57d3a0d9bea5"
       ],
-      "last_verified_at": "2026-10-14",
+      "last_verified_at": "2026-10-22",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
-      "needs_url": true,
-      "debug_last_query": "xiaomi e10 accessory",
-      "debug_model_tokens": [
-        "e10",
-        "xiaomi"
-      ],
-      "debug_must_include": [
-        "e10",
-        "kit",
-        "accessory"
-      ],
-      "debug_must_not_include": [],
-      "debug_specific_item_terms": [
-        "brush+filter"
-      ],
-      "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates"
+      "ai_validation_reason": "Candidate 1 is the best match because it explicitly mentions 'Xiaomi Robot Vacuum E10' in the title and includes 'e10', 'kit', and 'accessory' as required terms. It also lists relevant parts like 'cepillo principal', 'Cepillo Lateral', 'paño de mopa', and 'filtro HEPA', which align with the expected accessory kit for a robot vacuum.",
+      "ai_validation_model": "gemini-2.5-flash-lite",
+      "ai_validation_at": "2026-10-22",
+      "ai_validation_candidate_fingerprint": "7c364118598de0d1",
+      "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S12b67258fed042edbcb0ae07449c3989a.jpg",
+      "sale_price": "27.73",
+      "sale_price_currency": "CNY",
+      "original_price": "27.73",
+      "discount": "0%",
+      "product_title": "Para Xiaomi aspiradora S20 E12 E10 B112 robot aspirador cepillo principal Cepillo Lateral paño de mopa filtro HEPA repuestos"
     },
     "xiaomi-xiaomi-e10-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -71849,7 +72049,7 @@
   },
   "ai_validation_budget": {
     "date": "2026-10-22",
-    "used": 20,
+    "used": 450,
     "limit": 450
   }
 }
