@@ -51548,18 +51548,19 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "",
+      "match_type": "fallback_buy_new",
       "fallback_search_query": "proscenic 850t accessory",
       "fallback_search_label": "Buscar accesorios para Proscenic 850T",
       "updated_at": "2026-10-23",
-      "compatibility_status": "pending_ai_validation",
-      "compatibility_note": "Pendiente de validacion final por IA",
+      "compatibility_status": "fallback_buy_new",
+      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "last_attempted_at": "2026-10-23",
       "ai_rejected_candidate_fingerprints": [
+        "1f6ee2c3d94d08f4",
         "5c06f91a207829d5",
         "69e9abeab32b2f0c"
       ],
-      "ai_validation_status": "pending",
+      "ai_validation_status": "rejected",
       "last_verified_at": "2026-10-14",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
@@ -51579,24 +51580,7 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates",
-      "ai_validation_reason": "daily_ai_budget_exhausted",
-      "ai_pending_reason": "daily_ai_budget_exhausted",
-      "ai_pending_attempts": 3,
-      "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-23",
-      "ai_validation_candidate_fingerprint": "1f6ee2c3d94d08f4",
-      "ai_pending_candidate": {
-        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4k7W6LECoVm65XzJFlr3Y5akcoVk5EVuDI4sOYmjUcWrge9FacRgfcicNdhL37q6ZqlQHBqV80qTzW5qA61byUMjsJkeFOekeKJbaaDsRuGSfB1IJcrG1cxftFQgD9ORd1Tl6ITa5EtSh8queK0KfBDL4TOXUuaxIvjBKHkmHBygDdK6hgGieWU2KPLbRZktMvPclK758NIc6Stst7vroip5O4lS5IIwuvlMrIWSV8vXCBPnhhMTVJewI9RrW1MAKYzUnIMT3hzs2st3C0OwPL0e7FLkIdL79cfb9TdWlZsu3TlUF1tDUqOLJX8EH27LpjTJlA25BZw9iM7zCxbtistoyas2xHzcqP1uI8ioxKQzze34Ro1FAQ3ZpIg8FolqZqSl9C5cBBYpluOTkRF11YxVAYjKJw3HCIesS6LLkHn4ukXRcZR6iCshjDD1t9tXfH1Jhk66PG5pUB2bxjAeUYId1bMMqFEkCJzOUBsvmuFVd1wUs7WzCevZdoanOAlmo7xv16xkHWv08qH2N7DPHRQaaREWORTQ6ibSdHgOS5XD1ypYgSnZ7a97vtQYug0FLImjkw5IMVWSsLPm5x1vqCjNDN6f7ZKZljpaAYO6llokGRPy3OhsSek5lACsktJz905MoVKjSCM1kpGR2ocqKhWeJyFJxGkZ93YeFxQWmvF4aYmpTuZ8wTw9UT7ejFqr9ma3hV0rNN20i2",
-        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa12ccc230bfd4357b2ba551c8a3e70f0v.jpg",
-        "sale_price": "4.70",
-        "sale_price_currency": "USD",
-        "original_price": "4.70",
-        "discount": "0%",
-        "product_title": "Compatible For Proscenic 850T / Pioneer VC704R / Ultenic D5, D5s, D5s Pro Replacement Parts Accessory Main Side Brush Filter Mop",
-        "matched_query": "proscenic 850t accessory",
-        "candidate_tier": "wide"
-      }
+      "debug_failure_stage": "ai_rejected_all_candidates"
     },
     "proscenic-proscenic-850t-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
