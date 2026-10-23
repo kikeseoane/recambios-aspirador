@@ -63,6 +63,28 @@ class OneShotTests(unittest.TestCase):
             dispatch.assert_not_called()
             release.assert_called_once()
 
+    def test_local_whitespace_error_never_stages_or_dispatches(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            with self.common(state), \
+                 patch.object(growth_once.legacy, "single_worker", return_value=nullcontext(True)), \
+                 patch.object(growth_once.legacy, "preflight", return_value={"allowed": True, "model": "luna", "reason": "ready"}), \
+                 patch.object(growth_once.legacy, "check_budget_status", return_value=(True, "ready")), \
+                 patch.object(growth_once.legacy, "invoke_codex", return_value="ready"), \
+                 patch.object(growth_once.legacy, "save_checkpoint"), \
+                 patch.object(growth_once, "validate_local_patch", side_effect=RuntimeError("trailing whitespace")), \
+                 patch.object(growth_once.legacy, "stage_patch") as stage, \
+                 patch.object(growth_once, "dispatch_publisher") as dispatch:
+                self.assertEqual(growth_once.main([]), 1)
+            stage.assert_not_called()
+            dispatch.assert_not_called()
+
+    def test_local_patch_check_reports_git_details(self):
+        result = Mock(returncode=2, stdout=b"data/backlog.yaml:17: new blank line at EOF.\n")
+        with patch.object(growth_once.legacy, "run", return_value=result):
+            with self.assertRaisesRegex(RuntimeError, "new blank line at EOF"):
+                growth_once.validate_local_patch(Path("checkout"))
+
     def test_quota_deferral_keeps_pending_checkpoint_and_skips_publish(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)

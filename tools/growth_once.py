@@ -104,6 +104,14 @@ def dispatch_publisher(branch, base, dry_run):
                "-f", f"dry_run={'true' if dry_run else 'false'}")
 
 
+def validate_local_patch(checkout):
+    """Reject whitespace errors before creating a remote publication branch."""
+    result = legacy.run("git", "diff", "--check", "HEAD", cwd=checkout, check=False)
+    if result.returncode:
+        details = output(result).strip() or "git diff --check failed without details"
+        raise RuntimeError(f"Local growth patch is not publishable: {details}")
+
+
 def no_change_reason(checkout):
     result = legacy.run("git", "diff", "--unified=0", "HEAD", "--",
                         "docs/growth-log.md", cwd=checkout, check=False)
@@ -206,6 +214,7 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
                 return 0
             if status != "ready":
                 raise RuntimeError(f"Local Codex did not produce a publishable result: {status}")
+            validate_local_patch(checkout)
             legacy.stage_patch(checkout)
             legacy.run("git", "commit", "--allow-empty", "-m", "growth-result:ready", cwd=checkout)
             legacy.run("git", "push", "origin", f"HEAD:refs/heads/{branch}", cwd=checkout)
