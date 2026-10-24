@@ -44509,15 +44509,16 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "",
+      "match_type": "fallback_buy_new",
       "fallback_search_query": "ilife a9s accessory",
       "fallback_search_label": "Buscar accesorios para ILIFE A9s",
       "updated_at": "2026-10-24",
-      "compatibility_status": "pending_ai_validation",
-      "compatibility_note": "Pendiente de validacion final por IA",
-      "ai_validation_status": "pending",
+      "compatibility_status": "fallback_buy_new",
+      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
+      "ai_validation_status": "rejected",
       "last_attempted_at": "2026-10-24",
       "ai_rejected_candidate_fingerprints": [
+        "2757d4defa0d8e08",
         "476b3aa5e6750c8a",
         "7d28120a9a8075d6",
         "7e50f88299117be2",
@@ -44542,24 +44543,7 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates",
-      "ai_validation_reason": "daily_ai_budget_exhausted",
-      "ai_pending_reason": "daily_ai_budget_exhausted",
-      "ai_pending_attempts": 3,
-      "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-24",
-      "ai_validation_candidate_fingerprint": "2757d4defa0d8e08",
-      "ai_pending_candidate": {
-        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4okdl4XNYqaWtVqnJs8ZWRnFn7LsNWTGqDuKHRgrzdQgXf09pfAygPZ47DOehxdHFHB17niBQBYFLyielyLIHGQpCyVpcvFSG0P27fzn5sOcRODsMA7s6lHYLlY1yuRzh13DCZCQ0ZOyIoPwDDX13f39aW50ViDehfywaKO7YQVCmeKLQTg2yxe9QgKMzPhV0rlZDtbZU1zVcGrGbwRnXxjriaagGCA75AnMEimtH2erIMod3JrCso1sQCQOxkLmm0bhw2xw9g8W3ejNkSD94FkWmIWw8KQkizxR0hqJi18svbJAK3LL2DRc3Q6L12bhORCB2HWchR4GesMpenWHEWtDzb2YkBMWmIZz4ILkdm3pS9ExjMhg6UigapgBBczp7c0q4lJmlNsvksJoOIqEIORwhISC30fpjX9PmXYcHkaYalzpnrtuYFjRSswN5MMvs6R12FHwIIMAJzzN41OSkARBNeHxOT0ZwsklznJTDWRfup9KFcfLEehwX080UppimqLO5X4Cff94VjiI0tMcNk9SQB1y4wucP513xQSzhHkWIYA6wTCGwpzlCbK7JEM4weQk27ObpLogelYwtOmGJVgppvcvxojw412ajS70OVaWpbqe7soaqcIXLbBAsRDpytQzuA3PSVe2ZpbxbLfl6I7zRkaybTsXbm0FjMAa3ZngFRDfjz0OcLIWl5qJEMssuKY0B3uJPBtkAi",
-        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/H65361d738bcb464fba02bd6ccedf85fdb.jpg",
-        "sale_price": "8.53",
-        "sale_price_currency": "USD",
-        "original_price": "8.53",
-        "discount": "0%",
-        "product_title": "Fit For ( ILife A7, A9S, V8, V8S, X750, X800, X785, V80, Silvercrest SSR1, SSRA1, DEXP LF-800 ) Roller Side Brush Filter Part",
-        "matched_query": "ILIFE ILIFE A9s brush+filter",
-        "candidate_tier": "wide"
-      }
+      "debug_failure_stage": "ai_rejected_all_candidates"
     },
     "ilife-ilife-a9s-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
