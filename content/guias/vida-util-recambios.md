@@ -75,3 +75,5 @@ Para un robot aspirador de uso diario:
 ## Siguiente paso
 
 Busca tu modelo en el catalogo para ver exactamente que piezas estan disponibles y a que precio.
+
+En un robot de la serie Roomba 600, identifica primero el modelo de la etiqueta: por ejemplo, consulta los [accesorios para Roomba 692](/marcas/irobot/roomba-692/accesorios/) y confirma que la pieza corresponda a tu variante. iRobot incluye la serie 600 en su [catálogo oficial de accesorios](https://www.irobot.com/en_US/accessories.html).
