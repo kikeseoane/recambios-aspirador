@@ -45352,16 +45352,17 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "",
+      "match_type": "fallback_buy_new",
       "fallback_search_query": "ilife w400 accessory",
       "fallback_search_label": "Buscar accesorios para ILIFE W400",
       "updated_at": "2026-10-25",
-      "compatibility_status": "pending_ai_validation",
-      "compatibility_note": "Pendiente de validacion final por IA",
-      "ai_validation_status": "pending",
+      "compatibility_status": "fallback_buy_new",
+      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
+      "ai_validation_status": "rejected",
       "last_attempted_at": "2026-10-25",
       "ai_rejected_candidate_fingerprints": [
         "391c791ac85a46d8",
+        "74bb3dec0fd704cc",
         "7a8b73ba89a39936",
         "954f6d005f17b9c0",
         "c748c3807ac47e1b"
@@ -45385,24 +45386,7 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates",
-      "ai_validation_reason": "daily_ai_budget_exhausted",
-      "ai_pending_reason": "daily_ai_budget_exhausted",
-      "ai_pending_attempts": 3,
-      "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-25",
-      "ai_validation_candidate_fingerprint": "74bb3dec0fd704cc",
-      "ai_pending_candidate": {
-        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4EIy7NAD4Gdnt5v2bspOk5m4AMigEx36NjiipxMeOeKU9r4hXmc3buplEE2kpSEMFOBYkuun8sUwTpC6ZO6S66bAdOgFbBZJhpr0RdGTP5PZit9NjFhLoNOmgviyG05zreiE4YsI25u2xjI5BhaUz1ya0X7iEtxNwiQoKCwbmSjy0xMYQwWE52yV0C5hYAObYoq5kaFuXvnFukFKw21SRZJZfIyfjvcllhkiax9hJk7yhhE93FbytbGzUykWdawqv8C52qi0ryetSgShbXWab4vjq43IVhmiKFthPunHG7EmBE2WhOX5z5TlH62ErU3LtgckSnO3ajLFyzOr9aFsucfeSiMllfP07iQWsFp1uuydtrYwW7DvAGRSHUpG63SCatatjFPQgUhL72hkoUQpvhyR7zpVHEzUQL97A0gSy4zLXpBsRX3kzea4BrQGRPzQeYpMTrxeS1fHpLokBbU1dDdT4uzKkCE8AUmWOI1MUgJhtvv6Rl11wEIeXSMBt1xhQ9R41rpMyjLGRGpa1sJgcmEmq1MV0buYO7CF2a3S626O42wxuht9kyTNOGV0XVae6T2HwRgqi9K8LBafSLzhanRs0L0yfECQlDFq7KOAsIzu5vRFixj3uvXuHS1uz3uTbwlUNc8Db8PoKRsB0ZkYlICyn6kNO10ttIaKLdjhhtIqOdBtdFajbohecp1LywwB05t6tC4SR1tKPy",
-        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S098147d56a9d47219aa8b93517d09db1g.jpg",
-        "sale_price": "72.24",
-        "sale_price_currency": "CNY",
-        "original_price": "144.48",
-        "discount": "0%",
-        "product_title": "For ILIFE W400 Robot Vacuum Replacement Parts: Main Brush & Floor Scraper Set Floor Washing Robot Parts Accessories",
-        "matched_query": "ilife w400 accessory",
-        "candidate_tier": "wide"
-      }
+      "debug_failure_stage": "ai_rejected_all_candidates"
     },
     "ilife-ilife-w400-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
