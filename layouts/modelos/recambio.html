@@ -153,6 +153,9 @@
     <div class="panel panel--commerce">
       <h2>{{ $catLabel }} con enlace disponible <span class="muted">({{ $directCount }})</span></h2>
       {{ if eq $directCount 0 }}<p class="muted">Actualmente no tenemos una oferta compatible confirmada para esta categoria. Comprueba la referencia original de la pieza; las otras categorias del modelo pueden tener opciones.</p>{{ end }}
+      {{ if gt $pendingCount 0 }}
+        <p class="muted small">{{ $pendingCount }} {{ if eq $pendingCount 1 }}referencia de esta categoria no tiene un enlace a recambio compatible confirmado y no se muestra como opcion de compra.{{ else }}referencias de esta categoria no tienen un enlace a recambio compatible confirmado y no se muestran como opciones de compra.{{ end }}</p>
+      {{ end }}
       <div class="products">
         {{ range $idx, $it := $itemsOrdenados }}
           {{ $o := index $offersData (index $it "sku") | default dict }}
