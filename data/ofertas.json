@@ -3259,7 +3259,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "rowenta 15.60 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Rowenta X-Force Flex 15.60",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -3299,7 +3299,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "5f369d89e980b9f1"
       ]
@@ -3705,10 +3705,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bosch unlimited serie 8 charger",
       "fallback_search_label": "Buscar cargador para Bosch Unlimited Serie 8",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_validation_status": "validated",
       "ai_rejected_candidate_fingerprints": [
         "49fb0e54d97ee789"
@@ -3892,7 +3892,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bosch unlimited serie 8 filter pre",
       "fallback_search_label": "Buscar filtro para Bosch Unlimited Serie 8",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -3926,7 +3926,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "bosch-bosch-unlimited-serie-8-soporte-dock-wall": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -6723,7 +6723,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "cecotec 2000 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Rockstar 2000",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -6760,7 +6760,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "cc36364d79c2d42c"
@@ -9207,15 +9207,19 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson gen5 charger",
       "fallback_search_label": "Buscar cargador para Dyson Gen5detect",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0a0b991b1a71172c",
+        "0b3824adedd1da05",
+        "17948a45ba729413",
         "1fe90e96eaa42b27",
         "25ed7580d14c3ccc",
+        "28696fb15ae05178",
+        "2ef7618660abe690",
         "3722ba1ae4d1fab3",
         "46eb40825f94a54b",
         "5c2206af7377e54f",
@@ -9225,9 +9229,11 @@
         "698328b3a482cf6b",
         "6d1397e3dc4849e5",
         "6edb6967871df73d",
+        "75a25f5377b570d0",
         "85ad77f0ecac05bb",
         "86d43d00d4931f03",
         "87d4566c739fb764",
+        "89dd408e6d19cd6b",
         "8d6a1fac49322985",
         "99c7a154c660eab5",
         "a1ccfd01988aac76",
@@ -9238,7 +9244,9 @@
         "e3ed76e755aae3c4",
         "ecc6d5ab4d91a0e9",
         "f01754f1bbfeeb55",
-        "fb9240c6d0ee27f2"
+        "fb9240c6d0ee27f2",
+        "fce709ffdbb54c3f",
+        "fe92ed852b52e5d3"
       ],
       "last_verified_at": "2026-10-13",
       "live_check_last": "alive:item_page",
@@ -9278,9 +9286,9 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "ai_rejected_all_candidates",
-      "ai_validation_reason": "None of the candidates are for a charger. They are all adapters or cleaning heads for various Dyson models, but none mention or are compatible with the Gen5detect charger.",
+      "ai_validation_reason": "None of the candidates are for a charger. They are all adapters or cleaning heads for various Dyson models, but none mention 'charger' or 'gen5' in a way that indicates compatibility with the requested part.",
       "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-22",
+      "ai_validation_at": "2026-10-30",
       "ai_validation_candidate_fingerprint": ""
     },
     "dyson-dyson-gen5detect-cepillo-brush-roller-main": {
@@ -9942,15 +9950,15 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kvPXbEmiGv0k1AFNIlsEPYPnB5W55illPrWEY4dB41xlY5Ahi98FeppVH7XtmxKoBNmKBcIbEuOKwGpWDIDTvsCV59XOQAsLJevOmdqQ8bA8ueU43G6nLqgxpQSlvisiblIYzL0XqcBEEJjmTSNbkqeeBdilL9yEbS8cde5XDyJnsvkZNQbAiB5ZlsI5UBPgIk6iNOtGIPngEAZobaoLnrHQS7M7656R23lojqqGkogqID6fqvfCfz0fbsrliuUXX5kswTKmGq93xLabgLH4BMWmpRr9hgcOIcSvKJrVZWjVIbeCG31fhIMaio4KoGs7FNJ6PToVPyqqGSQMX8i1yIGu657KVV5BsDtNUP29stH4apQSaOIhoS4MKJAHmExev4HZO0maHc8FYT2YM8PXx6YP6V7TW2UCig1zperU1Hd3sRKZMaGgxDKEs3XJwravC1sYGOQLudHItnefauiHli26Fe7JVPIz5sF40BHMqGEmyY2nOgLvlUty0N2LQ9d2VMHdvXUMj4qOJWan7CKsXPP27AnVQA1szxERNcr32pUWGcqCCVdwMwXi67CqfgmaBwvAuIQqTcxJWel9FhTy1LjNMjeUcGScatcPyaJxkG0TSmEpei4cVtE36MIulXpYONFD3SPG8BSD3QX1nEQZTwtxdUjILg8ADGCqA9WP0QsGjeq7VxZR6GJlWm2GjXpBCr422b3bEvkjF",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kvPXbEmiGv0k1AFNIlsEPYPnB5W55illPrWEY4dB41xlY5Ahi98FeppVH7XtmxKoBNmKBcIbEuOKwGpWDIDTvsCV59XOQAsLJevOmdqQ8bA8ueU43G6nLqgxpQSlvisiblIYzL0XqcBEEJjmTSNbkqeeBdilL9yEbS8cde5XDyJnsvkZNQbAiB5ZlsI5UBPgIk6iNOtGIPngEAZobaoLnrHQS7M7656R23lojqqGkogqID6fqvfCfz0fbsrliuUXX5EZYpPh5rwkesbfWj7D8fKhG8UuoHx26DYKrn8j6Un3at3ETS2fVM63bS6R9zPsTCKjw6bxZQJ05QVlyQgNc3M4orU75qWGYtlE6dkKZx80dvzHmZ6Q9IDfcWXR96rSJ15wvJrzZpkOnwpXXZpi1lDdoaxzKmrvkAubsFYiHWyzYVFyZFTKpvDwYJ1AJs8JrJz0QvYk7Xkmuoj4PNjfgLlNRidYIXtC6DG83Kk3cYEvLP4fZpK1qnOjCaBc7dYb2Bn4jhLmSAa3SYtx6CI1tAB1CdIVgDJwV6CnbnCTvjEXUhapmKR9wqvrnATedhK6l59AqKtArY4cm5NGdBm7tgTuEWhJH2rMH6jTvLkTQ06T7p5IAAiOKgHUFPEcEBdiM65bPwm9DKWhrvIt2KICccuY2xu5IdAXnIvT4QcnZkvh3h9klecxMq9rNSSs2EEZJ3ysq7HiLSpYv",
       "match_type": "relaxed_fallback",
       "fallback_search_query": "ecovacs t10 accessory",
       "fallback_search_label": "Buscar accesorios para DEEBOT T10 Omni",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "dudoso",
       "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "9c1e825e8b096319",
         "d80be0aa79ab36de"
@@ -9958,14 +9966,14 @@
       "last_verified_at": "2026-10-30",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
-      "ai_validation_reason": "Candidate 1 is the best match because its title explicitly mentions 'Ecovacs Deebot T10 OMNI' and lists 'brush+filter', which directly corresponds to the requested part type and model. The other candidates also mention T10 Omni and accessories, but candidate 1 is the most direct and comprehensive match for the specified 'brush+filter' accessory kit.",
+      "ai_validation_reason": "Candidate 1 is the best match because its title explicitly mentions 'Ecovacs Deebot T10 OMNI' and 'Accessories Robot Vacuum Cleaner Parts Mop Dust Bag Hepa Filter Main Side Brush Dustbin', which directly aligns with the requested spare part for the 'DEEBOT T10 Omni' and the general category of 'accesorios'. The query also matches the product title.",
       "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-22",
-      "ai_validation_candidate_fingerprint": "927c28aa7718dcc4",
+      "ai_validation_at": "2026-10-30",
+      "ai_validation_candidate_fingerprint": "a8b29812299e5a33",
       "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S3366fd9dd7884ff68ea82776e7ce68f4e.jpg",
-      "sale_price": "27.01",
+      "sale_price": "27.56",
       "sale_price_currency": "CNY",
-      "original_price": "27.01",
+      "original_price": "27.56",
       "discount": "0%",
       "product_title": "Ecovacs Deebot X1/ T10 OMNI / TURBO Accessories Robot Vacuum Cleaner Parts Mop Dust Bag Hepa Filter Main Side Brush Dustbin"
     },
@@ -11251,10 +11259,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "eufy l70 cover accessory",
       "fallback_search_label": "Buscar accesorios para Eufy RoboVac L70 Hybrid",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "26ac1977f42f5a59",
         "5602c12db3ae66c6"
@@ -14060,7 +14068,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "philips speedpro roller fluffy",
       "fallback_search_label": "Buscar cepillo para Philips SpeedPro",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -14098,7 +14106,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0aac7fa629f13489",
         "150783d9bc32cdf2",
@@ -15083,11 +15091,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "proscenic p11 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Proscenic P11",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "02add14063085814",
         "0575e6f0f048db2e",
@@ -18106,10 +18114,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "rowenta 14.60 roller",
       "fallback_search_label": "Buscar cepillo para Rowenta X-Force Flex 14.60",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "048986685ec783a0",
         "09e3edf2d1b97834",
@@ -18228,7 +18236,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "rowenta 14.60 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Rowenta X-Force Flex 14.60",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -18268,7 +18276,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "fe3aa9ed90d2cf00"
       ]
@@ -19685,7 +19693,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "shark iz300 battery capacity",
       "fallback_search_label": "Buscar bateria para Shark IZ300",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -19724,7 +19732,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "8221f9aee6341b0a"
       ]
@@ -19759,29 +19767,29 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kJN7Pz2P0ZEoog4oPSTdnDxuA9dzYfffGoUarGwme0PEEOagk9cpXkktgfU0Gfd3WTOy6gNujaLnZoY6nfpFfaitndzsAzAeKomSbtsjon5ndDYgKG2QLF5Tim0kA5DF38MABQO8huYjbXwziuLf9ufgwaXBpetI8QEjL5odnZK2Tqy411cEJoivNucM98h5b0mDW2AYRITo0U5EZwS0SninStwCcP8Qlc3BIwE3UUNJGwOMDRsRNRA2oKW5RIDndTKf8u2DcBJe3XzkmLTegOtyyf7yi0I5KCetifNuqFFUJMd9C1HBaGzRiaglMlr7BTGBipJ6508vbcU88J4OtIQN5apEmnLv6L17bhorDya9g4AMAtOJXSXS7xYWNNEy26KmkzMeq0uKJ5HOSB7n0ubpf4thrnaidi9HhihHeeCqg3nyGErXeJIMRjp3OdqMh7D4sOBO2jwcMXmAOIWUrsXeopImEN5idbnZT1YcVpoeK8A7Jg4uiAtINwdPpjgID9cheQ5jOljfzmQKsQtrvXWqE0bK07Jeer12cJIG6rq06TF05iud2zykhRLQ9ZkPoOXHTjGqHaQ9rqqvRikcVig3aKSo7Ob1NbHYTBrrASkjNreIxcqQPp6hfL0G1oHQrApbCt7ombMoOFyrod4w8zHA1ZQCxepyVR4OJfcvLwt2c0ilgdprLmeuUp954fuZCyZ29EaIuRYxL",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kJN7Pz2P0ZEoog4oPSTdnDxuA9dzYfffGoUarGwme0PEEOagk9cpXkktgfU0Gfd3WTOy6gNujaLnZoY6nfpFfaitndzsAzAeKomSbtsjon5ndDYgKG2QLF5Tim0kA5DF38MABQO8huYjbXwziuLf9ufgwaXBpetI8QEjL5odnZK2Tqy411cEJoivNucM98h5b0mDW2AYRITo0U5EZwS0SninStwCcP8Qlc3BIwE3UUNJGwOMDRsRNRA2oKW5RIDndTKhmFb0sSNFR0uZkBS85xoRhpYNERgZemLVrmo91W7rScHQFJQbvPmK1uwPh2nYIMOvr7shOfprcgrPnzR6iBegBxH0i2bk0Pq4uELd4j771Mj5VjABTkyjNOljtkq7qtmC8IVGSxTUoXsRETo5JitSmdvaSdLj19dVrLkT5Y7uKmA6s6oAsyKIqooKDNXOVfYZvitHte7ZI9MPcw9IDzxI8rVKNhfi1aXFgHsUHmvGXOq2EnMfvvagT58pfdKPhye8CJljhyBnlG5a69hjlh16Uyt2PDu1TygzelCDza0XFD2bYtz3mAaN7VmoWRQLpqnEBHCivMNv2jvbAsojaP0k0TWluvB2UdLJqDxyiGYzxJWgNIKOUOkc7FkwOaTRgOX4NwfcaJL0eMZnQLdq2j2TVagjx0fgUxS701Y14aEtwrePMOy7WEBEhhAC6UWtCWQIokDLXyVtx",
       "match_type": "relaxed_fallback",
       "fallback_search_query": "shark iz300 charger",
       "fallback_search_label": "Buscar cargador para Shark IZ300",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "dudoso",
       "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "df00171ec2dc8996"
       ],
       "ai_validation_status": "validated",
-      "ai_validation_reason": "Candidate 1 is a perfect match as it explicitly mentions 'Shark IZ300' and 'Adaptador de CA' (AC adapter), which is a type of charger. The other candidate is for an odor neutralizer and not a charger.",
+      "ai_validation_reason": "Candidate 1 is a direct match for the Shark IZ300 model and is described as an AC adapter/PSU, which is synonymous with a charger in this context. It also includes 'charger' in its query.",
       "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-22",
-      "ai_validation_candidate_fingerprint": "7b8a8afe90f3dc48",
+      "ai_validation_at": "2026-10-30",
+      "ai_validation_candidate_fingerprint": "c7bc536220c832c1",
       "last_verified_at": "2026-10-30",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
       "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S327b431c3a104023962b496fbe4ae305V.jpg",
-      "sale_price": "20.61",
+      "sale_price": "20.55",
       "sale_price_currency": "USD",
-      "original_price": "22.40",
+      "original_price": "22.33",
       "discount": "0%",
       "product_title": "Adaptador de CA de 24,8 V para Shark IZ300 IZ340 IZ340H 26 IZ360 UZ345H UZ360 V5 XSBT600 XSBT620 XSBT620EU 21,6 V batería de iones de litio al vacío PSU"
     },
@@ -21430,10 +21438,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "xiaomi g11 dock wall",
       "fallback_search_label": "Buscar soporte para Xiaomi Vacuum Cleaner G11",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0686066de21ef35a",
         "1008259330385f68",
@@ -22105,7 +22113,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bissell crosswave battery capacity",
       "fallback_search_label": "Buscar bateria para Bissell CrossWave",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -22143,7 +22151,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "bissell-bissell-crosswave-bateria-bat-std": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -22374,7 +22382,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bissell crosswave dock wall",
       "fallback_search_label": "Buscar soporte para Bissell CrossWave",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -22414,7 +22422,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "bissell-bissell-iconpet-accesorios-acc-kit-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -22625,10 +22633,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bissell iconpet roller",
       "fallback_search_label": "Buscar cepillo para Bissell IconPet",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "00e5f785fa5adeaa",
         "108b903ae8ac9e7f",
@@ -22870,11 +22878,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bissell iconpet filter pre",
       "fallback_search_label": "Buscar filtro para Bissell IconPet",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "03eaf8aae29cc47a",
         "0979dd0c8e834262",
@@ -25792,7 +25800,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "electrolux q7 battery capacity",
       "fallback_search_label": "Buscar bateria para Electrolux Well Q7",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -25832,7 +25840,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "67177bd7a825d85b"
       ]
@@ -26107,7 +26115,7 @@
       "fallback_search_label": "Buscar soporte para Electrolux Well Q7",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "debug_last_query": "electrolux q7 dock wall",
       "debug_model_tokens": [
         "well q7",
@@ -26146,7 +26154,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "877d85c3acc6b6e0",
         "eeb00afe6c8bd798"
@@ -27095,7 +27103,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "hoover hf500 filter hepa",
       "fallback_search_label": "Buscar filtro para Hoover H-Free 500",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -27130,7 +27138,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "1a8ddbaebf096aa8",
         "1aa4f0fe61d1f142",
@@ -28181,11 +28189,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "irobot s9 cover accessory",
       "fallback_search_label": "Buscar accesorios para Roomba s9+",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "validated",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "c08b3ce16c9c1198"
       ],
@@ -29612,7 +29620,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "miele hx2 roller",
       "fallback_search_label": "Buscar cepillo para Miele Triflex HX2",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -29651,7 +29659,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "miele-miele-triflex-hx2-cepillo-brush-soft-fluffy": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -32538,14 +32546,14 @@
       "badges": [
         "RELLENAR_BADGES"
       ],
-      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kJN7Pz2P0ZEoog4oPSTdnDxuA9dzYfffGoUarGwme0PEEOagk9cpXkktgfU0Gfd3WTOy6gNujaLnZoY6nfpFfaitndzsAzAeKomSbtsjon5ndDYgKG2QLF5Tim0kA5DF38MABQO8huYjbXwziuLf9ufgwaXBpetI8QEjL5odnZK2Tqy411cEJoivNucM98h5b0mDW2AYRITo0U5EZwS0SninStwCcP8Qlc3BIwE3UUNJGwOMDRsRNRA2oKW5RIDndTq0tVZyZjf5DkVds8r20uhjIUAxGH6Zt7LRJixbfSwCveoNsO0bsKmivVIfZwuLMQijECSxDioaAcX78UyXgMKk26AbGeEUEAEbfcbmRt6BSzPWA5RZwVfw0mpHjLt111Cq98M0pgtc0P86GxhpsPY69IMyMBDBqOOVngAB7DlXL2p7GvXqJj0Zrydz5vkCv00SuNTNdyDuLSJvuWiUiygZRMi6BPH1eOhTRVOqdpFtPWqw2iTsQbkuZ32kmjh8Fbx9QNENDfvNGS6kHnKzL8Gs2ZdIVMgCJlGmK1tvZt27tBB8fKa19VDddKkfLyhBDpmpR45VwEVUfcRwVfSqsCj2lTLO324UpfwmuhUwrKUmfx6auqi46NBmePb5Zta4NSy8kCFCQ3qHz9WAkV5qZMB2XMXjoxMnWaKkDUFMvuVhuDgjLBfmSdgAty5fzMaeYvKbl2ix5GBlx",
+      "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kJN7Pz2P0ZEoog4oPSTdnDxuA9dzYfffGoUarGwme0PEEOagk9cpXkktgfU0Gfd3WTOy6gNujaLnZoY6nfpFfaitndzsAzAeKomSbtsjon5ndDYgKG2QLF5Tim0kA5DF38MABQO8huYjbXwziuLf9ufgwaXBpetI8QEjL5odnZK2Tqy411cEJoivNucM98h5b0mDW2AYRITo0U5EZwS0SninStwCcP8Qlc3BIwE3UUNJGwOMDRsRNRA2oKW5RIDndTMpnNSZE0DB3vEl7Le75BzsF1VUFGFRsbnvUeF3gwKwAl0pYeBPCMpNDeChjz0rQdqmrrcNHhkXQLGCj6M3SGhEeoMSFcEBOpACZhlQseVfFJ8M2GGiHuirDYikAoV1Ldy7sVsqsHDvnVqzNZLABKrFpMp1cljULWogLWOt70SaoPpfz4iIcBkQ0Gnjw1dz1ZE35IY5O16CN2RunbcQ9jbRmoQy3i2WZmk6TWNTmpbwP2o1GtrnmVMFXB2qLZmYdWbwuqyHxcG0lUc1K5N6s21AAuIv3rZOOzZV7VPu8G5u5kCAam0xbd8P2JbmKt5eigu6aflxpKZ866hAezwZkf5JU3NnvbsEGmrdH8Z4jpHrDARrDAB3lxHOVhDSqzy6vnfyCMwnf5Bj6Gydw18TpAIjUTFdXqTUcX5mRfg84ypvRohEk1ZcyaSX9un2h6lGPWtElxiM7urjX",
       "match_type": "relaxed_fallback",
       "fallback_search_query": "shark iz300 charger",
       "fallback_search_label": "Buscar cargador para Shark IZ300EU",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "dudoso",
       "compatibility_note": "Coincidencia heuristica: valida compatibilidad antes de comprar",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "03f00e5fcbd7d6f8",
         "0a018f93b1d10829",
@@ -32588,17 +32596,17 @@
         "fcef36e1a23e73a2"
       ],
       "ai_validation_status": "validated",
-      "ai_validation_reason": "Candidate 1 is the best match because it explicitly mentions 'Shark IZ300' and 'Adaptador de CA' (AC adapter), which is a type of charger. The other candidates are for different parts (odor neutralizer, HEPA filter) or different Shark models.",
+      "ai_validation_reason": "Candidate 1 is a perfect match as it explicitly mentions the model 'IZ300' and the part type 'Adaptador de CA' (AC Adapter), which is a type of charger. The price is also in USD, aligning with the likely region for an EU model. Candidate 2 is for a scent neutralizer and lists different model numbers, making it irrelevant.",
       "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-22",
-      "ai_validation_candidate_fingerprint": "9c883a28d7947f55",
+      "ai_validation_at": "2026-10-30",
+      "ai_validation_candidate_fingerprint": "1867bf4d2c1414dc",
       "last_verified_at": "2026-10-30",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
       "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S327b431c3a104023962b496fbe4ae305V.jpg",
-      "sale_price": "20.61",
+      "sale_price": "20.55",
       "sale_price_currency": "USD",
-      "original_price": "22.40",
+      "original_price": "22.33",
       "discount": "0%",
       "product_title": "Adaptador de CA de 24,8 V para Shark IZ300 IZ340 IZ340H 26 IZ360 UZ345H UZ360 V5 XSBT600 XSBT620 XSBT620EU 21,6 V batería de iones de litio al vacío PSU"
     },
@@ -33106,10 +33114,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco s5 filter pre",
       "fallback_search_label": "Buscar filtro para Tineco Floor One S5",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "26b814f7324180d3",
         "2bc3d44ad5a182e3",
@@ -33254,7 +33262,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "xiaomi g9 pet accessory",
       "fallback_search_label": "Buscar accesorios para Xiaomi Vacuum Cleaner G9",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -33283,7 +33291,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "xiaomi-xiaomi-g9-bateria-bat-high": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -33693,7 +33701,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "aeg 7000 battery",
       "fallback_search_label": "Buscar bateria para AEG 7000",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -33729,7 +33737,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "00ac7c8f11a0cba0",
         "039a60115ddce7cd",
@@ -34267,7 +34275,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "aeg qx6 charger",
       "fallback_search_label": "Buscar cargador para AEG QX6",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -34306,7 +34314,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "3a98ab9a993379e4"
       ]
@@ -35611,7 +35619,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "aeg rx9 hepa filter",
       "fallback_search_label": "Buscar filtro para AEG RX9-2",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -35640,7 +35648,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0b83294fe881698e",
         "1407c1cef2c7ea4c",
@@ -36194,7 +36202,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bosch unlimited serie 4 accessory",
       "fallback_search_label": "Buscar accesorios para Bosch Unlimited Serie 4",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -36225,7 +36233,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "bosch-bosch-unlimited-serie-4-accesorios-acc-pet": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -36236,7 +36244,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bosch unlimited serie 4 pet accessory",
       "fallback_search_label": "Buscar accesorios para Bosch Unlimited Serie 4",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -36266,7 +36274,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "bosch-bosch-unlimited-serie-4-bateria-bat-high": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -36277,7 +36285,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bosch unlimited serie 4 battery capacity",
       "fallback_search_label": "Buscar bateria para Bosch Unlimited Serie 4",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -36316,7 +36324,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "bosch-bosch-unlimited-serie-4-bateria-bat-std": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -36373,7 +36381,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "bosch unlimited serie 4 charger",
       "fallback_search_label": "Buscar cargador para Bosch Unlimited Serie 4",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -36412,7 +36420,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "bosch-bosch-unlimited-serie-4-cepillo-brush-roller-main": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -39277,7 +39285,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson ball animal 3 extra charger",
       "fallback_search_label": "Buscar cargador para Dyson Ball Animal 3 Extra",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -39317,7 +39325,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "9a57dfc0f157f6f7",
         "c2931bbddc736114"
@@ -39441,7 +39449,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson ball animal 3 extra filter hepa",
       "fallback_search_label": "Buscar filtro para Dyson Ball Animal 3 Extra",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -39476,7 +39484,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0a7491a78ad1d2fa",
         "0b95da77f7ad68ba",
@@ -39778,7 +39786,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson 1.5kg battery",
       "fallback_search_label": "Buscar bateria para Dyson Micro 1.5kg",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -39814,7 +39822,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "05e07bc8e7810d10",
         "0f8be80233684a56",
@@ -40470,7 +40478,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson omni-glide roller fluffy",
       "fallback_search_label": "Buscar cepillo para Dyson Omni-glide",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_rejected_candidate_fingerprints": [
@@ -40486,7 +40494,7 @@
         "b83e275e8c42b43a",
         "bcdc369b5933357d"
       ],
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_validation_status": "doubtful",
       "ai_validation_reason": "Candidate 4 is the best match because it explicitly mentions 'fluffy strips' and 'roller brush' which aligns with the requested part type and the 'fluffy' keyword. It also mentions Dyson, though it lists V8, V10, V11, V15 and not the specific Omni-glide model. However, the other candidates are even less specific or list incompatible Dyson models without mentioning the specific roller type.",
       "ai_validation_model": "gemini-2.5-flash-lite",
@@ -40936,7 +40944,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson outsize roller fluffy",
       "fallback_search_label": "Buscar cepillo para Dyson Outsize",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_rejected_candidate_fingerprints": [
@@ -40961,7 +40969,7 @@
         "f68685ad65524b2d",
         "feee5e38fd9711cd"
       ],
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_validation_status": "doubtful",
       "ai_validation_reason": "The best match is candidate 1. It explicitly mentions 'Dyson Outsize' and 'roller', and the term 'fluffy' is present in the title. However, the title also lists compatibility with other Dyson models (V6, V7, V8, V10, V11, V15), which makes the compatibility for 'Outsize' less certain without further verification. The other candidates are either too general or list the same broader compatibility.",
       "ai_validation_model": "gemini-2.5-flash-lite",
@@ -41387,10 +41395,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dyson v20 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Dyson V20 Origin",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0b3f2f5648078860",
         "0e4662451deb0964",
@@ -42056,10 +42064,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "ecovacs 710 dust bag accessory",
       "fallback_search_label": "Buscar accesorios para DEEBOT 710",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0b92e485adeb0ba7",
         "0e441b96c76e5d3f",
@@ -45622,11 +45630,11 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "ilife w400 filter",
       "fallback_search_label": "Buscar filtro para ILIFE W400",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0168ebdec3214c7f",
         "0692d3e9dd2bad2c",
@@ -45666,14 +45674,15 @@
         "c94d57f4db013bea",
         "ce72cee59c9a1ad6",
         "d357a838b6d4d54a",
+        "d91b91eb0c0f32ba",
         "eef387224ee58294",
         "f53fd5b9fb7732e2"
       ],
-      "ai_validation_reason": "The requested part is a filter, but the candidate is a main brush scraper. The part type does not match.",
+      "ai_validation_reason": "The requested part is a filter, but the only candidate is for a main brush scraper. The candidate also mentions 'Floor Washing Robotic Cleaner' which is not the requested 'aspiradores' (vacuum cleaner).",
       "ai_pending_reason": "ai_http_404_[{ \"error\": { \"code\": 404, \"message\": \"models/gemini-3.1-flash-lite is not found",
       "ai_pending_attempts": 3,
       "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-22",
+      "ai_validation_at": "2026-10-30",
       "ai_validation_candidate_fingerprint": "",
       "last_verified_at": "2026-10-13",
       "live_check_last": "alive:item_page",
@@ -48295,7 +48304,7 @@
       "fallback_search_label": "Buscar soporte para Kärcher RCV 5",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "debug_last_query": "karcher rcv5 dock base",
       "debug_model_tokens": [
         "rcv5",
@@ -48327,7 +48336,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "karcher-karcher-wd3-accesorios-acc-kit-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -49977,7 +49986,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "karcher wd5 battery",
       "fallback_search_label": "Buscar bateria para Kärcher WD 5",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -50013,7 +50022,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "karcher-karcher-wd5-cargador-charger-eu": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -50263,7 +50272,7 @@
       "fallback_search_label": "Buscar soporte para Kärcher WD 5",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "debug_last_query": "karcher wd5 dock wall",
       "debug_model_tokens": [
         "wd5",
@@ -50302,7 +50311,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "philips-philips-3000-series-accesorios-acc-kit-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -50851,7 +50860,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "philips 3000 dock wall",
       "fallback_search_label": "Buscar soporte para Philips 3000 Series",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -50893,7 +50902,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "dbb5a2901157f143"
       ]
@@ -54284,7 +54293,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "rowenta 6.60 dock wall",
       "fallback_search_label": "Buscar soporte para Rowenta X-Force Flex 6.60",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -54327,7 +54336,7 @@
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
       "ai_validation_status": "rejected",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0a7e8211ae91955b",
         "dc4cbb6849be3988"
@@ -55819,7 +55828,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "shark rv2310 mop accessory",
       "fallback_search_label": "Buscar accesorios para Shark RV2310WD",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -55840,7 +55849,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_validation_status": "rejected",
       "ai_rejected_candidate_fingerprints": [
         "5a8d5fcf20151e7d"
@@ -57859,7 +57868,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tefal 11.60 filter hepa",
       "fallback_search_label": "Buscar filtro para Tefal X-Force Flex 11.60",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -57894,7 +57903,7 @@
       ],
       "debug_relaxed_allowed": true,
       "debug_failure_stage": "no_candidate_after_exact_and_relaxed",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "tefal-tefal-x-force-flex-1160-filtro-filt-pre-pack2": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -58029,10 +58038,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco s6 pet accessory",
       "fallback_search_label": "Buscar accesorios para Tineco Floor One S6",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "0179b06e9ba3ae44",
         "15cbbcf3697ac433",
@@ -58263,10 +58272,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco s6 roller fluffy",
       "fallback_search_label": "Buscar cepillo para Tineco Floor One S6",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "1f63c9a6a8cfb1a1",
         "a1fe428664fda3ff",
@@ -58351,10 +58360,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco s6 filter pre",
       "fallback_search_label": "Buscar filtro para Tineco Floor One S6",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "008d7f877f204813",
         "0af3f70a87dddb10",
@@ -58922,10 +58931,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco ifloor3 filter pre",
       "fallback_search_label": "Buscar filtro para Tineco IFLOOR3",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "41b5b42b0e49424f",
         "86b6ee496139575d",
@@ -59596,10 +59605,10 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco pure one x battery",
       "fallback_search_label": "Buscar bateria para Tineco Pure One X",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
-      "last_attempted_at": "2026-10-22",
+      "last_attempted_at": "2026-10-30",
       "ai_rejected_candidate_fingerprints": [
         "209db5fb7c21d154",
         "4b953e933c86ae45",
@@ -63567,7 +63576,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "dreame d10 plus",
       "fallback_search_label": "Ver Dreame D10 Plus nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -63626,7 +63635,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "dreame-dreame-d9-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -65598,7 +65607,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "ecovacs deebot x2 omni",
       "fallback_search_label": "Ver DEEBOT X2 Omni nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -65657,7 +65666,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "tefal-tefal-air-force-flex-660-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -66753,7 +66762,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "ilife v5s pro",
       "fallback_search_label": "Ver ILIFE V5s Pro nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -66812,7 +66821,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "ilife-ilife-w400-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -68438,7 +68447,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "philips speedpro aqua",
       "fallback_search_label": "Ver Philips SpeedPro Aqua nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -68497,7 +68506,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "philips-philips-speedpro-max-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -69629,7 +69638,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "roborock s7",
       "fallback_search_label": "Ver Roborock S7 nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "needs_url": true,
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
@@ -69687,7 +69696,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "roborock-roborock-s8-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -70005,7 +70014,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "rowenta x-force flex 12.60",
       "fallback_search_label": "Ver Rowenta X-Force Flex 12.60 nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -70065,7 +70074,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "rowenta-rowenta-xforce-1460-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -70849,7 +70858,7 @@
       "match_type": "fallback_buy_new",
       "fallback_search_query": "tineco floor one s5",
       "fallback_search_label": "Ver Tineco Floor One S5 nuevo",
-      "updated_at": "2026-10-22",
+      "updated_at": "2026-10-30",
       "compatibility_status": "fallback_buy_new",
       "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "needs_url": true,
@@ -70908,7 +70917,7 @@
       ],
       "debug_relaxed_allowed": false,
       "debug_failure_stage": "relaxed_disabled",
-      "last_attempted_at": "2026-10-22"
+      "last_attempted_at": "2026-10-30"
     },
     "tineco-tineco-floor-one-s6-nuevo": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
@@ -71822,7 +71831,7 @@
   },
   "ai_validation_budget": {
     "date": "2026-10-30",
-    "used": 3,
+    "used": 8,
     "limit": 450
   }
 }
