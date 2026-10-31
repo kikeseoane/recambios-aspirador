@@ -51417,19 +51417,20 @@
         "RELLENAR_BADGES"
       ],
       "url": "",
-      "match_type": "",
+      "match_type": "fallback_buy_new",
       "fallback_search_query": "proscenic 850t accessory",
       "fallback_search_label": "Buscar accesorios para Proscenic 850T",
       "updated_at": "2026-10-31",
-      "compatibility_status": "pending_ai_validation",
-      "compatibility_note": "Pendiente de validacion final por IA",
+      "compatibility_status": "fallback_buy_new",
+      "compatibility_note": "Sin recambio fiable: mejor ver producto nuevo",
       "last_attempted_at": "2026-10-31",
       "ai_rejected_candidate_fingerprints": [
         "1f6ee2c3d94d08f4",
         "5c06f91a207829d5",
+        "6016eebd6a41504f",
         "69e9abeab32b2f0c"
       ],
-      "ai_validation_status": "pending",
+      "ai_validation_status": "rejected",
       "last_verified_at": "2026-10-14",
       "live_check_last": "alive:item_page",
       "live_check_strikes": 0,
@@ -51449,24 +51450,7 @@
         "brush+filter"
       ],
       "debug_relaxed_allowed": true,
-      "debug_failure_stage": "ai_rejected_all_candidates",
-      "ai_validation_reason": "daily_ai_budget_exhausted",
-      "ai_pending_reason": "daily_ai_budget_exhausted",
-      "ai_pending_attempts": 3,
-      "ai_validation_model": "gemini-2.5-flash-lite",
-      "ai_validation_at": "2026-10-31",
-      "ai_validation_candidate_fingerprint": "6016eebd6a41504f",
-      "ai_pending_candidate": {
-        "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4FdZeXYsfowkvw3sMSFaDr9UctwdOtrH6cgxHcJbyxC1WeMkRkavR0Q3hkZnv1g6sWy2LlzSw07AIlGbq3vLFLsX3GhkeW93xhYc7EfCJXtUxfcUXjrR5tenC86RAd5huQxBmm8IFSIyUYbTTa3Io6ViEsS66h4dtNJFacy31yCsXTqzv687c13ewe9X6vPj7PQNNpRq8jS0Is2DymBvfPwoNKCk3mGLC2FxOeqRo2EyntOo28KNBAE9sOzth4jELJWxZPb7jvn9vNTxnN84czjudtsOk9ezxhTgS63hm8a3KFIDWDrUwwu8Q3yoZs4Z5aU41h1GP2Tp3ZHQZUlv7mzdxtMDN8MSVDtqPk6ivpAzOQXvlIecu3kON3kNofkJ4XDvKD1cuEpCULrAhUQEx33I79xG5ad1AcbB6FKAd10tABLMgTscUoPMiqytuvUdBqaQtHbx7LuvSlwWXniAyIOIVEFg6Lsc9immz7sjJsw19nWddDKGPaHYgSIgYZWjIWE1TpQ3sR6u79TOj8v8uPNPbQPp9wKfE06yt2Rf60JhuCbxNR2fZLe6zqAq9myODtnGABPSQe2g7LmNlnYGNN1eclF8yfloyOLvzfj83tZVhuRnvu4hWNub1xk2noRADL7iBGUzklACol5XclMSA8TpnZL7mmVCqPQOSihFUqHfNdymk7cYHr3FDLJV583USskc0O1YY4PF69",
-        "image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S38f49c71f0fe4e94995aff117df42a4au.jpg",
-        "sale_price": "71.93",
-        "sale_price_currency": "CNY",
-        "original_price": "79.93",
-        "discount": "0%",
-        "product_title": "Vacuum Cleaner Accessories for Cecotec Conga 1090 1990 Connected 05410 Proscenic 850T Wheel Motors Charging Dock Cliff Sensors",
-        "matched_query": "proscenic 850t accessory",
-        "candidate_tier": "wide"
-      }
+      "debug_failure_stage": "ai_rejected_all_candidates"
     },
     "proscenic-proscenic-850t-accesorios-robot-mop-accessory": {
       "estimated_price_range": "RELLENAR_COSTE_ESTIMADO",
