@@ -19,13 +19,13 @@ Antes de comprar nada, revisa estos puntos en orden:
 
 ### 2. Filtro obstruido
 - **Sintoma**: succion baja + aire caliente por las salidas
-- **Prueba**: retira el filtro y aspira sin el. Si la succion vuelve, el filtro esta saturado.
-- **Solucion**: lavalo (si es lavable) o sustituyelo. Dejalo secar 24h completas.
+- **Prueba**: apaga el aspirador y revisa el filtro segun el manual del modelo. No lo pongas en marcha sin el filtro o sistema de filtracion instalado.
+- **Solucion**: limpialo solo como indique el fabricante; si es lavable, deja que se seque por completo antes de volver a montarlo. Sustituyelo si sigue obstruido o deteriorado.
 
 ### 3. Bloqueo en tubo o cepillo
 - **Sintoma**: succion baja + ruido diferente (mas agudo o mas bajo)
-- **Prueba**: desconecta el tubo y mira a traves. Mete un palo largo para empujar el atasco.
-- **Solucion**: retira el bloqueo. Revisa que el cepillo gira libremente.
+- **Prueba**: apaga y desconecta el aspirador; revisa el tubo y el cepillo siguiendo el manual. No introduzcas palos ni herramientas que puedan dañar el conducto.
+- **Solucion**: retira con cuidado solo lo accesible y vuelve a montar las piezas antes de encender. Revisa que el cepillo gira libremente.
 
 ### 4. Junta o sello deteriorado
 - **Sintoma**: succion baja + silbido de aire
@@ -43,7 +43,7 @@ Antes de comprar nada, revisa estos puntos en orden:
 - **Solucion**: si la autonomia es <50% de la original, cambia la bateria.
 
 ### 7. Motor desgastado
-- **Sintoma**: succion baja constante incluso sin filtro y con tubo limpio
+- **Sintoma**: succion baja constante con el filtro instalado y limpio, el deposito vacio y los conductos despejados
 - **Prueba**: con todo limpio y bateria cargada, si sigue sin aspirar, el motor esta al limite.
 - **Solucion**: en aspiradores escoba, normalmente no compensa reparar el motor. Valora comprar uno nuevo.
 
