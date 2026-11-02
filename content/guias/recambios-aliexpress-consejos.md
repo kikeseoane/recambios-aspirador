@@ -73,3 +73,5 @@ intent: "compra"
 ## Siguiente paso
 
 Busca tu modelo en el catalogo para ver recambios ya verificados con enlaces directos a vendedores fiables.
+
+Si tienes un **Xiaomi Vacuum Cleaner G20**, identifica si necesitas la barra de cepillo eléctrica antes de buscar: Xiaomi distingue este cabezal motorizado de la boquilla 2 en 1 y del minicepillo. Puedes consultar los [cepillos y rodillos para Xiaomi G20](/marcas/xiaomi/xiaomi-g20/cepillo/); confirma el modelo de la etiqueta y la forma de la pieza, ya que esta ficha no acredita compatibilidad con G20 Lite o G20 Max. [Xiaomi describe los cabezales incluidos y la barra eléctrica del G20](https://www.mi.com/es/product/xiaomi-vacuum-cleaner-g20/).
