@@ -68,5 +68,6 @@ Estas fichas ya tienen una categoria de bateria con oferta compatible registrada
 - [Bateria para Dyson V8](/marcas/dyson/dyson-v8/bateria/)
 - [Bateria para Dyson V11](/marcas/dyson/dyson-v11/bateria/)
 - [Bateria para Xiaomi G9](/marcas/xiaomi/xiaomi-g9/bateria/)
+- [Bateria para Xiaomi Vacuum Cleaner G20](/marcas/xiaomi/xiaomi-g20/bateria/)
 
-La cobertura y la disponibilidad pueden cambiar; el enlace de compra se consulta en la ficha del modelo.
+Para el G20, confirma que la etiqueta indique ese modelo y compara el conector y la referencia de la bateria original; no asumas que la pieza sirve para G20 Lite o G20 Max. La cobertura y la disponibilidad pueden cambiar; el enlace de compra se consulta en la ficha del modelo.
