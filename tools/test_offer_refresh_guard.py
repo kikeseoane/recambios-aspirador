@@ -10,7 +10,9 @@ class OfferRefreshGuardTests(unittest.TestCase):
                "live_check_last": "alive:item_page", "updated_at": "2026-10-01"}
         pending = {"url": "", "needs_url": True, "compatibility_status": "pending_ai_validation",
                    "ai_validation_reason": "daily_ai_budget_exhausted"}
-        result = preserve_verified_offer(old, pending, "2026-10-18", "https://fallback")
+        result = preserve_verified_offer(
+            old, pending, "2026-10-18", "https://fallback", transient_failure=True
+        )
         self.assertEqual(result["url"], old["url"])
         self.assertEqual(result["compatibility_status"], "compatible_alto")
         self.assertEqual(result["updated_at"], "2026-10-18")
@@ -25,6 +27,12 @@ class OfferRefreshGuardTests(unittest.TestCase):
         old = {"url": "https://old", "compatibility_status": "compatible_alto"}
         new = {"url": "https://new", "compatibility_status": "compatible_alto"}
         self.assertIs(preserve_verified_offer(old, new, "2026-10-18", "https://fallback"), new)
+
+    def test_completed_lookup_without_candidate_falls_back(self):
+        old = {"url": "https://old", "compatibility_status": "compatible_alto"}
+        fallback = {"url": "", "needs_url": True, "compatibility_status": "fallback_buy_new"}
+        result = preserve_verified_offer(old, fallback, "2026-10-18", "https://fallback")
+        self.assertIs(result, fallback)
 
     def test_weekly_rotation_only_refreshes_stale_offers(self):
         cutoff = stale_cutoff("2026-10-18", 7)

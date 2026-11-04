@@ -1,4 +1,4 @@
-﻿# tools/sync_ofertas.py
+# tools/sync_ofertas.py
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
@@ -93,6 +93,7 @@ RESCUE_LANGS = tuple(x.strip().upper() for x in (os.getenv("SYNC_RESCUE_LANGS") 
 # Contadores globales de llamadas reales a la API (excluye cache hits)
 _api_calls_real: int = 0
 _api_time_real: float = 0.0
+_api_query_errors: int = 0
 _ai_validation_calls: int = 0
 _ai_budget_state: Dict[str, Any] = {}
 _ai_validation_active_model: str = ""
@@ -506,6 +507,12 @@ def product_query(keyword: str, lang: str = "EN", page_no: int = 1, use_cache: b
     if TRACKING_ID:
         biz["tracking_id"] = TRACKING_ID
     return ali_call_flat("aliexpress.affiliate.product.query", biz, use_cache=use_cache)
+
+
+def note_api_query_error() -> None:
+    """Record a failed product-query attempt for the current SKU refresh."""
+    global _api_query_errors
+    _api_query_errors += 1
 
 
 def extract_products(resp: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -2333,6 +2340,7 @@ def pick_relaxed_link(
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
                 except Exception as exc:
+                    note_api_query_error()
                     print(f"  [relaxed-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
                     continue
                 prods = extract_products(resp)
@@ -2431,6 +2439,7 @@ def collect_relaxed_candidates(
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
                 except Exception as exc:
+                    note_api_query_error()
                     print(f"  [relaxed-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
                     continue
                 prods = extract_products(resp)
@@ -2520,6 +2529,7 @@ def collect_wide_ai_candidates(
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
                 except Exception as exc:
+                    note_api_query_error()
                     print(f"  [wide-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
                     continue
                 prods = extract_products(resp)
@@ -2610,6 +2620,7 @@ def pick_best_promotion_link(
             try:
                 resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
             except Exception as exc:
+                note_api_query_error()
                 print(f"  [query-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
                 continue
             prods = extract_products(resp)
@@ -2739,6 +2750,7 @@ def collect_exact_candidates(
                 try:
                     resp = product_query(keyword, lang=lang, page_no=page_no, use_cache=use_cache)
                 except Exception as exc:
+                    note_api_query_error()
                     print(f"  [query-error] kw='{keyword}' lang={lang} page={page_no} - {exc}")
                     continue
                 prods = extract_products(resp)
@@ -3046,6 +3058,8 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--no-cache", action="store_true", help="Ignora cache (hace llamadas frescas)")
     ap.add_argument("--only-sku", action="append", default=[], help="Solo procesa este SKU (puedes repetir)")
     ap.add_argument("--force", action="store_true", help="Fuerza lookup incluso si ya hay URL no-default")
+    ap.add_argument("--refresh-existing", action="store_true",
+                    help="Renueva tambien URLs existentes, manteniendo el orden normal de la cola")
     ap.add_argument("--vertical", default="all", help="Vertical a sincronizar: una, varias separadas por comas, o 'all' (default)")
     ap.add_argument("--only-stale", type=int, default=0, metavar="DAYS",
                     help="Solo procesa SKUs cuyo updated_at tiene mÃ¡s de DAYS dÃ­as (0 = ignorar). Ãštil para refrescar enlaces sin relanzar todo.")
@@ -3196,6 +3210,7 @@ def main() -> None:
         url_now = str(obj.get("url") or "").strip()
         needs_lookup = (
             args.force
+            or (args.refresh_existing and bool(url_now) and obj.get("needs_url") is not True)
             or refresh_due(obj, refresh_cutoff)
             or obj.get("needs_url") is True
             or is_placeholder(url_now, PLACEHOLDER_URL)
@@ -3204,6 +3219,7 @@ def main() -> None:
         )
 
         if needs_lookup:
+            api_query_errors_before = _api_query_errors
             brand = (ctx.get("brand") or "").lower()
             model = (ctx.get("model") or "").lower() or sku.lower()
             category = (ctx.get("category") or "")
@@ -3602,7 +3618,15 @@ def main() -> None:
             obj["compatibility_note"] = derive_compatibility_note(obj["compatibility_status"])
 
         if needs_lookup:
-            obj = preserve_verified_offer(before, obj, today, DEFAULT_URL)
+            obj = preserve_verified_offer(
+                before,
+                obj,
+                today,
+                DEFAULT_URL,
+                transient_failure=(
+                    ai_pending or _api_query_errors > api_query_errors_before
+                ),
+            )
 
         if sku not in offers:
             offers[sku] = obj

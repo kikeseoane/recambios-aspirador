@@ -1,4 +1,4 @@
-"""Keep a known offer while an attempted replacement remains unverified."""
+"""Protect a known offer only when an attempted refresh failed transiently."""
 from datetime import date, timedelta
 
 
@@ -15,14 +15,15 @@ def stale_cutoff(today, days):
     return (date.fromisoformat(today) - timedelta(days=days)).isoformat() if days > 0 else None
 
 
-def preserve_verified_offer(previous, refreshed, today, default_url):
+def preserve_verified_offer(previous, refreshed, today, default_url, *, transient_failure=False):
+    """Keep the old offer after a transport/validation outage, not a true miss."""
     old_url = str(previous.get("url") or "").strip()
-    if (not old_url or old_url == default_url or previous.get("needs_url")
+    if (not transient_failure or not old_url or old_url == default_url or previous.get("needs_url")
             or previous.get("compatibility_status") not in USABLE_STATUSES
             or refreshed.get("compatibility_status") not in UNRESOLVED_STATUSES):
         return refreshed
-    # Failure to find or validate a replacement is not evidence that the old
-    # product disappeared. The independent liveness check handles dead links.
+    # A failed transport/validation request is not evidence that the old
+    # product disappeared.
     kept = dict(previous)
     kept["updated_at"] = today
     kept["last_attempted_at"] = today
