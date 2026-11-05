@@ -70,3 +70,5 @@ Busca resenas de compradores con **tu mismo modelo exacto**. Una resena que dice
 ## Siguiente paso
 
 Usa el catalogo de modelos para encontrar recambios que ya han sido verificados para tu modelo concreto.
+
+Si tienes un Xiaomi Vacuum Cleaner G11, puedes consultar el [filtro HEPA para Xiaomi G11](/marcas/xiaomi/xiaomi-g11/filtro/). Comprueba que la etiqueta del aspirador indique G11 y compara la forma y referencia del filtro original; no des por compatibles las piezas de otros modelos Xiaomi.
