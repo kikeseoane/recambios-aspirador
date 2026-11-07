@@ -67,4 +67,6 @@ intent: "accesorios"
 
 ## Siguiente paso
 
-Entra en la ficha de tu modelo para ver los accesorios compatibles confirmados con precio.
+Si tienes un **Dyson V7**, consulta la [categoria de accesorios para Dyson V7](/marcas/dyson/dyson-v7/accesorios/) para revisar las ofertas seleccionadas. Antes de elegir, confirma la variante en la etiqueta del aspirador y compara el cierre y, si el accesorio es motorizado, los contactos de conexion. No basta con que coincida el diametro.
+
+Como referencia, [Dyson distingue en su catalogo V7 la rinconera 967612-01 y el accesorio multifuncion 967482-01](https://www.dyson.es/piezas-de-recambio/aspiradoras/sin-cable/v7). Estas referencias ayudan a identificar el tipo de pieza; no certifican la compatibilidad de cualquier anuncio. La categoria consulta las ofertas vigentes, sin garantizar stock ni precio.
