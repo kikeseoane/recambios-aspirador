@@ -84,4 +84,6 @@ intent: "mantenimiento"
 
 Si tienes una **Cecotec Conga 8090**, consulta la [ficha de filtros para Conga 8090](/marcas/cecotec/conga-8090/filtro/) y confirma la variante antes de elegir. [Cecotec identifica su filtro de alto rendimiento para Conga 8090/9090 con la referencia 93271](https://cecotec.es/es/repuestos-robot-aspirador/filtro-de-alto-rendimiento-1); la ficha enlazada consulta las ofertas vigentes y no confirma que cualquier anuncio sea compatible.
 
+Si lo que se ha deformado es un cepillo lateral, puedes revisar también los [cepillos y rodillos para Conga 8090](/marcas/cecotec/conga-8090/cepillo/). Comprueba que la pieza y la variante de tu robot coincidan con el anuncio antes de comprar.
+
 Busca las piezas de recambio para tu robot exacto en el catalogo: cepillos, filtros, ruedas y baterias verificadas.
