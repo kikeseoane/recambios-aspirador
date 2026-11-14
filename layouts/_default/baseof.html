@@ -46,7 +46,8 @@
     {{- $seoTitle = printf "%s %s — precio y compatibilidad (%d)" $catLabel $modelDisplay now.Year -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "problemas") -}}
-    {{- $seoTitle = printf "%s: síntomas y soluciones" .Title -}}
+    {{- $modelProblemName := replace .Title "Problemas frecuentes de " "" -}}
+    {{- $seoTitle = printf "%s: problemas y soluciones" $modelProblemName -}}
 
   {{- else if and (eq .Type "modelos") .Params.brandKey -}}
     {{- $seoTitle = printf "%s: recambios y compatibilidad" .Title -}}
