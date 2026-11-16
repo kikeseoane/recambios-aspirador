@@ -10,29 +10,15 @@ intent: "cargador"
 
 ## Por que no vale cualquier cargador
 
-Un cargador incorrecto puede:
-- **Sobrecargar la bateria** (voltaje excesivo) y provocar hinchamiento o incendio
-- **No cargar** (voltaje insuficiente) y dejar el aspirador inutilizado
-- **Danar el BMS** (amperaje excesivo sin proteccion)
+Un adaptador no especificado para el modelo puede provocar una carga anomala o dejar el aspirador sin cargar. Usa el adaptador original o el repuesto que el fabricante autorice para la variante exacta. El manual Dyson V8 indica usar solo un cargador Dyson; Xiaomi advierte que un adaptador no original puede causar una carga anormal en la Mijia Vacuum Cleaner 4 C.
 
 ## Parametros criticos
 
 ### 1. Voltaje de salida (V)
-Debe coincidir **exactamente** con el original. Un cargador de 30V en un aspirador de 26V es peligroso.
-
-| Aspirador | Voltaje cargador |
-|-----------|-----------------|
-| Dyson V6/V7/V8 | 26.1V |
-| Dyson V10/V11 | 30.45V |
-| Dyson V12/V15 | 30.45V |
-| Xiaomi Mi Vacuum | 26V |
-| Rowenta X-Force | 29.6V |
-| Cecotec Rockstar | 25.2V - 30V (segun modelo) |
+No deduzcas el voltaje del adaptador a partir del voltaje nominal de la bateria: son datos distintos. Consulta la etiqueta del adaptador original y las instrucciones del fabricante para tu variante. Si falta esa informacion, confirma la referencia con el servicio oficial antes de comprar; no uses una tabla generica por familia.
 
 ### 2. Amperaje (A)
-Puedes usar un cargador con **igual o mayor amperaje** que el original. La bateria solo toma lo que necesita.
-- Original 0.8A → compatible con 0.8A, 1A, 1.5A
-- **Nunca menor**: tardara mucho mas o no cargara
+No elijas el adaptador solo por el amperaje anunciado. Confirma que el fabricante autoriza esa referencia para tu variante y que coinciden los datos electricos indicados en el aparato, el adaptador original o el manual.
 
 ### 3. Conector
 El factor mas problematico. Tipos comunes:
@@ -42,7 +28,7 @@ El factor mas problematico. Tipos comunes:
 - **Base/dock**: no tiene cable, el aspirador se apoya en la base
 
 ### 4. Polaridad
-En conectores barrel jack, el centro suele ser positivo (+). Verifica el simbolo en la etiqueta del cargador original.
+En conectores barrel jack, no presupongas la polaridad: verifica el simbolo de la etiqueta y las instrucciones del fabricante.
 
 ## Tipos de cargador
 
@@ -57,7 +43,7 @@ En conectores barrel jack, el centro suele ser positivo (+). Verifica el simbolo
 
 ### Cable USB-C con PD
 - Modelos recientes usan Power Delivery
-- Necesitas un cargador USB-C PD que soporte el voltaje correcto (normalmente 20V PD)
+- Usa USB-C PD solo si el manual identifica ese protocolo y los perfiles de alimentacion admitidos para tu modelo exacto.
 - No todos los cargadores USB-C PD son compatibles: verifica vataje
 
 ## Errores frecuentes
@@ -79,7 +65,7 @@ La referencia debe coincidir con la variante exacta: Dyson indica en su asistenc
 - [Cargador para Dyson V8](/marcas/dyson/dyson-v8/cargador/)
 - [Cargador para Xiaomi G9](/marcas/xiaomi/xiaomi-g9/cargador/)
 
-Fuentes del fabricante: [asistencia Dyson V8](https://www.dyson.es/support/vacuum-cleaners/cordless/v8/pinch-pre-filter) y [especificaciones Xiaomi G9](https://www.mi.com/es/product/mi-vacuum-cleaner-g9/specs/). No sustituyen la comprobacion de la etiqueta del cargador original.
+Fuentes del fabricante: [manual Dyson V8](https://www.dyson.es/content/dam/dyson/maintenance/user-guides/es_ES/vacuumcleaners/cordlessstickvacuums/dysonv8vacuums/227296-01.pdf), [piezas Dyson V8 y referencia de cargador](https://www.dyson.es/piezas-de-recambio/aspiradoras/sin-cable/v8/filtro-premotor-extraible-sin-aspas-d) y [aviso Xiaomi sobre el adaptador de la Mijia Vacuum Cleaner 4 C](https://www.mi.com/es/support/faq/details/KA-1109862/). Comprueba siempre la variante y la referencia del adaptador: la tension nominal de bateria publicada para el Xiaomi G9 no identifica por si sola la salida de su adaptador.
 
 ## Siguiente paso
 
