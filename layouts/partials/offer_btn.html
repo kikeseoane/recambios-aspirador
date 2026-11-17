@@ -1,4 +1,5 @@
-{{/* Solo enlaces a recambios con una coincidencia aceptada. */}}
+{{/* Siempre ofrece la mejor salida disponible a AliExpress para este SKU:
+     oferta validada > coincidencia aproximada con aviso > modelo nuevo. */}}
 {{ $sku := .sku | default "" }}
 {{ $catKey := .catKey | default "" }}
 {{ $modelName := .modelName | default "" }}
@@ -23,5 +24,53 @@
     <small class="muted">Precio orientativo; confirma precio y disponibilidad en AliExpress.</small>
   </div>
 {{ else }}
-  <p class="muted small">No tenemos un enlace a un recambio compatible confirmado para esta referencia.</p>
+  {{ $url := (index $offer "url") | default "" }}
+  {{ $usable := and $url (not ((index $offer "needs_url") | default false)) (not ((index $offer "orphaned") | default false)) }}
+  {{ $dudoso := and $usable (eq ((index $offer "compatibility_status") | default "") "dudoso") }}
+  {{ if $dudoso }}
+    <div class="offer-action">
+      <p class="muted small">Coincidencia aproximada: el anuncio puede no citar tu modelo exacto.</p>
+      <a class="{{ .class | default "btn-buy" }}" href="{{ $url }}"
+         rel="nofollow sponsored noopener" target="_blank"
+         data-affiliate-click data-affiliate-sku="{{ $sku }}"
+         data-affiliate-category="{{ $catKey }}" data-affiliate-model="{{ $modelName }}"
+         data-affiliate-match-type="{{ index $offer "match_type" }}"
+         data-affiliate-placement="recambio-aproximado">
+      Ver opcion aproximada en AliExpress
+      </a>
+      <small class="muted">Confirma modelo, variante y encaje antes de comprar.</small>
+    </div>
+  {{ else }}
+    {{ $newSku := .modelNewSku | default "" }}
+    {{ $newOffer := index $offers $newSku | default dict }}
+    {{ $newUrl := "" }}
+    {{ if partial "offer_is_reliable.html" $newOffer }}
+      {{ $newUrl = (index $newOffer "url") | default "" }}
+    {{ end }}
+    {{ $newLabel := printf "Ver %s nuevo en AliExpress" $modelName }}
+    {{ if not $newUrl }}
+      {{ $verticalKey := .verticalKey | default "aspiradores" }}
+      {{ with site.Data.vertical_defaults }}
+        {{ with index . $verticalKey }}
+          {{ $newUrl = (index . "buy_new_url") | default "" }}
+          {{ with index . "buy_new_label" }}{{ $newLabel = . }}{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if $newUrl }}
+      <div class="offer-action">
+        <p class="muted small">No tenemos un recambio compatible confirmado para esta referencia.</p>
+        <a class="{{ .class | default "btn-buy" }} btn-buy--new" href="{{ $newUrl }}"
+           rel="nofollow sponsored noopener" target="_blank"
+           data-affiliate-click data-affiliate-sku="{{ $newSku }}"
+           data-affiliate-category="nuevo" data-affiliate-model="{{ $modelName }}"
+           data-affiliate-placement="buy-new-fallback">
+        {{ $newLabel }}
+        </a>
+        <small class="muted">Alternativa: compara el precio del modelo completo.</small>
+      </div>
+    {{ else }}
+      <p class="muted small">No tenemos un enlace a un recambio compatible confirmado para esta referencia.</p>
+    {{ end }}
+  {{ end }}
 {{ end }}

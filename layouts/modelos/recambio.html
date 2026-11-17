@@ -112,20 +112,26 @@
     {{ return }}
   {{ end }}
 
-  {{/* Separar items con URL real de los que aun no tienen enlace */}}
+  {{/* Separar items con URL real, coincidencias aproximadas y sin enlace */}}
   {{ $offersData := (site.Data.ofertas).offers | default dict }}
   {{ $itemsConUrl := slice }}
+  {{ $itemsAprox := slice }}
   {{ $itemsSinUrl := slice }}
   {{ range $items }}
     {{ $o := index $offersData (index . "sku") | default dict }}
+    {{ $usableAprox := and (index $o "url") (not ((index $o "needs_url") | default false)) (not ((index $o "orphaned") | default false)) (eq ((index $o "compatibility_status") | default "") "dudoso") }}
     {{ if partial "offer_is_reliable.html" $o }}
       {{ $itemsConUrl = $itemsConUrl | append . }}
+    {{ else if $usableAprox }}
+      {{ $itemsAprox = $itemsAprox | append . }}
     {{ else }}
       {{ $itemsSinUrl = $itemsSinUrl | append . }}
     {{ end }}
   {{ end }}
   {{ $itemsOrdenados := $itemsConUrl }}
+  {{ range $itemsAprox }}{{ $itemsOrdenados = $itemsOrdenados | append . }}{{ end }}
   {{ $directCount := len $itemsConUrl }}
+  {{ $aproxCount := len $itemsAprox }}
   {{ $pendingCount := len $itemsSinUrl }}
 
   <div class="breadcrumbs">
@@ -151,9 +157,16 @@
 
   <div class="two-col mt-12">
     <div class="panel panel--commerce">
-      <h2>{{ $catLabel }} con enlace disponible <span class="muted">({{ $directCount }})</span></h2>
-       {{ if eq $directCount 0 }}
+      <h2>{{ $catLabel }} con enlace disponible <span class="muted">({{ add $directCount $aproxCount }})</span></h2>
+       {{ if and (eq $directCount 0) (eq $aproxCount 0) }}
          <p class="muted">Actualmente no tenemos una oferta compatible confirmada para esta categoria. Comprueba la referencia original de la pieza; las otras categorias del modelo pueden tener opciones.</p>
+         {{ partial "buy_new.html" (dict
+           "model" $model
+           "modelName" $mtitle
+           "brandKey" $brandKey
+           "modelSlug" $modelSlug
+           "verticalKey" $verticalKey
+         ) }}
        {{ end }}
       {{ if gt $pendingCount 0 }}
         <p class="muted small">{{ $pendingCount }} {{ if eq $pendingCount 1 }}referencia de esta categoria no tiene un enlace a recambio compatible confirmado y no se muestra como opcion de compra.{{ else }}referencias de esta categoria no tienen un enlace a recambio compatible confirmado y no se muestran como opciones de compra.{{ end }}</p>
@@ -162,12 +175,15 @@
         {{ range $idx, $it := $itemsOrdenados }}
           {{ $o := index $offersData (index $it "sku") | default dict }}
           {{ $sinUrl := or (not (index $o "url")) (index $o "needs_url") }}
-          <div class="product{{ if eq $idx 0 }} product--featured{{ end }}{{ if $sinUrl }} product--pending{{ end }}">
+          {{ $esAprox := eq ((index $o "compatibility_status") | default "") "dudoso" }}
+          <div class="product{{ if and (eq $idx 0) (not $esAprox) }} product--featured{{ end }}{{ if $sinUrl }} product--pending{{ end }}">
             <div class="img">{{ partial "cat_icon.html" (dict "catKey" $catKey) }}</div>
             <div class="body">
               <div class="product-meta">
                 {{ if $sinUrl }}
                   <span class="badge">En breve</span>
+                {{ else if $esAprox }}
+                  <span class="badge">Verificar encaje</span>
                 {{ else if eq $idx 0 }}
                   <span class="badge badge--best">Mas compatible</span>
                 {{ else }}

@@ -103,8 +103,9 @@
   {{ $hasChecks := and $checks (reflect.IsSlice $checks) (gt (len $checks) 0) }}
   {{ $hasFaqs   := and $faqs  (reflect.IsSlice $faqs)   (gt (len $faqs)   0) }}
 
-  {{/* Recambios relacionados al problema */}}
+  {{/* Recambios relacionados al problema: validados primero, aproximados despues */}}
   {{ $recItems := slice }}
+  {{ $recAprox := slice }}
   {{ if $catKey }}
     {{ $rec := index $model "recambios" }}
     {{ if and $rec (reflect.IsMap $rec) }}
@@ -112,8 +113,14 @@
       {{ if and $ri (reflect.IsSlice $ri) }}
         {{ range $ri }}
           {{ $offer := index ((site.Data.ofertas).offers | default dict) (index . "sku") | default dict }}
-          {{ if partial "offer_is_reliable.html" $offer }}{{ $recItems = $recItems | append . }}{{ end }}
+          {{ $usableAprox := and (index $offer "url") (not ((index $offer "needs_url") | default false)) (not ((index $offer "orphaned") | default false)) (eq ((index $offer "compatibility_status") | default "") "dudoso") }}
+          {{ if partial "offer_is_reliable.html" $offer }}
+            {{ $recItems = $recItems | append . }}
+          {{ else if $usableAprox }}
+            {{ $recAprox = $recAprox | append . }}
+          {{ end }}
         {{ end }}
+        {{ range $recAprox }}{{ $recItems = $recItems | append . }}{{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
