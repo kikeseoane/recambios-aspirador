@@ -1,0 +1,5 @@
+@echo off
+title Guardar credenciales de Google para Grow
+powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; $path=Read-Host 'Pega la ruta del archivo JSON de la cuenta de servicio y pulsa Intro'; $path=$path.Trim().Trim([char]34); if (-not (Test-Path -LiteralPath $path)) { throw 'No existe ese archivo. Comprueba la ruta.' }; $null=Get-Content -LiteralPath $path -Raw | ConvertFrom-Json; $dest=Join-Path $env:USERPROFILE '.growth\google-service-account.json'; New-Item -ItemType Directory -Path (Split-Path $dest) -Force | Out-Null; Copy-Item -LiteralPath $path -Destination $dest -Force; [Environment]::SetEnvironmentVariable('GOOGLE_APPLICATION_CREDENTIALS',$dest,'User'); [Environment]::SetEnvironmentVariable('GROWTH_WINDSOR_API_KEY',$null,'User'); Write-Host ('Credenciales guardadas en ' + $dest + '. La clave antigua de Windsor.ai se ha retirado.'); Write-Host 'Puedes borrar el JSON descargado de la carpeta Descargas si quieres.'"
+if errorlevel 1 echo No se pudo guardar. Copia el error y avisame, sin incluir el contenido del JSON.
+pause

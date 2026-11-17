@@ -33,7 +33,8 @@ class GrowthAnalyticsTests(unittest.TestCase):
                          {"start_date": "2026-09-17", "end_date": "2026-10-14"})
 
     def test_missing_credentials_is_explicit_not_zero_traffic(self):
-        result = analytics.collect(env={}, today=date(2026, 10, 17))
+        with patch.dict(analytics.os.environ, {"GOOGLE_APPLICATION_CREDENTIALS": ""}):
+            result = analytics.collect(env={}, today=date(2026, 10, 17))
         self.assertEqual(result["search_console"]["status"], "unavailable")
         self.assertIn("No hay", result["ga4"]["reason"])
         self.assertIn("No disponible", analytics.markdown(result))
@@ -55,6 +56,30 @@ class GrowthAnalyticsTests(unittest.TestCase):
         self.assertEqual(result["ga4"]["affiliate_clicks"], 2)
         self.assertEqual(len(session.calls), 3)
         self.assertNotIn("not-printed", analytics.markdown(result))
+
+    def test_google_credentials_win_over_windsor_key(self):
+        session = FakeSession([
+            FakeResponse(payload={"rows": []}),
+            FakeResponse(payload={"metricHeaders": [], "rows": []}),
+            FakeResponse(payload={"rows": []}),
+        ])
+        env = {"GROWTH_GOOGLE_ACCESS_TOKEN": "token", "GROWTH_WINDSOR_API_KEY": "expired-trial"}
+        result = analytics.collect(env=env, session=session, today=date(2026, 10, 17))
+        self.assertEqual(result["search_console"]["status"], "ok")
+        for args, _ in session.calls:
+            self.assertIn("googleapis.com", args[1])
+
+    def test_direct_path_uses_project_defaults_for_site_and_property(self):
+        session = FakeSession([
+            FakeResponse(payload={"rows": []}),
+            FakeResponse(payload={"metricHeaders": [], "rows": []}),
+            FakeResponse(payload={"rows": []}),
+        ])
+        result = analytics.collect(env={"GROWTH_GOOGLE_ACCESS_TOKEN": "token"},
+                                   session=session, today=date(2026, 10, 17))
+        self.assertEqual(result["search_console"]["status"], "ok")
+        self.assertIn(requests.utils.quote(analytics.DEFAULT_GSC_SITE, safe=""), session.calls[0][0][1])
+        self.assertIn(analytics.DEFAULT_GA4_PROPERTY_ID, session.calls[1][0][1])
 
     def test_access_denied_is_reported_without_response_body(self):
         session = FakeSession([FakeResponse(403)])
@@ -86,8 +111,10 @@ class GrowthAnalyticsTests(unittest.TestCase):
             FakeResponse(payload={"data": []}),
             FakeResponse(payload={"data": []}),
         ])
-        with patch.dict(analytics.os.environ, {"GROWTH_WINDSOR_API_KEY": ""}), \
-                patch.object(analytics, "windows_user_windsor_key", return_value="not-printed"):
+        saved = {"GROWTH_WINDSOR_API_KEY": "not-printed"}
+        with patch.dict(analytics.os.environ, {"GROWTH_WINDSOR_API_KEY": "", "GROWTH_GOOGLE_ACCESS_TOKEN": "",
+                                               "GOOGLE_APPLICATION_CREDENTIALS": ""}), \
+                patch.object(analytics, "windows_user_value", side_effect=saved.get):
             result = analytics.collect(session=session, today=date(2026, 10, 17))
         self.assertEqual(result["search_console"]["status"], "ok")
         self.assertEqual(result["ga4"]["status"], "ok")

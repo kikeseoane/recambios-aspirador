@@ -183,14 +183,14 @@ def windsor_reports(api_key, site_url, property_id, period, session=requests):
     return gsc, ga4
 
 
-def windows_user_windsor_key():
-    """Read the user's saved key when Grow is launched outside Task Scheduler."""
+def windows_user_value(name):
+    """Read a saved user variable when Grow is launched outside Task Scheduler."""
     if os.name != "nt":
         return None
     try:
         import winreg
         with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as key:
-            value, _ = winreg.QueryValueEx(key, "GROWTH_WINDSOR_API_KEY")
+            value, _ = winreg.QueryValueEx(key, name)
         return value or None
     except (OSError, ImportError):
         return None
@@ -201,23 +201,29 @@ def collect(env=None, session=requests, today=None):
     if env is None:
         env = os.environ
     period = completed_period(today=today)
-    windsor_key = env.get("GROWTH_WINDSOR_API_KEY") or (
-        windows_user_windsor_key() if use_user_environment else None)
-    if windsor_key:
-        gsc, ga4 = windsor_reports(
-            windsor_key,
-            env.get("GROWTH_GSC_SITE_URL", DEFAULT_GSC_SITE),
-            env.get("GROWTH_GA4_PROPERTY_ID", DEFAULT_GA4_PROPERTY_ID),
-            period, session)
-        return {"period": period, "search_console": gsc, "ga4": ga4}
+    site_url = env.get("GROWTH_GSC_SITE_URL") or DEFAULT_GSC_SITE
+    property_id = env.get("GROWTH_GA4_PROPERTY_ID") or DEFAULT_GA4_PROPERTY_ID
+    google_ready = bool(env.get("GROWTH_GOOGLE_ACCESS_TOKEN") or env.get("GOOGLE_APPLICATION_CREDENTIALS"))
+    if not google_ready and use_user_environment:
+        saved_credentials = windows_user_value("GOOGLE_APPLICATION_CREDENTIALS")
+        if saved_credentials:
+            os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = saved_credentials
+            google_ready = True
+    # Windsor.ai is a legacy fallback: the official Google APIs win when configured.
+    if not google_ready:
+        windsor_key = env.get("GROWTH_WINDSOR_API_KEY") or (
+            windows_user_value("GROWTH_WINDSOR_API_KEY") if use_user_environment else None)
+        if windsor_key:
+            gsc, ga4 = windsor_reports(windsor_key, site_url, property_id, period, session)
+            return {"period": period, "search_console": gsc, "ga4": ga4}
     token, issue = access_token(env)
     result = {"period": period}
     if issue:
         unavailable = {"status": "unavailable", "reason": issue}
         result.update({"search_console": unavailable, "ga4": unavailable.copy()})
         return result
-    result["search_console"] = gsc_report(token, env.get("GROWTH_GSC_SITE_URL"), period, session)
-    result["ga4"] = ga4_report(token, env.get("GROWTH_GA4_PROPERTY_ID"), period, session)
+    result["search_console"] = gsc_report(token, site_url, period, session)
+    result["ga4"] = ga4_report(token, property_id, period, session)
     return result
 
 

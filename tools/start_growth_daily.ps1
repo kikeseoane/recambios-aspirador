@@ -3,6 +3,8 @@ param([switch]$Retry)
 $ErrorActionPreference = 'Stop'
 $growthRoot = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $growthRoot
+$growthGoogleCredentials = [Environment]::GetEnvironmentVariable('GOOGLE_APPLICATION_CREDENTIALS', 'User')
+if ($growthGoogleCredentials) { $env:GOOGLE_APPLICATION_CREDENTIALS = $growthGoogleCredentials }
 $growthWindsorKey = [Environment]::GetEnvironmentVariable('GROWTH_WINDSOR_API_KEY', 'User')
 if ($growthWindsorKey) { $env:GROWTH_WINDSOR_API_KEY = $growthWindsorKey }
 $growthState = Join-Path $growthRoot '.growth-runtime'
