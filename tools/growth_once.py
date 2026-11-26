@@ -36,6 +36,32 @@ def hold_exists():
     return bool(output(legacy.run("git", "ls-remote", "--heads", "origin", "automation/growth-hold", check=False)).strip())
 
 
+HOLD_OWNING_WORKFLOWS = {"growth-acquire.yml", "codex-growth.yml"}
+
+
+def clear_orphaned_hold():
+    """Self-heal a remote hold left by an interrupted run before failing the day.
+
+    The hold is only legitimate while a GitHub run that can own it is in
+    flight, or while this machine has local evidence of unfinished work
+    (a pending patch or a publication awaiting GitHub). If none of that is
+    true, a prior run was killed between acquiring the hold and recording
+    local state (e.g. a crash or a closed terminal), and the hold is stale.
+    """
+    if not hold_exists():
+        return
+    if (STATE / "pending.patch").exists() or (STATE / "pending-branch.txt").exists():
+        return
+    runs = json.loads(output(legacy.run(
+        "gh", "run", "list", "--repo", REPO, "--status", "in_progress",
+        "--json", "workflowName")))
+    if any(item.get("workflowName") in HOLD_OWNING_WORKFLOWS for item in runs):
+        return
+    legacy.run(sys.executable, str(ROOT / "tools" / "growth_hold.py"), "release", cwd=ROOT)
+    (STATE / "last-error.txt").write_text(
+        "Cleared an orphaned growth-hold with no in-progress run or pending work", encoding="utf-8")
+
+
 def acquire_remote_hold():
     """Reserve the shared GitHub concurrency group before reading main."""
     request_id = uuid.uuid4().hex
@@ -179,6 +205,7 @@ def run_once(dry_run=False, schedule_five_hour_retry=False):
             if pending_publication and not dry_run:
                 raise RuntimeError("A prior growth result is still awaiting GitHub publication")
             if not dry_run and not ((STATE / "growth-lock.txt").exists() and hold_exists()):
+                clear_orphaned_hold()
                 acquire_remote_hold()
             # The lock is now held (or this is an isolated dry run), so this is
             # the newest stable main available to the local worker.
