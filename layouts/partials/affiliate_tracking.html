@@ -5,6 +5,7 @@
 
     window.gtag("event", "affiliate_click", {
       link_url: link.href,
+      page_location: window.location.origin + window.location.pathname,
       affiliate_sku: link.dataset.affiliateSku || "",
       affiliate_category: link.dataset.affiliateCategory || "",
       affiliate_model: link.dataset.affiliateModel || "",
