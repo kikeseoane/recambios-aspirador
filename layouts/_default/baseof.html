@@ -43,7 +43,11 @@
     {{- $seoTitle = printf "%s | causas, checks y recambio" $problemTitle -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "recambio") -}}
-    {{- $seoTitle = printf "%s %s — precio y compatibilidad (%d)" $catLabel $modelDisplay now.Year -}}
+    {{- if eq $catKey "soporte" -}}
+      {{- $seoTitle = printf "Soporte para %s: opciones y compatibilidad" $modelDisplay -}}
+    {{- else -}}
+      {{- $seoTitle = printf "%s %s — precio y compatibilidad (%d)" $catLabel $modelDisplay now.Year -}}
+    {{- end -}}
 
   {{- else if and (eq .Type "modelos") (eq .Layout "problemas") -}}
     {{- $modelProblemName := replace .Title "Problemas frecuentes de " "" -}}
